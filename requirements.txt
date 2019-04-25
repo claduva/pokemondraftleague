@@ -1,5 +1,6 @@
 boto3==1.9.124
 Django==2.1.7
+django-crispy-forms
 django-storages==1.7.1
 gunicorn
 numpy==1.16.2
