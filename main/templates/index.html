@@ -15,7 +15,7 @@
     <div id="register-right">
         <div>
             {% if user.is_authenticated is False %}    
-            <button>Sign-Up</button><br>
+            <a href="{% url 'signup' %}"><button>Sign-Up</button></a><br>
             {% endif %}
             <button>Create A League</button>
         </div>

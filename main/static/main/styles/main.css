@@ -12,14 +12,6 @@ body{
     margin: 8px;
 }
 
-h1,h2{
-    background-color: black;
-    color: white;
-    text-align: center;
-    margin: 0px;
-    height: 5vh;
-}
-
 .navbar ul {
     list-style-type: none;
     margin: 0;
@@ -47,6 +39,19 @@ h1,h2{
 
 .navbar img {
     height: 22px;
+}
+
+.formblock{
+    width:fit-content;
+    background-color: white;
+    margin:8px auto;
+    padding: 8px;
+    border-radius: 8px
+}
+
+.formblock h2{
+    padding: 0px 0px 8px 0px;
+    margin: 0px;
 }
 
 /* Small screens */

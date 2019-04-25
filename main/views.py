@@ -12,6 +12,6 @@ from .models import *
 # Create your views here.
 def home(request):
     context = {
-        "title": "Home",
+        "title": "Pokemon Draft League",
     }
     return  render(request,"index.html", context)

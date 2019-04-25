@@ -1,3 +1,11 @@
+h1,h2{
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 0px;
+    height: 5vh;
+}
+
 .register{
     height: 90vh;
     display: flex;

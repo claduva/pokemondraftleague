@@ -14,21 +14,25 @@ import os
 import sys
 import socket
 
+environment="DEVELOPMENT"
+
+if environment=="DEVELOPMENT":
+    from .base_settings import *
+    DEBUG = True
+    SECRET_KEY = SECRET_KEY
+    SENDGRID_API_KEY = SENDGRID_API_KEY
+elif environment=="PRODUCTION":
+    DEBUG = False
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SENDGRID_API_KEY= os.environ.get('SENDGRID_API_KEY')
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xwqg4$xj9f&@lrjly%spk19un-qg)6=icgvqk*31s1plak%jc7'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = ['0.0.0.0',"pokemondraftleague.herokuapp.com",'127.0.0.1',"pokemondraftleague.online"]
-
 
 # Application definition
 
@@ -146,7 +150,6 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, "accounts/sent_emails")
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 #Sendgrid Settings
-SENDGRID_API_KEY= os.environ.get('SENDGRID_API_KEY')
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 EMAIL_USE_TLS= True
 DEFAULT_FROM_EMAIL='pokemondraftleagueonline@gmail.com'

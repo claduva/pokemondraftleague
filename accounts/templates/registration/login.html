@@ -5,6 +5,7 @@
 {% block title %}Sign In{% endblock %}
 
 {% block body %}
+<div class="formblock">
 <h2>Sign In</h2>
 <form method="post">
   {% csrf_token %}
@@ -12,4 +13,5 @@
   <button type="submit">Login</button>
 </form>
 <div><a href="{% url 'password_reset' %}">Forgot your password?</a></div>
+</div>
 {% endblock %}
