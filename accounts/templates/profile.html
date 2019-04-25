@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+<div>
+    <div>
+        <img src="{{ user.profile.pfp.url }}">
+        <div class="media-body">
+            <h2>{{ user.username }}</h2>
+            <p>{{ user.email }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

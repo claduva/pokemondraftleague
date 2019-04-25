@@ -14,7 +14,7 @@ import os
 import sys
 import socket
 
-environment="DEVELOPMENT"
+environment="PRODUCTION"
 
 if environment=="DEVELOPMENT":
     from .base_settings import *
@@ -138,8 +138,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'main/staticfiles')
 STATIC_URL = '/static/' 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'main/media')
+MEDIA_URL = '/main/media/' 
+
 #other settings
 LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'home'
 
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
@@ -153,3 +157,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 EMAIL_USE_TLS= True
 DEFAULT_FROM_EMAIL='pokemondraftleagueonline@gmail.com'
+
