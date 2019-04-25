@@ -23,7 +23,7 @@ if environment=="DEVELOPMENT":
     SENDGRID_API_KEY = SENDGRID_API_KEY
 elif environment=="PRODUCTION":
     DEBUG = False
-    SECRET_KEY = [os.environ.get('SECRET_KEY'),]
+    SECRET_KEY = os.environ.get('SECRET_KEY','developmentkey')
     SENDGRID_API_KEY= os.environ.get('SENDGRID_API_KEY')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
