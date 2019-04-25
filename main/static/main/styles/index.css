@@ -1,0 +1,59 @@
+.register{
+    height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+#register-left{
+    height: 100%;
+    flex:3 1 auto;
+    margin-right: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#register-left img{
+    width:60%
+}
+
+#register-right{
+    height: 100%;
+    flex:2 1 auto;
+    margin-left: 4px;
+    position: relative;
+}
+
+#register-right div{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+button{
+    padding: 8px;
+    margin:8px;
+    width: 150px;
+    background-color: rgb(137,210,209);
+     
+}
+
+
+@media all and (max-width: 800px) {
+    .register {
+        /* On small screens, we are no longer using row direction but column */
+        display: block
+    }
+    #register-left{
+        height: 60%;
+    }
+    
+    #register-right{
+        height: 40%;
+    }
+}

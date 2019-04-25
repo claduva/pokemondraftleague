@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: cladbury@gmail.com
+Date: Tue, 23 Apr 2019 18:14:04 -0000
+Message-ID: <155604324470.44951.9246812722881474555@Coltons-MacBook-Pro.local>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/reset/MQ/55q-fe1b2aa18353fa45f852/
+
+Your username, in case you've forgotten: claduva
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

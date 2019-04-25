@@ -1,0 +1,15 @@
+{% load static %}
+<div class="navbar">
+    <ul>
+        <li><a href="{% url 'home' %}"><img src="{% static 'main/images/pokeball.png' %}"></a></li>
+        <li><a href="">Leagues</a></li>
+        <li><a href="">Tools</a></li>
+        <li><a href="">About</a></li>
+        {% if user.is_authenticated %}
+        <li class="right"><a href="{% url 'logout' %}">You are signed in as {{request.user}}. Sign Out</a></li>
+        {% else %}
+        <li class="right"><a href="{% url 'signup' %}">Sign Up</a></li>
+        <li class="right"><a href="{% url 'login' %}">Sign In</a></li>
+        {% endif %}
+    </ul>
+</div>

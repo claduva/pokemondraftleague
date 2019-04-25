@@ -39,6 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #local apps
+    'accounts',
+    'main',
+
+    #third party apps
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +67,7 @@ ROOT_URLCONF = 'pokemondraftleague.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,"templates")],
+        'DIRS': [os.path.join(BASE_DIR,"templates"),os.path.join(BASE_DIR,"accounts/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,6 +130,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'main/staticfiles')
 STATIC_URL = '/static/' 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#other settings
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "accounts/sent_emails")
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#Sendgrid Settings
+SENDGRID_API_KEY= os.environ.get('SENDGRID_API_KEY')
+SENDGRID_SANDBOX_MODE_IN_DEBUG=False
+EMAIL_USE_TLS= True
+DEFAULT_FROM_EMAIL='pokemondraftleagueonline@gmail.com'
