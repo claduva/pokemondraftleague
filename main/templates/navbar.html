@@ -4,9 +4,17 @@
         <li><a href="{% url 'home' %}"><img src="{% static 'main/images/pokeball.png' %}"></a></li>
         <li><a href="">Leagues</a></li>
         <li><a href="">Tools</a></li>
-        <li><a href="">About</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
         {% if user.is_authenticated %}
-        <li class="right"><a href="{% url 'logout' %}">You are signed in as {{request.user}}. Sign Out</a></li>
+        <li class="right dropdown">
+            <a class="dropbtn" href="javascript:void(0)"><img src="{{ user.profile.pfp.url }}"><img src="{% static 'main/images/downarrow.png' %}"></a>
+            <div id="mydropdowncontent" class="dropdown-content shift-left">
+                <a class="dropdown-item" href="{% url 'profile' %}">Logged in as {{ user }}</a>
+                <a class="dropdown-item" href="{% url 'profile' %}">Your profile</a>
+                <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
+                <a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a>
+            </div>
+        </li>
         {% else %}
         <li class="right"><a href="{% url 'signup' %}">Sign Up</a></li>
         <li class="right"><a href="{% url 'login' %}">Sign In</a></li>

@@ -3,14 +3,24 @@
 {% load crispy_forms_tags %}
 
 {% block title %}Profile{% endblock %}
-
+{% block head%}
+<link rel="stylesheet" href="{% static 'accounts/styles/profile.css' %}">
+{% endblock %}
 {% block body %}
 <div>
-    <div>
-        <img src="{{ user.profile.pfp.url }}">
+    <div class="profile">
         <div class="media-body">
-            <h2>{{ user.username }}</h2>
-            <p>{{ user.email }}</p>
+            <img src="{{ user.profile.pfp.url }}">
+            <h3>{{ user.username }}</h3>
+            <a href="{% url 'settings' %}">Update Profile</a>
+        </div>
+        <div>
+            <h3>Leagues Hosting:</h3>
+            <div>None</div>
+            <h3>Leagues Participating In:</h3>
+            <div>None</div>
+            <h3>Trophy Case:</h3>
+            <div>None</div>
         </div>
     </div>
 </div>
