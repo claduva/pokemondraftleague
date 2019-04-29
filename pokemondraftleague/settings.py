@@ -22,6 +22,10 @@ if (socket.gethostname().find("local")>-1):
     AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY = AWS_SECRET_ACCESS_KEY
     AWS_STORAGE_BUCKET_NAME = AWS_STORAGE_BUCKET_NAME
+    NAME=NAME
+    USER=USER
+    PASSWORD=PASSWORD
+    HOST=HOST
 else:
     DEBUG = False
     SECRET_KEY = os.environ.get('SECRET_KEY','developmentkey')
@@ -29,6 +33,11 @@ else:
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+    DATABASE_URL = os.environ.get('DATABASE_URL')
+    NAME=DATABASE_URL.split("/")[-1]
+    USER=DATABASE_URL.split("//")[1].split(":")[0]
+    PASSWORD=DATABASE_URL.split("//")[1].split(":")[1].split("@")[0]
+    HOST=DATABASE_URL.split("//")[1].split(":")[1].split("@")[1]
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -93,10 +102,29 @@ WSGI_APPLICATION = 'pokemondraftleague.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 DATABASES = {
     'default': {
+         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': NAME,                      
+        'USER': USER,
+        'PASSWORD': PASSWORD,
+        'HOST': HOST,
+        'PORT': '5432',
+        'TEST': {
+          'NAME': 'testdb',
+        }
+    },
+    'pokemondata': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'pokemondraftleague/pokemondata.sqlite3'),
     }
 }
+
+DATABASE_URL='postgres://ifkkhlapmpsabr:f7840e32394827f58cfa5bcbde4131915ebc281f2aa46e5c06c80fe8d8d4dab1@ec2-54-225-76-136.compute-1.amazonaws.com:5432/d1o2as384vfumv'
+NAME='d1o2as384vfumv'
+USER='ifkkhlapmpsabr'
+PASSWORD='f7840e32394827f58cfa5bcbde4131915ebc281f2aa46e5c06c80fe8d8d4dab1'
+HOST='ec2-54-225-76-136.compute-1.amazonaws.com'
+PORT='5432'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
