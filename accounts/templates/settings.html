@@ -6,15 +6,26 @@
 {% block head%}
 {% endblock %}
 {% block body %}
-<div>
-    <div class="formblock">
-        <h2>Update User Info</h2>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ u_form|crispy  }}
-            {{ p_form|crispy  }}
-            <button type="submit">Update</button>
-        </form>
-    </div>
+<div class="row">
+        <div class="col-md-4">
+                <div class="content-section">
+                  <h3>Settings</h3>
+                    <ul class="list-group">
+                      <li class="list-group-item list-group-item-light">User Settings</li>
+                    </ul>
+                </div>
+            </div>
+        <div class="col-md-8">
+            <div class="content-section">
+                <h2>Update User Info</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ u_form|crispy  }}
+                    {{ p_form|crispy  }}
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+        </div>
+
 </div>
 {% endblock %}

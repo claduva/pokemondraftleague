@@ -56,8 +56,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #local apps
-    'accounts',
-    'main',
+    'accounts.apps.AccountsConfig',
+    'main.apps.MainConfig',
+    'pokemoninfo.apps.PokemoninfoConfig',
 
     #third party apps
     'crispy_forms',
@@ -102,7 +103,7 @@ WSGI_APPLICATION = 'pokemondraftleague.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 DATABASES = {
     'default': {
-         'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': NAME,                      
         'USER': USER,
         'PASSWORD': PASSWORD,
@@ -112,19 +113,7 @@ DATABASES = {
           'NAME': 'testdb',
         }
     },
-    'pokemondata': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'pokemondraftleague/pokemondata.sqlite3'),
-    }
 }
-
-DATABASE_URL='postgres://ifkkhlapmpsabr:f7840e32394827f58cfa5bcbde4131915ebc281f2aa46e5c06c80fe8d8d4dab1@ec2-54-225-76-136.compute-1.amazonaws.com:5432/d1o2as384vfumv'
-NAME='d1o2as384vfumv'
-USER='ifkkhlapmpsabr'
-PASSWORD='f7840e32394827f58cfa5bcbde4131915ebc281f2aa46e5c06c80fe8d8d4dab1'
-HOST='ec2-54-225-76-136.compute-1.amazonaws.com'
-PORT='5432'
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

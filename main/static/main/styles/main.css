@@ -1,107 +1,15 @@
-/* General Settings */
-*{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 body{
-    padding: 0px;
-    margin: 0px;
-    background-color: rgb(65, 67, 68);
+  background-color: rgb(247, 244, 244);
 }
 
-.body{
-    margin: 8px;
+.content-section {
+  padding: 10px 20px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  background-color: rgb(76, 84, 92);
+  color:white;
 }
 
-/* Navbar */
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: black;
-}
-  
-.navbar li {
-    float: left;
-}
-  
-.navbar .right {
-    float: right;
-}
-
-.navbar li a{
-    display: block;
-    font-size: 20px;
-    color: white;
-    text-align: center;
-    padding: 16px 16px;
-    text-decoration: none;
-}
-
-.navbar li a:hover{
-   background-color:rgba(137,210,209,0.25);
-}
-
-.navbar img {
-    height: 22px;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgb(240, 240, 240);
-    width: fit-content;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 2px;
-}
-
-.shift-left{
-    right:0;
-}
-  
-.dropdown-content a.dropdown-item {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    font-size: 12px;
-    border-bottom: 1px black;
-}
-
-.dropdown-content.show  {
-    display: block;
-}
-
-/* Forms */
-.formblock{
-    width:fit-content;
-    background-color: rgb(240, 240, 240);
-    margin:8px auto;
-    padding: 8px;
-    border-radius: 8px;
-}
-
-.formblock h2{
-    padding: 0px 0px 8px 0px;
-    margin: 0px;
-}
-
-/* Content Area */
-.contentarea{
-    width:fit-content;
-    background-color: rgb(240, 240, 240);
-    margin:8px auto;
-    padding: 8px;
-    border-radius: 8px;
-}
-
-/* Small screens */
-@media all and (max-width: 500px) {
-    .navbar {
-        /* On small screens, we are no longer using row direction but column */
-        flex-direction: column;
-    }
+.sub-body{
+  margin-top: 10px;
 }

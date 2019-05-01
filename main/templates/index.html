@@ -1,25 +1,10 @@
 {% extends "template.html" %}
 {% load static %}
-
-{% block title %}{{title}}{% endblock %}
+{% block title %}{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'main/styles/index.css' %}">
 {% endblock %}
 
 {% block body %}
-<div class="register">
-    <div id="register-left">
-        <img src="{% static 'main/images/pokeball.png' %}">
-    </div>
-    <div id="register-right">
-        <div>
-            {% if user.is_authenticated is False %}    
-            <a href="{% url 'signup' %}"><button>Sign-Up</button></a><br>
-            {% endif %}
-            <button>Create A League</button>
-        </div>
-    </div>
-</div>
-<h2>Leagues</h2>
+
 {% endblock %}

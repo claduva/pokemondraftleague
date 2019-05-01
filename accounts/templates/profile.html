@@ -4,11 +4,9 @@
 
 {% block title %}Profile{% endblock %}
 {% block head%}
-<link rel="stylesheet" href="{% static 'accounts/styles/profile.css' %}">
 {% endblock %}
 {% block body %}
-<div>
-    <div class="profile">
+<div class="content-section">
         <div class="media-body">
             <img src="{{ user.profile.pfp.url }}">
             <h3>{{ user.username }}</h3>
@@ -22,6 +20,5 @@
             <h3>Trophy Case:</h3>
             <div>None</div>
         </div>
-    </div>
 </div>
 {% endblock %}
