@@ -12,14 +12,3 @@ class profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
-
-    def save(self):
-        super().save()
-        if self.pfp:
-            size = 300, 300
-            image = Image.open(self.pfp)
-            image.thumbnail(size, Image.ANTIALIAS)
-            fh = storage.open(self.pfp.name, "w")
-            #format = 'png'  # You need to set the correct image format here
-            image.save(fh)#,format)
-            fh.close()
