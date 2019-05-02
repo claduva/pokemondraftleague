@@ -1,0 +1,39 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Leagues{% endblock %}
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}"> 
+{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-12 content-section">
+        <h1>Leagues</h1>
+        <div class="row align-items-center justify-content-around">
+            {% if allleagues %}
+            {% for item in allleagues %}
+            <div class="col-md-2">
+                <a href="{{ item.name }}">
+                    <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
+                    <div class="d-flex justify-content-center">{{ item.name }}</div>
+                </a>
+                <div class="d-flex justify-content-center">Hosted By:</div>
+                <div class="d-flex justify-content-center">{{item.host}}</div>
+                {% if item.league_settings.discordurl is not 'Not Provided' %}
+                    <a href="{{ item.league_settings.discordurl }}"><div class="d-flex justify-content-center">Join the Discord</div></a>
+                {% endif %}
+                {% if item.league_settings.is_recruiting %}
+                    <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
+                {% else  %}
+                    <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            {% else %}
+            <div>None</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

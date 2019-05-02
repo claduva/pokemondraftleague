@@ -1,0 +1,10 @@
+
+.content-section div.col-md-3, .content-section div.col-md-2{
+    background-color: rgb(247, 244, 244);
+    color: black;
+    border-radius: 3px;
+}
+
+.content-section div.col-md-3 a,.content-section div.col-md-2 a{
+    color: black;
+}

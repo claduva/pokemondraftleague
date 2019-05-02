@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 
     #local apps
     'accounts.apps.AccountsConfig',
+    'leagues.apps.LeaguesConfig',
     'main.apps.MainConfig',
     'pokemoninfo.apps.PokemoninfoConfig',
 
@@ -91,6 +92,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                #custom
+                'pokemondraftleague.processors.processor',
             ],
         },
     },

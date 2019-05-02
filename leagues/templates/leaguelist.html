@@ -1,0 +1,45 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Settings{% endblock %}
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}"> 
+{% endblock %}
+{% block body %}
+<div class="row">
+        <div class="col-md-4">
+                <div class="content-section">
+                  <h3>Settings</h3>
+                    <ul class="list-group">
+                        <a href="{% url 'settings' %}"><li class="list-group-item list-group-item-light">User</li></a>
+                        {% if leagueshosted %}
+                            <a href="{% url 'leagues_hosted_settings' %}"><li class="list-group-item list-group-item-light">Leagues Hosting</li></a>
+                        {% endif %}    
+                    </ul>
+                </div>
+            </div>
+        <div class="col-md-8 content-section">
+            <div class="row align-items-center">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h3>{{ settingheading }}</h3>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-around">
+                {% if leagueshosted %}
+                {% for item in leagueshosted %}
+                <div class="col-md-3">
+                    <a href="{{ item.name }}">
+                        <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
+                        <div class="d-flex justify-content-center">{{ item.name }}</div>
+                    </a>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div>None</div>
+                {% endif %}
+            </div>
+        </div>
+
+</div>
+{% endblock %}

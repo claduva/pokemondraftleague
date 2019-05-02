@@ -1,10 +1,70 @@
 {% extends "template.html" %}
 {% load static %}
-{% block title %}{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ title }}{% endblock %}
 
 {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}"> 
 {% endblock %}
 
 {% block body %}
-
+<div class="row content-section align-items-center">
+    <div class="col-md-6">
+        <div class="d-flex justify-content-center ">
+            <img src="{% static 'main/images/pokeball.png' %}" alt="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        {% if user.is_authenticated %}
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                <a href="{% url 'create_league' %}"><button class="btn btn-info">Find A League</button></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                <a href="{% url 'create_league' %}"><button class="btn btn-info">Create A League</button></a>
+            </div>
+        </div>
+        {% else %}
+        <form method="post">
+            <h2>Sign Up For Free</h2>
+            {% csrf_token %}
+            {{ form|crispy  }}
+            <button type="submit">Sign up</button>
+            <div>Already have an account? <a href="{% url 'login' %}">Sign In</a></div>
+        </form>
+        {% endif %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 content-section">
+        <h1>Leagues</h1>
+        <div class="row align-items-center justify-content-around">
+                {% if allleagues %}
+                {% for item in allleagues %}
+                <div class="col-md-2">
+                    <a href="{{ item.name }}">
+                        <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
+                        <div class="d-flex justify-content-center">{{ item.name }}</div>
+                    </a>
+                    <div class="d-flex justify-content-center">Hosted By:</div>
+                    <div class="d-flex justify-content-center">{{item.host}}</div>
+                    {% if item.league_settings.discordurl is not 'Not Provided' %}
+                        <a href="{{ item.league_settings.discordurl }}"><div class="d-flex justify-content-center">Join the Discord</div></a>
+                    {% endif %}
+                    {% if item.league_settings.is_recruiting %}
+                        <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
+                    {% else  %}
+                        <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% else %}
+                <div>None</div>
+                {% endif %}
+            </div>
+    </div>
+</div>
 {% endblock %}

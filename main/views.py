@@ -8,11 +8,15 @@ import json
 from datetime import datetime
 import time
 
+from accounts.forms import UserRegisterForm
 from .models import *
+
 # Create your views here.
 def home(request):
+    form=form = UserRegisterForm()
     context = {
         "title": "Pokemon Draft League",
+        "form": form,
     }
     return  render(request,"index.html", context)
 

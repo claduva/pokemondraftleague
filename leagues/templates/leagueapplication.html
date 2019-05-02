@@ -1,0 +1,42 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{league.name}}{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="content-section">
+    <div class="row align-items-start">
+        <div class="col-md-4 media-body">
+            <div class="d-flex justify-content-center"><img src="{{league.logo.url}}" class="rounded-circle"></div>
+            <h3 class="d-flex justify-content-center">{{league.name}}</h3>
+            <div class="d-flex justify-content-center">Hosted by {{league.host}}</div>
+            {% if league.league_settings.discordurl is not 'Not Provided' %}
+            <a href="{{ item.league_settings.discordurl }}">
+                <div class="d-flex justify-content-center">Join the Discord</div>
+            </a>
+            {% endif %}
+            {% if league.league_settings.is_recruiting %}
+            <div class="d-flex justify-content-center text-success">Recruiting Coaches!</div>
+            {% else  %}
+            <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <div class="row align-items-center">
+                <div class="col-md-12 d-flex justify-content-center"><h3>Apply</h3></div>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for form in forms %}
+                            {{ form|crispy }}
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary">Apply</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

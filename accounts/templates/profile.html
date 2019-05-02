@@ -7,18 +7,65 @@
 {% endblock %}
 {% block body %}
 <div class="content-section">
-        <div class="media-body">
-            <img src="{{ user.profile.pfp.url }}">
-            <h3>{{ user.username }}</h3>
-            <a href="{% url 'settings' %}">Update Profile</a>
+    <div class="row align-items-start">
+        <div class="col-md-4 media-body">
+            <div class="d-flex justify-content-center"><img src="{{ user.profile.pfp.url }}" class="rounded-circle"></div>
+            <h3 class="d-flex justify-content-center">{{ user.username }}</h3>
+            <div class="d-flex justify-content-center"><a href="{% url 'settings' %}"><button>Update Profile</button></a></div>
         </div>
-        <div>
-            <h3>Leagues Hosting:</h3>
-            <div>None</div>
-            <h3>Leagues Participating In:</h3>
-            <div>None</div>
-            <h3>Trophy Case:</h3>
-            <div>None</div>
+        <div class="col-md-8">
+            <div class="row align-items-center">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h3>Leagues Hosting</h3>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-around">
+                    {% if leagueshosted %}
+                        {% for item in leagueshosted %}
+                        <div class="col-md-3">
+                            <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
+                            <div class="d-flex justify-content-center">{{ item.name }}</div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div>None</div>
+                    {% endif %}
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h3>Leagues Participating In</h3>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-around">
+                {% if leagueshosted %}
+                    {% for item in leagueshosted %}
+                    <div class="col-md-3">
+                        <img src="{{ item.logo.url }}" class="img-fluid">
+                        <div class="d-flex justify-content-center">{{ item.name }}</div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div>None</div>
+                {% endif %}
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h3>Trophy Case</h3>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-around">
+                {% if leagueshosted %}
+                {% for item in leagueshosted %}
+                <div class="col-md-3">
+                    <img src="{{ item.logo.url }}" class="img-fluid">
+                    <div class="d-flex justify-content-center">{{ item.name }}</div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div>None</div>
+                {% endif %}
+            </div>
         </div>
+    </div>
 </div>
 {% endblock %}

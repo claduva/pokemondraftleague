@@ -4,7 +4,7 @@
         <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static 'main/images/pokeball.png' %}" width="30" height="30" alt=""></a>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Leagues</a>
+            <a class="nav-item nav-link" href="{% url 'league_list' %}">Leagues</a>
             <div class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="{% url 'about' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Tools
@@ -23,12 +23,15 @@
             {% if user.is_authenticated %}
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{ user.profile.pfp.url }}" width="30" height="30" alt="">
+                        <img src="{{ user.profile.pfp.url }}" class="rounded-circle" width="30" height="30" alt="">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="{% url 'profile' %}">Logged in as {{ user }}</a>
                         <a class="dropdown-item" href="{% url 'profile' %}">Your Profile</a>
                         <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
+                        {% if user.is_staff %}
+                        <a class="dropdown-item" href="/admin/">Admin</a>
+                        {% endif %}
                         <a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a>
                     </div>
                 </div>

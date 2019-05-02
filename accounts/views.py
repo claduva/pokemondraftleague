@@ -18,7 +18,12 @@ class SignUp(generic.CreateView):
 
 @login_required
 def profile(request):
-    return render(request, 'profile.html')
+    leagueshosted = request.user.league_set.all()
+    print(leagueshosted)
+    context = {
+        "title": "Profile",
+    }
+    return render(request, 'profile.html',context)
 
 @login_required
 def settings(request):
@@ -39,7 +44,7 @@ def settings(request):
         p_form = ProfileUpdateForm(instance=request.user.profile) 
 
     context = {
-        'u_form': u_form,
-        'p_form': p_form,
+        'forms': [u_form,p_form],
+        'settingheading': "Update User Info",
     }
     return render(request, 'settings.html',context)
