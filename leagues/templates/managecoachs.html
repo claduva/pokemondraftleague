@@ -20,23 +20,7 @@
             </div>
         <div class="col-md-8">
             <div class="content-section">
-                <div class="d-flex">
-                 <h2>{{ settingheading }}</h2>
-                {% if deletebutton %}
-                    <a href="managecoachs"><button class="btn btn-primary">Manage Coachs</button></a>
-                    <a href=""><button class="btn btn-primary">Manage Tiers</button></a>
-                {% endif %}
-                </div>
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for form in forms %}
-                        {{ form|crispy  }}
-                    {% endfor %}
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </form>
-                {% if deletebutton %}
-                    <a href="deleteleague"><button class="btn btn-danger">{{deletebutton}}</button></a>
-                {% endif %}
+                
             </div>
         </div>
 </div>

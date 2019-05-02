@@ -131,3 +131,10 @@ def league_apply(request,league_name):
             'forms': [form],
         }
         return render(request, 'leagueapplication.html',context)
+
+@login_required
+def manage_coachs(request,league_name):
+    context = {
+        'settingheading': "Select League",
+    }
+    return render(request, 'managecoachs.html',context)
