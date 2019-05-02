@@ -11,8 +11,14 @@ from django.contrib import messages
 from leagues.models import *
 
 def processor(request):
-    leagueshosted = request.user.league_set.all().order_by('name')
-    allleagues = league.objects.all().order_by('name')
+    try:
+        leagueshosted = request.user.league_set.all().order_by('name')
+    except:
+        leagueshosted = None
+    try:  
+        allleagues = league.objects.all().order_by('name')
+    except:
+        allleagues = None
     return {
         'leagueshosted': leagueshosted,
         'allleagues': allleagues,
