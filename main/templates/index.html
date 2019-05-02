@@ -28,7 +28,7 @@
             </div>
         </div>
         {% else %}
-        <form method="post">
+        <form action="{% url 'signup' %}" method="post">
             <h2>Sign Up For Free</h2>
             {% csrf_token %}
             {{ form|crispy  }}
