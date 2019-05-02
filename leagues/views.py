@@ -141,12 +141,19 @@ def manage_coachs(request,league_name):
         messages.error(request,'Only a league host may manage coachs!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     applicants=league_application.objects.filter(league_name=league_)
+    totalapplicants=len(applicants)
     coachs=coachdata.objects.filter(league_name=league_)
+    leaguecapacity=league_.league_settings.number_of_teams
+    numberofcoachs=leaguecapacity-len(coachs)
+    spotsremaining=(numberofcoachs>0)
     context = {
         'applicants': applicants,
         'coachs': coachs,
         'league_name': league_name,
         'leagueshostedsettings': True,
+        'numberofcoachs': numberofcoachs,
+        'totalapplicants': totalapplicants,
+        'spotsremaining': spotsremaining,
     }
     return render(request, 'managecoachs.html',context)
 

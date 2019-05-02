@@ -9,7 +9,12 @@
 <div class="row">
         <div class="col-md-4">
                 <div class="content-section">
-                  <h3>Settings</h3>
+                    <div class="d-flex justify-content-between">
+                        <h3>Settings</h3>
+                        {% if leagueshostedsettings %}
+                            <a href="{% url 'leagues_hosted_settings' %}"><button class="btn btn-primary">Back</button></a>
+                        {% endif %}    
+                    </div>
                     <ul class="list-group">
                         {% if usersettings %}
                             <a href="{% url 'settings' %}"><li class="list-group-item list-group-item-light active">User</li></a>
@@ -35,12 +40,14 @@
             </div>
         <div class="col-md-8">
             <div class="content-section">
-                <div class="d-flex">
-                 <h2>{{ settingheading }}</h2>
-                {% if deletebutton %}
-                    <a href="managecoachs"><button class="btn btn-primary">Manage Coachs</button></a>
-                    <a href=""><button class="btn btn-primary">Manage Tiers</button></a>
-                {% endif %}
+                <div class="d-flex justify-content-between">
+                    <h2>{{ settingheading }}</h2>
+                    {% if deletebutton %}
+                        <div>
+                            <a href="managecoachs"><button class="btn btn-primary">Manage Coachs</button></a>
+                            <a href=""><button class="btn btn-primary">Manage Tiers</button></a>
+                        </div>
+                    {% endif %}
                 </div>
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}

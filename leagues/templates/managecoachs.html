@@ -9,7 +9,10 @@
 <div class="row">
         <div class="col-md-4">
                 <div class="content-section">
-                  <h3>Settings</h3>
+                    <div class="d-flex justify-content-between">
+                        <h3>Settings</h3>
+                        <a href="{% url 'individual_league_settings' league_name=league_name %}"><button class="btn btn-primary">Back</button></a>
+                    </div>
                     <ul class="list-group">
                         {% if usersettings %}
                             <a href="{% url 'settings' %}"><li class="list-group-item list-group-item-light active">User</li></a>
@@ -36,20 +39,24 @@
         <div class="col-md-8">
             <div class="row content-section">
                 <div class="col-md-6">
-                    <h2>Applicants</h2>
-                    {% for item in applicants %}
-                    <form action="{% url 'addcoach' league_name=league_name %}" method="POST">
-                        {% csrf_token %}
-                        <div class="row d-flex align-items-center">
-                            <input type="text" value="{{ item.applicant }}" name="coach"  hidden>
-                            <input type="submit" class="btn btn-primary" value="Add">
-                            <div>{{ item.applicant }}</div>
-                        </div>  
-                    </form>
-                    {% endfor %}
+                    <h4>Applicants (Total: {{totalapplicants}})</h4>
+                    {% if spotsremaining %}
+                        {% for item in applicants %}
+                        <form action="{% url 'addcoach' league_name=league_name %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row d-flex align-items-center">
+                                <input type="text" value="{{ item.applicant }}" name="coach"  hidden>
+                                <input type="submit" class="btn btn-primary" value="Add">
+                                <div>{{ item.applicant }}</div>
+                            </div>  
+                        </form>
+                        {% endfor %}
+                    {% else %} 
+                        <p>Your league has reached max capacity! To add coaches, either increase capacity or remove a current coach.</p>
+                    {% endif %}       
                 </div>
                 <div class="col-md-6">
-                    <h2>Coachs</h2>
+                    <h4>Coachs (Spots Remaining: {{ numberofcoachs }})</h4>
                     {% for item in coachs %}
                     <form action="{% url 'removecoach' league_name=league_name %}" method="POST">
                         {% csrf_token %}
