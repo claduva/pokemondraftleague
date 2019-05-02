@@ -134,7 +134,10 @@ def league_apply(request,league_name):
 
 @login_required
 def manage_coachs(request,league_name):
+    league_=league.objects.get(name=league_name)
+    applicants=league_application.objects.filter(league_name=league_)
     context = {
         'settingheading': "Select League",
+        'applicants': applicants,
     }
     return render(request, 'managecoachs.html',context)

@@ -33,7 +33,7 @@ else:
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-    DATABASE_URL = os.environ.get('DATABASE_URL','url')
+    DATABASE_URL = os.environ.get('DATABASE_URL','postgres://user:password@host:port/database')
     NAME=DATABASE_URL.split("/")[-1]
     USER=DATABASE_URL.split("//")[1].split(":")[0]
     PASSWORD=DATABASE_URL.split("//")[1].split(":")[1].split("@")[0]

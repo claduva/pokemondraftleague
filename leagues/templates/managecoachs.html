@@ -19,8 +19,16 @@
                 </div>
             </div>
         <div class="col-md-8">
-            <div class="content-section">
-                
+            <div class="row content-section">
+                <div class="col-md-5">
+                    <h2>Applicants</h2>
+                    {% for item in applicants %}
+                        <div>{{ item.applicant }}</div>
+                    {% endfor %}
+                </div>
+                <div class="col-md-5">
+                    <h2>Coachs</h2>
+                </div>
             </div>
         </div>
 </div>
