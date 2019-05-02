@@ -12,9 +12,24 @@
                 <div class="content-section">
                   <h3>Settings</h3>
                     <ul class="list-group">
-                        <a href="{% url 'settings' %}"><li class="list-group-item list-group-item-light">User</li></a>
+                        {% if usersettings %}
+                            <a href="{% url 'settings' %}"><li class="list-group-item list-group-item-light active">User</li></a>
+                        {% else %}
+                            <a href="{% url 'settings' %}"><li class="list-group-item list-group-item-light">User</li></a>
+                        {% endif %}
                         {% if leagueshosted %}
-                            <a href="{% url 'leagues_hosted_settings' %}"><li class="list-group-item list-group-item-light">Leagues Hosting</li></a>
+                            {% if leagueshostedsettings %}
+                                <a href="{% url 'leagues_hosted_settings' %}"><li class="list-group-item list-group-item-light active">Leagues Hosting</li></a>
+                            {% else %}
+                                <a href="{% url 'leagues_hosted_settings' %}"><li class="list-group-item list-group-item-light">Leagues Hosting</li></a>
+                            {% endif %}       
+                        {% endif %}   
+                        {% if leaguescoaching %}
+                            {% if leaguescoachingsettings %}
+                                <a href="{% url 'leagues_coaching_settings' %}"><li class="list-group-item list-group-item-light active">Leagues Coaching</li></a>
+                            {% else %} 
+                                <a href="{% url 'leagues_coaching_settings' %}"><li class="list-group-item list-group-item-light">Leagues Coaching</li></a>
+                            {% endif %}     
                         {% endif %}    
                     </ul>
                 </div>
@@ -26,18 +41,29 @@
                 </div>
             </div>
             <div class="row align-items-center justify-content-around">
-                {% if leagueshosted %}
-                {% for item in leagueshosted %}
-                <div class="col-md-3">
-                    <a href="{{ item.name }}">
-                        <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
-                        <div class="d-flex justify-content-center">{{ item.name }}</div>
-                    </a>
-                </div>
-                {% endfor %}
+                {% if leaguescoachingpage %}
+                    {% for item in leaguescoaching %}
+                    <div class="col-md-3">
+                        <a href="{{ item.league_name.name }}">
+                            <img src="{{ item.league_name.logo.url }}" class="img-fluid rounded-circle">
+                            <div class="d-flex justify-content-center">{{ item.league_name.name }}</div>
+                        </a>
+                    </div>
+                    {% endfor %}
                 {% else %}
-                <div>None</div>
-                {% endif %}
+                    {% if leagueshosted %}
+                    {% for item in leagueshosted %}
+                    <div class="col-md-3">
+                        <a href="{{ item.name }}">
+                            <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
+                            <div class="d-flex justify-content-center">{{ item.name }}</div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div>None</div>
+                    {% endif %}
+                {% endif %}    
             </div>
         </div>
 

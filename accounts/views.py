@@ -46,5 +46,6 @@ def settings(request):
     context = {
         'forms': [u_form,p_form],
         'settingheading': "Update User Info",
+        'usersettings': True,
     }
     return render(request, 'settings.html',context)

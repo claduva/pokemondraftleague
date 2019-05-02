@@ -48,6 +48,7 @@ def league_list(request):
 def leagues_hosted_settings(request):
     context = {
         'settingheading': "Select League",
+        'leagueshostedsettings': True,
     }
     return render(request, 'leaguelist.html',context)
 
@@ -82,6 +83,7 @@ def individual_league_settings(request,league_name):
         'settingheading': league_name,
         'forms': [l_form,ls_form],
         'deletebutton': 'Delete League',
+        'leagueshostedsettings': True,
     }
     return render(request, 'settings.html',context)
 
@@ -144,6 +146,7 @@ def manage_coachs(request,league_name):
         'applicants': applicants,
         'coachs': coachs,
         'league_name': league_name,
+        'leagueshostedsettings': True,
     }
     return render(request, 'managecoachs.html',context)
 
@@ -166,3 +169,12 @@ def remove_coach(request,league_name):
         league_application.objects.create(applicant=coachuser,league_name=league_)
         coachtoremove.delete()
     return redirect('manage_coachs',league_name=league_name)
+
+@login_required
+def leagues_coaching_settings(request):
+    context = {
+        'settingheading': "Select League",
+        'leaguescoachingpage': True,
+        'leaguescoachingsettings': True,
+    }
+    return render(request, 'leaguelist.html',context)
