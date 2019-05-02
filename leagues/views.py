@@ -139,8 +139,30 @@ def manage_coachs(request,league_name):
         messages.error(request,'Only a league host may manage coachs!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     applicants=league_application.objects.filter(league_name=league_)
+    coachs=coachdata.objects.filter(league_name=league_)
     context = {
-        'settingheading': "Select League",
         'applicants': applicants,
+        'coachs': coachs,
+        'league_name': league_name,
     }
     return render(request, 'managecoachs.html',context)
+
+@login_required
+def add_coach(request,league_name):
+    if request.POST:
+        league_=league.objects.get(name=league_name)
+        coachtoadd=User.objects.get(username=request.POST['coach'])
+        application=league_application.objects.filter(applicant=coachtoadd,league_name=league_).first()
+        coachdata.objects.create(coach=coachtoadd,league_name=league_)
+        application.delete()
+    return redirect('manage_coachs',league_name=league_name)
+
+@login_required
+def remove_coach(request,league_name):
+    if request.POST:
+        league_=league.objects.get(name=league_name)
+        coachuser=User.objects.get(username=request.POST['coach'])
+        coachtoremove=coachdata.objects.filter(coach=coachuser,league_name=league_).first()
+        league_application.objects.create(applicant=coachuser,league_name=league_)
+        coachtoremove.delete()
+    return redirect('manage_coachs',league_name=league_name)

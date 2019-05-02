@@ -20,14 +20,31 @@
             </div>
         <div class="col-md-8">
             <div class="row content-section">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <h2>Applicants</h2>
                     {% for item in applicants %}
-                        <div>{{ item.applicant }}</div>
+                    <form action="{% url 'addcoach' league_name=league_name %}" method="POST">
+                        {% csrf_token %}
+                        <div class="row d-flex align-items-center">
+                            <input type="text" value="{{ item.applicant }}" name="coach"  hidden>
+                            <input type="submit" class="btn btn-primary" value="Add">
+                            <div>{{ item.applicant }}</div>
+                        </div>  
+                    </form>
                     {% endfor %}
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <h2>Coachs</h2>
+                    {% for item in coachs %}
+                    <form action="{% url 'removecoach' league_name=league_name %}" method="POST">
+                        {% csrf_token %}
+                        <div class="row d-flex align-items-center">
+                            <input type="text" value="{{ item.coach }}" name="coach" hidden>
+                            <button type="submit" class="btn btn-primary">Remove</button>
+                            <div>{{ item.coach }}</div>
+                        </div>  
+                    </form>
+                    {% endfor %}
                 </div>
             </div>
         </div>
