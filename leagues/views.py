@@ -135,6 +135,9 @@ def league_apply(request,league_name):
 @login_required
 def manage_coachs(request,league_name):
     league_=league.objects.get(name=league_name)
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may manage coachs!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
     applicants=league_application.objects.filter(league_name=league_)
     context = {
         'settingheading': "Select League",
