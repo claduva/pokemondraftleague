@@ -34,5 +34,5 @@ class league_application(models.Model):
     league_name = models.ForeignKey(league, on_delete=models.CASCADE)
 
 class coachdata(models.Model):
-    applicant = models.ForeignKey(User, on_delete=models.CASCADE)
+    coach = models.ForeignKey(User, on_delete=models.CASCADE)
     league_name = models.ForeignKey(league, on_delete=models.CASCADE)
