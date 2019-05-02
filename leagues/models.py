@@ -10,7 +10,7 @@ class league(models.Model):
     host = models.ForeignKey(User, on_delete=models.CASCADE)
     logo = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='league_logos',null=True, blank=True)
 
-    def save(self):
+    """ def save(self):
         super().save()
         if self.logo:
             size = 300, 300
@@ -19,7 +19,7 @@ class league(models.Model):
             fh = storage.open(self.logo.name, "w")
             #format = 'png'  # You need to set the correct image format here
             image.save(fh)#,format)
-            fh.close()
+            fh.close() """
 
 class league_settings(models.Model):
     league_name = models.OneToOneField(league, on_delete=models.CASCADE)
@@ -36,3 +36,14 @@ class league_application(models.Model):
 class coachdata(models.Model):
     coach = models.ForeignKey(User, on_delete=models.CASCADE)
     league_name = models.ForeignKey(league, on_delete=models.CASCADE)
+    logo = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='team_logos',null=True, blank=True)
+    teamabbreviation = models.CharField(max_length=3, default="TBD")
+    teamname = models.CharField(max_length=100, default="To Be Determined")
+
+class award(models.Model):
+    awardname = models.CharField(max_length=20, default="None")
+    image = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='awards',null=True, blank=True)
+    
+class coachaward(models.Model):
+    coach = models.ForeignKey(User, on_delete=models.CASCADE)
+    award = models.ForeignKey(award, on_delete=models.CASCADE)

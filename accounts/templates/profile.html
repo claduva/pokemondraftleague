@@ -4,13 +4,27 @@
 
 {% block title %}Profile{% endblock %}
 {% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}"> 
 {% endblock %}
 {% block body %}
 <div class="content-section">
     <div class="row align-items-start">
         <div class="col-md-4 media-body">
-            <div class="d-flex justify-content-center"><img src="{{ user.profile.pfp.url }}" class="rounded-circle"></div>
+            <div class="d-flex justify-content-center"><img src="{{ user.profile.pfp.url }}" class="rounded-circle">
+            </div>
             <h3 class="d-flex justify-content-center">{{ user.username }}</h3>
+            <div class="col-md-12 d-flex justify-content-center"><h5>Trophy Case</h5></div>
+            <div class="row align-items-center justify-content-around">
+                {% if coachawards %}
+                    {% for item in coachawards %}
+                    <div class="col-md-3">
+                        <img src="{{ item.award.image.url }}" class="img-fluid">
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div>None</div>
+                {% endif %}
+            </div>
             <div class="d-flex justify-content-center"><a href="{% url 'settings' %}"><button>Update Profile</button></a></div>
         </div>
         <div class="col-md-8">
@@ -23,8 +37,10 @@
                     {% if leagueshosted %}
                         {% for item in leagueshosted %}
                         <div class="col-md-3">
-                            <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
-                            <div class="d-flex justify-content-center">{{ item.name }}</div>
+                            <a href="{% url 'league_detail' league_name=item.name %}">
+                                <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
+                                <div class="d-flex justify-content-center">{{ item.name }}</div>
+                            </a>
                         </div>
                         {% endfor %}
                     {% else %}
@@ -37,32 +53,17 @@
                 </div>
             </div>
             <div class="row align-items-center justify-content-around">
-                {% if leagueshosted %}
-                    {% for item in leagueshosted %}
+                {% if leaguescoaching %}
+                    {% for item in leaguescoaching %}
                     <div class="col-md-3">
-                        <img src="{{ item.logo.url }}" class="img-fluid">
-                        <div class="d-flex justify-content-center">{{ item.name }}</div>
+                        <a href="{% url 'league_detail' league_name=item.league_name.name %}">
+                            <img src="{{ item.league_name.logo.url }}" class="img-fluid">
+                            <div class="d-flex justify-content-center">{{ item.league_name.name }}</div>
+                        </a>
                     </div>
                     {% endfor %}
                 {% else %}
                     <div>None</div>
-                {% endif %}
-            </div>
-            <div class="row align-items-center">
-                <div class="col-md-12 d-flex justify-content-center">
-                    <h3>Trophy Case</h3>
-                </div>
-            </div>
-            <div class="row align-items-center justify-content-around">
-                {% if leagueshosted %}
-                {% for item in leagueshosted %}
-                <div class="col-md-3">
-                    <img src="{{ item.logo.url }}" class="img-fluid">
-                    <div class="d-flex justify-content-center">{{ item.name }}</div>
-                </div>
-                {% endfor %}
-                {% else %}
-                <div>None</div>
                 {% endif %}
             </div>
         </div>

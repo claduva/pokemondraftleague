@@ -19,7 +19,17 @@ def processor(request):
         allleagues = league.objects.all().order_by('name')
     except:
         allleagues = None
+    try:  
+        leaguescoaching = request.user.coachdata_set.all().order_by('league_name')
+    except:
+        leaguescoaching = None
+    try:  
+        coachawards = request.user.coachaward_set.all()
+    except:
+        coachawards = None
     return {
         'leagueshosted': leagueshosted,
         'allleagues': allleagues,
+        'leaguescoaching': leaguescoaching,
+        'coachawards': coachawards,
         }
