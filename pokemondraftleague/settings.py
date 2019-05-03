@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'leagues.apps.LeaguesConfig',
     'main.apps.MainConfig',
-    'pokemoninfo.apps.PokemoninfoConfig',
+    'pokemondatabase.apps.PokemondatabaseConfig',
 
     #third party apps
     'crispy_forms',

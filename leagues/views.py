@@ -11,6 +11,7 @@ from django.contrib import messages
 
 from .forms import *
 from .models import *
+from pokemondatabase.models import *
 
 def league_detail(request,league_name):
     league_=league.objects.get(name=league_name)
@@ -30,8 +31,11 @@ def create_league(request):
     if request.method == 'POST':
         form = CreateLeagueForm(request.POST)
         if form.is_valid():
-            form.save()
+            newleague=form.save()
             messages.success(request,f'Your league has been successfully created!')
+            allpokes=all_pokemon.objects.all()
+            for item in allpokes:
+                pokemon_tier.objects.create(pokemon=item,league=newleague)
             return redirect('league_detail',league_name=form.cleaned_data['name'])
     else:
         form = CreateLeagueForm(initial={'host': request.user})
@@ -42,7 +46,18 @@ def create_league(request):
     return render(request, 'createleague.html',context)
 
 def league_list(request):
-    return render(request, 'leagues.html')
+    context={
+        'leagueheading': 'All Leagues',
+    }
+    return render(request, 'leagues.html',context)
+
+def recruiting_league_list(request):
+    recruitinglist=league_settings.objects.filter(is_recruiting=True)
+    context={
+        'recruitinglist': recruitinglist,
+        'leagueheading': 'Recruiting Leagues',
+    }
+    return render(request, 'leagues.html',context)
 
 @login_required
 def leagues_hosted_settings(request):
@@ -185,3 +200,17 @@ def leagues_coaching_settings(request):
         'leaguescoachingsettings': True,
     }
     return render(request, 'leaguelist.html',context)
+
+@login_required
+def manage_tiers(request,league_name):
+    league_=league.objects.get(name=league_name)
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may manage coachs!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    pokemontiers=pokemon_tier.objects.filter(league=league_).all()
+    context = {
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+        'pokemontiers': pokemontiers,
+    }
+    return render(request, 'managetiers.html',context)

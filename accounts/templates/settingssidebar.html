@@ -1,0 +1,33 @@
+<ul class="list-group">
+    {% if usersettings %}
+    <a href="{% url 'settings' %}">
+        <li class="list-group-item list-group-item-light active">User</li>
+    </a>
+    {% else %}
+    <a href="{% url 'settings' %}">
+        <li class="list-group-item list-group-item-light">User</li>
+    </a>
+    {% endif %}
+    {% if leagueshosted %}
+    {% if leagueshostedsettings %}
+    <a href="{% url 'leagues_hosted_settings' %}">
+        <li class="list-group-item list-group-item-light active">Leagues Hosting</li>
+    </a>
+    {% else %}
+    <a href="{% url 'leagues_hosted_settings' %}">
+        <li class="list-group-item list-group-item-light">Leagues Hosting</li>
+    </a>
+    {% endif %}
+    {% endif %}
+    {% if leaguescoaching %}
+    {% if leaguescoachingsettings %}
+    <a href="{% url 'leagues_coaching_settings' %}">
+        <li class="list-group-item list-group-item-light active">Leagues Coaching</li>
+    </a>
+    {% else %}
+    <a href="{% url 'leagues_coaching_settings' %}">
+        <li class="list-group-item list-group-item-light">Leagues Coaching</li>
+    </a>
+    {% endif %}
+    {% endif %}
+</ul>

@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}Settings{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row">
+        <div class="col-md-4">
+                <div class="content-section">
+                    <div class="d-flex justify-content-between">
+                        <h3>Settings</h3>
+                        <a href="{% url 'individual_league_settings' league_name=league_name %}"><button class="btn btn-primary">Back</button></a>
+                    </div>
+                    {% include 'settingssidebar.html' %}
+                </div>
+            </div>
+        <div class="col-md-8">
+            <div class="row content-section">
+                {% for item in pokemontiers %}
+                    <div>
+                        <img src="https://play.pokemonshowdown.com/sprites/xyani/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.gif"
+                        <p>{{ item.pokemon.pokemon }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+{% endblock %}

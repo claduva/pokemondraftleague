@@ -9,30 +9,58 @@
 {% block body %}
 <div class="row">
     <div class="col-md-12 content-section">
-        <h1>Leagues</h1>
-        <div class="row align-items-center justify-content-around">
-            {% if allleagues %}
-            {% for item in allleagues %}
-            <div class="col-md-2">
-                <a href="{{ item.name }}">
-                    <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
-                    <div class="d-flex justify-content-center">{{ item.name }}</div>
-                </a>
-                <div class="d-flex justify-content-center">Hosted By:</div>
-                <div class="d-flex justify-content-center">{{item.host}}</div>
-                {% if item.league_settings.discordurl is not 'Not Provided' %}
-                    <a href="{{ item.league_settings.discordurl }}"><div class="d-flex justify-content-center">Join the Discord</div></a>
-                {% endif %}
-                {% if item.league_settings.is_recruiting %}
-                    <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
-                {% else  %}
-                    <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
-                {% endif %}
-            </div>
-            {% endfor %}
+        <div class="d-flex justify-content-between">
+            <h1>{{ leagueheading }}</h1>
+            {% if not recruitinglist %}
+                <div><a href="{% url 'recruiting_league_list' %}"><button class="btn btn-primary">Only Show Recruiting Leagues</button></a></div>
             {% else %}
-            <div>None</div>
+                <div><a href="{% url 'league_list' %}"><button class="btn btn-primary">Show All Leagues</button></a></div>
             {% endif %}
+        </div>
+        <div class="row align-items-center justify-content-around">
+            {% if recruitinglist %}
+                {% for item in recruitinglist %}
+                <div class="col-md-2">
+                    <a href="{{ item.league_name.name }}">
+                        <img src="{{ item.league_name.logo.url }}" class="img-fluid rounded-circle">
+                        <div class="d-flex justify-content-center">{{ item.league_name.name }}</div>
+                    </a>
+                    <div class="d-flex justify-content-center">Hosted By:</div>
+                    <div class="d-flex justify-content-center">{{item.league_name.host}}</div>
+                    {% if item.discordurl is not 'Not Provided' %}
+                        <a href="{{ item.discordurl }}"><div class="d-flex justify-content-center">Join the Discord</div></a>
+                    {% endif %}
+                    {% if item.is_recruiting %}
+                        <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
+                    {% else  %}
+                        <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            {% else %}
+                {% if allleagues %}
+                    {% for item in allleagues %}
+                    <div class="col-md-2">
+                        <a href="{{ item.name }}">
+                            <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
+                            <div class="d-flex justify-content-center">{{ item.name }}</div>
+                        </a>
+                        <div class="d-flex justify-content-center">Hosted By:</div>
+                        <div class="d-flex justify-content-center">{{item.host}}</div>
+                        {% if item.league_settings.discordurl is not 'Not Provided' %}
+                            <a href="{{ item.league_settings.discordurl }}"><div class="d-flex justify-content-center">Join the Discord</div></a>
+                        {% endif %}
+                        {% if item.league_settings.is_recruiting %}
+                            <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
+                        {% else  %}
+                            <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div>None</div>
+                {% endif %}
+            {% endif %}    
         </div>
     </div>
 </div>
