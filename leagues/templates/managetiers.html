@@ -104,9 +104,9 @@
         <div class="row">
                 <div class="col-md-12 content-section">
                     <h3>Tiers</h3>
-                    <div class="row align-items-center justify-content-around">
+                    <div class="row align-items-center justify-content-center">
                         {% for item in leaguetiers%}
-                            <div  class="col-md-2">
+                            <div  class="col-md-3">
                                 <button class="btn btn-primary">{{ item.tiername }} ({{ item.tierpoints }} points)</button>
                             </div>
                         {% endfor %}
