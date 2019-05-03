@@ -30,7 +30,6 @@ def processor(request):
         coachawards = None
     try:  
         site_settings = request.user.sitesettings
-        print(site_settings)
     except:
         site_settings = None
     return {

@@ -175,10 +175,8 @@ def manage_coachs(request,league_name):
 @login_required
 def add_coach(request,league_name):
     if request.POST:
-        league_=league.objects.get(name=league_name)
-        coachtoadd=User.objects.get(username=request.POST['coach'])
-        application=league_application.objects.filter(applicant=coachtoadd,league_name=league_).first()
-        coachdata.objects.create(coach=coachtoadd,league_name=league_)
+        application=league_application.objects.get(pk=request.POST['coach'])
+        coachdata.objects.create(coach=application.applicant,league_name=application.league_name)
         application.delete()
     return redirect('manage_coachs',league_name=league_name)
 
@@ -186,9 +184,8 @@ def add_coach(request,league_name):
 def remove_coach(request,league_name):
     if request.POST:
         league_=league.objects.get(name=league_name)
-        coachuser=User.objects.get(username=request.POST['coach'])
-        coachtoremove=coachdata.objects.filter(coach=coachuser,league_name=league_).first()
-        league_application.objects.create(applicant=coachuser,league_name=league_)
+        coachtoremove=coachdata.objects.get(pk=request.POST['coach'])
+        league_application.objects.create(applicant=coachtoremove.coach,league_name=coachtoremove.league_name)
         coachtoremove.delete()
     return redirect('manage_coachs',league_name=league_name)
 
@@ -203,14 +200,80 @@ def leagues_coaching_settings(request):
 
 @login_required
 def manage_tiers(request,league_name):
-    league_=league.objects.get(name=league_name)
-    if request.user != league_.host:
-        messages.error(request,'Only a league host may manage coachs!',extra_tags='danger')
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    pokemontiers=pokemon_tier.objects.filter(league=league_).all()
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.method == 'POST':
+        form = CreateTierForm(request.POST)
+        if form.is_valid() :
+            form.save()
+            messages.success(request,'Tier has been added!')
+            return redirect('manage_tiers',league_name=league_name)
+    else:
+        form = CreateTierForm(initial={'league': league_})
+
+    pokemontiers=pokemon_tier.objects.filter(league=league_).all().order_by('pokemon__pokemon','tier')
+    leaguestiers=leaguetiers.objects.filter(league=league_).all().order_by('tiername')
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
         'pokemontiers': pokemontiers,
+        'leaguetiers':leaguestiers,
+        'forms': [form],
     }
     return render(request, 'managetiers.html',context)
+
+@login_required
+def delete_tier(request,league_name):
+    if request.POST:
+        tiertodelete=leaguetiers.objects.get(pk=request.POST['tiertodelete'])
+        tiertodelete.delete()
+    return redirect('manage_tiers',league_name=league_name)
+
+@login_required
+def edit_tier(request,league_name,tierid):
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.method == 'POST':
+        tierinstance=leaguetiers.objects.get(pk=tierid)
+        form = UpdateTierForm(request.POST,instance=tierinstance)
+        if form.is_valid() :
+            form.save()
+            messages.success(request,'Tier has been edited!')
+            return redirect('manage_tiers',league_name=league_name)
+    else:
+        tierinstance=leaguetiers.objects.get(pk=tierid)
+        form=UpdateTierForm(instance=tierinstance)
+    pokemontiers=None#pokemon_tier.objects.filter(league=league_).all().order_by('pokemon__pokemon','points')
+    leaguestiers=leaguetiers.objects.filter(league=league_).all().order_by('tiername')
+    context = {
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+        'pokemontiers': pokemontiers,
+        'leaguetiers':leaguestiers,
+        'forms': [form],
+        'editingtier': True,
+    }
+    return render(request, 'managetiers.html',context)
+
+@login_required
+def update_tier(request,league_name):
+    if request.POST:
+        pokemonofinterest=all_pokemon.objects.get(pokemon=request.POST['pokemon-select'])
+        pokemontoupdate=pokemon_tier.objects.get(pokemon=pokemonofinterest)
+        tiertoadd=leaguetiers.objects.get(pk=request.POST['tier-select'])
+        pokemontoupdate.tier=tiertoadd
+        pokemontoupdate.save()
+        messages.success(request,'Tier has been edited!')
+    return redirect('manage_tiers',league_name=league_name)

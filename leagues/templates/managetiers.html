@@ -8,24 +8,120 @@
 {% endblock %}
 {% block body %}
 <div class="row">
-        <div class="col-md-4">
-                <div class="content-section">
-                    <div class="d-flex justify-content-between">
-                        <h3>Settings</h3>
-                        <a href="{% url 'individual_league_settings' league_name=league_name %}"><button class="btn btn-primary">Back</button></a>
-                    </div>
-                    {% include 'settingssidebar.html' %}
-                </div>
+    <div class="col-md-4">
+        <div class="content-section">
+            <div class="d-flex justify-content-between">
+                <h3>Settings</h3>
+                <a href="{% url 'individual_league_settings' league_name=league_name %}"><button
+                        class="btn btn-primary">Back</button></a>
             </div>
-        <div class="col-md-8">
-            <div class="row content-section">
-                {% for item in pokemontiers %}
+            {% include 'settingssidebar.html' %}
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="row content-section">
+            <div class="col-md-12">
+                <h3>Update Pokemon's Tier</h3>
+            </div>
+            <div>
+                <form action="{% url 'update_tier' league_name=league_name %}" method="post">
+                    {% csrf_token %}
                     <div>
-                        <img src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"
-                        <p>{{ item.pokemon.pokemon }}</p>
+                        <datalist id="allpokemon">
+                            {% for item in pokemontiers %}
+                            <option value="{{item.pokemon.pokemon}}">
+                            {% endfor %}
+                        </datalist>
+                        <label for="pokemon-select">Choose a Pokemon:</label>
+                        <input id="pokemon-select" list="allpokemon" name="pokemon-select">
                     </div>
-                {% endfor %}
+                    <div>
+                        <label for="tier-select">Choose a tier:</label>
+                        <select id="tier-select" name="tier-select">
+                            {% for item in leaguetiers%}
+                                <option value="{{ item.id }}">{{ item.tiername }}-{{ item.tierpoints }} points</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <input class="btn btn-primary" type="submit" value="Update">
+                    </div>
+                </form>
             </div>
         </div>
+        <div class="row content-section">
+            {% if editingtier %}
+            <div class="col-md-12">
+                <div>
+                    <h3>Edit Tier</h3>
+                </div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for form in forms %}
+                    {{ form|crispy  }}
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </form>
+            </div>
+            {% else %}
+            <div class="col-md-7">
+                <div>
+                    <h3>Your Leagues Tiers</h3>
+                </div>
+                {% if leaguetiers %}
+                {% for item in leaguetiers%}
+                <div class="row d-flex align-items-center justify-content-between">
+                    <h5>{{ item.tiername }}-{{ item.tierpoints }} points</h5>
+                    <div class="d-flex">
+                        <a href="{% url 'edit_tier' league_name=league_name tierid=item.id %}"><button
+                                class="btn btn-primary">Edit</button></a>
+                        <form action="{% url 'delete_tier' league_name=league_name %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="tiertodelete" value="{{ item.id }}" hidden>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div>Your league does not currently have any tier definitions.</div>
+                {% endif %}
+            </div>
+            <div class="col-md-5">
+                <div>
+                    <h3>Add Tier</h3>
+                </div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for form in forms %}
+                    {{ form|crispy  }}
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+        <div class="row">
+                <div class="col-md-12 content-section">
+                    <h3>Tiers</h3>
+                    <div class="row align-items-center justify-content-around">
+                        {% for item in leaguetiers%}
+                            <div  class="col-md-2">
+                                <button class="btn btn-primary">{{ item.tiername }}-{{ item.tierpoints }} points</button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>    
+            </div>
+            <!-- {% for item in pokemontiers %}
+            <div>
+                <img class="mediumsprite"
+                    src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"
+                    <p>{{ item.pokemon.pokemon }}</p>
+            </div>
+            {% endfor %} -->
+        </div> 
+    </div>
 </div>
 {% endblock %}

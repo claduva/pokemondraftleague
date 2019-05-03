@@ -25,7 +25,7 @@
                         <form action="{% url 'addcoach' league_name=league_name %}" method="POST">
                             {% csrf_token %}
                             <div class="row d-flex align-items-center">
-                                <input type="text" value="{{ item.applicant }}" name="coach"  hidden>
+                                <input type="text" value="{{ item.id }}" name="coach"  hidden>
                                 <input type="submit" class="btn btn-primary" value="Add">
                                 <div>{{ item.applicant }}</div>
                             </div>  
@@ -41,8 +41,8 @@
                     <form action="{% url 'removecoach' league_name=league_name %}" method="POST">
                         {% csrf_token %}
                         <div class="row d-flex align-items-center">
-                            <input type="text" value="{{ item.coach }}" name="coach" hidden>
-                            <button type="submit" class="btn btn-primary">Remove</button>
+                            <input type="text" value="{{ item.id }}" name="coach" hidden>
+                            <button type="submit" class="btn btn-danger">Remove</button>
                             <div>{{ item.coach }}</div>
                         </div>  
                     </form>

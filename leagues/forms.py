@@ -30,3 +30,21 @@ class LeagueApplicationForm(forms.ModelForm):
             'applicant': forms.HiddenInput(),
             'league_name': forms.HiddenInput(),
             }
+
+class CreateTierForm(forms.ModelForm):
+    
+    class Meta:
+        model = leaguetiers
+        fields = ['league','tiername','tierpoints']
+        widgets = {
+            'league': forms.HiddenInput(),
+            }
+
+class UpdateTierForm(forms.ModelForm):
+    
+    class Meta:
+        model = leaguetiers
+        fields = ['league','tiername','tierpoints']
+        widgets = {
+            'league': forms.HiddenInput(),
+            }

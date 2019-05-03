@@ -47,3 +47,8 @@ class award(models.Model):
 class coachaward(models.Model):
     coach = models.ForeignKey(User, on_delete=models.CASCADE)
     award = models.ForeignKey(award, on_delete=models.CASCADE)
+
+class leaguetiers(models.Model):
+    league = models.ForeignKey(league, on_delete=models.CASCADE)
+    tiername = models.CharField(max_length=20, default="Not Specified")
+    tierpoints = models.IntegerField(default=0)

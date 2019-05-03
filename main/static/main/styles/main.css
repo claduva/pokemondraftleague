@@ -13,3 +13,8 @@ body{
 .sub-body{
   margin-top: 10px;
 }
+
+.mediumsprite{
+  max-width:50px;
+  max-height:50px;
+}
