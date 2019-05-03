@@ -39,7 +39,7 @@
                         <label for="tier-select">Choose a tier:</label>
                         <select id="tier-select" name="tier-select">
                             {% for item in leaguetiers%}
-                                <option value="{{ item.id }}">{{ item.tiername }}-{{ item.tierpoints }} points</option>
+                                <option value="{{ item.id }}">{{ item.tiername }} ({{ item.tierpoints }} points)</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -71,7 +71,7 @@
                 {% if leaguetiers %}
                 {% for item in leaguetiers%}
                 <div class="row d-flex align-items-center justify-content-between">
-                    <h5>{{ item.tiername }}-{{ item.tierpoints }} points</h5>
+                    <h5>{{ item.tiername }} ({{ item.tierpoints }} points)</h5>
                     <div class="d-flex">
                         <a href="{% url 'edit_tier' league_name=league_name tierid=item.id %}"><button
                                 class="btn btn-primary">Edit</button></a>
@@ -107,7 +107,7 @@
                     <div class="row align-items-center justify-content-around">
                         {% for item in leaguetiers%}
                             <div  class="col-md-2">
-                                <button class="btn btn-primary">{{ item.tiername }}-{{ item.tierpoints }} points</button>
+                                <button class="btn btn-primary">{{ item.tiername }} ({{ item.tierpoints }} points)</button>
                             </div>
                         {% endfor %}
                     </div>
