@@ -9,6 +9,7 @@ from django.urls import reverse
 from django.contrib import messages
 
 from leagues.models import *
+from accounts.models import *
 
 def processor(request):
     try:
@@ -27,9 +28,15 @@ def processor(request):
         coachawards = request.user.coachaward_set.all()
     except:
         coachawards = None
+    try:  
+        site_settings = request.user.sitesettings
+        print(site_settings)
+    except:
+        site_settings = None
     return {
         'leagueshosted': leagueshosted,
         'allleagues': allleagues,
         'leaguescoaching': leaguescoaching,
         'coachawards': coachawards,
+        'site_settings': site_settings,
         }

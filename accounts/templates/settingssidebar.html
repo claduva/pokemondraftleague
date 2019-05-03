@@ -8,6 +8,15 @@
         <li class="list-group-item list-group-item-light">User</li>
     </a>
     {% endif %}
+    {% if sitesettings %}
+    <a href="{% url 'site_settings' %}">
+        <li class="list-group-item list-group-item-light active">Site</li>
+    </a>
+    {% else %}
+    <a href="{% url 'site_settings' %}">
+        <li class="list-group-item list-group-item-light">Site</li>
+    </a>
+    {% endif %}
     {% if leagueshosted %}
     {% if leagueshostedsettings %}
     <a href="{% url 'leagues_hosted_settings' %}">

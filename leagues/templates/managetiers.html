@@ -21,7 +21,7 @@
             <div class="row content-section">
                 {% for item in pokemontiers %}
                     <div>
-                        <img src="https://play.pokemonshowdown.com/sprites/xyani/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.gif"
+                        <img src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"
                         <p>{{ item.pokemon.pokemon }}</p>
                     </div>
                 {% endfor %}

@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
 
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import *
 
 class SignUp(generic.CreateView):
     form_class = UserRegisterForm
@@ -47,5 +47,23 @@ def settings(request):
         'forms': [u_form,p_form],
         'settingheading': "Update User Info",
         'usersettings': True,
+    }
+    return render(request, 'settings.html',context)
+
+@login_required
+def site_settings(request):
+    if request.method == 'POST':
+        form = SiteSettingUpdateForm(request.POST,instance=request.user.sitesettings)
+        if form.is_valid():
+            form.save()
+            messages.success(request,f'Your settings have been updated!')
+            return redirect('site_settings')
+    else:
+        form = SiteSettingUpdateForm(instance=request.user.sitesettings)
+
+    context = {
+        'forms': [form],
+        'settingheading': "Update Site Settings",
+        'sitesettings': True,
     }
     return render(request, 'settings.html',context)
