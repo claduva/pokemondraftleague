@@ -14,7 +14,9 @@ class profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-spritechoices=[
+class sitesettings(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    sprite = models.CharField(max_length=20,choices=(
         ("xyani.gif","XY Animated"),
         ("xyani-shiny.gif","XY Shiny Animated"),
         ("xyani.png","XY"),
@@ -23,8 +25,5 @@ spritechoices=[
         ("bw-shiny.png","BW Shiny"),
         ("afd.png","April Fools Day"),
         ("afd-shiny.png","April Fools Day Shiny"),
-        ],
-
-class sitesettings(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    sprite = models.CharField(max_length=20,choices=spritechoices,default="xyani.gif")
+        ),
+        default="xyani.gif")
