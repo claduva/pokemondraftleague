@@ -6,9 +6,7 @@ addons:
     packages:
     - postgresql-10
     - postgresql-client-10
-env:
-  global:
-  - PGPORT=5433
+
 install: pip install -r requirements.txt
 script: python manage.py test
 
