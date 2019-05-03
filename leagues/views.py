@@ -277,3 +277,39 @@ def update_tier(request,league_name):
         pokemontoupdate.save()
         messages.success(request,'Tier has been edited!')
     return redirect('manage_tiers',league_name=league_name)
+
+@login_required
+def view_tier(request,league_name,tier):
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.method == 'POST':
+        form = CreateTierForm(request.POST)
+        if form.is_valid() :
+            form.save()
+            messages.success(request,'Tier has been added!')
+            return redirect('manage_tiers',league_name=league_name)
+    else:
+        form = CreateTierForm(initial={'league': league_})
+        pokemontiers=pokemon_tier.objects.filter(league=league_).all().order_by('pokemon__pokemon','tier')
+        leaguestiers=leaguetiers.objects.filter(league=league_).all().order_by('tiername')
+        if tier=="Untiered":
+            pokemonlist=pokemon_tier.objects.filter(league=league_,tier=None).all().order_by('pokemon__pokemon')
+        else:
+            tier=tier.replace("_"," ")
+            tierofinterest=leaguetiers.objects.filter(league=league_,tiername=tier).first()
+            pokemonlist=pokemon_tier.objects.filter(league=league_,tier=tierofinterest).all().order_by('pokemon__pokemon')
+    context = {
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+        'pokemontiers': pokemontiers,
+        'leaguetiers':leaguestiers,
+        'forms': [form],
+        'pokemonlist': pokemonlist
+    }
+    return render(request, 'managetiers.html',context)
