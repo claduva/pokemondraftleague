@@ -52,3 +52,9 @@ class leaguetiers(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE)
     tiername = models.CharField(max_length=20, default="Not Specified")
     tierpoints = models.IntegerField(default=0)
+
+class leaguetiertemplate(models.Model):
+    template = models.CharField(max_length=25, default="Standard Draft League")
+    tiername = models.CharField(max_length=20, default="Not Specified")
+    tierpoints = models.IntegerField(default=0)
+

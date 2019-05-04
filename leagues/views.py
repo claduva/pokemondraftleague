@@ -225,6 +225,7 @@ def manage_tiers(request,league_name):
         'pokemontiers': pokemontiers,
         'leaguetiers':leaguestiers,
         'forms': [form],
+        'managetiers': True,
     }
     return render(request, 'managetiers.html',context)
 
@@ -311,5 +312,50 @@ def view_tier(request,league_name,tier):
         'leaguetiers':leaguestiers,
         'forms': [form],
         'pokemonlist': pokemonlist
+    }
+    return render(request, 'managetiers.html',context)
+
+@login_required
+def default_tiers(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        tier="Untiered"
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.method == 'POST':
+            templatetierset=leaguetiertemplate.objects.all().filter(template=request.POST['template-select'])
+            templatepokemonset=pokemon_tier_template.objects.all().filter(template=request.POST['template-select'])
+            existingtiers=leaguetiers.objects.all().filter(league=league_)
+            existingpokemontiers=pokemon_tier.objects.all().filter(league=league_)
+            for item in existingtiers:
+                item.delete()
+            for item in templatetierset:
+                leaguetiers.objects.create(league=league_,tiername=item.tiername,tierpoints=item.tierpoints)
+            for item in existingpokemontiers:
+                item.delete()
+            for item in templatepokemonset:
+                tiertouse=leaguetiers.objects.get(tiername=item.tier.tiername)
+                pokemon_tier.objects.create(pokemon=item.pokemon,league=league_,tier=tiertouse)
+            messages.success(request,'The template has been applied!')
+            return redirect('manage_tiers',league_name=league_name)
+    else:
+        pokemonlist=pokemon_tier.objects.filter(league=league_,tier=None).all().order_by('pokemon__pokemon')
+        pokemontiers=pokemon_tier.objects.filter(league=league_).all().order_by('pokemon__pokemon','tier')
+        leaguestiers=leaguetiers.objects.filter(league=league_).all().order_by('tiername')
+        availabletemplates=leaguetiertemplate.objects.all().distinct('template')
+        form = CreateTierForm(initial={'league': league_})
+    context = {
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+        'pokemontiers': pokemontiers,
+        'leaguetiers':leaguestiers,
+        'forms': [form],
+        'pokemonlist': pokemonlist,
+        'defaulttemplate': True,
+        'availabletemplates': availabletemplates,
     }
     return render(request, 'managetiers.html',context)

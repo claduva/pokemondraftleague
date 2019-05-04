@@ -20,33 +20,56 @@
     </div>
     <div class="col-md-8">
         <div class="row content-section">
-            <div class="col-md-12">
-                <h3>Update Pokemon's Tier</h3>
+            <div class="col-md-12 d-flex justify-content-between">
+                
+                {% if not defaulttemplate %}
+                    <h3>Update Pokemon's Tier</h3>
+                    <a href="{% url 'default_tiers' league_name=league_name %}"><button class="btn btn-primary">Use Tier Template</button></a>
+                {% else %}
+                    <h3>Select Template</h3>
+                {% endif %}    
             </div>
             <div>
-                <form action="{% url 'update_tier' league_name=league_name %}" method="post">
-                    {% csrf_token %}
-                    <div>
-                        <datalist id="allpokemon">
-                            {% for item in pokemontiers %}
-                            <option value="{{item.pokemon.pokemon}}">
-                            {% endfor %}
-                        </datalist>
-                        <label for="pokemon-select">Choose a Pokemon:</label>
-                        <input id="pokemon-select" list="allpokemon" name="pokemon-select">
-                    </div>
-                    <div>
-                        <label for="tier-select">Choose a tier:</label>
-                        <select id="tier-select" name="tier-select">
-                            {% for item in leaguetiers%}
-                                <option value="{{ item.id }}">{{ item.tiername }} ({{ item.tierpoints }} points)</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div>
-                        <input class="btn btn-primary" type="submit" value="Update">
-                    </div>
-                </form>
+                {% if defaulttemplate %}
+                    <form action="{% url 'default_tiers' league_name=league_name %}" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <label for="template-select">Choose a template:</label>
+                            <select id="template-select" name="template-select">
+                                {% for item in availabletemplates %}
+                                    <option value="{{ item.template }}">{{ item.template }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="Select">
+                        </div>
+                    </form>
+                {% else %}
+                    <form action="{% url 'update_tier' league_name=league_name %}" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <datalist id="allpokemon">
+                                {% for item in pokemontiers %}
+                                <option value="{{item.pokemon.pokemon}}">
+                                {% endfor %}
+                            </datalist>
+                            <label for="pokemon-select">Choose a Pokemon:</label>
+                            <input id="pokemon-select" list="allpokemon" name="pokemon-select">
+                        </div>
+                        <div>
+                            <label for="tier-select">Choose a tier:</label>
+                            <select id="tier-select" name="tier-select">
+                                {% for item in leaguetiers%}
+                                    <option value="{{ item.id }}">{{ item.tiername }} ({{ item.tierpoints }} points)</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="Update">
+                        </div>
+                    </form>
+                {% endif %}
             </div>
         </div>
         <div class="row content-section">
@@ -87,18 +110,20 @@
                 <div>Your league does not currently have any tier definitions.</div>
                 {% endif %}
             </div>
-            <div class="col-md-5">
-                <div>
-                    <h3>Add Tier</h3>
-                </div>
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for form in forms %}
-                    {{ form|crispy  }}
-                    {% endfor %}
-                    <button type="submit" class="btn btn-primary">Add</button>
-                </form>
-            </div>
+                {% if managetiers %}
+                    <div class="col-md-5">
+                        <div>
+                            <h3>Add Tier</h3>
+                        </div>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% for form in forms %}
+                            {{ form|crispy  }}
+                            {% endfor %}
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+                {% endif %}
             {% endif %}
         </div>
         <div class="row">

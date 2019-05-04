@@ -43,3 +43,8 @@ class pokemon_tier(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
     league = models.ForeignKey(league,on_delete=models.CASCADE)
     tier = models.ForeignKey(leaguetiers,on_delete=models.SET_NULL,null=True)
+
+class pokemon_tier_template(models.Model):
+    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
+    template = models.CharField(max_length=25, default="Standard Draft League")
+    tier = models.ForeignKey(leaguetiertemplate,on_delete=models.SET_NULL,null=True)
