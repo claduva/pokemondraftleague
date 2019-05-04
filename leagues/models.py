@@ -6,7 +6,7 @@ from django.core.files.storage import default_storage as storage
 from PIL import Image
 
 class league(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, unique=True)
     host = models.ForeignKey(User, on_delete=models.CASCADE)
     logo = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='league_logos',null=True, blank=True)
 
@@ -44,7 +44,7 @@ class coachdata(models.Model):
     teammate = models.ForeignKey(User, on_delete=models.CASCADE, null=True,related_name='teammate')
 
 class award(models.Model):
-    awardname = models.CharField(max_length=20, default="None")
+    awardname = models.CharField(max_length=20, default="None",unique=True)
     image = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='awards',null=True, blank=True)
     
 class coachaward(models.Model):

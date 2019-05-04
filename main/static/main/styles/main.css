@@ -8,6 +8,7 @@ body{
   border-radius: 3px;
   background-color: rgb(76, 84, 92);
   color:white;
+  margin-bottom:10px;
 }
 
 .sub-body{
@@ -21,4 +22,13 @@ body{
 
 .buttonpadding{
   margin:5px;
+}
+
+.mediumlogo{
+  max-width:100px;
+  max-height:100px;
+}
+
+.content-section button{
+  margin: 5px;
 }

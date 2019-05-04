@@ -8,7 +8,7 @@ from PIL import Image
 from leagues.models import *
 
 class all_pokemon(models.Model):
-    pokemon = models.CharField(max_length=30)
+    pokemon = models.CharField(max_length=30,unique=True)
     hp = models.IntegerField()
     attack = models.IntegerField()
     defense = models.IntegerField()
@@ -26,7 +26,7 @@ class pokemon_ability(models.Model):
     ability = models.CharField(max_length=30)
 
 class moveinfo(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50,unique=True)
     move_typing = models.CharField(max_length=10)
     move_category = models.CharField(max_length=10)
     move_power = models.IntegerField()

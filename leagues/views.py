@@ -14,15 +14,34 @@ from .models import *
 from pokemondatabase.models import *
 
 def league_detail(request,league_name):
-    league_=league.objects.get(name=league_name)
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
     try:
         applications=league_application.objects.get(applicant=request.user)
-        apply=False
+        apply=False   
     except:
-        apply=True
+        try:
+            coachdata.objects.filter(coach=request.user,league_name=league_)
+            apply=False
+        except:
+            apply=True
+    leaguesettings=league_settings.objects.get(league_name=league_)
+    numberofconferences=leaguesettings.number_of_conferences
+    numberofdivisions=leaguesettings.number_of_divisions
+    numberofteams=leaguesettings.number_of_divisions
+    divisionspefconference=int(numberofdivisions/numberofconferences)
+    league_teams=coachdata.objects.all().filter(league_name=league_)
     context = {
         'league': league_,
         'apply': apply,
+        'numberofconferences': range(numberofconferences),
+        'divisionspefconference': range(divisionspefconference),
+        'leaguepage': True,
+        'league_name': league_name,
+        'league_teams': league_teams,
     }
     return render(request, 'league_detail.html',context)
 
@@ -119,35 +138,40 @@ def delete_league(request,league_name):
 @login_required
 def league_apply(request,league_name):
     try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_list')
+    try:
         applications=league_application.objects.get(applicant=request.user)
         messages.error(request,'You have already applied to '+league_name+"!",extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
     except:
         try:
-            league_=league.objects.get(name=league_name)
+            coachdata.objects.filter(coach=request.user,league_name=league_)
+            messages.error(request,'You are already a coach in '+league_name+"!",extra_tags='danger')
+            return redirect('league_detail',league_name=league_name)
         except:
-            messages.error(request,'League does not exist!',extra_tags='danger')
-            return redirect('leagues_list')
-        if league_.league_settings.is_recruiting == False:
-            messages.error(request,league_name+' is not currently accepting applications!',extra_tags='danger')
-            return redirect('leagues_list')
-        if request.method == 'POST':
-            form = LeagueApplicationForm(request.POST)
-            if form.is_valid():
-                form.save()
-                messages.success(request,'You have successfully applied to '+league_name+"!")
-                return redirect('league_detail',league_name=league_name)
-        else:
-            form = LeagueApplicationForm(initial={
-                'applicant': request.user,
-                'league_name': league_
-                })
-            
-        context = {
-            'league': league_,
-            'forms': [form],
-        }
-        return render(request, 'leagueapplication.html',context)
+            if league_.league_settings.is_recruiting == False:
+                messages.error(request,league_name+' is not currently accepting applications!',extra_tags='danger')
+                return redirect('leagues_list')
+            if request.method == 'POST':
+                form = LeagueApplicationForm(request.POST)
+                if form.is_valid():
+                    form.save()
+                    messages.success(request,'You have successfully applied to '+league_name+"!")
+                    return redirect('league_detail',league_name=league_name)
+            else:
+                form = LeagueApplicationForm(initial={
+                    'applicant': request.user,
+                    'league_name': league_
+                    })
+                
+            context = {
+                'league': league_,
+                'forms': [form],
+            }
+            return render(request, 'leagueapplication.html',context)
 
 @login_required
 def manage_coachs(request,league_name):
