@@ -19,7 +19,7 @@ class UpdateLeagueSettingsForm(forms.ModelForm):
 
     class Meta:
         model = league_settings
-        fields = ['is_recruiting','discordurl','number_of_teams','number_of_conferences','number_of_divisions','allows_teams']
+        fields = ['is_recruiting','discordurl','number_of_teams','number_of_conferences','number_of_divisions','draftbudget','allows_teams']
 
 class LeagueApplicationForm(forms.ModelForm):
     
