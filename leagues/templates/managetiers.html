@@ -97,11 +97,11 @@
                     <h5>{{ item.tiername }} ({{ item.tierpoints }} points)</h5>
                     <div class="d-flex">
                         <a href="{% url 'edit_tier' league_name=league_name tierid=item.id %}"><button
-                                class="btn btn-primary">Edit</button></a>
+                                class="btn btn-primary buttonpadding">Edit</button></a>
                         <form action="{% url 'delete_tier' league_name=league_name %}" method="POST">
                             {% csrf_token %}
                             <input type="text" name="tiertodelete" value="{{ item.id }}" hidden>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger buttonpadding">Delete</button>
                         </form>
                     </div>
                 </div>
@@ -132,13 +132,13 @@
                     <div class="row align-items-center justify-content-center">
                         {% for item in leaguetiers%}
                             <div class="col-md-3 d-flex justify-content-center">
-                                <a href="{% url 'view_tier' league_name=league_name tier=item.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ item.tiername }}<br>({{ item.tierpoints }} points)</button></a>
+                                <a href="{% url 'view_tier' league_name=league_name tier=item.tiername|replace:' ,_' %}"><button class="btn btn-primary buttonpadding">{{ item.tiername }}<br>({{ item.tierpoints }} points)</button></a>
                             </div>
                         {% endfor %}
                     </div>
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-3 d-flex justify-content-center">
-                            <a href="{% url 'view_tier' league_name=league_name tier='Untiered' %}"><button class="btn btn-primary">Untiered</button></a>
+                            <a href="{% url 'view_tier' league_name=league_name tier='Untiered' %}"><button class="btn btn-primary buttonpadding">Untiered</button></a>
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center">

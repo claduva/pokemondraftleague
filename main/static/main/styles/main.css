@@ -18,3 +18,7 @@ body{
   max-width:50px;
   max-height:50px;
 }
+
+.buttonpadding{
+  margin:5px;
+}
