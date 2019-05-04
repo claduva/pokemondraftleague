@@ -148,30 +148,35 @@ def league_apply(request,league_name):
         return redirect('league_detail',league_name=league_name)
     except:
         try:
-            coachdata.objects.filter(coach=request.user,league_name=league_)
+            coachdata.objects.filter(teammate=request.user,league_name=league_)
             messages.error(request,'You are already a coach in '+league_name+"!",extra_tags='danger')
             return redirect('league_detail',league_name=league_name)
         except:
-            if league_.league_settings.is_recruiting == False:
-                messages.error(request,league_name+' is not currently accepting applications!',extra_tags='danger')
-                return redirect('leagues_list')
-            if request.method == 'POST':
-                form = LeagueApplicationForm(request.POST)
-                if form.is_valid():
-                    form.save()
-                    messages.success(request,'You have successfully applied to '+league_name+"!")
-                    return redirect('league_detail',league_name=league_name)
-            else:
-                form = LeagueApplicationForm(initial={
-                    'applicant': request.user,
-                    'league_name': league_
-                    })
-                
-            context = {
-                'league': league_,
-                'forms': [form],
-            }
-            return render(request, 'leagueapplication.html',context)
+            try:
+                coachdata.objects.filter(coach=request.user,league_name=league_)
+                messages.error(request,'You are already a coach in '+league_name+"!",extra_tags='danger')
+                return redirect('league_detail',league_name=league_name)
+            except:
+                if league_.league_settings.is_recruiting == False:
+                    messages.error(request,league_name+' is not currently accepting applications!',extra_tags='danger')
+                    return redirect('leagues_list')
+                if request.method == 'POST':
+                    form = LeagueApplicationForm(request.POST)
+                    if form.is_valid():
+                        form.save()
+                        messages.success(request,'You have successfully applied to '+league_name+"!")
+                        return redirect('league_detail',league_name=league_name)
+                else:
+                    form = LeagueApplicationForm(initial={
+                        'applicant': request.user,
+                        'league_name': league_
+                        })
+                    
+                context = {
+                    'league': league_,
+                    'forms': [form],
+                }
+                return render(request, 'leagueapplication.html',context)
 
 @login_required
 def manage_coachs(request,league_name):
