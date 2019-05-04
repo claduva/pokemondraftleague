@@ -19,7 +19,7 @@ class UpdateLeagueSettingsForm(forms.ModelForm):
 
     class Meta:
         model = league_settings
-        fields = ['is_recruiting','discordurl','number_of_teams','number_of_conferences','number_of_divisions']
+        fields = ['is_recruiting','discordurl','number_of_teams','number_of_conferences','number_of_divisions','allows_teams']
 
 class LeagueApplicationForm(forms.ModelForm):
     
@@ -48,3 +48,16 @@ class UpdateTierForm(forms.ModelForm):
         widgets = {
             'league': forms.HiddenInput(),
             }
+
+class UpdateCoachInfoForm(forms.ModelForm):
+
+    class Meta:
+        model = coachdata
+        fields = ['logo','teamabbreviation','teamname']
+
+class UpdateCoachTeammateForm(forms.ModelForm):
+    teammate = forms.ModelChoiceField(queryset=User.objects.all(), required=False)
+
+    class Meta:
+        model = coachdata
+        fields = ['teammate']

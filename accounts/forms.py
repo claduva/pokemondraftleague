@@ -29,3 +29,10 @@ class SiteSettingUpdateForm(forms.ModelForm):
     class Meta:
         model = sitesettings
         fields = ['sprite']
+
+class ShowdowAltAddForm(forms.ModelForm):
+    
+    class Meta:
+        model = showdownalts
+        fields = ['showdownalt']
+        widgets = {'user': forms.HiddenInput()}

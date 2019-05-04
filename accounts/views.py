@@ -42,11 +42,13 @@ def settings(request):
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile) 
+        showdown_alts = showdownalts.objects.all().filter(user=request.user)
 
     context = {
         'forms': [u_form,p_form],
         'settingheading': "Update User Info",
         'usersettings': True,
+        'showdownalts': showdown_alts,
     }
     return render(request, 'settings.html',context)
 
@@ -67,3 +69,11 @@ def site_settings(request):
         'sitesettings': True,
     }
     return render(request, 'settings.html',context)
+
+@login_required
+def add_showdown_alt(request):
+    if request.method == 'POST':
+        alt=request.POST['showdownalt']
+        showdownalts.objects.create(user=request.user,showdownalt=alt)
+        messages.success(request,f'Your account has been updated!')
+        return redirect('settings')

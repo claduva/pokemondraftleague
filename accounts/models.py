@@ -14,6 +14,10 @@ class profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
+class showdownalts(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    showdownalt = models.CharField(max_length=30)
+
 class sitesettings(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     sprite = models.CharField(max_length=20,choices=(

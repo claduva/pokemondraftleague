@@ -199,6 +199,54 @@ def leagues_coaching_settings(request):
     return render(request, 'leaguelist.html',context)
 
 @login_required
+def individual_league_coaching_settings(request,league_name):
+    try:
+        league_instance=league.objects.get(name=league_name)
+        coachinstance=coachdata.objects.filter(league_name=league_instance,coach=request.user).first()
+        settings=league_settings.objects.get(league_name=league_instance)
+        allowsteams=settings.allows_teams
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.method == 'POST':
+        if allowsteams:
+            form = UpdateCoachInfoForm(
+                request.POST,
+                request.FILES,
+                instance=coachinstance
+                )
+            tm_form=UpdateCoachTeammateForm(request.POST,instance=coachinstance)
+            if form.is_valid() and tm_form.is_valid():
+                form.save()
+                tm_form.save()
+                messages.success(request,'Your coach info has been updated!')
+                return redirect('individual_league_coaching_settings',league_name=league_name)
+        else:
+            form = UpdateCoachInfoForm(
+                request.POST,
+                request.FILES,
+                instance=coachinstance
+                )
+            if form.is_valid():
+                form.save()
+                messages.success(request,'Your coach info has been updated!')
+                return redirect('individual_league_coaching_settings',league_name=league_name)
+    else:
+        form = UpdateCoachInfoForm(instance=coachinstance)
+        forms=[]
+        forms.append(form)
+        if allowsteams:
+            tm_form=UpdateCoachTeammateForm(instance=coachinstance)
+            forms.append(tm_form)
+
+    context = {
+        'settingheading': league_name,
+        'forms': forms,
+        'leaguescoachingsettings': True,
+    }
+    return render(request, 'settings.html',context)
+
+@login_required
 def manage_tiers(request,league_name):
     try:
         league_=league.objects.get(name=league_name)

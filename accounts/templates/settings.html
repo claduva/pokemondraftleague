@@ -36,6 +36,22 @@
                     {% endfor %}
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
+                {% if usersettings %}
+                    <h5>Showdown Alts:</h5>
+                    {% if showdownalts %}
+                        {% for item in showdownalts %}
+                            <div>-{{ item.showdownalt }}</div>
+                        {% endfor %}
+                    {% else %}
+                        <div>None</div>
+                    {% endif %}
+                    <h5>Add Showdown Alt:</h5>
+                    <form action="{% url 'addalt' %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="showdownalt">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </form>
+                {% endif %}
                 {% if deletebutton %}
                     <a href="deleteleague"><button class="btn btn-danger">{{deletebutton}}</button></a>
                 {% endif %}

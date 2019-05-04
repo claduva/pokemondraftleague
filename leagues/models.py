@@ -27,6 +27,7 @@ class league_settings(models.Model):
     number_of_conferences = models.IntegerField(default=2)
     number_of_divisions = models.IntegerField(default=2)
     is_recruiting = models.BooleanField(default=True)
+    allows_teams = models.BooleanField(default=False)
     discordurl = models.CharField(max_length=100, default="Not Provided")
 
 class league_application(models.Model):
@@ -39,6 +40,7 @@ class coachdata(models.Model):
     logo = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='team_logos',null=True, blank=True)
     teamabbreviation = models.CharField(max_length=3, default="TBD")
     teamname = models.CharField(max_length=100, default="To Be Determined")
+    teammate = models.ForeignKey(User, on_delete=models.CASCADE, null=True,related_name='teammate')
 
 class award(models.Model):
     awardname = models.CharField(max_length=20, default="None")
