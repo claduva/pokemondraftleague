@@ -27,7 +27,11 @@ def league_detail(request,league_name):
             coachdata.objects.filter(coach=request.user,league_name=league_)
             apply=False
         except:
-            apply=True
+            try:
+                coachdata.objects.filter(teammate=request.user,league_name=league_)
+                apply=False
+            except:
+                apply=True
     leaguesettings=league_settings.objects.get(league_name=league_)
     numberofconferences=leaguesettings.number_of_conferences
     numberofdivisions=leaguesettings.number_of_divisions

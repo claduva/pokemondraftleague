@@ -43,6 +43,13 @@ class coachdata(models.Model):
     teamname = models.CharField(max_length=100, default="To Be Determined")
     teammate = models.ForeignKey(User, on_delete=models.CASCADE, null=True,related_name='teammate')
 
+    def __str__(self):
+        if self.teammate != None:
+            teammate=f' and {self.teammate.username}'
+        else:
+            teammate=''
+        return f'{self.league_name.name}: {self.coach.username}{teammate}'
+
 class award(models.Model):
     awardname = models.CharField(max_length=20, default="None",unique=True)
     image = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='awards',null=True, blank=True)
