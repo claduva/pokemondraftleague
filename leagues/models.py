@@ -26,6 +26,7 @@ class league_settings(models.Model):
     number_of_teams = models.IntegerField(default=16)
     number_of_conferences = models.IntegerField(default=2)
     number_of_divisions = models.IntegerField(default=2)
+    draftbudget = models.IntegerField(default=1000)
     is_recruiting = models.BooleanField(default=True)
     allows_teams = models.BooleanField(default=False)
     discordurl = models.CharField(max_length=100, default="Not Provided")
