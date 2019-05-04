@@ -59,7 +59,7 @@
                 {% if allleagues %}
                 {% for item in allleagues %}
                 <div class="col-md-2">
-                    <a href="{{ item.name }}">
+                    <a href="leagues/{{ item.name }}">
                         <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
                         <div class="d-flex justify-content-center">{{ item.name }}</div>
                     </a>
