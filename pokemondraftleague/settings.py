@@ -19,9 +19,10 @@ if (socket.gethostname().find("local")>-1):
     DEBUG = True
     SECRET_KEY = SECRET_KEY
     SENDGRID_API_KEY = SENDGRID_API_KEY
-    AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
-    AWS_SECRET_ACCESS_KEY = AWS_SECRET_ACCESS_KEY
-    AWS_STORAGE_BUCKET_NAME = AWS_STORAGE_BUCKET_NAME
+    AWS_ACCESS_KEY_ID = CLOUDCUBE_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY = CLOUDCUBE_SECRET_ACCESS_KEY
+    CLOUDCUBE_URL = CLOUDCUBE_URL
+    CUBENAME=CUBENAME
     NAME=NAME
     USER=USER
     PASSWORD=PASSWORD
@@ -30,9 +31,10 @@ else:
     DEBUG = False
     SECRET_KEY = os.environ.get('SECRET_KEY','developmentkey')
     SENDGRID_API_KEY= os.environ.get('SENDGRID_API_KEY')
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+    AWS_ACCESS_KEY_ID = os.environ.get('CLOUDCUBE_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('CLOUDCUBE_SECRET_ACCESS_KEY')
+    CLOUDCUBE_URL = os.environ.get('CLOUDCUBE_URL')
+    CUBENAME = os.environ.get('CUBENAME')
     NAME=os.environ.get('NAME')
     USER=os.environ.get('USER')
     PASSWORD=os.environ.get('PASSWORD')
@@ -159,12 +161,16 @@ EMAIL_USE_TLS= True
 DEFAULT_FROM_EMAIL='pokemondraftleagueonline@gmail.com'
 
 #AWS SETTINGS
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_LOCATION=f'{CUBENAME}/public/media'
+AWS_DEFAULT_ACL='public-read'
+AWS_STORAGE_BUCKET_NAME='cloud-cube'
+AWS_QUERYSTRING_AUTH=False
+AWS_S3_FILE_OVERWRITE=False
+AWS_DEFAULT_ACL = None
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
-AWS_LOCATION = 'static'
-AWS_DEFAULT_ACL = None
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -173,6 +179,5 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #Media files
-PUBLIC_MEDIA_LOCATION = 'media'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-DEFAULT_FILE_STORAGE = 'pokemondraftleague.storage_backends.PublicMediaStorage'
+PUBLIC_MEDIA_LOCATION = 'public/media'
+MEDIA_URL = f'{CLOUDCUBE_URL}/{PUBLIC_MEDIA_LOCATION}/'
