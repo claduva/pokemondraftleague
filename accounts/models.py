@@ -18,6 +18,9 @@ class showdownalts(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     showdownalt = models.CharField(max_length=30)
 
+    def __str__(self):
+        return f'Showdown Alt ({self.showdownalt})for {self.user.username}'
+
 class sitesettings(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     sprite = models.CharField(max_length=20,choices=(
@@ -31,3 +34,6 @@ class sitesettings(models.Model):
         ("afd-shiny.png","April Fools Day Shiny"),
         ),
         default="xyani.gif")
+    
+    def __str__(self):
+        return f'Site settings for {self.user.username}'

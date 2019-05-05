@@ -14,7 +14,7 @@
           aria-expanded="false">Team Pages</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           {% for team in league_teams %}  
-            <a class="dropdown-item" href="#">{{ team.teamname }}</a>
+            <a class="dropdown-item" href="{% url 'team_page' league_name=league_name team_abbreviation=team.teamabbreviation %}">{{ team.teamname }}</a>
           {% endfor %}  
         </div>
       </div>

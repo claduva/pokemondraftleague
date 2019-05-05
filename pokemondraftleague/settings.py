@@ -28,7 +28,7 @@ if (socket.gethostname().find("local")>-1):
     PASSWORD=PASSWORD
     HOST=HOST
 else:
-    DEBUG = False
+    DEBUG = True
     SECRET_KEY = os.environ.get('SECRET_KEY','developmentkey')
     SENDGRID_API_KEY= os.environ.get('SENDGRID_API_KEY')
     AWS_ACCESS_KEY_ID = os.environ.get('CLOUDCUBE_ACCESS_KEY_ID')
@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
     #local apps
     'accounts.apps.AccountsConfig',
+    'individualleague.apps.IndividualleagueConfig',
     'leagues.apps.LeaguesConfig',
     'main.apps.MainConfig',
     'pokemondatabase.apps.PokemondatabaseConfig',

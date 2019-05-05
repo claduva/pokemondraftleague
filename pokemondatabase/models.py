@@ -17,13 +17,22 @@ class all_pokemon(models.Model):
     speed = models.IntegerField()
     is_fully_evolved = models.BooleanField()
 
+    def __str__(self):
+        return f'{self.pokemon}'
+
 class pokemon_type(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
     typing = models.CharField(max_length=15)
 
+    def __str__(self):
+        return f'Typing for {self.pokemon.pokemon}'
+
 class pokemon_ability(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
     ability = models.CharField(max_length=30)
+
+    def __str__(self):
+        return f'Ability for {self.pokemon.pokemon}'
 
 class moveinfo(models.Model):
     name = models.CharField(max_length=50,unique=True)
@@ -35,16 +44,28 @@ class moveinfo(models.Model):
     secondary_effect_chance = models.IntegerField()
     secondary_effect = models.CharField(max_length=100)
 
+    def __str__(self):
+        return f'Moveinfo for {self.name}'
+
 class pokemon_moveset(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
     moveinfo = models.ForeignKey(moveinfo,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Moveset data for {self.pokemon.pokemon}'
 
 class pokemon_tier(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
     league = models.ForeignKey(league,on_delete=models.CASCADE)
     tier = models.ForeignKey(leaguetiers,on_delete=models.SET_NULL,null=True)
 
+    def __str__(self):
+        return f'{self.league.name}: Tiering for {self.pokemon.pokemon}'
+
 class pokemon_tier_template(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
     template = models.CharField(max_length=25, default="Standard Draft League")
     tier = models.ForeignKey(leaguetiertemplate,on_delete=models.SET_NULL,null=True)
+    
+    def __str__(self):
+        return f'Template: {self.template}, Pokemon: {self.pokemon.pokemon}'

@@ -1,4 +1,3 @@
-# accounts/views.py
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
@@ -37,7 +36,7 @@ def league_detail(request,league_name):
     numberofdivisions=leaguesettings.number_of_divisions
     numberofteams=leaguesettings.number_of_divisions
     divisionspefconference=int(numberofdivisions/numberofconferences)
-    league_teams=coachdata.objects.all().filter(league_name=league_)
+    league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     context = {
         'league': league_,
         'apply': apply,
@@ -309,6 +308,37 @@ def manage_tiers(request,league_name):
         'managetiers': True,
     }
     return render(request, 'managetiers.html',context)
+
+@login_required
+def manage_seasons(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.method == 'POST':
+        form = CreateTierForm(request.POST)
+        if form.is_valid() :
+            form.save()
+            messages.success(request,'Tier has been added!')
+            return redirect('manage_tiers',league_name=league_name)
+    else:
+        try:
+            seasonsettings=seasonsetting.objects.get(league=league_)
+            form = CreateSeasonSettingsForm(instance=seasonsettings)
+        except:
+            seasonsettings=None
+            form = CreateSeasonSettingsForm(initial={'league': league_})
+    context = {
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+        'forms': [form],
+        'seasonsettings': seasonsettings,
+    }
+    return render(request, 'settings.html',context)
 
 @login_required
 def delete_tier(request,league_name):

@@ -19,7 +19,7 @@ class UpdateLeagueSettingsForm(forms.ModelForm):
 
     class Meta:
         model = league_settings
-        fields = ['is_recruiting','discordurl','number_of_teams','number_of_conferences','number_of_divisions','draftbudget','allows_teams']
+        fields = ['is_recruiting','discordurl','number_of_teams','number_of_conferences','number_of_divisions','allows_teams']
 
 class LeagueApplicationForm(forms.ModelForm):
     
@@ -61,3 +61,12 @@ class UpdateCoachTeammateForm(forms.ModelForm):
     class Meta:
         model = coachdata
         fields = ['teammate']
+
+class CreateSeasonSettingsForm(forms.ModelForm):
+
+    class Meta:
+        model = seasonsetting
+        fields = ['league','draftbudget','picksperteam','seasonlength','freeagenciesallowed','tradesallowed']
+        widgets = {
+            'league': forms.HiddenInput(),
+            }

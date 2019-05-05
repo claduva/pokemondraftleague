@@ -1,0 +1,35 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{league.name}}: {{team.teamname}}{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{team.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">{{ team.teamname }}</h3>
+        <div class="d-flex justify-content-center">Coached by {{ team.coach }}
+            {% if team.teammate %}
+            and {{team.teammate}}
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+        <div class="d-flex justify-content-center text-danger">Teampage</div>
+    </div>
+</div>
+<div class="row content-section align-items-center">
+    <div class="col-md-12">
+        <h4>Roster</h4>
+        <div class="row align-items-center">
+            <div class="col-md-12">
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
