@@ -20,6 +20,11 @@ body{
   max-height:50px;
 }
 
+.smallsprite{
+  max-width:25px;
+  max-height:25px;
+}
+
 .buttonpadding{
   margin:5px;
 }

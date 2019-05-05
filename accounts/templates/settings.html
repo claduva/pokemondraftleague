@@ -29,14 +29,30 @@
                             <a href="manageseasons"><button class="btn btn-primary">Manage Seasons</button></a>
                         </div>
                     {% endif %}
+                    {% if manageseason %}
+                        <div>
+                            <a href=""><button class="btn btn-primary">Archive Season</button></a>
+                            <a href=""><button class="btn btn-primary">Delete Season</button></a>
+                        </div>
+                    {% endif %}
                 </div>
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for form in forms %}
-                        {{ form|crispy  }}
-                    {% endfor %}
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </form>
+                    {% if create %}
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% for form in forms %}
+                                {{ form|crispy  }}
+                            {% endfor %}
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </form>
+                    {% else %}
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for form in forms %}
+                            {{ form|crispy  }}
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                    {% endif %}
                 {% if usersettings %}
                     <h5>Add Showdown Alt:</h5>
                     <form action="{% url 'addalt' %}" method="post">

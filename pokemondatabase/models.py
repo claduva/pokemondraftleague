@@ -5,7 +5,7 @@ from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
 from PIL import Image
 
-from leagues.models import *
+from leagues.models import league,leaguetiers,leaguetiertemplate
 
 class all_pokemon(models.Model):
     pokemon = models.CharField(max_length=30,unique=True)

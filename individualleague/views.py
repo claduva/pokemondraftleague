@@ -10,6 +10,7 @@ from django.contrib import messages
 
 from .models import *
 from pokemondatabase.models import *
+from leagues.models import *
 
 def team_page(request,league_name,team_abbreviation):
     try:
@@ -19,6 +20,12 @@ def team_page(request,league_name,team_abbreviation):
         return redirect('league_list')
     try:
         team=coachdata.objects.filter(league_name=league_,teamabbreviation=team_abbreviation).first()
+        try:
+            season=seasonsetting.objects.get(league=league_)
+            teamroster=roster.objects.all().filter(season=season,team=team)
+        except:
+            teamroster=None
+        
     except:
         messages.error(request,'Team does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name) 
@@ -29,6 +36,7 @@ def team_page(request,league_name,team_abbreviation):
         'league_name': league_name,
         'league_teams': league_teams,
         'team': team,
+        'roster': teamroster,
     }
     return render(request, 'teampage.html',context)
 

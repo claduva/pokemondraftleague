@@ -319,24 +319,52 @@ def manage_seasons(request,league_name):
     if request.user != league_.host:
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
+    leaguesettings=league_settings.objects.get(league_name=league_)
+    needednumberofcoaches=leaguesettings.number_of_teams
+    currentcoaches=coachdata.objects.filter(league_name=league_)
+    currentcoachescount=len(currentcoaches)
+    if needednumberofcoaches != currentcoachescount: 
+        messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
+        return redirect('individual_league_settings',league_name=league_name)
     if request.method == 'POST':
-        form = CreateTierForm(request.POST)
-        if form.is_valid() :
-            form.save()
-            messages.success(request,'Tier has been added!')
-            return redirect('manage_tiers',league_name=league_name)
+        try:
+            seasonsettings=seasonsetting.objects.get(league=league_)
+            form = EditSeasonSettingsForm(request.POST,instance=seasonsettings)
+            if form.is_valid() :
+                #form.save()
+                messages.success(request,'Season settings have been updated!')
+                return redirect('manage_seasons',league_name=league_name)
+        except:    
+            form = CreateSeasonSettingsForm(request.POST)
+            if form.is_valid() :
+                thisseason=form.save()
+                picksperteam=form.cleaned_data['picksperteam']
+                for coach in currentcoaches:
+                    for i in range(picksperteam):
+                        roster.objects.create(season=thisseason,team=coach)
+                messages.success(request,'Your season has been created!')
+                return redirect('manage_seasons',league_name=league_name)
     else:
         try:
             seasonsettings=seasonsetting.objects.get(league=league_)
-            form = CreateSeasonSettingsForm(instance=seasonsettings)
+            form = EditSeasonSettingsForm(instance=seasonsettings)
+            settingheading='Update Season Settings'
+            create=False
+            manageseason=True
         except:
             seasonsettings=None
             form = CreateSeasonSettingsForm(initial={'league': league_})
+            settingheading='Create New Season'
+            create=True
+            manageseason=False
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
         'forms': [form],
         'seasonsettings': seasonsettings,
+        'settingheading': settingheading,
+        'create': create,
+        'manageseason': manageseason,
     }
     return render(request, 'settings.html',context)
 

@@ -66,7 +66,13 @@ class CreateSeasonSettingsForm(forms.ModelForm):
 
     class Meta:
         model = seasonsetting
-        fields = ['league','draftbudget','picksperteam','seasonlength','freeagenciesallowed','tradesallowed']
+        fields = ['league','seasonname','draftbudget','drafttype','picksperteam','seasonlength','freeagenciesallowed','tradesallowed']
         widgets = {
             'league': forms.HiddenInput(),
             }
+
+class EditSeasonSettingsForm(forms.ModelForm):
+
+    class Meta:
+        model = seasonsetting
+        fields = ['seasonname','draftbudget','drafttype','seasonlength','freeagenciesallowed','tradesallowed']

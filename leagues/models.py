@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
-from PIL import Image
 
 class league(models.Model):
     name = models.CharField(max_length=30, unique=True)
@@ -79,11 +78,39 @@ class leaguetiertemplate(models.Model):
 
 class seasonsetting(models.Model):
     league = models.OneToOneField(league, on_delete=models.CASCADE)
+    seasonname= models.CharField(max_length=25, default="Season 1")
     draftbudget = models.IntegerField(default=1080)
     picksperteam = models.IntegerField(default=12)
+    drafttype = models.CharField(max_length=25, choices=(
+        ("Snake","Snake"),
+        ),
+        default="Snake")
     seasonlength = models.IntegerField(default=7)
     freeagenciesallowed= models.IntegerField(default=4)
     tradesallowed= models.IntegerField(default=4)
 
     def __str__(self):
-        return f'Template: {self.template}, Tiername: {self.tiername}'
+        return f'League: {self.league.name}, Season: {self.seasonname}'
+
+from pokemondatabase.models import all_pokemon
+
+class roster(models.Model):
+    season = models.ForeignKey(seasonsetting, on_delete=models.CASCADE)
+    team = models.ForeignKey(coachdata, on_delete=models.CASCADE,null=True)
+    pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True)
+    kills = models.IntegerField(default=0)
+    deaths =  models.IntegerField(default=0)
+    differential = models.IntegerField(default=0)
+    gp = models.IntegerField(default=0)
+    gw = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'Roster for League: {self.season.league.name}, Season: {self.season.seasonname}'
+
+class draft(models.Model):
+    season = models.ForeignKey(seasonsetting, on_delete=models.CASCADE)
+    team = models.ForeignKey(coachdata, on_delete=models.CASCADE,null=True)
+    pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Draft For {self.pokemon.pokemon}, League: {self.season.league.name}, Season: {self.season.seasonname}'
