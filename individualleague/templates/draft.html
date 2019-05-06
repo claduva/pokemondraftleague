@@ -8,12 +8,21 @@
 {% endblock %}
 {% block body %}
 
-{% if draftactive %}
+
 <div class="row content-section align-items-center">
+    <div class="container">
+        <h5>Draft Progress</h5>
+        <div class="progress">
+            <div class="progress-bar bg-success style-width-{{ draftprogress }}" role="progressbar" aria-valuenow="{{ draftprogress }}" aria-valuemin="0" aria-valuemax="100">
+                <span>{{ draftprogress }}% Complete</span>
+            </div>
+        </div>
+    </div>
+    {% if draftactive %}
     <div class="col-md-4 d-flex justify-content-start">
         <div>
             <h5>Current drafting team: {{ currentpick.team.teamname }}</h5>
-            {% if currentpick.team.coach is request.user or currentpick.team.teammate is request.user or league.host is request.user %}
+            {% if currentpick.team.coach is request.user or currentpick.team.teammate is request.user or request.user.is_staff %}
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <datalist id="availablepokemons">
@@ -33,8 +42,8 @@
     <div class="col-md-4 d-flex justify-content-end">
         <div class="d-flex justify-content-center">Time Remaining</div>
     </div>
+    {% endif %}
 </div>
-{% endif %}
 <div class="row content-section align-items-center">
     <div class="col-md-12">
         {% for item in draftlist %}

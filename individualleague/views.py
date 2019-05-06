@@ -8,6 +8,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
 
+import math
+
 from .models import *
 from leagues.models import *
 from pokemondatabase.models import *
@@ -45,6 +47,7 @@ def team_page(request,league_name,team_abbreviation):
 def league_draft(request,league_name):
     try:
         league_=league.objects.get(name=league_name)
+        print(request.user==league_.host)
         league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
@@ -56,6 +59,9 @@ def league_draft(request,league_name):
         return redirect('league_detail',league_name=league_name)
     try:
         draftlist=draft.objects.all().filter(season=season).order_by('id') 
+        draftsize=draftlist.count()
+        picksremaining=draftlist.filter(pokemon__isnull=True).count()
+        draftprogress=int(math.floor((draftsize-picksremaining)/draftsize*100))
     except:
         messages.error(request,'Draft does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
@@ -109,6 +115,51 @@ def league_draft(request,league_name):
         'currentpick':currentpick,
         'availablepokemon': availablepokemon,
         'draftactive': draftactive,
-        'availablepoints':availablepoints
+        'availablepoints':availablepoints,
+        'draftprogress':draftprogress,
+        'progressstyle' : f'style=width: {draftprogress}%'
     }
     return render(request, 'draft.html',context)
+
+@login_required
+def create_match(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    leaguesettings=league_settings.objects.get(league_name=league_)
+    needednumberofcoaches=leaguesettings.number_of_teams
+    currentcoaches=coachdata.objects.filter(league_name=league_)
+    currentcoachescount=len(currentcoaches)
+    try:
+        seasonsettings=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if needednumberofcoaches != currentcoachescount: 
+        messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
+        return redirect('individual_league_settings',league_name=league_name)
+    if request.method == 'POST':   
+        form = CreateMatchForm(seasonsettings,league_,request.POST)
+        if form.is_valid() :
+            form.save()
+            messages.success(request,'That match has been added!')
+        return redirect('create_match',league_name=league_name)
+    form = CreateMatchForm(seasonsettings,league_,initial={'season':seasonsettings})
+    settingheading='Create New Match'
+    create=True
+    manageseason=False
+    context = {
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+        'forms': [form],
+        'seasonsettings': seasonsettings,
+        'settingheading': settingheading,
+        'create': create,
+        'manageseason': manageseason,
+    }
+    return render(request, 'settings.html',context)

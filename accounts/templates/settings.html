@@ -32,6 +32,7 @@
                     {% if manageseason %}
                         <div>
                             <a href="{% url 'set_draft_order' league_name=league_name %}"><button class="btn btn-primary">Set Draft Order</button></a>
+                            <a href="{% url 'create_match' league_name=league_name %}"><button class="btn btn-primary">Create Match</button></a>
                             <a href=""><button class="btn btn-warning">Archive Season</button></a>
                             <a href=""><button class="btn btn-danger">Delete Season</button></a>
                         </div>
