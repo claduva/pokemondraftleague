@@ -331,7 +331,7 @@ def manage_seasons(request,league_name):
             seasonsettings=seasonsetting.objects.get(league=league_)
             form = EditSeasonSettingsForm(request.POST,instance=seasonsettings)
             if form.is_valid() :
-                #form.save()
+                form.save()
                 messages.success(request,'Season settings have been updated!')
                 return redirect('manage_seasons',league_name=league_name)
         except:    
@@ -498,3 +498,53 @@ def default_tiers(request,league_name):
         'availabletemplates': availabletemplates,
     }
     return render(request, 'managetiers.html',context)
+
+@login_required
+def set_draft_order(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    leaguesettings=league_settings.objects.get(league_name=league_)
+    needednumberofcoaches=leaguesettings.number_of_teams
+    currentcoaches=coachdata.objects.filter(league_name=league_).order_by('teamname')
+    currentcoachescount=len(currentcoaches)
+    try:
+        seasonsettings=seasonsetting.objects.get(league=league_)
+        draftstyle=seasonsettings.drafttype  
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('individual_league_settings',league_name=league_name)
+    if needednumberofcoaches != currentcoachescount: 
+        messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
+        return redirect('individual_league_settings',league_name=league_name)
+    if request.method == 'POST':
+        currentdraft=draft.objects.all().filter(season=seasonsettings)
+        for item in currentdraft:
+            item.delete()
+        if draftstyle=="Snake":
+            order=[]
+            for i in range(needednumberofcoaches):
+                order.append(coachdata.objects.filter(teamname=request.POST[str(i+1)],league_name=league_).first())
+            flippedorder=order[::-1]
+            numberofpicks=seasonsettings.picksperteam
+            for i in range(numberofpicks):
+                if i%2 == 0:
+                    for item in order:
+                        draft.objects.create(season=seasonsettings,team=item)
+                else:    
+                    for item in flippedorder:
+                        draft.objects.create(season=seasonsettings,team=item)
+        messages.success(request,'Draft order has been set!')
+        return redirect('individual_league_settings',league_name=league_name)        
+    context = {
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+        'settingheading': 'Set Draft Order',
+        'currentcoaches': currentcoaches,
+    }
+    return render(request, 'draftorder.html',context)

@@ -110,7 +110,8 @@ class roster(models.Model):
 class draft(models.Model):
     season = models.ForeignKey(seasonsetting, on_delete=models.CASCADE)
     team = models.ForeignKey(coachdata, on_delete=models.CASCADE,null=True)
-    pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE)
+    pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True)
+    pickstart= models.DateTimeField(default=None, null=True)
 
     def __str__(self):
         return f'Draft For {self.pokemon.pokemon}, League: {self.season.league.name}, Season: {self.season.seasonname}'

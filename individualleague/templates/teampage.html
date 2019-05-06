@@ -26,20 +26,23 @@
 <div class="row content-section align-items-center">
     <div class="col-md-12">
         <h4>Roster</h4>
-        <table class="table">
-            <tr>
-                <th>Pokemon</th>
-                <th>Kills</th>
-                <th>Death</th>
-                <th>Differential</th>
-                <th>GP</th>
-                <th>GW</th>
-            </tr>
+        <table class="table table-sm" table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Pokemon</th>
+                    <th>K</th>
+                    <th>D</th>
+                    <th>+/-</th>
+                    <th>GP</th>
+                    <th>GW</th>
+                </tr>
+            </thead>
+            <tbody>
             {% for item in roster %}
                 <tr>
                     <td>
                         {% if item.pokemon.pokemon %}
-                            <div>
+                            <div class="d-flex">
                                 <img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
                                 <p>{{ item.pokemon.pokemon }}</p>
                             </div>
@@ -56,6 +59,7 @@
                     <td>{{ item.gw }}</td>
                 </tr>
             {% endfor %}
+            </tbody>
         </table>
         </div>
     </div>

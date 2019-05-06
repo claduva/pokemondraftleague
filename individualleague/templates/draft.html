@@ -1,0 +1,45 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{league.name}}: Draft{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+
+{% if draftactive %}
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start">
+        <div>
+            <h5>Current drafting team: {{ currentpick.team.teamname }}</h5>
+            {% if currentpick.team.coach is request.user or currentpick.team.teammate is request.user or request.user.is_staff %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <datalist id="availablepokemons">
+                    {% for item in availablepokemon %}
+                    <option value="{{ item.pokemon }}">
+                        {% endfor %}
+                </datalist>
+                <input list="availablepokemons" name="draftpick">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="d-flex justify-content-center">Points Remaining: {{ availablepoints }}</div>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+        <div class="d-flex justify-content-center">Time Remaining</div>
+    </div>
+</div>
+{% endif %}
+<div class="row content-section align-items-center">
+    <div class="col-md-12">
+        {% for item in draftlist %}
+        <div>{{item.id|add:draftstartid }}. {{item.team.teamname}}: {{item.pokemon.pokemon}}</div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
