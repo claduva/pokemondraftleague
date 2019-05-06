@@ -64,15 +64,6 @@ def league_draft(request,league_name):
                         pointsused+=tier.tier.tierpoints
                 budget=season.draftbudget
                 availaplepoints=budget-pointsused
-                availablepokemon=all_pokemon.objects.all().order_by('pokemon')
-                for item in availablepokemon:
-                    tiering=pokemon_tier.objects.all().filter(league=league_,pokemon=item).first()
-                    if tiering.tier.tiername=="Banned":
-                        availablepokemon=availablepokemon.all().exclude(pokemon=item)
-                    else:
-                        rosteritem=roster.objects.filter(season=season,pokemon=item).first()
-                        if rosteritem != None:
-                            availablepokemon=availablepokemon.all().exclude(pokemon=item)
                 if request.method == "POST":
                     try:
                         draftpick=all_pokemon.objects.get(pokemon=request.POST['draftpick'])
@@ -90,6 +81,15 @@ def league_draft(request,league_name):
                     rosterspot.save()
                     messages.success(request,'Your draft pick has been saved!')
                     return redirect('league_draft',league_name=league_name)
+                availablepokemon=all_pokemon.objects.all().order_by('pokemon')
+                for item in availablepokemon:
+                    tiering=pokemon_tier.objects.all().filter(league=league_,pokemon=item).first()
+                    if tiering.tier.tiername=="Banned":
+                        availablepokemon=availablepokemon.all().exclude(pokemon=item)
+                    else:
+                        rosteritem=roster.objects.filter(season=season,pokemon=item).first()
+                        if rosteritem != None:
+                            availablepokemon=availablepokemon.all().exclude(pokemon=item)
             except:
                 draftactive=False
         except:
