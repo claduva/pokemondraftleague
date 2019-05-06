@@ -91,6 +91,7 @@ def league_draft(request,league_name):
                         if rosteritem != None:
                             availablepokemon=availablepokemon.all().exclude(pokemon=item)
             except:
+                availablepokemon=availablepokemon.none()
                 draftactive=False
         except:
             messages.error(request,'Draft does not exist!',extra_tags='danger')
