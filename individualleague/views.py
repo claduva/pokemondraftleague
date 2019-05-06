@@ -93,6 +93,7 @@ def league_draft(request,league_name):
             except:
                 availablepokemon=availablepokemon.none()
                 draftactive=False
+                return redirect('league_draft',league_name=league_name)
         except:
             messages.error(request,'Draft does not exist!',extra_tags='danger')
             return redirect('league_detail',league_name=league_name)
