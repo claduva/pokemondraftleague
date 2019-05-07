@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <div class="d-flex justify-content-center">View Matchup</div>
+                            <div class="d-flex justify-content-center"><a href="{% url 'league_matchup' league_name=league_name matchid=match.id %}">View Matchup</a></div>
                         </td>
                     </tr>
                 {% endfor %}

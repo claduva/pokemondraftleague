@@ -193,6 +193,113 @@ def league_schedule(request,league_name):
     }
     return render(request, 'schedule.html',context)
 
+def league_matchup(request,league_name,matchid):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    try:
+        match=schedule.objects.get(id=matchid)
+    except:
+        messages.error(request,'Match does not exist!',extra_tags='danger')
+        return redirect('league_schedule',league_name=league_name)
+    team1roster_=roster.objects.filter(season=season,team=match.team1).order_by('pokemon__pokemon')
+    team1roster=[]
+    defog=[]
+    rapidspin=[]
+    sr=[]
+    spikes=[]
+    tspikes=[]
+    stickyweb=[]
+    healbell=[]
+    wish=[]
+    for item in team1roster_:
+        typing=pokemon_type.objects.all().filter(pokemon=item.pokemon)
+        abilities=pokemon_ability.objects.all().filter(pokemon=item.pokemon)
+        basespeed=item.pokemon.speed
+        base50=math.floor((((2*basespeed+31+252/4)*50)/100+5)*1.1)
+        base100=math.floor((((2*basespeed+31+252/4)*100)/100+5)*1.1)
+        speeds=[math.floor(base50*2/3),base50,math.floor(base50*3/2),math.floor(base50*2),math.floor(base100*2/3),base100,math.floor(base100*3/2),math.floor(base100*2)]
+        team1roster.append([item,typing,abilities,speeds])
+        moveset=pokemon_moveset.objects.all().filter(pokemon=item.pokemon)
+        for move in moveset:
+            if move.moveinfo.name=="Defog":
+                defog.append(item)
+            if move.moveinfo.name=="Rapid Spin":
+                rapidspin.append(item)
+            if move.moveinfo.name=="Stealth Rock":
+                sr.append(item)
+            if move.moveinfo.name=="Spikes":
+                spikes.append(item)
+            if move.moveinfo.name=="Toxic Spikes":
+                tspikes.append(item)
+            if move.moveinfo.name=="Sticky Web":
+                stickyweb.append(item)
+            if move.moveinfo.name=="Aromatherapy" or move.moveinfo.name=="Heal Bell":
+                healbell.append(item)
+            if move.moveinfo.name=="Wish":
+                wish.append(item)
+    team1moves=[['Stealth Rock',sr],['Spikes',spikes],['Toxic Spikes',tspikes],['Sticky Web',stickyweb],['Defog',defog],['Rapid Spin',rapidspin],['Heal Bell/Aromatherapy',healbell],['Wish',wish]]
+
+    team2roster_=roster.objects.filter(season=season,team=match.team2).order_by('pokemon__pokemon')
+    team2roster=[]
+    defog=[]
+    rapidspin=[]
+    sr=[]
+    spikes=[]
+    tspikes=[]
+    stickyweb=[]
+    healbell=[]
+    wish=[]
+    for item in team2roster_:
+        typing=pokemon_type.objects.all().filter(pokemon=item.pokemon)
+        abilities=pokemon_ability.objects.all().filter(pokemon=item.pokemon)
+        basespeed=item.pokemon.speed
+        base50=math.floor((((2*basespeed+31+252/4)*50)/100+5)*1.1)
+        base100=math.floor((((2*basespeed+31+252/4)*100)/100+5)*1.1)
+        speeds=[math.floor(base50*2/3),base50,math.floor(base50*3/2),math.floor(base50*2),math.floor(base100*2/3),base100,math.floor(base100*3/2),math.floor(base100*2)]
+        team2roster.append([item,typing,abilities,speeds])
+        moveset=pokemon_moveset.objects.all().filter(pokemon=item.pokemon)
+        for move in moveset:
+            if move.moveinfo.name=="Defog":
+                defog.append(item)
+            if move.moveinfo.name=="Rapid Spin":
+                rapidspin.append(item)
+            if move.moveinfo.name=="Stealth Rock":
+                sr.append(item)
+            if move.moveinfo.name=="Spikes":
+                spikes.append(item)
+            if move.moveinfo.name=="Toxic Spikes":
+                tspikes.append(item)
+            if move.moveinfo.name=="Sticky Web":
+                stickyweb.append(item)
+            if move.moveinfo.name=="Aromatherapy" or move.moveinfo.name=="Heal Bell":
+                healbell.append(item)
+            if move.moveinfo.name=="Wish":
+                wish.append(item)
+    team2moves=[['Stealth Rock',sr],['Spikes',spikes],['Toxic Spikes',tspikes],['Sticky Web',stickyweb],['Defog',defog],['Rapid Spin',rapidspin],['Heal Bell/Aromatherapy',healbell],['Wish',wish]]
+
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'match': match,
+        'team1roster': team1roster,
+        'team2roster': team2roster,
+        'team1moves': team1moves,
+        'team2moves': team2moves,
+    }
+    return render(request, 'matchup.html',context)
+
+
 def league_rules(request,league_name):
     try:
         league_=league.objects.get(name=league_name)
