@@ -22,13 +22,9 @@
             <table class="table table-sm">
                 {% for match in item %}
                     <tr>
-                        <td>{{ match.team1.teamabbreviation }}<td>
+                        <td><img class="rounded-circle mediumsprite" src="{{ match.team1.logo.url }}"><td>
                         <td>vs.</td>
-                        <td>{{ match.team2.teamabbreviation }}</td>
-                    </tr>
-                    <tr>
-                        <td>Replay:</td>
-                        <td colspan=2></td>
+                        <td><img class="rounded-circle mediumsprite" src="{{ match.team2.logo.url }}"</td>
                     </tr>
                 {% endfor %}
             </table>
