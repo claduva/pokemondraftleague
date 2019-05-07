@@ -155,6 +155,7 @@ def create_match(request,league_name):
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
+        'league_teams': league_teams,
         'forms': [form],
         'seasonsettings': seasonsettings,
         'settingheading': settingheading,
@@ -182,6 +183,7 @@ def league_schedule(request,league_name):
     context = {
         'league': league_,
         'leaguepage': True,
+        'league_teams': league_teams,
         'league_name': league_name,
         'leagueschedule': leagueschedule,
     }
