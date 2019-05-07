@@ -23,11 +23,11 @@
           aria-haspopup="true" aria-expanded="false">League Resources</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="{% url 'league_schedule' league_name=league_name %}">Schedule</a>
-          <a class="dropdown-item" href="#">Tiers</a>
+          <a class="dropdown-item" href="{% url 'league_tiers' league_name=league_name %}">Tiers</a>
           <a class="dropdown-item" href="#">Available Pokemon</a>
           <a class="dropdown-item" href="{% url 'league_draft' league_name=league_name %}">Draft</a>
           <a class="dropdown-item" href="#">League Leaders</a>
-          <a class="dropdown-item" href="#">Rules</a>
+          <a class="dropdown-item" href="{% url 'league_rules' league_name=league_name %}">Rules</a>
           <a class="dropdown-item" href="#">Hall of Fame</a>
         </div>
       </div>

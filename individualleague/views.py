@@ -65,6 +65,7 @@ def league_draft(request,league_name):
     except:
         messages.error(request,'Draft does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
+    is_host=(request.user==league_.host)
     currentpick=draftlist.filter(pokemon__isnull=True).first()
     if currentpick==None:
         draftactive=False
@@ -117,6 +118,7 @@ def league_draft(request,league_name):
         'draftactive': draftactive,
         'availablepoints':availablepoints,
         'draftprogress':draftprogress,
+        'is_host': is_host,
     }
     return render(request, 'draft.html',context)
 
@@ -190,3 +192,96 @@ def league_schedule(request,league_name):
         'leagueschedule': leagueschedule,
     }
     return render(request, 'schedule.html',context)
+
+def league_rules(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    ruleset=rule.objects.get(season=season)
+    is_host=(request.user==league_.host)
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'ruleset': ruleset,
+        'is_host': is_host,
+    }
+    return render(request, 'rules.html',context)
+
+def league_tiers(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    tiers=leaguetiers.objects.all().filter(league=league_).order_by('-tierpoints')
+    mega=[]
+    tierlist=[]
+    banned=False
+    for item in tiers:
+        tieritems=pokemon_tier.objects.all().filter(tier=item).order_by('pokemon__pokemon')
+        if item.tiername.find("Mega")>-1:
+            mega.append([item,tieritems])
+            
+        elif item.tiername.find("Banned")>-1:
+            banned=True
+           
+        else:
+            tierlist.append([item,tieritems])
+    
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'tiers': tierlist,
+        'mega': mega,
+        'banned': banned,
+    }
+    return render(request, 'tiers.html',context)
+
+def individual_league_tier(request,league_name,tiername):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    try:
+        tiername=tiername.replace("_"," ")
+        tierofinterest=leaguetiers.objects.all().filter(league=league_).get(tiername=tiername)
+        tiers=pokemon_tier.objects.all().filter(tier=tierofinterest).order_by('pokemon__pokemon')
+        alltiers=leaguetiers.objects.all().filter(league=league_).exclude(tiername=tiername).order_by('-tierpoints')
+    except:
+        messages.error(request,'Tier does not exist!',extra_tags='danger')
+        return redirect('league_tiers',league_name=league_name)
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'tier': tiername,
+        'tiers':tiers,
+        'alltiers': alltiers,
+    }
+    return render(request, 'individualtier.html',context)

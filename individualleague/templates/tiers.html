@@ -1,0 +1,65 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{league.name}}: Tiers{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">Tiers</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
+    <div class="col-md-12 d-flex justify-content-center">
+        {% for x,y in tiers %}
+            <a href="{% url 'individual_league_tier' league_name=league_name tiername=x.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ x.tiername }}</button></a>
+        {% endfor %}
+        {% if mega %}
+            {% for x,y in mega %}
+                <a href="{% url 'individual_league_tier' league_name=league_name tiername=x.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ x.tiername }}</button></a>
+            {% endfor %}
+        {% endif %}
+        {% if banned %}
+            <a href="{% url 'individual_league_tier' league_name=league_name tiername='Banned' %}"><button class="btn btn-primary">Banned</button></a>
+        {% endif %}
+    </div>
+</div>
+<div class="row content-section">
+    {% for x,y in tiers %}
+        <div class="col-md">
+                <table class="table table-sm d-flex justify-content-center">
+                    <tr>
+                        <th colspan="2">{{x.tiername}} ({{x.tierpoints}})</th>
+                    </tr>
+                    {% for item in y %}
+                        <tr>
+                            <td><img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></td>
+                            <td>{{item.pokemon.pokemon}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+        </div>
+    {% endfor %}
+    {% if mega %}
+    <div class="col-md">
+        {% for x,y in mega %}
+           <table class="table table-sm d-flex justify-content-center">
+                <tr>
+                    <th colspan="2">{{x.tiername}} ({{x.tierpoints}})</th>
+                </tr>
+                {% for item in y %}
+                    <tr>
+                        <td><img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></td>
+                        <td>{{item.pokemon.pokemon}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endfor %}    
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

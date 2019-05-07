@@ -22,7 +22,7 @@
     <div class="col-md-4 d-flex justify-content-start">
         <div>
             <h5>Current drafting team: {{ currentpick.team.teamname }}</h5>
-            {% if currentpick.team.coach is request.user or currentpick.team.teammate is request.user or request.user.is_staff %}
+            {% if currentpick.team.coach is request.user or currentpick.team.teammate is request.user or is_host %}
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <datalist id="availablepokemons">

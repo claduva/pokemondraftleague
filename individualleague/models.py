@@ -23,3 +23,9 @@ class schedule(models.Model):
     def __str__(self):
         return f'{self.season.league.name} Week {self.week} match between {self.team1.teamabbreviation} vs. {self.team1.teamabbreviation}'
 
+class rule(models.Model):
+    season = models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
+    rules=models.TextField(default="No rules announced")
+
+    def __str__(self):
+        return f'Rules for {self.season.league.name}'

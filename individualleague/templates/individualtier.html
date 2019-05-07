@@ -1,0 +1,35 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{league.name}}: Tiers{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">Tiers: {{ tier }}</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-12 d-flex justify-content-center">
+        {% for item in alltiers %}
+        <a href="{% url 'individual_league_tier' league_name=league_name tiername=item.tiername|replace:' ,_' %}"><button
+                class="btn btn-primary">{{ item.tiername }}</button></a>
+        {% endfor %}
+    </div>
+</div>
+<div class="row content-section">
+    {% for item in tiers %}
+        <div class="col-md-2 card text-white bg-dark text-center">
+            <div><img class="card-img-top mediumsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+            <div class="card-body">
+                <div>{{item.pokemon.pokemon}}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

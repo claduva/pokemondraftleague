@@ -11,6 +11,7 @@ from django.contrib import messages
 from .forms import *
 from .models import *
 from pokemondatabase.models import *
+from individualleague.models import *
 
 def league_detail(request,league_name):
     try:
@@ -342,6 +343,7 @@ def manage_seasons(request,league_name):
                 for coach in currentcoaches:
                     for i in range(picksperteam):
                         roster.objects.create(season=thisseason,team=coach)
+                rule.objects.create(season=thisseason)
                 messages.success(request,'Your season has been created!')
                 return redirect('manage_seasons',league_name=league_name)
     else:

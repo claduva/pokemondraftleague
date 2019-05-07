@@ -25,6 +25,10 @@ body{
   max-height:25px;
 }
 
+.rounded-sprite{
+  border-radius:5px;
+}
+
 .buttonpadding{
   margin:5px;
 }

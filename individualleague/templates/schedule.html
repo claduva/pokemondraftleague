@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% load extratags %}
 
-{% block title %}{{league.name}}: Draft{% endblock %}
+{% block title %}{{league.name}}: Schedule{% endblock %}
 {% block head%}
 {% endblock %}
 {% block body %}
@@ -17,14 +17,32 @@
 </div>
 <div class="row content-section align-items-center">
     {% for item in leagueschedule %}
-        <div class="col-md-6">
+        <div class="col-md-4">
             <h5>Week {{ forloop.counter }}</h5>
             <table class="table table-sm">
                 {% for match in item %}
                     <tr>
-                        <td><img class="rounded-circle mediumsprite" src="{{ match.team1.logo.url }}"><td>
-                        <td>vs.</td>
-                        <td><img class="rounded-circle mediumsprite" src="{{ match.team2.logo.url }}"</td>
+                        <td>
+                            <div>
+                                <div class="d-flex justify-content-center"><img class="rounded-sprite mediumsprite" src="{{ match.team1.logo.url }}"></div>
+                                <div class="d-flex justify-content-center">{{ match.team1.teamabbreviation }}</div>
+                            </div>
+                        <td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <h5>vs.</h5>
+                            </div>
+                        <td>
+                            <div>
+                                <div class="d-flex justify-content-center"><img class="rounded-sprite mediumsprite" src="{{ match.team2.logo.url }}"></div>
+                                <div class="d-flex justify-content-center">{{ match.team2.teamabbreviation }}</div>
+                            <div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="d-flex justify-content-center">View Matchup</div>
+                        </td>
                     </tr>
                 {% endfor %}
             </table>

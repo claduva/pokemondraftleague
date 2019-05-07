@@ -144,7 +144,7 @@
                     <div class="row align-items-center justify-content-center">
                         {% for item in pokemonlist %}
                             <div class="col-md-2">
-                                <div class="d-flex justify-content-center"><img class="mediumsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                                <div class="d-flex justify-content-center"><img class="mediumsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
                                 <div class="d-flex justify-content-center">{{ item.pokemon.pokemon }}</div>
                             </div>
                         {% endfor %}
