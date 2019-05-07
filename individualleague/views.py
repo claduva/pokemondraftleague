@@ -117,7 +117,6 @@ def league_draft(request,league_name):
         'draftactive': draftactive,
         'availablepoints':availablepoints,
         'draftprogress':draftprogress,
-        'progressstyle' : f'style=width: {draftprogress}%'
     }
     return render(request, 'draft.html',context)
 
@@ -163,3 +162,27 @@ def create_match(request,league_name):
         'manageseason': manageseason,
     }
     return render(request, 'settings.html',context)
+
+def league_schedule(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    leagueschedule=[]
+    numberofweeks=season.seasonlength
+    for i in range(numberofweeks):
+        matches=schedule.objects.all().filter(week=str(i+1))
+        leagueschedule.append(matches)
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_name': league_name,
+        'leagueschedule': leagueschedule,
+    }
+    return render(request, 'schedule.html',context)

@@ -22,7 +22,7 @@
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">League Resources</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Schedule</a>
+          <a class="dropdown-item" href="{% url 'league_schedule' league_name=league_name %}">Schedule</a>
           <a class="dropdown-item" href="#">Tiers</a>
           <a class="dropdown-item" href="#">Available Pokemon</a>
           <a class="dropdown-item" href="{% url 'league_draft' league_name=league_name %}">Draft</a>
