@@ -124,6 +124,7 @@ def league_draft(request,league_name):
 def create_match(request,league_name):
     try:
         league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
@@ -167,6 +168,7 @@ def create_match(request,league_name):
 def league_schedule(request,league_name):
     try:
         league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
