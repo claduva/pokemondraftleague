@@ -229,6 +229,7 @@ def league_matchup(request,league_name,matchid):
         speeds=[math.floor(base50*2/3),base50,math.floor(base50*3/2),math.floor(base50*2),math.floor(base100*2/3),base100,math.floor(base100*3/2),math.floor(base100*2)]
         team1roster.append([item,typing,abilities,speeds])
         moveset=pokemon_moveset.objects.all().filter(pokemon=item.pokemon)
+        healaroma=True
         for move in moveset:
             if move.moveinfo.name=="Defog":
                 defog.append(item)
@@ -242,8 +243,12 @@ def league_matchup(request,league_name,matchid):
                 tspikes.append(item)
             if move.moveinfo.name=="Sticky Web":
                 stickyweb.append(item)
-            if move.moveinfo.name=="Aromatherapy" or move.moveinfo.name=="Heal Bell":
+            if move.moveinfo.name=="Aromatherapy" and healaroma:
                 healbell.append(item)
+                healaroma=False
+            if move.moveinfo.name=="Heal Bell" and healaroma:
+                healbell.append(item)
+                healaroma=False
             if move.moveinfo.name=="Wish":
                 wish.append(item)
     team1moves=[['Stealth Rock',sr],['Spikes',spikes],['Toxic Spikes',tspikes],['Sticky Web',stickyweb],['Defog',defog],['Rapid Spin',rapidspin],['Heal Bell/Aromatherapy',healbell],['Wish',wish]]
