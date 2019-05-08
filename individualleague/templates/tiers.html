@@ -5,6 +5,7 @@
 
 {% block title %}{{league.name}}: Tiers{% endblock %}
 {% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/tiers.css' %}">
 {% endblock %}
 {% block body %}
 
@@ -30,31 +31,41 @@
 </div>
 <div class="row content-section">
     {% for x,y in tiers %}
-        <div class="col-md">
+        <div class="col-md-2">
                 <table class="table table-sm d-flex justify-content-center">
                     <tr>
-                        <th colspan="2">{{x.tiername}} ({{x.tierpoints}})</th>
+                        <th colspan="3">{{x.tiername}} ({{x.tierpoints}})</th>
                     </tr>
-                    {% for item in y %}
+                    {% for itemx,itemy in y %}
                         <tr>
-                            <td><img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></td>
-                            <td>{{item.pokemon.pokemon}}</td>
+                            {% if itemy %}
+                                <td class="bg-lightred text-dark"><div>{{ itemy.teamabbreviation }}</div></td>
+                            {% else %}
+                                <td class="bg-lightgreen text-dark"><div>FREE</div></td>
+                            {% endif %}
+                            <td><img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></td>
+                            <td>{{itemx.pokemon.pokemon}}</td>
                         </tr>
                     {% endfor %}
                 </table>
         </div>
     {% endfor %}
     {% if mega %}
-    <div class="col-md">
+    <div class="col-md-2">
         {% for x,y in mega %}
            <table class="table table-sm d-flex justify-content-center">
                 <tr>
-                    <th colspan="2">{{x.tiername}} ({{x.tierpoints}})</th>
+                    <th colspan="3">{{x.tiername}} ({{x.tierpoints}})</th>
                 </tr>
-                {% for item in y %}
+                {% for itemx,itemy in y %}
                     <tr>
-                        <td><img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></td>
-                        <td>{{item.pokemon.pokemon}}</td>
+                        {% if itemy %}
+                            <td class="bg-lightred text-dark"><div>{{ itemy.teamabbreviation }}</div></td>
+                        {% else %}
+                            <td class="bg-lightgreen text-dark"><div>FREE</div></td>
+                        {% endif %}
+                        <td><img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></td>
+                        <td>{{itemx.pokemon.pokemon}}</td>
                     </tr>
                 {% endfor %}
             </table>

@@ -38,6 +38,8 @@ class coachdata(models.Model):
     teamabbreviation = models.CharField(max_length=3, default="TBD")
     teamname = models.CharField(max_length=100, default="To Be Determined")
     teammate = models.ForeignKey(User, on_delete=models.CASCADE, null=True,related_name='teammate')
+    conferencenumber = models.IntegerField(default=1)
+    divisionnumber = models.IntegerField(default=1)
 
     def __str__(self):
         if self.teammate != None:

@@ -28,8 +28,7 @@ def team_page(request,league_name,team_abbreviation):
             season=seasonsetting.objects.get(league=league_)
             teamroster=roster.objects.all().filter(season=season,team=team).order_by('id')
         except:
-            teamroster=None
-        
+            teamroster=None   
     except:
         messages.error(request,'Team does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name) 
@@ -42,6 +41,7 @@ def team_page(request,league_name,team_abbreviation):
         'team': team,
         'roster': teamroster,
     }
+    print("madeit")
     return render(request, 'teampage.html',context)
 
 def league_draft(request,league_name):
@@ -341,13 +341,19 @@ def league_tiers(request,league_name):
     tierlist=[]
     banned=False
     for item in tiers:
-        tieritems=pokemon_tier.objects.all().filter(tier=item).order_by('pokemon__pokemon')
+        tieritems=[]
+        tieritems_=pokemon_tier.objects.all().filter(tier=item).order_by('pokemon__pokemon')
+        for pokemon in tieritems_:
+            try:    
+                rosterspot=roster.objects.all().filter(season=season).get(pokemon=pokemon.pokemon)
+                team=rosterspot.team
+            except:
+                team=None
+            tieritems.append([pokemon,team])
         if item.tiername.find("Mega")>-1:
-            mega.append([item,tieritems])
-            
+            mega.append([item,tieritems])   
         elif item.tiername.find("Banned")>-1:
-            banned=True
-           
+            banned=True 
         else:
             tierlist.append([item,tieritems])
     
@@ -377,7 +383,15 @@ def individual_league_tier(request,league_name,tiername):
     try:
         tiername=tiername.replace("_"," ")
         tierofinterest=leaguetiers.objects.all().filter(league=league_).get(tiername=tiername)
-        tiers=pokemon_tier.objects.all().filter(tier=tierofinterest).order_by('pokemon__pokemon')
+        tiers=[]
+        tiers_=pokemon_tier.objects.all().filter(tier=tierofinterest).order_by('pokemon__pokemon')
+        for item in tiers_:
+            try:    
+                rosterspot=roster.objects.all().filter(season=season).get(pokemon=item.pokemon)
+                team=rosterspot.team
+            except:
+                team=None
+            tiers.append([item,team])
         alltiers=leaguetiers.objects.all().filter(league=league_).exclude(tiername=tiername).order_by('-tierpoints')
     except:
         messages.error(request,'Tier does not exist!',extra_tags='danger')

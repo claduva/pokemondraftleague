@@ -31,7 +31,8 @@ def processor(request):
     try:  
         site_settings = request.user.sitesettings
     except:
-        site_settings = None
+        user=User.objects.get(username="defaultuser")
+        site_settings = user.sitesettings
     return {
         'leagueshosted': leagueshosted,
         'allleagues': allleagues,

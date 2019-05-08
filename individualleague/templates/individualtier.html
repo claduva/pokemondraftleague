@@ -5,6 +5,7 @@
 
 {% block title %}{{league.name}}: Tiers{% endblock %}
 {% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/tiers.css' %}">
 {% endblock %}
 {% block body %}
 <div class="row content-section align-items-center">
@@ -16,6 +17,7 @@
     <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-12 d-flex justify-content-center">
+        <a href="{% url 'league_tiers' league_name=league_name %}"><button class="btn btn-primary">All</button></a>
         {% for item in alltiers %}
         <a href="{% url 'individual_league_tier' league_name=league_name tiername=item.tiername|replace:' ,_' %}"><button
                 class="btn btn-primary">{{ item.tiername }}</button></a>
@@ -23,13 +25,28 @@
     </div>
 </div>
 <div class="row content-section">
-    {% for item in tiers %}
-        <div class="col-md-2 card text-white bg-dark text-center">
-            <div><img class="card-img-top mediumsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
-            <div class="card-body">
-                <div>{{item.pokemon.pokemon}}</div>
+    {% for itemx,itemy in tiers %}
+        {% if itemy %}
+            <div class="col-md-2">
+                <div class="card text-dark bg-lightred text-center">
+                    <div><img class="card-img-top mediumsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                    <div class="card-body">
+                        <div>{{itemx.pokemon.pokemon}}</div>
+                        <div>Taken By: {{ itemy.teamabbreviation }}</div>
+                    </div>
+                </div>
             </div>
-        </div>
+        {% else %}
+            <div class="col-md-2">
+                <div class="card text-dark bg-lightgreen text-center">
+                    <div><img class="card-img-top mediumsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                    <div class="card-body">
+                        <div>{{itemx.pokemon.pokemon}}</div>
+                        <div>Available</div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     {% endfor %}
 </div>
 {% endblock %}

@@ -1,0 +1,23 @@
+table td{
+    font-size: 10px;
+}
+
+table th{
+    font-size: 12px;
+}
+
+.bg-lightgreen{
+    background-color:rgb(192, 253, 192);
+}
+
+.bg-lightred{
+    background-color: rgb(255, 179, 179);
+}
+
+.card-body{
+    padding: 0px;
+}
+
+.card{
+    height:100%;
+}
