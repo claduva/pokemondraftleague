@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.forms.widgets import FileInput
 from .models import *
 
 class UserRegisterForm(UserCreationForm):
@@ -18,6 +19,7 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username','email']
 
 class ProfileUpdateForm(forms.ModelForm):
+    pfp=forms.FileField(widget=FileInput)
     class Meta:
         model = profile
         fields = ['pfp']

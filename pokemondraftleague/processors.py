@@ -10,6 +10,7 @@ from django.contrib import messages
 
 from leagues.models import *
 from accounts.models import *
+from pokemondatabase.models import *
 
 def processor(request):
     try:
@@ -33,6 +34,7 @@ def processor(request):
     except:
         user=User.objects.get(username="defaultuser")
         site_settings = user.sitesettings
+    
     return {
         'leagueshosted': leagueshosted,
         'allleagues': allleagues,

@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.forms.widgets import FileInput
 from .models import *
 
 class CreateLeagueForm(forms.ModelForm):
@@ -10,7 +11,8 @@ class CreateLeagueForm(forms.ModelForm):
         widgets = {'host': forms.HiddenInput()}
 
 class UpdateLeagueForm(forms.ModelForm):
-
+    logo=forms.FileField(widget=FileInput)
+    
     class Meta:
         model = league
         fields = ['name','host','logo']
@@ -50,6 +52,7 @@ class UpdateTierForm(forms.ModelForm):
             }
 
 class UpdateCoachInfoForm(forms.ModelForm):
+    logo=forms.FileField(widget=FileInput)
 
     class Meta:
         model = coachdata
