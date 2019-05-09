@@ -19,7 +19,27 @@
     </div>
     <div class="col-md-8">
         <div class="row content-section">
-           <h4>Manage {{coach.coach}} {%if coach.teammate%}and {{ coach.teammate }}{% endif %}</h4>
+            <div class="col-12 d-flex justify-content-between">
+                <h4>Manage {{coach.coach}}</h4>
+                <form action="{% url 'removecoach' league_name=league_name %}" method="POST">
+                        {% csrf_token %}
+                        <div class="d-flex align-items-center">
+                            <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                            <div class="align-items-end">
+                                <button type="submit" class="btn btn-danger buttonpadding">Remove Coach</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="col-12">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy  }}
+                    <input type="text" value="update" name="formtype" hidden>
+                    <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

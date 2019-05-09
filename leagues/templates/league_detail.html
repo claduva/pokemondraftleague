@@ -14,9 +14,9 @@
         <h3 class="d-flex justify-content-center">{{league.name}}</h3>
         <div class="d-flex justify-content-center">Hosted by {{league.host}}</div>
         {% if league.league_settings.discordurl is not 'Not Provided' %}
-        <a href="{{ item.league_settings.discordurl }}">
-            <div class="d-flex justify-content-center">Join the Discord</div>
-        </a>
+        <div class="d-flex justify-content-center">
+            <a href="{{ item.league_settings.discordurl }}"><button class="btn btn-primary">Join the Discord</button></a>
+        </div>    
         {% endif %}
     </div>
     <div class="col-md-4 d-flex justify-content-end">
@@ -38,17 +38,72 @@
                 <h3>Standings</h3>
             </div>
         </div>
-        <div class="row align-items-center">
-            {% for i in numberofconferences %}
-                <div class="col">
-                    <div class="d-flex justify-content-center"><h5>Conference {{i|add:1}}</h5></div>
-                    {% for j in divisionspefconference %}    
-                        <div class="d-flex justify-content-center">
-                            Division {{ j|add:1 }}
-                        </div>
-                    {% endfor %}    
-                </div>
-            {% endfor %}    
+        <div class="row align-items-start">
+            {% for conference,divisions in conferences %}
+            <div class="col-md-6">
+                <table class="table table-sm">
+                    <tr>
+                        <th colspan="5">{{ conference.name }}</th>
+                    </tr>
+                    {% for division,coachs in divisions %}
+                    {% if division %}
+                    <tr>
+                        <th>{{ division.name }}</th>
+                    </tr>
+                    <tr>
+                        <th>Team</th>
+                        <th>W</th>
+                        <th>L</th>
+                        <th>+/-</th>
+                        <th>Streak</th>
+                    </tr>
+                    {% for coach in coachs %}
+                    <tr>
+                        <td>{{ coach.teamname }}
+                        </td>
+                        <td>{{ coach.wins }}</td>
+                        <td>{{ coach.losses }}</td>
+                        <td>{{ coach.differential }}</td>
+                        <td>
+                            {% if coach.streak > -1 %}
+                            Win-{{ coach.streak }}
+                            {% else %}
+                            Lose-{{ coach.streak }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <th>Team</th>
+                        <th>W</th>
+                        <th>L</th>
+                        <th>+/-</th>
+                        <th>Streak</th>
+                    </tr>
+                    {% for coach in coachs %}
+                    <tr>
+                        <td>
+                            <a class="d-flex text-light" href="{% url 'team_page' league_name=league_name team_abbreviation=coach.teamabbreviation %}" ><div class="small-logo"><img class="img-fluid rounded-sprite" src="{{ coach.logo.url }}"></div>
+                            <div> {{ coach.teamname }} ({{ coach.teamabbreviation }})</div></a>
+                        </td>
+                        <td>{{ coach.wins }}</td>
+                        <td>{{ coach.losses }}</td>
+                        <td>{{ coach.differential }}</td>
+                        <td>
+                            {% if coach.streak > -1 %}
+                            W-{{ coach.streak }}
+                            {% else %}
+                            L{{ coach.streak }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

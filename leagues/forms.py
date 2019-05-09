@@ -79,3 +79,18 @@ class EditSeasonSettingsForm(forms.ModelForm):
     class Meta:
         model = seasonsetting
         fields = ['seasonname','draftbudget','drafttype','seasonlength','freeagenciesallowed','tradesallowed']
+
+class ManageCoachForm(forms.ModelForm):
+    logo=forms.FileField(widget=FileInput,required=False)
+
+    class Meta:
+        model = coachdata
+        fields = ['teamname','teamabbreviation','logo','teammate','conference','division']
+
+    def __init__(self,league, *args, **kwargs):
+        super(ManageCoachForm, self).__init__(*args, **kwargs)
+        self.fields['conference'].queryset = conference_name.objects.filter(league=league).order_by('name')
+        self.fields['division'].queryset = division_name.objects.filter(league=league).order_by('name')
+        self.fields['division'].required = False
+        self.fields['teammate'].required=False
+       

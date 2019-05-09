@@ -16,6 +16,21 @@ from individualleague.models import *
 def league_detail(request,league_name):
     try:
         league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+        conferencelist=conference_name.objects.all().filter(league=league_).order_by('id')
+        conferences=[]
+        for item in conferencelist:
+            divisionlist=division_name.objects.all().filter(associatedconference=item).order_by('id')
+            if divisionlist.count() > 0:
+                divisions=[]
+                for item2 in divisionlist:
+                    coachs=coachdata.objects.all().filter(division=item2)
+                    divisions.append([item2,coachs])
+            else: 
+                coachs=coachdata.objects.all().filter(conference=item).order_by('-wins','losses','-differential','teamname')
+                divisions=[[None,coachs]]
+            conferences.append([item,divisions])
+
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
@@ -32,20 +47,13 @@ def league_detail(request,league_name):
                 apply=False
             except:
                 apply=True
-    leaguesettings=league_settings.objects.get(league_name=league_)
-    numberofconferences=leaguesettings.number_of_conferences
-    numberofdivisions=leaguesettings.number_of_divisions
-    numberofteams=leaguesettings.number_of_divisions
-    divisionspefconference=int(numberofdivisions/numberofconferences)
-    league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     context = {
         'league': league_,
         'apply': apply,
-        'numberofconferences': range(numberofconferences),
-        'divisionspefconference': range(divisionspefconference),
         'leaguepage': True,
         'league_name': league_name,
         'league_teams': league_teams,
+        'conferences': conferences,
     }
     return render(request, 'league_detail.html',context)
 
@@ -190,7 +198,7 @@ def manage_coachs(request,league_name):
         return redirect('leagues_hosted_settings')
     applicants=league_application.objects.filter(league_name=league_)
     totalapplicants=len(applicants)
-    coachs=coachdata.objects.filter(league_name=league_)
+    coachs=coachdata.objects.filter(league_name=league_).order_by('coach__username')
     leaguecapacity=league_.league_settings.number_of_teams
     numberofcoachs=leaguecapacity-len(coachs)
     spotsremaining=(numberofcoachs>0)
@@ -590,6 +598,7 @@ def add_conference_and_division_names(request,league_name):
     }
     return render(request, 'addconferencesanddivisions.html',context)
 
+@login_required
 def delete_conference(request,league_name):
     if request.method=="POST":
         itemid=request.POST['itemid']
@@ -598,6 +607,7 @@ def delete_conference(request,league_name):
         messages.success(request,'Conference has been deleted!')
     return redirect('add_conference_and_division_names',league_name=league_name)        
 
+@login_required
 def delete_division(request,league_name):
     if request.method=="POST":
         itemid=request.POST['itemid']
@@ -621,9 +631,19 @@ def manage_coach(request,league_name):
         'leagueshostedsettings': True,
     }
     if request.method == 'POST':
+        formtype=request.POST['formtype']
         coach=coachdata.objects.get(id=request.POST['coach'])
-        context.update({'coach':coach})
-        
-        return render(request, 'managecoach.html',context)
-    
-    return render(request, 'managecoach.html',context)
+        if formtype=="load":
+            form=ManageCoachForm(league_,instance=coach)
+            context.update({
+                'coach':coach,
+                'form':form,
+                })
+            return render(request, 'managecoach.html',context)
+        elif formtype=="update":
+            form=ManageCoachForm(league_,request.POST,instance=coach)
+            if form.is_valid():
+                form.save()
+                messages.success(request,f'{coach.coach} has been updated!')
+                return redirect('manage_coachs', league_name=league_name)
+    return redirect('manage_coachs', league_name=league_name)

@@ -55,6 +55,11 @@ class coachdata(models.Model):
     teammate = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,related_name='teammate')
     conference = models.ForeignKey(conference_name, on_delete=models.SET_NULL, null=True)
     division = models.ForeignKey(division_name, on_delete=models.SET_NULL, null=True)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
+    differential = models.IntegerField(default=0)
+    streak = models.IntegerField(default=0)
+    forfeit = models.IntegerField(default=0)
 
     def __str__(self):
         if self.teammate != None:

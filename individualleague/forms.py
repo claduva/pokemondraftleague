@@ -11,7 +11,6 @@ class CreateMatchForm(forms.ModelForm):
         fields = ['season','week','team1','team2']
         widgets = {'season': forms.HiddenInput()}
 
-
     def __init__(self,season,league, *args, **kwargs):
         super(CreateMatchForm, self).__init__(*args, **kwargs)
         self.fields['team1'].queryset = coachdata.objects.filter(league_name=league).order_by('teamname')
