@@ -48,11 +48,7 @@
     <div class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        {% if user.profile.pfp.url %}  
-          <img src="{{ user.profile.pfp.url }}" class="rounded-circle" width="30" height="30" alt="">
-        {% else %}
-          <img src="https://cloud-cube.s3.amazonaws.com/addyc6831bad/public/media/profile_pics/defaultpfp.png" class="rounded-circle" width="30" height="30" alt="">
-        {% endif %}
+        <img src="{{ user.profile.pfp.url }}" class="rounded-circle" width="30" height="30" alt="">
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
         <a class="dropdown-item" href="{% url 'profile' %}">Logged in as {{ user }}</a>

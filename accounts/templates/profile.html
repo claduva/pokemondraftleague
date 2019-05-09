@@ -10,11 +10,7 @@
 <div class="content-section">
     <div class="row align-items-start">
         <div class="col-md-4 media-body">
-            {% if user.profile.pfp.url %}
-                <div class="d-flex justify-content-center"><img src="{{ user.profile.pfp.url }}" class="rounded-circle"></div>
-            {% else %}
-                <div class="d-flex justify-content-center"><img src="https://cloud-cube.s3.amazonaws.com/addyc6831bad/public/media/profile_pics/defaultpfp.png" class="rounded-circle"></div>
-            {% endif %}
+            <div class="d-flex justify-content-center"><img src="{{ user.profile.pfp.url }}" class="rounded-circle"></div>
             <h3 class="d-flex justify-content-center">{{ user.username }}</h3>
             <div class="col-md-12 d-flex justify-content-center"><h5>Trophy Case</h5></div>
             <div class="row align-items-center justify-content-around">
