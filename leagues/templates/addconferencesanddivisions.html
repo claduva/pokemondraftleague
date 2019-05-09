@@ -1,0 +1,102 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Settings{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row">
+        <div class="col-md-4">
+                <div class="content-section">
+                    <div class="d-flex justify-content-between">
+                        <h3>Settings</h3>
+                        {% if leagueshostedsettings %}
+                            <a href="{% url 'leagues_hosted_settings' %}"><button class="btn btn-primary">Back</button></a>
+                        {% endif %}    
+                    </div>
+                    {% include 'settingssidebar.html' %}
+                </div>
+            </div>
+        <div class="col-md-8">
+            <div class="content-section">
+                <div class="row">
+                    <div class="col-6">
+                        <h5>Current Conferences (Needed= {{neededconferences}})</h5>
+                        {% if currentconferences %}
+                            {% for item in currentconferences %}
+                                <form action="{% url 'delete_conference' league_name=league_name %}" method="post">{% csrf_token %}
+                                    <div>-{{ item.name }} 
+                                        <input type='text' name="itemid" value="{{ item.id }}" hidden>
+                                        <input type= submit class="btn btn-danger" value="Delete">
+                                    </div>
+                                </form>
+                            {% endfor %}
+                        {% else %}
+                            <div>-None</div>
+                        {% endif %}
+                    </div>
+                    <div class="col-6">
+                        <h5>Current Divisions (Needed= {{ neededdivisions }})</h5>
+                        {% if currentdivisions %}
+                            {% for item in currentdivisions %}
+                                <form action="{% url 'delete_division' league_name=league_name %}" method="post">{% csrf_token %}
+                                    <div>-{{ item.name }} 
+                                        <input type='text' name="itemid" value="{{ item.id }}" hidden>
+                                        <input type= submit class="btn btn-danger" value="Delete">
+                                    </div>
+                                </form>
+                            {% endfor %}
+                        {% else %}
+                            <div>-None</div>
+                        {% endif %}
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {% if neededconferences > 0 %}
+                            <h5>And Conference</h5>
+                            <form method="post">{% csrf_token %}
+                                <div>
+                                    <label for="itemname">Name:</label>
+                                    <input type="text" name="itemname" id="itemname">
+                                </div>
+                                <div>
+                                    <input type="text" name="category" value="conference" hidden>
+                                </div>
+                                <div>    
+                                    <input class="btn btn-primary" type="submit" value="Add">
+                                </div>
+                            </form>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        {% if neededdivisions > 0 %}
+                            <h5>Add Division</h5>
+                            <form method="post">{% csrf_token %}
+                                <div>
+                                    <label for="itemname">Name:</label>
+                                    <input type="text" name="itemname" id="itemname">
+                                </div>
+                                <div>
+                                    <input type="text" name="category" value="division" hidden>
+                                </div>
+                                <div>
+                                    <label for="itemname">Associated Conference:</label>
+                                    <select name="divisionconference" id="divisionconference">
+                                        {% for item in currentconferences %}
+                                            <option value="{{ item }}">{{ item }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div>    
+                                    <input class="btn btn-primary" type="submit" value="Add">
+                                </div>
+                            </form>
+                        {% endif %} 
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

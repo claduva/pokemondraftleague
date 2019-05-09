@@ -24,6 +24,21 @@ class league_settings(models.Model):
     def __str__(self):
         return f'League settings for {self.league_name.name}'
 
+class conference_name(models.Model):
+    league = models.ForeignKey(league, on_delete=models.CASCADE)
+    name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f'{self.name}'
+
+class division_name(models.Model):
+    league = models.ForeignKey(league, on_delete=models.CASCADE)
+    name = models.CharField(max_length=20)
+    associatedconference = models.ForeignKey(conference_name, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name}'
+
 class league_application(models.Model):
     applicant = models.ForeignKey(User, on_delete=models.CASCADE)
     league_name = models.ForeignKey(league, on_delete=models.CASCADE)
@@ -37,9 +52,9 @@ class coachdata(models.Model):
     logo = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='team_logos',null=True, blank=True)
     teamabbreviation = models.CharField(max_length=3, default="TBD")
     teamname = models.CharField(max_length=100, default="To Be Determined")
-    teammate = models.ForeignKey(User, on_delete=models.CASCADE, null=True,related_name='teammate')
-    conferencenumber = models.IntegerField(default=1)
-    divisionnumber = models.IntegerField(default=1)
+    teammate = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,related_name='teammate')
+    conference = models.ForeignKey(conference_name, on_delete=models.SET_NULL, null=True)
+    division = models.ForeignKey(division_name, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         if self.teammate != None:

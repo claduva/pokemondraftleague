@@ -15,6 +15,7 @@ urlpatterns = [
     path("settings/league/<str:league_name>/managecoachs/", views.manage_coachs, name="manage_coachs"),
     path("settings/league/<str:league_name>/managecoachs/addcoach/", views.add_coach, name="addcoach"),
     path("settings/league/<str:league_name>/managecoachs/removecoach/", views.remove_coach, name="removecoach"),
+     path("settings/league/<str:league_name>/managecoachs/managecoach/", views.manage_coach, name="managecoach"),
     path("settings/league/<str:league_name>/managetiers/", views.manage_tiers, name="manage_tiers"),
     path("settings/league/<str:league_name>/managetiers/tier/<str:tier>/", views.view_tier, name="view_tier"),
     path("settings/league/<str:league_name>/managetiers/default/", views.default_tiers, name="default_tiers"),
@@ -23,5 +24,8 @@ urlpatterns = [
     path("settings/league/<str:league_name>/managetiers/deletetier/", views.delete_tier, name="delete_tier"),
     path("settings/league/<str:league_name>/manageseasons/", views.manage_seasons, name="manage_seasons"),
     path("settings/league/<str:league_name>/manageseasons/setdraftorder", views.set_draft_order, name="set_draft_order"),
+    path("settings/league/<str:league_name>/conferenceanddivisionnames", views.add_conference_and_division_names, name="add_conference_and_division_names"),
+    path("settings/league/<str:league_name>/conferenceanddivisionnames/deleteconference", views.delete_conference, name="delete_conference"),
+    path("settings/league/<str:league_name>/conferenceanddivisionnames/deletedivision", views.delete_conference, name="delete_division"),
     path("settings/league/<str:league_name>/deleteleague/", views.delete_league, name="delete_league"),
 ]

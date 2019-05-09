@@ -550,3 +550,80 @@ def set_draft_order(request,league_name):
         'currentcoaches': currentcoaches,
     }
     return render(request, 'draftorder.html',context)
+
+@login_required
+def add_conference_and_division_names(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        leaguesettings=league_settings.objects.get(league_name=league_)
+        currentconferences = conference_name.objects.all().filter(league=league_)
+        currentdivisions = division_name.objects.all().filter(league=league_)
+        totalconferences=leaguesettings.number_of_conferences
+        totaldivisions=leaguesettings.number_of_divisions
+        neededconferences=totalconferences-currentconferences.count()
+        neededdivisions=totaldivisions-currentdivisions.count()
+        if int(totalconferences/totaldivisions)==1:
+            neededdivisions=0 
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.method == 'POST':
+        name=request.POST['itemname']
+        category=request.POST['category']
+        if category=='conference':
+            conference_name.objects.create(league=league_,name=name)
+        elif category=='division':
+            associatedconference=conference_name.objects.all().filter(league=league_).get(name=request.POST['divisionconference'])
+            division_name.objects.create(league=league_,name=name,associatedconference=associatedconference)
+        messages.success(request,f'{name} has been added as a {category}!')
+        return redirect('add_conference_and_division_names',league_name=league_name)        
+    context = {
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+        'currentconferences': currentconferences,
+        'currentdivisions': currentdivisions,
+        'neededconferences': neededconferences,
+        'neededdivisions': neededdivisions,
+    }
+    return render(request, 'addconferencesanddivisions.html',context)
+
+def delete_conference(request,league_name):
+    if request.method=="POST":
+        itemid=request.POST['itemid']
+        itemtodelete=conference_name.objects.get(pk=itemid)
+        itemtodelete.delete()
+        messages.success(request,'Conference has been deleted!')
+    return redirect('add_conference_and_division_names',league_name=league_name)        
+
+def delete_division(request,league_name):
+    if request.method=="POST":
+        itemid=request.POST['itemid']
+        itemtodelete=division_name.objects.get(pk=itemid)
+        itemtodelete.delete()
+        messages.success(request,'Division has been deleted!')
+    return redirect('add_conference_and_division_names',league_name=league_name)        
+
+@login_required
+def manage_coach(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user != league_.host:
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    context = {
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+    }
+    if request.method == 'POST':
+        coach=coachdata.objects.get(id=request.POST['coach'])
+        context.update({'coach':coach})
+        
+        return render(request, 'managecoach.html',context)
+    
+    return render(request, 'managecoach.html',context)
