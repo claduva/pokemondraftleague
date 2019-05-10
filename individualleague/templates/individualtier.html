@@ -12,16 +12,28 @@
     <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-4">
-        <h3 class="d-flex justify-content-center">Tiers: {{ tier }}</h3>
+        {% if availabletiers %}
+            <h3 class="d-flex justify-content-center">Available Tiers: {{ tier }}</h3>
+        {% else %}
+            <h3 class="d-flex justify-content-center">Tiers: {{ tier }}</h3>
+        {% endif %}
     </div>
     <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-12 d-flex justify-content-center">
-        <a href="{% url 'league_tiers' league_name=league_name %}"><button class="btn btn-primary">All</button></a>
-        {% for item in alltiers %}
-        <a href="{% url 'individual_league_tier' league_name=league_name tiername=item.tiername|replace:' ,_' %}"><button
+        {% if availabletiers %}
+            <a href="{% url 'available_league_tiers' league_name=league_name %}"><button class="btn btn-primary">All</button></a>
+            {% for item in alltiers %}
+            <a href="{% url 'available_individual_league_tier' league_name=league_name tiername=item.tiername|replace:' ,_' %}"><button
                 class="btn btn-primary">{{ item.tiername }}</button></a>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <a href="{% url 'league_tiers' league_name=league_name %}"><button class="btn btn-primary">All</button></a>
+            {% for item in alltiers %}
+            <a href="{% url 'individual_league_tier' league_name=league_name tiername=item.tiername|replace:' ,_' %}"><button
+                    class="btn btn-primary">{{ item.tiername }}</button></a>
+            {% endfor %}
+        {% endif %}
     </div>
 </div>
 <div class="row content-section">
