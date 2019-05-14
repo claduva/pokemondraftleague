@@ -29,26 +29,47 @@
         </form>
     </div>
     {% else %}
+        {% if showreplay %}
+            <div class="col-12">
+                <iframe src="{{ replay }}" height="500vh" width="100%"></iframe>
+            </div>
+        {% endif %}
     <div class="col-12">
-        <h5 class="d-flex justify-content-center">Winning Coach:
+        <h5 class="d-flex justify-content-center">
             {% if team1.win is 1 %}
-            {{ team1.coach }}
+                {% if confirm %}
+                    Winning Team: {{ team1name.teamname }}
+                {% else %}
+                    Winning Coach: {{ team1.coach }}
+                {% endif %}
             {% elif team2.win is 1 %}
-            {{ team2.coach }}
+                {% if confirm %}
+                    Winning Team: {{ team2name.teamname }}
+                {% else %}
+                    Winning Coach: {{ team2.coach }}
+                {% endif %}
             {% endif %}
         </h5>
-        <h5 class="d-flex justify-content-center">Losing Coach:
+        <h5 class="d-flex justify-content-center">
             {% if team1.win is 0 %}
-            {{ team1.coach }}
+                {% if confirm %}
+                    Losing Team: {{ team1name.teamname }}
+                {% else %}
+                    Losing Coach: {{ team1.coach }}
+                {% endif %}
             {% elif team2.win is 0 %}
-            {{ team2.coach }}
+                {% if confirm %}
+                    Losing Team: {{ team2name.teamname }}
+                {% else %}
+                    Losing Coach: {{ team2.coach }}
+                {% endif %}
             {% endif %}
         </h5>
         <h5 class="d-flex justify-content-center">Score:
             {% if team1.win is 1 %}
-            {{ team1.score }}-{{ team2.score }}
+                {{ team1.score }}-{{ team2.score }}
             {% elif team2.win is 1 %}
-            {{ team2.score }}-{{ team1.score }}
+                {{ team2.score }}-{{ team1.score }}
             {% endif %}
         </h5>
         <h6 class="d-flex justify-content-center"><a class="text-light" href="{{ replay }}">Replay</a></h6>
@@ -57,7 +78,13 @@
         <table class="table table-sm text-center">
             <tr>
                 <th colspan="4">
-                    <div class="d-flex justify-content-center">Coach: {{team1.coach}}</div>
+                    <div class="d-flex justify-content-center">
+                        {% if confirm %}
+                            {{ team1name.teamname }}
+                        {% else %}
+                            Coach: {{team1.coach}}
+                        {% endif %}
+                    </div>
                 </th>
             </tr>
             <tr>
@@ -164,7 +191,13 @@
         <table class="table table-sm text-center">
             <tr>
                 <th colspan="4">
-                    <div class="d-flex justify-content-center">Coach: {{team2.coach}}</div>
+                    <div class="d-flex justify-content-center">
+                        {% if confirm %}
+                            {{ team2name.teamname }}
+                        {% else %}
+                            Coach: {{team2.coach}}
+                        {% endif %}
+                    </div>
                 </th>
             </tr>
             <tr>
@@ -267,6 +300,18 @@
             </tr>
         </table>
     </div>
+    {% endif %}
+    {% if confirm %}
+        <div class="col-12 d-flex justify-content-center">
+            <div>
+                <form action="{% url 'confirm_league_replay' league_name=league_name matchid=matchid %}" method="post">
+                    {% csrf_token %}
+                    <div hidden>{{ form }}</div>
+                    <input class="btn btn-success" type="submit" value="Confirm">
+                </form>
+                <button class="btn btn-danger">Reject</button>
+            </div>
+        </div>
     {% endif %}
 </div>
 {% endblock %}

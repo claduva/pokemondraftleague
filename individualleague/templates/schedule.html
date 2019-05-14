@@ -46,7 +46,11 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <div class="d-flex justify-content-center"><a href="{% url 'league_matchup' league_name=league_name matchid=match.id %}">Upload Replay</a></div>
+                            {% if match.replay == 'Link' %}
+                                <div class="d-flex justify-content-center"><a href="{% url 'upload_league_replay' league_name=league_name matchid=match.id %}">Upload Replay</a></div>
+                            {% else %}    
+                                <div class="d-flex justify-content-center"><a href="{% url 'league_match_results' league_name=league_name matchid=match.id %}">Replay Info</a></div>
+                            {% endif %}
                         </td>
                     </tr>
                 {% endfor %}
