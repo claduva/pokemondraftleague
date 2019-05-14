@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'leagues.apps.LeaguesConfig',
     'main.apps.MainConfig',
     'pokemondatabase.apps.PokemondatabaseConfig',
+    'replayanalysis.apps.ReplayanalysisConfig',
 
     #third party apps
     'crispy_forms',

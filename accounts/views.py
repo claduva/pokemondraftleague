@@ -19,7 +19,6 @@ class SignUp(generic.CreateView):
 @login_required
 def profile(request):
     leagueshosted = request.user.league_set.all()
-    print(leagueshosted)
     context = {
         "title": "Profile",
     }
