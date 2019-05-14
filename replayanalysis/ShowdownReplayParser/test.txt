@@ -1,0 +1,23 @@
+Team 1 Coach: claduva2
+Team 1 Roster: 
+Weedle, Kills: 0, Deaths: 0, +/-: 0
+Caterpie, Kills: 0, Deaths: 0, +/-: 0
+Slowking, Kills: 0, Deaths: 0, +/-: 0
+Staryu, Kills: 0, Deaths: 0, +/-: 0
+Charizard, Kills: 0, Deaths: 1, +/-: -1
+Heliolisk, Kills: 0, Deaths: 1, +/-: -1
+Mega Evolved: False
+Used Z-Move: False
+
+Team 2 Coach: claduva
+Team 2 Roster: 
+Skarmory, Kills: 0, Deaths: 0, +/-: 0
+Weezing, Kills: 0, Deaths: 0, +/-: 0
+Cofagrigus, Kills: 0, Deaths: 0, +/-: 0
+Heliolisk, Kills: 0, Deaths: 0, +/-: 0
+Torkoal, Kills: 0, Deaths: 0, +/-: 0
+Ninetales, Kills: 0, Deaths: 0, +/-: 0
+Mega Evolved: False
+Used Z-Move: False
+
+Replay: http://replay.pokemonshowdown.com/gen7ou-869906570
