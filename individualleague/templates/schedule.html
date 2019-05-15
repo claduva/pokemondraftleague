@@ -15,11 +15,11 @@
     </div>
     <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
 </div>
-<div class="row content-section align-items-center">
+<div class="row content-section align-items-start">
     {% for item in leagueschedule %}
         <div class="col-md-4">
             <h5>Week {{ forloop.counter }}</h5>
-            <table class="table table-sm">
+            <table class="table table-sm bg-lightgrey text-dark">
                 {% for match in item %}
                     <tr>
                         <td>
@@ -41,17 +41,21 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <div class="d-flex justify-content-center"><a href="{% url 'league_matchup' league_name=league_name matchid=match.id %}">View Matchup</a></div>
+                            <div class="d-flex justify-content-center"><a href="{% url 'league_matchup' league_name=league_name matchid=match.id %}"><button class="btn btn-dark">View Matchup</button></a></div>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="4">
-                            {% if match.replay == 'Link' %}
-                                <div class="d-flex justify-content-center"><a href="{% url 'upload_league_replay' league_name=league_name matchid=match.id %}">Upload Replay</a></div>
-                            {% else %}    
-                                <div class="d-flex justify-content-center"><a href="{% url 'league_match_results' league_name=league_name matchid=match.id %}">Replay Info</a></div>
+                        {% if match.replay == 'Link' %}
+                            {% if not ishost or request.user == match.team1.coach or request.user == match.team1.teammate or request.user == match.team2.coach or request.user == match.team3.teammate %}    
+                                <td colspan="4">
+                                    <div class="d-flex justify-content-center"><a href="{% url 'upload_league_replay' league_name=league_name matchid=match.id %}"><button class="btn btn-dark">Upload Replay</button></a></div>
+                                </td>
                             {% endif %}
-                        </td>
+                        {% else %}  
+                            <td colspan="4">  
+                                <div class="d-flex justify-content-center"><a href="{% url 'league_match_results' league_name=league_name matchid=match.id %}"><button class="btn btn-dark">Replay</button></a></div>
+                            </td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
             </table>

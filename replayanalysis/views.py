@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.core import serializers
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 import json
 from datetime import datetime
@@ -57,13 +58,17 @@ def upload_league_replay(request,league_name,matchid):
             coach1=team1.coach
             coach2=team2.coach
             try:
-                coach1alt=showdownalts.objects.get(showdownalt=coach1)
-                coach2alt=showdownalts.objects.get(showdownalt=coach2)
-                coach1team=coachdata.objects.all().filter(league_name=league_).get(coach=coach1alt.user)
-                coach2team=coachdata.objects.all().filter(league_name=league_).get(coach=coach2alt.user)
+                coach1alt=showdownalts.objects.all().filter(showdownalt=coach1).first()
+                coach1team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
             except:
-                messages.error('A matching showdown alt for one or both coachs was not found!',extra_tags='danger')
-                return redirect('schedule',league_name=league_name)
+                messages.error(request,f'A matching showdown alt for {coach1} was not found!',extra_tags='danger')
+                return redirect('league_schedule',league_name=league_name)
+            try:
+                coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
+                coach2team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
+            except:
+                messages.error(request,f'A matching showdown alt for {coach2} was not found!',extra_tags='danger')
+                return redirect('league_schedule',league_name=league_name)
             context={
                 'output': outputstring,
                 'team1':team1,
@@ -112,54 +117,24 @@ def confirm_league_replay(request,league_name,matchid):
             coach1=team1.coach
             coach2=team2.coach
             try:
-                coach1alt=showdownalts.objects.get(showdownalt=coach1)
-                coach1team=coachdata.objects.all().filter(league_name=league_).get(coach=coach1alt.user)
+                coach1alt=showdownalts.objects.all().filter(showdownalt=coach1).first()
+                coach1team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
             except:
                 messages.error(request,f'No coach matching {team1.coach} could be found!',extra_tags="danger")
                 return redirect('league_schedule',league_name=league_name)
             try:
-                coach2alt=showdownalts.objects.get(showdownalt=coach2)
-                coach2team=coachdata.objects.all().filter(league_name=league_).get(coach=coach2alt.user)
+                coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
+                coach2team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
             except:
                 messages.error(request,f'No coach matching {team1.coach} could be found!',extra_tags="danger")
                 return redirect('league_schedule',league_name=league_name)
             #update team1 pokemon data
-            try:
-                pokemon=all_pokemon.objects.get(pokemon=team1.pokemon1)
-                t1pokemon1=roster.objects.all().filter(season=season,team=coach1team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team1.pokemon1} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
-            try:
-                pokemon=all_pokemon.objects.get(pokemon=team1.pokemon2)
-                t1pokemon2=roster.objects.all().filter(season=season,team=coach1team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team1.pokemon2} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
-            try:    
-                pokemon=all_pokemon.objects.get(pokemon=team1.pokemon3)
-                t1pokemon3=roster.objects.all().filter(season=season,team=coach1team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team1.pokemon3} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
-            try:    
-                pokemon=all_pokemon.objects.get(pokemon=team1.pokemon4)
-                t1pokemon4=roster.objects.all().filter(season=season,team=coach1team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team1.pokemon4} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
-            try:    
-                pokemon=all_pokemon.objects.get(pokemon=team1.pokemon5)
-                t1pokemon5=roster.objects.all().filter(season=season,team=coach1team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team1.pokemon5} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
-            try:    
-                pokemon=all_pokemon.objects.get(pokemon=team1.pokemon6)
-                t1pokemon6=roster.objects.all().filter(season=season,team=coach1team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team1.pokemon6} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
+            t1pokemon1=checkpokemon(team1.pokemon1,season,coach1team,league_name)
+            t1pokemon2=checkpokemon(team1.pokemon2,season,coach1team,league_name)
+            t1pokemon3=checkpokemon(team1.pokemon3,season,coach1team,league_name)
+            t1pokemon4=checkpokemon(team1.pokemon4,season,coach1team,league_name)
+            t1pokemon5=checkpokemon(team1.pokemon5,season,coach1team,league_name)
+            t1pokemon6=checkpokemon(team1.pokemon6,season,coach1team,league_name)
             t1pokemon1.kills+=team1.P1K
             t1pokemon1.deaths+=team1.P1F
             t1pokemon1.differential+=team1.P1Diff
@@ -191,42 +166,12 @@ def confirm_league_replay(request,league_name,matchid):
             t1pokemon6.gp+=1
             t1pokemon6.gw+=team1.win
             #update team2 pokemon data
-            try:
-                pokemon=all_pokemon.objects.get(pokemon=team2.pokemon1)
-                t2pokemon1=roster.objects.all().filter(season=season,team=coach2team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team2.pokemon1} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
-            try:
-                pokemon=all_pokemon.objects.get(pokemon=team2.pokemon2)
-                t2pokemon2=roster.objects.all().filter(season=season,team=coach2team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team2.pokemon2} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
-            try:    
-                pokemon=all_pokemon.objects.get(pokemon=team2.pokemon3)
-                t2pokemon3=roster.objects.all().filter(season=season,team=coach2team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team2.pokemon3} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
-            try:    
-                pokemon=all_pokemon.objects.get(pokemon=team2.pokemon4)
-                t2pokemon4=roster.objects.all().filter(season=season,team=coach2team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team2.pokemon4} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
-            try:    
-                pokemon=all_pokemon.objects.get(pokemon=team2.pokemon5)
-                t2pokemon5=roster.objects.all().filter(season=season,team=coach2team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team2.pokemon5} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
-            try:    
-                pokemon=all_pokemon.objects.get(pokemon=team2.pokemon6)
-                t2pokemon6=roster.objects.all().filter(season=season,team=coach2team).get(pokemon=pokemon)
-            except:
-                messages.error(request,f'A match for {team2.pokemon6} could not be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
+            t2pokemon1=checkpokemon(team2.pokemon1,season,coach2team,league_name)
+            t2pokemon2=checkpokemon(team2.pokemon2,season,coach2team,league_name)
+            t2pokemon3=checkpokemon(team2.pokemon3,season,coach2team,league_name)
+            t2pokemon4=checkpokemon(team2.pokemon4,season,coach2team,league_name)
+            t2pokemon5=checkpokemon(team2.pokemon5,season,coach2team,league_name)
+            t2pokemon6=checkpokemon(team2.pokemon6,season,coach2team,league_name)
             t2pokemon1.kills+=team2.P1K
             t2pokemon1.deaths+=team2.P1F
             t2pokemon1.differential+=team2.P1Diff
@@ -335,10 +280,10 @@ def league_match_results(request,league_name,matchid):
     outputstring, team1, team2 = replayparse(url)
     coach1=team1.coach
     coach2=team2.coach 
-    coach1alt=showdownalts.objects.get(showdownalt=coach1)
-    coach2alt=showdownalts.objects.get(showdownalt=coach2)
-    coach1team=coachdata.objects.all().filter(league_name=league_).get(coach=coach1alt.user)
-    coach2team=coachdata.objects.all().filter(league_name=league_).get(coach=coach2alt.user)
+    coach1alt=showdownalts.objects.all().filter(showdownalt=coach1).first()
+    coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
+    coach1team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
+    coach2team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
     context={
         'output': outputstring,
         'team1':team1,
@@ -353,3 +298,31 @@ def league_match_results(request,league_name,matchid):
         'leaguepage': True,
     }
     return render(request,"replayanalysisform.html",context)
+
+
+def checkpokemon(testpokemon,season,team,league_name):
+    try:
+        pokemon=all_pokemon.objects.get(pokemon=testpokemon)
+        rostermon=roster.objects.all().filter(season=season,team=team).get(pokemon=pokemon)
+        return rostermon
+    except:
+        try:
+            mega=testpokemon+"-Mega"
+            pokemon=all_pokemon.objects.get(pokemon=mega)
+            rostermon=roster.objects.all().filter(season=season,team=team).get(pokemon=pokemon)
+            return rostermon
+        except:
+            try:
+                mega=testpokemon+"-Mega-X"
+                pokemon=all_pokemon.objects.get(pokemon=mega)
+                rostermon=roster.objects.all().filter(season=season,team=team).get(pokemon=pokemon)
+                return rostermon
+            except:
+                try:
+                    mega=testpokemon+"-Mega-Y"
+                    pokemon=all_pokemon.objects.get(pokemon=mega)
+                    rostermon=roster.objects.all().filter(season=season,team=team).get(pokemon=pokemon)
+                    return rostermon
+                except:
+                    messages.error(request,f'A match for {testpokemon} could not be found!',extra_tags="danger")
+                    return redirect('league_schedule',league_name=league_name)

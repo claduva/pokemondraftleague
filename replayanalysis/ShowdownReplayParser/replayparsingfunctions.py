@@ -12,6 +12,7 @@ def findrosters(rawdata,team1,team2,t1roster,t2roster,indicestoremove,i):
     member="placeholder123"; nickname="nickname123"
     if rawdata[i].find("|poke|p1|") > -1:
         member=rawdata[i].split("|")[3]
+        member=member.split("-")[0]
         indicestoremove.append(i)
         t1roster.append(member)
         if len(t1roster)==1:
@@ -28,6 +29,7 @@ def findrosters(rawdata,team1,team2,t1roster,t2roster,indicestoremove,i):
             team1.pokemon6=member
     elif rawdata[i].find("|poke|p2|") > -1:
         member=rawdata[i].split("|")[3]
+        member=member.split("-")[0]
         indicestoremove.append(i)
         t2roster.append(member)
         if len(t2roster)==1:
@@ -109,7 +111,7 @@ def checkz(rawdata,team1,team2,i):
 def checkmega(rawdata,team1,team2,i):
     if rawdata[i].find("-mega") > -1:
             premega=rawdata[i-1].split("|")[2].split(" ")[1].split("-")[0]
-            mega=premega+"-Mega"
+            mega=rawdata[i-1].split(" ")[1]
             if (rawdata[i].find("p1a") > -1):
                 team1.megaevolved=True
                 if team1.pokemon1 == premega:

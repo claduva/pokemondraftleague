@@ -1,23 +1,23 @@
-Team 1 Coach: claduva
+Team 1 Coach: Eastonn8
 Team 1 Roster: 
-Zygarde, Kills: 0, Deaths: 0, +/-: 0
-Empoleon, Kills: 5, Deaths: 0, +/-: 5
-Tapu Bulu, Kills: 1, Deaths: 1, +/-: 0
-Manectric-Mega, Kills: 0, Deaths: 0, +/-: 0
-Conkeldurr, Kills: 0, Deaths: 0, +/-: 0
-Incineroar, Kills: 0, Deaths: 0, +/-: 0
-Mega Evolved: True
-Used Z-Move: False
-
-Team 2 Coach: ChrisChaosGamer
-Team 2 Roster: 
-Hariyama, Kills: 0, Deaths: 1, +/-: -1
-Tornadus, Kills: 0, Deaths: 1, +/-: -1
-Decidueye, Kills: 0, Deaths: 1, +/-: -1
-Kyurem-Black, Kills: 1, Deaths: 1, +/-: 0
-Scizor, Kills: 0, Deaths: 1, +/-: -1
-Mudsdale, Kills: 0, Deaths: 1, +/-: -1
+Moltres, Kills: 4, Deaths: 0, +/-: 4
+Starmie, Kills: 0, Deaths: 1, +/-: -1
+Zeraora, Kills: 2, Deaths: 1, +/-: 1
+Terrakion, Kills: 0, Deaths: 0, +/-: 0
+Tangrowth, Kills: 0, Deaths: 1, +/-: -1
+Silvally, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: False
 Used Z-Move: True
 
-Replay: http://replay.pokemonshowdown.com/gen7ubers-909089421
+Team 2 Coach: LombreTTT
+Team 2 Roster: 
+Gourgeist, Kills: 0, Deaths: 1, +/-: -1
+Florges, Kills: 3, Deaths: 1, +/-: 2
+Mew, Kills: 0, Deaths: 1, +/-: -1
+Diggersby, Kills: 1, Deaths: 1, +/-: 0
+Gothorita, Kills: 0, Deaths: 1, +/-: -1
+Cobalion, Kills: 0, Deaths: 1, +/-: -1
+Mega Evolved: False
+Used Z-Move: True
+
+Replay: http://replay.pokemonshowdown.com/gen7anythinggoes-908086944

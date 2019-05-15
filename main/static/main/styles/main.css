@@ -11,6 +11,10 @@ body{
   margin-bottom:10px;
 }
 
+.bg-lightgrey{
+  background-color: rgb(247, 244, 244);
+}
+
 .sub-body{
   margin-top: 10px;
 }

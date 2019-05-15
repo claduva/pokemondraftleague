@@ -181,14 +181,16 @@ def league_schedule(request,league_name):
     leagueschedule=[]
     numberofweeks=season.seasonlength
     for i in range(numberofweeks):
-        matches=schedule.objects.all().filter(week=str(i+1))
+        matches=schedule.objects.all().filter(week=str(i+1)).order_by('id')
         leagueschedule.append(matches)
+    ishost=(request.user==league_.host)
     context = {
         'league': league_,
         'leaguepage': True,
         'league_teams': league_teams,
         'league_name': league_name,
         'leagueschedule': leagueschedule,
+        'ishost': ishost
     }
     return render(request, 'schedule.html',context)
 
