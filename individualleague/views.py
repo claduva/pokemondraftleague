@@ -7,6 +7,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
+from django.db.models import Q
 
 import math
 
@@ -33,6 +34,9 @@ def team_page(request,league_name,team_abbreviation):
         messages.error(request,'Team does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name) 
     league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    matchs=schedule.objects.all().filter(season=season).filter(Q(team1=team)|Q(team2=team))
+    results=matchs.exclude(replay="Link").order_by('-id')
+    print(results)
     context = {
         'league': league_,
         'leaguepage': True,
@@ -40,6 +44,7 @@ def team_page(request,league_name,team_abbreviation):
         'league_teams': league_teams,
         'team': team,
         'roster': teamroster,
+        'results':results,
     }
     return render(request, 'teampage.html',context)
 

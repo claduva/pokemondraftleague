@@ -241,8 +241,14 @@ def confirm_league_replay(request,league_name,matchid):
             #update megas and z
             match.team1megaevolved=team1.megaevolved
             match.team2megaevolved=team2.megaevolved
+            match.team1score=team1.score
+            match.team2score=team2.score
             match.team1usedz=team1.usedz
             match.team2usedz=team2.usedz
+            if team1.win==1:
+                match.winner==coach1team
+            elif team2.win==1:
+                match.winner==coach2team
             #save models
             coach1team.save()
             coach2team.save()

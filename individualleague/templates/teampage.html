@@ -22,29 +22,29 @@
     <div class="col-md-4 d-flex justify-content-end">
         <div>
             {% if team.conference %}
-                <div class="d-flex justify-content-center">Conference: {{ team.conference }}</div>
+            <div class="d-flex justify-content-center">Conference: {{ team.conference }}</div>
             {% endif %}
             {% if team.division %}
-                <div class="d-flex justify-content-center">Division: {{ team.division }}</div>
+            <div class="d-flex justify-content-center">Division: {{ team.division }}</div>
             {% endif %}
             <div>Record: {{ team.wins }}-{{ team.losses }}</div>
             <div>Differential: {{ team.differential }}</div>
-            <div>Streak: 
+            <div>Streak:
                 {% if team.streak > -1 %}
-                    Win-{{ team.streak }}
+                Win-{{ team.streak }}
                 {% else %}
-                    Lose{{ team.streak }}
+                Lose{{ team.streak }}
                 {% endif %}
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 <div class="row content-section align-items-center">
     <div class="col-md-12">
         <h4>Roster</h4>
         <table class="table table-sm" table-striped table-hover">
             <thead class="thead-dark">
-                <tr>
+                <tr class="text-center">
                     <th>Pokemon</th>
                     <th>K</th>
                     <th>D</th>
@@ -54,18 +54,20 @@
                 </tr>
             </thead>
             <tbody>
-            {% for item in roster %}
-                <tr>
+                {% for item in roster %}
+                <tr class="bg-lightgrey text-dark text-center">
                     <td>
                         {% if item.pokemon.pokemon %}
-                            <div class="d-flex">
-                                <img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                                <p>{{ item.pokemon.pokemon }}</p>
-                            </div>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                            <p>{{ item.pokemon.pokemon }}</p>
+                        </div>
                         {% else %}
-                            <div>
-                                <img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/unown-question.{{ site_settings.sprite|split:1 }}">
-                            </div>
+                        <div>
+                            <img class="smallsprite justify-content-center"
+                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/unown-question.{{ site_settings.sprite|split:1 }}">
+                        </div>
                         {% endif %}
                     </td>
                     <td>{{ item.kills }}</td>
@@ -74,11 +76,34 @@
                     <td>{{ item.gp }}</td>
                     <td>{{ item.gw }}</td>
                 </tr>
-            {% endfor %}
+                {% endfor %}
             </tbody>
         </table>
-        </div>
     </div>
+</div>
+<div class="row content-section align-items-center">
+    <h5 class="col-12">Results</h5>
+    {% for item in results %}
+    <div class="col-md-3">
+        <div class="card text-dark">
+            <h5 class="card-header">Week {{ item.week }}</h5>
+            {% if item.team1 == team %}
+                <img class="card-img-top" src="{{ item.team2.logo.url }}">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ team2.teamname }}</li>
+                </ul>
+            {% elif item.team2 == team %}
+                <img class="card-img-top" src="{{ item.team1.logo.url }}">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ item.team1.teamname }}</li>
+                    <li class="list-group-item">Score: {{ item.team2score }}-{{ item.team1score }}</li>
+                </ul>
+            {% endif %}    
+        </div>   
+    </div>
+    {% endfor %}
+    <div class="col-md-12">
+        <h5>Upcoming Matches</h5>
     </div>
 </div>
 {% endblock %}

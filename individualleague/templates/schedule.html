@@ -52,7 +52,7 @@
             </tr>
             <tr class="bg-lightgrey text-dark rounded-bottom">
                 {% if match.replay == 'Link' %}
-                {% if not ishost or request.user == match.team1.coach or request.user == match.team1.teammate or request.user == match.team2.coach or request.user == match.team3.teammate %}
+                {% if ishost or request.user == match.team1.coach or request.user == match.team1.teammate or request.user == match.team2.coach or request.user == match.team3.teammate %}
                 <td colspan="4">
                     <div class="d-flex justify-content-center"><a
                             href="{% url 'upload_league_replay' league_name=league_name matchid=match.id %}"><button
