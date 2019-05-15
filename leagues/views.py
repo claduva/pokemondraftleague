@@ -7,6 +7,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
+from django.db.models import Q
 
 from .forms import *
 from .models import *
@@ -243,7 +244,7 @@ def leagues_coaching_settings(request):
 def individual_league_coaching_settings(request,league_name):
     try:
         league_instance=league.objects.get(name=league_name)
-        coachinstance=coachdata.objects.filter(league_name=league_instance,coach=request.user).first()
+        coachinstance=coachdata.objects.filter(league_name=league_instance).filter(Q(coach=request.user)|Q(teammate=request.user)).first()
         settings=league_settings.objects.get(league_name=league_instance)
         allowsteams=settings.allows_teams
     except:
@@ -284,6 +285,7 @@ def individual_league_coaching_settings(request,league_name):
         'settingheading': league_name,
         'forms': forms,
         'leaguescoachingsettings': True,
+        'league_name':league_name,
     }
     return render(request, 'settings.html',context)
 
@@ -647,3 +649,41 @@ def manage_coach(request,league_name):
                 messages.success(request,f'{coach.coach} has been updated!')
                 return redirect('manage_coachs', league_name=league_name)
     return redirect('manage_coachs', league_name=league_name)
+
+def designate_z_users(request,league_name):
+    try:
+        league_instance=league.objects.get(name=league_name)
+        coachinstance=coachdata.objects.filter(league_name=league_instance).filter(Q(coach=request.user)|Q(teammate=request.user)).first()
+        settings=league_settings.objects.get(league_name=league_instance)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_coaching_settings')
+    try:
+        season=seasonsetting.objects.get(league=league_instance)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('leagues_coaching_settings')
+    if request.method == 'POST':
+        form=DesignateZUserForm(season,coachinstance,request.POST)
+        if form.is_valid():
+            zuser=form.cleaned_data['zuser']
+            ztype=form.cleaned_data['zmovetype']
+            zuser.zuser=ztype
+            zuser.save()
+            messages.success(request,f'{zuser.pokemon.pokemon} has been added as a Z user!')
+        return redirect('designate_z_users',league_name=league_name)
+    else:
+        numberofz=season.numzusers
+        currentz=roster.objects.all().filter(season=season,team=coachinstance).exclude(zuser="N")
+        zneeded=numberofz-currentz.count()
+        forms=[]
+        forms.append(DesignateZUserForm(season,coachinstance))
+    context = {
+        'settingheading': f'{league_name}: Designate Z Users',
+        'leaguescoachingsettings': True,
+        'league_name':league_name,
+        'forms': forms,
+        'zneeded':zneeded,
+        'currentz': currentz,
+    }
+    return render(request, 'designatezusers.html',context)

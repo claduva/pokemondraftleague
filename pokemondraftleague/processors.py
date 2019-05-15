@@ -7,6 +7,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
+from django.db.models import Q
 
 from leagues.models import *
 from accounts.models import *
@@ -22,7 +23,7 @@ def processor(request):
     except:
         allleagues = None
     try:  
-        leaguescoaching = request.user.coachdata_set.all().order_by('league_name')
+        leaguescoaching = coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).order_by('league_name')
     except:
         leaguescoaching = None
     try:  

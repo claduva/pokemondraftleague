@@ -4,6 +4,8 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
 
+from enum import Enum
+
 class league(models.Model):
     name = models.CharField(max_length=30, unique=True)
     host = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -110,6 +112,7 @@ class seasonsetting(models.Model):
     seasonlength = models.IntegerField(default=7)
     freeagenciesallowed= models.IntegerField(default=4)
     tradesallowed= models.IntegerField(default=4)
+    numzusers= models.IntegerField(default=2)
 
     def __str__(self):
         return f'League: {self.league.name}, Season: {self.seasonname}'
@@ -125,6 +128,12 @@ class roster(models.Model):
     differential = models.IntegerField(default=0)
     gp = models.IntegerField(default=0)
     gw = models.IntegerField(default=0)
+    zuser = models.CharField(max_length=20,choices=(
+        ("OS","Offensive and Status"),
+        ("O","Offensive"),
+        ("N","None"),
+        ),
+        default="N")
 
     def __str__(self):
         return f'Roster for League: {self.season.league.name}, Season: {self.season.seasonname}'

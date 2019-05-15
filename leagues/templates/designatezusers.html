@@ -1,0 +1,52 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Settings{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="content-section">
+            <div class="d-flex justify-content-between">
+                <h3>Settings</h3>
+                <a href="{% url 'individual_league_coaching_settings' league_name=league_name %}"><button
+                        class="btn btn-primary">Back</button></a>
+            </div>
+            {% include 'settingssidebar.html' %}
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="content-section">
+            <div class="d-flex justify-content-between">
+                <h2>{{ settingheading }} (Needed: {{ zneeded }})</h2>
+            </div>
+            <div class="row">
+                {% if zneeded > 0 %}
+                    <div class="col-md-6">
+                        <div><h4>Add Z User</h4></div>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% for form in forms %}
+                            {{ form|crispy  }}
+                            {% endfor %}
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                {% endif %}    
+                <div class="col-md-6">
+                    <h4>Z Users</h4>
+                    {% if currentz %}
+                        {% for item in currentz %}
+                            <div>-{{item.pokemon.pokemon}} ({{item.zuser}})</div>
+                        {% endfor %}
+                    {% else %}
+                        <div>-None</div>
+                    {% endif %}
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
+{% endblock %}

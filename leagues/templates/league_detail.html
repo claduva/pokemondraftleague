@@ -41,7 +41,7 @@
         <div class="row align-items-start">
             {% for conference,divisions in conferences %}
             <div class="col-md-6">
-                <table class="table table-sm">
+                <table class="table table-sm bg-lightgrey text-dark text-center">
                     <tr>
                         <th colspan="5">{{ conference.name }}</th>
                     </tr>
@@ -84,7 +84,7 @@
                     {% for coach in coachs %}
                     <tr>
                         <td>
-                            <a class="d-flex text-light" href="{% url 'team_page' league_name=league_name team_abbreviation=coach.teamabbreviation %}" ><div class="small-logo"><img class="img-fluid rounded-sprite" src="{{ coach.logo.url }}"></div>
+                            <a class="d-flex text-dark" href="{% url 'team_page' league_name=league_name team_abbreviation=coach.teamabbreviation %}" ><div class="small-logo"><img class="img-fluid rounded-sprite" src="{{ coach.logo.url }}"></div>
                             <div> {{ coach.teamname }} ({{ coach.teamabbreviation }})</div></a>
                         </td>
                         <td>{{ coach.wins }}</td>

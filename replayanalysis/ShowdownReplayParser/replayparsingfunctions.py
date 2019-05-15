@@ -104,16 +104,16 @@ def checkz(rawdata,team1,team2,i):
     if rawdata[i].find("zeffect") > -1:
             zuser=rawdata[i].split("|")[2]
             if (zuser.find("p1a") > -1):
-                team1.usedz=True
-            if (zuser.find("p2a") > -1):
                 team2.usedz=True
+            if (zuser.find("p2a") > -1):
+                team1.usedz=True
 
 def checkmega(rawdata,team1,team2,i):
     if rawdata[i].find("-mega") > -1:
             premega=rawdata[i-1].split("|")[2].split(" ")[1].split("-")[0]
             mega=rawdata[i-1].split(" ")[1]
             if (rawdata[i].find("p1a") > -1):
-                team1.megaevolved=True
+                team2.megaevolved=True
                 if team1.pokemon1 == premega:
                     team1.pokemon1 = mega
                 elif team1.pokemon2 == premega:
@@ -127,7 +127,7 @@ def checkmega(rawdata,team1,team2,i):
                 elif team1.pokemon6 == premega: 
                     team1.pokemon6 = mega
             if (rawdata[i].find("p2a") > -1):
-                team2.megaevolved=True
+                team1.megaevolved=True
                 if team2.pokemon1 == premega:
                     team2.pokemon1 = mega
                 elif team2.pokemon2 == premega:

@@ -36,7 +36,7 @@ def team_page(request,league_name,team_abbreviation):
     league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     matchs=schedule.objects.all().filter(season=season).filter(Q(team1=team)|Q(team2=team))
     results=matchs.exclude(replay="Link").order_by('-id')
-    print(results)
+    upcoming=matchs.filter(replay="Link").order_by('id')[0:4]
     context = {
         'league': league_,
         'leaguepage': True,
@@ -45,6 +45,7 @@ def team_page(request,league_name,team_abbreviation):
         'team': team,
         'roster': teamroster,
         'results':results,
+        'upcoming': upcoming
     }
     return render(request, 'teampage.html',context)
 

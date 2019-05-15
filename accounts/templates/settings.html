@@ -38,6 +38,11 @@
                             <a href=""><button class="btn btn-danger">Delete Season</button></a>
                         </div>
                     {% endif %}
+                    {% if leaguescoachingsettings %}
+                        <div>
+                            <a href="{% url 'designate_z_users' league_name=league_name %}"><button class="btn btn-primary">Designate Z Users</button></a>
+                        </div>
+                    {% endif %}
                 </div>
                     {% if create %}
                         <form method="post" enctype="multipart/form-data">

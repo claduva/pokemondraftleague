@@ -69,7 +69,7 @@ class CreateSeasonSettingsForm(forms.ModelForm):
 
     class Meta:
         model = seasonsetting
-        fields = ['league','seasonname','draftbudget','drafttype','picksperteam','seasonlength','freeagenciesallowed','tradesallowed']
+        fields = ['league','seasonname','draftbudget','drafttype','picksperteam','seasonlength','freeagenciesallowed','tradesallowed','numzusers']
         widgets = {
             'league': forms.HiddenInput(),
             }
@@ -93,4 +93,17 @@ class ManageCoachForm(forms.ModelForm):
         self.fields['division'].queryset = division_name.objects.filter(league=league).order_by('name')
         self.fields['division'].required = False
         self.fields['teammate'].required=False
-       
+
+class DesignateZUserForm(forms.Form):
+    zuser = forms.ModelChoiceField(queryset=roster.objects.all(), required=True)
+    zmovetype = forms.ChoiceField(choices=(
+        ("OS","Offensive & Status"),
+        ("O","Offensive"),
+    ))
+    class Meta:
+        fields = ['zuser','zmovetype']
+    
+    def __init__(self,season,team,*args, **kwargs):
+        super(DesignateZUserForm, self).__init__(*args, **kwargs)
+        self.fields['zuser'].queryset = roster.objects.all().filter(season=season,team=team).order_by('pokemon__pokemon')
+        self.fields['zuser'].label_from_instance = lambda obj: obj.pokemon.pokemon
