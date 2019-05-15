@@ -75,6 +75,8 @@ def upload_league_replay(request,league_name,matchid):
                 'form': form,
                 'league_name':league_name,
                 'matchid':matchid,
+                'league': league_,
+                'leaguepage': True,
             }
             return render(request,"replayanalysisform.html",context)
     form=LeagueReplayForm(instance=match,initial={"replay":""})
@@ -83,6 +85,8 @@ def upload_league_replay(request,league_name,matchid):
         'submission': True,
         'league_name':league_name,
         'matchid':matchid,
+        'league': league_,
+        'leaguepage': True,
     }
     return  render(request,"replayanalysisform.html",context)
 
@@ -345,5 +349,7 @@ def league_match_results(request,league_name,matchid):
         'league_name':league_name,
         'matchid':matchid,
         'showreplay': True,
+        'league': league_,
+        'leaguepage': True,
     }
     return render(request,"replayanalysisform.html",context)

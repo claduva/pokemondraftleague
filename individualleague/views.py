@@ -41,7 +41,6 @@ def team_page(request,league_name,team_abbreviation):
         'team': team,
         'roster': teamroster,
     }
-    print("madeit")
     return render(request, 'teampage.html',context)
 
 def league_draft(request,league_name):

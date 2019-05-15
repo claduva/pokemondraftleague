@@ -27,8 +27,17 @@
             {% if team.division %}
                 <div class="d-flex justify-content-center">Division: {{ team.division }}</div>
             {% endif %}
+            <div>Record: {{ team.wins }}-{{ team.losses }}</div>
+            <div>Differential: {{ team.differential }}</div>
+            <div>Streak: 
+                {% if team.streak > -1 %}
+                    Win-{{ team.streak }}
+                {% else %}
+                    Lose{{ team.streak }}
+                {% endif %}
+            </div>
         </div>
-    </div>
+    </div> 
 </div>
 <div class="row content-section align-items-center">
     <div class="col-md-12">
