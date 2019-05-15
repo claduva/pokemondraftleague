@@ -650,6 +650,7 @@ def manage_coach(request,league_name):
                 return redirect('manage_coachs', league_name=league_name)
     return redirect('manage_coachs', league_name=league_name)
 
+@login_required
 def designate_z_users(request,league_name):
     try:
         league_instance=league.objects.get(name=league_name)
@@ -685,5 +686,30 @@ def designate_z_users(request,league_name):
         'forms': forms,
         'zneeded':zneeded,
         'currentz': currentz,
+        'candeletez': season.candeletez,
     }
     return render(request, 'designatezusers.html',context)
+
+@login_required
+def delete_z_user(request,league_name):
+    try:
+        league_instance=league.objects.get(name=league_name)
+        coachinstance=coachdata.objects.filter(league_name=league_instance).filter(Q(coach=request.user)|Q(teammate=request.user)).first()
+        settings=league_settings.objects.get(league_name=league_instance)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_coaching_settings')
+    try:
+        season=seasonsetting.objects.get(league=league_instance)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('leagues_coaching_settings')
+    if request.method == 'POST':
+        
+        zuser=roster.objects.get(pk=request.POST['zid'])
+        zuser.zuser="N"
+        zuser.save()
+        messages.success(request,f'{zuser.pokemon.pokemon} has been removed as a Z user!')
+    print("here")
+    return redirect('designate_z_users',league_name=league_name)
+

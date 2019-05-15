@@ -113,6 +113,7 @@ class seasonsetting(models.Model):
     freeagenciesallowed= models.IntegerField(default=4)
     tradesallowed= models.IntegerField(default=4)
     numzusers= models.IntegerField(default=2)
+    candeletez = models.BooleanField(default=False)
 
     def __str__(self):
         return f'League: {self.league.name}, Season: {self.seasonname}'

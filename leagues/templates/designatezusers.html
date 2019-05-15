@@ -39,7 +39,15 @@
                     <h4>Z Users</h4>
                     {% if currentz %}
                         {% for item in currentz %}
-                            <div>-{{item.pokemon.pokemon}} ({{item.zuser}})</div>
+                            <div class="d-flex">-{{item.pokemon.pokemon}} ({{item.zuser}}) 
+                                {% if candeletez %}
+                                    <form method="post" action="{% url 'delete_z_user' league_name=league_name %}">
+                                        {% csrf_token %}
+                                        <input type="text" name="zid" value={{item.id}} hidden>
+                                        <input type="submit" class="btn btn-danger" value="Delete">
+                                    </form>
+                                {% endif %}    
+                            </div>
                         {% endfor %}
                     {% else %}
                         <div>-None</div>
