@@ -1,12 +1,12 @@
 import discord
 
-from .bottoken import *
-
 debug=False
 if debug==True:
+    from .bottoken import *
     bottoken=BOTTOKEN
 else:
     bottoken=os.environ.get('BOTTOKEN')
+
 client = discord.Client()
 
 @client.event
