@@ -3,7 +3,7 @@ import os
 
 debug=False
 if debug==True:
-    from .bottoken import *
+    from bottoken import *
     bottoken=BOTTOKEN
 else:
     bottoken=os.environ.get('BOTTOKEN')
@@ -21,5 +21,7 @@ async def on_message(message):
     
     if message.content.startswith('!website'):
         await message.channel.send('http://pokemondraftleague.online/')
+
+    await message.channel.send(message.guild)
 
 client.run(bottoken)
