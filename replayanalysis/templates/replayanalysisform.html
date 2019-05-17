@@ -46,11 +46,15 @@
             {% if team1.win is 1 %}
                 {% if confirm %}
                     Winning Team: {{ team1name.teamname }}
+                {% elif showreplay %}
+                    Winning Team: {{ team1name.teamname }}
                 {% else %}
                     Winning Coach: {{ team1.coach }}
                 {% endif %}
             {% elif team2.win is 1 %}
                 {% if confirm %}
+                    Winning Team: {{ team2name.teamname }}
+                {% elif showreplay %}
                     Winning Team: {{ team2name.teamname }}
                 {% else %}
                     Winning Coach: {{ team2.coach }}
@@ -61,11 +65,15 @@
             {% if team1.win is 0 %}
                 {% if confirm %}
                     Losing Team: {{ team1name.teamname }}
+                {% elif showreplay %}
+                    Losing Team: {{ team1name.teamname }}
                 {% else %}
                     Losing Coach: {{ team1.coach }}
                 {% endif %}
             {% elif team2.win is 0 %}
                 {% if confirm %}
+                    Losing Team: {{ team2name.teamname }}
+                {% elif showreplay %}
                     Losing Team: {{ team2name.teamname }}
                 {% else %}
                     Losing Coach: {{ team2.coach }}
@@ -87,6 +95,8 @@
                 <th colspan="4">
                     <div class="d-flex justify-content-center">
                         {% if confirm %}
+                            {{ team1name.teamname }}
+                        {% elif showreplay %}
                             {{ team1name.teamname }}
                         {% else %}
                             Coach: {{team1.coach}}
@@ -201,6 +211,8 @@
                     <div class="d-flex justify-content-center">
                         {% if confirm %}
                             {{ team2name.teamname }}
+                        {% elif showreplay %}
+                            {{ team1name.teamname }}
                         {% else %}
                             Coach: {{team2.coach}}
                         {% endif %}
