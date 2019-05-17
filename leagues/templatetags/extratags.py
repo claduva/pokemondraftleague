@@ -12,3 +12,7 @@ def replace(string, arg):
 @register.filter(name='split')
 def split(string, arg):
     return string.split(".")[arg]
+
+@register.filter(name='subtract')
+def split(int, arg):
+    return int-arg

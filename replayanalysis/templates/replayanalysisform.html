@@ -18,7 +18,14 @@
             class="rounded-circle mediumlogo"></div>
 </div>
 <div class="row content-section align-items-center">
-    {% if submission %}
+    {% if manual_submission %}
+    <h4 class="col-md-6">Team 1: {{ match.team1.teamname }}</h4>
+    <h4 class="col-md-6">Team 2: {{ match.team2.teamname }}</h4>
+    <div class="col-md-12">
+        {% crispy form %}
+    </div>
+    {% elif submission %}
+    <div class="col-md-12 d-flex justify-content-end"><a href="{% url 'upload_league_replay_manual' league_name=league_name matchid=matchid %}"><button class="btn btn-primary">Manually Input Data</button></a></div>
     <div class="col-md-12">
         <form method="post">
             {% csrf_token %}
@@ -75,7 +82,7 @@
         <h6 class="d-flex justify-content-center"><a class="text-light" href="{{ replay }}">Replay</a></h6>
     </div>
     <div class=col-md-6>
-        <table class="table table-sm text-center">
+        <table class="table table-sm text-center bg-lightgrey text-dark">
             <tr>
                 <th colspan="4">
                     <div class="d-flex justify-content-center">
@@ -188,7 +195,7 @@
         </table>
     </div>
     <div class="col-md-6">
-        <table class="table table-sm text-center">
+        <table class="table table-sm text-center bg-lightgrey text-dark">
             <tr>
                 <th colspan="4">
                     <div class="d-flex justify-content-center">
