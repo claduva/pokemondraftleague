@@ -16,6 +16,12 @@ class all_pokemon(models.Model):
     s_defense = models.IntegerField()
     speed = models.IntegerField()
     is_fully_evolved = models.BooleanField()
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    differential = models.IntegerField(default=0)
+    gp = models.IntegerField(default=0)
+    gw = models.IntegerField(default=0)
+    timesdrafted = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.pokemon}'

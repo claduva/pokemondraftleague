@@ -1,4 +1,5 @@
 import discord
+import os
 
 debug=False
 if debug==True:
