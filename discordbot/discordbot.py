@@ -11,8 +11,8 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+    
+    if message.content.startswith('!website'):
+        await message.channel.send('pokemondraftleague.online')
 
 client.run(bottoken)
