@@ -509,7 +509,7 @@ def available_individual_league_tier(request,league_name,tiername):
     }
     return render(request, 'individualtier.html',context)
 
-def free_agency(request,league_name):
+def freeagency(request,league_name):
     try:
         league_=league.objects.get(name=league_name)
         league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
@@ -549,12 +549,14 @@ def free_agency(request,league_name):
             messages.success(request,f'You free agency request has been implemented!')
             return redirect('team_page',league_name=league_name,team_abbreviation=droppedpokemon.team.teamabbreviation)
     form=FreeAgencyForm(coachroster,availablepokemon,initial={'coach':coach,'season':season})
+    fa_remaining=season.freeagenciesallowed-free_agency.objects.all().filter(season=season,coach=coach).count()
     context = {
         'league': league_,
         'leaguepage': True,
         'league_teams': league_teams,
         'league_name': league_name,
         'form':form,
+        'fa_remaining':fa_remaining,
     }
     return render(request, 'freeagency.html',context)
 
