@@ -3,7 +3,7 @@ import discord
 from .bottoken import *
 
 debug=False
-if debug=True:
+if debug==True:
     bottoken=BOTTOKEN
 else:
     bottoken=os.environ.get('BOTTOKEN')
