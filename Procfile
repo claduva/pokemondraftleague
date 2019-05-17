@@ -1,2 +1,2 @@
 web: gunicorn pokemondraftleague.wsgi
-worker: discordbot.discordbot.py
+worker: python discordbot.discordbot.py
