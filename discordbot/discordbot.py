@@ -1,6 +1,12 @@
 import discord
 
-bottoken='NTc5MDI1OTU5MjExMjM3Mzc2.XN8PuA.yTzVzx6DqpjLKE46ZlbiD5IsDpQ'
+from .bottoken import *
+
+debug=False
+if debug=True:
+    bottoken=BOTTOKEN
+else:
+    bottoken=os.environ.get('BOTTOKEN')
 client = discord.Client()
 
 @client.event
@@ -13,6 +19,6 @@ async def on_message(message):
         return
     
     if message.content.startswith('!website'):
-        await message.channel.send('pokemondraftleague.online')
+        await message.channel.send('http://pokemondraftleague.online/')
 
 client.run(bottoken)

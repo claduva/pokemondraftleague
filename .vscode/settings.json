@@ -5,7 +5,6 @@
     "README.md": true,
     "test.txt": true,
     ".travis.yml": true,
-    ".gitignore": true,
     ".vscode": true
   }
 }
