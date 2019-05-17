@@ -22,6 +22,10 @@ async def on_message(message):
     if message.content.startswith('!website'):
         await message.channel.send('http://pokemondraftleague.online/')
 
-    await message.channel.send(message.guild)
+    if message.content.startswith('Kick Sleepy') and message.author.id==270800855677140994:
+        sleepy=message.guild.get_member(248633879529783296)
+        await sleepy.kick()
+        await message.channel.send('Finally. I thought you would never ask.')
+
 
 client.run(bottoken)
