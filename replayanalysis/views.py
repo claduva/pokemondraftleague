@@ -42,6 +42,7 @@ def replay_analysis(request):
 def upload_league_replay(request,league_name,matchid):
     try:
         league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     except:
         return redirect('league_list')
     try:
@@ -83,6 +84,7 @@ def upload_league_replay(request,league_name,matchid):
                 'matchid':matchid,
                 'league': league_,
                 'leaguepage': True,
+                'league_teams': league_teams,
             }
             return render(request,"replayanalysisform.html",context)
     form=LeagueReplayForm(instance=match,initial={"replay":""})
@@ -93,6 +95,7 @@ def upload_league_replay(request,league_name,matchid):
         'matchid':matchid,
         'league': league_,
         'leaguepage': True,
+        'league_teams': league_teams,
     }
     return  render(request,"replayanalysisform.html",context)
 
@@ -100,6 +103,7 @@ def upload_league_replay(request,league_name,matchid):
 def confirm_league_replay(request,league_name,matchid):
     try:
         league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     except:
         return redirect('league_list')
     try:
@@ -274,6 +278,7 @@ def confirm_league_replay(request,league_name,matchid):
 def league_match_results(request,league_name,matchid):
     try:
         league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     except:
         return redirect('league_list')
     try:
@@ -301,6 +306,7 @@ def league_match_results(request,league_name,matchid):
             'showreplay': showreplay,
             'loser': loser,
             'score': score,
+            'league_teams': league_teams,
         }
         return render(request,"manualreplayresults.html",context)
     except:
@@ -324,6 +330,7 @@ def league_match_results(request,league_name,matchid):
             'showreplay': True,
             'league': league_,
             'leaguepage': True,
+            'league_teams': league_teams,
         }
         return render(request,"replayanalysisform.html",context)
 
@@ -331,6 +338,7 @@ def league_match_results(request,league_name,matchid):
 def upload_league_replay_manual(request,league_name,matchid):
     try:
         league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     except:
         return redirect('league_list')
     try:
@@ -502,5 +510,6 @@ def upload_league_replay_manual(request,league_name,matchid):
         'league': league_,
         'leaguepage': True,
         'match': match,
+        'league_teams': league_teams,
     }
     return  render(request,"replayanalysisform.html",context)

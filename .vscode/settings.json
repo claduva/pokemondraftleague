@@ -1,3 +1,11 @@
 {
-    "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "files.exclude": {
+    "manage.py": true,
+    "README.md": true,
+    "test.txt": true,
+    ".travis.yml": true,
+    ".gitignore": true,
+    ".vscode": true
+  }
 }

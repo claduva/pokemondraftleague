@@ -59,6 +59,7 @@ INSTALLED_APPS = [
 
     #local apps
     'accounts.apps.AccountsConfig',
+    #'discord.apps.DiscordConfig',
     'individualleague.apps.IndividualleagueConfig',
     'leagues.apps.LeaguesConfig',
     'main.apps.MainConfig',

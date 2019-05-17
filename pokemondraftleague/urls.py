@@ -28,3 +28,4 @@ urlpatterns = [
     path('',include("main.urls")),
     path('',include("replayanalysis.urls")),
 ]
+

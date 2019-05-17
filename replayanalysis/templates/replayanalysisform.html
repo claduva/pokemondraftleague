@@ -25,7 +25,10 @@
         {% crispy form %}
     </div>
     {% elif submission %}
-    <div class="col-md-12 d-flex justify-content-end"><a href="{% url 'upload_league_replay_manual' league_name=league_name matchid=matchid %}"><button class="btn btn-primary">Manually Input Data</button></a></div>
+    <div class="col-md-12 d-flex justify-content-between">
+        <h3 class="pt-2">Upload Replay by URL</h3>
+        <a href="{% url 'upload_league_replay_manual' league_name=league_name matchid=matchid %}"><button class="btn btn-primary">Manually Input Data</button></a>
+    </div>
     <div class="col-md-12">
         <form method="post">
             {% csrf_token %}
@@ -328,7 +331,7 @@
                     <div hidden>{{ form }}</div>
                     <input class="btn btn-success" type="submit" value="Confirm">
                 </form>
-                <button class="btn btn-danger">Reject</button>
+                <a href="{% url 'upload_league_replay' league_name=league_name matchid=matchid %}"><button class="btn btn-danger">Reject</button></a>
             </div>
         </div>
     {% endif %}

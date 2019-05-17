@@ -20,3 +20,16 @@ class CreateMatchForm(forms.ModelForm):
         c=[(i+1,i+1) for i in range(season.seasonlength)]
         c.append(('Playoff','Playoff'))
         self.fields['week']=forms.ChoiceField(choices=c)
+
+class FreeAgencyForm(forms.ModelForm):
+    
+    class Meta:
+        model = free_agency
+        exclude = []
+        widgets = {'season': forms.HiddenInput(),'coach':forms.HiddenInput(),'weekeffective':forms.HiddenInput()}
+
+    def __init__(self,coachroster,availablepokemon, *args, **kwargs):
+        super(FreeAgencyForm, self).__init__(*args, **kwargs)
+        self.fields['droppedpokemon'].queryset = coachroster
+        self.fields['droppedpokemon'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['addedpokemon'].queryset = availablepokemon

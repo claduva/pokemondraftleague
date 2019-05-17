@@ -508,3 +508,53 @@ def available_individual_league_tier(request,league_name,tiername):
         'availabletiers': True,
     }
     return render(request, 'individualtier.html',context)
+
+def free_agency(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    coach=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).first()
+    coachroster=roster.objects.all().filter(season=season,team=coach)
+    availablepokemon=all_pokemon.objects.all().order_by('pokemon')
+    for item in availablepokemon:
+        try:
+            roster.objects.all().filter(season=season).get(pokemon=item)
+            availablepokemon=availablepokemon.exclude(pokemon=item.pokemon)
+        except:
+            tier=pokemon_tier.objects.all().filter(league=league_).get(pokemon=item)
+            if tier.tier.tiername=="Banned":
+                availablepokemon=availablepokemon.exclude(pokemon=item.pokemon)
+            available=True
+    if request.method=="POST":
+        form=FreeAgencyForm(coachroster,availablepokemon,request.POST)
+        if form.is_valid():
+            droppedpokemon=form.cleaned_data['droppedpokemon']
+            droppedpokemon.kills=0
+            droppedpokemon.deaths=0
+            droppedpokemon.gp=0
+            droppedpokemon.gw=0
+            droppedpokemon.differential=0
+            droppedpokemon.zuser="N"
+            droppedpokemon.pokemon=form.cleaned_data['addedpokemon']
+            droppedpokemon.save()
+            form.save()
+            messages.success(request,f'You free agency request has been implemented!')
+            return redirect('team_page',league_name=league_name,team_abbreviation=droppedpokemon.team.teamabbreviation)
+    form=FreeAgencyForm(coachroster,availablepokemon,initial={'coach':coach,'season':season})
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'form':form,
+    }
+    return render(request, 'freeagency.html',context)
+
