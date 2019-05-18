@@ -32,7 +32,7 @@ async def on_message(message):
     
     if message.content.startswith('blob me times'):
         number=message.content.split(" ")[3]
-        if number < 31:
+        if int(number) < 31:
             blobs=[client.get_emoji(496772116897857537),client.get_emoji(475876685422657557),client.get_emoji(473988298860134400),client.get_emoji(473985986452520960),client.get_emoji(469644183523557387)]
             blobs.append(client.get_emoji(579159386648477717))
             blobs.append(client.get_emoji(579158599687995392))
