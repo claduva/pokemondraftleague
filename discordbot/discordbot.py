@@ -32,11 +32,12 @@ async def on_message(message):
     
     if message.content.startswith('blob me times'):
         number=message.content.split(" ")[3]
-        blobs=[client.get_emoji(496772116897857537),client.get_emoji(475876685422657557),client.get_emoji(473988298860134400),client.get_emoji(473985986452520960),client.get_emoji(469644183523557387)]
-        bloblist=""
-        for i in range(int(number)):
-            blob=random.choice(blobs)
-            bloblist=bloblist+str(blob)
-        await message.channel.send(bloblist)
+        if number < 31:
+            blobs=[client.get_emoji(496772116897857537),client.get_emoji(475876685422657557),client.get_emoji(473988298860134400),client.get_emoji(473985986452520960),client.get_emoji(469644183523557387)]
+            bloblist=""
+            for i in range(int(number)):
+                blob=random.choice(blobs)
+                bloblist=bloblist+str(blob)
+            await message.channel.send(bloblist)
 
 client.run(bottoken)

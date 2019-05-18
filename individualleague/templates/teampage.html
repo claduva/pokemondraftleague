@@ -100,7 +100,7 @@
                     {% if item.winner == team %}
                     <li class="list-group-item p-0">WIN ({{ item.team1score }}-{{ item.team2score }})</li>
                     {% else %}
-                    <li class="list-group-item p-0"> test LOSE ({{ item.team1score }}-{{ item.team2score }})</li>
+                    <li class="list-group-item p-0">LOSE ({{ item.team1score }}-{{ item.team2score }})</li>
                     {% endif %}
                     <li class="list-group-item p-0"><a href="{{item.replay}}"><button
                                 class="btn btn-dark">Replay</button></a></li>
@@ -128,7 +128,7 @@
     <div class="card-group">
         {% for item in upcoming %}
         <div class="col">
-            <div class="card text-dark text-center justify-content-center">
+            <div class="card text-dark text-center justify-content-center h-100">
                 <h5 class="card-header p-0">Week {{ item.week }}</h5>
                 {% if item.team1 == team %}
                 <div><img class="card-img-top mediumlogo rounded-circle m-1" src="{{ item.team2.logo.url }}"></div>
