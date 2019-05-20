@@ -513,7 +513,7 @@ def default_tiers(request,league_name):
             for item in existingpokemontiers:
                 item.delete()
             for item in templatepokemonset:
-                tiertouse=leaguetiers.objects.get(tiername=item.tier.tiername)
+                tiertouse=leaguetiers.objects.filter(league=league_).get(tiername=item.tier.tiername)
                 pokemon_tier.objects.create(pokemon=item.pokemon,league=league_,tier=tiertouse)
             messages.success(request,'The template has been applied!')
             return redirect('manage_tiers',league_name=league_name)
