@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.forms.widgets import FileInput
 from .models import *
+from django.forms import DateTimeInput
+
 
 class CreateLeagueForm(forms.ModelForm):
 
@@ -67,6 +69,7 @@ class UpdateCoachTeammateForm(forms.ModelForm):
 
 class CreateSeasonSettingsForm(forms.ModelForm):
 
+
     class Meta:
         model = seasonsetting
         fields = ['league','seasonname','draftbudget','drafttype','picksperteam','seasonlength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
@@ -76,9 +79,15 @@ class CreateSeasonSettingsForm(forms.ModelForm):
 
 class EditSeasonSettingsForm(forms.ModelForm):
 
+    seasonstart = forms.DateTimeField(label='Season Start: (Format=YYYY-MM-DD HH:MM) Timezone=UTC' , required=False 
+        
+    )
+
     class Meta:
         model = seasonsetting
-        fields = ['seasonname','draftbudget','drafttype','seasonlength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
+        fields = ['seasonname','draftbudget','drafttype','seasonstart','seasonlength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
+        
+    
 
 class ManageCoachForm(forms.ModelForm):
     logo=forms.FileField(widget=FileInput,required=False)

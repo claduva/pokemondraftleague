@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from leagues.models import *
 from .models import *
 
+
 class CreateMatchForm(forms.ModelForm):
     
     class Meta:

@@ -550,6 +550,9 @@ def freeagency(request,league_name):
             return redirect('team_page',league_name=league_name,team_abbreviation=droppedpokemon.team.teamabbreviation)
     form=FreeAgencyForm(coachroster,availablepokemon,initial={'coach':coach,'season':season})
     fa_remaining=season.freeagenciesallowed-free_agency.objects.all().filter(season=season,coach=coach).count()
+    if fa_remaining < 1:
+        messages.error(request,'You do not have any free agencies remaining!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
     context = {
         'league': league_,
         'leaguepage': True,

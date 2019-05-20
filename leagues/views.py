@@ -9,6 +9,10 @@ from django.urls import reverse
 from django.contrib import messages
 from django.db.models import Q
 
+from datetime import datetime, timezone, timedelta
+import pytz
+import math
+
 from .forms import *
 from .models import *
 from pokemondatabase.models import *
@@ -31,7 +35,6 @@ def league_detail(request,league_name):
                 coachs=coachdata.objects.all().filter(conference=item).order_by('-wins','losses','-differential','teamname')
                 divisions=[[None,coachs]]
             conferences.append([item,divisions])
-
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
@@ -48,6 +51,13 @@ def league_detail(request,league_name):
                 apply=False
             except:
                 apply=True
+    
+    season=seasonsetting.objects.get(league=league_)
+    timezone = pytz.timezone('UTC')
+    elapsed=timezone.localize(datetime.now())-season.seasonstart
+    timercurrentweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
+    seasonstart=str(season.seasonstart)
+
     context = {
         'league': league_,
         'apply': apply,
@@ -55,6 +65,9 @@ def league_detail(request,league_name):
         'league_name': league_name,
         'league_teams': league_teams,
         'conferences': conferences,
+        'season':season,
+        'timercurrentweek': timercurrentweek,
+        'seasonstart':seasonstart
     }
     return render(request, 'league_detail.html',context)
 
@@ -341,10 +354,12 @@ def manage_seasons(request,league_name):
         try:
             seasonsettings=seasonsetting.objects.get(league=league_)
             form = EditSeasonSettingsForm(request.POST,instance=seasonsettings)
-            if form.is_valid() :
+            if form.is_valid():
                 form.save()
                 messages.success(request,'Season settings have been updated!')
-                return redirect('manage_seasons',league_name=league_name)
+            else:
+                messages.error(request,form.errors,extra_tags='danger')    
+            return redirect('manage_seasons',league_name=league_name)
         except:    
             form = CreateSeasonSettingsForm(request.POST)
             if form.is_valid() :
@@ -376,7 +391,7 @@ def manage_seasons(request,league_name):
         'seasonsettings': seasonsettings,
         'settingheading': settingheading,
         'create': create,
-        'manageseason': manageseason,
+        'manageseason': manageseason,    
     }
     return render(request, 'settings.html',context)
 

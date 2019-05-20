@@ -109,6 +109,7 @@ class seasonsetting(models.Model):
         ("Snake","Snake"),
         ),
         default="Snake")
+    seasonstart=models.DateTimeField(null=True)
     seasonlength = models.IntegerField(default=7)
     freeagenciesallowed= models.IntegerField(default=4)
     tradesallowed= models.IntegerField(default=4)

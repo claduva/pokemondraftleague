@@ -15,8 +15,9 @@
         <div class="d-flex justify-content-center">Hosted by {{league.host}}</div>
         {% if league.league_settings.discordurl is not 'Not Provided' %}
         <div class="d-flex justify-content-center">
-            <a href="{{ item.league_settings.discordurl }}"><button class="btn btn-primary">Join the Discord</button></a>
-        </div>    
+            <a href="{{ item.league_settings.discordurl }}"><button class="btn btn-primary">Join the
+                    Discord</button></a>
+        </div>
         {% endif %}
     </div>
     <div class="col-md-4 d-flex justify-content-end">
@@ -30,6 +31,14 @@
         <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
         {% endif %}
     </div>
+</div>
+<div class="row content-section align-items-center">
+    <h4 class="col-md-6 text-center">
+        Current Week: <span id="currentweek"></span>
+    </h4>
+    <h4 class="col-md-6 text-center">
+        Time Remaining In Week: <span id="remaining"></span>
+    </h4>
 </div>
 <div class="row content-section align-items-center">
     <div class="col-md-12">
@@ -84,8 +93,12 @@
                     {% for coach in coachs %}
                     <tr>
                         <td>
-                            <a class="d-flex text-dark" href="{% url 'team_page' league_name=league_name team_abbreviation=coach.teamabbreviation %}" ><div class="small-logo"><img class="img-fluid rounded-sprite" src="{{ coach.logo.url }}"></div>
-                            <div> {{ coach.teamname }} ({{ coach.teamabbreviation }})</div></a>
+                            <a class="d-flex text-dark"
+                                href="{% url 'team_page' league_name=league_name team_abbreviation=coach.teamabbreviation %}">
+                                <div class="small-logo"><img class="img-fluid rounded-sprite"
+                                        src="{{ coach.logo.url }}"></div>
+                                <div> {{ coach.teamname }} ({{ coach.teamabbreviation }})</div>
+                            </a>
                         </td>
                         <td>{{ coach.wins }}</td>
                         <td>{{ coach.losses }}</td>
@@ -107,4 +120,42 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block footer %}
+<script>
+    // Set the date we're counting down to
+    var startDate = '{{seasonstart}}'
+    var oldCountDownDate = new Date(startDate);
+
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+        var week = Math.ceil((new Date() - oldCountDownDate) / 60 / 60 / 24 / 7 / 1000)
+        var countDownDate = new Date(startDate);
+        countDownDate.setDate(oldCountDownDate.getDate() + week * 7);
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        document.getElementById("remaining").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        
+        document.getElementById("currentweek").innerHTML = "Week " + week;
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("remaining").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+</script>
 {% endblock %}
