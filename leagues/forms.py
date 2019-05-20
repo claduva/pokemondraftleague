@@ -13,7 +13,7 @@ class CreateLeagueForm(forms.ModelForm):
         widgets = {'host': forms.HiddenInput()}
 
 class UpdateLeagueForm(forms.ModelForm):
-    logo=forms.FileField(widget=FileInput)
+    logo=forms.FileField(widget=FileInput,required=False)
     
     class Meta:
         model = league
@@ -23,7 +23,7 @@ class UpdateLeagueSettingsForm(forms.ModelForm):
 
     class Meta:
         model = league_settings
-        fields = ['is_recruiting','discordurl','number_of_teams','number_of_conferences','number_of_divisions','allows_teams']
+        fields = ['is_recruiting','discordurl','number_of_teams','number_of_conferences','number_of_divisions','allows_teams','is_public']
 
 class LeagueApplicationForm(forms.ModelForm):
     

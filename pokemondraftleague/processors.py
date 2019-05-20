@@ -19,7 +19,12 @@ def processor(request):
     except:
         leagueshosted = None
     try:  
-        allleagues = league.objects.all().order_by('name')
+        allleagues = league.objects.all().filter().order_by('name')
+        for item in allleagues:
+            settings=league_settings.objects.get(league_name=item)
+            if settings.is_public==False and item.host != request.user:
+                allleagues=allleagues.exclude(pk=item.id)
+        
     except:
         allleagues = None
     try:  

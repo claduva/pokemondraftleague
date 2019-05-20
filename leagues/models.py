@@ -22,6 +22,7 @@ class league_settings(models.Model):
     is_recruiting = models.BooleanField(default=True)
     allows_teams = models.BooleanField(default=False)
     discordurl = models.CharField(max_length=100, default="Not Provided")
+    is_public = models.BooleanField(default=True)
 
     def __str__(self):
         return f'League settings for {self.league_name.name}'
