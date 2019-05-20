@@ -71,32 +71,42 @@ class ManualLeagueReplayForm(forms.ModelForm):
 
     def __init__(self,match, *args, **kwargs):
         super(ManualLeagueReplayForm,self).__init__(*args, **kwargs)
-        t1queryset=roster.objects.all().filter(season=match.season,team=match.team1).order_by('pokemon__pokemon')
+        t1queryset=all_pokemon.objects.all().order_by('pokemon')
+        for item in t1queryset:
+            try:
+                roster.objects.all().filter(season=match.season,team=match.team1).get(pokemon=item)
+            except:
+                t1queryset=t1queryset.exclude(pokemon=item.pokemon)
         self.fields['t1pokemon1'].queryset = t1queryset
-        self.fields['t1pokemon1'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t1pokemon1'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t1pokemon2'].queryset = t1queryset
-        self.fields['t1pokemon2'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t1pokemon2'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t1pokemon3'].queryset = t1queryset
-        self.fields['t1pokemon3'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t1pokemon3'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t1pokemon4'].queryset = t1queryset
-        self.fields['t1pokemon4'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t1pokemon4'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t1pokemon5'].queryset = t1queryset
-        self.fields['t1pokemon5'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t1pokemon5'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t1pokemon6'].queryset = t1queryset
-        self.fields['t1pokemon6'].label_from_instance = lambda obj: obj.pokemon.pokemon
-        t2queryset=roster.objects.all().filter(season=match.season,team=match.team2).order_by('pokemon__pokemon')
+        self.fields['t1pokemon6'].label_from_instance = lambda obj: obj.pokemon
+        t2queryset=all_pokemon.objects.all().order_by('pokemon')
+        for item in t2queryset:
+            try:
+                roster.objects.all().filter(season=match.season,team=match.team2).get(pokemon=item)
+            except:
+                t2queryset=t2queryset.exclude(pokemon=item.pokemon)
         self.fields['t2pokemon1'].queryset = t2queryset
-        self.fields['t2pokemon1'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t2pokemon1'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t2pokemon2'].queryset = t2queryset
-        self.fields['t2pokemon2'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t2pokemon2'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t2pokemon3'].queryset = t2queryset
-        self.fields['t2pokemon3'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t2pokemon3'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t2pokemon4'].queryset = t2queryset
-        self.fields['t2pokemon4'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t2pokemon4'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t2pokemon5'].queryset = t2queryset
-        self.fields['t2pokemon5'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t2pokemon5'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t2pokemon6'].queryset = t2queryset
-        self.fields['t2pokemon6'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['t2pokemon6'].label_from_instance = lambda obj: obj.pokemon
         teams=set()
         teams.add(match.team1)
         teams.add(match.team2)

@@ -26,9 +26,12 @@ async def on_message(message):
         await message.channel.send('Help documentation is under development.')
 
     if message.content.startswith('Kick Sleepy') and (message.author.id==270800855677140994 or message.author.id==396785635991486466 or message.author.id==291710529981120524):
-        sleepy=message.guild.get_member(248633879529783296)
-        await sleepy.kick(reason="LOL Kicked by a bot")
-        await message.channel.send('Finally. I thought you would never ask.')
+        try:
+            sleepy=message.guild.get_member(248633879529783296)
+            await sleepy.kick(reason="LOL Kicked by a bot")
+            await message.channel.send('Finally. I thought you would never ask.')
+        except:
+            await message.channel.send('Thankfully there is currently no Sleepy in the server.')        
     
     if message.content.startswith('blob me times'):
         number=message.content.split(" ")[3]
@@ -47,6 +50,12 @@ async def on_message(message):
                 blob=random.choice(blobs)
                 bloblist=bloblist+str(blob)
             await message.channel.send(bloblist)
+        else: 
+            bloblist=""
+            for i in range(10):
+                blob=random.choice(blobs)
+                bloblist=bloblist+str(blob)
+            await message.channel.send("This is all the blob power I can muster (I'm not Forrest): "+bloblist)
 
     if message.content.startswith('emoji'):
         emojis=message.guild.emojis

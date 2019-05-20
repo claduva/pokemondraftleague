@@ -344,6 +344,12 @@ def upload_league_replay_manual(request,league_name,matchid):
     try:
         league_=league.objects.get(name=league_name)
     except:
+        messages.error(request,f'League does not exist!',extra_tags="danger")
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,f'Season does not exist!',extra_tags="danger")
         return redirect('league_list')
     try:
         match=schedule.objects.get(pk=matchid)
@@ -361,18 +367,18 @@ def upload_league_replay_manual(request,league_name,matchid):
             team1=match.team1
             team2=match.team2
             #get pokemon
-            t1pokemon1=form.cleaned_data['t1pokemon1']
-            t1pokemon2=form.cleaned_data['t1pokemon2']
-            t1pokemon3=form.cleaned_data['t1pokemon3']
-            t1pokemon4=form.cleaned_data['t1pokemon4']
-            t1pokemon5=form.cleaned_data['t1pokemon5']
-            t1pokemon6=form.cleaned_data['t1pokemon6']
-            t2pokemon1=form.cleaned_data['t2pokemon1']
-            t2pokemon2=form.cleaned_data['t2pokemon2']
-            t2pokemon3=form.cleaned_data['t2pokemon3']
-            t2pokemon4=form.cleaned_data['t2pokemon4']
-            t2pokemon5=form.cleaned_data['t2pokemon5']
-            t2pokemon6=form.cleaned_data['t2pokemon6']
+            t1pokemon1=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon1'])
+            t1pokemon2=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon2'])
+            t1pokemon3=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon3'])
+            t1pokemon4=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon4'])
+            t1pokemon5=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon5'])
+            t1pokemon6=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon6'])
+            t2pokemon1=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon1'])
+            t2pokemon2=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon2'])
+            t2pokemon3=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon3'])
+            t2pokemon4=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon4'])
+            t2pokemon5=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon5'])
+            t2pokemon6=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon6'])
             #update match
             match.replay=form.cleaned_data['replay']
             match.team1megaevolved=form.cleaned_data['t1megaevolved']
