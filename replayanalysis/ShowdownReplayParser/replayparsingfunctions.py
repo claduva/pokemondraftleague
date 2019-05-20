@@ -110,8 +110,12 @@ def checkz(rawdata,team1,team2,i):
 
 def checkmega(rawdata,team1,team2,i):
     if rawdata[i].find("-mega") > -1:
-            premega=rawdata[i-1].split("|")[2].split(" ")[1].split("-")[0]
-            mega=rawdata[i-1].split(" ")[1]
+            try:
+                premega=rawdata[i-1].split("|")[2].split(" ")[1].split("-")[0]
+                mega=rawdata[i-1].split(" ")[1]
+            except:
+                premega=rawdata[i+1].split("|")[2].split(" ")[1].split("-")[0]
+                mega=rawdata[i+1].split(" ")[1]
             if (rawdata[i].find("p1a") > -1):
                 team1.megaevolved=True
                 if team1.pokemon1 == premega:

@@ -19,6 +19,9 @@
         </div>
         <div class="row align-items-center justify-content-around">
             {% if recruitinglist %}
+                {% if recruitinglist is True %}
+                    <h2>None</h2>
+                {% else %}
                 {% for item in recruitinglist %}
                 <div class="col-md-2">
                     <a href="{{ item.league_name.name }}">
@@ -37,6 +40,7 @@
                     {% endif %}
                 </div>
                 {% endfor %}
+                {% endif %}
             {% else %}
                 {% if allleagues %}
                     {% for item in allleagues %}

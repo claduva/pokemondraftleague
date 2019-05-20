@@ -104,6 +104,7 @@ class leaguetiertemplate(models.Model):
 class seasonsetting(models.Model):
     league = models.OneToOneField(league, on_delete=models.CASCADE)
     seasonname= models.CharField(max_length=25, default="Season 1")
+    draftstart=models.DateTimeField(null=True)
     draftbudget = models.IntegerField(default=1080)
     picksperteam = models.IntegerField(default=12)
     drafttype = models.CharField(max_length=25, choices=(

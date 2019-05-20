@@ -1,23 +1,23 @@
 Team 1 Coach: claduva
 Team 1 Roster: 
-Manectric-Mega, Kills: 0, Deaths: 0, +/-: 0
-Zygarde, Kills: 2, Deaths: 0, +/-: 2
-Tapu Bulu, Kills: 1, Deaths: 0, +/-: 1
-Dusclops, Kills: 0, Deaths: 1, +/-: -1
+Conkeldurr, Kills: 1, Deaths: 0, +/-: 1
+Crobat, Kills: 0, Deaths: 0, +/-: 0
 Incineroar, Kills: 0, Deaths: 0, +/-: 0
-Empoleon, Kills: 2, Deaths: 0, +/-: 2
-Mega Evolved: True
+Empoleon, Kills: 0, Deaths: 0, +/-: 0
+Tapu Bulu, Kills: 0, Deaths: 0, +/-: 0
+Zygarde, Kills: 5, Deaths: 0, +/-: 5
+Mega Evolved: False
 Used Z-Move: True
 
-Team 2 Coach: Nakora & Akikuro
+Team 2 Coach: CoolMeDownB
 Team 2 Roster: 
-Kyurem, Kills: 0, Deaths: 1, +/-: -1
-Tapu Fini, Kills: 0, Deaths: 1, +/-: -1
-Rotom, Kills: 0, Deaths: 1, +/-: -1
-Nidoking, Kills: 0, Deaths: 1, +/-: -1
-Crawdaunt, Kills: 1, Deaths: 1, +/-: 0
-Scyther, Kills: 0, Deaths: 1, +/-: -1
-Mega Evolved: False
+Lopunny-Mega, Kills: 0, Deaths: 1, +/-: -1
+Shaymin, Kills: 0, Deaths: 1, +/-: -1
+Shelmet, Kills: 0, Deaths: 1, +/-: -1
+Donphan, Kills: 0, Deaths: 1, +/-: -1
+Suicune, Kills: 0, Deaths: 1, +/-: -1
+Clefable, Kills: 0, Deaths: 1, +/-: -1
+Mega Evolved: True
 Used Z-Move: False
 
-Replay: http://replay.pokemonshowdown.com/gen7ubers-910803425
+Replay: http://replay.pokemonshowdown.com/draftfrontier-gen7ubers-55816

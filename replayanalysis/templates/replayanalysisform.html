@@ -27,7 +27,9 @@
     {% elif submission %}
     <div class="col-md-12 d-flex justify-content-between">
         <h3 class="pt-2">Upload Replay by URL</h3>
+        {% if league_name %}
         <a href="{% url 'upload_league_replay_manual' league_name=league_name matchid=matchid %}"><button class="btn btn-primary">Manually Input Data</button></a>
+        {% endif %}
     </div>
     <div class="col-md-12">
         <form method="post">

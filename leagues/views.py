@@ -43,21 +43,25 @@ def league_detail(request,league_name):
         apply=False   
     except:
         try:
-            coachdata.objects.filter(coach=request.user,league_name=league_)
+            coachdata.objects.filter(league_name=league_).get(coach=request.user)
             apply=False
         except:
             try:
-                coachdata.objects.filter(teammate=request.user,league_name=league_)
+                print('here')
+                coachdata.objects.filter(league_name=league_).get(teammate=request.user)
                 apply=False
             except:
                 apply=True
-    
-    season=seasonsetting.objects.get(league=league_)
-    timezone = pytz.timezone('UTC')
-    elapsed=timezone.localize(datetime.now())-season.seasonstart
-    timercurrentweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
-    seasonstart=str(season.seasonstart)
-
+    try:
+        season=seasonsetting.objects.get(league=league_)
+        timezone = pytz.timezone('UTC')
+        elapsed=timezone.localize(datetime.now())-season.seasonstart
+        timercurrentweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
+        seasonstart=str(season.seasonstart)
+    except:
+        season=None
+        timercurrentweek=None
+        seasonstart=None
     context = {
         'league': league_,
         'apply': apply,
@@ -79,9 +83,11 @@ def create_league(request):
             newleague=form.save()
             messages.success(request,f'Your league has been successfully created!')
             allpokes=all_pokemon.objects.all()
+            i=pokemon_tier.objects.all().order_by('id').last().id
             for item in allpokes:
-                pokemon_tier.objects.create(pokemon=item,league=newleague)
-            return redirect('league_detail',league_name=form.cleaned_data['name'])
+                i+=1
+                pokemon_tier.objects.create(id=i,pokemon=item,league=newleague)
+            return redirect('league_list')
     else:
         form = CreateLeagueForm(initial={'host': request.user})
 
@@ -97,7 +103,9 @@ def league_list(request):
     return render(request, 'leagues.html',context)
 
 def recruiting_league_list(request):
-    recruitinglist=league_settings.objects.filter(is_recruiting=True)
+    recruitinglist=league_settings.objects.filter(is_recruiting=True).filter(is_public=True)
+    if recruitinglist.count()==0:
+        recruitinglist=True
     context={
         'recruitinglist': recruitinglist,
         'leagueheading': 'Recruiting Leagues',
@@ -169,17 +177,17 @@ def league_apply(request,league_name):
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_list')
     try:
-        applications=league_application.objects.get(applicant=request.user)
+        applications=league_application.objects.filter(league_name=league_).get(applicant=request.user)
         messages.error(request,'You have already applied to '+league_name+"!",extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
     except:
         try:
-            coachdata.objects.filter(teammate=request.user,league_name=league_)
+            coachdata.objects.filter(league_name=league_).get(teammate=request.user)
             messages.error(request,'You are already a coach in '+league_name+"!",extra_tags='danger')
             return redirect('league_detail',league_name=league_name)
         except:
             try:
-                coachdata.objects.filter(coach=request.user,league_name=league_)
+                coachdata.objects.filter(league_name=league_).get(coach=request.user)
                 messages.error(request,'You are already a coach in '+league_name+"!",extra_tags='danger')
                 return redirect('league_detail',league_name=league_name)
             except:
@@ -290,6 +298,7 @@ def individual_league_coaching_settings(request,league_name):
         form = UpdateCoachInfoForm(instance=coachinstance)
         forms=[]
         forms.append(form)
+        print(allowsteams)
         if allowsteams:
             tm_form=UpdateCoachTeammateForm(instance=coachinstance)
             forms.append(tm_form)

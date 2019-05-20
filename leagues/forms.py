@@ -79,13 +79,12 @@ class CreateSeasonSettingsForm(forms.ModelForm):
 
 class EditSeasonSettingsForm(forms.ModelForm):
 
-    seasonstart = forms.DateTimeField(label='Season Start: (Format=YYYY-MM-DD HH:MM) Timezone=UTC' , required=False 
-        
-    )
+    seasonstart = forms.DateTimeField(label='Season Start: (Format=YYYY-MM-DD HH:MM) Timezone=UTC' , required=False )
+    draftstart = forms.DateTimeField(label='Draft Start: (Format=YYYY-MM-DD HH:MM) Timezone=UTC' , required=False )
 
     class Meta:
         model = seasonsetting
-        fields = ['seasonname','draftbudget','drafttype','seasonstart','seasonlength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
+        fields = ['seasonname','draftstart','draftbudget','drafttype','seasonstart','seasonlength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
         
     
 

@@ -34,10 +34,20 @@
 </div>
 <div class="row content-section align-items-center">
     <h4 class="col-md-6 text-center">
-        Current Week: <span id="currentweek"></span>
+        Current Week: 
+        {% if seasonstart %}
+        <span id="currentweek"></span>
+        {% else %}
+        <span>Not currently in season</span>
+        {% endif %}
     </h4>
     <h4 class="col-md-6 text-center">
-        Time Remaining In Week: <span id="remaining"></span>
+        Time Remaining In Week: 
+        {% if seasonstart %}
+        <span id="remaining"></span>
+        {% else %}
+        <span>Not currently in season</span>
+        {% endif %}
     </h4>
 </div>
 <div class="row content-section align-items-center">
