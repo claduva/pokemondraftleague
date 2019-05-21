@@ -517,6 +517,7 @@ def available_individual_league_tier(request,league_name,tiername):
     }
     return render(request, 'individualtier.html',context)
 
+@login_required
 def freeagency(request,league_name):
     try:
         league_=league.objects.get(name=league_name)
@@ -570,4 +571,29 @@ def freeagency(request,league_name):
         'fa_remaining':fa_remaining,
     }
     return render(request, 'freeagency.html',context)
+
+@login_required
+def league_leaders(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    
+    leagueleaders=roster.objects.all().filter(season=season).order_by('-kills','-differential')
+    
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'leagueleaders': leagueleaders,
+    }
+    return render(request, 'leagueleaders.html',context)
 

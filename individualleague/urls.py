@@ -13,5 +13,6 @@ urlpatterns = [
     path("leagues/<str:league_name>/tiers-available/", views.available_league_tiers, name="available_league_tiers"),
     path("leagues/<str:league_name>/tiers/<str:tiername>/", views.individual_league_tier, name="individual_league_tier"),
     path("leagues/<str:league_name>/tiers-available/<str:tiername>/", views.available_individual_league_tier, name="available_individual_league_tier"),
+    path("leagues/<str:league_name>/league_leaders/", views.league_leaders, name="league_leaders"),
     path("settings/league/<str:league_name>/manageseasons/creatematch/", views.create_match, name="create_match"),
 ]
