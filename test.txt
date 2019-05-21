@@ -1,23 +1,23 @@
-Team 1 Coach: Eastonn8
+Team 1 Coach: TheNerf
 Team 1 Roster: 
-Moltres, Kills: 4, Deaths: 0, +/-: 4
-Starmie, Kills: 0, Deaths: 1, +/-: -1
-Zeraora, Kills: 2, Deaths: 1, +/-: 1
-Terrakion, Kills: 0, Deaths: 0, +/-: 0
-Tangrowth, Kills: 0, Deaths: 1, +/-: -1
-Silvally, Kills: 0, Deaths: 1, +/-: -1
+Infernape, Kills: 1, Deaths: 0, +/-: 1
+Zapdos, Kills: 0, Deaths: 0, +/-: 0
+Golisopod, Kills: 0, Deaths: 1, +/-: -1
+Gyarados, Kills: 0, Deaths: 0, +/-: 0
+Lycanroc-Dusk, Kills: 4, Deaths: 0, +/-: 4
+Snorlax, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: False
-Used Z-Move: True
+Used Z-Move: False
 
-Team 2 Coach: LombreTTT
+Team 2 Coach: GarrickTheBruce
 Team 2 Roster: 
-Gourgeist, Kills: 0, Deaths: 1, +/-: -1
-Florges, Kills: 3, Deaths: 1, +/-: 2
-Mew, Kills: 0, Deaths: 1, +/-: -1
-Diggersby, Kills: 1, Deaths: 1, +/-: 0
-Gothorita, Kills: 0, Deaths: 1, +/-: -1
-Cobalion, Kills: 0, Deaths: 1, +/-: -1
+Blissey, Kills: 0, Deaths: 1, +/-: -1
+Cofagrigus, Kills: 0, Deaths: 1, +/-: -1
+Scizor, Kills: 0, Deaths: 1, +/-: -1
+Galvantula, Kills: 0, Deaths: 1, +/-: -1
+Slaking, Kills: 1, Deaths: 1, +/-: 0
+Swellow, Kills: 1, Deaths: 1, +/-: 0
 Mega Evolved: False
-Used Z-Move: True
+Used Z-Move: False
 
-Replay: http://replay.pokemonshowdown.com/gen7anythinggoes-908086944
+Replay: http://replay.pokemonshowdown.com/gen7anythinggoes-913752496
