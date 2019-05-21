@@ -15,7 +15,7 @@ from .models import *
 from leagues.models import *
 from pokemondatabase.models import *
 from .forms import *
-import datetime as datetime
+from datetime import datetime, timedelta,timezone
 
 def team_page(request,league_name,team_abbreviation):
     try:
@@ -52,13 +52,15 @@ def team_page(request,league_name,team_abbreviation):
 def league_draft(request,league_name):
     try:
         league_=league.objects.get(name=league_name)
-        print(request.user==league_.host)
         league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
     try:
         season=seasonsetting.objects.get(league=league_)
+        draftstart=str(season.draftstart)
+        drafttimer=season.drafttimer
+        
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
@@ -85,6 +87,10 @@ def league_draft(request,league_name):
                 pointsused+=tier.tier.tierpoints
         budget=season.draftbudget
         availablepoints=budget-pointsused
+    if picksremaining==draftsize:
+        pickend=str(season.draftstart+timedelta(hours=12))
+    else:    
+        pickend=str(draftlist.get(id=currentpick.id-1).picktime+timedelta(hours=12))
     if request.method == "POST":
         try:
             draftpick=all_pokemon.objects.get(pokemon=request.POST['draftpick'])
@@ -124,6 +130,8 @@ def league_draft(request,league_name):
         'availablepoints':availablepoints,
         'draftprogress':draftprogress,
         'is_host': is_host,
+        'draftstart': draftstart,
+        'pickend':pickend,
     }
     return render(request, 'draft.html',context)
 

@@ -105,6 +105,7 @@ class seasonsetting(models.Model):
     league = models.OneToOneField(league, on_delete=models.CASCADE)
     seasonname= models.CharField(max_length=25, default="Season 1")
     draftstart=models.DateTimeField(null=True)
+    drafttimer=models.IntegerField(default=12)
     draftbudget = models.IntegerField(default=1080)
     picksperteam = models.IntegerField(default=12)
     drafttype = models.CharField(max_length=25, choices=(
@@ -146,7 +147,7 @@ class draft(models.Model):
     season = models.ForeignKey(seasonsetting, on_delete=models.CASCADE)
     team = models.ForeignKey(coachdata, on_delete=models.CASCADE,null=True)
     pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True)
-    pickstart= models.DateTimeField(default=None, null=True)
+    picktime= models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
         return f'Draft For {self.pokemon.pokemon}, League: {self.season.league.name}, Season: {self.season.seasonname}'

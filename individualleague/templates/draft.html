@@ -10,17 +10,18 @@
 
 
 <div class="row content-section align-items-center">
-    <div class="container">
+    <div id="draftprogress" class="container">
         <h5>Draft Progress</h5>
         <div class="progress">
-            <div class="progress-bar bg-success style-width-{{ draftprogress }}" role="progressbar" aria-valuenow="{{ draftprogress }}" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-success style-width-{{ draftprogress }}" role="progressbar"
+                aria-valuenow="{{ draftprogress }}" aria-valuemin="0" aria-valuemax="100">
                 <span>{{ draftprogress }}% Complete</span>
             </div>
         </div>
     </div>
     {% if draftactive %}
-    <div class="col-md-4 d-flex justify-content-start">
-        <div>
+    <div id="draftform" class="col-md-4 d-flex justify-content-start">
+        <div id="draftform2">
             <h5>Current drafting team: {{ currentpick.team.teamname }}</h5>
             {% if currentpick.team.coach is request.user or currentpick.team.teammate is request.user or is_host %}
             <form method="post" enctype="multipart/form-data">
@@ -36,12 +37,10 @@
             {% endif %}
         </div>
     </div>
-    <div class="col-md-4">
+    <div id="draftpoints" class="col-md-4">
         <div class="d-flex justify-content-center">Points Remaining: {{ availablepoints }}</div>
     </div>
-    <div class="col-md-4 d-flex justify-content-end">
-        <div class="d-flex justify-content-center">Time Remaining</div>
-    </div>
+    <div id="timer" class="col-md-4 d-flex justify-content-end"></div>
     {% endif %}
 </div>
 <div class="row content-section align-items-center">
@@ -51,4 +50,53 @@
         {% endfor %}
     </div>
 </div>
+{% endblock %}
+{% block footer %}
+<script>
+    // Set the date we're counting down to
+    var startDate = new Date('{{draftstart}}');
+    var pickEnd = new Date('{{pickend}}');
+    var now = new Date();
+    
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+        var timetostart=startDate.getTime()-now
+        if (timetostart>0){
+             // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(timetostart / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timetostart % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timetostart % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timetostart % (1000 * 60)) / 1000);
+            document.getElementById("draftprogress").style.display='none';
+            document.getElementById("draftpoints").style.display='none';
+            document.getElementById("draftform").style.display='none';
+            document.getElementById("draftform2").style.display='none';
+            document.getElementById("timer").classList.remove("col-md-4","justify-content-end")
+            document.getElementById("timer").classList.add("col-md-12","justify-content-center")
+            document.getElementById("timer").innerHTML="Draft Will Begin In "+days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        }
+        else{
+            var pickExpire = new Date(pickEnd);
+            timeremaining=pickExpire.getTime()-now
+            var days = Math.floor(timeremaining / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeremaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeremaining % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeremaining % (1000 * 60)) / 1000);
+            document.getElementById("draftprogress").style.display='block';
+            document.getElementById("draftpoints").style.display='block';
+            document.getElementById("draftform").style.display='block';
+            document.getElementById("draftform2").style.display='block';
+            document.getElementById("timer").classList.remove("col-md-12","justify-content-center")
+            document.getElementById("timer").classList.add("col-md-4","justify-content-end")
+            document.getElementById("timer").innerHTML="Time Remaining: "+days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        }
+       
+    }, 1000);
+
+
+</script>
 {% endblock %}
