@@ -586,7 +586,7 @@ def league_leaders(request,league_name):
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
     
-    leagueleaders=roster.objects.all().filter(season=season).order_by('-kills','-differential')
+    leagueleaders=roster.objects.all().filter(season=season,gp__gt=0).order_by('-kills','-differential')
     
     context = {
         'league': league_,

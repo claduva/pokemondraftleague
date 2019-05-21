@@ -5,6 +5,7 @@
 
 {% block title %}{{league.name}}: League Leaders{% endblock %}
 {% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/leagueleaders.css' %}">
 {% endblock %}
 {% block body %}
 <div class="row content-section align-items-center">
@@ -19,7 +20,7 @@
 <div class="row content-section">
     <div class="col-12">
         <table class="table table-sm sortable">
-            <thead>
+            <thead class="thead-dark">
                 <tr>
                     <th>Pokemon</th>
                     <th>Team</th>
@@ -30,26 +31,28 @@
                     <th>GW</th>
                 </tr>
             </thead>
-            {% for item in leagueleaders %}
-                <tr>
-                    <td>
-                        <div class="d-flex">
-                            <div>
-                                <img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+            <tbody class="bg-lightgrey text-dark">
+                {% for item in leagueleaders %}
+                    <tr>
+                        <td>
+                            <div class="d-flex">
+                                <div>
+                                    <img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                </div>
+                                <div>
+                                    {{ item.pokemon.pokemon }}
+                                </div>
                             </div>
-                            <div>
-                                {{ item.pokemon.pokemon }}
-                            </div>
-                        </div>
-                    </td>
-                    <td>{{ item.team.teamabbreviation }}</td>
-                    <td>{{ item.kills }}</td>
-                    <td>{{ item.deaths }}</td>
-                    <td>{{ item.differential }}</td>
-                    <td>{{ item.gp }}</td>
-                    <td>{{ item.gw }}</td>
-                </tr>
-            {% endfor %}
+                        </td>
+                        <td>{{ item.team.teamabbreviation }}</td>
+                        <td>{{ item.kills }}</td>
+                        <td>{{ item.deaths }}</td>
+                        <td>{{ item.differential }}</td>
+                        <td>{{ item.gp }}</td>
+                        <td>{{ item.gw }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </div>
 </div>
