@@ -17,7 +17,7 @@ from accounts.models import showdownalts
 from pokemondatabase.models import *
 from .ShowdownReplayParser.replayparser import *
 
-def checkpokemon(testpokemon,season,team,league_name):
+def checkpokemon(testpokemon,season,team,league_name,request):
     try:
         pokemon=all_pokemon.objects.get(pokemon=testpokemon)
         rostermon=roster.objects.all().filter(season=season,team=team).get(pokemon=pokemon)

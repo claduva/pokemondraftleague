@@ -12,7 +12,8 @@ def findrosters(rawdata,team1,team2,t1roster,t2roster,indicestoremove,i):
     member="placeholder123"; nickname="nickname123"
     if rawdata[i].find("|poke|p1|") > -1:
         member=rawdata[i].split("|")[3]
-        member=member.split("-")[0]
+        if member.find("-") > -1 and (member.find("Landorus") == -1 or member.find("Rotom") == -1 or member.find("Thundurus") == -1 or member.find("Hoopa") == -1 or member.find("Tornadus") == -1 or member.find("Zygarde") == -1 or member.find("Kyurem") == -1 or member.find("Alola") == -1 or member.find("o-o") == -1 or member.find("Eternal") == -1 or member.find("Porygon") == -1 or member.find("Lycanroc") == -1):   
+            member=member.split("-")[0]
         indicestoremove.append(i)
         t1roster.append(member)
         if len(t1roster)==1:
@@ -29,7 +30,8 @@ def findrosters(rawdata,team1,team2,t1roster,t2roster,indicestoremove,i):
             team1.pokemon6=member
     elif rawdata[i].find("|poke|p2|") > -1:
         member=rawdata[i].split("|")[3]
-        member=member.split("-")[0]
+        if member.find("-") > -1 and (member.find("Landorus") == -1 or member.find("Rotom") == -1 or member.find("Thundurus") == -1 or member.find("Hoopa") == -1 or member.find("Tornadus") == -1 or member.find("Zygarde") == -1 or member.find("Kyurem") == -1 or member.find("Alola") == -1 or member.find("o-o") == -1 or member.find("Eternal") == -1 or member.find("Porygon") == -1 or member.find("Lycanroc") == -1):   
+            member=member.split("-")[0]
         indicestoremove.append(i)
         t2roster.append(member)
         if len(t2roster)==1:

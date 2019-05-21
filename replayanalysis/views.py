@@ -134,12 +134,12 @@ def confirm_league_replay(request,league_name,matchid):
                 messages.error(request,f'No coach matching {team1.coach} could be found!',extra_tags="danger")
                 return redirect('league_schedule',league_name=league_name)
             #update team1 pokemon data
-            t1pokemon1=checkpokemon(team1.pokemon1,season,coach1team,league_name)
-            t1pokemon2=checkpokemon(team1.pokemon2,season,coach1team,league_name)
-            t1pokemon3=checkpokemon(team1.pokemon3,season,coach1team,league_name)
-            t1pokemon4=checkpokemon(team1.pokemon4,season,coach1team,league_name)
-            t1pokemon5=checkpokemon(team1.pokemon5,season,coach1team,league_name)
-            t1pokemon6=checkpokemon(team1.pokemon6,season,coach1team,league_name)
+            t1pokemon1=checkpokemon(team1.pokemon1,season,coach1team,league_name,request)
+            t1pokemon2=checkpokemon(team1.pokemon2,season,coach1team,league_name,request)
+            t1pokemon3=checkpokemon(team1.pokemon3,season,coach1team,league_name,request)
+            t1pokemon4=checkpokemon(team1.pokemon4,season,coach1team,league_name,request)
+            t1pokemon5=checkpokemon(team1.pokemon5,season,coach1team,league_name,request)
+            t1pokemon6=checkpokemon(team1.pokemon6,season,coach1team,league_name,request)
             t1pokemon1.kills+=team1.P1K
             t1pokemon1.deaths+=team1.P1F
             t1pokemon1.differential+=team1.P1Diff
@@ -171,12 +171,12 @@ def confirm_league_replay(request,league_name,matchid):
             t1pokemon6.gp+=1
             t1pokemon6.gw+=team1.win
             #update team2 pokemon data
-            t2pokemon1=checkpokemon(team2.pokemon1,season,coach2team,league_name)
-            t2pokemon2=checkpokemon(team2.pokemon2,season,coach2team,league_name)
-            t2pokemon3=checkpokemon(team2.pokemon3,season,coach2team,league_name)
-            t2pokemon4=checkpokemon(team2.pokemon4,season,coach2team,league_name)
-            t2pokemon5=checkpokemon(team2.pokemon5,season,coach2team,league_name)
-            t2pokemon6=checkpokemon(team2.pokemon6,season,coach2team,league_name)
+            t2pokemon1=checkpokemon(team2.pokemon1,season,coach2team,league_name,request)
+            t2pokemon2=checkpokemon(team2.pokemon2,season,coach2team,league_name,request)
+            t2pokemon3=checkpokemon(team2.pokemon3,season,coach2team,league_name,request)
+            t2pokemon4=checkpokemon(team2.pokemon4,season,coach2team,league_name,request)
+            t2pokemon5=checkpokemon(team2.pokemon5,season,coach2team,league_name,request)
+            t2pokemon6=checkpokemon(team2.pokemon6,season,coach2team,league_name,request)
             t2pokemon1.kills+=team2.P1K
             t2pokemon1.deaths+=team2.P1F
             t2pokemon1.differential+=team2.P1Diff

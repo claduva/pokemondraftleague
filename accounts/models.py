@@ -37,3 +37,10 @@ class sitesettings(models.Model):
     
     def __str__(self):
         return f'Site settings for {self.user.username}'
+
+class inbox(models.Model):
+    sender=models.ForeignKey(User,on_delete=models.CASCADE,related_name='sender')
+    recipient=models.ForeignKey(User,on_delete=models.CASCADE,related_name='recipient')
+    messagetype=models.CharField(max_length=20,default="message")
+    messagebody=models.TextField()
+    read=models.BooleanField(default=False)

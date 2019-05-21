@@ -1,23 +1,23 @@
-Team 1 Coach: claduva
+Team 1 Coach: Eastonn8
 Team 1 Roster: 
-Conkeldurr, Kills: 1, Deaths: 0, +/-: 1
-Crobat, Kills: 0, Deaths: 0, +/-: 0
-Incineroar, Kills: 0, Deaths: 0, +/-: 0
-Empoleon, Kills: 0, Deaths: 0, +/-: 0
-Tapu Bulu, Kills: 0, Deaths: 0, +/-: 0
-Zygarde, Kills: 5, Deaths: 0, +/-: 5
+Moltres, Kills: 4, Deaths: 0, +/-: 4
+Starmie, Kills: 0, Deaths: 1, +/-: -1
+Zeraora, Kills: 2, Deaths: 1, +/-: 1
+Terrakion, Kills: 0, Deaths: 0, +/-: 0
+Tangrowth, Kills: 0, Deaths: 1, +/-: -1
+Silvally, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: False
 Used Z-Move: True
 
-Team 2 Coach: CoolMeDownB
+Team 2 Coach: LombreTTT
 Team 2 Roster: 
-Lopunny-Mega, Kills: 0, Deaths: 1, +/-: -1
-Shaymin, Kills: 0, Deaths: 1, +/-: -1
-Shelmet, Kills: 0, Deaths: 1, +/-: -1
-Donphan, Kills: 0, Deaths: 1, +/-: -1
-Suicune, Kills: 0, Deaths: 1, +/-: -1
-Clefable, Kills: 0, Deaths: 1, +/-: -1
-Mega Evolved: True
-Used Z-Move: False
+Gourgeist, Kills: 0, Deaths: 1, +/-: -1
+Florges, Kills: 3, Deaths: 1, +/-: 2
+Mew, Kills: 0, Deaths: 1, +/-: -1
+Diggersby, Kills: 1, Deaths: 1, +/-: 0
+Gothorita, Kills: 0, Deaths: 1, +/-: -1
+Cobalion, Kills: 0, Deaths: 1, +/-: -1
+Mega Evolved: False
+Used Z-Move: True
 
-Replay: http://replay.pokemonshowdown.com/draftfrontier-gen7ubers-55816
+Replay: http://replay.pokemonshowdown.com/gen7anythinggoes-908086944

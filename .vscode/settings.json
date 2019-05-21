@@ -5,6 +5,9 @@
     "README.md": true,
     "test.txt": true,
     ".travis.yml": true,
-    ".vscode": true
+    ".vscode": true,
+    "__pycache__": true,
+    ".gitignore": true,
+    "Procfile": true
   }
 }
