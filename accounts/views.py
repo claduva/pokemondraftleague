@@ -76,3 +76,83 @@ def add_showdown_alt(request):
         showdownalts.objects.create(user=request.user,showdownalt=alt)
         messages.success(request,f'Your account has been updated!')
         return redirect('settings')
+
+@login_required
+def inbox_view(request):
+    context = {
+        'startinbox': True
+    }
+    return render(request, 'inbox.html',context)
+
+@login_required
+def inbox_item_view(request,messageid):
+    try:
+        messageofinterest=inbox.objects.get(pk=messageid)
+    except:
+        messages.error(request,"Message doesnt exist",extra_tags="danger")
+        return redirect('inbox')
+    if request.user != messageofinterest.recipient:
+        messages.error(request,"You do not have permission to view this message!",extra_tags="danger")
+        return redirect('inbox')
+    context = {
+        'messageofinterest': messageofinterest,
+    }
+    return render(request, 'inbox.html',context)
+
+@login_required
+def inbox_item_delete(request,messageid):
+    try:
+        messageofinterest=inbox.objects.get(pk=messageid)
+    except:
+        messages.error(request,"Message doesnt exist",extra_tags="danger")
+        return redirect('inbox')
+    if request.user != messageofinterest.recipient:
+        messages.error(request,"You do not have permission to delete this message!",extra_tags="danger")
+        return redirect('inbox')
+    if messageofinterest.traderequest:
+        sender=messageofinterest.traderequest.requestedpokemon.team.coach
+        recipient=messageofinterest.traderequest.offeredpokemon.team.coach
+        messagebody=f"Hello,\nI regret to inform you that I am rejecting your trade offer of your {messageofinterest.traderequest.offeredpokemon.pokemon.pokemon} for my {messageofinterest.traderequest.requestedpokemon.pokemon.pokemon}. Thank you anyway."
+        inbox.objects.create(sender=sender,recipient=recipient,messagesubject="Trade Request Rejected",messagebody=messagebody)
+        messageofinterest.traderequest.delete()   
+        messages.success(request,'Trade request denied!')
+        messageofinterest.delete()
+        return redirect('inbox')      
+    messageofinterest.delete()
+    messages.success(request,'Message deleted!')
+    return redirect('inbox')
+
+@login_required
+def accept_trade(request,messageid):
+    try:
+        messageofinterest=inbox.objects.get(pk=messageid)
+    except:
+        messages.error(request,"Message doesnt exist",extra_tags="danger")
+        return redirect('inbox')
+    if request.user != messageofinterest.recipient:
+        messages.error(request,"You do not have permission to delete this message!",extra_tags="danger")
+        return redirect('inbox')
+    if messageofinterest.traderequest:
+        offered=messageofinterest.traderequest.offeredpokemon
+        requested=messageofinterest.traderequest.requestedpokemon
+        offeredteam=offered.team
+        requestedteam=requested.team
+        sender=messageofinterest.traderequest.requestedpokemon.team.coach
+        recipient=messageofinterest.traderequest.offeredpokemon.team.coach
+        offered.team=requestedteam
+        requested.team=offeredteam
+        offered.zuser="N"
+        requested.zuser="N"
+        trading.objects.create(coach=offeredteam,season=offered.season,droppedpokemon=offered.pokemon,addedpokemon=requested.pokemon)
+        trading.objects.create(coach=requestedteam,season=requested.season,droppedpokemon=requested.pokemon,addedpokemon=offered.pokemon)
+        offered.save()
+        requested.save()
+        messagebody=f"Hello,\nI am happy to inform you that I am accepting your trade offer of your {messageofinterest.traderequest.offeredpokemon.pokemon.pokemon} for my {messageofinterest.traderequest.requestedpokemon.pokemon.pokemon}. Thank you!"
+        inbox.objects.create(sender=sender,recipient=recipient,messagesubject="Trade Request Accepted",messagebody=messagebody)
+        messageofinterest.traderequest.delete()   
+        messages.success(request,'Trade request accepted!')
+        messageofinterest.delete()
+        return redirect('inbox')   
+    else:
+        messages.error(request,"There is no trade request associated with this message!",extra_tags="danger")
+        return redirect('inbox')   

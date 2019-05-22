@@ -37,3 +37,13 @@ class free_agency(models.Model):
     addedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="added")
     weekeffective=models.IntegerField(default=1)
     
+class trade_request(models.Model):
+    offeredpokemon=models.ForeignKey(roster,on_delete=models.CASCADE,related_name="tradedroppedrequest")
+    requestedpokemon=models.ForeignKey(roster,on_delete=models.CASCADE,related_name="tradeaddedrequest")
+
+class trading(models.Model):
+    coach=models.ForeignKey(coachdata,on_delete=models.CASCADE)
+    season=models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
+    droppedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="tradedropped")
+    addedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="tradeadded")
+    weekeffective=models.IntegerField(default=1)

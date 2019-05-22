@@ -14,6 +14,7 @@ import math
 from .models import *
 from leagues.models import *
 from pokemondatabase.models import *
+from accounts.models import *
 from .forms import *
 from datetime import datetime, timedelta,timezone
 
@@ -597,3 +598,42 @@ def league_leaders(request,league_name):
     }
     return render(request, 'leagueleaders.html',context)
 
+@login_required
+def trading_view(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    coach=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).first()
+    coachroster=roster.objects.all().filter(season=season,team=coach).order_by('pokemon__pokemon')
+    availablepokemon=roster.objects.all().filter(season=season).exclude(team=coach).order_by('pokemon__pokemon')
+    if request.method=="POST":
+        form=TradeRequestForm(coachroster,availablepokemon,request.POST)
+        if form.is_valid():
+            traderequest=form.save()
+            sender=traderequest.offeredpokemon.team.coach
+            recipient=traderequest.requestedpokemon.team.coach
+            messagebody=f"Hello,\nI would like to trade my {traderequest.offeredpokemon.pokemon.pokemon} for your {traderequest.requestedpokemon.pokemon.pokemon}."
+            inbox.objects.create(sender=sender,recipient=recipient,messagesubject="Trade Request",messagebody=messagebody,traderequest=traderequest)
+            messages.success(request,f'Your trade request has been sent!')
+    form=TradeRequestForm(coachroster,availablepokemon)
+    trade_remaining=season.tradesallowed-trading.objects.all().filter(coach=coach).count()
+    if trade_remaining < 1:
+        messages.error(request,'You do not have any trades remaining!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'form':form,
+        'trade_remaining':trade_remaining,
+    }
+    return render(request, 'trading.html',context)

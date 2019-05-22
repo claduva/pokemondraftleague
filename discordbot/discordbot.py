@@ -33,6 +33,18 @@ async def on_message(message):
         except:
             await message.channel.send('Thankfully there is currently no Sleepy in the server.')        
     
+    if message.content.startswith('blob me'):
+        blobs=[]
+        blobs.append(client.get_emoji(496772116897857537))
+        blobs.append(client.get_emoji(475876685422657557))
+        blobs.append(client.get_emoji(473988298860134400))
+        blobs.append(client.get_emoji(473985986452520960))
+        blobs.append(client.get_emoji(469644183523557387))
+        blobs.append(client.get_emoji(579159386648477717))
+        blobs.append(client.get_emoji(579158599687995392))
+        blobs.append(client.get_emoji(579158101647949835))
+        await message.channel.send(str(random.choice(blobs))
+
     if message.content.startswith('blob me times'):
         number=message.content.split(" ")[3]
         blobs=[]
@@ -56,8 +68,5 @@ async def on_message(message):
                 blob=random.choice(blobs)
                 bloblist=bloblist+str(blob)
             await message.channel.send("This is all the blob power I can muster (I'm not Forrest): "+bloblist)
-
-    if message.content.startswith('emoji'):
-        emojis=message.guild.emojis
-        print(emojis)
+   
 client.run(bottoken)

@@ -34,3 +34,16 @@ class FreeAgencyForm(forms.ModelForm):
         self.fields['droppedpokemon'].queryset = coachroster
         self.fields['droppedpokemon'].label_from_instance = lambda obj: obj.pokemon.pokemon
         self.fields['addedpokemon'].queryset = availablepokemon
+
+class TradeRequestForm(forms.ModelForm):
+    
+    class Meta:
+        model = trade_request
+        exclude = []
+
+    def __init__(self,coachroster,availablepokemon, *args, **kwargs):
+        super(TradeRequestForm, self).__init__(*args, **kwargs)
+        self.fields['offeredpokemon'].queryset = coachroster
+        self.fields['offeredpokemon'].label_from_instance = lambda obj: obj.pokemon.pokemon
+        self.fields['requestedpokemon'].queryset = availablepokemon
+        self.fields['requestedpokemon'].label_from_instance = lambda obj: obj.pokemon.pokemon + " ("+obj.team.teamname+")"

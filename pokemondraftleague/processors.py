@@ -40,11 +40,18 @@ def processor(request):
     except:
         user=User.objects.get(username="defaultuser")
         site_settings = user.sitesettings
-    
+    if request.user.is_authenticated:
+        messagelist=inbox.objects.all().filter(recipient=request.user)
+        numberofmessages=messagelist.count()
+    else:
+        messagelist=None
+        numberofmessages=0
     return {
         'leagueshosted': leagueshosted,
         'allleagues': allleagues,
         'leaguescoaching': leaguescoaching,
         'coachawards': coachawards,
         'site_settings': site_settings,
+        'messagelist':messagelist,
+        'numberofmessages': numberofmessages,
         }

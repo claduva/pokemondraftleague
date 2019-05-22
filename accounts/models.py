@@ -6,6 +6,8 @@ from django.core.files.storage import default_storage as storage
 from PIL import Image
 from enum import Enum
 
+from individualleague.models import *
+
 class profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     timezone = models.CharField(max_length=30, null=True,blank=True)
@@ -41,6 +43,8 @@ class sitesettings(models.Model):
 class inbox(models.Model):
     sender=models.ForeignKey(User,on_delete=models.CASCADE,related_name='sender')
     recipient=models.ForeignKey(User,on_delete=models.CASCADE,related_name='recipient')
-    messagetype=models.CharField(max_length=20,default="message")
+    messagesubject=models.TextField(default="Message Subject")
     messagebody=models.TextField()
+    senttime=models.DateTimeField(auto_now_add=True)
     read=models.BooleanField(default=False)
+    traderequest=models.ForeignKey(trade_request,on_delete=models.CASCADE,null=True)

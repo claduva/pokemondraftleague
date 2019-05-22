@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{league.name}}: Trading{% endblock %}
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/tiers.css' %}">
+{% endblock %}
+{% block body %}
+
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">Trading (Remaining={{ trade_remaining }})</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
+</div>
+<div class="row content-section align-items-center">
+        <div class="col-12">
+            <h5>Points Available: 0</h5>
+            {% if trade_remaining > 0 %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type='submit' class="btn btn-primary" value='Submit'>
+            </form>
+            {% endif %}
+        </div>
+</div>
+{% endblock %}
