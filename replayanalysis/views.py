@@ -267,10 +267,10 @@ def confirm_league_replay(request,league_name,matchid):
                 elif team2.win==1:
                     match.winner==coach1team
             #save models
-            coach1team.save(); coach2team.save(); t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
-            t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
-            match.save()
-            form.save()
+            #coach1team.save(); coach2team.save(); t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
+            #t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
+            #match.save()
+            #form.save()
             messages.success(request,'Replay has been saved!')
             return  redirect('league_schedule',league_name=league_name)
     return  redirect('league_schedule',league_name=league_name)
