@@ -1,23 +1,23 @@
-Team 1 Coach: TheNerf
+Team 1 Coach: claduva
 Team 1 Roster: 
-Infernape, Kills: 1, Deaths: 0, +/-: 1
-Zapdos, Kills: 0, Deaths: 0, +/-: 0
-Golisopod, Kills: 0, Deaths: 1, +/-: -1
-Gyarados, Kills: 0, Deaths: 0, +/-: 0
-Lycanroc-Dusk, Kills: 4, Deaths: 0, +/-: 4
-Snorlax, Kills: 0, Deaths: 1, +/-: -1
+Conkeldurr, Kills: 1, Deaths: 0, +/-: 1
+Crobat, Kills: 0, Deaths: 0, +/-: 0
+Incineroar, Kills: 0, Deaths: 0, +/-: 0
+Empoleon, Kills: 0, Deaths: 0, +/-: 0
+Tapu Bulu, Kills: 0, Deaths: 0, +/-: 0
+Zygarde, Kills: 5, Deaths: 0, +/-: 5
 Mega Evolved: False
-Used Z-Move: False
+Used Z-Move: True
 
-Team 2 Coach: GarrickTheBruce
+Team 2 Coach: CoolMeDownB
 Team 2 Roster: 
-Blissey, Kills: 0, Deaths: 1, +/-: -1
-Cofagrigus, Kills: 0, Deaths: 1, +/-: -1
-Scizor, Kills: 0, Deaths: 1, +/-: -1
-Galvantula, Kills: 0, Deaths: 1, +/-: -1
-Slaking, Kills: 1, Deaths: 1, +/-: 0
-Swellow, Kills: 1, Deaths: 1, +/-: 0
-Mega Evolved: False
+Lopunny-Mega, Kills: 0, Deaths: 1, +/-: -1
+Shaymin, Kills: 0, Deaths: 1, +/-: -1
+Shelmet, Kills: 0, Deaths: 1, +/-: -1
+Donphan, Kills: 0, Deaths: 1, +/-: -1
+Suicune, Kills: 0, Deaths: 1, +/-: -1
+Clefable, Kills: 0, Deaths: 1, +/-: -1
+Mega Evolved: True
 Used Z-Move: False
 
-Replay: http://replay.pokemonshowdown.com/gen7anythinggoes-913752496
+Replay: http://replay.pokemonshowdown.com/draftfrontier-gen7ubers-55816

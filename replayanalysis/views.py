@@ -243,32 +243,32 @@ def confirm_league_replay(request,league_name,matchid):
                     coach2team.streak+=1
                 else:
                     coach2team.streak=(-1)
-            #update megas and z
-            match.team1megaevolved=team1.megaevolved
-            match.team2megaevolved=team2.megaevolved
-            match.team1score=team1.score
-            match.team2score=team2.score
-            match.team1usedz=team1.usedz
-            match.team2usedz=team2.usedz
-            if team1.win==1:
-                match.winner==coach1team
-            elif team2.win==1:
-                match.winner==coach2team
+            #update match
+            if match.team1==coach1team:
+                match.team1megaevolved=team1.megaevolved
+                match.team2megaevolved=team2.megaevolved
+                match.team1score=team1.score
+                match.team2score=team2.score
+                match.team1usedz=team1.usedz
+                match.team2usedz=team2.usedz
+                if team1.win==1:
+                    match.winner==coach1team
+                elif team2.win==1:
+                    match.winner==coach2team
+            elif match.team1==coach2team:
+                match.team1megaevolved=team2.megaevolved
+                match.team2megaevolved=team1.megaevolved
+                match.team1score=team2.score
+                match.team2score=team1.score
+                match.team1usedz=team2.usedz
+                match.team2usedz=team1.usedz
+                if team1.win==1:
+                    match.winner==coach2team
+                elif team2.win==1:
+                    match.winner==coach1team
             #save models
-            coach1team.save()
-            coach2team.save()
-            t1pokemon1.save()
-            t1pokemon2.save()
-            t1pokemon3.save()
-            t1pokemon4.save()
-            t1pokemon5.save()
-            t1pokemon6.save()
-            t2pokemon1.save()
-            t2pokemon2.save()
-            t2pokemon3.save()
-            t2pokemon4.save()
-            t2pokemon5.save()
-            t2pokemon6.save()
+            coach1team.save(); coach2team.save(); t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
+            t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
             match.save()
             form.save()
             messages.success(request,'Replay has been saved!')
@@ -290,7 +290,6 @@ def league_match_results(request,league_name,matchid):
         return redirect('league_schedule',league_name=league_name)
     try:
         manualreplay=manual_replay.objects.get(match=match)
-        print(manualreplay.winner.teamname)
         showreplay=False
         if manualreplay.replay.find('replay.pokemonshowdown.com') >-1:
             showreplay=True
@@ -424,29 +423,13 @@ def upload_league_replay_manual(request,league_name,matchid):
             t2pokemon4.differential+=form.cleaned_data['t2pokemon4kills']-['t2pokemon4death']
             t2pokemon5.differential+=form.cleaned_data['t2pokemon5kills']-['t2pokemon5death']
             t2pokemon6.differential+=form.cleaned_data['t2pokemon6kills']-['t2pokemon6death']
-            t1pokemon1.gp+=1
-            t1pokemon2.gp+=1
-            t1pokemon3.gp+=1
-            t1pokemon4.gp+=1
-            t1pokemon5.gp+=1
-            t1pokemon6.gp+=1
-            t2pokemon1.gp+=1
-            t2pokemon2.gp+=1
-            t2pokemon3.gp+=1
-            t2pokemon4.gp+=1
-            t2pokemon5.gp+=1
-            t2pokemon6.gp+=1
+            t1pokemon1.gp+=1; t1pokemon2.gp+=1; t1pokemon3.gp+=1; t1pokemon4.gp+=1; t1pokemon5.gp+=1; t1pokemon6.gp+=1
+            t2pokemon1.gp+=1; t2pokemon2.gp+=1; t2pokemon3.gp+=1; t2pokemon4.gp+=1; t2pokemon5.gp+=1; t2pokemon6.gp+=1
             winner=form.cleaned_data['winner']
             match.winner=winner
             if winner == match.team1:
-                team1.wins+=1
-                team2.losses+=1
-                t1pokemon1.gw+=1
-                t1pokemon2.gw+=1
-                t1pokemon3.gw+=1
-                t1pokemon4.gw+=1
-                t1pokemon5.gw+=1
-                t1pokemon6.gw+=1
+                team1.wins+=1; team2.losses+=1
+                t1pokemon1.gw+=1; t1pokemon2.gw+=1; t1pokemon3.gw+=1; t1pokemon4.gw+=1; t1pokemon5.gw+=1; t1pokemon6.gw+=1
                 if team1.streak>-1:
                     team1.streak+=1
                 else:
@@ -456,14 +439,8 @@ def upload_league_replay_manual(request,league_name,matchid):
                 else:
                     team2.streak+=(-1)
             elif winner == match.team2:
-                team2.wins+=1
-                team1.losses+=1
-                t2pokemon1.gw+=1
-                t2pokemon2.gw+=1
-                t2pokemon3.gw+=1
-                t2pokemon4.gw+=1
-                t2pokemon5.gw+=1
-                t2pokemon6.gw+=1
+                team2.wins+=1; team1.losses+=1
+                t2pokemon1.gw+=1; t2pokemon2.gw+=1; t2pokemon3.gw+=1; t2pokemon4.gw+=1; t2pokemon5.gw+=1; t2pokemon6.gw+=1
                 if team2.streak>-1:
                     team2.streak+=1
                 else:
@@ -489,22 +466,9 @@ def upload_league_replay_manual(request,league_name,matchid):
                 elif match.team1score>match.team2score:
                     team2.differential+=(-match.team1score)
             #save data
-            form.save()
-            match.save()
-            team1.save()
-            team2.save()
-            t1pokemon1.save()
-            t1pokemon2.save()
-            t1pokemon3.save()
-            t1pokemon4.save()
-            t1pokemon5.save()
-            t1pokemon6.save()
-            t2pokemon1.save()
-            t2pokemon2.save()
-            t2pokemon3.save()
-            t2pokemon4.save()
-            t2pokemon5.save()
-            t2pokemon6.save()
+            form.save(); match.save(); team1.save(); team2.save()
+            t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
+            t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
             messages.success(request,"Match has been saved!")
             return redirect('league_schedule',league_name=league_name)
     form=ManualLeagueReplayForm(match,initial={'match':match})

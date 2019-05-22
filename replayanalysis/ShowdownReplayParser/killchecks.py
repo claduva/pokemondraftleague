@@ -2,9 +2,9 @@ def directdamagekill(rawdata,team,i):
     destinybondcondition=(rawdata[i-4].find("|-singlemove|")==-1) # and (rawdata[i-4].find("Destiny Bond")>-1)
     otherconditions=(rawdata[i-1].find("[from] Hail") == -1) and (rawdata[i-1].find("[from] Leech Seed") == -1) \
         and (rawdata[i-1].find("[from] Stealth Rock") == -1) and (rawdata[i-1].find("[from] Spikes") == -1) \
-        and (rawdata[i-1].find("[from] psn")==-1) and (rawdata[i-1].find("[from] brn") == -1) and (rawdata[i-2].find("[from] ability: Aftermath") == -1) \
-        and (rawdata[i-1].find("[from] recoil")==-1)  and (rawdata[i-1].find("Iron Barbs")==-1)  and (rawdata[i-1].find("Rough Skin")==-1) \
-        and (rawdata[i-1].find("Rocky Helmet")==-1) and (rawdata[i-1].find("Sandstorm")==-1) and (rawdata[i-1].find("Hail")==-1) \
+        and (rawdata[i-1].find("[from] psn")==-1) and (rawdata[i-1].find("[from] brn") == -1) and (rawdata[i-2].find("fnt|[from] ability: Aftermath") == -1) \
+        and (rawdata[i-1].find("[from] recoil")==-1)  and (rawdata[i-1].find("fnt|[from] ability: Iron Barbs")==-1)  and (rawdata[i-1].find("fnt|[from] ability: Rough Skin")==-1) \
+        and (rawdata[i-1].find("fnt|[from] item: Rocky Helmet")==-1) and (rawdata[i-1].find("Sandstorm")==-1) and (rawdata[i-1].find("Hail")==-1) \
         and (rawdata[i-1].find("[from] confusion")== -1) and (rawdata[i-1].find("[from] Curse")==-1) and (rawdata[i-1].find("Solar Power")==-1) \
         and (rawdata[i-1].find("Dry Skin")==-1) and destinybondcondition        
     if (rawdata[i-2].find("|move|") > -1) and otherconditions:
