@@ -33,7 +33,7 @@ class rule(models.Model):
 class free_agency(models.Model):
     coach=models.ForeignKey(coachdata,on_delete=models.CASCADE)
     season=models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
-    droppedpokemon=models.ForeignKey(roster,on_delete=models.CASCADE,related_name="dropped")
+    droppedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="dropped")
     addedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="added")
     weekeffective=models.IntegerField(default=1)
     

@@ -532,7 +532,12 @@ def freeagency(request,league_name):
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
     coach=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).first()
-    coachroster=roster.objects.all().filter(season=season,team=coach)
+    coachroster=all_pokemon.objects.all().order_by('pokemon')
+    for item in coachroster:
+        try:
+            roster.objects.all().filter(season=season,team=coach).get(pokemon=item)
+        except:
+            coachroster=coachroster.exclude(pokemon=item.pokemon)
     availablepokemon=all_pokemon.objects.all().order_by('pokemon')
     for item in availablepokemon:
         try:
@@ -546,7 +551,7 @@ def freeagency(request,league_name):
     if request.method=="POST":
         form=FreeAgencyForm(coachroster,availablepokemon,request.POST)
         if form.is_valid():
-            droppedpokemon=form.cleaned_data['droppedpokemon']
+            droppedpokemon=roster.objects.filter(season=season,team=coach).get(pokemon=form.cleaned_data['droppedpokemon'])
             droppedpokemon.kills=0
             droppedpokemon.deaths=0
             droppedpokemon.gp=0
