@@ -271,7 +271,8 @@ def confirm_league_replay(request,league_name,matchid):
             #t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
             #match.save()
             #form.save()
-            messages.success(request,'Replay has been saved!')
+            #messages.success(request,'Replay has been saved!')
+            messages.success(request,'Replay analyzer is currently under maintenence! clad will take care of the replay.')
             return  redirect('league_schedule',league_name=league_name)
     return  redirect('league_schedule',league_name=league_name)
 
