@@ -47,3 +47,20 @@ class trading(models.Model):
     droppedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="tradedropped")
     addedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="tradeadded")
     weekeffective=models.IntegerField(default=1)
+
+class hall_of_fame_entry(models.Model):
+    league=models.ForeignKey(league,on_delete=models.CASCADE)
+    seasonname=models.CharField(max_length=20,default="Not Specified")
+    championteamname=models.CharField(max_length=50,default="Not Specified")
+    championcoachname=models.CharField(max_length=50,default="Not Specified")
+    champlogo = models.ImageField(upload_to='champ_logos',null=True)
+    runnerupteamname=models.CharField(max_length=50,default="Not Specified")
+    runnerupcoachname=models.CharField(max_length=50,default="Not Specified")
+    championshipreplay=models.CharField(max_length=100,default="Not Specified")
+
+class hall_of_fame_roster(models.Model):
+    hall_of_frame_entry=models.ForeignKey(hall_of_fame_entry,on_delete=models.CASCADE,related_name="hofentries")
+    pokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['pokemon__pokemon']

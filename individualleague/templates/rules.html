@@ -15,14 +15,30 @@
     </div>
     <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
 </div>
+{% if editrules %}
+<div class="row content-section align-items-center">
+    <div class="col-md-12">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+{% else %}
 <div class="row content-section align-items-center">
     {% if is_host %}
         <div class="col-md-12 d-flex justify-content-end">
-            <button class="btn btn-primary">Edit</button>
+            <a href="{% url 'edit_league_rules' league_name=league_name %}"><button class="btn btn-primary">Edit</button></a>
         </div>
     {% endif %}
-    <div class="col-md-12">
+    <div class="col-md-12 bg-lightgrey text-dark rounded">
         {{ruleset.rules | safe}}
     </div>
 </div>
+{% endif %}
+{% endblock %}
+{% block footer %}
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 {% endblock %}

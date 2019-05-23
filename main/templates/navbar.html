@@ -30,7 +30,7 @@
           <a class="dropdown-item" href="{% url 'trading' league_name=league_name %}">Trading</a>
           <a class="dropdown-item" href="{% url 'league_leaders' league_name=league_name %}">League Leaders</a>
           <a class="dropdown-item" href="{% url 'league_rules' league_name=league_name %}">Rules</a>
-          <a class="dropdown-item" href="#">Hall of Fame</a>
+          <a class="dropdown-item" href="{% url 'league_hall_of_fame' league_name=league_name %}">Hall of Fame</a>
         </div>
       </div>
       {% endif %}

@@ -340,7 +340,6 @@ def league_rules(request,league_name):
         return redirect('league_detail',league_name=league_name)
     ruleset=rule.objects.get(season=season)
     is_host=(request.user==league_.host)
-    edit=False
     context = {
         'league': league_,
         'leaguepage': True,
@@ -348,7 +347,42 @@ def league_rules(request,league_name):
         'league_name': league_name,
         'ruleset': ruleset,
         'is_host': is_host,
-        'edit': edit,
+    }
+    return render(request, 'rules.html',context)
+
+def edit_league_rules(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    ruleset=rule.objects.get(season=season)
+    is_host=(request.user==league_.host)
+    if not is_host:
+        messages.error(request,'Only the league host may edit the rules!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    if request.method=="POST":
+        form=RuleChangeForm(request.POST,instance=ruleset)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Rules have been updated!')
+        return redirect('league_rules',league_name=league_name)
+    form=RuleChangeForm(instance=ruleset)
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'ruleset': ruleset,
+        'is_host': is_host,
+        'editrules': True,
+        'form': form,
     }
     return render(request, 'rules.html',context)
 
@@ -642,3 +676,91 @@ def trading_view(request,league_name):
         'trade_remaining':trade_remaining,
     }
     return render(request, 'trading.html',context)
+
+def league_hall_of_fame(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    is_host=(request.user==league_.host)
+    halloffameentries=hall_of_fame_entry.objects.all().filter()
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'is_host': is_host,
+        'halloffameentries':halloffameentries,
+    }
+    return render(request, 'halloffame.html',context)
+
+def league_hall_of_fame_add_entry(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    is_host=(request.user==league_.host)
+    if not is_host:
+        messages.error(request,'Only the league host may add a hall of fame entry!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    if request.method=="POST":
+        form=AddHallOfFameEntryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Your Hall of Fame entry has been added!')
+        return redirect('league_hall_of_fame',league_name=league_name)
+    form=AddHallOfFameEntryForm(initial={'league':league_})
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'form':form,
+    }
+    return render(request, 'halloffame.html',context)
+
+def league_hall_of_fame_add_roster(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    is_host=(request.user==league_.host)
+    if not is_host:
+        messages.error(request,'Only the league host may add a hall of fame roster entry!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    if request.method=="POST":
+        form=AddHallOfFameRosterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Your Hall of Fame roster entry has been added!')
+        return redirect('league_hall_of_fame',league_name=league_name)
+    form=AddHallOfFameRosterForm()
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'form': form,
+    }
+    return render(request, 'halloffame.html',context)

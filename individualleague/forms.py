@@ -46,3 +46,29 @@ class TradeRequestForm(forms.ModelForm):
         self.fields['offeredpokemon'].label_from_instance = lambda obj: obj.pokemon.pokemon
         self.fields['requestedpokemon'].queryset = availablepokemon
         self.fields['requestedpokemon'].label_from_instance = lambda obj: obj.pokemon.pokemon + " ("+obj.team.teamname+")"
+
+class RuleChangeForm(forms.ModelForm):
+    
+    class Meta:
+        model = rule
+        exclude = ['season']
+
+
+class AddHallOfFameEntryForm(forms.ModelForm):
+    
+    class Meta:
+        model = hall_of_fame_entry
+        exclude = []
+        widgets = {'league': forms.HiddenInput()}
+
+class AddHallOfFameRosterForm(forms.ModelForm):
+    
+    class Meta:
+        model = hall_of_fame_roster
+        exclude = []
+
+    def __init__(self, *args, **kwargs):
+        super(AddHallOfFameRosterForm, self).__init__(*args, **kwargs)
+        self.fields['pokemon'].queryset = all_pokemon.objects.all().order_by('pokemon')
+        self.fields['hall_of_frame_entry'].label_from_instance = lambda obj: obj.league.name + " " +obj.seasonname
+       

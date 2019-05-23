@@ -1,0 +1,62 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{league.name}}: Hall Of Fame{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">Hall of Fame</h3>
+        {% if is_host %}
+        <div>
+            <a href="{% url 'league_hall_of_fame_add_entry' league_name=league_name %}"><button class="btn btn-primary">Add Entry</button></a>
+            <a href="{% url 'league_hall_of_fame_add_roster' league_name=league_name %}"><button class="btn btn-primary">Add Roster Item to Entry</button></a>
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
+</div>
+<div class="row content-section align-items-center">
+    {% if form %}
+    <div class="col-12">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input class="btn btn-primary" type="submit">
+        </form>
+    </div>
+    {% else %}
+        <div class="col-12">
+            {% for item in halloffameentries %}
+                <div class="row bg-lightgrey text-dark border rounded">
+                    <div class="col-12">
+                        <h5 class="d-flex justify-content-center">{{ item.seasonname }}</h5>
+                        <div class="d-flex justify-content-center"><div class="largelogo"><img class="img-fluid" src="{{ item.champlogo.url }}"></div></div>
+                        <div class="d-flex justify-content-center">Champion: {{ item.championteamname }}</div>
+                        <div class="d-flex justify-content-center">Coached by {{ item.championcoachname }}</div>
+                        <div class="d-flex justify-content-center"><strong>Championship Roster</strong></div>
+                        <div class="row d-flex justify-content-around">
+                            {% for rosteritem in item.hofentries.all %}
+                                <div class="col-1">
+                                    <img class="img-fluid" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ rosteritem.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="d-flex justify-content-center">Runner-Up: {{ item.runnerupteamname }}</div>
+                        <div class="d-flex justify-content-center">Coached by {{ item.runnerupcoachname }}</div>
+                        <div class="d-flex justify-content-center"><a href="{{ item.championshipreplay }}">Replay</a></div>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

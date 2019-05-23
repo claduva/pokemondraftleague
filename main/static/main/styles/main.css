@@ -7,6 +7,11 @@ body{
   display: inline-block;
 }
 
+div.nicEdit-main{
+  background-color: white !important;
+  color: black !important;
+}
+
 .badgeheader .badge {
   position: absolute;
   top: -5px;
@@ -50,6 +55,11 @@ body{
 
 .buttonpadding{
   margin:5px;
+}
+
+.largelogo{
+  max-width:200px;
+  max-height:200px;
 }
 
 .mediumlogo{
