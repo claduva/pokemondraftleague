@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
+from PIL import Image
+from enum import Enum
 
 from leagues.models import *
 
@@ -53,7 +55,7 @@ class hall_of_fame_entry(models.Model):
     seasonname=models.CharField(max_length=20,default="Not Specified")
     championteamname=models.CharField(max_length=50,default="Not Specified")
     championcoachname=models.CharField(max_length=50,default="Not Specified")
-    champlogo = models.ImageField(upload_to='champ_logos',null=True)
+    champlogo = models.ImageField(upload_to='champlogos',null=True, blank=True)
     runnerupteamname=models.CharField(max_length=50,default="Not Specified")
     runnerupcoachname=models.CharField(max_length=50,default="Not Specified")
     championshipreplay=models.CharField(max_length=100,default="Not Specified")

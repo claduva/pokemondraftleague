@@ -1,5 +1,7 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.forms.widgets import FileInput
 
 from leagues.models import *
 from .models import *
@@ -55,6 +57,7 @@ class RuleChangeForm(forms.ModelForm):
 
 
 class AddHallOfFameEntryForm(forms.ModelForm):
+    champlogo=forms.FileField(widget=FileInput)
     
     class Meta:
         model = hall_of_fame_entry

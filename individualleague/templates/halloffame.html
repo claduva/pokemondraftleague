@@ -24,7 +24,7 @@
 <div class="row content-section align-items-center">
     {% if form %}
     <div class="col-12">
-        <form method="post">
+        <form method="post" enctype='multipart/form-data'>
             {% csrf_token %}
             {{ form|crispy }}
             <input class="btn btn-primary" type="submit">
@@ -33,7 +33,7 @@
     {% else %}
         <div class="col-12">
             {% for item in halloffameentries %}
-                <div class="row bg-lightgrey text-dark border rounded">
+                <div class="row bg-lightgrey text-dark border rounded mb-2">
                     <div class="col-12">
                         <h5 class="d-flex justify-content-center">{{ item.seasonname }}</h5>
                         <div class="d-flex justify-content-center"><div class="largelogo"><img class="img-fluid" src="{{ item.champlogo.url }}"></div></div>
