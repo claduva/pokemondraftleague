@@ -252,9 +252,9 @@ def confirm_league_replay(request,league_name,matchid):
                 match.team1usedz=team1.usedz
                 match.team2usedz=team2.usedz
                 if team1.win==1:
-                    match.winner==coach1team
+                    match.winner=coach1team
                 elif team2.win==1:
-                    match.winner==coach2team
+                    match.winner=coach2team
             elif match.team1==coach2team:
                 match.team1megaevolved=team2.megaevolved
                 match.team2megaevolved=team1.megaevolved
@@ -263,16 +263,26 @@ def confirm_league_replay(request,league_name,matchid):
                 match.team1usedz=team2.usedz
                 match.team2usedz=team1.usedz
                 if team1.win==1:
-                    match.winner==coach2team
+                    match.winner=coach1team
                 elif team2.win==1:
-                    match.winner==coach1team
+                    match.winner=coach2team
+            print(match.team1)
+            print(match.team1megaevolved)
+            print(match.team1usedz)
+            print(match.team1score)
+            print(match.team2)
+            print(match.team2megaevolved)
+            print(match.team2usedz)
+            print(match.team2score)
+            print(match.winner)
+           
             #save models
-            #coach1team.save(); coach2team.save(); t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
-            #t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
-            #match.save()
-            #form.save()
-            #messages.success(request,'Replay has been saved!')
-            messages.success(request,'Replay analyzer is currently under maintenence! clad will take care of the replay.')
+            coach1team.save(); coach2team.save(); t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
+            t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
+            match.save()
+            form.save()
+            messages.success(request,'Replay has been saved!')
+            #messages.success(request,'Replay analyzer is currently under maintenence! clad will take care of the replay.')
             return  redirect('league_schedule',league_name=league_name)
     return  redirect('league_schedule',league_name=league_name)
 

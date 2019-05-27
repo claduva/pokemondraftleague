@@ -52,7 +52,7 @@ class trading(models.Model):
 
 class hall_of_fame_entry(models.Model):
     league=models.ForeignKey(league,on_delete=models.CASCADE)
-    seasonname=models.CharField(max_length=20,default="Not Specified")
+    seasonname=models.CharField(max_length=30,default="Not Specified")
     championteamname=models.CharField(max_length=50,default="Not Specified")
     championcoachname=models.CharField(max_length=50,default="Not Specified")
     champlogo = models.ImageField(upload_to='champlogos',null=True, blank=True)
