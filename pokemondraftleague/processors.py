@@ -50,7 +50,7 @@ def processor(request):
 
 
     from accounts.tasks import add
-    y=add.delay(1,2)
+    add.delay(1,2)
     
     return {
         'leagueshosted': leagueshosted,

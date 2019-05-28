@@ -188,4 +188,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 PUBLIC_MEDIA_LOCATION = 'public/media'
 MEDIA_URL = f'{CLOUDCUBE_URL}/{PUBLIC_MEDIA_LOCATION}/'
 
-#CELERY_IMPORTS = ("accounts.tasks", )
+#Celery
+CELERY_TASK_SERIALIZER='json'
+CELERY_RESULT_SERIALIZER = 'json'
