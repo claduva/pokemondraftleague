@@ -187,3 +187,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #Media files
 PUBLIC_MEDIA_LOCATION = 'public/media'
 MEDIA_URL = f'{CLOUDCUBE_URL}/{PUBLIC_MEDIA_LOCATION}/'
+
+#CELERY_IMPORTS = ("accounts.tasks", )
