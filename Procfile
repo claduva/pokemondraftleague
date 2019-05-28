@@ -1,2 +1,2 @@
 web: gunicorn pokemondraftleague.wsgi
-worker: python discordbot/discordbot.py
+worker: celery worker -A pokemondraftleague --loglevel=debug

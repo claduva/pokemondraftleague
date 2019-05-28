@@ -7,7 +7,6 @@
     ".travis.yml": true,
     ".vscode": true,
     "__pycache__": true,
-    ".gitignore": true,
-    "Procfile": true
+    ".gitignore": true
   }
 }

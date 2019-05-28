@@ -1,3 +1,4 @@
+#worker: python discordbot/discordbot.py
 import discord
 import os
 import random 

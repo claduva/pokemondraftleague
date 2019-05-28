@@ -1,6 +1,8 @@
 boto3==1.9.124
+celery
 discord.py
 Django==2.1.7
+django-autocomplete-light
 django-crispy-forms
 django-sendgrid-v5==0.8.0
 django-storages==1.7.1
@@ -10,5 +12,6 @@ Pillow==5.4.1
 pinax-messages
 psycopg2-binary
 pytz==2018.9
+redis
 requests==2.21.0
 whitenoise==4.1.2

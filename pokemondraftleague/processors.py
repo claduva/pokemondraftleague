@@ -46,6 +46,7 @@ def processor(request):
     else:
         messagelist=None
         numberofmessages=0
+    allpokemonlist=all_pokemon.objects.all()
     return {
         'leagueshosted': leagueshosted,
         'allleagues': allleagues,
@@ -54,4 +55,5 @@ def processor(request):
         'site_settings': site_settings,
         'messagelist':messagelist,
         'numberofmessages': numberofmessages,
+        'allpokemonlist':allpokemonlist,
         }

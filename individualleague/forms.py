@@ -3,9 +3,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms.widgets import FileInput
 
+from dal import autocomplete
+
 from leagues.models import *
 from .models import *
-
 
 class CreateMatchForm(forms.ModelForm):
     
@@ -69,6 +70,9 @@ class AddHallOfFameRosterForm(forms.ModelForm):
     class Meta:
         model = hall_of_fame_roster
         exclude = []
+        widgets = {
+            'pokemon': autocomplete.ModelSelect2(url='pokemon-autocomplete')
+        }
 
     def __init__(self, *args, **kwargs):
         super(AddHallOfFameRosterForm, self).__init__(*args, **kwargs)

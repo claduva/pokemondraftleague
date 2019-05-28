@@ -26,7 +26,11 @@
     <div class="col-12">
         <form method="post" enctype='multipart/form-data'>
             {% csrf_token %}
+            {% if form.pokemon %}
+            {{ form.as_p }}
+            {% else %}
             {{ form|crispy }}
+            {% endif %}
             <input class="btn btn-primary" type="submit">
         </form>
     </div>
@@ -59,4 +63,7 @@
 </div>
 {% endblock %}
 {% block footer %}
+{% if form %}
+    {{ form.media }}
+{% endif %}
 {% endblock %}

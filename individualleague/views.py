@@ -11,6 +11,8 @@ from django.db.models import Q
 
 import math
 
+from dal import autocomplete
+
 from .models import *
 from leagues.models import *
 from pokemondatabase.models import *
@@ -768,3 +770,12 @@ def league_hall_of_fame_add_roster(request,league_name):
         'form': form,
     }
     return render(request, 'halloffame.html',context)
+
+class PokemonAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        qs = all_pokemon.objects.all().order_by('pokemon')
+
+        if self.q:
+            qs = qs.filter(pokemon__istartswith=self.q)
+
+        return qs
