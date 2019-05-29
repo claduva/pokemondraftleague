@@ -47,10 +47,6 @@ def processor(request):
         messagelist=None
         numberofmessages=0
     allpokemonlist=all_pokemon.objects.all()
-
-
-    from accounts.tasks import add
-    add.delay(1,2)
     
     return {
         'leagueshosted': leagueshosted,
