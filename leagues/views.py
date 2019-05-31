@@ -689,7 +689,7 @@ def manage_coach(request,league_name):
                 })
             return render(request, 'managecoach.html',context)
         elif formtype=="update":
-            form=ManageCoachForm(league_,request.POST,instance=coach)
+            form=ManageCoachForm(league_,request.POST,request.FILES,instance=coach)
             if form.is_valid():
                 form.save()
                 messages.success(request,f'{coach.coach} has been updated!')

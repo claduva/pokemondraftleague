@@ -92,14 +92,12 @@ class EditSeasonSettingsForm(forms.ModelForm):
         model = seasonsetting
         fields = ['seasonname','draftstart','drafttimer','draftbudget','drafttype','seasonstart','seasonlength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
         
-    
-
 class ManageCoachForm(forms.ModelForm):
     logo=forms.FileField(widget=FileInput,required=False)
 
     class Meta:
         model = coachdata
-        fields = ['teamname','teamabbreviation','logo','teammate','conference','division']
+        fields = ['teamname','teamabbreviation','logo','parent_team','teammate','conference','division']
 
     def __init__(self,league, *args, **kwargs):
         super(ManageCoachForm, self).__init__(*args, **kwargs)
