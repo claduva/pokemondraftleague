@@ -58,74 +58,62 @@
             </div>
         </div>
         <div class="row align-items-start">
-            {% for conference,divisions in conferences %}
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <table class="table table-sm bg-lightgrey text-dark text-center">
                     <tr>
-                        <th colspan="5">{{ conference }}</th>
-                    </tr>
-                    {% for division,coachs in divisions %}
-                    {% if division %}
-                    <tr>
-                        <th>{{ division.name }}</th>
+                        <th colspan="7">{{ conference }}</th>
                     </tr>
                     <tr>
                         <th>Team</th>
                         <th>W</th>
                         <th>L</th>
+                        <th>Tie</th>
+                        <th>GP</th>
+                        <th>GW</th>
                         <th>+/-</th>
-                        <th>Streak</th>
                     </tr>
-                    {% for coach in coachs %}
+                    {% for name,teamlist in parent_teams %}
                     <tr>
-                        <td>{{ coach.teamname }}
-                        </td>
-                        <td>{{ coach.wins }}</td>
-                        <td>{{ coach.losses }}</td>
-                        <td>{{ coach.differential }}</td>
-                        <td>
-                            {% if coach.streak > -1 %}
-                            Win-{{ coach.streak }}
-                            {% else %}
-                            Lose-{{ coach.streak }}
-                            {% endif %}
-                        </td>
+                        <td>{{name}}</td>
                     </tr>
-                    {% endfor %}
-                    {% else %}
-                    <tr>
-                        <th>Team</th>
-                        <th>W</th>
-                        <th>L</th>
-                        <th>+/-</th>
-                        <th>Streak</th>
-                    </tr>
-                    {% for coach in coachs %}
-                    <tr>
-                        <td>
-                            <a class="d-flex text-dark"
-                                href="{% url 'team_page' league_name=league_name team_abbreviation=coach.teamabbreviation %}">
-                                <div class="small-logo"><img class="img-fluid rounded-sprite"
-                                        src="{{ coach.logo.url }}"></div>
-                                <div> {{ coach.teamname }} ({{ coach.teamabbreviation }})</div>
-                            </a>
-                        </td>
-                        <td>{{ coach.wins }}</td>
-                        <td>{{ coach.losses }}</td>
-                        <td>{{ coach.differential }}</td>
-                        <td>
-                            {% if coach.streak > -1 %}
-                            W-{{ coach.streak }}
-                            {% else %}
-                            L{{ coach.streak }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    {% endif %}
                     {% endfor %}
                 </table>
             </div>
+            {% for name,teamlist in parent_teams %}
+                <div class="col-md-6">
+                    <table class="table table-sm bg-lightgrey text-dark text-center">
+                        <tr>
+                            <th colspan="5">{{name}}</th>
+                        </tr>
+                        <tr>
+                            <th>Team</th>
+                            <th>W</th>
+                            <th>L</th>
+                            <th>+/-</th> 
+                            <th>Streak</th>
+                        </tr>
+                        {% for item in teamlist %}
+                            <tr>
+                                <td>
+                                    <div class="d-flex">
+                                        <img class="smallsprite mx-1" src="{{item.logo.url}}">
+                                        <div>{{item.teamname}} ({{item.teamabbreviation}})</div>
+                                    </div>
+                                </td>
+                                <td>{{item.wins}}</td>
+                                <td>{{item.losses}}</td>
+                                <td>{{item.differential}}</td>
+                                <td>
+                                    {% if item.streak > -1 %}
+                                        Win-{{item.streak}}
+                                    {% else %}
+                                        Lose{{item.streak}}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             {% endfor %}
         </div>
     </div>

@@ -21,6 +21,7 @@ from individualleague.models import *
 def league_detail(request,league_name):
     try:
         league_=league.objects.get(name=league_name)
+        settings=league_settings.objects.get(league_name=league_)
         league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
         conferencelist=conference_name.objects.all().filter(league=league_).order_by('id')
         conferences=[]
@@ -62,7 +63,30 @@ def league_detail(request,league_name):
         season=None
         timercurrentweek=None
         seasonstart=None
-    context = {
+    if settings.teambased:
+        parent_team_list=[]
+        parent_teams=[]
+        for item in coachs:
+            if item.parent_team not in parent_team_list:
+                parent_team_list.append(item.parent_team)
+        for item in parent_team_list:
+            parent_teams.append([item,coachs.filter(parent_team=item)])
+        context = {
+        'league': league_,
+        'apply': apply,
+        'leaguepage': True,
+        'league_name': league_name,
+        'league_teams': league_teams,
+        'conference': conferences[0][0],
+        'season':season,
+        'timercurrentweek': timercurrentweek,
+        'seasonstart':seasonstart,
+        'parent_teams':parent_teams,
+        'coachs':coachs,
+        }
+        return render(request, 'league_detail_team_based.html',context)
+    else:
+        context = {
         'league': league_,
         'apply': apply,
         'leaguepage': True,
@@ -72,8 +96,8 @@ def league_detail(request,league_name):
         'season':season,
         'timercurrentweek': timercurrentweek,
         'seasonstart':seasonstart
-    }
-    return render(request, 'league_detail.html',context)
+        }
+        return render(request, 'league_detail.html',context)
 
 @login_required
 def create_league(request):
