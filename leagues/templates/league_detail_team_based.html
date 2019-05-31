@@ -34,7 +34,7 @@
 </div>
 <div class="row content-section align-items-center">
     <h4 class="col-md-6 text-center">
-        Current Week: 
+        Current Week:
         {% if seasonstart %}
         <span id="currentweek"></span>
         {% else %}
@@ -42,7 +42,7 @@
         {% endif %}
     </h4>
     <h4 class="col-md-6 text-center">
-        Time Remaining In Week: 
+        Time Remaining In Week:
         {% if seasonstart %}
         <span id="remaining"></span>
         {% else %}
@@ -85,40 +85,45 @@
                 </table>
             </div>
             {% for name,teamlist in parent_teams %}
-                <div class="col-md-6">
-                    <table class="table table-sm bg-lightgrey text-dark text-center">
-                        <tr>
-                            <th colspan="5">{{name.name}}</th>
-                        </tr>
-                        <tr>
-                            <th>Team</th>
-                            <th>W</th>
-                            <th>L</th>
-                            <th>+/-</th> 
-                            <th>Streak</th>
-                        </tr>
-                        {% for item in teamlist %}
-                            <tr>
-                                <td>
-                                    <div class="d-flex">
-                                        <img class="smallsprite mx-1 rounded-circle" src="{{item.coach.profile.pfp.url}}">
-                                        <div>{{item.coach.username}}</div>
-                                    </div>
-                                </td>
-                                <td>{{item.wins}}</td>
-                                <td>{{item.losses}}</td>
-                                <td>{{item.differential}}</td>
-                                <td>
-                                    {% if item.streak > -1 %}
-                                        Win-{{item.streak}}
-                                    {% else %}
-                                        Lose{{item.streak}}
-                                    {% endif %}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
+            <div class="col-md-6">
+                <table class="table table-sm bg-lightgrey text-dark text-center">
+                    <tr>
+                        <th colspan="5">{{name.name}}</th>
+                    </tr>
+                    <tr>
+                        <th>Team</th>
+                        <th>W</th>
+                        <th>L</th>
+                        <th>+/-</th>
+                        <th>Streak</th>
+                    </tr>
+                    {% for item in teamlist %}
+                    <tr>
+                        <td>
+                            <div class="d-flex">
+                                <img class="smallsprite mx-1 rounded-circle" src="{{item.coach.profile.pfp.url}}">
+                                <div>{{item.coach.username}}</div>
+                            </div>
+                        </td>
+                        <td>{{item.wins}}</td>
+                        <td>{{item.losses}}</td>
+                        <td>{{item.differential}}</td>
+                        <td>
+                            {% if item.streak > -1 %}
+                            Win-{{item.streak}}
+                            {% else %}
+                            Lose{{item.streak}}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5" class="d-flex">
+                            <img class="smallsprite mx-1" src="{{ name.logo.url }}">
+                            Alternate: GarrickTheBruce</td>
+                    </tr>
+                </table>
+            </div>
             {% endfor %}
         </div>
     </div>
@@ -152,7 +157,7 @@
         // Output the result in an element with id="demo"
         document.getElementById("remaining").innerHTML = days + "d " + hours + "h "
             + minutes + "m " + seconds + "s ";
-        
+
         document.getElementById("currentweek").innerHTML = "Week " + week;
         // If the count down is over, write some text 
         if (distance < 0) {
