@@ -21,6 +21,7 @@ class league_settings(models.Model):
     number_of_divisions = models.IntegerField(default=2)
     is_recruiting = models.BooleanField(default=True)
     allows_teams = models.BooleanField(default=False)
+    teambased = models.BooleanField(default=False)
     discordurl = models.CharField(max_length=100, default="Not Provided")
     is_public = models.BooleanField(default=True)
 
@@ -56,6 +57,7 @@ class coachdata(models.Model):
     teamabbreviation = models.CharField(max_length=3, default="TBD")
     teamname = models.CharField(max_length=100, default="To Be Determined")
     teammate = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,related_name='teammate')
+    parent_team = models.CharField(max_length=100, null=True)
     conference = models.ForeignKey(conference_name, on_delete=models.SET_NULL, null=True)
     division = models.ForeignKey(division_name, on_delete=models.SET_NULL, null=True)
     wins = models.IntegerField(default=0)

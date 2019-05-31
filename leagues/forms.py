@@ -23,7 +23,7 @@ class UpdateLeagueSettingsForm(forms.ModelForm):
 
     class Meta:
         model = league_settings
-        fields = ['is_recruiting','discordurl','number_of_teams','number_of_conferences','number_of_divisions','allows_teams','is_public']
+        fields = ['is_recruiting','discordurl','number_of_teams','number_of_conferences','number_of_divisions','teambased','allows_teams','is_public']
 
 class LeagueApplicationForm(forms.ModelForm):
     
@@ -66,6 +66,12 @@ class UpdateCoachTeammateForm(forms.ModelForm):
     class Meta:
         model = coachdata
         fields = ['teammate']
+
+class UpdateParentTeamForm(forms.ModelForm):
+
+    class Meta:
+        model = coachdata
+        fields = ['parent_team']
 
 class CreateSeasonSettingsForm(forms.ModelForm):
 
