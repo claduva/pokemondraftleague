@@ -66,6 +66,7 @@ def league_detail(request,league_name):
     if settings.teambased:
         parent_team_list=[]
         parent_teams=[]
+        coachs=coachdata.objects.all().filter(league_name=league_).order_by('parent_team__name')
         for item in coachs:
             if item.parent_team not in parent_team_list:
                 parent_team_list.append(item.parent_team)
@@ -170,12 +171,13 @@ def individual_league_settings(request,league_name):
     else:
         l_form = UpdateLeagueForm(instance=league_instance)
         ls_form = UpdateLeagueSettingsForm(instance=league_settings_instance)
-
+    addleagueteam=league_settings_instance.teambased
     context = {
         'settingheading': league_name,
         'forms': [l_form,ls_form],
         'deletebutton': 'Delete League',
         'leagueshostedsettings': True,
+        'addleagueteam': addleagueteam,
     }
     return render(request, 'settings.html',context)
 
@@ -305,7 +307,7 @@ def individual_league_coaching_settings(request,league_name):
                 )
             tm_form=UpdateCoachTeammateForm(request.POST,instance=coachinstance)
             if teambased:
-                parent_team_form=UpdateParentTeamForm(request.POST,instance=coachinstance)
+                parent_team_form=UpdateParentTeamForm(league_instance,request.POST,instance=coachinstance)
                 if form.is_valid() and tm_form.is_valid() and parent_team_form.is_valid():
                     form.save()
                     tm_form.save()
@@ -325,7 +327,7 @@ def individual_league_coaching_settings(request,league_name):
                 instance=coachinstance
                 )
             if teambased:
-                parent_team_form=UpdateParentTeamForm(request.POST,instance=coachinstance)
+                parent_team_form=UpdateParentTeamForm(league_instance,request.POST,instance=coachinstance)
                 if form.is_valid() and parent_team_form.is_valid():
                     form.save()
                     parent_team_form.save()
@@ -341,7 +343,7 @@ def individual_league_coaching_settings(request,league_name):
         forms=[]
         forms.append(form)
         if teambased:
-            parent_team_form=UpdateParentTeamForm(instance=coachinstance)
+            parent_team_form=UpdateParentTeamForm(league_instance,instance=coachinstance)
             forms.append(parent_team_form)
         if allowsteams:
             tm_form=UpdateCoachTeammateForm(instance=coachinstance)
@@ -783,3 +785,27 @@ def delete_z_user(request,league_name):
     print("here")
     return redirect('designate_z_users',league_name=league_name)
 
+@login_required
+def add_team_of_coachs(request,league_name):
+    try:
+        league_instance=league.objects.get(name=league_name)
+        coachinstance=coachdata.objects.filter(league_name=league_instance).filter(Q(coach=request.user)|Q(teammate=request.user)).first()
+        settings=league_settings.objects.get(league_name=league_instance)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_coaching_settings')
+    if request.method == 'POST':
+        form=AddTeamOfCoachsForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request,f'Team has been added!')
+        return redirect('add_team_of_coachs',league_name=league_name)
+    form=AddTeamOfCoachsForm(initial={'league':league_instance})
+    allteams=league_team.objects.all().filter(league=league_instance)
+    context = {
+        'leagueshostedsettings': True,
+        'league_name':league_name,
+        'form': form,
+        'allteams': allteams,
+    }
+    return render(request, 'addteamofcoachs.html',context)

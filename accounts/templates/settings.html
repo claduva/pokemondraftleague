@@ -28,6 +28,9 @@
                             <a href="managetiers"><button class="btn btn-primary">Manage Tiers</button></a>
                             <a href="manageseasons"><button class="btn btn-primary">Manage Seasons</button></a>
                             <a href="conferenceanddivisionnames"><button class="btn btn-primary">Add Conference and Division Names</button></a>
+                            {% if addleagueteam %}
+                            <a href="addteamofcoachs"><button class="btn btn-primary">Add Team of Coachs</button></a>
+                            {% endif %}
                         </div>
                     {% endif %}
                     {% if manageseason %}

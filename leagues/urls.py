@@ -29,5 +29,6 @@ urlpatterns = [
     path("settings/league/<str:league_name>/conferenceanddivisionnames", views.add_conference_and_division_names, name="add_conference_and_division_names"),
     path("settings/league/<str:league_name>/conferenceanddivisionnames/deleteconference", views.delete_conference, name="delete_conference"),
     path("settings/league/<str:league_name>/conferenceanddivisionnames/deletedivision", views.delete_conference, name="delete_division"),
+    path("settings/league/<str:league_name>/addteamofcoachs", views.add_team_of_coachs, name="add_team_of_coachs"),
     path("settings/league/<str:league_name>/deleteleague/", views.delete_league, name="delete_league"),
 ]

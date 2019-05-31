@@ -74,7 +74,12 @@
                     </tr>
                     {% for name,teamlist in parent_teams %}
                     <tr>
-                        <td>{{name}}</td>
+                        <td>
+                            <div class="d-flex justify-content-center">
+                                <img class="smallsprite mx-1" src="{{ name.logo.url }}">
+                                <div>{{name.name}}</div>
+                            </div>
+                        </td>
                     </tr>
                     {% endfor %}
                 </table>
@@ -83,7 +88,7 @@
                 <div class="col-md-6">
                     <table class="table table-sm bg-lightgrey text-dark text-center">
                         <tr>
-                            <th colspan="5">{{name}}</th>
+                            <th colspan="5">{{name.name}}</th>
                         </tr>
                         <tr>
                             <th>Team</th>

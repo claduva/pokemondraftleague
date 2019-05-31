@@ -67,14 +67,19 @@ class UpdateCoachTeammateForm(forms.ModelForm):
         model = coachdata
         fields = ['teammate']
 
+
 class UpdateParentTeamForm(forms.ModelForm):
 
     class Meta:
         model = coachdata
         fields = ['parent_team']
 
-class CreateSeasonSettingsForm(forms.ModelForm):
+    def __init__(self,league, *args, **kwargs):
+        super(UpdateParentTeamForm, self).__init__(*args, **kwargs)
+        self.fields['parent_team'].queryset = league_team.objects.all().filter(league=league).order_by('name')
+        self.fields['parent_team'].label_from_instance = lambda obj: obj.name  
 
+class CreateSeasonSettingsForm(forms.ModelForm):
 
     class Meta:
         model = seasonsetting
@@ -94,7 +99,7 @@ class EditSeasonSettingsForm(forms.ModelForm):
         
 class ManageCoachForm(forms.ModelForm):
     logo=forms.FileField(widget=FileInput,required=False)
-
+    
     class Meta:
         model = coachdata
         fields = ['teamname','teamabbreviation','logo','parent_team','teammate','conference','division']
@@ -105,6 +110,8 @@ class ManageCoachForm(forms.ModelForm):
         self.fields['division'].queryset = division_name.objects.filter(league=league).order_by('name')
         self.fields['division'].required = False
         self.fields['teammate'].required=False
+        self.fields['parent_team'].queryset = league_team.objects.all().filter(league=league).order_by('name')
+        self.fields['parent_team'].label_from_instance = lambda obj: obj.name
 
 class DesignateZUserForm(forms.Form):
     zuser = forms.ModelChoiceField(queryset=roster.objects.all(), required=True)
@@ -119,3 +126,12 @@ class DesignateZUserForm(forms.Form):
         super(DesignateZUserForm, self).__init__(*args, **kwargs)
         self.fields['zuser'].queryset = roster.objects.all().filter(season=season,team=team).order_by('pokemon__pokemon')
         self.fields['zuser'].label_from_instance = lambda obj: obj.pokemon.pokemon
+
+
+class AddTeamOfCoachsForm(forms.ModelForm):
+    
+    class Meta:
+        model=league_team
+        exclude=[]
+        widgets = {'league': forms.HiddenInput()}
+    
