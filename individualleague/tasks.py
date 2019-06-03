@@ -29,7 +29,9 @@ def execute_free_agency_and_trades():
       if matchofinterest.replay=="Link":
         completedmatches=False
   if completedmatches:
-    executefa=True 
+    #execute free agencies
+    item.executed=True
+    item.save()
     #droppedpokemon=roster.objects.filter(season=season,team=coach).get(pokemon=form.cleaned_data['droppedpokemon'])
     #droppedpokemon.kills=0
     #droppedpokemon.deaths=0
@@ -39,5 +41,4 @@ def execute_free_agency_and_trades():
     #droppedpokemon.zuser="N"
     #droppedpokemon.pokemon=form.cleaned_data['addedpokemonBBB']
     #droppedpokemon.save() 
-   
 

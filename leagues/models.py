@@ -56,6 +56,7 @@ class league_team(models.Model):
     league=models.ForeignKey(league,on_delete=models.CASCADE,related_name="leagueteam")
     name=models.CharField(max_length=50,default="Not Specified")
     logo = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='team_logos',null=True, blank=True)
+    alternate=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 
 class coachdata(models.Model):
     coach = models.ForeignKey(User, on_delete=models.CASCADE)
