@@ -28,18 +28,18 @@ def execute_free_agency_and_trades():
       matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
       if matchofinterest.replay=="Link":
         completedmatches=False
-  if completedmatches:
-    #execute free agencies
-    item.executed=True
-    item.save()
-    print("saved")
-    #droppedpokemon=roster.objects.filter(season=season,team=coach).get(pokemon=form.cleaned_data['droppedpokemon'])
-    #droppedpokemon.kills=0
-    #droppedpokemon.deaths=0
-    #droppedpokemon.gp=0
-    #droppedpokemon.gw=0
-    #droppedpokemon.differential=0
-    #droppedpokemon.zuser="N"
-    #droppedpokemon.pokemon=form.cleaned_data['addedpokemonBBB']
-    #droppedpokemon.save() 
+    if completedmatches:
+      #execute free agencies
+      item.executed=True
+      item.save()
+      print("saved")
+      #droppedpokemon=roster.objects.filter(season=season,team=coach).get(pokemon=form.cleaned_data['droppedpokemon'])
+      #droppedpokemon.kills=0
+      #droppedpokemon.deaths=0
+      #droppedpokemon.gp=0
+      #droppedpokemon.gw=0
+      #droppedpokemon.differential=0
+      #droppedpokemon.zuser="N"
+      #droppedpokemon.pokemon=form.cleaned_data['addedpokemonBBB']
+      #droppedpokemon.save() 
 
