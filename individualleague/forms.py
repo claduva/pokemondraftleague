@@ -29,7 +29,7 @@ class FreeAgencyForm(forms.ModelForm):
     
     class Meta:
         model = free_agency
-        exclude = []
+        exclude = ['executed']
         widgets = {'season': forms.HiddenInput(),'coach':forms.HiddenInput(),'weekeffective':forms.HiddenInput()}
 
     def __init__(self,coachroster,availablepokemon, *args, **kwargs):
