@@ -32,6 +32,7 @@ def execute_free_agency_and_trades():
     #execute free agencies
     item.executed=True
     item.save()
+    print("saved")
     #droppedpokemon=roster.objects.filter(season=season,team=coach).get(pokemon=form.cleaned_data['droppedpokemon'])
     #droppedpokemon.kills=0
     #droppedpokemon.deaths=0
