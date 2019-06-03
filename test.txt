@@ -1,23 +1,23 @@
-Team 1 Coach: NT Naganadels
+Team 1 Coach: RevezSurge
 Team 1 Roster: 
-Charizard-Mega-X, Kills: 3, Deaths: 0, +/-: 3
-Tapu Koko, Kills: 0, Deaths: 1, +/-: -1
-Mandibuzz, Kills: 0, Deaths: 0, +/-: 0
-Bronzong, Kills: 2, Deaths: 1, +/-: 1
-Toxapex, Kills: 0, Deaths: 0, +/-: 0
-Mamoswine, Kills: 1, Deaths: 0, +/-: 1
+Raichu, Kills: 0, Deaths: 1, +/-: -1
+Tyranitar, Kills: 2, Deaths: 1, +/-: 1
+Excadrill, Kills: 0, Deaths: 1, +/-: -1
+Venusaur-Mega, Kills: 0, Deaths: 1, +/-: -1
+Chansey, Kills: 0, Deaths: 1, +/-: -1
+Noivern, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: True
 Used Z-Move: False
 
-Team 2 Coach: LOSLOSERSHERMANOS
+Team 2 Coach: BordeauxBewears
 Team 2 Roster: 
-Diggersby, Kills: 0, Deaths: 1, +/-: -1
-Mew, Kills: 0, Deaths: 1, +/-: -1
-Cobalion, Kills: 0, Deaths: 1, +/-: -1
-Florges, Kills: 1, Deaths: 1, +/-: 0
-Absol-Mega, Kills: 0, Deaths: 1, +/-: -1
-Haxorus, Kills: 1, Deaths: 1, +/-: 0
-Mega Evolved: True
-Used Z-Move: True
+Tornadus-Therian, Kills: 0, Deaths: 0, +/-: 0
+Reuniclus, Kills: 3, Deaths: 0, +/-: 3
+Bruxish, Kills: 0, Deaths: 0, +/-: 0
+Heatran, Kills: 0, Deaths: 1, +/-: -1
+Comfey, Kills: 1, Deaths: 0, +/-: 1
+Bewear, Kills: 2, Deaths: 1, +/-: 1
+Mega Evolved: False
+Used Z-Move: False
 
-Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-916371158
+Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-921144591

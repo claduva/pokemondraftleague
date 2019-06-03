@@ -3,7 +3,9 @@ celery
 discord.py
 Django==2.1.7
 django-autocomplete-light
+django-celery-beat
 django-crispy-forms
+django-redis-cache
 django-sendgrid-v5==0.8.0
 django-storages==1.7.1
 gunicorn

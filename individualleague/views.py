@@ -62,8 +62,7 @@ def league_draft(request,league_name):
     try:
         season=seasonsetting.objects.get(league=league_)
         draftstart=str(season.draftstart)
-        drafttimer=season.drafttimer
-        
+        drafttimer=season.drafttimer   
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
@@ -586,24 +585,16 @@ def freeagency(request,league_name):
             available=True
     if request.method=="POST":
         form=FreeAgencyForm(coachroster,availablepokemon,request.POST)
-        if form.is_valid():
-            droppedpokemon=roster.objects.filter(season=season,team=coach).get(pokemon=form.cleaned_data['droppedpokemon'])
-            droppedpokemon.kills=0
-            droppedpokemon.deaths=0
-            droppedpokemon.gp=0
-            droppedpokemon.gw=0
-            droppedpokemon.differential=0
-            droppedpokemon.zuser="N"
-            droppedpokemon.pokemon=form.cleaned_data['addedpokemon']
-            droppedpokemon.save()
+        if form.is_valid(): 
             form.save()
-            messages.success(request,f'You free agency request has been implemented!')
+            messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
             return redirect('team_page',league_name=league_name,team_abbreviation=droppedpokemon.team.teamabbreviation)
     form=FreeAgencyForm(coachroster,availablepokemon,initial={'coach':coach,'season':season})
     fa_remaining=season.freeagenciesallowed-free_agency.objects.all().filter(season=season,coach=coach).count()
     if fa_remaining < 1:
         messages.error(request,'You do not have any free agencies remaining!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
+    pendingfreeagency=free_agency.objects.all().filter(executed=False)
     context = {
         'league': league_,
         'leaguepage': True,
@@ -611,6 +602,7 @@ def freeagency(request,league_name):
         'league_name': league_name,
         'form':form,
         'fa_remaining':fa_remaining,
+        'pendingfreeagency':pendingfreeagency,
     }
     return render(request, 'freeagency.html',context)
 

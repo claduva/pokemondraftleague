@@ -17,6 +17,16 @@
     <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
 </div>
 <div class="row content-section align-items-center">
+    <div class="col-12">
+        <h5>Pending Free Agencies</h5>
+        <ul>
+        {% for item in pendingfreeagency %}
+            <li>Dropping {{ item.droppedpokemon.pokemon }} for {{ item.addedpokemon.pokemon }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="row content-section align-items-center">
         <div class="col-12">
             <h5>Points Available: 0</h5>
             {% if fa_remaining > 0 %}

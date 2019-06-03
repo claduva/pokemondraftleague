@@ -34,12 +34,20 @@ def directdamagekill(rawdata,team,i):
 
 def contacteffectkill(rawdata,team,fainted,i):
     if ((rawdata[i-1].find("item: Rocky Helmet") > -1) or (rawdata[i-1].find("ability: Iron Barbs") > -1) \
-    or (rawdata[i-1].find("ability: Rough Skin") > -1)  or (rawdata[i-1].find("[from] Spiky Shield") > -1) \
-    or (rawdata[i-1].find("[from] Leech Seed") > -1)) \
+    or (rawdata[i-1].find("ability: Rough Skin") > -1)  or (rawdata[i-1].find("[from] Spiky Shield") > -1)) \
     and (rawdata[i-1].find("|-damage|") > -1): 
         killer=rawdata[i-1].split(" ")[-1]
         if fainted != killer:
             incrementkills(team,killer)
+
+def leechseedkill(rawdata,team,fainted,i):
+    if (rawdata[i-1].find("[from] Leech Seed") > -1) and (rawdata[i-1].find("|-damage|") > -1): 
+        killer="placeholder"; j=1
+        while(killer=="placeholder"):
+            if  (rawdata[i-j].find("|move|") > -1) and (rawdata[i-j].find("Leech Seed|") > -1):
+                killer=rawdata[i-j].split(" ",1)[1].split("|")[0]
+            j+=1
+        incrementkills(team,killer)
 
 def aftermathkill(rawdata,team,fainted,i):
     if (rawdata[i-2].find("[from] ability: Aftermath") > -1) and (rawdata[i-2].find("|-damage|") > -1): 
@@ -66,7 +74,7 @@ def hazardskill(rawdata,team,fainted,player,i):
 def weatherkill(rawdata,team,fainted,player,otherplayer,i):
     if (rawdata[i-1].find("[from] Hail") > -1): 
         killer="placeholder"; j=1
-        while(killer=="placeholder"):
+        while(killer=="placeholder" and (i-j)>=0):
             #from ability
             if  (rawdata[i-j].find("-weather|Hail|") > -1) and (rawdata[i-j].find("[of] "+player) > -1):
                 killer=rawdata[i-j].split(" ")[-1]
@@ -77,12 +85,13 @@ def weatherkill(rawdata,team,fainted,player,otherplayer,i):
         incrementkills(team,killer)
     elif (rawdata[i-1].find("[from] Sandstorm") > -1): 
         killer="placeholder"; j=1
-        while(killer=="placeholder"):
+        while(killer=="placeholder" and (i-j)>=0):
             #from ability
-            if  (rawdata[i-j].find("-weather|Sandstorm|") > -1) and (rawdata[i-j].find("[of] "+player) > -1):
-                killer=rawdata[i-j].split(" ")[-1]
+            if  (rawdata[i-j].find("-weather|Sandstorm|[from] ability: Sand Stream|[of]") > -1) and (rawdata[i-j].find(otherplayer) > -1):
+                killer=rawdata[i-j].split(" ",5)[5]
             #from move
             elif  (rawdata[i-j].find("Sandstorm") > -1) and (rawdata[i-j].find("move|"+otherplayer) > -1):
+                print('move')
                 killer=rawdata[i-j].split(" ",1)[1].split("|")[0]
             j+=1
         incrementkills(team,killer)
@@ -90,7 +99,7 @@ def weatherkill(rawdata,team,fainted,player,otherplayer,i):
 def poisonkill(rawdata,team,player,fainted,i):
     if (rawdata[i-1].find("[from] psn") > -1) and (rawdata[i-1].find("|-damage|"+player) > -1): 
         killer="placeholder"; j=2
-        while(killer=="placeholder"):
+        while(killer=="placeholder" and (i-j)>=0):
             #toxic status
             if (rawdata[i-j].find("|tox") > -1) and (rawdata[i-j].find("|-status|"+player) > -1)  and (rawdata[i-j].find(fainted) > -1):
                 #toxic the move
@@ -125,9 +134,9 @@ def poisonkill(rawdata,team,player,fainted,i):
         incrementkills(team,killer)
 
 def burnkill(rawdata,team,player,fainted,i):
-    if (rawdata[i-1].find("[from] brn") > -1) and (rawdata[i-1].find("|-damage|"+player) > -1): 
+    if ((rawdata[i-1].find("[from] brn") > -1) and (rawdata[i-1].find("|-damage|"+player) > -1)) or ((rawdata[i-2].find("[from] brn") > -1) and (rawdata[i-2].find("|-damage|"+player) > -1)): 
         killer="placeholder"; j=2
-        while(killer=="placeholder"):
+        while(killer=="placeholder" and (i-j)>=0):
             if (rawdata[i-j].find("|brn") > -1) and (rawdata[i-j].find("|-status|"+player) > -1)  and (rawdata[i-j].find(fainted) > -1):
                 #burn the move
                 if (rawdata[i-j-1].find("move") > -1):
@@ -176,6 +185,7 @@ def checkkills(byline,team1,team2,fainted,i):
         #kill belongs to team 1
         directdamagekill(byline,team1,i)
         contacteffectkill(byline,team1,fainted,i)
+        leechseedkill(byline,team1,fainted,i)
         aftermathkill(byline,team1,fainted,i)
         hazardskill(byline,team1,fainted,"2",i)
         weatherkill(byline,team1,fainted,"p2a","p1a",i)
@@ -188,6 +198,7 @@ def checkkills(byline,team1,team2,fainted,i):
         #kill belongs to team 2
         directdamagekill(byline,team2,i)
         contacteffectkill(byline,team2,fainted,i)
+        leechseedkill(byline,team2,fainted,i)
         aftermathkill(byline,team2,fainted,i)
         hazardskill(byline,team2,fainted,"1",i)
         weatherkill(byline,team2,fainted,"p1a","p2a",i)

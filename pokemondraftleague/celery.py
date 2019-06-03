@@ -1,3 +1,4 @@
+#worker: celery worker -A pokemondraftleague --loglevel=debug
 from __future__ import absolute_import, unicode_literals
 import django
 import os
@@ -18,7 +19,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 #configure redis 
 if (socket.gethostname().find("local")>-1):
     from pokemondraftleague.base_settings import *
-    REDIS_URL='redis://'
+    REDIS_URL=REDIS_URL
 else:
     REDIS_URL=os.environ.get('REDIS_URL')
 app.conf.update(BROKER_URL=REDIS_URL,CELERY_RESULT_BACKEND=REDIS_URL)

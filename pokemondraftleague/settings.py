@@ -61,7 +61,6 @@ INSTALLED_APPS = [
 
     #local apps
     'accounts.apps.AccountsConfig',
-    #'discord.apps.DiscordConfig',
     'individualleague.apps.IndividualleagueConfig',
     'leagues.apps.LeaguesConfig',
     'main.apps.MainConfig',
@@ -70,6 +69,7 @@ INSTALLED_APPS = [
 
     #third party apps
     'crispy_forms',
+    'django_celery_beat',
     'storages',
 ]
 
@@ -188,6 +188,22 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 PUBLIC_MEDIA_LOCATION = 'public/media'
 MEDIA_URL = f'{CLOUDCUBE_URL}/{PUBLIC_MEDIA_LOCATION}/'
 
+"""
+#Redis
+if (socket.gethostname().find("local")>-1):
+    from pokemondraftleague.base_settings import *
+    REDIS_URL=REDIS_URL
+else:
+    REDIS_URL=os.environ.get('REDIS_URL')
+CACHES = {
+    "default": {
+         "BACKEND": "redis_cache.RedisCache",
+         "LOCATION": REDIS_URL,
+    }
+}
+"""
 #Celery
+CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER='json'
 CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = "UTC"

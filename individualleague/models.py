@@ -37,7 +37,8 @@ class free_agency(models.Model):
     season=models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
     droppedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="dropped")
     addedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="added")
-    weekeffective=models.IntegerField(default=1)
+    timeadded=models.DateTimeField(auto_now_add=True)
+    executed=models.BooleanField(default=False)
     
 class trade_request(models.Model):
     offeredpokemon=models.ForeignKey(roster,on_delete=models.CASCADE,related_name="tradedroppedrequest")
@@ -48,7 +49,8 @@ class trading(models.Model):
     season=models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
     droppedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="tradedropped")
     addedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="tradeadded")
-    weekeffective=models.IntegerField(default=1)
+    timeadded=models.DateTimeField(auto_now_add=True)
+    executed=models.BooleanField(default=False)
 
 class hall_of_fame_entry(models.Model):
     league=models.ForeignKey(league,on_delete=models.CASCADE)
