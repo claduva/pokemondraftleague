@@ -30,20 +30,22 @@ def execute_free_agency_and_trades():
         completedmatches=False
     if completedmatches:
       #execute free agencies
+      montoupdate=item.droppedpokemon
       droppedpokemon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
-      item.droppedpokemon.kills=droppedpokemon.kills
+      montoupdate.kills=droppedpokemon.kills
       droppedpokemon.kills=0
-      item.droppedpokemon.deaths=droppedpokemon.deaths
+      montoupdate.deaths=droppedpokemon.deaths
       droppedpokemon.deaths=0
-      item.droppedpokemon.gp=droppedpokemon.gp
+      montoupdate.gp=droppedpokemon.gp
       droppedpokemon.gp=0
-      item.droppedpokemon.gw=droppedpokemon.gw
+      montoupdate.gw=droppedpokemon.gw
       droppedpokemon.gw=0
-      item.droppedpokemon.differential=droppedpokemon.differential
+      montoupdate.differential=droppedpokemon.differential
       droppedpokemon.differential=0
       droppedpokemon.zuser="N"
       droppedpokemon.pokemon=item.addedpokemon
       item.executed=True
       item.save()
       droppedpokemon.save() 
+      montoupdate.save()
 
