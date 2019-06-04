@@ -586,7 +586,7 @@ def freeagency(request,league_name):
     if request.method=="POST":
         form=FreeAgencyForm(coachroster,availablepokemon,request.POST)
         if form.is_valid(): 
-            form_clean=form.save()
+            form.save()
             messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
             return redirect('free_agency',league_name=league_name)
     form=FreeAgencyForm(coachroster,availablepokemon,initial={'coach':coach,'season':season})
