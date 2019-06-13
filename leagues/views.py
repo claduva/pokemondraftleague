@@ -491,9 +491,14 @@ def edit_tier(request,league_name,tierid):
 
 @login_required
 def update_tier(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
     if request.POST:
         pokemonofinterest=all_pokemon.objects.get(pokemon=request.POST['pokemon-select'])
-        pokemontoupdate=pokemon_tier.objects.get(pokemon=pokemonofinterest)
+        pokemontoupdate=pokemon_tier.objects.filter(league=league_).get(pokemon=pokemonofinterest)
         tiertoadd=leaguetiers.objects.get(pk=request.POST['tier-select'])
         pokemontoupdate.tier=tiertoadd
         pokemontoupdate.save()
