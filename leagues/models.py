@@ -11,7 +11,7 @@ from enum import Enum
 class league(models.Model):
     name = models.CharField(max_length=30, unique=True)
     host = models.ForeignKey(User, on_delete=models.CASCADE)
-    logo = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='league_logos',null=True, blank=True)
+    logo = models.ImageField(default='league_logos/defaultleaguelogo.png',upload_to='league_logos',null=True, blank=True)
 
     def __str__(self):
         return f'{self.name} hosted by {self.host.username}'
@@ -55,13 +55,13 @@ class league_application(models.Model):
 class league_team(models.Model):
     league=models.ForeignKey(league,on_delete=models.CASCADE,related_name="leagueteam")
     name=models.CharField(max_length=50,default="Not Specified")
-    logo = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='team_logos',null=True, blank=True)
+    logo = models.ImageField(default='league_logos/defaultleaguelogo.png',upload_to='team_logos',null=True, blank=True)
     alternate=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 
 class coachdata(models.Model):
     coach = models.ForeignKey(User, on_delete=models.CASCADE)
     league_name = models.ForeignKey(league, on_delete=models.CASCADE)
-    logo = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='team_logos',null=True, blank=True)
+    logo = models.ImageField(default='team_logos/defaultteamlogo.png',upload_to='team_logos',null=True, blank=True)
     teamabbreviation = models.CharField(max_length=3, default="TBD")
     teamname = models.CharField(max_length=100, default="To Be Determined")
     teammate = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,related_name='teammate')
