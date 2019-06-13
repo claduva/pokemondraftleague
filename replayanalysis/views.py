@@ -115,6 +115,13 @@ def confirm_league_replay(request,league_name,matchid):
     except:
         return redirect('league_schedule',league_name=league_name)
     if request.method=="POST":
+        try:
+            match=schedule.objects.get(pk=matchid)
+        except:
+            return redirect('league_schedule',league_name=league_name)
+        if match.replay != "Link":
+            messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
+            return redirect('league_schedule',league_name=league_name)
         form = LeagueReplayForm(request.POST,instance=match)
         if form.is_valid():
             url=form.cleaned_data['replay']

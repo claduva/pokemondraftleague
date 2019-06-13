@@ -127,7 +127,6 @@ class DesignateZUserForm(forms.Form):
         self.fields['zuser'].queryset = roster.objects.all().filter(season=season,team=team).order_by('pokemon__pokemon')
         self.fields['zuser'].label_from_instance = lambda obj: obj.pokemon.pokemon
 
-
 class AddTeamOfCoachsForm(forms.ModelForm):
     
     class Meta:

@@ -1,23 +1,23 @@
-Team 1 Coach: RevezSurge
+Team 1 Coach: Joey_RiverAPP
 Team 1 Roster: 
-Raichu, Kills: 0, Deaths: 1, +/-: -1
-Tyranitar, Kills: 2, Deaths: 1, +/-: 1
-Excadrill, Kills: 0, Deaths: 1, +/-: -1
-Venusaur-Mega, Kills: 0, Deaths: 1, +/-: -1
-Chansey, Kills: 0, Deaths: 1, +/-: -1
-Noivern, Kills: 0, Deaths: 1, +/-: -1
+Thundurus, Kills: 2, Deaths: 0, +/-: 2
+Necrozma, Kills: 2, Deaths: 1, +/-: 1
+Klefki, Kills: 0, Deaths: 0, +/-: 0
+Chandelure, Kills: 1, Deaths: 1, +/-: 0
+Aromatisse, Kills: 1, Deaths: 0, +/-: 1
+Stunfisk, Kills: 0, Deaths: 0, +/-: 0
+Mega Evolved: False
+Used Z-Move: True
+
+Team 2 Coach: GothamGothitelles
+Team 2 Roster: 
+Slurpuff, Kills: 0, Deaths: 1, +/-: -1
+Slowbro-Mega, Kills: 0, Deaths: 1, +/-: -1
+Garbodor, Kills: 0, Deaths: 1, +/-: -1
+Garchomp, Kills: 2, Deaths: 1, +/-: 1
+Porygon2, Kills: 0, Deaths: 1, +/-: -1
+Passimian, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: True
 Used Z-Move: False
 
-Team 2 Coach: BordeauxBewears
-Team 2 Roster: 
-Tornadus-Therian, Kills: 0, Deaths: 0, +/-: 0
-Reuniclus, Kills: 3, Deaths: 0, +/-: 3
-Bruxish, Kills: 0, Deaths: 0, +/-: 0
-Heatran, Kills: 0, Deaths: 1, +/-: -1
-Comfey, Kills: 1, Deaths: 0, +/-: 1
-Bewear, Kills: 2, Deaths: 1, +/-: 1
-Mega Evolved: False
-Used Z-Move: False
-
-Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-921144591
+Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-924633851
