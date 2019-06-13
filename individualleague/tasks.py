@@ -63,9 +63,9 @@ def execute_free_agency_and_trades():
       matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
       if matchofinterest.replay=="Link":
         completedmatches=False
-    print(completedmatches)
     if completedmatches:
-      #execute free agencies
+      #execute trades
+      droppedmon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
       montoupdate=item.droppedpokemon
       droppedpokemon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
       montoupdate.kills=droppedpokemon.kills
@@ -84,4 +84,7 @@ def execute_free_agency_and_trades():
       item.save()
       droppedpokemon.save() 
       montoupdate.save()
+      item.executed=True
+      item.save()
+      
 

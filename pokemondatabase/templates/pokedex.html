@@ -1,0 +1,45 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{title}}{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">{{ title }}</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="rounded-circle mediumlogo">
+    </div>
+</div>
+{% if pokedexitem %}
+<div class="row content-section align-items-center">
+    <div class="col-md-4">
+        <div>
+            <img src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ title|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"
+                class="mediumlogo">
+        </div>
+        <h5>{{ title }}</h5>
+    </div>
+</div>
+{% elif pokedex %}
+<div class="row content-section align-items-center">
+    <datalist id="allpokemon">
+        {% for item in allpokemonlist %}
+            <option value="{{ item.pokemon }}">
+        {% endfor %}
+    </datalist>
+    <form method="post">
+        {% csrf_token %}
+    <input list="allpokemon" name="pokemonpick">
+    <input type='submit' class='btn btn-primary'>
+    </form>
+</div>
+{% endif %}
+{% endblock %}
