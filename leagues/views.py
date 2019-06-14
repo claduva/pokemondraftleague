@@ -799,18 +799,46 @@ def add_team_of_coachs(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_coaching_settings')
+    heading='Add Team of Coaches'
     if request.method == 'POST':
-        form=AddTeamOfCoachsForm(request.POST,request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request,f'Team has been added!')
-        return redirect('add_team_of_coachs',league_name=league_name)
+        purpose=request.POST['purpose']
+        if purpose == 'Submit':
+            form=AddTeamOfCoachsForm(request.POST,request.FILES)
+            if form.is_valid():
+                form.save()
+                messages.success(request,f'Team has been added!')
+        elif purpose == 'Delete':
+            teamtodelete=league_team.objects.get(id=request.POST['deleteid'])
+            teamtodelete.delete()
+        elif purpose == 'Edit':
+            team_instance=league_team.objects.get(id=request.POST['editid'])
+            editid=team_instance.id
+            form=AddTeamOfCoachsForm(instance=team_instance)
+            allteams=league_team.objects.all().filter(league=league_instance)
+            heading='Edit Team of Coaches'
+            context = {
+                'leagueshostedsettings': True,
+                'league_name':league_name,
+                'form': form,
+                'allteams': allteams,
+                'heading':heading,
+                'updateteam': True,
+                'editid': editid,
+            }
+            return render(request, 'addteamofcoachs.html',context)
+        elif purpose == 'Update':
+            team_instance=league_team.objects.get(id=request.POST['editid'])
+            form=AddTeamOfCoachsForm(request.POST,request.FILES,instance=team_instance)
+            if form.is_valid():
+                form.save()
+                messages.success(request,f'Team has been updated!')
     form=AddTeamOfCoachsForm(initial={'league':league_instance})
     allteams=league_team.objects.all().filter(league=league_instance)
     context = {
         'leagueshostedsettings': True,
         'league_name':league_name,
         'form': form,
+        'heading':heading,
         'allteams': allteams,
     }
     return render(request, 'addteamofcoachs.html',context)

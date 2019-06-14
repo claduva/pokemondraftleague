@@ -10,14 +10,14 @@ from enum import Enum
 
 class league(models.Model):
     name = models.CharField(max_length=30, unique=True)
-    host = models.ForeignKey(User, on_delete=models.CASCADE)
+    host = models.ForeignKey(User, on_delete=models.CASCADE,related_name='hosting')
     logo = models.ImageField(default='league_logos/defaultleaguelogo.png',upload_to='league_logos',null=True, blank=True)
 
     def __str__(self):
         return f'{self.name} hosted by {self.host.username}'
 
 class league_settings(models.Model):
-    league_name = models.OneToOneField(league, on_delete=models.CASCADE)
+    league_name = models.OneToOneField(league, on_delete=models.CASCADE,related_name="settings")
     number_of_teams = models.IntegerField(default=16)
     number_of_conferences = models.IntegerField(default=2)
     number_of_divisions = models.IntegerField(default=2)
@@ -56,10 +56,10 @@ class league_team(models.Model):
     league=models.ForeignKey(league,on_delete=models.CASCADE,related_name="leagueteam")
     name=models.CharField(max_length=50,default="Not Specified")
     logo = models.ImageField(default='league_logos/defaultleaguelogo.png',upload_to='team_logos',null=True, blank=True)
-    alternate=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    alternate=models.ForeignKey(User,on_delete=models.CASCADE,null=True,related_name='alternate')
 
 class coachdata(models.Model):
-    coach = models.ForeignKey(User, on_delete=models.CASCADE)
+    coach = models.ForeignKey(User, on_delete=models.CASCADE,related_name='coaching')
     league_name = models.ForeignKey(league, on_delete=models.CASCADE)
     logo = models.ImageField(default='team_logos/defaultteamlogo.png',upload_to='team_logos',null=True, blank=True)
     teamabbreviation = models.CharField(max_length=3, default="TBD")
@@ -89,7 +89,7 @@ class award(models.Model):
         return f'Award: {self.awardname}'
 
 class coachaward(models.Model):
-    coach = models.ForeignKey(User, on_delete=models.CASCADE)
+    coach = models.ForeignKey(User, on_delete=models.CASCADE,related_name='awards')
     award = models.ForeignKey(award, on_delete=models.CASCADE)
 
     def __str__(self):

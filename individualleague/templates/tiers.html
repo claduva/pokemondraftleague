@@ -49,7 +49,7 @@
 <div class="row content-section">
     {% for x,y in tiers %}
         <div class="col-md-2">
-                <table class="table table-sm d-flex justify-content-center">
+                <table class="table table-sm d-flex justify-content-center bg-lightgrey text-dark">
                     <tr>
                         <th colspan="3">{{x.tiername}} ({{x.tierpoints}})</th>
                     </tr>
@@ -61,7 +61,7 @@
                                 <td class="bg-lightgreen text-dark"><div>FREE</div></td>
                             {% endif %}
                             <td><img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></td>
-                            <td><a class="text-light" href="{% url 'pokedex_item' pokemon_of_interest=itemx.pokemon.pokemon %}">{{itemx.pokemon.pokemon}}</a></td>
+                            <td><a class="text-dark" href="{% url 'pokedex_item' pokemon_of_interest=itemx.pokemon.pokemon %}">{{itemx.pokemon.pokemon}}</a></td>
                         </tr>
                     {% endfor %}
                 </table>
@@ -70,7 +70,7 @@
     {% if mega %}
     <div class="col-md-2">
         {% for x,y in mega %}
-           <table class="table table-sm d-flex justify-content-center">
+           <table class="table table-sm d-flex justify-content-center bg-lightgrey text-dark">
                 <tr>
                     <th colspan="3">{{x.tiername}} ({{x.tierpoints}})</th>
                 </tr>
@@ -82,7 +82,7 @@
                             <td class="bg-lightgreen text-dark"><div>FREE</div></td>
                         {% endif %}
                         <td><img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></td>
-                        <td><a class="text-light" href="{% url 'pokedex_item' pokemon_of_interest=itemx.pokemon.pokemon %}">{{itemx.pokemon.pokemon}}</a></td>
+                        <td><a class="text-dark" href="{% url 'pokedex_item' pokemon_of_interest=itemx.pokemon.pokemon %}">{{itemx.pokemon.pokemon}}</a></td>
                     </tr>
                 {% endfor %}
             </table>

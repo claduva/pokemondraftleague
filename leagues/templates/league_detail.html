@@ -13,15 +13,15 @@
     <div class="col-md-4">
         <h3 class="d-flex justify-content-center">{{league.name}}</h3>
         <div class="d-flex justify-content-center">Hosted by {{league.host}}</div>
-        {% if league.league_settings.discordurl is not 'Not Provided' %}
+        {% if league.settings.discordurl != 'Not Provided' %}
         <div class="d-flex justify-content-center">
-            <a href="{{ item.league_settings.discordurl }}"><button class="btn btn-primary">Join the
+            <a href="{{ league.settings.discordurl }}"><button class="btn btn-primary">Join the
                     Discord</button></a>
         </div>
         {% endif %}
     </div>
     <div class="col-md-4 d-flex justify-content-end">
-        {% if league.league_settings.is_recruiting %}
+        {% if league.settings.is_recruiting %}
         <div class="d-flex justify-content-center text-success">Recruiting Coaches!</div>
         {% if apply %}
         <div class="d-flex justify-content-center"><a href="apply"><button class="btn btn-success">Apply</button></a>

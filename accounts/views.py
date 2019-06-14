@@ -8,8 +8,11 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
+from django.db.models import Q
 
 from .forms import *
+
+import math
 
 class SignUp(generic.CreateView):
     form_class = UserRegisterForm
@@ -23,6 +26,29 @@ def profile(request):
         "title": "Profile",
     }
     return render(request, 'profile.html',context)
+
+def user_profile(request,username):
+    try:
+        userofinterest=User.objects.get(username=username)
+        userprofile=userofinterest.profile
+        coaching=coachdata.objects.filter(Q(coach=userofinterest)|Q(teammate=userofinterest))
+        for item in coaching:
+            userprofile.wins+=item.wins
+            userprofile.losses+=item.losses
+            userprofile.differential+=item.differential
+        try:
+            winpercent=f'{round(userprofile.wins/(userprofile.wins+userprofile.losses)*100)}%'
+        except:
+            winpercent='N/A'
+    except:
+        messages.error(request,'User does not exist!',extra_tags='danger')
+        return redirect('home')
+    context = {
+        "title": f"{username}'s Profile",
+        'userofinterest':userofinterest,
+        'winpercent':winpercent,
+    }
+    return render(request, 'userprofile.html',context)
 
 @login_required
 def settings(request):

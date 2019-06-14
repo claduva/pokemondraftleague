@@ -27,6 +27,11 @@ def team_page(request,league_name,team_abbreviation):
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
     try:
+        season=seasonsetting.objects.get(league=league_)  
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    try:
         team=coachdata.objects.filter(league_name=league_,teamabbreviation=team_abbreviation).first()
         try:
             season=seasonsetting.objects.get(league=league_)

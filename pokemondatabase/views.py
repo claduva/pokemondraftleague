@@ -16,15 +16,20 @@ import time
 from accounts.forms import UserRegisterForm
 from .models import *
 from leagues.models import *
+from .forms import *
 
 # Create your views here.
 def pokedex(request):
     if request.method=='POST':
-        pokemon_of_interest=request.POST['pokemonpick']
-        return redirect('pokedex_item',pokemon_of_interest=pokemon_of_interest)
+        form=Pokedex(request.POST)
+        if form.is_valid():
+            pokemon_of_interest=form.cleaned_data['pokemon'].pokemon
+            return redirect('pokedex_item',pokemon_of_interest=pokemon_of_interest)
+    form=Pokedex()
     context = {
         "title": 'Pokemon Info',
         "pokedex": True,
+        'form': form,
     }
     return render(request,"pokedex.html", context)
 
@@ -34,7 +39,6 @@ def pokedex_item(request,pokemon_of_interest):
         draftnumber=draft.objects.all().filter(pokemon=pokemon_data).count()
         pokemon_data.timesdrafted+=draftnumber
         roster_data=roster.objects.all().filter(pokemon=pokemon_data)
-        print(roster_data)
         for item in roster_data:
             pokemon_data.kills+=item.kills
             pokemon_data.deaths+=item.deaths

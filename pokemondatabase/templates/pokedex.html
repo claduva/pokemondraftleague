@@ -129,9 +129,14 @@
     </datalist>
     <form method="post">
         {% csrf_token %}
-        <input list="allpokemon" name="pokemonpick">
+        {{form.as_p}}
         <input type='submit' class='btn btn-primary'>
     </form>
 </div>
+{% endif %}
+{% endblock %}
+{% block footer %}
+{% if form %}
+    {{ form.media }}
 {% endif %}
 {% endblock %}

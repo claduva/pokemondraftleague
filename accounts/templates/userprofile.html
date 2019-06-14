@@ -1,0 +1,98 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Profile{% endblock %}
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}">
+{% endblock %}
+{% block body %}
+<div class="content-section">
+    <div class="row align-items-start">
+        <div class="col-md-4 media-body">
+            <div class="d-flex justify-content-center"><img src="{{ userofinterest.profile.pfp.url }}"
+                    class="rounded-circle mediumlogo"></div>
+            <h3 class="d-flex justify-content-center">{{ userofinterest.username }}</h3>
+            <div class="col-md-12 d-flex justify-content-center">
+                <h5>Career Stats</h5>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center">
+                <table class="table table-sm text-center">
+                    <tr>
+                        <td>Wins: {{ userofinterest.profile.wins }}</td>
+                        <td>Losses: {{ userofinterest.profile.losses }}</td>
+                    </tr>
+                    <tr>
+                        <td>+/-: {{ userofinterest.profile.differential }}</td>
+                        <td>Win%: {{winpercent}}</td>
+                    </tr>
+                </table>
+            </div>
+            {% if userofinterest.awards.all %}
+            <div class="col-md-12 d-flex justify-content-center">
+                <h5>Trophy Case</h5>
+            </div>
+            <div class="row align-items-center justify-content-around">
+                {% for item in coachawards %}
+                <div class="col-md-3">
+                    <img src="{{ item.award.image.url }}" class="img-fluid">
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            {% if userofinterest.hosting.all %}
+            <div class="row align-items-center">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h3>Leagues Hosting</h3>
+                </div>
+            </div>
+            <div class="row align-items-stretch justify-content-around">
+                {% for item in userofinterest.hosting.all %}
+                <div class="col-md-3 text-center">
+                    <a href="{% url 'league_detail' league_name=item.name %}">
+                        <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
+                        <div class="d-flex justify-content-center">{{ item.name }}</div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if userofinterest.coaching.all or userofinterest.teammate.all or userofinterest.alternate.all %}
+            <div class="row align-items-center">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h3>Leagues Participating In</h3>
+                </div>
+            </div>
+            <div class="row align-items-stretch justify-content-around">
+                {% for item in userofinterest.coaching.all %}
+                <div class="col-md-3 text-center">
+                    <a href="{% url 'league_detail' league_name=item.league_name.name %}">
+                        <img src="{{ item.league_name.logo.url }}" class="img-fluid">
+                        <div class="d-flex justify-content-center">{{ item.league_name.name }}</div>
+                    </a>
+                </div>
+                {% endfor %}
+                {% for item in userofinterest.teammate.all %}
+                <div class="col-md-3 text-center">
+                    <a href="{% url 'league_detail' league_name=item.league_name.name %}">
+                        <img src="{{ item.league_name.logo.url }}" class="img-fluid">
+                        <div class="d-flex justify-content-center">{{ item.league_name.name }}</div>
+                    </a>
+                </div>
+                {% endfor %}
+                {% for item in userofinterest.alternate.all %}
+                <div class="col-md-3 text-center">
+                    <a href="{% url 'league_detail' league_name=item.league.name %}">
+                        <img src="{{ item.league.logo.url }}" class="img-fluid">
+                        <div class="d-flex justify-content-center">{{ item.league.name }}</div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
