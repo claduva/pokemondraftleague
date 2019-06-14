@@ -27,14 +27,14 @@ class all_pokemon(models.Model):
         return f'{self.pokemon}'
 
 class pokemon_type(models.Model):
-    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
+    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='types')
     typing = models.CharField(max_length=15)
 
     def __str__(self):
         return f'Typing for {self.pokemon.pokemon}'
 
 class pokemon_ability(models.Model):
-    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
+    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='abilities' )
     ability = models.CharField(max_length=30)
 
     def __str__(self):
@@ -54,14 +54,17 @@ class moveinfo(models.Model):
         return f'Moveinfo for {self.name}'
 
 class pokemon_moveset(models.Model):
-    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
+    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='moves')
     moveinfo = models.ForeignKey(moveinfo,on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['moveinfo__name']
 
     def __str__(self):
         return f'Moveset data for {self.pokemon.pokemon}'
 
 class pokemon_tier(models.Model):
-    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
+    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='pokemon_tiers')
     league = models.ForeignKey(league,on_delete=models.CASCADE)
     tier = models.ForeignKey(leaguetiers,on_delete=models.SET_NULL,null=True)
 

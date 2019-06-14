@@ -61,7 +61,7 @@
                                 <td class="bg-lightgreen text-dark"><div>FREE</div></td>
                             {% endif %}
                             <td><img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></td>
-                            <td>{{itemx.pokemon.pokemon}}</td>
+                            <td><a class="text-light" href="{% url 'pokedex_item' pokemon_of_interest=itemx.pokemon.pokemon %}">{{itemx.pokemon.pokemon}}</a></td>
                         </tr>
                     {% endfor %}
                 </table>
@@ -82,7 +82,7 @@
                             <td class="bg-lightgreen text-dark"><div>FREE</div></td>
                         {% endif %}
                         <td><img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></td>
-                        <td>{{itemx.pokemon.pokemon}}</td>
+                        <td><a class="text-light" href="{% url 'pokedex_item' pokemon_of_interest=itemx.pokemon.pokemon %}">{{itemx.pokemon.pokemon}}</a></td>
                     </tr>
                 {% endfor %}
             </table>

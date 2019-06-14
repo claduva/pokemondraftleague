@@ -39,24 +39,24 @@
 <div class="row content-section">
     {% for itemx,itemy in tiers %}
         {% if itemy %}
-            <div class="col-md-2">
+            <div class="col-md-2"><a class="text-dark" href="{% url 'pokedex_item' pokemon_of_interest=itemx.pokemon.pokemon %}">
                 <div class="card text-dark bg-lightred text-center">
-                    <div><img class="card-img-top mediumsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                    <div><img class="mediumsprite img-fluid" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
                     <div class="card-body">
                         <div>{{itemx.pokemon.pokemon}}</div>
                         <div>Taken By: {{ itemy.teamabbreviation }}</div>
                     </div>
-                </div>
+                </div></a>
             </div>
         {% else %}
-            <div class="col-md-2">
+            <div class="col-md-2"><a class="text-dark" href="{% url 'pokedex_item' pokemon_of_interest=itemx.pokemon.pokemon %}">
                 <div class="card text-dark bg-lightgreen text-center">
-                    <div><img class="card-img-top mediumsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                    <div><img class="mediumsprite img-fluid" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ itemx.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
                     <div class="card-body">
                         <div>{{itemx.pokemon.pokemon}}</div>
                         <div>Available</div>
                     </div>
-                </div>
+                </div></a>
             </div>
         {% endif %}
     {% endfor %}

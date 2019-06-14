@@ -31,12 +31,23 @@ def pokedex(request):
 def pokedex_item(request,pokemon_of_interest):
     try:
         pokemon_data=all_pokemon.objects.get(pokemon=pokemon_of_interest)
+        draftnumber=draft.objects.all().filter(pokemon=pokemon_data).count()
+        pokemon_data.timesdrafted+=draftnumber
+        roster_data=roster.objects.all().filter(pokemon=pokemon_data)
+        print(roster_data)
+        for item in roster_data:
+            pokemon_data.kills+=item.kills
+            pokemon_data.deaths+=item.deaths
+            pokemon_data.differential+=item.differential
+            pokemon_data.gp+=item.gp
+            pokemon_data.gw+=item.gw
     except:
         messages.error(request,'Pokemon does not exist!',extra_tags='danger')
         return redirect('pokedex')
     context = {
         "title": pokemon_of_interest,
         'pokedexitem': True,
+        'pokemon_data':pokemon_data,
     }
     return render(request,"pokedex.html", context)
 
