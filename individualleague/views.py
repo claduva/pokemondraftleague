@@ -172,6 +172,7 @@ def league_draft(request,league_name):
         form=LeavePickForm(availablepokemon,initial={'season':season,'coach':usercoach})
     except:
         form=None
+        leftpicks=None
     context = {
         'league': league_,
         'leaguepage': True,
