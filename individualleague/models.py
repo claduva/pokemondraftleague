@@ -68,3 +68,9 @@ class hall_of_fame_roster(models.Model):
 
     class Meta:
         ordering = ['pokemon__pokemon']
+
+class left_pick(models.Model):
+    coach=models.ForeignKey(coachdata,on_delete=models.CASCADE)
+    season=models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
+    pick=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="leftpick")
+    backup=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="backuppick")

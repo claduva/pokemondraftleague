@@ -82,6 +82,33 @@ def league_draft(request,league_name):
         return redirect('league_detail',league_name=league_name)
     is_host=(request.user==league_.host)
     currentpick=draftlist.filter(pokemon__isnull=True).first()
+    ## go through left picks
+    picksleft=left_pick.objects.filter(coach=currentpick.team).order_by('id')
+    if picksleft.count()>0:
+        for item in picksleft:
+            #check pick
+            searchroster=roster.objects.filter(season=season,pokemon=item.pick).first()
+            if searchroster == None:
+                currentpick.pokemon=item.pick
+                rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
+                rosterspot.pokemon=draftpick
+                rosterspot.save()
+                currentpick.save()
+                item.delete()
+                return redirect('league_draft',league_name=league_name)
+            else:
+                searchroster=roster.objects.filter(season=season,pokemon=item.backup).first()     
+                if searchroster == None:
+                    currentpick.pokemon=item.backup
+                    rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
+                    rosterspot.pokemon=item.backup
+                    rosterspot.save()
+                    currentpick.save()
+                    item.delete()
+                    return redirect('league_draft',league_name=league_name)
+                else:     
+                    item.delete()
+    ##
     candraft=False
     if currentpick.team.coach == request.user or currentpick.team.teammate == request.user:
         candraft=True
@@ -103,21 +130,32 @@ def league_draft(request,league_name):
     else:    
         pickend=str(draftlist.get(id=currentpick.id-1).picktime+timedelta(hours=12))
     if request.method == "POST":
-        try:
-            draftpick=all_pokemon.objects.get(pokemon=request.POST['draftpick'])
-        except:
-            messages.error(request,f'{request.POST["draftpick"]} is not a pokemon!',extra_tags='danger')
-            return redirect('league_draft',league_name=league_name)
-        searchroster=roster.objects.filter(season=season,pokemon=draftpick).first()
-        if searchroster!=None:
-            messages.error(request,f'{draftpick.pokemon } has already been drafted!',extra_tags='danger')
-            return redirect('league_draft',league_name=league_name)
-        currentpick.pokemon=draftpick
-        rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
-        rosterspot.pokemon=draftpick
-        rosterspot.save()
-        currentpick.save()
-        messages.success(request,'Your draft pick has been saved!')
+        if request.POST['purpose']=="Submit":
+            try:
+                draftpick=all_pokemon.objects.get(pokemon=request.POST['draftpick'])
+            except:
+                messages.error(request,f'{request.POST["draftpick"]} is not a pokemon!',extra_tags='danger')
+                return redirect('league_draft',league_name=league_name)
+            searchroster=roster.objects.filter(season=season,pokemon=draftpick).first()
+            if searchroster!=None:
+                messages.error(request,f'{draftpick.pokemon } has already been drafted!',extra_tags='danger')
+                return redirect('league_draft',league_name=league_name)
+            currentpick.pokemon=draftpick
+            rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
+            rosterspot.pokemon=draftpick
+            rosterspot.save()
+            currentpick.save()
+            messages.success(request,'Your draft pick has been saved!')
+        elif request.POST['purpose']=="Leave":
+            pokemonlist=all_pokemon.objects.all()
+            form=LeavePickForm(pokemonlist,request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request,'Your pick has been left!')
+            print("Leave Pick")
+        elif request.POST['purpose']=="Delete":
+            left_pick.objects.get(id=request.POST['pickid']).delete()
+            messages.success(request,'Your pick was deleted!')
         return redirect('league_draft',league_name=league_name)
     availablepokemon=all_pokemon.objects.all().order_by('pokemon')
     for item in availablepokemon:
@@ -128,6 +166,12 @@ def league_draft(request,league_name):
             rosteritem=roster.objects.filter(season=season,pokemon=item).first()
             if rosteritem != None:
                 availablepokemon=availablepokemon.all().exclude(pokemon=item)
+    try:
+        usercoach=coachdata.objects.filter(Q(coach=request.user)|Q(teammate=request.user)).get(league_name=league_)
+        leftpicks=left_pick.objects.all().filter(season=season,coach=usercoach)
+        form=LeavePickForm(availablepokemon,initial={'season':season,'coach':usercoach})
+    except:
+        form=None
     context = {
         'league': league_,
         'leaguepage': True,
@@ -145,6 +189,8 @@ def league_draft(request,league_name):
         'pickend':pickend,
         'draftorder':draftlist[0:coachcount],
         'candraft':candraft,
+        'form':form,
+        'leftpicks': leftpicks
     }
     return render(request, 'draft.html',context)
 

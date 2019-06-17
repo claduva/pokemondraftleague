@@ -7,9 +7,7 @@
 {% block head%}
 {% endblock %}
 {% block body %}
-
-
-<div class="row content-section align-items-center">
+<div class="row content-section">
     <div id="draftprogress" class="container">
         <h5>Draft Progress</h5>
         <div class="progress">
@@ -32,7 +30,7 @@
                         {% endfor %}
                 </datalist>
                 <input list="availablepokemons" name="draftpick">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <input name="purpose" type="submit" class="btn btn-primary" value="Submit">
             </form>
             {% endif %}
         </div>
@@ -41,6 +39,31 @@
         <div class="d-flex justify-content-center">Points Remaining: {{ availablepoints }}</div>
     </div>
     <div id="timer" class="col-md-4 d-flex justify-content-end"></div>
+    <div class="col-md-8">
+        <h5>Leave a Pick</h5>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form|crispy}}
+                <input name="purpose" type="submit" class="btn btn-primary" value="Leave">
+            </form>
+    </div>
+    <div class="col-md-4">
+        <h5>Left Picks</h5>
+        {% if leftpicks %}
+        {% for item in leftpicks %}
+        <div class="d-flex">
+            <div>-{{item.pick.pokemon}} (Backup:{{item.backup.pokemon}})</div>
+            <form method="POST">
+                {% csrf_token %}
+                <input name="pickid" value="{{item.id}}" hidden>
+                <input name="purpose" type="submit" class="btn btn-danger" value="Delete">
+            </form>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div>-None</div>
+        {% endif %}
+    </div>
     {% endif %}
 </div>
 <div class="row content-section align-items-center">
