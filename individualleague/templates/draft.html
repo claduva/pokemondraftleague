@@ -44,11 +44,40 @@
     {% endif %}
 </div>
 <div class="row content-section align-items-center">
-    <div class="col-md-12">
-        {% for item in draftlist %}
-        <div>{{item.id|add:draftstartid }}. {{item.team.teamname}}: {{item.pokemon.pokemon}}</div>
+        {% for item in draftorder %}
+        <div class="col-md-3">
+            <table class="table table-sm text-center bg-lightgrey text-dark">
+                <tr>
+                    <th colspan="2">
+                        <div class="d-flex justify-content-center">
+                            <div class="small-logo"><img class="img-fluid px-1 rounded-circle" src="{{item.team.logo.url}}"></div>
+                            <div>{{item.team.teamname}}</div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Pick</th>
+                </tr>
+                {% for draftpick in item.team.draftpicks.all %}
+                <tr>
+                    <td>{{draftpick.id|add:draftstartid }}</td>
+                    <td>
+                        {% if draftpick.pokemon.pokemon %}
+                        <div class="d-flex justify-content-center">
+                            <div class="small-logo"><img class="img-fluid px-1 rounded-circle" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ draftpick.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                            <div>{{draftpick.pokemon.pokemon}}</div>
+                        </div>
+                        {% else %}
+                        <div>-</div>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
         {% endfor %}
-    </div>
+    
 </div>
 {% endblock %}
 {% block footer %}

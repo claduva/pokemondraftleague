@@ -61,6 +61,7 @@ def league_draft(request,league_name):
     try:
         league_=league.objects.get(name=league_name)
         league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+        coachcount=league_teams.count()
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
@@ -139,6 +140,7 @@ def league_draft(request,league_name):
         'is_host': is_host,
         'draftstart': draftstart,
         'pickend':pickend,
+        'draftorder':draftlist[0:coachcount]
     }
     return render(request, 'draft.html',context)
 
