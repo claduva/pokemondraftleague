@@ -17,11 +17,9 @@ from leagues.models import *
 from accounts.models import *
 from pokemondatabase.models import *
 
-
-
 def processor(request):
     try:
-        leagueshosted = request.user.league_set.all().order_by('name')
+        leagueshosted = request.user.hosting.all().order_by('name')
     except:
         leagueshosted = None
     try:  
@@ -30,7 +28,6 @@ def processor(request):
             settings=league_settings.objects.get(league_name=item)
             if settings.is_public==False and item.host != request.user:
                 allleagues=allleagues.exclude(pk=item.id)
-        
     except:
         allleagues = None
     try:  

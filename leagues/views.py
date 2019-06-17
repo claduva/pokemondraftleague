@@ -217,7 +217,7 @@ def league_apply(request,league_name):
                 messages.error(request,'You are already a coach in '+league_name+"!",extra_tags='danger')
                 return redirect('league_detail',league_name=league_name)
             except:
-                if league_.league_settings.is_recruiting == False:
+                if league_.settings.is_recruiting == False:
                     messages.error(request,league_name+' is not currently accepting applications!',extra_tags='danger')
                     return redirect('leagues_list')
                 if request.method == 'POST':
@@ -247,7 +247,7 @@ def manage_coachs(request,league_name):
     applicants=league_application.objects.filter(league_name=league_)
     totalapplicants=len(applicants)
     coachs=coachdata.objects.filter(league_name=league_).order_by('coach__username')
-    leaguecapacity=league_.league_settings.number_of_teams
+    leaguecapacity=league_.settings.number_of_teams
     numberofcoachs=leaguecapacity-len(coachs)
     spotsremaining=(numberofcoachs>0)
     context = {
