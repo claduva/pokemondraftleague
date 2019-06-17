@@ -91,7 +91,7 @@ def league_draft(request,league_name):
             if searchroster == None:
                 currentpick.pokemon=item.pick
                 rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
-                rosterspot.pokemon=draftpick
+                rosterspot.pokemon=item.pick
                 rosterspot.save()
                 currentpick.save()
                 item.delete()
