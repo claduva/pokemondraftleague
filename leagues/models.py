@@ -160,4 +160,4 @@ class draft(models.Model):
     picktime= models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
-        return f'Draft For {self.pokemon.pokemon}, League: {self.season.league.name}, Season: {self.season.seasonname}'
+        return f'Draft {self.id}, League: {self.season.league.name}, Season: {self.season.seasonname}'

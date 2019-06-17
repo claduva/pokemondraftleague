@@ -82,6 +82,9 @@ def league_draft(request,league_name):
         return redirect('league_detail',league_name=league_name)
     is_host=(request.user==league_.host)
     currentpick=draftlist.filter(pokemon__isnull=True).first()
+    candraft=False
+    if currentpick.team.coach == request.user or currentpick.team.teammate == request.user:
+        candraft=True
     if currentpick==None:
         draftactive=False
         availablepoints=0
@@ -112,8 +115,8 @@ def league_draft(request,league_name):
         currentpick.pokemon=draftpick
         rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
         rosterspot.pokemon=draftpick
-        currentpick.save()
         rosterspot.save()
+        currentpick.save()
         messages.success(request,'Your draft pick has been saved!')
         return redirect('league_draft',league_name=league_name)
     availablepokemon=all_pokemon.objects.all().order_by('pokemon')
@@ -140,7 +143,8 @@ def league_draft(request,league_name):
         'is_host': is_host,
         'draftstart': draftstart,
         'pickend':pickend,
-        'draftorder':draftlist[0:coachcount]
+        'draftorder':draftlist[0:coachcount],
+        'candraft':candraft,
     }
     return render(request, 'draft.html',context)
 

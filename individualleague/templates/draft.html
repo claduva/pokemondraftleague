@@ -11,7 +11,7 @@
 
 <div class="row content-section align-items-center">
     <div id="draftprogress" class="container">
-        <h5>Draft Progress</h5>
+        <h5>Draft Progress {{}}</h5>
         <div class="progress">
             <div class="progress-bar bg-success style-width-{{ draftprogress }}" role="progressbar"
                 aria-valuenow="{{ draftprogress }}" aria-valuemin="0" aria-valuemax="100">
@@ -23,7 +23,7 @@
     <div id="draftform" class="col-md-4 d-flex justify-content-start">
         <div id="draftform2">
             <h5>Current drafting team: {{ currentpick.team.teamname }}</h5>
-            {% if currentpick.team.coach is request.user or currentpick.team.teammate is request.user or is_host %}
+            {% if candraft or is_host %}
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <datalist id="availablepokemons">
