@@ -159,5 +159,8 @@ class draft(models.Model):
     pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True)
     picktime= models.DateTimeField(auto_now=True, null=True)
 
+    class Meta:
+        ordering = ['id']
+
     def __str__(self):
         return f'Draft {self.id}, League: {self.season.league.name}, Season: {self.season.seasonname}'
