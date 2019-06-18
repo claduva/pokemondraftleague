@@ -104,18 +104,37 @@
             </div>
         </div>
     </div>
-    <div class="row bg-darkgrey rounded p-3 mb-2">
+    <div class="row bg-darkgrey rounded p-3 mb-2 justify-content-around">
         <div class="col-md-12 m-0 p-0 text-light">
             <h4>Upcoming Matches</h4>
         </div>
+        {% for item in upcomingmatches %}
+        <div class="col-md-3 m-0 p-0">
+            <div class="card h-100 bg-lightgrey text-center mx-1">
+                <h5 class="p-0 m-0 mt-1">{{ item.season.league.name }}</h5>
+                <h5 class="p-0 m-0">Week {{ item.week }}</h5>
+                {% if item.team1.coach == request.user %}
+                <div><img class="mediumlogo rounded-circle" src="{{ item.team2.logo.url }}"></div>
+                <div>{{item.team2.teamname}}</div>
+                {% elif item.team2.coach == request.user %}
+                <div><img class="mediumlogo rounded-circle" src="{{ item.team1.logo.url }}"></div>
+                <div>{{item.team1.teamname}}</div>
+                {% endif %}
+                <a href="{% url 'league_matchup' league_name=item.season.league.name matchid=item.id %}"><button
+                        class="btn btn-dark mb-1">View Matchup</button></a>
+                <a href="{% url 'upload_league_replay' league_name=item.season.league.name matchid=item.id %}"><button
+                        class="btn btn-dark mb-1">Upload Replay</button></a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    <div class="row bg-darkgrey rounded p-3">
+    <div class="row bg-darkgrey rounded p-3 justify-content-around">
         <div class="col-md-12 m-0 p-0 text-light">
             <h4>Recent Results</h4>
         </div>
         {% for item in recentresults %}
-        <div class="col-md-3 text-dark text-center justify-content-center">
-            <div class="bg-lightgrey rounded">
+        <div class="col-md-3 m-0 p-0">
+            <div class="card h-100 bg-lightgrey text-center mx-1">
                 <h5 class="p-0 m-0 mt-1">{{ item.season.league.name }}</h5>
                 <h5 class="p-0 m-0">Week {{ item.week }}</h5>
                 {% if item.team1.coach == request.user %}
@@ -136,4 +155,3 @@
         {% endfor %}
     </div>
     {% endblock %}
- 

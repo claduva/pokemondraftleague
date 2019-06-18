@@ -16,7 +16,7 @@ import socket
 
 if (socket.gethostname().find("local")>-1):
     from .base_settings import *
-    DEBUG = False
+    DEBUG = True
     SECRET_KEY = SECRET_KEY
     SENDGRID_API_KEY = SENDGRID_API_KEY
     AWS_ACCESS_KEY_ID = CLOUDCUBE_ACCESS_KEY_ID
