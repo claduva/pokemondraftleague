@@ -23,8 +23,8 @@
                     <h2>None</h2>
                 {% else %}
                 {% for item in recruitinglist %}
-                <div class="col-md-2 text-center">
-                    <div class="bg-lightgrey">
+                <div class="col-md-2">
+                    <div class="card h-100 bg-lightgrey text-center mx-1">
                     <a class="text-dark" href="{{ item.league_name.name }}">
                         <img src="{{ item.league_name.logo.url }}" class="img-fluid">
                         <div class="d-flex justify-content-center">{{ item.league_name.name }}</div>
@@ -46,8 +46,8 @@
             {% else %}
                 {% if allleagues %}
                     {% for item in allleagues %}
-                    <div class="col-md-2 text-center">
-                        <div class="bg-lightgrey">
+                    <div class="col-md-2">
+                        <div class="card h-100 bg-lightgrey text-center mx-1">
                             <a class="text-dark" href="{{ item.name }}">
                                 <img src="{{ item.logo.url }}" class="img-fluid">
                                 <div class="d-flex justify-content-center">{{ item.name }}</div>
