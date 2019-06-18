@@ -45,9 +45,8 @@
             </tr>
             <tr class="bg-lightgrey text-dark">
                 <td colspan="4">
-                    <div class="d-flex justify-content-center"><a
-                            href="{% url 'league_matchup' league_name=league_name matchid=match.id %}"><button
-                                class="btn btn-dark">View Matchup</button></a></div>
+                    <div class="d-flex justify-content-center">
+                        <a url 'league_matchup' league_name=league_name matchid=match.id %}"><button class="btn btn-dark">View Matchup</button></a></div>
                 </td>
             </tr>
             <tr class="bg-lightgrey text-dark rounded-bottom">
@@ -67,6 +66,31 @@
                 </td>
                 {% endif %}
             </tr>
+            {% if ishost and match.replay == 'Link' %}
+            <tr class="bg-lightgrey text-dark rounded-bottom">
+                <td colspan="4">
+                    <div class="d-flex justify-content-center">
+                        <form method='post'>{% csrf_token %}
+                            <input name="purpose" value='t1ff'>
+                            <input name="matchid" value='{{match.id}}'>
+                            <button class="btn btn-dark">{{match.team1.teamabbreviation}} Forfeit</button>
+                        </form>  
+                        <form method='post'>{% csrf_token %}
+                            <input name="purpose" value='t2ff'>
+                            <input name="matchid" value='{{match.id}}'>
+                            <button class="btn btn-dark">{{match.team2.teamabbreviation}} Forfeit</button>
+                        </form>   
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <form method='post'>{% csrf_token %}
+                            <input name="purpose" value='bothff'>
+                            <input name="matchid" value='{{match.id}}'>
+                            <button class="btn btn-dark">Both Forfeit</button>
+                        </form>   
+                    </div>
+                </td>
+                </tr>
+            {% endif %}
             <tr class="spacer"><td colspan="4"></td></tr>
             {% endfor %}
         </table>
