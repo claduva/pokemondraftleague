@@ -31,6 +31,10 @@ div.nicEdit-main{
   margin-bottom:10px;
 }
 
+.bg-darkgrey{
+  background-color: rgb(76, 84, 92);
+}
+
 .bg-lightgrey{
   background-color: rgb(247, 244, 244);
 }

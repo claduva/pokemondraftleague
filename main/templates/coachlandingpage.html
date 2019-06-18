@@ -63,10 +63,10 @@
             <div class="row justify-content-around">
                 {% for item in yourleagues %}
                 <div class="col-md-2 m-0 p-0">
-                    <div class="card h-100">
+                    <div class="card h-100 bg-lightgrey">
                         <a href="leagues/{{ item.league_name.name }}">
                             <div class="d-flex justify-content-center">
-                                <img src="{{ item.league_name.logo.url }}" class="img-fluid rounded-circle mediumlogo m-1">
+                                <img src="{{ item.league_name.logo.url }}" class="img-fluid mediumlogo m-1">
                             </div>
                             <div class="d-flex justify-content-center">
                                 <h6 class="text-center">{{ item.league_name.name }}</h6>
@@ -84,10 +84,10 @@
             <div class="row justify-content-around">
                 {% for item in yourleagues %}
                 <div class="col-md-2 m-0 p-0">
-                    <div class="card h-100">
+                    <div class="card h-100 bg-lightgrey">
                         <a href="leagues/{{ item.league_name.name }}/teams/{{ item.teamabbreviation }}">
                             <div class="d-flex justify-content-center">
-                                <img src="{{ item.logo.url }}" class="img-fluid rounded-circle mediumlogo m-1">
+                                <img src="{{ item.logo.url }}" class="img-fluid mediumlogo m-1">
                             </div>
                             <div class="d-flex justify-content-center">
                                 <h6 class="text-center">{{ item.teamname }}</h6>
@@ -105,14 +105,36 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 content-section">
+    <div class="row bg-darkgrey rounded p-3 mb-2">
+        <div class="col-md-12 m-0 p-0 text-light">
             <h4>Upcoming Matches</h4>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 content-section">
+    <div class="row bg-darkgrey rounded p-3">
+        <div class="col-md-12 m-0 p-0 text-light">
             <h4>Recent Results</h4>
         </div>
+        {% for item in recentresults %}
+        <div class="col-md-3 text-dark text-center justify-content-center">
+            <div class="bg-lightgrey rounded">
+                <h5 class="p-0 m-0 mt-1">{{ item.season.league.name }}</h5>
+                <h5 class="p-0 m-0">Week {{ item.week }}</h5>
+                {% if item.team1.coach == request.user %}
+                <div><img class="mediumlogo rounded-circle" src="{{ item.team2.logo.url }}"></div>
+                <div>{{item.team2.teamname}}</div>
+                {% elif item.team2.coach == request.user %}
+                <div><img class="mediumlogo rounded-circle" src="{{ item.team1.logo.url }}"></div>
+                <div>{{item.team1.teamname}}</div>
+                {% endif %}
+                {% if item.winner.coach == request.user or item.winner.teammate == request.user  %}
+                <div>WIN {{item.team1score}}-{{item.team2score}}</div>
+                {% else %}
+                <div>LOSE {{item.team1score}}-{{item.team2score}}</div>
+                {% endif %}
+                <a href="{{item.replay}}"><button class="btn btn-dark mb-1">Replay</button></a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
     {% endblock %}
+ 

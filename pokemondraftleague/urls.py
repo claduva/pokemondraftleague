@@ -30,3 +30,4 @@ urlpatterns = [
     path('',include("replayanalysis.urls")),
 ]
 
+handler404 = 'main.views.custom404'

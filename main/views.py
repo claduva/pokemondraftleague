@@ -12,20 +12,26 @@ import time
 from accounts.forms import UserRegisterForm
 from .models import *
 from leagues.models import *
+from individualleague.models import *
 
 # Create your views here.
 def home(request):
     try:
         yourleagues=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user))
         if yourleagues.count()>0:
+            upcomingmatches=schedule.objects.all().filter(Q(team1__coach=request.user)|Q(team2__coach=request.user)|Q(team1__teammate=request.user)|Q(team2__teammate=request.user)).filter(replay="Link")[0:4]
+            recentresults=schedule.objects.all().filter(Q(team1__coach=request.user)|Q(team2__coach=request.user)|Q(team1__teammate=request.user)|Q(team2__teammate=request.user)).exclude(replay="Link").order_by('timestamp','-id')[0:4]
             context = {
                 "title": "Pokemon Draft League",
                 "yourleagues": yourleagues,
+                "upcomingmatches":upcomingmatches,
+                "recentresults": recentresults,
             }
             return  render(request,"coachlandingpage.html", context)
     except:
         print("error")
-    form=form = UserRegisterForm()
+    form=UserRegisterForm()
+
     context = {
         "title": "Pokemon Draft League",
         "form": form,
@@ -34,3 +40,6 @@ def home(request):
 
 def about(request):
     return  render(request,"about.html")
+
+def custom404(request,exception):
+    return  render(request,"404.html")
