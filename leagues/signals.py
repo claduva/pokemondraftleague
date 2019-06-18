@@ -11,4 +11,4 @@ def create_league_settings(sender,instance,created,**kwargs):
 
 @receiver(post_save, sender=league)
 def save_league_settings(sender, instance, **kwargs):
-    instance.league_settings.save()
+    instance.settings.save()
