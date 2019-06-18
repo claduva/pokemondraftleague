@@ -252,6 +252,15 @@ def league_schedule(request,league_name):
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
+    if request.method=="POST":
+        matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+        print(matchtoupdate)
+        if request.POST['purpose']=="t1ff":
+            messages.success(request,'Match has been forfeited by Team 1!')
+        if request.POST['purpose']=="t2ff":
+            messages.success(request,'Match has been forfeited by Team 2!')
+        elif request.POST['purpose']=="bothff":
+            messages.success(request,'Match has been forfeited by both teams!')
     leagueschedule=[]
     numberofweeks=season.seasonlength
     for i in range(numberofweeks):

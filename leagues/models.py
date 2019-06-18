@@ -50,7 +50,7 @@ class league_application(models.Model):
     league_name = models.ForeignKey(league, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.coach.applicant}\'s application for {self.league_name.name}'
+        return f'{self.applicant.username}\'s application for {self.league_name.name}'
 
 class league_team(models.Model):
     league=models.ForeignKey(league,on_delete=models.CASCADE,related_name="leagueteam")

@@ -112,6 +112,7 @@ class ManageCoachForm(forms.ModelForm):
         self.fields['teammate'].required=False
         self.fields['parent_team'].queryset = league_team.objects.all().filter(league=league).order_by('name')
         self.fields['parent_team'].label_from_instance = lambda obj: obj.name
+        self.fields['parent_team'].required=False
 
 class DesignateZUserForm(forms.Form):
     zuser = forms.ModelChoiceField(queryset=roster.objects.all(), required=True)
