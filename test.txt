@@ -1,23 +1,23 @@
-Team 1 Coach: Funhousers
+Team 1 Coach: GothamGothitelles
 Team 1 Roster: 
-Tyranitar-Mega, Kills: 1, Deaths: 1, +/-: 0
-Arcanine, Kills: 0, Deaths: 1, +/-: -1
-Primarina, Kills: 0, Deaths: 1, +/-: -1
-Tornadus, Kills: 1, Deaths: 1, +/-: 0
-Ampharos, Kills: 0, Deaths: 1, +/-: -1
-Scizor, Kills: 2, Deaths: 1, +/-: 1
-Mega Evolved: True
-Used Z-Move: False
-
-Team 2 Coach: GarrickTheBruce
-Team 2 Roster: 
-Scizor-Mega, Kills: 0, Deaths: 1, +/-: -1
-Hoopa-Unbound, Kills: 0, Deaths: 0, +/-: 0
-Zygarde-10%, Kills: 3, Deaths: 1, +/-: 2
-Blissey, Kills: 1, Deaths: 0, +/-: 1
-Cofagrigus, Kills: 1, Deaths: 1, +/-: 0
-Slaking, Kills: 1, Deaths: 1, +/-: 0
+Archeops, Kills: 0, Deaths: 1, +/-: -1
+Froslass, Kills: 0, Deaths: 0, +/-: 0
+Rotom-Heat, Kills: 2, Deaths: 0, +/-: 2
+Passimian, Kills: 1, Deaths: 0, +/-: 1
+Garbodor, Kills: 2, Deaths: 1, +/-: 1
+Slowbro-Mega, Kills: 1, Deaths: 1, +/-: 0
 Mega Evolved: True
 Used Z-Move: True
 
-Replay: http://replay.pokemonshowdown.com/gen7anythinggoes-925161362
+Team 2 Coach: BordeauxBewears
+Team 2 Roster: 
+Sceptile-Mega, Kills: 1, Deaths: 1, +/-: 0
+Tornadus-Therian, Kills: 0, Deaths: 1, +/-: -1
+Greninja, Kills: 1, Deaths: 1, +/-: 0
+Avalugg, Kills: 0, Deaths: 1, +/-: -1
+Bewear, Kills: 1, Deaths: 1, +/-: 0
+Heatran, Kills: 0, Deaths: 1, +/-: -1
+Mega Evolved: True
+Used Z-Move: False
+
+Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-930113596

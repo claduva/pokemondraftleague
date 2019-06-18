@@ -48,7 +48,6 @@ def league_detail(request,league_name):
             apply=False
         except:
             try:
-                print('here')
                 coachdata.objects.filter(league_name=league_).get(teammate=request.user)
                 apply=False
             except:

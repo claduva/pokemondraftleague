@@ -254,13 +254,53 @@ def league_schedule(request,league_name):
         return redirect('league_detail',league_name=league_name)
     if request.method=="POST":
         matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
-        print(matchtoupdate)
+        team1=matchtoupdate.team1
+        team2=matchtoupdate.team2
         if request.POST['purpose']=="t1ff":
+            matchtoupdate.replay='Forfeit'
+            team1.losses+=1; team2.wins+=1
+            team1.differential+=(-6); team2.differential+=3
+            team1.forfeit+=1
+            if team1.streak>-1:
+                team1.streak=-1
+            else:
+                team1.streak+=(-1)
+            if team2.streak>-1:
+                team2.streak+=1
+            else:
+                team2.streak=1
             messages.success(request,'Match has been forfeited by Team 1!')
         if request.POST['purpose']=="t2ff":
+            matchtoupdate.replay='Forfeit'
+            team1.wins+=1; team2.losses+=1
+            team1.differential+=3; team2.differential+=(-6)
+            team2.forfeit+=1
+            if team1.streak>-1:
+                team1.streak+=1
+            else:
+                team1.streak=1
+            if team2.streak>-1:
+                team2.streak=-1
+            else:
+                team2.streak+=(-1)
             messages.success(request,'Match has been forfeited by Team 2!')
         elif request.POST['purpose']=="bothff":
+            matchtoupdate.replay='Forfeit'
+            team1.losses+=1; team2.losses+=1
+            team1.differential+=(-6); team2.differential+=(-6)
+            team1.forfeit+=1; team2.forfeit+=1
+            if team1.streak>-1:
+                team1.streak=-1
+            else:
+                team1.streak+=(-1)
+            if team2.streak>-1:
+                team2.streak=-1
+            else:
+                team2.streak+=(-1)
             messages.success(request,'Match has been forfeited by both teams!')
+        team1.save()
+        team2.save()
+        matchtoupdate.save()
     leagueschedule=[]
     numberofweeks=season.seasonlength
     for i in range(numberofweeks):
