@@ -61,13 +61,14 @@
             <div class="col-md-12">
                 <table class="table table-sm bg-lightgrey text-dark text-center">
                     <tr>
-                        <th colspan="7">{{ conference }}</th>
+                        <th colspan="8">{{ conference }}</th>
                     </tr>
                     <tr>
                         <th>Team</th>
                         <th>W</th>
                         <th>L</th>
                         <th>Tie</th>
+                        <th>Points</th>
                         <th>GP</th>
                         <th>GW</th>
                         <th>+/-</th>
@@ -80,6 +81,13 @@
                                 <div>{{name.name}}</div>
                             </div>
                         </td>
+                        <td>{{name.wins}}</td>
+                        <td>{{name.losses}}</td>
+                        <td>{{name.ties}}</td>
+                        <td>{{name.points}}</td>
+                        <td>{{name.gp}}</td>
+                        <td>{{name.gw}}</td>
+                        <td>{{name.differential}}</td>
                     </tr>
                     {% endfor %}
                 </table>
