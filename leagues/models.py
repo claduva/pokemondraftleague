@@ -25,6 +25,7 @@ class league_settings(models.Model):
     allows_teams = models.BooleanField(default=False)
     teambased = models.BooleanField(default=False)
     discordurl = models.CharField(max_length=100, default="Not Provided")
+    discordserver = models.CharField(max_length=100, default="Not Provided")
     is_public = models.BooleanField(default=True)
 
     def __str__(self):

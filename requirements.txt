@@ -1,3 +1,5 @@
+asyncio
+asyncpg
 boto3==1.9.124
 celery
 discord.py

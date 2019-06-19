@@ -20,5 +20,6 @@ urlpatterns = [
     path("leagues/<str:league_name>/hall_of_fame/", views.league_hall_of_fame, name="league_hall_of_fame"),
     path("leagues/<str:league_name>/hall_of_fame/add_entry/", views.league_hall_of_fame_add_entry, name="league_hall_of_fame_add_entry"),
     path("leagues/<str:league_name>/hall_of_fame/add_roster/", views.league_hall_of_fame_add_roster, name="league_hall_of_fame_add_roster"),
+    path("leagues/<str:league_name>/playoffs/", views.league_playoffs, name="league_playoffs"),
     path('pokemon-autocomplete/',views.PokemonAutocomplete.as_view(),name='pokemon-autocomplete',),
 ]

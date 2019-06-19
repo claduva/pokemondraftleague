@@ -1,29 +1,60 @@
-#worker: python discordbot/discordbot.py
 import discord
-import os
-import random 
+from discord.ext import commands
 
+import asyncio
+import asyncpg
+import datetime
+import os
+import random
+from itertools import cycle
+
+bot=commands.Bot(command_prefix="!")
 try:
     from bottoken import *
-    bottoken=BOTTOKEN
+    TOKEN=BOTTOKEN
 except:
-    bottoken=os.environ.get('BOTTOKEN')
+    TOKEN=os.environ.get('BOTTOKEN')
 
-client = discord.Client()
+@bot.command(aliases=["site"])
+async def website(ctx):
+    '''Sends site's website'''
+    embed=discord.Embed(title="Pokemon Draft League Online",description="Site for Pokemon Draft Leagues", colour=discord.Colour.red(),url="http://pokemondraftleague.online/")
+    embed.set_author(name=bot.user.name,icon_url=bot.user.avatar_url)
+    embed.set_footer(text=ctx.author.name,icon_url=ctx.author.avatar_url)
+    embed.set_image(url=bot.user.avatar_url)
+    embed.set_thumbnail(url=bot.user.avatar_url)
+    await ctx.send(embed=embed)
 
-@client.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+@bot.command()
+@commands.is_owner()
+async def reload(ctx,cog):
+    try:
+        bot.unload_extension(f"cogs.{cog}")
+        bot.load_extension(f"cogs.{cog}")
+        await ctx.send(f"{cog} got reloaded!")
+    except Exception as e:
+        print(f"{cog} could not be loaded!")
+        raise e
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-    
-    if message.content.startswith('!website'):
-        await message.channel.send('http://pokemondraftleague.online/')
-    
-    if message.content.startswith('!help'):
-        await message.channel.send('Help documentation is under development.')
+async def chnge_pr():
+    await bot.wait_until_ready()
+    statuslist=["!help","http://pokemondraftleague.online/"]
+    statuslist=cycle(statuslist)
+    while not bot.is_closed():
+        status=next(statuslist)
+        await bot.change_presence(activity=discord.Game(status))
+        await asyncio.sleep(5)
 
-client.run(bottoken)
+for cog in os.listdir("discordbot/cogs"):
+    if cog.endswith(".py") and not cog.startswith("_"):
+        try:
+            cog=f"cogs.{cog.replace('.py','')}"
+            bot.load_extension(cog)
+            print(f"{cog} was loaded!")
+        except Exception as e:
+            print(f"{cog} could not be loaded!")
+            raise e
+
+#bot.loop.run_until_complete(create_db_pool())
+bot.loop.create_task(chnge_pr())
+bot.run(TOKEN)

@@ -20,6 +20,7 @@ from accounts.models import *
 from .forms import *
 from datetime import datetime, timedelta,timezone
 
+
 def team_page(request,league_name,team_abbreviation):
     try:
         league_=league.objects.get(name=league_name)
@@ -867,6 +868,30 @@ def league_hall_of_fame_add_roster(request,league_name):
         'league_teams': league_teams,
         'league_name': league_name,
         'form': form,
+    }
+    return render(request, 'halloffame.html',context)
+
+def league_playoffs(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        season=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    is_host=(request.user==league_.host)
+    halloffameentries=hall_of_fame_entry.objects.all().filter(league=league_).order_by("-seasonname")
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'is_host': is_host,
+        'halloffameentries':halloffameentries,
     }
     return render(request, 'halloffame.html',context)
 

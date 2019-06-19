@@ -86,5 +86,3 @@ def execute_free_agency_and_trades():
       montoupdate.save()
       item.executed=True
       item.save()
-      
-
