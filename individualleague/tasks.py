@@ -6,7 +6,7 @@ from django.db.models import Q
 
 from pokemondraftleague.celery import app
 
-from .models import free_agency
+from .models import free_agency, trading
 from leagues.models import seasonsetting
 from individualleague.models import schedule, roster
 
