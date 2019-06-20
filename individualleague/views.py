@@ -9,6 +9,7 @@ from django.urls import reverse
 from django.contrib import messages
 from django.db.models import Q
 
+import json
 import math
 
 from dal import autocomplete
@@ -146,6 +147,17 @@ def league_draft(request,league_name):
             rosterspot.pokemon=draftpick
             rosterspot.save()
             currentpick.save()
+            #send to bot
+            with open('discordbot/cogs/draft.json','r') as f:
+                data= json.load(f)
+            data.append({
+                'league': league_.settings.discordserver,
+                'text':f'The {currentpick.team.teamname} have drafted {draftpick.pokemon}',
+                'announced':'No'
+            })  
+            with open('discordbot/cogs/draft.json','w') as f:
+                json.dump(data,f,indent=4)
+
             messages.success(request,'Your draft pick has been saved!')
         elif request.POST['purpose']=="Leave":
             pokemonlist=all_pokemon.objects.all()
