@@ -19,7 +19,7 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username','email']
 
 class ProfileUpdateForm(forms.ModelForm):
-    pfp=forms.FileField(widget=FileInput)
+    pfp=forms.FileField(widget=FileInput,required=False)
     class Meta:
         model = profile
         fields = ['pfp','discordid']

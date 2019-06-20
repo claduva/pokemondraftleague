@@ -12,7 +12,7 @@ class profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     timezone = models.CharField(max_length=30, null=True,blank=True)
     pfp = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='profile_pics',null=True, blank=True)
-    discordid = models.IntegerField(null=True)
+    discordid = models.BigIntegerField(null=True,help_text="Right click yourself in the Discord right sidebar and click 'Copy ID'")
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0)
     differential = models.IntegerField(default=0)
