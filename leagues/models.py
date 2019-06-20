@@ -32,7 +32,7 @@ class league_settings(models.Model):
         return f'League settings for {self.league_name.name}'
 
 class conference_name(models.Model):
-    league = models.ForeignKey(league, on_delete=models.CASCADE)
+    league = models.ForeignKey(league, on_delete=models.CASCADE,related_name="conferences")
     name = models.CharField(max_length=20)
 
     def __str__(self):
@@ -136,6 +136,7 @@ class seasonsetting(models.Model):
     tradesallowed= models.IntegerField(default=4)
     numzusers= models.IntegerField(default=2)
     candeletez = models.BooleanField(default=False)
+    playoffteamsperconference= models.IntegerField(default=4)
 
     def __str__(self):
         return f'League: {self.league.name}, Season: {self.seasonname}'

@@ -896,17 +896,36 @@ def league_playoffs(request,league_name):
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
-    is_host=(request.user==league_.host)
-    halloffameentries=hall_of_fame_entry.objects.all().filter(league=league_).order_by("-seasonname")
+    teamsperconf=season.playoffteamsperconference
+    numdivisions=league_.settings.number_of_divisions
+    numconferences=league_.settings.number_of_conferences
+    divisionsperconf=numdivisions/numconferences
+    wildcardsperconf=int(teamsperconf%divisionsperconf) 
+    nonwildcardperdivision=(teamsperconf-wildcardsperconf)/divisionsperconf
+    conferencelist=league_.conferences.all()
+    r1matchups=[]
+    playoffteams=[]
+    if numdivisions==numconferences:
+        divisions=False
+        for conference in conferencelist:
+            conferenceteams=league_teams.all().filter(conference=conference).order_by('-wins','forfeit','-differential')[0:nonwildcardperdivision]
+            playoffteams.append(conferenceteams)
+        if numconferences==2:
+            conf1=playoffteams[0]
+            conf2=playoffteams[1][::-1]
+            for i in range(len(conf1)):
+                r1matchups.append([conf1[i],conf2[i]])
+    else:
+        divisions=True
     context = {
         'league': league_,
         'leaguepage': True,
         'league_teams': league_teams,
         'league_name': league_name,
-        'is_host': is_host,
-        'halloffameentries':halloffameentries,
+        'r1matchups':r1matchups,
+        'divisions': divisions,
     }
-    return render(request, 'halloffame.html',context)
+    return render(request, 'playoffs.html',context)
 
 class PokemonAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):

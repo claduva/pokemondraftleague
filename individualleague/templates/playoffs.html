@@ -1,0 +1,39 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{league.name}}: Playoffs{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row content-section align-items-center">
+    <div class="col-md-3 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-6">
+        <h3 class="d-flex justify-content-center">Playoffs (Subject to Change)</h3>
+    </div>
+    <div class="col-md-3 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+</div>
+<div class="row content-section align-items-center justify-content-center">
+    <div class=col-md-3>    
+        <div class="bg-lightgrey rounded text-light m-1 text-center bg-primary">
+            <h5>Round 1</h5>
+        </div>
+        {% for team1,team2 in r1matchups %}
+            <div class="bg-lightgrey rounded text-dark m-1 text-center">
+                <div class="d-flex justify-content-center">
+                    <div class="mediumlogo"><img class="img-fluid" src="{{team1.logo.url}}"></div>
+                </div>
+                <div>{{team1.teamname}}</div>
+                <div>vs</div>
+                <div class="d-flex justify-content-center">
+                    <div class="mediumlogo"><img class="img-fluid" src="{{team2.logo.url}}"></div>
+                </div>
+                <div>{{team2.teamname}}</div>
+            </div>
+        {% endfor %}        
+    </div>
+</div>
+{% endblock %}
