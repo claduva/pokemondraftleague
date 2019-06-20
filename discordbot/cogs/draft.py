@@ -15,6 +15,7 @@ class Draft(commands.Cog):
         while not self.bot.is_closed():
             with open('discordbot/cogs/draft.json','r') as f:
                 self.draft= json.load(f)
+            print(self.draft)
             for i, item in enumerate(self.draft):
                 if self.draft[i]['announced']=='No':
                     league=item['league']
@@ -31,7 +32,7 @@ class Draft(commands.Cog):
                         if item.name=='draft':
                             draftchannel=item
                     self.draft[i]['announced']='Yes'
-                    embed=discord.Embed(description=text,colour=discord.Colour.blue())
+                    embed=discord.Embed(description=f"{text}\n__________ is now on the clock. Please go to __________ to input your next pick.",colour=discord.Colour.blue())
                     embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
                     await draftchannel.send(embed=embed)  
             with open('discordbot/cogs/draft.json','w') as f:
