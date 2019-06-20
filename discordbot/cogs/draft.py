@@ -20,16 +20,16 @@ class Draft(commands.Cog):
                 ps_cursor = ps_connection.cursor()
                 ps_cursor.execute("select * from leagues_draft_announcements")
                 draft_records = ps_cursor.fetchall()
-                for itemid, server,league_name, text,announced in draft_records:
+                for record in draft_records:
                     #get server
                     for item in self.bot.guilds:
-                        if item.name==server:
+                        if item.name==record[1]:
                             for channel in item.channels:
                                 if channel.name=="draft":
-                                    embed=discord.Embed(title=text,description=f"__________ is now on the clock. Please go to http://pokemondraftleague.online/leagues/{league_name}/draft/ to input your next pick.",colour=discord.Colour.blue())
+                                    embed=discord.Embed(title=record[2],description=f"__________ is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/draft/ to input your next pick.",colour=discord.Colour.blue())
                                     embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
                                     await channel.send(embed=embed)  
-                                    ps_cursor.execute("DELETE from leagues_draft_announcements WHERE id = %s",(itemid,))
+                                    ps_cursor.execute("DELETE from leagues_draft_announcements WHERE id = %s",(record[0],))
                                     ps_connection.commit()
                 ps_cursor.close()
                 #Use this method to release the connection object and send back to connection pool
