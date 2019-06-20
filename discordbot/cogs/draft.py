@@ -31,7 +31,9 @@ class Draft(commands.Cog):
                         if item.name=='draft':
                             draftchannel=item
                     self.draft[i]['announced']='Yes'
-                    await draftchannel.send(text)  
+                    embed=discord.Embed(description=text,colour=discord.Colour.blue())
+                    embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
+                    await draftchannel.send(embed=embed)  
             with open('discordbot/cogs/draft.json','w') as f:
                 json.dump(self.draft,f,indent=4)
             await asyncio.sleep(5)
