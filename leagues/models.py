@@ -175,5 +175,7 @@ class draft(models.Model):
 
 class draft_announcements(models.Model):
     league = models.CharField(max_length=100)
+    league_name = models.CharField(max_length=100)
     text = models.CharField(max_length=1000)
     announced = models.BooleanField(default=False)
+    upnext = models.CharField(max_length=100,null=True)

@@ -151,6 +151,7 @@ def league_draft(request,league_name):
             #send to bot
             draft_announcements.objects.create(
                 league=league_.settings.discordserver,
+                league_name=league_.name.replace(' ','%20'),
                 text=text
             )
             messages.success(request,'Your draft pick has been saved!')

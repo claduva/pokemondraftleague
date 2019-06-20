@@ -20,13 +20,13 @@ class Draft(commands.Cog):
                 ps_cursor = ps_connection.cursor()
                 ps_cursor.execute("select * from leagues_draft_announcements")
                 draft_records = ps_cursor.fetchall()
-                for itemid, server, text,announced in draft_records:
+                for itemid, server,league_name, text,announced in draft_records:
                     #get server
                     for item in self.bot.guilds:
                         if item.name==server:
                             for channel in item.channels:
                                 if channel.name=="draft":
-                                    embed=discord.Embed(description=f"{text}\n__________ is now on the clock. Please go to __________ to input your next pick.",colour=discord.Colour.blue())
+                                    embed=discord.Embed(title=text,description=f"__________ is now on the clock. Please go to http://pokemondraftleague.online/leagues/{league_name}/draft/ to input your next pick.",colour=discord.Colour.blue())
                                     embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
                                     await channel.send(embed=embed)  
                                     ps_cursor.execute("DELETE from leagues_draft_announcements WHERE id = %s",(itemid,))
