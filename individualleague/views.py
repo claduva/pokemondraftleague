@@ -147,17 +147,12 @@ def league_draft(request,league_name):
             rosterspot.pokemon=draftpick
             rosterspot.save()
             currentpick.save()
+            text=f'The {currentpick.team.teamname} have drafted {draftpick.pokemon}'
             #send to bot
-            with open('discordbot/cogs/draft.json','r') as f:
-                data= json.load(f)
-            data.append({
-                'league': league_.settings.discordserver,
-                'text':f'The {currentpick.team.teamname} have drafted {draftpick.pokemon}',
-                'announced':'No'
-            })  
-            print(data)
-            with open('discordbot/cogs/draft.json','w') as f:
-                json.dump(data,f,indent=4)
+            draft_announcements.objects.create(
+                league=league_.settings.discordserver,
+                text=text
+            )
             messages.success(request,'Your draft pick has been saved!')
         elif request.POST['purpose']=="Leave":
             pokemonlist=all_pokemon.objects.all()

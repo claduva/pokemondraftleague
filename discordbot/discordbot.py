@@ -3,6 +3,8 @@ from discord.ext import commands
 
 import asyncio
 import asyncpg
+import psycopg2
+from psycopg2 import pool
 import datetime
 import os
 import random
@@ -14,6 +16,25 @@ try:
     TOKEN=BOTTOKEN
 except:
     TOKEN=os.environ.get('BOTTOKEN')
+
+NAME='d1ed9m9clqflm0'
+USER='sgsaqhpzsyvaht'
+PASSWORD='c64e78526dfbf0b852399e8d939dd1515242a660c3ea59eb83179412cda882cb'
+HOST='ec2-23-23-195-205.compute-1.amazonaws.com'
+
+async def create_db_pool():
+    try:
+        bot.pg_con = psycopg2.pool.SimpleConnectionPool(1, 20,
+                                                user = USER,
+                                                password = PASSWORD,
+                                                host = HOST,
+                                                port = "5432",
+                                                database = NAME)
+        #if(bot.pg_con):
+        #    print("Connection pool created successfully")
+    except (Exception, psycopg2.DatabaseError) as error :
+        print ("Error while connecting to PostgreSQL", error)
+
 
 @bot.command(aliases=["site"])
 async def website(ctx):
@@ -55,6 +76,6 @@ for cog in os.listdir("discordbot/cogs"):
             print(f"{cog} could not be loaded!")
             raise e
 
-#bot.loop.run_until_complete(create_db_pool())
+bot.loop.run_until_complete(create_db_pool())
 bot.loop.create_task(chnge_pr())
 bot.run(TOKEN)

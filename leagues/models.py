@@ -172,3 +172,8 @@ class draft(models.Model):
 
     def __str__(self):
         return f'Draft {self.id}, League: {self.season.league.name}, Season: {self.season.seasonname}'
+
+class draft_announcements(models.Model):
+    league = models.CharField(max_length=100)
+    text = models.CharField(max_length=1000)
+    announced = models.BooleanField(default=False)
