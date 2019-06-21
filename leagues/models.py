@@ -41,7 +41,7 @@ class conference_name(models.Model):
 class division_name(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
-    associatedconference = models.ForeignKey(conference_name, on_delete=models.CASCADE)
+    associatedconference = models.ForeignKey(conference_name, on_delete=models.CASCADE,related_name='divisions')
 
     def __str__(self):
         return f'{self.name}'

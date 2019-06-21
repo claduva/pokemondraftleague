@@ -25,6 +25,7 @@ class ProfileUpdateForm(forms.ModelForm):
         fields = ['pfp','discordid']
         labels = {
         "pfp": "Profile Picture"
+        
     }
 
 class SiteSettingUpdateForm(forms.ModelForm):

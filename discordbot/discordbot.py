@@ -14,13 +14,16 @@ bot=commands.Bot(command_prefix="!")
 try:
     from bottoken import *
     TOKEN=BOTTOKEN
+    NAME=NAME
+    USER=USER
+    PASSWORD=PASSWORD
+    HOST=HOST
 except:
     TOKEN=os.environ.get('BOTTOKEN')
-
-NAME='d1ed9m9clqflm0'
-USER='sgsaqhpzsyvaht'
-PASSWORD='c64e78526dfbf0b852399e8d939dd1515242a660c3ea59eb83179412cda882cb'
-HOST='ec2-23-23-195-205.compute-1.amazonaws.com'
+    NAME=os.environ.get('NAME')
+    USER=os.environ.get('USER')
+    PASSWORD=os.environ.get('PASSWORD')
+    HOST=os.environ.get('HOST')
 
 async def create_db_pool():
     try:

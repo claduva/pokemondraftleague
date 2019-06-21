@@ -25,11 +25,11 @@ def execute_free_agency_and_trades():
     elapsed=item.timeadded-league_start
     requestedweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
     completedmatches=True
-    for i in range(1,requestedweek+1):
-      matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
-      if matchofinterest.replay=="Link":
-        completedmatches=False
-    print(completedmatches)
+    if requestedweek >=0:
+      for i in range(1,requestedweek+1):
+        matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
+        if matchofinterest.replay=="Link":
+          completedmatches=False
     if completedmatches:
       #execute free agencies
       montoupdate=item.droppedpokemon
@@ -59,10 +59,11 @@ def execute_free_agency_and_trades():
     elapsed=item.timeadded-league_start
     requestedweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
     completedmatches=True
-    for i in range(1,requestedweek+1):
-      matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
-      if matchofinterest.replay=="Link":
-        completedmatches=False
+    if requestedweek >= 0:
+      for i in range(1,requestedweek+1):
+        matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
+        if matchofinterest.replay=="Link":
+          completedmatches=False
     if completedmatches:
       #execute trades
       droppedmon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
