@@ -520,11 +520,6 @@ def league_tiers(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
-    try:
-        season=seasonsetting.objects.get(league=league_)
-    except:
-        messages.error(request,'Season does not exist!',extra_tags='danger')
-        return redirect('league_detail',league_name=league_name)
     tiers=leaguetiers.objects.all().filter(league=league_).order_by('-tierpoints')
     mega=[]
     tierlist=[]
@@ -563,11 +558,6 @@ def individual_league_tier(request,league_name,tiername):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
-    try:
-        season=seasonsetting.objects.get(league=league_)
-    except:
-        messages.error(request,'Season does not exist!',extra_tags='danger')
-        return redirect('league_detail',league_name=league_name)
     try:
         tiername=tiername.replace("_"," ")
         tierofinterest=leaguetiers.objects.all().filter(league=league_).get(tiername=tiername)
