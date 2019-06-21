@@ -10,7 +10,11 @@
 <div class="content-section">
     <div class="row align-items-start">
         <div class="col-md-4 media-body">
-            <div class="d-flex justify-content-center"><img src="{{ user.profile.pfp.url }}" class="rounded-circle"></div>
+            <div class="d-flex justify-content-center">
+                <div class="largelogo">
+                    <img src="{{ user.profile.pfp.url }}" class="rounded-circle img-fluid">
+                </div>
+            </div>
             <h3 class="d-flex justify-content-center">{{ user.username }}</h3>
             <div class="col-md-12 d-flex justify-content-center"><h5>Trophy Case</h5></div>
             <div class="row align-items-center justify-content-around">
