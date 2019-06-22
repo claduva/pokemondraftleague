@@ -323,7 +323,7 @@ def league_schedule(request,league_name):
     leagueschedule=[]
     numberofweeks=season.seasonlength
     for i in range(numberofweeks):
-        matches=schedule.objects.all().filter(week=str(i+1)).order_by('id')
+        matches=schedule.objects.all().filter(week=str(i+1),season=season).order_by('id')
         leagueschedule.append(matches)
     ishost=(request.user==league_.host)
     context = {

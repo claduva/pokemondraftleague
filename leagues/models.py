@@ -31,6 +31,16 @@ class league_settings(models.Model):
     def __str__(self):
         return f'League settings for {self.league_name.name}'
 
+class discord_settings(models.Model):
+    league = models.OneToOneField(league, on_delete=models.CASCADE,related_name="discord_settings")
+    draftchannel=models.CharField(max_length=100, default="Not Provided")
+    freeagencychannel=models.CharField(max_length=100, default="Not Provided")
+    tradechannel=models.CharField(max_length=100, default="Not Provided")
+    replaychannel=models.CharField(max_length=100, default="Not Provided")
+
+    def __str__(self):
+        return f'Discord settings for {self.league.name}'
+
 class conference_name(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE,related_name="conferences")
     name = models.CharField(max_length=20)
