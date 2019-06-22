@@ -85,5 +85,4 @@ def execute_free_agency_and_trades():
       item.save()
       droppedpokemon.save() 
       montoupdate.save()
-      item.executed=True
-      item.save()
+      
