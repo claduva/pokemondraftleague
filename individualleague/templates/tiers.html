@@ -20,29 +20,33 @@
     </div>
     <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
         {% if availabletiers %}
-            <div class="col-md-12 d-flex justify-content-center">
+            <div class="col-md-12 d-flex justify-content-center m-0 p-0">
+                <div class="row d-flex justify-content-around m-0 p-0">
                 {% for x,y in tiers %}
-                    <a href="{% url 'available_individual_league_tier' league_name=league_name tiername=x.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ x.tiername }}</button></a>
+                    <div class="col-md-2 d-flex justify-content-center"><a href="{% url 'available_individual_league_tier' league_name=league_name tiername=x.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ x.tiername }}</button></a></div>
                 {% endfor %}
                 {% if mega %}
                     {% for x,y in mega %}
-                        <a href="{% url 'available_individual_league_tier' league_name=league_name tiername=x.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ x.tiername }}</button></a>
+                        <div class="col-md-2 d-flex justify-content-center"><a href="{% url 'available_individual_league_tier' league_name=league_name tiername=x.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ x.tiername }}</button></a></div>
                     {% endfor %}
                 {% endif %}
+                </div>
             </div>
         {% else %}    
-            <div class="col-md-12 d-flex justify-content-center">
+            <div class="col-md-12 d-flex justify-content-center m-0 p-0">
+                <div class="row d-flex justify-content-around m-0 p-0">
                 {% for x,y in tiers %}
-                    <a href="{% url 'individual_league_tier' league_name=league_name tiername=x.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ x.tiername }}</button></a>
+                    <div class="col-md-2 d-flex justify-content-center"><a href="{% url 'individual_league_tier' league_name=league_name tiername=x.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ x.tiername }}</button></a></div>
                 {% endfor %}
                 {% if mega %}
                     {% for x,y in mega %}
-                        <a href="{% url 'individual_league_tier' league_name=league_name tiername=x.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ x.tiername }}</button></a>
+                        <div class="col-md-2 d-flex justify-content-center"><a href="{% url 'individual_league_tier' league_name=league_name tiername=x.tiername|replace:' ,_' %}"><button class="btn btn-primary">{{ x.tiername }}</button></a></div>
                     {% endfor %}
                 {% endif %}
                 {% if banned %}
-                    <a href="{% url 'individual_league_tier' league_name=league_name tiername='Banned' %}"><button class="btn btn-primary">Banned</button></a>
+                    <div class="col-md-2 d-flex justify-content-center"><a href="{% url 'individual_league_tier' league_name=league_name tiername='Banned' %}"><button class="btn btn-primary">Banned</button></a></div>
                 {% endif %}
+                </div>
             </div>
         {% endif %}
 </div>
