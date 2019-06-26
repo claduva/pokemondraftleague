@@ -157,6 +157,7 @@ def league_draft(request,league_name):
             #send to bot
             try:
                 upnext=draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.username
+                upnextid=str(draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.profile.discordid)
             except:
                 upnext="The draft has concluded"
             draft_announcements.objects.create(
@@ -164,7 +165,8 @@ def league_draft(request,league_name):
                 league_name=league_.name.replace(' ','%20'),
                 text=text,
                 upnext=upnext,
-                draftchannel=draftchannel
+                draftchannel=draftchannel,
+                upnextid=upnextid
             )
             messages.success(request,'Your draft pick has been saved!')
         elif request.POST['purpose']=="Leave":
