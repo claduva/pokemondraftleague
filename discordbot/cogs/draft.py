@@ -28,7 +28,10 @@ class Draft(commands.Cog):
                                 if channel.name==record[6]:
                                     persontotagid=record[7]
                                     persontotag=None
-                                    embed=discord.Embed(title=record[2],description=f"{record[5]} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/draft/',colour=discord.Colour.blue())
+                                    if record[5].find("The draft has concluded")>-1:
+                                        embed=discord.Embed(title=record[2],description=f"The draft has concluded. Please go to http://pokemondraftleague.online/leagues/{record[4]}/draft/ to view the full draft.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/draft/',colour=discord.Colour.blue())
+                                    else:
+                                        embed=discord.Embed(title=record[2],description=f"{record[5]} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/draft/',colour=discord.Colour.blue())
                                     for person in item.members:
                                         if str(person.id)==str(persontotagid):
                                             persontotag=person

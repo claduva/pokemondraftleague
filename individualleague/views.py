@@ -98,7 +98,7 @@ def league_draft(request,league_name):
                     rosterspot.save()
                     currentpick.save()
                     item.delete()
-                    text=f'The {currentpick.team.teamname} have drafted {draftpick.pokemon}'
+                    text=f'The {currentpick.team.teamname} have drafted {item.pick.pokemon}'
                     draftchannel=league_.discord_settings.draftchannel
                     #send to bot
                     try:
@@ -124,7 +124,7 @@ def league_draft(request,league_name):
                         rosterspot.save()
                         currentpick.save()
                         item.delete()
-                        text=f'The {currentpick.team.teamname} have drafted {draftpick.pokemon}'
+                        text=f'The {currentpick.team.teamname} have drafted {item.backup.pokemon}'
                         draftchannel=league_.discord_settings.draftchannel
                         #send to bot
                         try:
