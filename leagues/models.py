@@ -177,6 +177,7 @@ class draft(models.Model):
     team = models.ForeignKey(coachdata, on_delete=models.CASCADE,null=True,related_name="draftpicks")
     pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True)
     picktime= models.DateTimeField(auto_now=True, null=True)
+    skipped= models.BooleanField(default=False)
 
     class Meta:
         ordering = ['id']

@@ -21,6 +21,7 @@
     <div id="draftform" class="col-md-4 d-flex justify-content-start">
         <div id="draftform2">
             <h5>Current drafting team: {{ currentpick.team.teamname }}</h5>
+            <div class="d-flex justify-content-between">
             {% if candraft or is_host %}
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -33,6 +34,13 @@
                 <input name="purpose" type="submit" class="btn btn-primary" value="Submit">
             </form>
             {% endif %}
+            {% if is_host %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input name="purpose" type="submit" class="btn btn-danger" value="Skip">
+            </form>
+            {% endif %}
+            </div>
         </div>
     </div>
     <div id="draftpoints" class="col-md-4">

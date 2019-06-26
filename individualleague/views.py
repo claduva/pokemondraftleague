@@ -83,7 +83,7 @@ def league_draft(request,league_name):
         messages.error(request,'Draft does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
     is_host=(request.user==league_.host)
-    currentpick=draftlist.filter(pokemon__isnull=True).first()
+    currentpick=draftlist.filter(pokemon__isnull=True,skipped=False).first()
     if picksremaining>0:
     ## go through left picks
         picksleft=left_pick.objects.filter(coach=currentpick.team).order_by('id')
@@ -211,6 +211,10 @@ def league_draft(request,league_name):
         elif request.POST['purpose']=="Delete":
             left_pick.objects.get(id=request.POST['pickid']).delete()
             messages.success(request,'Your pick was deleted!')
+        elif request.POST['purpose']=="Skip":
+            currentpick.skipped=True
+            currentpick.save()
+            messages.success(request,'That draft pick has been skipped!')
         return redirect('league_draft',league_name=league_name)
     availablepokemon=all_pokemon.objects.all().order_by('pokemon')
     for item in availablepokemon:
