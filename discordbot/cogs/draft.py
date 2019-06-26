@@ -37,13 +37,15 @@ class Draft(commands.Cog):
                                     embed.set_image(url=f"https://play.pokemonshowdown.com/sprites/xyani/{(record[2].split(' have drafted ')[1]).lower().replace(' ','').replace('.','').replace(':','').replace('%','').replace('mega-','mega').replace('nidoran-m','nidoran').replace('o-o','oo').replace('dusk-mane','duskmane').replace('dawn-wings','dawnwings')}.gif")
                                     print(f"https://play.pokemonshowdown.com/sprites/xyani/{(record[2].split(' have drafted ')[1]).lower().replace(' ','').replace('.','').replace(':','').replace('%','').replace('mega-','mega').replace('nidoran-m','nidoran').replace('o-o','oo').replace('dusk-mane','duskmane').replace('dawn-wings','dawnwings')}.gif")
                                     await channel.send(embed=embed)
+                                    if persontotag != None:
+                                        await channel.send(persontotag.mention)
                                     ps_cursor.execute("DELETE from leagues_draft_announcements WHERE id = %s",(record[0],))
                                     ps_connection.commit()
                 ps_cursor.close()
                 #Use this method to release the connection object and send back to connection pool
                 self.bot.pg_con.putconn(ps_connection)
                 #print("Put away a PostgreSQL connection")
-            await asyncio.sleep(5)
+            await asyncio.sleep(30)
 
 def setup(bot):
     bot.add_cog(Draft(bot))

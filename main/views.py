@@ -20,7 +20,7 @@ def home(request):
         yourleagues=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user))
         if yourleagues.count()>0:
             upcomingmatches=schedule.objects.all().filter(Q(team1__coach=request.user)|Q(team2__coach=request.user)|Q(team1__teammate=request.user)|Q(team2__teammate=request.user)).filter(replay="Link")[0:4]
-            recentresults=schedule.objects.all().filter(Q(team1__coach=request.user)|Q(team2__coach=request.user)|Q(team1__teammate=request.user)|Q(team2__teammate=request.user)).exclude(replay="Link").order_by('timestamp','-id')[0:4]
+            recentresults=schedule.objects.all().filter(Q(team1__coach=request.user)|Q(team2__coach=request.user)|Q(team1__teammate=request.user)|Q(team2__teammate=request.user)).exclude(replay="Link").order_by('-timestamp','-id')[0:4]
             context = {
                 "title": "Pokemon Draft League",
                 "yourleagues": yourleagues,
