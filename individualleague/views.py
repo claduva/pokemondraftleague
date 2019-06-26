@@ -98,6 +98,22 @@ def league_draft(request,league_name):
                     rosterspot.save()
                     currentpick.save()
                     item.delete()
+                    text=f'The {currentpick.team.teamname} have drafted {draftpick.pokemon}'
+                    draftchannel=league_.discord_settings.draftchannel
+                    #send to bot
+                    try:
+                        upnext=draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.username
+                        upnextid=str(draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.profile.discordid)
+                    except:
+                        upnext="The draft has concluded"
+                    draft_announcements.objects.create(
+                        league=league_.settings.discordserver,
+                        league_name=league_.name.replace(' ','%20'),
+                        text=text,
+                        upnext=upnext,
+                        draftchannel=draftchannel,
+                        upnextid=upnextid
+                    )
                     return redirect('league_draft',league_name=league_name)
                 else:
                     searchroster=roster.objects.filter(season=season,pokemon=item.backup).first()     
@@ -108,6 +124,22 @@ def league_draft(request,league_name):
                         rosterspot.save()
                         currentpick.save()
                         item.delete()
+                        text=f'The {currentpick.team.teamname} have drafted {draftpick.pokemon}'
+                        draftchannel=league_.discord_settings.draftchannel
+                        #send to bot
+                        try:
+                            upnext=draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.username
+                            upnextid=str(draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.profile.discordid)
+                        except:
+                            upnext="The draft has concluded"
+                        draft_announcements.objects.create(
+                            league=league_.settings.discordserver,
+                            league_name=league_.name.replace(' ','%20'),
+                            text=text,
+                            upnext=upnext,
+                            draftchannel=draftchannel,
+                            upnextid=upnextid
+                        )
                         return redirect('league_draft',league_name=league_name)
                     else:     
                         item.delete()
