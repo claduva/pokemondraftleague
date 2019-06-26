@@ -43,3 +43,6 @@ def about(request):
 
 def custom404(request,exception):
     return  render(request,"404.html")
+
+def custom500(request,exception):
+    return  render(request,"500.html")

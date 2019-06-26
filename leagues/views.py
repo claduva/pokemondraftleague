@@ -419,9 +419,11 @@ def manage_seasons(request,league_name):
             if form.is_valid() :
                 thisseason=form.save()
                 picksperteam=form.cleaned_data['picksperteam']
+                rosterid=roster.objects.all().order_by('id').last().id
                 for coach in currentcoaches:
                     for i in range(picksperteam):
-                        roster.objects.create(season=thisseason,team=coach)
+                        rosterid+=1
+                        roster.objects.create(id=rosterid,season=thisseason,team=coach)
                 rule.objects.create(season=thisseason)
                 messages.success(request,'Your season has been created!')
                 return redirect('manage_seasons',league_name=league_name)
