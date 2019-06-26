@@ -153,6 +153,7 @@ def league_draft(request,league_name):
             rosterspot.save()
             currentpick.save()
             text=f'The {currentpick.team.teamname} have drafted {draftpick.pokemon}'
+            draftchannel=league_.discord_settings.draftchannel
             #send to bot
             try:
                 upnext=draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.username
@@ -162,7 +163,8 @@ def league_draft(request,league_name):
                 league=league_.settings.discordserver,
                 league_name=league_.name.replace(' ','%20'),
                 text=text,
-                upnext=upnext
+                upnext=upnext,
+                draftchannel=draftchannel
             )
             messages.success(request,'Your draft pick has been saved!')
         elif request.POST['purpose']=="Leave":

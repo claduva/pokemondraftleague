@@ -25,7 +25,7 @@ class Draft(commands.Cog):
                     for item in self.bot.guilds:
                         if item.name==record[1]:
                             for channel in item.channels:
-                                if channel.name=="draft":
+                                if channel.name==record[6]:
                                     embed=discord.Embed(title=record[2],description=f"{record[5]} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/draft/',colour=discord.Colour.blue())
                                     embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
                                     embed.set_image(url=f"https://play.pokemonshowdown.com/sprites/xyani/{(record[2].split(' have drafted ')[1]).lower().replace(' ','').replace('.','').replace(':','').replace('%','').replace('mega-','mega').replace('nidoran-m','nidoran').replace('o-o','oo').replace('dusk-mane','duskmane').replace('dawn-wings','dawnwings')}.gif")
