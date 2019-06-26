@@ -114,7 +114,7 @@ class coachaward(models.Model):
         return f'{self.award.awardname} for {self.coach.username}'
 
 class leaguetiers(models.Model):
-    league = models.ForeignKey(league, on_delete=models.CASCADE)
+    league = models.ForeignKey(league, on_delete=models.CASCADE,related_name='leaguetiers')
     tiername = models.CharField(max_length=20, default="Not Specified")
     tierpoints = models.IntegerField(default=0)
 

@@ -554,6 +554,8 @@ def default_tiers(request,league_name):
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     if request.method == 'POST':
+        purpose=request.POST['purposeid']
+        if purpose=='Select':
             templatetierset=leaguetiertemplate.objects.all().filter(template=request.POST['template-select'])
             templatepokemonset=pokemon_tier_template.objects.all().filter(template=request.POST['template-select'])
             existingtiers=leaguetiers.objects.all().filter(league=league_)
@@ -570,7 +572,22 @@ def default_tiers(request,league_name):
                 tiertouse=leaguetiers.objects.filter(league=league_).get(tiername=item.tier.tiername)
                 pokemon_tier.objects.create(id=i,pokemon=item.pokemon,league=league_,tier=tiertouse)
             messages.success(request,'The template has been applied!')
-            return redirect('manage_tiers',league_name=league_name)
+        elif purpose=="Use":
+            #delete existing
+            league_.leaguetiers.all().delete()
+            league_.leaguepokemontiers.all().delete()
+            #add new
+            leagueofinterest=league.objects.get(id=request.POST['leagueid'])
+            leagueofinteresttiers=leagueofinterest.leaguetiers.all()
+            for item in leagueofinteresttiers:
+                leaguetiers.objects.create(league=league_,tiername=item.tiername,tierpoints=item.tierpoints)
+            leagueofinteresttiering=leagueofinterest.leaguepokemontiers.all()
+            startid=pokemon_tier.objects.all().order_by('id').last().id
+            for item in leagueofinteresttiering:
+                startid+=1
+                tiertouse=leaguetiers.objects.filter(league=league_).get(tiername=item.tier.tiername)
+                pokemon_tier.objects.create(id=startid,pokemon=item.pokemon,league=league_,tier=tiertouse)
+        return redirect('manage_tiers',league_name=league_name)
     else:
         pokemonlist=pokemon_tier.objects.filter(league=league_,tier=None).all().order_by('pokemon__pokemon')
         pokemontiers=pokemon_tier.objects.filter(league=league_).all().order_by('pokemon__pokemon','tier')

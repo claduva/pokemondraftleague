@@ -65,7 +65,7 @@ class pokemon_moveset(models.Model):
 
 class pokemon_tier(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='pokemon_tiers')
-    league = models.ForeignKey(league,on_delete=models.CASCADE)
+    league = models.ForeignKey(league,on_delete=models.CASCADE,related_name='leaguepokemontiers')
     tier = models.ForeignKey(leaguetiers,on_delete=models.SET_NULL,null=True)
 
     def __str__(self):
