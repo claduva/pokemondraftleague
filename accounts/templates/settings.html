@@ -70,8 +70,31 @@
                 {% for form in forms %}
                 {{ form|crispy  }}
                 {% endfor %}
-                <button type="submit" class="btn btn-primary">Create</button>
+                {% if edit %}
+                <input name="matchid" value='{{matchid}}' hidden>
+                <input name="formpurpose" type="submit" class="btn btn-primary" value="Submit">
+                {% else %}
+                <input name="formpurpose" type="submit" class="btn btn-primary" value="Create">
+                {% endif %}
             </form>
+            {% if existingmatches %}
+            <h5>Existing Matches</h5>
+            {% for item in existingmatches %}
+            <div class="d-flex">
+            <div>Week {{item.week}}: {{item.team1.teamname}} vs {{item.team2.teamname}}</div>
+            <form method="post">
+                {% csrf_token %}
+                <input name="matchid" value='{{item.id}}' hidden>
+                <input name="formpurpose" type="submit" class="btn btn-primary p-1 m-1" value='Edit'>
+            </form>
+            <form method="post">
+                    {% csrf_token %}
+                    <input name="matchid" value='{{item.id}}' hidden>
+                    <input name="formpurpose" type="submit" class="btn btn-danger p-1 m-1" value='Delete'>
+            </form>
+            </div>
+            {% endfor %}
+            {% endif %}
             {% else %}
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}

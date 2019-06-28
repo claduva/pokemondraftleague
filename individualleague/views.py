@@ -277,17 +277,40 @@ def create_match(request,league_name):
     if needednumberofcoaches != currentcoachescount: 
         messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
         return redirect('individual_league_settings',league_name=league_name)
-    if request.method == 'POST':   
-        form = CreateMatchForm(seasonsettings,league_,request.POST)
-        if form.is_valid() :
-            form.save()
-            messages.success(request,'That match has been added!')
-        return redirect('create_match',league_name=league_name)
     form = CreateMatchForm(seasonsettings,league_,initial={'season':seasonsettings})
     settingheading='Create New Match'
+    edit=False
+    matchid=None
+    if request.method == 'POST':  
+        formpurpose=request.POST['formpurpose']
+        if formpurpose=="Create":
+            form = CreateMatchForm(seasonsettings,league_,request.POST)
+            if form.is_valid() :
+                form.save()
+                messages.success(request,'That match has been added!')
+            return redirect('create_match',league_name=league_name)
+        elif formpurpose=="Submit":
+            matchofinterest=schedule.objects.get(id=request.POST['matchid'])
+            form = CreateMatchForm(seasonsettings,league_,request.POST,instance=matchofinterest)
+            if form.is_valid() :
+                form.save()
+                messages.success(request,'That match has been added!')
+            else:
+                print(form.errors)
+            return redirect('create_match',league_name=league_name)
+        elif formpurpose=="Edit":
+            matchofinterest=schedule.objects.get(id=request.POST['matchid'])
+            form = CreateMatchForm(seasonsettings,league_,instance=matchofinterest)
+            settingheading='Edit Match'
+            matchid=matchofinterest.id
+            edit=True
+        elif formpurpose=="Delete":
+            schedule.objects.get(id=request.POST['matchid']).delete()
+            messages.success(request,'That match has been deleted!')
+            return redirect('create_match',league_name=league_name)
     create=True
     manageseason=False
-    existingmatches=schedule.objects.all(season=seasonsettings)
+    existingmatches=schedule.objects.all().filter(season=seasonsettings).order_by('week','id')
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
@@ -296,6 +319,8 @@ def create_match(request,league_name):
         'seasonsettings': seasonsettings,
         'settingheading': settingheading,
         'create': create,
+        'edit':edit,
+        'matchid':matchid,
         'manageseason': manageseason,
         'existingmatches':existingmatches,
     }
