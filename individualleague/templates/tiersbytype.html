@@ -29,16 +29,16 @@
 </div>
 {% if typedetail %}
 <div class="row content-section">
-    {% for item,available,points in typelist %}
+    {% for item,available,points,tiername,takenby in typelist %}
         <div class="col-md-2">
             <a class="text-dark" href="{% url 'pokedex_item' pokemon_of_interest=item.pokemon.pokemon %}">
-            {% if available and points.tier.tiername != 'Banned' %}
+            {% if available %}
                 <div class="card text-dark bg-lightgreen text-center">
                     <div><img class="mediumsprite img-fluid" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
                     <div class="card-body">
                         <div>{{item.pokemon.pokemon}}</div>
-                        <div>{{points.tier.tiername}}</div>
-                        <div>({{points.tier.tierpoints}} points)</div>
+                        <div>{{tiername}}</div>
+                        <div>({{points}} points)</div>
                         <div>Available</div>
                     </div>
                 </div>
@@ -47,9 +47,9 @@
                     <div><img class="mediumsprite img-fluid" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
                     <div class="card-body">
                         <div>{{item.pokemon.pokemon}}</div>
-                        <div>{{points.tier.tiername}}</div>
-                        <div>({{points.tier.tierpoints}} points)</div>
-                        <div>Taken By</div>
+                        <div>{{tiername}}</div>
+                        <div>({{points}} points)</div>
+                        <div>Taken By {{takenby}}</div>
                     </div>
                 </div>
             {% endif %}

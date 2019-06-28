@@ -20,7 +20,7 @@ from pokemondatabase.models import *
 from accounts.models import *
 from .forms import *
 from datetime import datetime, timedelta,timezone
-
+from operator import itemgetter
 
 def team_page(request,league_name,team_abbreviation):
     try:
@@ -740,15 +740,25 @@ def tiers_by_type_detail(request,league_name,typingofinterest):
         return redirect('tiers_by_type',league_name=league_name)
     types=pokemon_type.objects.all().order_by('typing').distinct('typing')
     typelist_=pokemon_type.objects.all().filter(typing=typingofinterest)
-    typelist=[]
+    availablelist=[]
+    unavailablelist=[]
     for item in typelist_:
         points=item.pokemon.pokemon_tiers.get(league=league_)
         try:
             rosteritem=item.pokemon.pokemonroster.get(season=league_.seasonsetting)
             available=False
+            takenby=rosteritem.team.teamabbreviation
+            if points.tier.tiername!="Banned":    
+                unavailablelist.append((item,available,points.tier.tierpoints,points.tier.tiername,takenby))
         except:
             available=True
-        typelist.append([item,available,points])
+            takenby=None
+            if points.tier.tiername!="Banned":    
+                availablelist.append((item,available,points.tier.tierpoints,points.tier.tiername,takenby))
+    availablelist.sort(key=itemgetter(2), reverse=True)
+    unavailablelist.sort(key=itemgetter(2), reverse=True)
+    typelist=availablelist+unavailablelist
+
     context = {
         'league': league_,
         'leaguepage': True,
