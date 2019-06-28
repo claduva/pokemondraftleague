@@ -219,7 +219,6 @@ def league_draft(request,league_name):
     bannedpokemon=pokemon_tier.objects.all().filter(league=league_).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
     takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
     availablepokemon=all_pokemon.objects.all().order_by('pokemon').exclude(id__in=takenpokemon).exclude(id__in=bannedpokemon)
-    print(takenpokemon)
     try:
         usercoach=coachdata.objects.filter(Q(coach=request.user)|Q(teammate=request.user)).get(league_name=league_)
         leftpicks=left_pick.objects.all().filter(season=season,coach=usercoach)
@@ -227,6 +226,21 @@ def league_draft(request,league_name):
     except:
         form=None
         leftpicks=None
+    draftorder_=draftlist[0:coachcount]
+    draftorder=[]
+    for item in draftorder_:
+        budget=season.draftbudget
+        team_=item.team.draftpicks.all()
+        team=[]
+        for pick in team_:
+            if pick.pokemon != None:
+                cost=pick.pokemon.pokemon_tiers.all().get(league=league_).tier.tierpoints
+                team.append([pick,cost])
+                budget+=(-cost)
+            else:
+                team.append([pick,'-'])
+        pointsused=season.draftbudget-budget
+        draftorder.append([item,budget,pointsused,team])
     context = {
         'league': league_,
         'leaguepage': True,
@@ -242,7 +256,7 @@ def league_draft(request,league_name):
         'is_host': is_host,
         'draftstart': draftstart,
         'pickend':pickend,
-        'draftorder':draftlist[0:coachcount],
+        'draftorder':draftorder,
         'candraft':candraft,
         'form':form,
         'leftpicks': leftpicks
