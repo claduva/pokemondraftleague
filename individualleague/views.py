@@ -216,15 +216,10 @@ def league_draft(request,league_name):
             currentpick.save()
             messages.success(request,'That draft pick has been skipped!')
         return redirect('league_draft',league_name=league_name)
-    availablepokemon=all_pokemon.objects.all().order_by('pokemon')
-    for item in availablepokemon:
-        tiering=pokemon_tier.objects.all().filter(league=league_,pokemon=item).first()
-        if tiering.tier.tiername=="Banned":
-            availablepokemon=availablepokemon.all().exclude(pokemon=item)
-        else:
-            rosteritem=roster.objects.filter(season=season,pokemon=item).first()
-            if rosteritem != None:
-                availablepokemon=availablepokemon.all().exclude(pokemon=item)
+    bannedpokemon=pokemon_tier.objects.all().filter(league=league_).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
+    takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
+    availablepokemon=all_pokemon.objects.all().order_by('pokemon').exclude(id__in=takenpokemon).exclude(id__in=bannedpokemon)
+    print(takenpokemon)
     try:
         usercoach=coachdata.objects.filter(Q(coach=request.user)|Q(teammate=request.user)).get(league_name=league_)
         leftpicks=left_pick.objects.all().filter(season=season,coach=usercoach)
@@ -811,25 +806,14 @@ def freeagency(request,league_name):
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
-    coach=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).first()
-    coachroster=all_pokemon.objects.all().order_by('pokemon')
-    for item in coachroster:
-        try:
-            roster.objects.all().filter(season=season,team=coach).get(pokemon=item)
-        except:
-            coachroster=coachroster.exclude(pokemon=item.pokemon)
-    availablepokemon=all_pokemon.objects.all().order_by('pokemon')
-    for item in availablepokemon:
-        try:
-            roster.objects.all().filter(season=season).get(pokemon=item)
-            availablepokemon=availablepokemon.exclude(pokemon=item.pokemon)
-        except:
-            tier=pokemon_tier.objects.all().filter(league=league_).get(pokemon=item)
-            if tier.tier.tiername=="Banned":
-                availablepokemon=availablepokemon.exclude(pokemon=item.pokemon)
-            available=True
+    coach=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=request.user)|Q(teammate=request.user)).first()
+    coachroster=coach.teamroster.all().order_by('pokemon__pokemon').exclude(pokemon__isnull=True)
+    coachroster_=coachroster.exclude(pokemon__isnull=True)
+    bannedpokemon=pokemon_tier.objects.all().filter(league=league_).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
+    takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
+    availablepokemon=all_pokemon.objects.all().order_by('pokemon').exclude(id__in=takenpokemon).exclude(id__in=bannedpokemon)
     if request.method=="POST":
-        form=FreeAgencyForm(coachroster,availablepokemon,request.POST)
+        form=FreeAgencyForm(coachroster_,availablepokemon,request.POST)
         if form.is_valid(): 
             form.save()
             messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')

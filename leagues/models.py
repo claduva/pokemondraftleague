@@ -155,7 +155,7 @@ from pokemondatabase.models import all_pokemon
 
 class roster(models.Model):
     season = models.ForeignKey(seasonsetting, on_delete=models.CASCADE)
-    team = models.ForeignKey(coachdata, on_delete=models.CASCADE,null=True)
+    team = models.ForeignKey(coachdata, on_delete=models.CASCADE,null=True,related_name='teamroster')
     pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True,related_name="pokemonroster")
     kills = models.IntegerField(default=0)
     deaths =  models.IntegerField(default=0)
