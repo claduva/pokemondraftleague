@@ -17,10 +17,16 @@
     <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
     </div>
 </div>
-<div class="row content-section align-items-start">
+<div class="row content-section align-items-start justify-content-around">
     {% for item in leagueschedule %}
     <div class="col-md-4">
+        {% if playoffs %}
+        {% with item|first as week %}
+        <h5 class="text-center">{{week.week}}</h5>
+        {% endwith %}
+        {% else %}
         <h5>Week {{ forloop.counter }}</h5>
+        {% endif %}
         <table class="table table-sm">
             {% for match in item %}
             <tr class="bg-lightgrey text-dark">

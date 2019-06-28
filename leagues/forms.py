@@ -83,7 +83,7 @@ class CreateSeasonSettingsForm(forms.ModelForm):
 
     class Meta:
         model = seasonsetting
-        fields = ['league','seasonname','draftbudget','drafttype','picksperteam','seasonlength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
+        fields = ['league','seasonname','draftbudget','drafttype','picksperteam','seasonlength','playoffslength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
         widgets = {
             'league': forms.HiddenInput(),
             }
@@ -95,7 +95,7 @@ class EditSeasonSettingsForm(forms.ModelForm):
 
     class Meta:
         model = seasonsetting
-        fields = ['seasonname','draftstart','drafttimer','draftbudget','drafttype','seasonstart','seasonlength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
+        fields = ['seasonname','draftstart','drafttimer','draftbudget','drafttype','seasonstart','seasonlength','playoffslength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
         
 class ManageCoachForm(forms.ModelForm):
     logo=forms.FileField(widget=FileInput,required=False)

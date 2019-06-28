@@ -142,6 +142,7 @@ class seasonsetting(models.Model):
         default="Snake")
     seasonstart=models.DateTimeField(null=True)
     seasonlength = models.IntegerField(default=7)
+    playoffslength = models.IntegerField(default=3)
     freeagenciesallowed= models.IntegerField(default=4)
     tradesallowed= models.IntegerField(default=4)
     numzusers= models.IntegerField(default=2)

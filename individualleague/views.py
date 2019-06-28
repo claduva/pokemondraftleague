@@ -1018,36 +1018,71 @@ def league_playoffs(request,league_name):
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
-    teamsperconf=season.playoffteamsperconference
-    numdivisions=league_.settings.number_of_divisions
-    numconferences=league_.settings.number_of_conferences
-    divisionsperconf=numdivisions/numconferences
-    wildcardsperconf=int(teamsperconf%divisionsperconf) 
-    nonwildcardperdivision=(teamsperconf-wildcardsperconf)/divisionsperconf
-    conferencelist=league_.conferences.all()
-    r1matchups=[]
-    playoffteams=[]
-    if numdivisions==numconferences:
-        divisions=False
-        for conference in conferencelist:
-            conferenceteams=league_teams.all().filter(conference=conference).order_by('-wins','forfeit','-differential')[0:nonwildcardperdivision]
-            playoffteams.append(conferenceteams)
-        if numconferences==2:
-            conf1=playoffteams[0]
-            conf2=playoffteams[1][::-1]
-            for i in range(len(conf1)):
-                r1matchups.append([conf1[i],conf2[i]])
-    else:
-        divisions=True
+    if request.method=="POST":
+        matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+        team1=matchtoupdate.team1
+        team2=matchtoupdate.team2
+        if request.POST['purpose']=="t1ff":
+            matchtoupdate.replay='Forfeit'
+            team1.losses+=1; team2.wins+=1
+            team1.differential+=(-6); team2.differential+=3
+            team1.forfeit+=1
+            if team1.streak>-1:
+                team1.streak=-1
+            else:
+                team1.streak+=(-1)
+            if team2.streak>-1:
+                team2.streak+=1
+            else:
+                team2.streak=1
+            messages.success(request,'Match has been forfeited by Team 1!')
+        if request.POST['purpose']=="t2ff":
+            matchtoupdate.replay='Forfeit'
+            team1.wins+=1; team2.losses+=1
+            team1.differential+=3; team2.differential+=(-6)
+            team2.forfeit+=1
+            if team1.streak>-1:
+                team1.streak+=1
+            else:
+                team1.streak=1
+            if team2.streak>-1:
+                team2.streak=-1
+            else:
+                team2.streak+=(-1)
+            messages.success(request,'Match has been forfeited by Team 2!')
+        elif request.POST['purpose']=="bothff":
+            matchtoupdate.replay='Forfeit'
+            team1.losses+=1; team2.losses+=1
+            team1.differential+=(-6); team2.differential+=(-6)
+            team1.forfeit+=1; team2.forfeit+=1
+            if team1.streak>-1:
+                team1.streak=-1
+            else:
+                team1.streak+=(-1)
+            if team2.streak>-1:
+                team2.streak=-1
+            else:
+                team2.streak+=(-1)
+            messages.success(request,'Match has been forfeited by both teams!')
+        team1.save()
+        team2.save()
+        matchtoupdate.save()
+    leagueschedule=[]
+    playoffweeks=schedule.objects.all().filter(season=season,week__icontains='Playoffs').distinct('week')
+    for item in playoffweeks:
+        matches=schedule.objects.all().filter(season=season,week=item.week)
+        leagueschedule.append(matches)
+    ishost=(request.user==league_.host)
     context = {
         'league': league_,
         'leaguepage': True,
         'league_teams': league_teams,
         'league_name': league_name,
-        'r1matchups':r1matchups,
-        'divisions': divisions,
+        'leagueschedule': leagueschedule,
+        'ishost': ishost,
+        'playoffs': True,
     }
-    return render(request, 'playoffs.html',context)
+    return render(request, 'schedule.html',context)
 
 class PokemonAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
