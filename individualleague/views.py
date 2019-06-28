@@ -287,6 +287,7 @@ def create_match(request,league_name):
     settingheading='Create New Match'
     create=True
     manageseason=False
+    existingmatches=schedule.objects.all(season=seasonsettings)
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
@@ -296,6 +297,7 @@ def create_match(request,league_name):
         'settingheading': settingheading,
         'create': create,
         'manageseason': manageseason,
+        'existingmatches':existingmatches,
     }
     return render(request, 'settings.html',context)
 
@@ -569,7 +571,7 @@ def league_tiers(request,league_name):
         tieritems_=pokemon_tier.objects.all().filter(tier=item).order_by('pokemon__pokemon')
         for pokemon in tieritems_:
             try:    
-                rosterspot=roster.objects.all().filter(season=season).get(pokemon=pokemon.pokemon)
+                rosterspot=pokemon.pokemon.pokemonroster.get(season=league_.seasonsetting)
                 team=rosterspot.team
             except:
                 team=None
@@ -605,9 +607,9 @@ def individual_league_tier(request,league_name,tiername):
         tiers_=pokemon_tier.objects.all().filter(tier=tierofinterest).order_by('pokemon__pokemon')
         for item in tiers_:
             try:    
-                rosterspot=roster.objects.all().filter(season=season).get(pokemon=item.pokemon)
+                rosterspot=item.pokemon.pokemonroster.get(season=league_.seasonsetting)
                 team=rosterspot.team
-            except:
+            except Exception as e:
                 team=None
             tiers.append([item,team])
         alltiers=leaguetiers.objects.all().filter(league=league_).exclude(tiername=tiername).order_by('-tierpoints')
@@ -739,7 +741,7 @@ def tiers_by_type_detail(request,league_name,typingofinterest):
         messages.error(request,f'Type does not exist!',extra_tags='danger')
         return redirect('tiers_by_type',league_name=league_name)
     types=pokemon_type.objects.all().order_by('typing').distinct('typing')
-    typelist_=pokemon_type.objects.all().filter(typing=typingofinterest)
+    typelist_=pokemon_type.objects.all().filter(typing=typingofinterest).order_by('pokemon__pokemon')
     availablelist=[]
     unavailablelist=[]
     for item in typelist_:
@@ -772,6 +774,7 @@ def tiers_by_type_detail(request,league_name,typingofinterest):
 
 @login_required
 def freeagency(request,league_name):
+    league_name=league_name.replace('%20',' ')
     try:
         league_=league.objects.get(name=league_name)
         league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')

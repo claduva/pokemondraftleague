@@ -18,43 +18,51 @@
     </div>
     <div class="col-md-12 d-flex justify-content-center">
         <div class="row justify-content-around">
-        {% for item in types %}
-        <div class="col-md-1">
-        <a href="{% url 'tiers_by_type_detail' league_name=league_name typingofinterest=item.typing %}"><button
-                class="btn btn-primary btn-block m-1 p-0">{{ item.typing }}</button></a>
+            {% for item in types %}
+            <div class="col-md-1">
+                <a href="{% url 'tiers_by_type_detail' league_name=league_name typingofinterest=item.typing %}"><button
+                        class="btn btn-primary btn-block m-1 p-0">{{ item.typing }}</button></a>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-        </div>
+    </div>
+    <div class="col-md-12 d-flex justify-content-center">
+        <a href="{% url 'league_tiers' league_name=league_name %}"><button
+                        class="btn btn-primary m-1 p-0">Return to Regular Tiers</button></a>
     </div>
 </div>
 {% if typedetail %}
 <div class="row content-section">
     {% for item,available,points,tiername,takenby in typelist %}
-        <div class="col-md-2">
-            <a class="text-dark" href="{% url 'pokedex_item' pokemon_of_interest=item.pokemon.pokemon %}">
+    <div class="col-md-2">
+        <a class="text-dark" href="{% url 'pokedex_item' pokemon_of_interest=item.pokemon.pokemon %}">
             {% if available %}
-                <div class="card text-dark bg-lightgreen text-center">
-                    <div><img class="mediumsprite img-fluid" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
-                    <div class="card-body">
-                        <div>{{item.pokemon.pokemon}}</div>
-                        <div>{{tiername}}</div>
-                        <div>({{points}} points)</div>
-                        <div>Available</div>
-                    </div>
+            <div class="card text-dark bg-lightgreen text-center">
+                <div><img class="mediumsprite img-fluid"
+                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
                 </div>
+                <div class="card-body">
+                    <div>{{item.pokemon.pokemon}}</div>
+                    <div>{{tiername}}</div>
+                    <div>({{points}} points)</div>
+                    <div>Available</div>
+                </div>
+            </div>
             {% else %}
             <div class="card text-dark bg-lightred text-center">
-                    <div><img class="mediumsprite img-fluid" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
-                    <div class="card-body">
-                        <div>{{item.pokemon.pokemon}}</div>
-                        <div>{{tiername}}</div>
-                        <div>({{points}} points)</div>
-                        <div>Taken By {{takenby}}</div>
-                    </div>
+                <div><img class="mediumsprite img-fluid"
+                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
                 </div>
-            {% endif %}
-            </a>
+                <div class="card-body">
+                    <div>{{item.pokemon.pokemon}}</div>
+                    <div>{{tiername}}</div>
+                    <div>({{points}} points)</div>
+                    <div>Taken By {{takenby}}</div>
+                </div>
             </div>
+            {% endif %}
+        </a>
+    </div>
     {% endfor %}
 </div>
 {% endif %}

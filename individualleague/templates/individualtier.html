@@ -21,20 +21,26 @@
     <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-12 d-flex justify-content-center">
+        <div class="row d-flex justify-content-around m-0 p-0">
         {% if availabletiers %}
-            <a href="{% url 'available_league_tiers' league_name=league_name %}"><button class="btn btn-primary">All</button></a>
+            <div class="col-md-2 d-flex justify-content-center"><a href="{% url 'available_league_tiers' league_name=league_name %}"><button class="btn btn-primary">All</button></a></div>
             {% for item in alltiers %}
-            <a href="{% url 'available_individual_league_tier' league_name=league_name tiername=item.tiername|replace:' ,_' %}"><button
-                class="btn btn-primary">{{ item.tiername }}</button></a>
+            <div class="col-md-2 d-flex justify-content-center"><a href="{% url 'available_individual_league_tier' league_name=league_name tiername=item.tiername|replace:' ,_' %}"><button
+                class="btn btn-primary">{{ item.tiername }}</button></a></div>
             {% endfor %}
         {% else %}
-            <a href="{% url 'league_tiers' league_name=league_name %}"><button class="btn btn-primary">All</button></a>
+            <div class="col-md-2 d-flex justify-content-center"><a href="{% url 'league_tiers' league_name=league_name %}"><button class="btn btn-primary">All</button></a></div>
             {% for item in alltiers %}
-            <a href="{% url 'individual_league_tier' league_name=league_name tiername=item.tiername|replace:' ,_' %}"><button
-                    class="btn btn-primary">{{ item.tiername }}</button></a>
+            <div class="col-md-2 d-flex justify-content-center"><a href="{% url 'individual_league_tier' league_name=league_name tiername=item.tiername|replace:' ,_' %}"><button
+                    class="btn btn-primary">{{ item.tiername }}</button></a></div>
             {% endfor %}
         {% endif %}
+        </div>
     </div>
+    <div class="col-md-12 d-flex justify-content-center">
+            <a href="{% url 'tiers_by_type' league_name=league_name %}"><button
+                            class="btn btn-primary m-1 p-0">View Tiers By Type</button></a>
+        </div>
 </div>
 <div class="row content-section">
     {% for itemx,itemy in tiers %}

@@ -49,6 +49,10 @@
                 </div>
             </div>
         {% endif %}
+        <div class="col-md-12 d-flex justify-content-center">
+                <a href="{% url 'tiers_by_type' league_name=league_name %}"><button
+                                class="btn btn-primary m-1 p-0">View Tiers By Type</button></a>
+            </div>
 </div>
 <div class="row content-section">
     {% for x,y in tiers %}
