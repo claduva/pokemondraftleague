@@ -1,23 +1,23 @@
-Team 1 Coach: GothamGothitelles
+Team 1 Coach: Joey_RiverAPP
 Team 1 Roster: 
-Archeops, Kills: 0, Deaths: 1, +/-: -1
-Froslass, Kills: 0, Deaths: 0, +/-: 0
-Rotom-Heat, Kills: 2, Deaths: 0, +/-: 2
-Passimian, Kills: 1, Deaths: 0, +/-: 1
-Garbodor, Kills: 2, Deaths: 1, +/-: 1
-Slowbro-Mega, Kills: 1, Deaths: 1, +/-: 0
-Mega Evolved: True
-Used Z-Move: True
+Thundurus, Kills: 6, Deaths: 0, +/-: 6
+Goodra, Kills: 0, Deaths: 0, +/-: 0
+Necrozma, Kills: 0, Deaths: 0, +/-: 0
+Aromatisse, Kills: 0, Deaths: 0, +/-: 0
+Araquanid, Kills: 0, Deaths: 0, +/-: 0
+Scrafty, Kills: 0, Deaths: 0, +/-: 0
+Mega Evolved: False
+Used Z-Move: False
 
-Team 2 Coach: BordeauxBewears
+Team 2 Coach: LOSLOSERSHERMANOS
 Team 2 Roster: 
-Sceptile-Mega, Kills: 1, Deaths: 1, +/-: 0
-Tornadus-Therian, Kills: 0, Deaths: 1, +/-: -1
-Greninja, Kills: 1, Deaths: 1, +/-: 0
-Avalugg, Kills: 0, Deaths: 1, +/-: -1
-Bewear, Kills: 1, Deaths: 1, +/-: 0
-Heatran, Kills: 0, Deaths: 1, +/-: -1
+Charizard-Mega-Y, Kills: 0, Deaths: 1, +/-: -1
+Gothorita, Kills: 0, Deaths: 1, +/-: -1
+Mew, Kills: 0, Deaths: 1, +/-: -1
+Flaaffy, Kills: 0, Deaths: 1, +/-: -1
+Florges, Kills: 0, Deaths: 0, +/-: 0
+Vaporeon, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: True
 Used Z-Move: False
 
-Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-930113596
+Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-933721921

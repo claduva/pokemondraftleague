@@ -26,6 +26,21 @@ class schedule(models.Model):
     def __str__(self):
         return f'{self.season.league.name} Week {self.week} match between {self.team1.teamabbreviation} vs. {self.team1.teamabbreviation}'
 
+class playoff_match(models.Model):
+    season = models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
+    playoffround=models.CharField(max_length=15)
+    team1 = models.ForeignKey(coachdata,on_delete=models.CASCADE, related_name="playoffteam1")
+    team2 = models.ForeignKey(coachdata,on_delete=models.CASCADE, related_name="playoffteam2")
+    winner = models.ForeignKey(coachdata,on_delete=models.CASCADE, related_name="playoffwinner",null=True)
+    team1score = models.IntegerField(default=0)
+    team2score = models.IntegerField(default=0)
+    replay = models.CharField(max_length=100,default="Link")
+    team1usedz = models.BooleanField(default=False)
+    team2usedz = models.BooleanField(default=False)
+    team1megaevolved = models.BooleanField(default=False)
+    team2megaevolved = models.BooleanField(default=False)
+    timestamp= models.DateTimeField(auto_now=True)
+
 class rule(models.Model):
     season = models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
     rules=models.TextField(default="No rules announced")

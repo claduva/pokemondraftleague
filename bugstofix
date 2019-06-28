@@ -1,3 +1,6 @@
 Roster get's fucked when you change out coaches
-"Manage Coaches"
-Most recent matches not shown?
+Fix Manual (Exception Value:	
+unsupported operand type(s) for -: 'int' and 'list'
+Exception Location:	/app/replayanalysis/views.py in upload_league_replay_manual, line 432)
+
+Fix Amir vs Joey

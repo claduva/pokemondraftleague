@@ -709,6 +709,57 @@ def available_individual_league_tier(request,league_name,tiername):
     }
     return render(request, 'individualtier.html',context)
 
+def tiers_by_type(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    types=pokemon_type.objects.all().order_by('typing').distinct('typing')
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'types':types
+    }
+    return render(request, 'tiersbytype.html',context)
+
+def tiers_by_type_detail(request,league_name,typingofinterest):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('league_list')
+    try:
+        pokemon_type.objects.all().distinct('typing').get(typing=typingofinterest)
+    except:
+        messages.error(request,f'Type does not exist!',extra_tags='danger')
+        return redirect('tiers_by_type',league_name=league_name)
+    types=pokemon_type.objects.all().order_by('typing').distinct('typing')
+    typelist_=pokemon_type.objects.all().filter(typing=typingofinterest)
+    typelist=[]
+    for item in typelist_:
+        points=item.pokemon.pokemon_tiers.get(league=league_)
+        try:
+            rosteritem=item.pokemon.pokemonroster.get(season=league_.seasonsetting)
+            available=False
+        except:
+            available=True
+        typelist.append([item,available,points])
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'types':types,
+        'typelist':typelist,
+        'typedetail':True,
+    }
+    return render(request, 'tiersbytype.html',context)
+
 @login_required
 def freeagency(request,league_name):
     try:
