@@ -27,9 +27,12 @@ def execute_free_agency_and_trades():
     completedmatches=True
     if requestedweek >=0:
       for i in range(1,requestedweek+1):
-        matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
-        if matchofinterest.replay=="Link":
-          completedmatches=False
+        try:
+          matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
+          if matchofinterest.replay=="Link":
+            completedmatches=False
+        except:
+          print('Match not found')
     if completedmatches:
       #execute free agencies
       montoupdate=item.droppedpokemon
@@ -61,9 +64,12 @@ def execute_free_agency_and_trades():
     completedmatches=True
     if requestedweek >= 0:
       for i in range(1,requestedweek+1):
-        matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
-        if matchofinterest.replay=="Link":
-          completedmatches=False
+        try:
+          matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
+          if matchofinterest.replay=="Link":
+            completedmatches=False
+        except:
+          print('Match not found')
     if completedmatches:
       #execute trades
       droppedmon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
