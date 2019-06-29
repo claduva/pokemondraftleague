@@ -735,6 +735,7 @@ def manage_coach(request,league_name):
             context.update({
                 'coach':coach,
                 'form':form,
+                'coachform':True,
                 })
             return render(request, 'managecoach.html',context)
         elif formtype=="update":
@@ -743,6 +744,40 @@ def manage_coach(request,league_name):
                 form.save()
                 messages.success(request,f'{coach.coach} has been updated!')
                 return redirect('manage_coachs', league_name=league_name)
+        elif formtype=="Adjust Draft":
+            context.update({
+                'coach':coach,
+                'adjustdraft': True,
+                })
+            return render(request, 'managecoach.html',context)
+        elif formtype=="Adjust Roster":
+            context.update({
+                'coach':coach,
+                'adjustroster': True,
+                })
+            return render(request, 'managecoach.html',context)
+        elif formtype=="Update Draft":
+            pokemontoupdate=draft.objects.get(id=request.POST['pokemontoupdate'])
+            try:
+                pokemontoupdateto=all_pokemon.objects.get(pokemon=request.POST['pokemontoupdateto'])
+                pokemontoupdate.pokemon=pokemontoupdateto
+                pokemontoupdate.save()
+                messages.success(request,"Draft has been updated")
+            except Exception as e:
+                print(e)
+                messages.error(request,"Pokemon doesn't exist",extra_tags="danger")
+            return redirect('manage_coachs', league_name=league_name)
+        elif formtype=="Update Roster":
+            pokemontoupdate=roster.objects.get(id=request.POST['pokemontoupdate'])
+            try:
+                pokemontoupdateto=all_pokemon.objects.get(pokemon=request.POST['pokemontoupdateto'])
+                pokemontoupdate.pokemon=pokemontoupdateto
+                pokemontoupdate.save()
+                messages.success(request,"Roster has been updated")
+            except Exception as e:
+                print(e)
+                messages.error(request,"Pokemon doesn't exist",extra_tags="danger")
+            return redirect('manage_coachs', league_name=league_name)
     return redirect('manage_coachs', league_name=league_name)
 
 @login_required

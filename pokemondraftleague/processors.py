@@ -49,7 +49,7 @@ def processor(request):
     else:
         messagelist=None
         numberofmessages=0
-    allpokemonlist=all_pokemon.objects.all()
+    allpokemonlist=all_pokemon.objects.all().order_by('pokemon')
     
     return {
         'leagueshosted': leagueshosted,
