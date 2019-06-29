@@ -821,13 +821,13 @@ def freeagency(request,league_name):
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
     coach=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=request.user)|Q(teammate=request.user)).first()
-    coachroster=coach.teamroster.all().order_by('pokemon__pokemon').exclude(pokemon__isnull=True)
-    coachroster_=coachroster.exclude(pokemon__isnull=True)
+    coachrosterids=coach.teamroster.all().order_by('pokemon__pokemon').exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
+    coachroster=all_pokemon.objects.all().order_by('pokemon').filter(id__in=coachrosterids)
     bannedpokemon=pokemon_tier.objects.all().filter(league=league_).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
     takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
     availablepokemon=all_pokemon.objects.all().order_by('pokemon').exclude(id__in=takenpokemon).exclude(id__in=bannedpokemon)
     if request.method=="POST":
-        form=FreeAgencyForm(coachroster_,availablepokemon,request.POST)
+        form=FreeAgencyForm(coachroster,availablepokemon,request.POST)
         if form.is_valid(): 
             form.save()
             messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')

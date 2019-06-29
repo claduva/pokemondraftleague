@@ -25,7 +25,11 @@
         <h5 class="text-center">{{week.week}}</h5>
         {% endwith %}
         {% else %}
-        <h5>Week {{ forloop.counter }}</h5>
+        {% with item|first as week %}
+        {% if week %}
+        <h5 class="text-center">Week {{week.week}}</h5>
+        {% endif %}
+        {% endwith %}
         {% endif %}
         <table class="table table-sm">
             {% for match in item %}
