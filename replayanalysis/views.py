@@ -68,6 +68,7 @@ def upload_league_replay(request,league_name,matchid):
             try:
                 coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
                 coach2team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
+                print(coach2alt)
             except:
                 messages.error(request,f'A matching showdown alt for {coach2} was not found!',extra_tags='danger')
                 return redirect('league_schedule',league_name=league_name)

@@ -21,7 +21,7 @@ class profile(models.Model):
         return f'{self.user.username} Profile'
 
 class showdownalts(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name="showdownalts")
     showdownalt = models.CharField(max_length=30)
 
     def __str__(self):

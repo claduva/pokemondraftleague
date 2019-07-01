@@ -1,23 +1,23 @@
-Team 1 Coach: Joey_RiverAPP
+Team 1 Coach: Luxanse
 Team 1 Roster: 
-Thundurus, Kills: 6, Deaths: 0, +/-: 6
-Goodra, Kills: 0, Deaths: 0, +/-: 0
-Necrozma, Kills: 0, Deaths: 0, +/-: 0
-Aromatisse, Kills: 0, Deaths: 0, +/-: 0
-Araquanid, Kills: 0, Deaths: 0, +/-: 0
-Scrafty, Kills: 0, Deaths: 0, +/-: 0
-Mega Evolved: False
-Used Z-Move: False
-
-Team 2 Coach: LOSLOSERSHERMANOS
-Team 2 Roster: 
-Charizard-Mega-Y, Kills: 0, Deaths: 1, +/-: -1
-Gothorita, Kills: 0, Deaths: 1, +/-: -1
-Mew, Kills: 0, Deaths: 1, +/-: -1
-Flaaffy, Kills: 0, Deaths: 1, +/-: -1
-Florges, Kills: 0, Deaths: 0, +/-: 0
-Vaporeon, Kills: 0, Deaths: 1, +/-: -1
+Kangaskhan-Mega, Kills: 0, Deaths: 1, +/-: -1
+Reuniclus, Kills: 1, Deaths: 1, +/-: 0
+Thundurus, Kills: 0, Deaths: 1, +/-: -1
+Weavile, Kills: 1, Deaths: 1, +/-: 0
+Dhelmise, Kills: 0, Deaths: 1, +/-: -1
+Dragalge, Kills: 2, Deaths: 1, +/-: 1
 Mega Evolved: True
 Used Z-Move: False
 
-Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-933721921
+Team 2 Coach: PragmaticWin
+Team 2 Roster: 
+Tangrowth, Kills: 2, Deaths: 0, +/-: 2
+Heatran, Kills: 0, Deaths: 1, +/-: -1
+Landorus-Therian, Kills: 1, Deaths: 1, +/-: 0
+Heliolisk, Kills: 1, Deaths: 0, +/-: 1
+Vaporeon, Kills: 1, Deaths: 1, +/-: 0
+Alakazam-Mega, Kills: 1, Deaths: 1, +/-: 0
+Mega Evolved: True
+Used Z-Move: True
+
+Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-937055189
