@@ -17,6 +17,7 @@ from .forms import *
 from .models import *
 from pokemondatabase.models import *
 from individualleague.models import *
+from accounts.models import *
 
 def league_detail(request,league_name):
     try:
@@ -777,6 +778,32 @@ def manage_coach(request,league_name):
             except Exception as e:
                 print(e)
                 messages.error(request,"Pokemon doesn't exist",extra_tags="danger")
+            return redirect('manage_coachs', league_name=league_name)
+        elif formtype=="Adjust Record":
+            context.update({
+                'form': UpdateCoachRecordForm(instance=coach),
+                'coach':coach,
+                'adjustrecord': True,
+                })
+            return render(request, 'managecoach.html',context)
+        elif formtype=="updatecoachdata":
+            form=UpdateCoachRecordForm(request.POST,instance=coach)
+            if form.is_valid():
+                form.save()
+                messages.success(request,f'{coach.coach} has been updated!')
+                return redirect('manage_coachs', league_name=league_name)
+            return redirect('manage_coachs', league_name=league_name)
+        elif formtype=="Add Showdown Alt":
+            alts=showdownalts.objects.all().filter(user=coach.coach)
+            context.update({
+                'alts':alts,
+                'coach':coach,
+                'addalt': True,
+                })
+            return render(request, 'managecoach.html',context)
+        elif formtype=="addalt":
+            showdownalts.objects.create(user=coach.coach,showdownalt=request.POST['givenalt'])
+            messages.success(request,f'{coach.coach} has been updated!')
             return redirect('manage_coachs', league_name=league_name)
     return redirect('manage_coachs', league_name=league_name)
 

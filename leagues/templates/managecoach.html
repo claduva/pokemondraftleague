@@ -21,7 +21,16 @@
         <div class="row content-section">
             <div class="col-12 d-flex justify-content-between">
                 <h4>Manage {{coach.coach}}</h4>
+                <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                        <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Add Showdown Alt">
+                </form>
                 <div class="d-flex">
+                <form method="post">{% csrf_token %}
+                    <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                    <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Adjust Record">
+                </form>
                 <form method="post">{% csrf_token %}
                         <input type="text" value="{{ coach.id }}" name="coach" hidden>
                         <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Adjust Draft">
@@ -70,6 +79,26 @@
                         <input name="pokemontoupdateto" list="allpokemon" value="{{item.pokemon.pokemon}}">
                         <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Update Roster">
                     </form>
+                {% endfor %}
+                {% elif adjustrecord %}
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy  }}
+                    <input type="text" value="updatecoachdata" name="formtype" hidden>
+                    <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                    <input type="submit" class="btn btn-primary" value="Update">
+                </form>
+                {% elif addalt %}
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" name="givenalt">
+                    <input type="text" value="addalt" name="formtype" hidden>
+                    <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                    <input type="submit" class="btn btn-primary" value="Add Alt">
+                </form>
+                <h5>Existing Alts</h5>
+                {% for item in alts %}
+                <div>-{{ item.showdownalt }}</div>
                 {% endfor %}
                 {% endif %}
             </div>

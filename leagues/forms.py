@@ -60,6 +60,12 @@ class UpdateCoachInfoForm(forms.ModelForm):
         model = coachdata
         fields = ['logo','teamabbreviation','teamname']
 
+class UpdateCoachRecordForm(forms.ModelForm):
+
+    class Meta:
+        model = coachdata
+        fields = ['wins','losses','differential','streak','forfeit']
+
 class UpdateCoachTeammateForm(forms.ModelForm):
     teammate = forms.ModelChoiceField(queryset=User.objects.all(), required=False)
 
