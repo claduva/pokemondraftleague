@@ -102,7 +102,7 @@ def league_detail(request,league_name):
                         parent_team.points+=1
                 parent_team.save()
         parent_teams=[]
-        parent_team_list=league_team.objects.all().filter(league=league_).order_by('-points','-gw','-differential')
+        parent_team_list=parent_team_list.order_by('-points','-gw','-differential')
         for parent_team in parent_team_list:            
             parent_teams.append([parent_team,parent_team.child_teams.all().order_by('-wins','losses','-differential')])
 
@@ -214,6 +214,45 @@ def individual_league_settings(request,league_name):
         'addleagueteam': addleagueteam,
     }
     return render(request, 'settings.html',context)
+
+@login_required
+def discordsettings(request,league_name):
+    try:
+        league_instance=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user != league_instance.host:
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    try:
+        discordinstance=discord_settings.objects.get(league=league_instance)
+        form=DiscordSettingsForm(instance=discordinstance)
+        if request.method=='POST':
+            form=DiscordSettingsForm(request.POST,instance=discordinstance)
+            if form.is_valid():
+                form.save()
+                messages.success(request,league_name+' has been updated!')
+            else:
+                messages.error(request,'Form invalid!')
+            return redirect('individual_league_settings',league_name=league_name)
+    except Exception as e:
+        print(e)
+        form=DiscordSettingsForm(initial={'league':league_instance})
+        if request.method=='POST':
+            form=DiscordSettingsForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request,league_name+' has been updated!')
+            else:
+                messages.error(request,'Form invalid!')
+            return redirect('individual_league_settings',league_name=league_name)
+    context = {
+        'settingheading': f'{league_name} Discord Settings',
+        'forms': [form],
+        'leagueshostedsettings': True,
+    }
+    return render(request, 'formsettings.html',context)
 
 @login_required
 def delete_league(request,league_name):

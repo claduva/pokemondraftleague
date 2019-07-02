@@ -31,4 +31,5 @@ urlpatterns = [
     path("settings/league/<str:league_name>/conferenceanddivisionnames/deletedivision", views.delete_conference, name="delete_division"),
     path("settings/league/<str:league_name>/addteamofcoachs", views.add_team_of_coachs, name="add_team_of_coachs"),
     path("settings/league/<str:league_name>/deleteleague/", views.delete_league, name="delete_league"),
+    path("settings/league/<str:league_name>/discord_settings/", views.discordsettings, name="discord_settings"),
 ]

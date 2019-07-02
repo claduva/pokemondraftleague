@@ -1,0 +1,34 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Settings{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="content-section">
+            <div class="d-flex justify-content-between">
+                <h3>Settings</h3>
+                {% if leagueshostedsettings %}
+                <a href="{% url 'leagues_hosted_settings' %}"><button class="btn btn-primary">Back</button></a>
+                {% endif %}
+            </div>
+            {% include 'settingssidebar.html' %}
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="content-section">
+            <h3>{{settingheading}}</h3>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for form in forms %}
+                {{ form|crispy  }}
+                {% endfor %}
+                <input class="btn btn-primary" type='submit' value='Submit'>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -140,4 +140,10 @@ class AddTeamOfCoachsForm(forms.ModelForm):
         model=league_team
         exclude=[]
         widgets = {'league': forms.HiddenInput()}
+
+class DiscordSettingsForm(forms.ModelForm):
     
+    class Meta:
+        model=discord_settings
+        exclude=[]
+        widgets = {'league': forms.HiddenInput()}
