@@ -1,51 +1,58 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static 'main/images/pdllogo.png' %}" width="80"
       height="48" alt=""></a>
-  <div class="navbar-nav">
-    {% if not leaguepage %}
-    <a class="nav-item nav-link" href="{% url 'league_list' %}">Leagues</a>
-    {% else %}
-    <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name %}">{{ league_name }} Home</a>
-    <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">Team Pages</a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        {% for team in league_teams %}
-        <a class="dropdown-item"
-          href="{% url 'team_page' league_name=league_name team_abbreviation=team.teamabbreviation %}">{{ team.teamname }}</a>
-        {% endfor %}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <div class="navbar-nav">
+      {% if not leaguepage %}
+      <a class="nav-item nav-link" href="{% url 'league_list' %}">Leagues</a>
+      {% else %}
+      <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name %}">{{ league_name }} Home</a>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Team Pages</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {% for team in league_teams %}
+          <a class="dropdown-item"
+            href="{% url 'team_page' league_name=league_name team_abbreviation=team.teamabbreviation %}">{{ team.teamname }}</a>
+          {% endfor %}
+        </div>
       </div>
-    </div>
-    <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">League Resources</a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="{% url 'league_schedule' league_name=league_name %}">Schedule</a>
-        <a class="dropdown-item" href="{% url 'league_playoffs' league_name=league_name %}">Playoffs</a>
-        <a class="dropdown-item" href="{% url 'league_tiers' league_name=league_name %}">Tiers</a>
-        <a class="dropdown-item" href="{% url 'available_league_tiers' league_name=league_name %}">Available Pokemon</a>
-        <a class="dropdown-item" href="{% url 'league_draft' league_name=league_name %}">Draft</a>
-        <a class="dropdown-item" href="{% url 'free_agency' league_name=league_name %}">Free Agency</a>
-        <a class="dropdown-item" href="{% url 'trading' league_name=league_name %}">Trading</a>
-        <a class="dropdown-item" href="{% url 'league_leaders' league_name=league_name %}">League Leaders</a>
-        <a class="dropdown-item" href="{% url 'league_rules' league_name=league_name %}">Rules</a>
-        <a class="dropdown-item" href="{% url 'league_hall_of_fame' league_name=league_name %}">Hall of Fame</a>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">League Resources</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'league_schedule' league_name=league_name %}">Schedule</a>
+          <a class="dropdown-item" href="{% url 'league_playoffs' league_name=league_name %}">Playoffs</a>
+          <a class="dropdown-item" href="{% url 'league_tiers' league_name=league_name %}">Tiers</a>
+          <a class="dropdown-item" href="{% url 'available_league_tiers' league_name=league_name %}">Available
+            Pokemon</a>
+          <a class="dropdown-item" href="{% url 'league_draft' league_name=league_name %}">Draft</a>
+          <a class="dropdown-item" href="{% url 'free_agency' league_name=league_name %}">Free Agency</a>
+          <a class="dropdown-item" href="{% url 'trading' league_name=league_name %}">Trading</a>
+          <a class="dropdown-item" href="{% url 'league_leaders' league_name=league_name %}">League Leaders</a>
+          <a class="dropdown-item" href="{% url 'league_rules' league_name=league_name %}">Rules</a>
+          <a class="dropdown-item" href="{% url 'league_hall_of_fame' league_name=league_name %}">Hall of Fame</a>
+        </div>
       </div>
-    </div>
-    {% endif %}
-    <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">Tools</a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      {% endif %}
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Tools</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="{% url 'pokedex' %}">Pokedex</a>
-        <a class="dropdown-item" href="{% url 'replay_analysis' %}">Replay Analyzer</a>
+          <a class="dropdown-item" href="{% url 'replay_analysis' %}">Replay Analyzer</a>
+        </div>
       </div>
+      <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
     </div>
-    <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
-  </div>
-  <!-- Navbar Right Side -->
+  
+    <!-- Navbar Right Side -->
   <div class="navbar-nav ml-auto">
     {% if user.is_authenticated %}
     <div class="nav-item dropdown">
@@ -78,4 +85,5 @@
     <a class="nav-item nav-link" href="{% url 'signup' %}">Register</a>
     {% endif %}
   </div>
+</div>
 </nav>
