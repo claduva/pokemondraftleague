@@ -45,14 +45,18 @@
                                 <div class="d-flex justify-content-center">
                                     <img class="card-img-top smallsprite"
                                         src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ x.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                                    
+
                                 </div>
                                 <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
                             </div>
                             {% if x.zuser == 'OS' %}
-                                <div><img class="smallsprite" src="http://cdn3.bulbagarden.net/uploads/rich/rich_file/rich_file_file_name/40/normal_Z-Crystal_artwork.png">(Offensive & Status)</div>
-                            {% elif x.zuser == 'O' %}    
-                                <div><img class="smallsprite" src="http://cdn3.bulbagarden.net/uploads/rich/rich_file/rich_file_file_name/40/normal_Z-Crystal_artwork.png">(Offensive)</div>
+                            <div><img class="smallsprite"
+                                    src="http://cdn3.bulbagarden.net/uploads/rich/rich_file/rich_file_file_name/40/normal_Z-Crystal_artwork.png">(Offensive
+                                & Status)</div>
+                            {% elif x.zuser == 'O' %}
+                            <div><img class="smallsprite"
+                                    src="http://cdn3.bulbagarden.net/uploads/rich/rich_file/rich_file_file_name/40/normal_Z-Crystal_artwork.png">(Offensive)
+                            </div>
                             {% endif %}
                         </div>
                     </td>
@@ -103,7 +107,8 @@
                     <td>
                         <div>
                             {% for item in y %}
-                            <div><img src="https://play.pokemonshowdown.com/sprites/types/{{item.typing|cut:' '}}.png"></div>
+                            <div><img src="https://play.pokemonshowdown.com/sprites/types/{{item.typing|cut:' '}}.png">
+                            </div>
                             {% endfor %}
                         </div>
                     </td>
@@ -198,12 +203,23 @@
                 {% for x,y,z,speed in team2roster %}
                 <tr>
                     <td>
-                        <div>
-                            <div class="d-flex justify-content-center">
-                                <img class="card-img-top smallsprite"
-                                    src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ x.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                        <div class="d-flex justify-content-center">
+                            <div>
+                                <div class="d-flex justify-content-center">
+                                    <img class="card-img-top smallsprite"
+                                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ x.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                </div>
+                                <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
                             </div>
-                            <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
+                            {% if x.zuser == 'OS' %}
+                            <div><img class="smallsprite"
+                                    src="http://cdn3.bulbagarden.net/uploads/rich/rich_file/rich_file_file_name/40/normal_Z-Crystal_artwork.png">(Offensive
+                                & Status)</div>
+                            {% elif x.zuser == 'O' %}
+                            <div><img class="smallsprite"
+                                    src="http://cdn3.bulbagarden.net/uploads/rich/rich_file/rich_file_file_name/40/normal_Z-Crystal_artwork.png">(Offensive)
+                            </div>
+                            {% endif %}
                         </div>
                     </td>
                     <td>{{ x.kills }}</td>
@@ -253,7 +269,8 @@
                     <td>
                         <div>
                             {% for item in y %}
-                            <div><img src="https://play.pokemonshowdown.com/sprites/types/{{item.typing|cut:' '}}.png"></div>
+                            <div><img src="https://play.pokemonshowdown.com/sprites/types/{{item.typing|cut:' '}}.png">
+                            </div>
                             {% endfor %}
                         </div>
                     </td>
