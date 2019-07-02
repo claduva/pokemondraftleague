@@ -9,7 +9,7 @@ from enum import Enum
 from leagues.models import *
 
 class schedule(models.Model):
-    season = models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
+    season = models.ForeignKey(seasonsetting,on_delete=models.CASCADE,related_name="schedule")
     week=models.CharField(max_length=30)
     team1 = models.ForeignKey(coachdata,on_delete=models.CASCADE, related_name="team1")
     team2 = models.ForeignKey(coachdata,on_delete=models.CASCADE, related_name="team2")

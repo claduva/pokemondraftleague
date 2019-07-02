@@ -5,8 +5,7 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}"> 
-<link rel="stylesheet" type="text/css" href="{% static 'main/styles/index.css' %}"> 
+<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}">
 {% endblock %}
 
 {% block body %}
@@ -35,56 +34,59 @@
                 <a href="{% url 'create_league' %}"><button class="btn btn-info">Create A League</button></a>
             </div>
         </div>
-    {% else %}
-    <div class="col-md-6">
+        {% else %}
+        <div class="col-md-6">
             <div class="d-flex justify-content-center ">
-                <img src="{% static 'main/images/pokeball.png' %}" alt="">
+                <div class="mb-3"><img class="img-fluid" src="{% static 'main/images/pokeball.png' %}" alt=""></div>
             </div>
         </div>
         <div class="col-md-6">
-        <form action="{% url 'signup' %}" method="post">
-            <h2>Sign Up For Free</h2>
-            {% csrf_token %}
-            {{ form|crispy  }}
-            <button type="submit">Sign up</button>
-            <div>Already have an account? <a href="{% url 'login' %}">Sign In</a></div>
-        </form>
-    {% endif %}
+            <form action="{% url 'signup' %}" method="post">
+                <h2>Sign Up For Free</h2>
+                {% csrf_token %}
+                {{ form|crispy  }}
+                <button type="submit">Sign up</button>
+                <div>Already have an account? <a class="text-light" href="{% url 'login' %}">Sign In</a></div>
+            </form>
+        </div>
+        {% endif %}
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12 content-section">
-        <h1>Leagues</h1>
+<div class="row ">
+    <div class="col-md-12 bg-darkgrey rounded">
+        <h1 class="text-light">Leagues</h1>
         <div class="row justify-content-around">
-                {% if allleagues %}
-                {% for item in allleagues %}
-                <div class="col-md-2 m-0 p-0">
-                    <div class="card h-100">
-                    <a href="leagues/{{ item.name }}">
-                        <div class="d-flex justify-content-center">
-                            <img src="{{ item.logo.url }}" class="img-fluid rounded-circle mediumlogo m-1">
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <h6 class="text-center">{{ item.name }}</h6>
-                        </div>
-                    </a>
-                    <div class="d-flex justify-content-center">Hosted By:</div>
-                    <div class="d-flex justify-content-center">{{item.host}}</div>
-                    {% if item.league_settings.discordurl is not 'Not Provided' %}
-                        <a href="{{ item.league_settings.discordurl }}"><div class="d-flex justify-content-center">Join the Discord</div></a>
-                    {% endif %}
-                    {% if item.league_settings.is_recruiting %}
+            {% if allleagues %}
+            {% for item in allleagues %}
+            <div class="col-md-2 mb-2 p-0">
+                <div class="m-1 card h-100">
+                        <a class="text-dark" href="leagues/{{ item.name }}">
+                            <div class="d-flex justify-content-center">
+                                <img src="{{ item.logo.url }}" class="img-fluid rounded-circle mediumlogo m-1">
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <h6 class="text-center">{{ item.name }}</h6>
+                            </div>
+                        </a>
+                        <div class="d-flex justify-content-center">Hosted By:</div>
+                        <div class="d-flex justify-content-center">{{item.host}}</div>
+                        {% if item.settings.discordurl != 'Not Provided' %}
+                        <a class="text-dark" href="{{ item.league_settings.discordurl }}">
+                            <div class="d-flex justify-content-center">Join the Discord</div>
+                        </a>
+                        {% endif %}
+                        {% if item.settings.is_recruiting %}
                         <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
-                    {% else  %}
+                        {% else  %}
                         <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
-                    {% endif %}
+                        {% endif %}
                     </div>
-                </div>
-                {% endfor %}
-                {% else %}
-                <div>None</div>
-                {% endif %}
             </div>
+            {% endfor %}
+            {% else %}
+            <div>None</div>
+            {% endif %}
+        </div>
     </div>
 </div>
 {% endblock %}

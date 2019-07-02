@@ -15,6 +15,7 @@ import math
 
 from .forms import *
 from .models import *
+from leagues.models import league_team
 from pokemondatabase.models import *
 from individualleague.models import *
 from accounts.models import *
@@ -64,14 +65,47 @@ def league_detail(request,league_name):
         timercurrentweek=None
         seasonstart=None
     if settings.teambased:
-        parent_team_list=[]
+        parent_team_list=league_team.objects.all().filter(league=league_)
+        allmatches=season.schedule.all()
+        numberofweeks=season.seasonlength
+        for i in range(numberofweeks):
+            weekmatches=allmatches.filter(week=i+1)
+            incompletematches=weekmatches.filter(replay='Link').count()
+            for parent_team in parent_team_list:
+                leaguematches=0
+                leaguewins=0
+                if i==0:
+                    parent_team.wins=0;parent_team.losses=0;parent_team.ties=0;parent_team.gp=0;parent_team.gw=0;parent_team.points=0;parent_team.differential=0
+                for coach in parent_team.child_teams.all():
+                    try:
+                        coachmatch=weekmatches.get(Q(team1=coach)|Q(team2=coach))
+                        if coachmatch.replay != "Link":
+                            parent_team.gp+=1
+                            if coach==coachmatch.winner:
+                                parent_team.gw+=1
+                                parent_team.differential+=abs(coachmatch.team1score-coachmatch.team2score)
+                                leaguewins+=1
+                            else:
+                                parent_team.differential+=0-abs(coachmatch.team1score-coachmatch.team2score)
+                            leaguematches+=1
+                    except:
+                        nomatch=True
+                if leaguematches>0 and incompletematches==0:
+                    winpercent=leaguewins/leaguematches
+                    if winpercent>0.5:
+                        parent_team.wins+=1
+                        parent_team.points+=3
+                    elif winpercent<0.5:
+                        parent_team.losses+=1  
+                    else:
+                        parent_team.ties+=1 
+                        parent_team.points+=1
+                parent_team.save()
         parent_teams=[]
-        coachs=coachdata.objects.all().filter(league_name=league_).order_by('parent_team__name')
-        for item in coachs:
-            if item.parent_team not in parent_team_list:
-                parent_team_list.append(item.parent_team)
-        for item in parent_team_list:
-            parent_teams.append([item,coachs.filter(parent_team=item)])
+        parent_team_list=league_team.objects.all().filter(league=league_).order_by('-points','-gw','-differential')
+        for parent_team in parent_team_list:            
+            parent_teams.append([parent_team,parent_team.child_teams.all().order_by('-wins','losses','-differential')])
+
         context = {
         'league': league_,
         'apply': apply,

@@ -83,7 +83,7 @@ class coachdata(models.Model):
     teamabbreviation = models.CharField(max_length=3, default="TBD")
     teamname = models.CharField(max_length=100, default="To Be Determined")
     teammate = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,related_name='teammate')
-    parent_team = models.ForeignKey(league_team, on_delete=models.SET_NULL, null=True)
+    parent_team = models.ForeignKey(league_team, on_delete=models.SET_NULL, null=True,related_name="child_teams")
     conference = models.ForeignKey(conference_name, on_delete=models.SET_NULL, null=True)
     division = models.ForeignKey(division_name, on_delete=models.SET_NULL, null=True)
     wins = models.IntegerField(default=0)
