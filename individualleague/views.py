@@ -396,6 +396,17 @@ def league_schedule(request,league_name):
         team1.save()
         team2.save()
         matchtoupdate.save()
+        league_=matchtoupdate.season.league
+        discordserver=league_.settings.discordserver
+        discordchannel=league_.discord_settings.replaychannel
+        title=f"Week: {matchtoupdate.week}. {matchtoupdate.team1.teamname} vs {matchtoupdate.team2.teamname}: {matchtoupdate.replay}."
+        replay_announcements.objects.create(
+            league = discordserver,
+            league_name = league_.name,
+            text = title,
+            replaychannel = discordchannel
+        )
+        print('here')
     leagueschedule=[]
     numberofweeks=season.seasonlength
     for i in range(numberofweeks):

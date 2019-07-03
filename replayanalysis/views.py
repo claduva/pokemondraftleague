@@ -283,15 +283,7 @@ def confirm_league_replay(request,league_name,matchid):
             league_=match.season.league
             discordserver=league_.settings.discordserver
             discordchannel=league_.discord_settings.replaychannel
-            request_league=seasonsetting.objects.get(league=league_)
-            league_start=request_league.seasonstart
-            elapsed=offered_.timeadded-league_start
-            weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)
-            if weekrequested>0:
-                weekeffective=weekrequested+1
-            else:
-                weekeffective=1
-            title=f"Week: {match.week}\n{match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
+            title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
             replay_announcements.objects.create(
                 league = discordserver,
                 league_name = league_.name,
@@ -497,17 +489,7 @@ def upload_league_replay_manual(request,league_name,matchid):
             t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
             messages.success(request,"Match has been saved!")
             league_=match.season.league
-            discordserver=league_.settings.discordserver
-            discordchannel=league_.discord_settings.replaychannel
-            request_league=seasonsetting.objects.get(league=league_)
-            league_start=request_league.seasonstart
-            elapsed=offered_.timeadded-league_start
-            weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)
-            if weekrequested>0:
-                weekeffective=weekrequested+1
-            else:
-                weekeffective=1
-            title=f"Week: {match.week}\n{match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
+            title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
             replay_announcements.objects.create(
                 league = discordserver,
                 league_name = league_.name,
