@@ -11,6 +11,7 @@ import time
 
 from accounts.forms import UserRegisterForm
 from .models import *
+from accounts.models import *
 from leagues.models import *
 from individualleague.models import *
 
@@ -46,3 +47,39 @@ def custom404(request,exception):
 
 def custom500(request,exception):
     return  render(request,"500.html")
+
+def about(request):
+    return  render(request,"about.html")
+
+def pokemonleaderboard(request):
+    leaderboard=all_pokemon.objects.all().order_by('pokemon')
+    for item in leaderboard:
+        rosterson=item.pokemonroster.all()
+        for team in rosterson:
+            item.kills+=team.kills
+            item.deaths+=team.deaths
+            item.differential+=team.differential
+            item.gp+=team.gp
+            item.gw+=team.gw
+    #leaderboard=leaderboard.filter(gp__gt=0).order_by('-kills','-differential','gp','gw')
+    context = {
+        "title": "Pokemon Leaderboard",
+        "leaderboard": leaderboard
+    }
+    return  render(request,"pokemonleaderboard.html",context)
+
+def userleaderboard(request):
+    leaderboard=profile.objects.all().order_by('user__username')
+    for item in leaderboard:
+        teamscoaching=coachdata.objects.all().filter(Q(coach=item.user)|Q(teammate=item.user))
+        for team in teamscoaching:
+            item.wins+=team.wins
+            item.losses+=team.losses
+            item.differential+=team.differential
+            item.seasonsplayed+=1
+    #leaderboard=leaderboard.order_by('-wins','-differential','losses','seasonsplayed')#.filter(Q(wins__gt=0)|Q(losses__gt=0))
+    context = {
+        "title": "User Leaderboard",
+        "leaderboard": leaderboard
+    }
+    return  render(request,"userleaderboard.html",context)

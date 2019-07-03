@@ -16,6 +16,7 @@ class profile(models.Model):
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0)
     differential = models.IntegerField(default=0)
+    seasonsplayed = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.user.username} Profile'

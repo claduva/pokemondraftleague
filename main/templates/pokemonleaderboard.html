@@ -1,0 +1,60 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{title}}{% endblock %}
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/leagueleaders.css' %}">
+{% endblock %}
+{% block body %}
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}" class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">Pokemon Leaderboard</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}" class="rounded-circle mediumlogo">
+    </div>
+</div>
+<div class="row content-section">
+    <div class="col-12">
+        <table class="table table-sm sortable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Pokemon</th>
+                    <th>K</th>
+                    <th>D</th>
+                    <th>+/-</th>
+                    <th>GP</th>
+                    <th>GW</th>
+                </tr>
+            </thead>
+            <tbody class="bg-lightgrey text-dark">
+                {% for item in leaderboard %}
+                    <tr>
+                        <td>
+                            <div class="d-flex">
+                                <div>
+                                    <img class="smallsprite" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                </div>
+                                <div>
+                                    {{ item.pokemon }}
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ item.kills }}</td>
+                        <td>{{ item.deaths }}</td>
+                        <td>{{ item.differential }}</td>
+                        <td>{{ item.gp }}</td>
+                        <td>{{ item.gw }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+{% endblock %}
