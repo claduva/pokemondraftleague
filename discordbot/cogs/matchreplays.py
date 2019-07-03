@@ -27,7 +27,7 @@ class Matchreplays(commands.Cog):
                             for channel in item.channels:
                                 if channel.name==record[4]:
                                     try:
-                                        embed=discord.Embed(title=record[3],url=f'{record[3].split(': ')[2].split('.')[0]}',colour=discord.Colour.blue())
+                                        embed=discord.Embed(title=record[3],url=f"{record[3].split(': ')[2].split('.')[0]}",colour=discord.Colour.blue())
                                     except:
                                         embed=discord.Embed(title=record[3],colour=discord.Colour.blue())
                                     embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
