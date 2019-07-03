@@ -73,7 +73,7 @@ def pokemonadminhome(request):
                 'matchinform':matchtoupdate.id,
             })
         elif request.POST['purpose']=="updatematchsubmit":
-            rostertoupdate=roster.objects.get(id=request.POST['matchtoupdate'])
+            matchtoupdate=schedule.objects.get(id=request.POST['matchtoupdate'])
             form=UpdateMatchForm(request.POST,instance=matchtoupdate)
             if form.is_valid():
                 form.save()
