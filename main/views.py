@@ -52,8 +52,8 @@ def about(request):
     return  render(request,"about.html")
 
 def pokemonleaderboard(request):
-    leaderboard=all_pokemon.objects.all().order_by('pokemon')
-    for item in leaderboard:
+    leaderboard_=all_pokemon.objects.all().order_by('pokemon')
+    for item in leaderboard_:
         rosterson=item.pokemonroster.all()
         for team in rosterson:
             item.kills+=team.kills
@@ -61,7 +61,10 @@ def pokemonleaderboard(request):
             item.differential+=team.differential
             item.gp+=team.gp
             item.gw+=team.gw
-    #leaderboard=leaderboard.filter(gp__gt=0).order_by('-kills','-differential','gp','gw')
+    leaderboard=sorted(leaderboard_, 
+                        key=lambda instance: instance.kills, 
+                        reverse=True)
+    #leaderboard.filter(gp__gt=0).order_by('-kills','-differential','gp','gw')
     context = {
         "title": "Pokemon Leaderboard",
         "leaderboard": leaderboard
@@ -69,15 +72,18 @@ def pokemonleaderboard(request):
     return  render(request,"pokemonleaderboard.html",context)
 
 def userleaderboard(request):
-    leaderboard=profile.objects.all().order_by('user__username')
-    for item in leaderboard:
+    leaderboard_=profile.objects.all()
+    for item in leaderboard_:
         teamscoaching=coachdata.objects.all().filter(Q(coach=item.user)|Q(teammate=item.user))
         for team in teamscoaching:
             item.wins+=team.wins
             item.losses+=team.losses
             item.differential+=team.differential
             item.seasonsplayed+=1
-    #leaderboard=leaderboard.order_by('-wins','-differential','losses','seasonsplayed')#.filter(Q(wins__gt=0)|Q(losses__gt=0))
+    leaderboard=sorted(leaderboard_, 
+                        key=lambda instance: instance.wins, 
+                        reverse=True)
+    #leaderboard.filter(Q(wins__gt=0)|Q(losses__gt=0)).order_by('-wins','-differential','losses','seasonsplayed')
     context = {
         "title": "User Leaderboard",
         "leaderboard": leaderboard
