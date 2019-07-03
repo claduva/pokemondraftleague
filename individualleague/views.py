@@ -347,79 +347,87 @@ def league_schedule(request,league_name):
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
-    if request.method=="POST":
-        matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
-        team1=matchtoupdate.team1
-        team2=matchtoupdate.team2
-        if request.POST['purpose']=="t1ff":
-            matchtoupdate.replay=f'{team1.teamabbreviation} Forfeits'
-            team1.losses+=1; team2.wins+=1
-            team1.differential+=(-6); team2.differential+=3
-            team1.forfeit+=1
-            if team1.streak>-1:
-                team1.streak=-1
-            else:
-                team1.streak+=(-1)
-            if team2.streak>-1:
-                team2.streak+=1
-            else:
-                team2.streak=1
-            messages.success(request,'Match has been forfeited by Team 1!')
-        if request.POST['purpose']=="t2ff":
-            matchtoupdate.replay=f'{team2.teamabbreviation} Forfeits'
-            team1.wins+=1; team2.losses+=1
-            team1.differential+=3; team2.differential+=(-6)
-            team2.forfeit+=1
-            if team1.streak>-1:
-                team1.streak+=1
-            else:
-                team1.streak=1
-            if team2.streak>-1:
-                team2.streak=-1
-            else:
-                team2.streak+=(-1)
-            messages.success(request,'Match has been forfeited by Team 2!')
-        elif request.POST['purpose']=="bothff":
-            matchtoupdate.replay='Both Teams Forfeit'
-            team1.losses+=1; team2.losses+=1
-            team1.differential+=(-6); team2.differential+=(-6)
-            team1.forfeit+=1; team2.forfeit+=1
-            if team1.streak>-1:
-                team1.streak=-1
-            else:
-                team1.streak+=(-1)
-            if team2.streak>-1:
-                team2.streak=-1
-            else:
-                team2.streak+=(-1)
-            messages.success(request,'Match has been forfeited by both teams!')
-        team1.save()
-        team2.save()
-        matchtoupdate.save()
-        league_=matchtoupdate.season.league
-        discordserver=league_.settings.discordserver
-        discordchannel=league_.discord_settings.replaychannel
-        title=f"Week: {matchtoupdate.week}. {matchtoupdate.team1.teamname} vs {matchtoupdate.team2.teamname}: {matchtoupdate.replay}."
-        replay_announcements.objects.create(
-            league = discordserver,
-            league_name = league_.name,
-            text = title,
-            replaychannel = discordchannel
-        )
-        print('here')
     leagueschedule=[]
     numberofweeks=season.seasonlength
     for i in range(numberofweeks):
         matches=schedule.objects.all().filter(week=str(i+1),season=season).order_by('id')
         leagueschedule.append(matches)
     ishost=(request.user==league_.host)
+    if request.method=="POST":
+        if request.POST['purpose']=="Go":
+            weekselect=request.POST['weekselect']
+            if weekselect=="All":
+                donothing=True
+            else:
+                matches=schedule.objects.all().filter(week=weekselect,season=season).order_by('id')
+                leagueschedule=[matches]
+        else:
+            matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+            team1=matchtoupdate.team1
+            team2=matchtoupdate.team2
+            if request.POST['purpose']=="t1ff":
+                matchtoupdate.replay=f'{team1.teamabbreviation} Forfeits'
+                team1.losses+=1; team2.wins+=1
+                team1.differential+=(-6); team2.differential+=3
+                team1.forfeit+=1
+                if team1.streak>-1:
+                    team1.streak=-1
+                else:
+                    team1.streak+=(-1)
+                if team2.streak>-1:
+                    team2.streak+=1
+                else:
+                    team2.streak=1
+                messages.success(request,'Match has been forfeited by Team 1!')
+            elif request.POST['purpose']=="t2ff":
+                matchtoupdate.replay=f'{team2.teamabbreviation} Forfeits'
+                team1.wins+=1; team2.losses+=1
+                team1.differential+=3; team2.differential+=(-6)
+                team2.forfeit+=1
+                if team1.streak>-1:
+                    team1.streak+=1
+                else:
+                    team1.streak=1
+                if team2.streak>-1:
+                    team2.streak=-1
+                else:
+                    team2.streak+=(-1)
+                messages.success(request,'Match has been forfeited by Team 2!')
+            elif request.POST['purpose']=="bothff":
+                matchtoupdate.replay='Both Teams Forfeit'
+                team1.losses+=1; team2.losses+=1
+                team1.differential+=(-6); team2.differential+=(-6)
+                team1.forfeit+=1; team2.forfeit+=1
+                if team1.streak>-1:
+                    team1.streak=-1
+                else:
+                    team1.streak+=(-1)
+                if team2.streak>-1:
+                    team2.streak=-1
+                else:
+                    team2.streak+=(-1)
+                messages.success(request,'Match has been forfeited by both teams!')
+            team1.save()
+            team2.save()
+            matchtoupdate.save()
+            league_=matchtoupdate.season.league
+            discordserver=league_.settings.discordserver
+            discordchannel=league_.discord_settings.replaychannel
+            title=f"Week: {matchtoupdate.week}. {matchtoupdate.team1.teamname} vs {matchtoupdate.team2.teamname}: {matchtoupdate.replay}."
+            replay_announcements.objects.create(
+                league = discordserver,
+                league_name = league_.name,
+                text = title,
+                replaychannel = discordchannel
+            )
     context = {
         'league': league_,
         'leaguepage': True,
         'league_teams': league_teams,
         'league_name': league_name,
         'leagueschedule': leagueschedule,
-        'ishost': ishost
+        'ishost': ishost,
+        'numberofweeks': range(numberofweeks)
     }
     return render(request, 'schedule.html',context)
 

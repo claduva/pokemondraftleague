@@ -13,6 +13,17 @@
     </div>
     <div class="col-md-4">
         <h3 class="d-flex justify-content-center">Schedule</h3>
+        <div class="d-flex justify-content-center">
+        <form method="post">{% csrf_token %}
+            <select name="weekselect">
+                <option value="All">All</option>
+                {% for i in numberofweeks %}
+                <option value="{{i|add:1}}">Week {{i|add:1}}</option>
+                {% endfor %}
+            </select>
+            <input name="purpose" type="submit" class="btn btn-primary btn-sm" value="Go">
+        </form>
+        </div>
     </div>
     <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
     </div>

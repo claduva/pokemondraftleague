@@ -346,9 +346,14 @@ def add_coach(request,league_name):
 def remove_coach(request,league_name):
     if request.POST:
         league_=league.objects.get(name=league_name)
-        coachtoremove=coachdata.objects.get(pk=request.POST['coach'])
-        league_application.objects.create(applicant=coachtoremove.coach,league_name=coachtoremove.league_name)
-        coachtoremove.delete()
+        try:
+            seasonsetting.objects.get(league=league_)
+            messages.error(request,'The season has already started!',extra_tags='danger')
+            return redirect('manage_coachs',league_name=league_name)
+        except:
+            coachtoremove=coachdata.objects.get(pk=request.POST['coach'])
+            #league_application.objects.create(applicant=coachtoremove.coach,league_name=coachtoremove.league_name)
+            #coachtoremove.delete()
     return redirect('manage_coachs',league_name=league_name)
 
 @login_required
@@ -806,10 +811,16 @@ def manage_coach(request,league_name):
         coach=coachdata.objects.get(id=request.POST['coach'])
         if formtype=="load":
             form=ManageCoachForm(league_,instance=coach)
+            try:
+                season=seasonsetting.objects.get(league=league_)
+                seasonnotinsession=False
+            except:
+                seasonnotinsession=True
             context.update({
                 'coach':coach,
                 'form':form,
                 'coachform':True,
+                'seasonnotinsession': seasonnotinsession,
                 })
             return render(request, 'managecoach.html',context)
         elif formtype=="update":

@@ -108,14 +108,16 @@ class ManageCoachForm(forms.ModelForm):
     
     class Meta:
         model = coachdata
-        fields = ['teamname','teamabbreviation','logo','parent_team','teammate','conference','division']
+        fields = ['coach','teamname','teamabbreviation','logo','parent_team','teammate','conference','division']
 
     def __init__(self,league, *args, **kwargs):
         super(ManageCoachForm, self).__init__(*args, **kwargs)
+        self.fields['coach'].queryset = User.objects.all().order_by('username')
         self.fields['conference'].queryset = conference_name.objects.filter(league=league).order_by('name')
         self.fields['division'].queryset = division_name.objects.filter(league=league).order_by('name')
         self.fields['division'].required = False
         self.fields['teammate'].required=False
+        self.fields['teammate'].queryset = User.objects.all().order_by('username')
         self.fields['parent_team'].queryset = league_team.objects.all().filter(league=league).order_by('name')
         self.fields['parent_team'].label_from_instance = lambda obj: obj.name
         self.fields['parent_team'].required=False

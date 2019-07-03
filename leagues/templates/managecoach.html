@@ -21,29 +21,31 @@
         <div class="row content-section">
             <div class="col-12 d-flex justify-content-between">
                 <h4>Manage {{coach.coach}}</h4>
-                <form method="POST">
+                <div class="row">
+                <form class="col-md-4" method="POST">
                         {% csrf_token %}
                         <input type="text" value="{{ coach.id }}" name="coach" hidden>
                         <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Add Showdown Alt">
                 </form>
-                <div class="d-flex">
-                <form method="post">{% csrf_token %}
+                <form class="col-md-4" method="post">{% csrf_token %}
                     <input type="text" value="{{ coach.id }}" name="coach" hidden>
                     <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Adjust Record">
                 </form>
-                <form method="post">{% csrf_token %}
+                <form class="col-md-4" method="post">{% csrf_token %}
                         <input type="text" value="{{ coach.id }}" name="coach" hidden>
                         <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Adjust Draft">
                     </form>
-                    <form method="post">{% csrf_token %}
+                    <form class="col-md-3" method="post">{% csrf_token %}
                         <input type="text" value="{{ coach.id }}" name="coach" hidden>
                         <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Adjust Roster">
                 </form>
-                <form action="{% url 'removecoach' league_name=league_name %}" method="POST">
+                {% if seasonnotinsession %}
+                <form class="col-md-4" action="{% url 'removecoach' league_name=league_name %}" method="POST">
                     {% csrf_token %}
                         <input type="text" value="{{ coach.id }}" name="coach" hidden>
                         <input name="formtype" type="submit" class="btn btn-danger buttonpadding" value="Remove Coach">
                 </form>
+                {% endif %}
                 </div>
             </div>
             <div class="col-12">
