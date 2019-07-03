@@ -63,9 +63,9 @@
                                 src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
                             <p>{{ item.pokemon.pokemon }}</p>
                             {% if item.zuser == 'OS' %}
-                                <div><img class="smallsprite" src="http://cdn3.bulbagarden.net/uploads/rich/rich_file/rich_file_file_name/40/normal_Z-Crystal_artwork.png">(Offensive & Status)</div>
+                                <div><img class="smallsprite" src="{% static 'main/images/z-crystal.png' %}">(Offensive & Status)</div>
                             {% elif item.zuser == 'O' %}    
-                                <div><img class="smallsprite" src="http://cdn3.bulbagarden.net/uploads/rich/rich_file/rich_file_file_name/40/normal_Z-Crystal_artwork.png">(Offensive)</div>
+                                <div><img class="smallsprite" src="{% static 'main/images/z-crystal.png' %}">(Offensive)</div>
                             {% endif %}
                         </div>
                         {% else %}

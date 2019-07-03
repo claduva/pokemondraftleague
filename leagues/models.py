@@ -171,7 +171,10 @@ class roster(models.Model):
         default="N")
 
     def __str__(self):
-        return f'Roster for League: {self.season.league.name}, Season: {self.season.seasonname}'
+        if self.pokemon==None:
+            return f'Roster for League: {self.season.league.name}, Season: {self.season.seasonname}. No draftpick yet'
+        else:
+            return f'Roster for League: {self.season.league.name}, Season: {self.season.seasonname}, Pokemon: {self.pokemon.pokemon}'
 
 class draft(models.Model):
     season = models.ForeignKey(seasonsetting, on_delete=models.CASCADE)

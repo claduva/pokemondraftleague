@@ -39,4 +39,15 @@
     </a>
     {% endif %}
     {% endif %}
+    {% if request.user.is_staff %}
+    {% if adminsettings %}
+    <a href="{% url 'pokemonadmin' %}">
+        <li class="list-group-item list-group-item-light active">Admin</li>
+    </a>
+    {% else %}
+    <a href="{% url 'pokemonadmin' %}">
+        <li class="list-group-item list-group-item-light">Admin</li>
+    </a>
+    {% endif %}
+    {% endif %}
 </ul>

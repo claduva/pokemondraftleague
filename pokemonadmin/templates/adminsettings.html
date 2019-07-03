@@ -1,0 +1,78 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Admin Settings{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="content-section">
+            <div class="d-flex justify-content-between">
+                <h3>Settings</h3>
+            </div>
+            {% include 'settingssidebar.html' %}
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="content-section">
+            <h3>Admin Functions</h3>
+            {% if form %}
+            <h4>{{heading}}</h4>
+            <form method="post">{% csrf_token%}
+                {{form|crispy}}
+                <input name="purpose" value="{{formvalue}}" hidden>
+                {% if pokemoninform %}
+                <input name="pokemontoupdate" value="{{pokemoninform}}" hidden>
+                {% elif rosterinform %}
+                <input name="rostertoupdate" value="{{rosterinform}}" hidden>
+                {% elif matchinform %}
+                <input name="matchtoupdate" value="{{matchinform}}" hidden>
+                {% endif %}
+                <input type="submit" class="btn btn-sm btn-primary">
+            </form>
+            {% else %}
+            <div>
+                <h4>Update Pokemon</h4>
+                <form method="post">{% csrf_token %}
+                    <select name="pokemontoupdate">
+                        {% for item in allpokemonlist %}
+                        <option value="{{ item.pokemon }}">{{ item.pokemon }}</option>
+                        {% endfor %}
+                    </select>
+                    <input name="purpose" value="updatepokemon" hidden>
+                    <input type="submit" class="btn btn-sm btn-primary">
+                </form>
+            </div>
+            <div>
+                <h4>Update Roster</h4>
+                <form method="post">{% csrf_token %}
+                    <select name="rostertoupdate">
+                        {% for item in allroster %}
+                        <option value="{{ item.id }}">[{{item.season.league.name}}]
+                            {{item.team.teamname}}:{{item.pokemon.pokemon}}</option>
+                        {% endfor %}
+                    </select>
+                    <input name="purpose" value="updateroster" hidden>
+                    <input type="submit" class="btn btn-sm btn-primary">
+                </form>
+            </div>
+            <div>
+                <h4>Update Match</h4>
+                <form method="post">{% csrf_token %}
+                    <select name="matchtoupdate">
+                        {% for item in allmatch %}
+                        <option value="{{ item.id }}">[{{item.season.league.name}}] Week {{item.week}}:
+                            {{item.team1.teamabbreviation}} vs {{item.team2.teamabbreviation}}</option>
+                        {% endfor %}
+                    </select>
+                    <input name="purpose" value="updatematch" hidden>
+                    <input type="submit" class="btn btn-sm btn-primary">
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
