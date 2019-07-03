@@ -57,11 +57,12 @@ def pokemonleaderboard(request):
     for item in leaderboard_:
         rosterson=item.pokemonroster.all()
         for team in rosterson:
-            item.kills+=team.kills
-            item.deaths+=team.deaths
-            item.differential+=team.differential
-            item.gp+=team.gp
-            item.gw+=team.gw
+            if team.season.league.name.find('Test')==-1:
+                item.kills+=team.kills
+                item.deaths+=team.deaths
+                item.differential+=team.differential
+                item.gp+=team.gp
+                item.gw+=team.gw
         if item.gp>0:
             leaderboard.append(item)
     leaderboard=sorted(leaderboard, 
@@ -79,10 +80,11 @@ def userleaderboard(request):
     for item in leaderboard_:
         teamscoaching=coachdata.objects.all().filter(Q(coach=item.user)|Q(teammate=item.user))
         for team in teamscoaching:
-            item.wins+=team.wins
-            item.losses+=team.losses
-            item.differential+=team.differential
-            item.seasonsplayed+=1
+            if team.league_name.name.find('Test')==-1:
+                item.wins+=team.wins
+                item.losses+=team.losses
+                item.differential+=team.differential
+                item.seasonsplayed+=1
         if (item.wins+item.losses)>0:
             leaderboard.append(item)
     leaderboard=sorted(leaderboard, 
