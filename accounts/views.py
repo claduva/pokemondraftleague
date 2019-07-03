@@ -170,7 +170,7 @@ def accept_trade(request,messageid):
         requested.team=offeredteam
         offered.zuser="N"
         requested.zuser="N"
-        trading.objects.create(coach=offeredteam,season=offered.season,droppedpokemon=offered.pokemon,addedpokemon=requested.pokemon)
+        offered_=trading.objects.create(coach=offeredteam,season=offered.season,droppedpokemon=offered.pokemon,addedpokemon=requested.pokemon)
         trading.objects.create(coach=requestedteam,season=requested.season,droppedpokemon=requested.pokemon,addedpokemon=offered.pokemon)
         offered.save()
         requested.save()
@@ -178,6 +178,24 @@ def accept_trade(request,messageid):
         inbox.objects.create(sender=sender,recipient=recipient,messagesubject="Trade Request Accepted",messagebody=messagebody)
         messageofinterest.traderequest.delete()   
         messages.success(request,'Trade request accepted!')
+        league_=offeredteam.league_name
+        discordserver=league_.settings.discordserver
+        discordchannel=league_.discord_settings.tradechannel
+        request_league=seasonsetting.objects.get(league=league_)
+        league_start=request_league.seasonstart
+        elapsed=offered_.timeadded-league_start
+        weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)
+        if weekrequested>0:
+            weekeffective=weekrequested+1
+        else:
+            weekeffective=1
+        title=f"The {offeredteam.teamname} have agreed to trade their {offered.pokemon.pokemon} to the {requestedteam.teamname} for their {requested.pokemon.pokemon}. Effective Week {weekeffective}."
+        trading_announcements.objects.create(
+            league = discordserver,
+            league_name = league_.name,
+            text = title,
+            tradingchannel = discordchannel
+        )
         messageofinterest.delete()
         return redirect('inbox')   
     else:

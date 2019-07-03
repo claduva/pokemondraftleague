@@ -274,23 +274,30 @@ def confirm_league_replay(request,league_name,matchid):
                     match.winner=coach1team
                 elif team2.win==1:
                     match.winner=coach2team
-            print(match.team1)
-            print(match.team1megaevolved)
-            print(match.team1usedz)
-            print(match.team1score)
-            print(match.team2)
-            print(match.team2megaevolved)
-            print(match.team2usedz)
-            print(match.team2score)
-            print(match.winner)
-           
             #save models
             coach1team.save(); coach2team.save(); t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
             t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
             match.save()
             form.save()
             messages.success(request,'Replay has been saved!')
-            #messages.success(request,'Replay analyzer is currently under maintenence! clad will take care of the replay.')
+            league_=match.season.league
+            discordserver=league_.settings.discordserver
+            discordchannel=league_.discord_settings.replaychannel
+            request_league=seasonsetting.objects.get(league=league_)
+            league_start=request_league.seasonstart
+            elapsed=offered_.timeadded-league_start
+            weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)
+            if weekrequested>0:
+                weekeffective=weekrequested+1
+            else:
+                weekeffective=1
+            title=f"Week: {match.week}\n{match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
+            replay_announcements.objects.create(
+                league = discordserver,
+                league_name = league_.name,
+                text = title,
+                replaychannel = discordchannel
+            )
             return  redirect('league_schedule',league_name=league_name)
     return  redirect('league_schedule',league_name=league_name)
 
@@ -489,6 +496,24 @@ def upload_league_replay_manual(request,league_name,matchid):
             t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
             t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
             messages.success(request,"Match has been saved!")
+            league_=match.season.league
+            discordserver=league_.settings.discordserver
+            discordchannel=league_.discord_settings.replaychannel
+            request_league=seasonsetting.objects.get(league=league_)
+            league_start=request_league.seasonstart
+            elapsed=offered_.timeadded-league_start
+            weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)
+            if weekrequested>0:
+                weekeffective=weekrequested+1
+            else:
+                weekeffective=1
+            title=f"Week: {match.week}\n{match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
+            replay_announcements.objects.create(
+                league = discordserver,
+                league_name = league_.name,
+                text = title,
+                replaychannel = discordchannel
+            )
             return redirect('league_schedule',league_name=league_name)
     form=ManualLeagueReplayForm(match,initial={'match':match})
     context={

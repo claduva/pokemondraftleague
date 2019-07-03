@@ -829,8 +829,25 @@ def freeagency(request,league_name):
     if request.method=="POST":
         form=FreeAgencyForm(coachroster,availablepokemon,request.POST)
         if form.is_valid(): 
-            form.save()
+            fadata=form.save()
             messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
+            discordserver=league_.settings.discordserver
+            discordchannel=league_.discord_settings.freeagencychannel
+            request_league=seasonsetting.objects.get(league=league_)
+            league_start=request_league.seasonstart
+            elapsed=fadata.timeadded-league_start
+            weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)
+            if weekrequested>0:
+                weekeffective=weekrequested+1
+            else:
+                weekeffective=1
+            title=f"The {fadata.coach.teamname} have used a free agency to drop {fadata.droppedpokemon.pokemon} for {fadata.addedpokemon.pokemon}. Effective Week {weekeffective}."
+            freeagency_announcements.objects.create(
+                league = discordserver,
+                league_name = league_.name,
+                text = title,
+                freeagencychannel = discordchannel
+            )
             return redirect('free_agency',league_name=league_name)
     form=FreeAgencyForm(coachroster,availablepokemon,initial={'coach':coach,'season':season})
     fa_remaining=season.freeagenciesallowed-free_agency.objects.all().filter(season=season,coach=coach).count()
@@ -888,8 +905,8 @@ def trading_view(request,league_name):
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
     coach=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).first()
-    coachroster=roster.objects.all().filter(season=season,team=coach).order_by('pokemon__pokemon')
-    availablepokemon=roster.objects.all().filter(season=season).exclude(team=coach).order_by('pokemon__pokemon')
+    coachroster=roster.objects.all().filter(season=season,team=coach,pokemon__isnull=False).order_by('pokemon__pokemon')
+    availablepokemon=roster.objects.all().filter(season=season,pokemon__isnull=False).exclude(team=coach).order_by('pokemon__pokemon')
     if request.method=="POST":
         form=TradeRequestForm(coachroster,availablepokemon,request.POST)
         if form.is_valid():
