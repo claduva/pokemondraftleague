@@ -35,18 +35,12 @@
     </div>
 </div>
 <div class="row content-section align-items-start justify-content-around">
-    {% for item in leagueschedule %}
+    {% for week,item in leagueschedule %}{% if item|length > 0 %}
     <div class="col-md-4">
         {% if playoffs %}
-        {% with item|first as week %}
-        <h5 class="text-center">{{week.week}}</h5>
-        {% endwith %}
+        <h5 class="text-center">{{week}}</h5>
         {% else %}
-        {% with item|first as week %}
-        {% if week %}
-        <h5 class="text-center">Week {{week.week}}</h5>
-        {% endif %}
-        {% endwith %}
+        <h5 class="text-center">Week {{week}}</h5>
         {% endif %}
         <table class="table table-sm">
             {% for match,pickem in item %}
@@ -159,6 +153,7 @@
             {% endfor %}
         </table>
     </div>
+    {% endif %}
     {% endfor %}
 </div>
 {% endblock %}

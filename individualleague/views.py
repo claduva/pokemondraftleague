@@ -366,15 +366,24 @@ def league_schedule(request,league_name):
                 'userpickem':userpickem,
             }
             matches.append([item,pickem])
-        leagueschedule.append(matches)
+        leagueschedule.append([str(i+1),matches])
     ishost=(request.user==league_.host)
+    context = {
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'leagueschedule': leagueschedule,
+        'ishost': ishost,
+        'numberofweeks': range(numberofweeks)
+    }
     if request.method=="POST":
         if request.POST['purpose']=="Go":
             weekselect=request.POST['weekselect']
             if weekselect=="All":
                 donothing=True
             else:
-                matches=schedule.objects.all().filter(week=weekselect,season=season).order_by('id')
+                matches_=schedule.objects.all().filter(week=weekselect,season=season).order_by('id')
                 matches=[]
                 for item in matches_:
                     pickemlist=pickems.objects.all().filter(match=item)
@@ -390,7 +399,9 @@ def league_schedule(request,league_name):
                         'userpickem':userpickem,
                     }
                     matches.append([item,pickem])
-                leagueschedule=[matches]
+                leagueschedule=[[weekselect,matches]]
+                context.update({'leagueschedule':leagueschedule})
+                return render(request, 'schedule.html',context)
         elif request.POST['purpose']=="t1pickem":
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             try:
@@ -475,15 +486,6 @@ def league_schedule(request,league_name):
                 replaychannel = discordchannel
             )
             return redirect('league_schedule',league_name=league_name)
-    context = {
-        'league': league_,
-        'leaguepage': True,
-        'league_teams': league_teams,
-        'league_name': league_name,
-        'leagueschedule': leagueschedule,
-        'ishost': ishost,
-        'numberofweeks': range(numberofweeks)
-    }
     return render(request, 'schedule.html',context)
 
 def league_matchup(request,league_name,matchid):
@@ -1111,8 +1113,8 @@ def league_playoffs(request,league_name):
         return redirect('league_detail',league_name=league_name)
     leagueschedule=[]
     playoffweeks=schedule.objects.all().filter(season=season,week__icontains='Playoffs').distinct('week')
-    for item in playoffweeks:
-        matches_=schedule.objects.all().filter(season=season,week=item.week)
+    for item_ in playoffweeks:
+        matches_=schedule.objects.all().filter(season=season,week=item_.week)
         matches=[]
         for item in matches_:
             pickemlist=pickems.objects.all().filter(match=item)
@@ -1128,7 +1130,7 @@ def league_playoffs(request,league_name):
                 'userpickem':userpickem,
             }
             matches.append([item,pickem])
-        leagueschedule.append(matches)
+        leagueschedule.append([item_.week,matches])
     ishost=(request.user==league_.host)
     if request.method=="POST":
         if request.POST['purpose']=="Go":
@@ -1152,7 +1154,7 @@ def league_playoffs(request,league_name):
                         'userpickem':userpickem,
                     }
                     matches.append([item,pickem])
-                leagueschedule=[matches]
+                leagueschedule=[[weekselect,matches]]
         elif request.POST['purpose']=="t1pickem":
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             try:
