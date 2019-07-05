@@ -375,6 +375,21 @@ def league_schedule(request,league_name):
                 donothing=True
             else:
                 matches=schedule.objects.all().filter(week=weekselect,season=season).order_by('id')
+                matches=[]
+                for item in matches_:
+                    pickemlist=pickems.objects.all().filter(match=item)
+                    try:
+                        userpickem=pickemlist.get(user=request.user)
+                    except:
+                        userpickem=None
+                    team1count=pickemlist.filter(pick=item.team1).count()
+                    team2count=pickemlist.filter(pick=item.team2).count()
+                    pickem={
+                        'team1count':team1count,
+                        'team2count':team2count,
+                        'userpickem':userpickem,
+                    }
+                    matches.append([item,pickem])
                 leagueschedule=[matches]
         elif request.POST['purpose']=="t1pickem":
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
@@ -1094,61 +1109,124 @@ def league_playoffs(request,league_name):
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
-    if request.method=="POST":
-        matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
-        team1=matchtoupdate.team1
-        team2=matchtoupdate.team2
-        if request.POST['purpose']=="t1ff":
-            matchtoupdate.replay='Forfeit'
-            team1.losses+=1; team2.wins+=1
-            team1.differential+=(-6); team2.differential+=3
-            team1.forfeit+=1
-            if team1.streak>-1:
-                team1.streak=-1
-            else:
-                team1.streak+=(-1)
-            if team2.streak>-1:
-                team2.streak+=1
-            else:
-                team2.streak=1
-            messages.success(request,'Match has been forfeited by Team 1!')
-        if request.POST['purpose']=="t2ff":
-            matchtoupdate.replay='Forfeit'
-            team1.wins+=1; team2.losses+=1
-            team1.differential+=3; team2.differential+=(-6)
-            team2.forfeit+=1
-            if team1.streak>-1:
-                team1.streak+=1
-            else:
-                team1.streak=1
-            if team2.streak>-1:
-                team2.streak=-1
-            else:
-                team2.streak+=(-1)
-            messages.success(request,'Match has been forfeited by Team 2!')
-        elif request.POST['purpose']=="bothff":
-            matchtoupdate.replay='Forfeit'
-            team1.losses+=1; team2.losses+=1
-            team1.differential+=(-6); team2.differential+=(-6)
-            team1.forfeit+=1; team2.forfeit+=1
-            if team1.streak>-1:
-                team1.streak=-1
-            else:
-                team1.streak+=(-1)
-            if team2.streak>-1:
-                team2.streak=-1
-            else:
-                team2.streak+=(-1)
-            messages.success(request,'Match has been forfeited by both teams!')
-        team1.save()
-        team2.save()
-        matchtoupdate.save()
     leagueschedule=[]
     playoffweeks=schedule.objects.all().filter(season=season,week__icontains='Playoffs').distinct('week')
     for item in playoffweeks:
-        matches=schedule.objects.all().filter(season=season,week=item.week)
+        matches_=schedule.objects.all().filter(season=season,week=item.week)
+        matches=[]
+        for item in matches_:
+            pickemlist=pickems.objects.all().filter(match=item)
+            try:
+                userpickem=pickemlist.get(user=request.user)
+            except:
+                userpickem=None
+            team1count=pickemlist.filter(pick=item.team1).count()
+            team2count=pickemlist.filter(pick=item.team2).count()
+            pickem={
+                'team1count':team1count,
+                'team2count':team2count,
+                'userpickem':userpickem,
+            }
+            matches.append([item,pickem])
         leagueschedule.append(matches)
     ishost=(request.user==league_.host)
+    if request.method=="POST":
+        if request.POST['purpose']=="Go":
+            weekselect=request.POST['weekselect']
+            if weekselect=="All":
+                donothing=True
+            else:
+                matches_=schedule.objects.all().filter(week=weekselect,season=season).order_by('id')
+                matches=[]
+                for item in matches_:
+                    pickemlist=pickems.objects.all().filter(match=item)
+                    try:
+                        userpickem=pickemlist.get(user=request.user)
+                    except:
+                        userpickem=None
+                    team1count=pickemlist.filter(pick=item.team1).count()
+                    team2count=pickemlist.filter(pick=item.team2).count()
+                    pickem={
+                        'team1count':team1count,
+                        'team2count':team2count,
+                        'userpickem':userpickem,
+                    }
+                    matches.append([item,pickem])
+                leagueschedule=[matches]
+        elif request.POST['purpose']=="t1pickem":
+            matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+            try:
+                pickemtoupdate=pickems.objects.all().filter(match=matchtoupdate).get(user=request.user)
+                if pickemtoupdate.pick==matchtoupdate.team1:
+                    pickemtoupdate.delete()
+                else:
+                    pickemtoupdate.pick=matchtoupdate.team1
+                    pickemtoupdate.save()
+            except:
+                pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team1)
+            return redirect('league_playoffs',league_name=league_name)
+        elif request.POST['purpose']=="t2pickem":
+            matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+            try:
+                pickemtoupdate=pickems.objects.all().filter(match=matchtoupdate).get(user=request.user)
+                if pickemtoupdate.pick==matchtoupdate.team2:
+                    pickemtoupdate.delete()
+                else:
+                    pickemtoupdate.pick=matchtoupdate.team2
+                    pickemtoupdate.save()
+            except:
+                pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team2)
+            return redirect('league_playoffs',league_name=league_name)
+        else:
+            matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+            team1=matchtoupdate.team1
+            team2=matchtoupdate.team2
+            if request.POST['purpose']=="t1ff":
+                matchtoupdate.replay='Forfeit'
+                team1.losses+=1; team2.wins+=1
+                team1.differential+=(-6); team2.differential+=3
+                team1.forfeit+=1
+                if team1.streak>-1:
+                    team1.streak=-1
+                else:
+                    team1.streak+=(-1)
+                if team2.streak>-1:
+                    team2.streak+=1
+                else:
+                    team2.streak=1
+                messages.success(request,'Match has been forfeited by Team 1!')
+            if request.POST['purpose']=="t2ff":
+                matchtoupdate.replay='Forfeit'
+                team1.wins+=1; team2.losses+=1
+                team1.differential+=3; team2.differential+=(-6)
+                team2.forfeit+=1
+                if team1.streak>-1:
+                    team1.streak+=1
+                else:
+                    team1.streak=1
+                if team2.streak>-1:
+                    team2.streak=-1
+                else:
+                    team2.streak+=(-1)
+                messages.success(request,'Match has been forfeited by Team 2!')
+            elif request.POST['purpose']=="bothff":
+                matchtoupdate.replay='Forfeit'
+                team1.losses+=1; team2.losses+=1
+                team1.differential+=(-6); team2.differential+=(-6)
+                team1.forfeit+=1; team2.forfeit+=1
+                if team1.streak>-1:
+                    team1.streak=-1
+                else:
+                    team1.streak+=(-1)
+                if team2.streak>-1:
+                    team2.streak=-1
+                else:
+                    team2.streak+=(-1)
+                messages.success(request,'Match has been forfeited by both teams!')
+            team1.save()
+            team2.save()
+            matchtoupdate.save()
+            return redirect('league_playoffs',league_name=league_name)
     context = {
         'league': league_,
         'leaguepage': True,
@@ -1157,6 +1235,7 @@ def league_playoffs(request,league_name):
         'leagueschedule': leagueschedule,
         'ishost': ishost,
         'playoffs': True,
+        'playoffweeks':playoffweeks,
     }
     return render(request, 'schedule.html',context)
 
