@@ -24,7 +24,16 @@ class schedule(models.Model):
     timestamp= models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.season.league.name} Week {self.week} match between {self.team1.teamabbreviation} vs. {self.team1.teamabbreviation}'
+        return f'{self.season.league.name} Week {self.week} match between {self.team1.teamabbreviation} vs. {self.team2.teamabbreviation}'
+
+class pickems(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    match = models.ForeignKey(schedule,on_delete=models.SET_NULL,null=True)
+    pick = models.ForeignKey(coachdata,on_delete=models.SET_NULL,null=True)
+    correct = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'Rules for {self.season.league.name}'
 
 class rule(models.Model):
     season = models.ForeignKey(seasonsetting,on_delete=models.CASCADE)

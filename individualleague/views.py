@@ -350,7 +350,22 @@ def league_schedule(request,league_name):
     leagueschedule=[]
     numberofweeks=season.seasonlength
     for i in range(numberofweeks):
-        matches=schedule.objects.all().filter(week=str(i+1),season=season).order_by('id')
+        matches_=schedule.objects.all().filter(week=str(i+1),season=season).order_by('id')
+        matches=[]
+        for item in matches_:
+            pickemlist=pickems.objects.all().filter(match=item)
+            try:
+                userpickem=pickemlist.get(user=request.user)
+            except:
+                userpickem=None
+            team1count=pickemlist.filter(pick=item.team1).count()
+            team2count=pickemlist.filter(pick=item.team2).count()
+            pickem={
+                'team1count':team1count,
+                'team2count':team2count,
+                'userpickem':userpickem,
+            }
+            matches.append([item,pickem])
         leagueschedule.append(matches)
     ishost=(request.user==league_.host)
     if request.method=="POST":
@@ -361,6 +376,30 @@ def league_schedule(request,league_name):
             else:
                 matches=schedule.objects.all().filter(week=weekselect,season=season).order_by('id')
                 leagueschedule=[matches]
+        elif request.POST['purpose']=="t1pickem":
+            matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+            try:
+                pickemtoupdate=pickems.objects.all().filter(match=matchtoupdate).get(user=request.user)
+                if pickemtoupdate.pick==matchtoupdate.team1:
+                    pickemtoupdate.delete()
+                else:
+                    pickemtoupdate.pick=matchtoupdate.team1
+                    pickemtoupdate.save()
+            except:
+                pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team1)
+            return redirect('league_schedule',league_name=league_name)
+        elif request.POST['purpose']=="t2pickem":
+            matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+            try:
+                pickemtoupdate=pickems.objects.all().filter(match=matchtoupdate).get(user=request.user)
+                if pickemtoupdate.pick==matchtoupdate.team2:
+                    pickemtoupdate.delete()
+                else:
+                    pickemtoupdate.pick=matchtoupdate.team2
+                    pickemtoupdate.save()
+            except:
+                pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team2)
+            return redirect('league_schedule',league_name=league_name)
         else:
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             team1=matchtoupdate.team1
@@ -420,6 +459,7 @@ def league_schedule(request,league_name):
                 text = title,
                 replaychannel = discordchannel
             )
+            return redirect('league_schedule',league_name=league_name)
     context = {
         'league': league_,
         'leaguepage': True,

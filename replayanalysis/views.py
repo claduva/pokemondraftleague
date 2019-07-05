@@ -290,6 +290,11 @@ def confirm_league_replay(request,league_name,matchid):
                 text = title,
                 replaychannel = discordchannel
             )
+            matchpickems=pickems.objects.all().filter(match=match)
+            for item in matchpickems:
+                if item.pick==match.winner:
+                    item.correct=True
+                    item.save()
             return  redirect('league_schedule',league_name=league_name)
     return  redirect('league_schedule',league_name=league_name)
 
@@ -496,6 +501,11 @@ def upload_league_replay_manual(request,league_name,matchid):
                 text = title,
                 replaychannel = discordchannel
             )
+            matchpickems=pickems.objects.all().filter(match=match)
+            for item in matchpickems:
+                if item.pick==match.winner:
+                    item.correct=True
+                    item.save()
             return redirect('league_schedule',league_name=league_name)
     form=ManualLeagueReplayForm(match,initial={'match':match})
     context={
