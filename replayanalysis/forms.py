@@ -71,12 +71,11 @@ class ManualLeagueReplayForm(forms.ModelForm):
 
     def __init__(self,match, *args, **kwargs):
         super(ManualLeagueReplayForm,self).__init__(*args, **kwargs)
-        t1queryset=all_pokemon.objects.all().order_by('pokemon')
-        for item in t1queryset:
-            try:
-                roster.objects.all().filter(season=match.season,team=match.team1).get(pokemon=item)
-            except:
-                t1queryset=t1queryset.exclude(pokemon=item.pokemon)
+        t1roster=roster.objects.all().filter(season=match.season,team=match.team1).exclude(pokemon__isnull=True)
+        pokemonlist=[]
+        for item in t1roster:
+            pokemonlist.append(item.pokemon.id)
+        t1queryset=all_pokemon.objects.all().filter(id__in=pokemonlist).order_by('pokemon')
         self.fields['t1pokemon1'].queryset = t1queryset
         self.fields['t1pokemon1'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t1pokemon2'].queryset = t1queryset
@@ -90,11 +89,11 @@ class ManualLeagueReplayForm(forms.ModelForm):
         self.fields['t1pokemon6'].queryset = t1queryset
         self.fields['t1pokemon6'].label_from_instance = lambda obj: obj.pokemon
         t2queryset=all_pokemon.objects.all().order_by('pokemon')
-        for item in t2queryset:
-            try:
-                roster.objects.all().filter(season=match.season,team=match.team2).get(pokemon=item)
-            except:
-                t2queryset=t2queryset.exclude(pokemon=item.pokemon)
+        t2roster=roster.objects.all().filter(season=match.season,team=match.team2).exclude(pokemon__isnull=True)
+        pokemonlist=[]
+        for item in t2roster:
+            pokemonlist.append(item.pokemon.id)
+        t2queryset=all_pokemon.objects.all().filter(id__in=pokemonlist).order_by('pokemon')
         self.fields['t2pokemon1'].queryset = t2queryset
         self.fields['t2pokemon1'].label_from_instance = lambda obj: obj.pokemon
         self.fields['t2pokemon2'].queryset = t2queryset
@@ -110,7 +109,7 @@ class ManualLeagueReplayForm(forms.ModelForm):
         teams=set()
         teams.add(match.team1)
         teams.add(match.team2)
-        self.fields['winner'].queryset = coachdata.objects.all().filter(Q(coach=match.team1.coach)|Q(coach=match.team2.coach))
+        self.fields['winner'].queryset = coachdata.objects.all().filter(Q(id=match.team1.id)|Q(id=match.team2.id))
         self.fields['winner'].label_from_instance = lambda obj: obj.teamname
 
         self.helper = FormHelper()

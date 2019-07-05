@@ -434,18 +434,18 @@ def upload_league_replay_manual(request,league_name,matchid):
             t2pokemon4.deaths+=form.cleaned_data['t2pokemon4death']
             t2pokemon5.deaths+=form.cleaned_data['t2pokemon5death']
             t2pokemon6.deaths+=form.cleaned_data['t2pokemon6death']
-            t1pokemon1.differential+=form.cleaned_data['t1pokemon1kills']-['t1pokemon1death']
-            t1pokemon2.differential+=form.cleaned_data['t1pokemon2kills']-['t1pokemon2death']
-            t1pokemon3.differential+=form.cleaned_data['t1pokemon3kills']-['t1pokemon3death']
-            t1pokemon4.differential+=form.cleaned_data['t1pokemon4kills']-['t1pokemon4death']
-            t1pokemon5.differential+=form.cleaned_data['t1pokemon5kills']-['t1pokemon5death']
-            t1pokemon6.differential+=form.cleaned_data['t1pokemon6kills']-['t1pokemon6death']
-            t2pokemon1.differential+=form.cleaned_data['t2pokemon1kills']-['t2pokemon1death']
-            t2pokemon2.differential+=form.cleaned_data['t2pokemon2kills']-['t2pokemon2death']
-            t2pokemon3.differential+=form.cleaned_data['t2pokemon3kills']-['t2pokemon3death']
-            t2pokemon4.differential+=form.cleaned_data['t2pokemon4kills']-['t2pokemon4death']
-            t2pokemon5.differential+=form.cleaned_data['t2pokemon5kills']-['t2pokemon5death']
-            t2pokemon6.differential+=form.cleaned_data['t2pokemon6kills']-['t2pokemon6death']
+            t1pokemon1.differential+=form.cleaned_data['t1pokemon1kills']-form.cleaned_data['t1pokemon1death']
+            t1pokemon2.differential+=form.cleaned_data['t1pokemon2kills']-form.cleaned_data['t1pokemon2death']
+            t1pokemon3.differential+=form.cleaned_data['t1pokemon3kills']-form.cleaned_data['t1pokemon3death']
+            t1pokemon4.differential+=form.cleaned_data['t1pokemon4kills']-form.cleaned_data['t1pokemon4death']
+            t1pokemon5.differential+=form.cleaned_data['t1pokemon5kills']-form.cleaned_data['t1pokemon5death']
+            t1pokemon6.differential+=form.cleaned_data['t1pokemon6kills']-form.cleaned_data['t1pokemon6death']
+            t2pokemon1.differential+=form.cleaned_data['t2pokemon1kills']-form.cleaned_data['t2pokemon1death']
+            t2pokemon2.differential+=form.cleaned_data['t2pokemon2kills']-form.cleaned_data['t2pokemon2death']
+            t2pokemon3.differential+=form.cleaned_data['t2pokemon3kills']-form.cleaned_data['t2pokemon3death']
+            t2pokemon4.differential+=form.cleaned_data['t2pokemon4kills']-form.cleaned_data['t2pokemon4death']
+            t2pokemon5.differential+=form.cleaned_data['t2pokemon5kills']-form.cleaned_data['t2pokemon5death']
+            t2pokemon6.differential+=form.cleaned_data['t2pokemon6kills']-form.cleaned_data['t2pokemon6death']
             t1pokemon1.gp+=1; t1pokemon2.gp+=1; t1pokemon3.gp+=1; t1pokemon4.gp+=1; t1pokemon5.gp+=1; t1pokemon6.gp+=1
             t2pokemon1.gp+=1; t2pokemon2.gp+=1; t2pokemon3.gp+=1; t2pokemon4.gp+=1; t2pokemon5.gp+=1; t2pokemon6.gp+=1
             winner=form.cleaned_data['winner']
@@ -494,6 +494,8 @@ def upload_league_replay_manual(request,league_name,matchid):
             t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
             messages.success(request,"Match has been saved!")
             league_=match.season.league
+            discordserver=league_.settings.discordserver
+            discordchannel=league_.discord_settings.replaychannel
             title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
             replay_announcements.objects.create(
                 league = discordserver,
