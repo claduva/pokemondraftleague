@@ -27,7 +27,7 @@ class schedule(models.Model):
         return f'{self.season.league.name} Week {self.week} match between {self.team1.teamabbreviation} vs. {self.team2.teamabbreviation}'
 
 class pickems(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='pickems')
     match = models.ForeignKey(schedule,on_delete=models.SET_NULL,null=True)
     pick = models.ForeignKey(coachdata,on_delete=models.SET_NULL,null=True)
     correct = models.BooleanField(default=False)

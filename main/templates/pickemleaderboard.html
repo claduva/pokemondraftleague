@@ -1,0 +1,58 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{title}}{% endblock %}
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/leagueleaders.css' %}">
+{% endblock %}
+{% block body %}
+<div class="row content-section align-items-center">
+        <div class="col-md-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}" class="rounded-circle mediumlogo">
+        </div>
+        <div class="col-md-4">
+            <h3 class="d-flex justify-content-center">User Leaderboard</h3>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}" class="rounded-circle mediumlogo">
+        </div>
+    </div>
+<div class="row content-section">
+    <div class="col-12">
+        <table class="table table-sm sortable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>User</th>
+                    <th>Pickems Correct</th>
+                    <th>Pickems Matches Completed</th>
+                    <th>Pickems Submitted</th>
+                    <th>Percent Correct</th>
+                </tr>
+            </thead>
+            <tbody class="bg-lightgrey text-dark">
+                {% for item in leaderboard %}
+                    <tr class="text-center">
+                        <td>
+                            <div class="d-flex">
+                                <div>
+                                    <img class="smallsprite" src="{{item.user.profile.pfp.url}}">
+                                </div>
+                                <div>
+                                    {{ item.user.username }}
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ item.correct }}</td>
+                        <td>{{ item.matchescompleted }}</td>
+                        <td>{{ item.submitted }}</td>
+                        <td>{{ item.percentcorrect }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+{% endblock %}
