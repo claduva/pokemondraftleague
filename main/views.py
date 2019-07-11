@@ -1,19 +1,29 @@
 from django.contrib.auth.models import User
 from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.core import serializers
 from django.db.models import Q
+from django.core.files import File
 
 import json
 from datetime import datetime
 import time
+import csv
+import os
+import requests
+
+from django.core.files.temp import NamedTemporaryFile
+
+import urllib.request
+from PIL import Image
 
 from accounts.forms import UserRegisterForm
 from .models import *
 from accounts.models import *
 from leagues.models import *
 from individualleague.models import *
+from pokemonadmin.models import *
 
 # Create your views here.
 def home(request):
@@ -106,9 +116,9 @@ def pickemleaderboard(request):
         correct=userpickems.filter(correct=True).count()
         matchescompleted=userpickems.filter(correct=True).exclude(match__replay='Link').count()
         try:
-            percentcorrect=f'{round(correct/matchescompleted*100)}%'
+            percentcorrect=round(correct/matchescompleted*100)
         except:
-            percentcorrect='N/A'
+            percentcorrect=0
         pickemdata={
             'user': user_,
             'submitted':submitted,
@@ -126,3 +136,7 @@ def pickemleaderboard(request):
         "leaderboard": leaderboard
     }
     return  render(request,"pickemleaderboard.html",context)
+
+def runscript(request):
+    
+    return redirect('home')

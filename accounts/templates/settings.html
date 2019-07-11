@@ -104,6 +104,7 @@
                 {% for form in forms %}
                 {{ form|crispy  }}
                 {% endfor %}
+                <input name="purpose" value="Update" hidden>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
             {% endif %}
@@ -117,7 +118,12 @@
             <h5>Showdown Alts:</h5>
             {% if showdownalts %}
             {% for item in showdownalts %}
-            <div>-{{ item.showdownalt }}</div>
+            <div class="d-flex">-{{ item.showdownalt }}
+                <form class="m-1" method="post">{% csrf_token %}
+                    <input name="altid" value="{{item.id}}" hidden>
+                    <input name="purpose" type="submit" value="Delete" class="btn btn-sm btn-danger">
+                </form>
+            </div>
             {% endfor %}
             {% else %}
             <div>None</div>

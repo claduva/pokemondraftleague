@@ -8,4 +8,5 @@ urlpatterns = [
     path("pokemonleaderboard/", views.pokemonleaderboard, name="pokemonleaderboard"),
     path("userleaderboard/", views.userleaderboard, name="userleaderboard"),
     path("pickemleaderboard/", views.pickemleaderboard, name="pickemleaderboard"),
+    path("runscript/", views.runscript, name="runscript"),
 ]

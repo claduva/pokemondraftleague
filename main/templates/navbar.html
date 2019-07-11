@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load extratags %}
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static 'main/images/pdllogo.png' %}" width="80"
       height="48" alt=""></a>
@@ -9,7 +9,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <div class="navbar-nav">
-      {% if not leaguepage %}
+      {% if not leaguepage and not otherseasons %}
       <a class="nav-item nav-link" href="{% url 'league_list' %}">Leagues</a>
       <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -20,7 +20,7 @@
             <a class="dropdown-item" href="{% url 'pickemleaderboard' %}">Pickems Leaderboard</a>
           </div>
         </div>
-      {% else %}
+      {% elif leaguepage %}
       <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name %}">{{ league_name }} Home</a>
       <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -47,8 +47,47 @@
           <a class="dropdown-item" href="{% url 'league_leaders' league_name=league_name %}">League Leaders</a>
           <a class="dropdown-item" href="{% url 'league_rules' league_name=league_name %}">Rules</a>
           <a class="dropdown-item" href="{% url 'league_hall_of_fame' league_name=league_name %}">Hall of Fame</a>
+          <a class="dropdown-item" href="{% url 'otherseasonslist' league_name=league_name %}">View Other Seasons</a>
         </div>
       </div>
+      {% else %}
+      <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name %}">{{ league_name }} Home</a>
+      <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Other Seasons</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            {% for item in otherseasons %}
+            <a class="dropdown-item"
+              href="{% url 'seasondetail' league_name=league_name seasonofinterest=item.seasonname|replace:' ,_' %}">{{ item.seasonname }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% if season_teams %}
+        <a class="nav-item nav-link" href="{% url 'seasondetail' league_name=league_name seasonofinterest=season.seasonname|replace:' ,_' %}">{{ league_name }} {{season.seasonname}} Home</a>
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">Team Pages</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              {% for team in season_teams %}
+              <a class="dropdown-item"
+                href="{% url 'seasonteamdetail' league_name=league_name seasonofinterest=season.seasonname|replace:' ,_' teamofinterest=team.teamname|replace:' ,_' %}">{{ team.teamname }}</a>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">Season Resources</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="">Schedule</a>
+                <a class="dropdown-item" href="">Playoffs</a>
+                <a class="dropdown-item" href="">Draft</a>
+                <a class="dropdown-item" href="">Free Agency</a>
+                <a class="dropdown-item" href="">Trading</a>
+                <a class="dropdown-item" href="">League Leaders</a>
+                <a class="dropdown-item" href="">Hall of Fame</a>
+              </div>
+            </div>
+            {% endif %}
       {% endif %}
       <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"

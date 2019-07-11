@@ -12,9 +12,9 @@
         <div class="d-flex justify-content-between">
             <h1 class="text-light">{{ leagueheading }}</h1>
             {% if not recruitinglist %}
-                <div><a href="{% url 'recruiting_league_list' %}"><button class="btn btn-primary">Only Show Recruiting Leagues</button></a></div>
+                <div><a href="{% url 'recruiting_league_list' %}"><button class="btn btn-sm btn-primary">Only Show Recruiting Leagues</button></a></div>
             {% else %}
-                <div><a href="{% url 'league_list' %}"><button class="btn btn-primary">Show All Leagues</button></a></div>
+                <div><a href="{% url 'league_list' %}"><button class="btn btn-sm btn-primary">Show All Leagues</button></a></div>
             {% endif %}
         </div>
         <div class="row align-items-stretch justify-content-around">
@@ -23,8 +23,8 @@
                     <h2>None</h2>
                 {% else %}
                 {% for item in recruitinglist %}
-                <div class="col-md-2">
-                    <div class="card h-100 bg-lightgrey text-center mx-1">
+                <div class="col-md-2 mb-2">
+                    <div class="card h-100 bg-lightgrey text-center">
                     <a class="text-dark" href="{{ item.league_name.name }}">
                         <img src="{{ item.league_name.logo.url }}" class="img-fluid">
                         <div class="d-flex justify-content-center">{{ item.league_name.name }}</div>
@@ -32,12 +32,10 @@
                     <div class="d-flex justify-content-center">Hosted By:</div>
                     <div class="d-flex justify-content-center">{{item.league_name.host}}</div>
                     {% if item.discordurl != 'Not Provided' %}
-                        <a class="text-dark" href="{{ item.discordurl }}"><div class="d-flex justify-content-center">Join the Discord</div></a>
+                        <a class="text-dark" href="{{ item.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a>
                     {% endif %}
                     {% if item.is_recruiting %}
                         <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
-                    {% else  %}
-                        <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
                     {% endif %}
                     </div>
                 </div>
@@ -46,8 +44,8 @@
             {% else %}
                 {% if allleagues %}
                     {% for item in allleagues %}
-                    <div class="col-md-2">
-                        <div class="card h-100 bg-lightgrey text-center mx-1">
+                    <div class="col-md-2 mb-2">
+                        <div class="card h-100 bg-lightgrey text-center">
                             <a class="text-dark" href="{{ item.name }}">
                                 <img src="{{ item.logo.url }}" class="img-fluid">
                                 <div class="d-flex justify-content-center">{{ item.name }}</div>
@@ -55,12 +53,10 @@
                             <div class="d-flex justify-content-center">Hosted By:</div>
                             <div class="d-flex justify-content-center">{{item.host}}</div>
                             {% if item.settings.discordurl != 'Not Provided' %}
-                                <a class="text-dark" href="{{ item.settings.discordurl }}"><div class="d-flex justify-content-center">Join the Discord</div></a>
+                                <a class="text-dark" href="{{ item.settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a>
                             {% endif %}
                             {% if item.settings.is_recruiting %}
                                 <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
-                            {% else  %}
-                                <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
                             {% endif %}
                         </div>
                     </div>

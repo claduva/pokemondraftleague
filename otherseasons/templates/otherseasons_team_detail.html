@@ -1,0 +1,105 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{ teamofinterest.teamname }}: {{league.name}} {{season.seasonname}}{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{teamofinterest.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">{{ teamofinterest.teamname }}</h3>
+        <div class="d-flex justify-content-center">Coached by {{ teamofinterest.coach1username }}
+            {% if teamofinterest.coach2 %}
+            and {{teamofinterest.coach2username}}
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+        <div>
+            <div>Record: </div>
+            <div>Differential: </div>
+            <div>Streak:
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row content-section align-items-center">
+        <div class="col-md-3">
+                <h4>Draft</h4>
+                <table class="table table-sm" table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr class="text-center">
+                            <th class="p-0 m-0">Pick #</th>
+                            <th class="p-0 m-0">Pokemon</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in draft %}
+                        <tr class="bg-lightgrey text-dark text-center">
+                            <td class="p-0 m-0">{{ item.picknumber }}</td>
+                            <td class="p-0 m-0">
+                                {% if item.pokemon.pokemon %}
+                                <div class="d-flex justify-content-center">
+                                    <img class="smallsprite"
+                                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                    <p>{{ item.pokemon.pokemon }}</p>
+                                </div>
+                                {% else %}
+                                <div>
+                                    <img class="smallsprite justify-content-center"
+                                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/unown-question.{{ site_settings.sprite|split:1 }}">
+                                </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    <div class="col-md-9">
+        <h4>Roster</h4>
+        <table class="table table-sm" table-striped table-hover">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th class="p-0 m-0">Pokemon</th>
+                    <th class="p-0 m-0">K</th>
+                    <th class="p-0 m-0">D</th>
+                    <th class="p-0 m-0">+/-</th>
+                    <th class="p-0 m-0">GP</th>
+                    <th class="p-0 m-0">GW</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in roster %}
+                <tr class="bg-lightgrey text-dark text-center">
+                    <td class="p-0 m-0">
+                        {% if item.pokemon.pokemon %}
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                            <p>{{ item.pokemon.pokemon }}</p>
+                        </div>
+                        {% else %}
+                        <div>
+                            <img class="smallsprite justify-content-center"
+                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/unown-question.{{ site_settings.sprite|split:1 }}">
+                        </div>
+                        {% endif %}
+                    </td>
+                    <td class="p-0 m-0">{{ item.kills }}</td>
+                    <td class="p-0 m-0">{{ item.deaths }}</td>
+                    <td class="p-0 m-0">{{ item.differential }}</td>
+                    <td class="p-0 m-0">{{ item.gp }}</td>
+                    <td class="p-0 m-0">{{ item.gw }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

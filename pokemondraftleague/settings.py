@@ -45,7 +45,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-ALLOWED_HOSTS = ['0.0.0.0',"pokemondraftleague.herokuapp.com",'127.0.0.1',"pokemondraftleague.online"]
+ALLOWED_HOSTS = ['0.0.0.0',"pokemondraftleague.herokuapp.com",'127.0.0.1',"pokemondraftleague.online","www.pokemondraftleague.online"]
 
 # Application definition
 INSTALLED_APPS = [
@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'individualleague.apps.IndividualleagueConfig',
     'leagues.apps.LeaguesConfig',
     'main.apps.MainConfig',
+    'otherseasons.apps.OtherseasonsConfig',
     'pokemondatabase.apps.PokemondatabaseConfig',
     'replayanalysis.apps.ReplayanalysisConfig',
 

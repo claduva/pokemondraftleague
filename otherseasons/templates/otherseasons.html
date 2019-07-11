@@ -1,0 +1,66 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+{% block title %}
+{{league.name}}
+{% if otherseasons %}Seasons{% endif %}
+{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+
+<div class="row bg-darkgrey rounded text-light align-items-center mb-2">
+    <div class="col-md-2 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-8 text-center">
+        <h3 class="d-flex justify-content-center">{{league.name}} {{season.seasonname}}</h3>
+    </div>
+    <div class="col-md-2 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+</div>
+<div class="row bg-darkgrey text-light rounded align-items-center">
+    {%  if otherseasons and not season_teams %}
+    <div class="col-md-12 text-center p-2">
+        <h3>Season List</h3>
+        {% for item in otherseasons %}
+            <div class="p-1"><a href="{% url 'seasondetail' league_name=league_name seasonofinterest=item.seasonname|replace:' ,_' %}" class="text-light">{{item.seasonname}}</a></div>
+        {% endfor %}
+    </div>
+    {% elif season_teams %}
+    <div class="col-md-12 text-center p-2">
+    <h3>Records</h3>
+    <div class="bg-lightgrey rounded">
+    <table class="table text-dark table-sm">
+        <tr>
+            <th>Team</th>
+            <th>W</th>
+            <th>L</th>
+            <th>+/-</th>
+            <th>Streak</th>
+        </tr>
+        {% for item in season_teams %}
+        <tr>
+            <td>
+                <div class="d-flex justify-content-center">
+                    <div class="smallsprite mx-1"><img class="img-fluid" src="{{item.logo.url}}"></div>
+                {% if item.coach2 %}{{item.coach1username}} and {{item.coach2username}}'s
+                {% else %}{{item.coach1username}}'s
+                {% endif %}
+                {{item.teamname}} 
+                </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

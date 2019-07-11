@@ -12,6 +12,8 @@ from django.db.models import Q
 
 from .forms import *
 
+from pokemonadmin.models import *
+
 import math
 
 class SignUp(generic.CreateView):
@@ -39,6 +41,8 @@ def user_profile(request,username):
             winpercent=f'{round(userprofile.wins/(userprofile.wins+userprofile.losses)*100)}%'
         except:
             winpercent='N/A'
+        priorseasons=historical_team.objects.filter(Q(coach1=userofinterest)|Q(coach2=userofinterest))
+        seasonsplayed=coaching.count()+priorseasons.count()
     except:
         messages.error(request,'User does not exist!',extra_tags='danger')
         return redirect('home')
@@ -46,30 +50,32 @@ def user_profile(request,username):
         "title": f"{username}'s Profile",
         'userofinterest':userofinterest,
         'winpercent':winpercent,
+        'seasonsplayed':seasonsplayed,
     }
     return render(request, 'userprofile.html',context)
 
 @login_required
 def settings(request):
     if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST,instance=request.user)
-        p_form = ProfileUpdateForm(
-            request.POST,
-            request.FILES,
-            instance=request.user.profile
-            )
-        if u_form.is_valid() and p_form.is_valid():
-            u_form.save()
-            p_form.save()
-            messages.success(request,f'Your account has been updated!')
-        else: 
-            print(p_form.errors)
-        return redirect('profile')
-    else:
-        u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(instance=request.user.profile) 
-        showdown_alts = showdownalts.objects.all().filter(user=request.user)
-
+        if request.POST['purpose']=='Delete':
+            showdownalts.objects.get(id=request.POST['altid']).delete()
+            messages.success(request,'Alt has been deleted!')
+        else:
+            u_form = UserUpdateForm(request.POST,instance=request.user)
+            p_form = ProfileUpdateForm(
+                request.POST,
+                request.FILES,
+                instance=request.user.profile
+                )
+            if u_form.is_valid() and p_form.is_valid():
+                u_form.save()
+                p_form.save()
+                messages.success(request,f'Your account has been updated!')
+            else: 
+                print(p_form.errors)
+    u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfileUpdateForm(instance=request.user.profile) 
+    showdown_alts = showdownalts.objects.all().filter(user=request.user)
     context = {
         'forms': [u_form,p_form],
         'settingheading': "Update User Info",
