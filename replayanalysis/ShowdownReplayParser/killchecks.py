@@ -76,14 +76,14 @@ def weatherkill(rawdata,team,fainted,player,otherplayer,i):
         killer="placeholder"; j=1
         while(killer=="placeholder" and (i-j)>=0):
             #from ability
-            if  (rawdata[i-j].find("-weather|Hail|") > -1) and (rawdata[i-j].find("[of] "+player) > -1):
-                killer=rawdata[i-j].split(" ")[-1]
+            if  (rawdata[i-j].find("-weather|Hail|[from] ability: Snow Warning|[of]") > -1) and (rawdata[i-j].find(otherplayer) > -1):
+                killer=rawdata[i-j].split(" ",5)[5]
             #from move
             elif  (rawdata[i-j].find("Hail") > -1) and (rawdata[i-j].find("move|"+otherplayer) > -1):
                 killer=rawdata[i-j].split(" ",1)[1].split("|")[0]
             j+=1
         incrementkills(team,killer)
-    elif (rawdata[i-1].find("[from] Sandstorm") > -1): 
+    elif (rawdata[i-1].find("[from] Sandstorm") > -1):
         killer="placeholder"; j=1
         while(killer=="placeholder" and (i-j)>=0):
             #from ability
@@ -180,6 +180,26 @@ def confusionkill(rawdata,team,player,fainted,i):
             if fainted != killer:
                 incrementkills(team,killer)
 
+def futuresightkill(rawdata,team,player,fainted,i):
+    if ((rawdata[i-1].find("Future Sight") > -1) and (rawdata[i-1].find("|-end|") > -1)) or ((rawdata[i-2].find("Future Sight") > -1) and (rawdata[i-2].find("|-end|") > -1)): 
+        killer="placeholder"; j=2
+        while(killer=="placeholder"):
+            if (rawdata[i-j].find(f"|-start|{player}") > -1) and (rawdata[i-j].find("|move: Future Sight")>-1):
+                killer=rawdata[i-j].split(" ",1)[1].split("|")[0]
+            j+=1
+            if fainted != killer:
+                incrementkills(team,killer)
+
+def perishsongkill(rawdata,team,player1,player2,fainted,i):
+    if ((rawdata[i-1].find("perish0") > -1) and (rawdata[i-1].find(f"|-start|{player1}") > -1)) or ((rawdata[i-2].find("perish0") > -1) and (rawdata[i-1].find(f"|-start|{player1}") > -1)): 
+        killer="placeholder"; j=2
+        while(killer=="placeholder"):
+            if (rawdata[i-j].find(f"|move|{player2}") > -1) and (rawdata[i-j].find(f"|Perish Song|{player2}:")>-1):
+                killer=rawdata[i-j].split(" ",1)[1].split("|")[0]
+            j+=1
+            if fainted != killer:
+                incrementkills(team,killer)
+
 def checkkills(byline,team1,team2,fainted,i):
     if (byline[i].find("p2a") > -1):
         #kill belongs to team 1
@@ -194,6 +214,8 @@ def checkkills(byline,team1,team2,fainted,i):
         destinybondkill(byline,team1,"p1a",fainted,i)
         cursekill(byline,team1,"p2a",fainted,i)
         confusionkill(byline,team1,"p2a",fainted,i)
+        futuresightkill(byline,team1,"p1a",fainted,i)
+        perishsongkill(byline,team1,"p2a","p1a",fainted,i)
     elif (byline[i].find("p1a") > -1):
         #kill belongs to team 2
         directdamagekill(byline,team2,i)
@@ -207,6 +229,8 @@ def checkkills(byline,team1,team2,fainted,i):
         destinybondkill(byline,team2,"p2a",fainted,i)
         cursekill(byline,team2,"p1a",fainted,i)
         confusionkill(byline,team2,"p1a",fainted,i)
+        futuresightkill(byline,team2,"p2a",fainted,i)
+        perishsongkill(byline,team2,"p1a","p2a",fainted,i)
 
 def incrementkills(team,killer):
     if team.pokemon1 ==killer:

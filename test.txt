@@ -1,23 +1,23 @@
-Team 1 Coach: Luxanse
+Team 1 Coach: Lupus Fluvium
 Team 1 Roster: 
-Kangaskhan-Mega, Kills: 0, Deaths: 1, +/-: -1
-Reuniclus, Kills: 1, Deaths: 1, +/-: 0
-Thundurus, Kills: 0, Deaths: 1, +/-: -1
-Weavile, Kills: 1, Deaths: 1, +/-: 0
-Dhelmise, Kills: 0, Deaths: 1, +/-: -1
-Dragalge, Kills: 2, Deaths: 1, +/-: 1
-Mega Evolved: True
-Used Z-Move: False
+Salamence, Kills: 5, Deaths: 0, +/-: 5
+Suicune, Kills: 1, Deaths: 1, +/-: 0
+Donphan, Kills: 0, Deaths: 1, +/-: -1
+Rotom-Heat, Kills: 0, Deaths: 0, +/-: 0
+Scizor, Kills: 0, Deaths: 0, +/-: 0
+Diancie, Kills: 0, Deaths: 0, +/-: 0
+Mega Evolved: False
+Used Z-Move: True
 
 Team 2 Coach: PragmaticWin
 Team 2 Roster: 
-Tangrowth, Kills: 2, Deaths: 0, +/-: 2
-Heatran, Kills: 0, Deaths: 1, +/-: -1
-Landorus-Therian, Kills: 1, Deaths: 1, +/-: 0
-Heliolisk, Kills: 1, Deaths: 0, +/-: 1
-Vaporeon, Kills: 1, Deaths: 1, +/-: 0
-Alakazam-Mega, Kills: 1, Deaths: 1, +/-: 0
+Alakazam, Kills: 0, Deaths: 1, +/-: 0
+Manaphy, Kills: 0, Deaths: 1, +/-: -1
+Lopunny-Mega, Kills: 1, Deaths: 1, +/-: 1
+Ferrothorn, Kills: 1, Deaths: 1, +/-: 0
+Garbodor, Kills: 0, Deaths: 1, +/-: -1
+Flygon, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: True
-Used Z-Move: True
+Used Z-Move: False
 
-Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-937055189
+Replay: https://replay.pokemonshowdown.com/gen7ou-886666659

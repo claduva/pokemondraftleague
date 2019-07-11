@@ -67,7 +67,7 @@ def removeunneededlines(rawdata,indicestoremove,i):
     or (rawdata[i].find("|-singleturn|") > -1) or (rawdata[i].find("|-enditem|") > -1) or (rawdata[i].find("|-fieldend|") > -1) \
     or (rawdata[i].find("|-fieldstart|") > -1) or (rawdata[i].find("|cant|") > -1) or (rawdata[i].find("|-curestatus|") > -1) \
     or (rawdata[i].find("|-fail|") > -1) or (rawdata[i].find("|-mustrecharge|") > -1) or (rawdata[i].find("|-hitcount|") > -1) \
-    or (rawdata[i].find("|-transform|") > -1):
+    or (rawdata[i].find("|-transform|") > -1) or (rawdata[i].find("|debug|") > -1) or ((rawdata[i].find("/100 brn|[from] brn") > -1)) or ((rawdata[i].find("/100 psn|[from] psn") > -1)):
         indicestoremove.append(i)
     rawdata[i]=rawdata[i].replace(", M", "")
     rawdata[i]=rawdata[i].replace(", F", "")
@@ -174,10 +174,40 @@ def checkwinner(rawdata,team1,team2):
             team2.diff=-6
             team2.score=0
             team2.forfeit=1
+            team2.P1F=1
+            team2.P2F=1
+            team2.P3F=1
+            team2.P4F=1
+            team2.P5F=1
+            team2.P6F=1
+            lastmon="placeholder"
+            j=1
+            while lastmon=="placeholder":
+                if rawdata[len(rawdata)-2-j].find("|move|p1a:")>-1:
+                    lastmon=rawdata[len(rawdata)-2-j].split(" ",1)[1].split("|")[0]
+                j+=1
+            for i in range(6-team1.P1K-team1.P2K-team1.P3K-team1.P4K-team1.P5K-team1.P6K):    
+                incrementkills(team1,lastmon) 
+                redodiff(team1,lastmon)   
         elif team2.win==1:
             team1.diff=-6
             team1.score=0
             team1.forfeit=1
+            team1.P1F=1
+            team1.P2F=1
+            team1.P3F=1
+            team1.P4F=1
+            team1.P5F=1
+            team1.P6F=1
+            lastmon="placeholder"
+            j=1
+            while lastmon=="placeholder":
+                if rawdata[len(rawdata)-2-j].find("|move|p2a:")>-1:
+                    lastmon=rawdata[len(rawdata)-2-j].split(" ",1)[1].split("|")[0]
+                j+=1
+            for i in range(6-team2.P1K-team2.P2K-team2.P3K-team2.P4K-team2.P5K-team2.P6K):    
+                incrementkills(team2,lastmon)  
+                redodiff(team2,lastmon)  
     else:
         if team1.win==1:
             team1.diff=team1.score
@@ -245,6 +275,34 @@ class team:
         self.score=0
         self.diff=0
         self.forfeit=0
+
+def incrementkills(team,killer):
+    if team.pokemon1 ==killer:
+        team.P1K += 1
+    elif team.pokemon2 == killer:
+        team.P2K += 1
+    elif team.pokemon3 == killer:
+        team.P3K += 1
+    elif team.pokemon4 == killer:
+        team.P4K += 1
+    elif team.pokemon5 == killer:
+        team.P5K += 1
+    elif team.pokemon6 == killer:
+        team.P6K += 1
+
+def redodiff(team,killer):
+    if team.pokemon1 ==killer:
+        team.P1Diff = team.P1K-team.P1F
+    elif team.pokemon2 == killer:
+        team.P2Diff = team.P2K-team.P2F
+    elif team.pokemon3 == killer:
+        team.P3Diff = team.P3K-team.P3F
+    elif team.pokemon4 == killer:
+        team.P4Diff = team.P4K-team.P4F
+    elif team.pokemon5 == killer:
+        team.P5Diff = team.P5K-team.P5F
+    elif team.pokemon6 == killer:
+        team.P6Diff = team.P6K-team.P6F
 
 if __name__ == "__main__":
     main()
