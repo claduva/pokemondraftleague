@@ -13,9 +13,9 @@
     </div>
     <div class="col-md-4">
         <h3 class="d-flex justify-content-center">{{ teamofinterest.teamname }}</h3>
-        <div class="d-flex justify-content-center">Coached by {{ teamofinterest.coach1username }}
+        <div class="d-flex justify-content-center">Coached by&nbsp;<a class="text-light" href="{% url 'user_profile' username=teamofinterest.coach1.username %}">{{ teamofinterest.coach1username }} </a>
             {% if teamofinterest.coach2 %}
-            and {{teamofinterest.coach2username}}
+            &nbsp;and&nbsp;<a class="text-light" href="{% url 'user_profile' username=teamofinterest.coach2.username %}">{{teamofinterest.coach2username}}</a>
             {% endif %}
         </div>
     </div>

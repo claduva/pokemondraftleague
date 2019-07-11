@@ -33,6 +33,7 @@
                 {% for item in leaderboard %}
                     <tr>
                         <td>
+                            <a class="text-dark" href="{% url 'user_profile' username=item.user.username %}">
                             <div class="d-flex">
                                 <div>
                                     <img class="smallsprite" src="{{item.pfp.url}}">
@@ -41,6 +42,7 @@
                                     {{ item.user.username }}
                                 </div>
                             </div>
+                        </a>
                         </td>
                         <td>{{ item.wins }}</td>
                         <td>{{ item.losses }}</td>

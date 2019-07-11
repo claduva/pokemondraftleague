@@ -42,13 +42,15 @@
         {% for item in season_teams %}
         <tr>
             <td>
-                <div class="d-flex justify-content-center">
+                <a class="text-dark" href="{% url 'seasonteamdetail' league_name=league_name seasonofinterest=season.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}">
+                    <div class="d-flex justify-content-center">
                     <div class="smallsprite mx-1"><img class="img-fluid" src="{{item.logo.url}}"></div>
                 {% if item.coach2 %}{{item.coach1username}} and {{item.coach2username}}'s
                 {% else %}{{item.coach1username}}'s
                 {% endif %}
                 {{item.teamname}} 
                 </div>
+            </a>
             </td>
             <td></td>
             <td></td>
