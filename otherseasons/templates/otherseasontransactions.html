@@ -1,0 +1,98 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{league_name}} {{season.seasonname}}: Transactions{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row bg-darkgrey rounded text-center mb-2 text-light">
+    <div class="col-md-2"></div>
+    <div class="col-md-8"> <h3>{{league_name}} {{season.seasonname}} Transactions</h3></div>
+    <div class="col-md-2"></div>
+</div>
+<div class="row bg-darkgrey rounded text-center pt-3 d-flex justify-content-center">
+        {% if free_agencies %}
+        <div class="col-md-6">
+            <table class="table table-sm text-center bg-lightgrey text-dark">
+                <tr>
+                    <th colspan="3">Free Agency</th>
+                </tr>
+                <tr>
+                    <th>Team</th>
+                    <th>Dropped Pokemon</th>
+                    <th>Added Pokemon</th>
+                </tr>
+                {% for transaction in free_agencies %}
+                <tr class="table-condensed">
+                    <td>
+                        <div class="d-flex">
+                            <div class="smallsprite"><img class="img-fluid" src="{{transaction.team.logo.url}}"></div>
+                            {{  transaction.team.teamname }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex">
+                            <div class="smallsprite"><img class="img-fluid pl-1 pr-2" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ transaction.droppedpokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                            {{  transaction.droppedpokemon.pokemon }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex">
+                            <div class="smallsprite"><img class="img-fluid pl-1 pr-2" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ transaction.addedpokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                            {{  transaction.addedpokemon.pokemon }}
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+        {% if trades %}
+        <div class="col-md-6">
+                <table class="table table-sm text-center bg-lightgrey text-dark">
+                    <tr>
+                        <th colspan="4">Trading</th>
+                    </tr>
+                    <tr>
+                        <th>Team 1</th>
+                        <th>Acquisition</th>
+                        <th>Team 2</th>
+                        <th>Acquisition</th>
+                    </tr>
+                {% for transaction,partner in trades %}
+                <tr class="table-condensed">
+                    <td>
+                        <div class="d-flex">
+                            <div class="smallsprite"><img class="img-fluid" src="{{transaction.team.logo.url}}"></div>
+                            {{  transaction.team.teamname }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex">
+                            <div class="smallsprite"><img class="img-fluid pl-1 pr-2" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ transaction.droppedpokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                            {{  transaction.droppedpokemon.pokemon }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex">
+                            <div class="smallsprite"><img class="img-fluid" src="{{partner.logo.url}}"></div>
+                                {{  partner.teamname }}
+                            </div>
+                    </td>
+                    <td>
+                        <div class="d-flex">
+                            <div class="smallsprite"><img class="img-fluid pl-1 pr-2" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ transaction.addedpokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                            {{  transaction.addedpokemon.pokemon }}
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

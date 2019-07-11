@@ -44,7 +44,7 @@ class historical_roster(models.Model):
         ordering = ['pokemon__pokemon']
 
 class historical_freeagency(models.Model):
-    team = models.ForeignKey(historical_team, on_delete=models.CASCADE)
+    team = models.ForeignKey(historical_team, on_delete=models.CASCADE,related_name="historical_freeagency")
     addedpokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True,related_name="addfa")
     droppedpokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True,related_name="dropfa")
 

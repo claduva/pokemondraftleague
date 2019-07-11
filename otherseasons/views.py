@@ -91,3 +91,62 @@ def seasonteamdetail(request,league_name,seasonofinterest,teamofinterest):
         'draft':draft
     }
     return render(request, 'otherseasons_team_detail.html',context)
+
+def seasondraft(request,league_name,seasonofinterest):
+    seasonofinterest=seasonofinterest.replace('_',' ')
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist',extra_tags='danger')
+        return redirect('home')
+    season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest)    
+    season=season_teams.first()
+    if season==None:
+        messages.error(request,'Season does not exist',extra_tags='danger')
+        return redirect('home')
+    otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname').exclude(seasonname=seasonofinterest)
+    context = {
+        'league': league_,
+        'otherseason':True,
+        'season':season,
+        'league_name':league_name,
+        'otherseasons':otherseasons,
+        'season_teams':season_teams,
+    }
+    return render(request, 'otherseasondraft.html',context)
+
+def seasontransactions(request,league_name,seasonofinterest):
+    seasonofinterest=seasonofinterest.replace('_',' ')
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist',extra_tags='danger')
+        return redirect('home')
+    season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest)    
+    season=season_teams.first()
+    if season==None:
+        messages.error(request,'Season does not exist',extra_tags='danger')
+        return redirect('home')
+    otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname').exclude(seasonname=seasonofinterest)
+    free_agencies=historical_freeagency.objects.all().filter(team__seasonname=season.seasonname).order_by('team__teamname')
+    trades_=historical_trading.objects.all().filter(team__seasonname=season.seasonname)
+    trades=[]
+    i=0
+    for item in trades_:
+        if i%2==0:
+            trade=[item]
+        else:
+            trade.append(item.team)
+            trades.append(trade)
+        i+=1
+    context = {
+        'league': league_,
+        'otherseason':True,
+        'season':season,
+        'league_name':league_name,
+        'otherseasons':otherseasons,
+        'season_teams':season_teams,
+        'free_agencies': free_agencies,
+        'trades': trades,
+    }
+    return render(request, 'otherseasontransactions.html',context)

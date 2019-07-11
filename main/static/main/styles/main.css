@@ -76,6 +76,10 @@ div.nicEdit-main{
   max-height:25px;
 }
 
+.table-condensed{
+  font-size: 12px;
+}
+
 .content-section button{
   margin: 5px;
 }

@@ -1,0 +1,48 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{league_name}} {{season.seasonname}}: Draft{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row bg-darkgrey rounded text-center mb-2 text-light">
+        <div class="col-md-2"></div>
+        <div class="col-md-8"> <h3>{{league_name}} {{season.seasonname}} Draft</h3></div>
+        <div class="col-md-2"></div>
+    </div>
+<div class="row content-section align-items-center">
+        {% for item in season_teams %}
+        <div class="col-md-4">
+            <table class="table table-sm text-center bg-lightgrey text-dark">
+                <tr>
+                    <th colspan="3">
+                        <div class="d-flex justify-content-center">
+                            <div class="small-logo"><img class="img-fluid px-1 rounded-circle" src="{{item.logo.url}}"></div>
+                            <div>{{item.teamname}}</div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Pick</th>
+                </tr>
+                {% for draftpick in item.historical_draft.all %}
+                <tr>
+                    <td>{{draftpick.picknumber}}</td>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <div class="small-logo"><img class="img-fluid px-1 rounded-circle" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ draftpick.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                            <div>{{draftpick.pokemon.pokemon}}</div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endfor %}  
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

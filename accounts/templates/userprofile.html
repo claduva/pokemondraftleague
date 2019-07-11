@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load extratags %}
 
 {% block title %}{{userofinterest}}{% endblock %}
 {% block head%}
@@ -96,15 +97,15 @@
             {% if userofinterest.historical_team_coach1.all or userofinterest.historical_team_coach2.all %}
             <div class="row align-items-center">
                 <div class="col-md-12 d-flex justify-content-center">
-                    <h3>Previous Seasons</h3>
+                    <h3>Previous Season Teams</h3>
                 </div>
             </div>
             <div class="row justify-content-around">
                 {% for item in userofinterest.historical_team_coach1.all %}
                 <div class="col-md-3 text-center m-0 mb-2 p-0">
                     <div class="card h-100 bg-lightgrey rounded mx-1 text-dark">
-                        <a href="{% url 'league_detail' league_name=item.league.name %}" class="text-dark">
-                            <img src="{{ item.league.logo.url }}" class="img-fluid">
+                        <a href="{% url 'seasonteamdetail' league_name=item.league.name seasonofinterest=item.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}" class="text-dark">
+                            <img src="{{ item.logo.url }}" class="img-fluid">
                             <div class="d-flex justify-content-center">{{ item.teamname }}</div>
                             <div class="d-flex justify-content-center">{{ item.league.name }}</div>
                             <div class="d-flex justify-content-center">{{ item.seasonname }}</div>
@@ -115,8 +116,8 @@
                 {% for item in userofinterest.historical_team_coach2.all %}
                 <div class="card h-100 col-md-3 text-center m-0 mb-2 p-0">
                         <div class="bg-lightgrey rounded mx-1 text-dark">
-                    <a href="{% url 'league_detail' league_name=item.league.name %}" class="text-dark">
-                        <img src="{{ item.league.logo.url }}" class="img-fluid">
+                    <a href="{% url 'seasonteamdetail' league_name=item.league.name seasonofinterest=item.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}" class="text-dark">
+                        <img src="{{ item.logo.url }}" class="img-fluid">
                         <div class="d-flex justify-content-center">{{ item.teamname }}</div>
                         <div class="d-flex justify-content-center">{{ item.league.name }}</div>
                         <div class="d-flex justify-content-center">{{ item.seasonname }}</div>
