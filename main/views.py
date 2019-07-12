@@ -25,6 +25,9 @@ from leagues.models import *
 from individualleague.models import *
 from pokemonadmin.models import *
 
+from replayanalysis.ShowdownReplayParser.replayparser import *
+from replayanalysis.helperfunctions import *
+
 # Create your views here.
 def home(request):
     try:
@@ -73,6 +76,14 @@ def pokemonleaderboard(request):
                 item.differential+=team.differential
                 item.gp+=team.gp
                 item.gw+=team.gw
+        historicrosterson=item.historicalpokemonroster.all()
+        for team in historicrosterson:
+            if team.team.league.name.find('Test')==-1:
+                item.kills+=team.kills
+                item.deaths+=team.deaths
+                item.differential+=team.differential
+                item.gp+=team.gp
+                item.gw+=team.gw
         if item.gp>0:
             leaderboard.append(item)
     leaderboard=sorted(leaderboard, 
@@ -91,6 +102,13 @@ def userleaderboard(request):
         teamscoaching=coachdata.objects.all().filter(Q(coach=item.user)|Q(teammate=item.user))
         for team in teamscoaching:
             if team.league_name.name.find('Test')==-1:
+                item.wins+=team.wins
+                item.losses+=team.losses
+                item.differential+=team.differential
+                item.seasonsplayed+=1
+        teamscoaching=historical_team.objects.all().filter(Q(coach1=item.user)|Q(coach2=item.user))
+        for team in teamscoaching:
+            if team.league.name.find('Test')==-1:
                 item.wins+=team.wins
                 item.losses+=team.losses
                 item.differential+=team.differential
@@ -138,5 +156,70 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request):
-    
+    dlteams=historical_team.objects.all().filter(seasonname="Season 5 T3 and Below")
+    for team in dlteams:
+        team.seasonname="Season 1"
+        team.save()
     return redirect('home')
+
+
+def findpoke(team1,team2,pokemonname,line_count):
+    try:
+        item=historical_roster.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).filter(team=team1).get(pokemon__pokemon=pokemonname)
+    except:
+        try:
+            item=historical_roster.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).filter(team=team1).get(pokemon__pokemon=f'{pokemonname}-Mega')
+        except:
+            try:
+                item=historical_roster.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).filter(team=team1).get(pokemon__pokemon=f'{pokemonname}-Mega-X')
+            except:
+                try:
+                    item=historical_roster.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).filter(team=team1).get(pokemon__pokemon=f'{pokemonname}-Mega-Y')
+                except:
+                    try:
+                        historical_freeagency.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).filter(team=team1).get(droppedpokemon__pokemon=pokemonname)   
+                        item=all_pokemon.objects.all().get(pokemon=pokemonname)
+                    except Exception as e:
+                        try:
+                            historical_freeagency.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).filter(team=team1).get(droppedpokemon__pokemon=f'{pokemonname}-Mega')   
+                            item=all_pokemon.objects.all().get(pokemon=f'{pokemonname}-Mega')
+                        except:
+                            try:
+                                historical_freeagency.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).filter(team=team1).get(droppedpokemon__pokemon=f'{pokemonname}-Mega-X')   
+                                item=all_pokemon.objects.all().get(pokemon=f'{pokemonname}-Mega-X')
+                            except:
+                                try:
+                                    historical_freeagency.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).filter(team=team1).get(droppedpokemon__pokemon=f'{pokemonname}-Mega-Y')   
+                                    item=all_pokemon.objects.all().get(pokemon=f'{pokemonname}-Mega-Y')
+                                except:
+                                    try:
+                                        historical_freeagency.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).get(droppedpokemon__pokemon=pokemonname)   
+                                        item=all_pokemon.objects.all().get(pokemon=pokemonname)
+                                    except Exception as e:
+                                        try:
+                                            historical_freeagency.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).get(droppedpokemon__pokemon=f'{pokemonname}-Mega')   
+                                            item=all_pokemon.objects.all().get(pokemon=f'{pokemonname}-Mega')
+                                        except:
+                                            try:
+                                                historical_freeagency.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).get(droppedpokemon__pokemon=f'{pokemonname}-Mega-X')   
+                                                item=all_pokemon.objects.all().get(pokemon=f'{pokemonname}-Mega-X')
+                                            except:
+                                                try:
+                                                    historical_freeagency.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).get(droppedpokemon__pokemon=f'{pokemonname}-Mega-Y')   
+                                                    item=all_pokemon.objects.all().get(pokemon=f'{pokemonname}-Mega-Y')
+                                                except:
+                                                    try:
+                                                        item=historical_roster.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).get(pokemon__pokemon=pokemonname)
+                                                    except:
+                                                        try:
+                                                            item=historical_roster.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).get(pokemon__pokemon=f'{pokemonname}-Mega')
+                                                        except:
+                                                            try:
+                                                                item=historical_roster.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).get(pokemon__pokemon=f'{pokemonname}-Mega-X')
+                                                            except:
+                                                                try:
+                                                                    item=historical_roster.objects.all().filter(team__league=team1.league,team__seasonname=team1.seasonname).get(pokemon__pokemon=f'{pokemonname}-Mega-Y')
+                                                                except:
+                                                                    item=all_pokemon.objects.all().get(pokemon=f'{pokemonname}')
+                                                                    print(f'{line_count}. {pokemonname}')                      
+    return item

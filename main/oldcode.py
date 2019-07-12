@@ -31,8 +31,8 @@ def runscript(request):
                 line_count += 1
             else:
                 teamid=row[1]
-                addedpokemon_=row[3]
-                droppedpokemon_=row[4]
+                addedpokemon_=row[4]
+                droppedpokemon_=row[3]
                 team_=historical_team.objects.get(id=teamid)
                 addedpokemon_=all_pokemon.objects.get(pokemon=addedpokemon_)
                 droppedpokemon_=all_pokemon.objects.get(pokemon=droppedpokemon_)
@@ -143,3 +143,150 @@ def runscript(request):
                 itemtomodify.coach1username=coachname
                 itemtomodify.save()
                 print(f'{teamid}')
+
+#match analysis
+with open('match.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                line_count += 1
+            else:
+                week=row[1]
+                team1=historical_team.objects.get(id=row[2])
+                team2=historical_team.objects.get(id=row[4])
+                score=row[8]
+                replay=row[9]
+                t1ff=row[10]
+                t2ff=row[11]
+                winner=historical_team.objects.get(id=row[6])
+                if replay != "":
+                    outputstring, team1_, team2_ = replayparse(replay)
+                    if team1_.win==1 and winner==team2:
+                        team1__=team1
+                        team2__=team2
+                        team1=team2__
+                        team2=team1__
+                    elif team2_.win==1 and winner==team1:
+                        team1__=team1
+                        team2__=team2
+                        team1=team2__
+                        team2=team1__
+                    #create match
+                    historical_match.objects.create(week=week,team1=team1,team2=team2,winner=winner,team1score=team1_.score,team2score=team2_.score,replay=replay)
+                    #update teams
+                    team1.wins+=team1_.win
+                    team1.losses+=abs(team1_.win-1)
+                    team1.differential+=team1_.diff
+                    team1.forfeit+=team1_.forfeit
+                    team2.wins+=team2_.win
+                    team2.losses+=abs(team2_.win-1)
+                    team2.differential+=team2_.diff
+                    team2.forfeit+=team2_.forfeit
+                    #update pokemon
+                    item=findpoke(team1,team2,team1_.pokemon1,line_count)
+                    item.kills+=team1_.P1K
+                    item.deaths+=team1_.P1F
+                    item.differential+=team1_.P1Diff
+                    item.gp+=1
+                    item.gw+=team1_.win
+                    item.save()
+                    item=findpoke(team1,team2,team1_.pokemon2,line_count)
+                    item.kills+=team1_.P2K
+                    item.deaths+=team1_.P2F
+                    item.differential+=team1_.P2Diff
+                    item.gp+=1
+                    item.gw+=team1_.win
+                    item.save()
+                    item=findpoke(team1,team2,team1_.pokemon3,line_count)
+                    item.kills+=team1_.P3K
+                    item.deaths+=team1_.P3F
+                    item.differential+=team1_.P3Diff
+                    item.gp+=1
+                    item.gw+=team1_.win
+                    item.save()
+                    item=findpoke(team1,team2,team1_.pokemon4,line_count)
+                    item.kills+=team1_.P4K
+                    item.deaths+=team1_.P4F
+                    item.differential+=team1_.P4Diff
+                    item.gp+=1
+                    item.gw+=team1_.win
+                    item.save()
+                    item=findpoke(team1,team2,team1_.pokemon5,line_count)
+                    item.kills+=team1_.P5K
+                    item.deaths+=team1_.P5F
+                    item.differential+=team1_.P5Diff
+                    item.gp+=1
+                    item.gw+=team1_.win
+                    item.save()
+                    item=findpoke(team1,team2,team1_.pokemon6,line_count)
+                    item.kills+=team1_.P6K
+                    item.deaths+=team1_.P6F
+                    item.differential+=team1_.P6Diff
+                    item.gp+=1
+                    item.gw+=team1_.win
+                    item.save()
+                    item=findpoke(team2,team1,team2_.pokemon1,line_count)
+                    item.kills+=team2_.P1K
+                    item.deaths+=team2_.P1F
+                    item.differential+=team2_.P1Diff
+                    item.gp+=1
+                    item.gw+=team2_.win
+                    item.save()
+                    item=findpoke(team2,team1,team2_.pokemon2,line_count)
+                    item.kills+=team2_.P2K
+                    item.deaths+=team2_.P2F
+                    item.differential+=team2_.P2Diff
+                    item.gp+=1
+                    item.gw+=team2_.win
+                    item.save()
+                    item=findpoke(team2,team1,team2_.pokemon3,line_count)
+                    item.kills+=team2_.P3K
+                    item.deaths+=team2_.P3F
+                    item.differential+=team2_.P3Diff
+                    item.gp+=1
+                    item.gw+=team2_.win
+                    item.save()
+                    item=findpoke(team2,team1,team2_.pokemon4,line_count)
+                    item.kills+=team2_.P4K
+                    item.deaths+=team2_.P4F
+                    item.differential+=team2_.P4Diff
+                    item.gp+=1
+                    item.gw+=team2_.win
+                    item.save()
+                    item=findpoke(team2,team1,team2_.pokemon5,line_count)
+                    item.kills+=team2_.P5K
+                    item.deaths+=team2_.P5F
+                    item.differential+=team2_.P5Diff
+                    item.gp+=1
+                    item.gw+=team2_.win
+                    item.save()
+                    item=findpoke(team2,team1,team2_.pokemon6,line_count)
+                    item.kills+=team2_.P6K
+                    item.deaths+=team2_.P6F
+                    item.differential+=team2_.P6Diff
+                    item.gp+=1
+                    item.gw+=team2_.win
+                    item.save()
+                else:
+                    if team1==winner:
+                        team1score=int(score)
+                        team2score=0
+                        team1.wins+=1
+                        team2.losses+=1
+                        team1.differential+=int(score)
+                        team2.differential+=(-int(score))
+                    elif team2==winner:
+                        team1score=0
+                        team2score=int(score)
+                        team2.wins+=1
+                        team1.losses+=1
+                        team2.differential+=int(score)
+                        team1.differential+=(-int(score))
+                    team1.forfeit+=int(t1ff)
+                    team2.forfeit+=int(t2ff)
+                    #create match
+                    historical_match.objects.create(week=week,team1=team1,team2=team2,winner=winner,team1score=team1score,team2score=team2score,replay=replay)
+                team1.save()
+                team2.save()
+                line_count += 1

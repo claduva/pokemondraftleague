@@ -21,13 +21,6 @@ class SignUp(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
 
-@login_required
-def profile(request):
-    context = {
-        "title": "Profile",
-    }
-    return render(request, 'profile.html',context)
-
 def user_profile(request,username):
     try:
         userofinterest=User.objects.get(username=username)
@@ -37,11 +30,15 @@ def user_profile(request,username):
             userprofile.wins+=item.wins
             userprofile.losses+=item.losses
             userprofile.differential+=item.differential
+        priorseasons=historical_team.objects.filter(Q(coach1=userofinterest)|Q(coach2=userofinterest))
+        for item in priorseasons:
+            userprofile.wins+=item.wins
+            userprofile.losses+=item.losses
+            userprofile.differential+=item.differential
         try:
             winpercent=f'{round(userprofile.wins/(userprofile.wins+userprofile.losses)*100)}%'
         except:
             winpercent='N/A'
-        priorseasons=historical_team.objects.filter(Q(coach1=userofinterest)|Q(coach2=userofinterest))
         seasonsplayed=coaching.count()+priorseasons.count()
     except:
         messages.error(request,'User does not exist!',extra_tags='danger')

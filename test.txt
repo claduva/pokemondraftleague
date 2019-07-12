@@ -1,23 +1,23 @@
-Team 1 Coach: Lupus Fluvium
+Team 1 Coach: GarrickTheBruce
 Team 1 Roster: 
-Salamence, Kills: 5, Deaths: 0, +/-: 5
-Suicune, Kills: 1, Deaths: 1, +/-: 0
-Donphan, Kills: 0, Deaths: 1, +/-: -1
-Rotom-Heat, Kills: 0, Deaths: 0, +/-: 0
-Scizor, Kills: 0, Deaths: 0, +/-: 0
-Diancie, Kills: 0, Deaths: 0, +/-: 0
-Mega Evolved: False
+Kyurem-Black, Kills: 4, Deaths: 0, +/-: 4
+Blaziken, Kills: 1, Deaths: 1, +/-: 0
+Steelix-Mega, Kills: 0, Deaths: 1, +/-: -1
+Swellow, Kills: 1, Deaths: 1, +/-: 0
+Blastoise, Kills: 0, Deaths: 1, +/-: -1
+Umbreon, Kills: 0, Deaths: 0, +/-: 0
+Mega Evolved: True
 Used Z-Move: True
 
-Team 2 Coach: PragmaticWin
+Team 2 Coach: LernesBlue
 Team 2 Roster: 
-Alakazam, Kills: 0, Deaths: 1, +/-: 0
-Manaphy, Kills: 0, Deaths: 1, +/-: -1
-Lopunny-Mega, Kills: 1, Deaths: 1, +/-: 1
-Ferrothorn, Kills: 1, Deaths: 1, +/-: 0
-Garbodor, Kills: 0, Deaths: 1, +/-: -1
-Flygon, Kills: 0, Deaths: 1, +/-: -1
+Altaria-Mega, Kills: 1, Deaths: 1, +/-: 0
+Bewear, Kills: 3, Deaths: 1, +/-: 2
+Salazzle, Kills: 0, Deaths: 1, +/-: -1
+Chansey, Kills: 0, Deaths: 1, +/-: -1
+Steelix, Kills: 0, Deaths: 1, +/-: -1
+Cofagrigus, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: True
 Used Z-Move: False
 
-Replay: https://replay.pokemonshowdown.com/gen7ou-886666659
+Replay: http://replay.pokemonshowdown.com/gen7anythinggoes-895004946

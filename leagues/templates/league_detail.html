@@ -28,12 +28,13 @@
         </div>
         {% endif %}
         {% else  %}
-        <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
+        <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+        </div>
         {% endif %}
     </div>
 </div>
-<div class="row content-section align-items-center">
-    <h4 class="col-md-6 text-center">
+<div class="row content-section align-items-center d-flex justify-content-center">
+    <h4 id="weekindicator" class="col-md-6 text-center">
         Current Week: 
         {% if seasonstart %}
         <span id="currentweek"></span>
@@ -41,7 +42,7 @@
         <span>Not currently in season</span>
         {% endif %}
     </h4>
-    <h4 class="col-md-6 text-center">
+    <h4 id="timer" class="col-md-6 text-center">
         Time Remaining In Week: 
         {% if seasonstart %}
         <span id="remaining"></span>
@@ -157,10 +158,16 @@
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Output the result in an element with id="demo"
-        document.getElementById("remaining").innerHTML = days + "d " + hours + "h "
+        leaguelength=parseInt('{{ season.seasonlength }}',10)
+        if (week>leaguelength){
+            document.getElementById("currentweek").innerHTML = 'Playoffs';
+            document.getElementById("timer").style.display="none";
+        }
+        else{
+            document.getElementById("currentweek").innerHTML = "Week " + week;
+            document.getElementById("remaining").innerHTML = days + "d " + hours + "h "
             + minutes + "m " + seconds + "s ";
-        
-        document.getElementById("currentweek").innerHTML = "Week " + week;
+        }
         // If the count down is over, write some text 
         if (distance < 0) {
             clearInterval(x);

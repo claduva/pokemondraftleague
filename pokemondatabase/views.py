@@ -16,6 +16,7 @@ import time
 from accounts.forms import UserRegisterForm
 from .models import *
 from leagues.models import *
+from pokemonadmin.models import *
 from .forms import *
 
 # Create your views here.
@@ -36,10 +37,17 @@ def pokedex(request):
 def pokedex_item(request,pokemon_of_interest):
     try:
         pokemon_data=all_pokemon.objects.get(pokemon=pokemon_of_interest)
-        draftnumber=draft.objects.all().filter(pokemon=pokemon_data).count()
+        draftnumber=draft.objects.all().filter(pokemon=pokemon_data).count()+historical_draft.objects.all().filter(pokemon=pokemon_data).count()
         pokemon_data.timesdrafted+=draftnumber
         roster_data=roster.objects.all().filter(pokemon=pokemon_data)
         for item in roster_data:
+            pokemon_data.kills+=item.kills
+            pokemon_data.deaths+=item.deaths
+            pokemon_data.differential+=item.differential
+            pokemon_data.gp+=item.gp
+            pokemon_data.gw+=item.gw
+        otherseason_data=historical_roster.objects.all().filter(pokemon=pokemon_data)
+        for item in otherseason_data:
             pokemon_data.kills+=item.kills
             pokemon_data.deaths+=item.deaths
             pokemon_data.differential+=item.differential

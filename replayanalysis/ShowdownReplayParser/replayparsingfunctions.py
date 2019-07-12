@@ -14,6 +14,8 @@ def findrosters(rawdata,team1,team2,t1roster,t2roster,indicestoremove,i):
         member=rawdata[i].split("|")[3]
         if member.find("-") > -1 and (member.find("Landorus") == -1 and member.find("Ho-Oh") == -1 and member.find("Shaymin") == -1 and member.find("Greninja") == -1 and member.find("Necrozma") == -1 and member.find("Deoxys") == -1 and member.find("Primal") == -1 and member.find("Rotom") == -1 and member.find("Thundurus") == -1 and member.find("Hoopa") == -1 and member.find("Tornadus") == -1 and member.find("Zygarde") == -1 and member.find("Kyurem") == -1 and member.find("Alola") == -1 and member.find("o-o") == -1 and member.find("Eternal") == -1 and member.find("Porygon") == -1 and member.find("Lycanroc") == -1):   
             member=member.split("-")[0]
+        if member.find("Type: Null") > -1:   
+            member="Type:Null"
         indicestoremove.append(i)
         t1roster.append(member)
         if len(t1roster)==1:
@@ -32,6 +34,8 @@ def findrosters(rawdata,team1,team2,t1roster,t2roster,indicestoremove,i):
         member=rawdata[i].split("|")[3]
         if member.find("-") > -1 and (member.find("Landorus") == -1 and member.find("Ho-Oh") == -1 and member.find("Shaymin") == -1 and member.find("Greninja") == -1 and member.find("Necrozma") == -1 and member.find("Deoxys") == -1 and member.find("Primal") == -1 and member.find("Rotom") == -1 and member.find("Thundurus") == -1 and member.find("Hoopa") == -1 and member.find("Tornadus") == -1 and member.find("Zygarde") == -1 and member.find("Kyurem") == -1 and member.find("Alola") == -1 and member.find("o-o") == -1 and member.find("Eternal") == -1 and member.find("Porygon") == -1 and member.find("Lycanroc") == -1):   
             member=member.split("-")[0]
+        if member.find("Type: Null") > -1:   
+            member="Type:Null"
         indicestoremove.append(i)
         t2roster.append(member)
         if len(t2roster)==1:
