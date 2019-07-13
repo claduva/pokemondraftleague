@@ -109,6 +109,7 @@ class award(models.Model):
 class coachaward(models.Model):
     coach = models.ForeignKey(User, on_delete=models.CASCADE,related_name='awards')
     award = models.ForeignKey(award, on_delete=models.CASCADE)
+    text = models.CharField(max_length=200,default=None)
 
     def __str__(self):
         return f'{self.award.awardname} for {self.coach.username}'

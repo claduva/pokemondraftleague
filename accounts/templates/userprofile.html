@@ -37,10 +37,12 @@
             <div class="col-md-12 d-flex justify-content-center">
                 <h5>Trophy Case</h5>
             </div>
-            <div class="row align-items-center justify-content-around">
-                {% for item in coachawards %}
-                <div class="col-md-3">
-                    <img src="{{ item.award.image.url }}" class="img-fluid">
+            <div class="row align-items-center justify-content-center mx-2">
+                {% for item in userofinterest.awards.all %}
+                <div class="col-3">
+                    <div>
+                        <img src="{{ item.award.image.url }}" class="mediumsprite" title="{{ item.award.awardname }}: {{ item.text }}" alt="{{ item.text }}"/>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
