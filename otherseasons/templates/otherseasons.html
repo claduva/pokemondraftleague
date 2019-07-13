@@ -37,7 +37,6 @@
             <th>W</th>
             <th>L</th>
             <th>+/-</th>
-            <th>Streak</th>
         </tr>
         {% for item in season_teams %}
         <tr>
@@ -52,10 +51,9 @@
                 </div>
             </a>
             </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{item.wins}}</td>
+            <td>{{item.losses}}</td>
+            <td>{{item.differential}}</td>
         </tr>
         {% endfor %}
     </table>

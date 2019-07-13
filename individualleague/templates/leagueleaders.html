@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% load extratags %}
 
-{% block title %}{{league.name}}: League Leaders{% endblock %}
+{% block title %}{{league.name}} {% if otherseason %}{{season.seasonname}}{% endif %}: League Leaders{% endblock %}
 {% block head%}
 <link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/leagueleaders.css' %}">
 {% endblock %}
@@ -44,7 +44,12 @@
                                 </div>
                             </div>
                         </td>
-                        <td>{{ item.team.teamabbreviation }}</td>
+                        <td>{% if otherseason %}
+                                {{ item.team.teamname }}
+                            {% else %}
+                            {{ item.team.teamabbreviation }}
+                            {% endif %}
+                        </td>
                         <td>{{ item.kills }}</td>
                         <td>{{ item.deaths }}</td>
                         <td>{{ item.differential }}</td>

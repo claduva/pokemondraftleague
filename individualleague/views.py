@@ -942,7 +942,6 @@ def freeagency(request,league_name):
     }
     return render(request, 'freeagency.html',context)
 
-@login_required
 def league_leaders(request,league_name):
     try:
         league_=league.objects.get(name=league_name)

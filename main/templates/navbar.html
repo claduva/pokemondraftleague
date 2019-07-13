@@ -70,7 +70,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               {% for team in season_teams %}
               <a class="dropdown-item"
-                href="{% url 'seasonteamdetail' league_name=league_name seasonofinterest=season.seasonname|replace:' ,_' teamofinterest=team.teamname|replace:' ,_' %}">{{ team.teamname }}</a>
+                href="{% url 'seasonteamdetail' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' teamofinterest=team.teamname|replace:' ,_' %}">{{ team.teamname }}</a>
               {% endfor %}
             </div>
           </div>
@@ -78,12 +78,12 @@
               <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">Season Resources</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="">Schedule</a>
-                <a class="dropdown-item" href="">Playoffs</a>
-                <a class="dropdown-item" href="{% url 'seasondraft' league_name=league_name seasonofinterest=season.seasonname %}">Draft</a>
-                <a class="dropdown-item" href="{% url 'seasontransactions' league_name=league_name seasonofinterest=season.seasonname %}">Transactions</a>
-                <a class="dropdown-item" href="">League Leaders</a>
-                <a class="dropdown-item" href="">Hall of Fame</a>
+                <a class="dropdown-item" href="{% url 'seasonschedule' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Regular Season Matches</a>
+                <a class="dropdown-item" href="{% url 'seasonplayoffs' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Playoffs</a>
+                <a class="dropdown-item" href="{% url 'seasondraft' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Draft</a>
+                <a class="dropdown-item" href="{% url 'seasontransactions' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Transactions</a>
+                <a class="dropdown-item" href="{% url 'seasonleagueleaders' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">League Leaders</a>
+                <a class="dropdown-item" href="{% url 'seasonhalloffame' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Hall of Fame</a>
               </div>
             </div>
             {% endif %}

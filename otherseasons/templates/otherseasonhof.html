@@ -1,0 +1,61 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{league_name}} {{season.seasonname}}: Hall of Fame{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row bg-darkgrey rounded text-center mb-2 text-light">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h3>{{league_name}} {{season.seasonname}} Hall of Fame</h3>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<div class="row bg-darkgrey rounded text-center pt-3">
+    <div class="col-12 mb-3">
+        <div class="bg-lightgrey rounded">
+            <div class="">
+                <h3>Champion</h3>
+            </div>
+            <div class="">
+                <h4>{{champion.teamname}}</h4>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="largelogo"><img class="img-fluid" src="{{champion.logo.url}}"></div>
+            </div>
+            <div class="row mx-1 pb-1">
+                {% for item in champion.historical_roster.all %}
+                <div class="col-sm-1 mediumlogo d-flex align-items-center"><img class="img-fluid"
+                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mb-3">
+        <div class="bg-lightgrey rounded">
+            <div class="">
+                <h3>Runner-Up</h3>
+            </div>
+            <div class="">
+                <h4>{{runnerup.teamname}}</h4>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="largelogo"><img class="img-fluid" src="{{runnerup.logo.url}}"></div>
+            </div>
+            <div class="row mx-1 pb-1">
+                    {% for item in runnerup.historical_roster.all %}
+                    <div class="col-sm-1 mediumlogo d-flex align-items-center"><img class="img-fluid"
+                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                    </div>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

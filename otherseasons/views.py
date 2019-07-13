@@ -21,7 +21,11 @@ from pokemonadmin.models import *
 from individualleague.models import *
 from accounts.models import *
 
+from replayanalysis.ShowdownReplayParser.replayparser import *
+from replayanalysis.helperfunctions import *
+
 def otherseasonslist(request,league_name):
+    league_name=league_name.replace('_',' ')
     try:
         league_=league.objects.get(name=league_name)
     except:
@@ -37,6 +41,7 @@ def otherseasonslist(request,league_name):
 
 def seasondetail(request,league_name,seasonofinterest):
     seasonofinterest=seasonofinterest.replace('_',' ')
+    league_name=league_name.replace('_',' ')
     try:
         league_=league.objects.get(name=league_name)
     except:
@@ -61,6 +66,7 @@ def seasondetail(request,league_name,seasonofinterest):
 def seasonteamdetail(request,league_name,seasonofinterest,teamofinterest):
     seasonofinterest=seasonofinterest.replace('_',' ')
     teamofinterest=teamofinterest.replace('_',' ')
+    league_name=league_name.replace('_',' ')
     try:
         league_=league.objects.get(name=league_name)
     except:
@@ -94,6 +100,7 @@ def seasonteamdetail(request,league_name,seasonofinterest,teamofinterest):
 
 def seasondraft(request,league_name,seasonofinterest):
     seasonofinterest=seasonofinterest.replace('_',' ')
+    league_name=league_name.replace('_',' ')
     try:
         league_=league.objects.get(name=league_name)
     except:
@@ -117,6 +124,7 @@ def seasondraft(request,league_name,seasonofinterest):
 
 def seasontransactions(request,league_name,seasonofinterest):
     seasonofinterest=seasonofinterest.replace('_',' ')
+    league_name=league_name.replace('_',' ')
     try:
         league_=league.objects.get(name=league_name)
     except:
@@ -150,3 +158,194 @@ def seasontransactions(request,league_name,seasonofinterest):
         'trades': trades,
     }
     return render(request, 'otherseasontransactions.html',context)
+
+def seasonschedule(request,league_name,seasonofinterest):
+    seasonofinterest=seasonofinterest.replace('_',' ')
+    league_name=league_name.replace('_',' ')
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist',extra_tags='danger')
+        return redirect('home')
+    season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest)    
+    season=season_teams.first()
+    if season==None:
+        messages.error(request,'Season does not exist',extra_tags='danger')
+        return redirect('home')
+    leagueschedule=[]
+    numberofweeks=historical_match.objects.all().distinct('week').exclude(week__contains="Playoffs").count()
+    for i in range(numberofweeks):
+        matches=historical_match.objects.all().filter(week=str(i+1),team1__league=league_,team1__seasonname=season.seasonname).order_by('id')
+        leagueschedule.append([str(i+1),matches])
+    otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname').exclude(seasonname=seasonofinterest)
+    context = {
+        'league': league_,
+        'otherseason':True,
+        'season':season,
+        'league_name':league_name,
+        'otherseasons':otherseasons,
+        'season_teams':season_teams,
+        'leagueschedule': leagueschedule,
+        'numberofweeks': range(numberofweeks),
+    }
+    if request.method=="POST":
+        if request.POST['purpose']=="Go":
+            weekselect=request.POST['weekselect']
+            if weekselect=="All":
+                donothing=True
+            else:
+                matches=historical_match.objects.all().filter(week=weekselect,team1__league=league_,team1__seasonname=season.seasonname).order_by('id')
+                leagueschedule=[[weekselect,matches]]
+                context.update({'leagueschedule':leagueschedule})
+    return render(request, 'otherseasonschedule.html',context)
+
+def seasonplayoffs(request,league_name,seasonofinterest):
+    seasonofinterest=seasonofinterest.replace('_',' ')
+    league_name=league_name.replace('_',' ')
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist',extra_tags='danger')
+        return redirect('home')
+    season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest)
+    season=season_teams.first()
+    if season==None:
+        messages.error(request,'Season does not exist',extra_tags='danger')
+        return redirect('home')
+    leagueschedule=[]
+    playoffweeks=historical_match.objects.all().filter(week__contains="Playoffs").order_by('id')
+    priorweeks=[]
+    for item in playoffweeks:
+        matches=historical_match.objects.all().filter(week=item.week,team1__league=league_,team1__seasonname=season.seasonname).order_by('id')
+        if item.week not in priorweeks:    
+            leagueschedule.append([item.week,matches])
+            priorweeks.append(item.week)
+       
+    otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname').exclude(seasonname=seasonofinterest)
+    context = {
+        'league': league_,
+        'otherseason':True,
+        'season':season,
+        'league_name':league_name,
+        'otherseasons':otherseasons,
+        'season_teams':season_teams,
+        'leagueschedule': leagueschedule,
+        'numberofweeks': range(playoffweeks.count()),
+        'playoffs':True,
+    }
+    if request.method=="POST":
+        if request.POST['purpose']=="Go":
+            weekselect=request.POST['weekselect']
+            if weekselect=="All":
+                donothing=True
+            else:
+                matches=historical_match.objects.all().filter(week=weekselect,team1__league=league_,team1__seasonname=season.seasonname).order_by('id')
+                leagueschedule=[[weekselect,matches]]
+                context.update({'leagueschedule':leagueschedule})
+    return render(request, 'otherseasonschedule.html',context)
+
+def seasonreplay(request,league_name,seasonofinterest,matchid):
+    seasonofinterest=seasonofinterest.replace('_',' ')
+    league_name=league_name.replace('_',' ')
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist',extra_tags='danger')
+        return redirect('home')
+    season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest)
+    season=season_teams.first()
+    if season==None:
+        messages.error(request,'Season does not exist',extra_tags='danger')
+        return redirect('home')
+    try:
+        match=historical_match.objects.get(pk=matchid)
+        if match.replay == "":
+            messages.error(request,f'A replay for that match does not exist!',extra_tags="danger")
+            return redirect('seasonschedule',league_name=league_name,seasonofinterest=seasonofinterest)
+    except:
+        return redirect('seasonschedule',league_name=league_name,seasonofinterest=seasonofinterest)
+    otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname')
+    url=match.replay
+    outputstring, team1, team2 = replayparse(url)
+    coach1=team1.coach
+    coach2=team2.coach 
+    coach1alt=showdownalts.objects.all().filter(showdownalt=coach1).first()
+    coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
+    coach1team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
+    coach2team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
+    context={
+        'output': outputstring,
+        'team1':team1,
+        'team2':team2,
+        'team1name':coach1team,
+        'team2name':coach2team,
+        'replay': url,
+        'league_name':league_name,
+        'matchid':matchid,
+        'showreplay': True,
+        'league': league_,
+        'otherseason':True,
+        'season':season,
+        'otherseasons':otherseasons,
+        'season_teams':season_teams,
+    }
+    return render(request,"replayanalysisform.html",context)
+
+def seasonleagueleaders(request,league_name,seasonofinterest):
+    seasonofinterest=seasonofinterest.replace('_',' ')
+    league_name=league_name.replace('_',' ')
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist',extra_tags='danger')
+        return redirect('home')
+    season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest)
+    season=season_teams.first()
+    if season==None:
+        messages.error(request,'Season does not exist',extra_tags='danger')
+        return redirect('home')
+    otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname')
+    leagueleaders=historical_roster.objects.all().filter(team__seasonname=season.seasonname,gp__gt=0).order_by('-kills','-differential')
+    context = {
+        'league': league_,
+        'league_name': league_name,
+        'otherseason':True,
+        'season':season,
+        'otherseasons':otherseasons,
+        'season_teams':season_teams,
+        'leagueleaders': leagueleaders,
+    }
+    return render(request, 'leagueleaders.html',context)
+
+def seasonhalloffame(request,league_name,seasonofinterest):
+    seasonofinterest=seasonofinterest.replace('_',' ')
+    league_name=league_name.replace('_',' ')
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist',extra_tags='danger')
+        return redirect('home')
+    season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest)
+    season=season_teams.first()
+    if season==None:
+        messages.error(request,'Season does not exist',extra_tags='danger')
+        return redirect('home')
+    otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname')
+    championship=historical_match.objects.all().filter(team1__seasonname=season.seasonname,team1__league=league_).get(week="Playoffs Finals")
+    champion=championship.winner
+    if championship.team1==champion:
+        runnerup=championship.team2
+    else:
+        runnerup=championship.team1
+    
+    context = {
+        'league': league_,
+        'league_name': league_name,
+        'otherseason':True,
+        'season':season,
+        'otherseasons':otherseasons,
+        'season_teams':season_teams,
+        'champion':champion,
+        'runnerup':runnerup,
+    }
+    return render(request, 'otherseasonhof.html',context)

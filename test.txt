@@ -1,23 +1,23 @@
-Team 1 Coach: GarrickTheBruce
+Team 1 Coach: dididid
 Team 1 Roster: 
-Kyurem-Black, Kills: 4, Deaths: 0, +/-: 4
-Blaziken, Kills: 1, Deaths: 1, +/-: 0
-Steelix-Mega, Kills: 0, Deaths: 1, +/-: -1
-Swellow, Kills: 1, Deaths: 1, +/-: 0
-Blastoise, Kills: 0, Deaths: 1, +/-: -1
-Umbreon, Kills: 0, Deaths: 0, +/-: 0
+Munchlax, Kills: 0, Deaths: 1, +/-: -1
+Celesteela, Kills: 0, Deaths: 1, +/-: -1
+Tyranitar-Mega, Kills: 1, Deaths: 1, +/-: 0
+Landorus, Kills: 1, Deaths: 1, +/-: 0
+Drampa, Kills: 0, Deaths: 1, +/-: -1
+Gengar, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: True
 Used Z-Move: True
 
-Team 2 Coach: LernesBlue
+Team 2 Coach: GarrickTheBruce
 Team 2 Roster: 
-Altaria-Mega, Kills: 1, Deaths: 1, +/-: 0
-Bewear, Kills: 3, Deaths: 1, +/-: 2
-Salazzle, Kills: 0, Deaths: 1, +/-: -1
-Chansey, Kills: 0, Deaths: 1, +/-: -1
-Steelix, Kills: 0, Deaths: 1, +/-: -1
-Cofagrigus, Kills: 0, Deaths: 1, +/-: -1
+Kyurem-Black, Kills: 1, Deaths: 1, +/-: 0
+Cresselia, Kills: 0, Deaths: 1, +/-: -1
+Steelix-Mega, Kills: 0, Deaths: 0, +/-: 0
+Jolteon, Kills: 0, Deaths: 0, +/-: 0
+Umbreon, Kills: 1, Deaths: 0, +/-: 1
+Volcarona, Kills: 4, Deaths: 0, +/-: 4
 Mega Evolved: True
-Used Z-Move: False
+Used Z-Move: True
 
-Replay: http://replay.pokemonshowdown.com/gen7anythinggoes-895004946
+Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-857461548
