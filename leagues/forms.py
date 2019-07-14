@@ -19,7 +19,6 @@ class UpdateLeagueForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         
         super(UpdateLeagueForm, self).__init__(*args, **kwargs)
-        
         self.fields["host"].widget = FilteredSelectMultiple("User", False, attrs={'rows':'2'})
         self.fields["host"].queryset = User.objects.all().order_by('username')
 
