@@ -22,7 +22,7 @@
         <div id="draftform2">
             <h5>Current drafting team: {{ currentpick.team.teamname }}</h5>
             <div class="d-flex justify-content-between">
-            {% if candraft or is_host %}
+            {% if candraft or request.user in currentpick.season.league.host.all %}
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <datalist id="availablepokemons">
@@ -34,7 +34,7 @@
                 <input name="purpose" type="submit" class="btn btn-primary" value="Submit">
             </form>
             {% endif %}
-            {% if is_host %}
+            {% if request.user in currentpick.season.league.host.all %}
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input name="purpose" type="submit" class="btn btn-danger" value="Skip">
