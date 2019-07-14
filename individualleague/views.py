@@ -82,7 +82,7 @@ def league_draft(request,league_name):
     except:
         messages.error(request,'Draft does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
-    is_host=(request.user==league_.host)
+    is_host=(request.user in league_.host.all())
     currentpick=draftlist.filter(pokemon__isnull=True,skipped=False).first()
     if picksremaining>0:
     ## go through left picks
@@ -618,7 +618,7 @@ def league_rules(request,league_name):
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
     ruleset=rule.objects.get(season=season)
-    is_host=(request.user==league_.host)
+    is_host=(request.user in league_.host.all())
     context = {
         'league': league_,
         'leaguepage': True,
@@ -642,7 +642,7 @@ def edit_league_rules(request,league_name):
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
     ruleset=rule.objects.get(season=season)
-    is_host=(request.user==league_.host)
+    is_host=(request.user in league_.host.all())
     if not is_host:
         messages.error(request,'Only the league host may edit the rules!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
@@ -1018,7 +1018,7 @@ def league_hall_of_fame(request,league_name):
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
-    is_host=(request.user==league_.host)
+    is_host=(request.user in league_.host.all())
     halloffameentries=hall_of_fame_entry.objects.all().filter(league=league_).order_by("-seasonname")
     context = {
         'league': league_,
@@ -1042,7 +1042,7 @@ def league_hall_of_fame_add_entry(request,league_name):
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
-    is_host=(request.user==league_.host)
+    is_host=(request.user in league_.host.all())
     if not is_host:
         messages.error(request,'Only the league host may add a hall of fame entry!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
@@ -1076,7 +1076,7 @@ def league_hall_of_fame_add_roster(request,league_name):
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
-    is_host=(request.user==league_.host)
+    is_host=(request.user in league_.host.all())
     if not is_host:
         messages.error(request,'Only the league host may add a hall of fame roster entry!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)

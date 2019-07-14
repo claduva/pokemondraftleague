@@ -19,8 +19,9 @@ from pokemondatabase.models import *
 
 def processor(request):
     try:
-        leagueshosted = request.user.hosting.all().order_by('name')
-    except:
+        leagueshosted = league.objects.all().filter(host=request.user)
+    except Exception as e:
+        print(e)
         leagueshosted = None
     allleagues = league.objects.all().exclude(name__contains='Test').order_by('name')
     try:  

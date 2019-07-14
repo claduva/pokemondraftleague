@@ -2,8 +2,13 @@ from django.contrib import admin
 
 from .models import *
 
+
+class LeagueAdmin(admin.ModelAdmin):
+    model= league
+    filter_horizontal = ('host',) #If you don't specify this, you will get a multiple select widget.
+
 # Register your models here.
-admin.site.register(league)
+admin.site.register(league,LeagueAdmin)
 admin.site.register(league_settings)
 admin.site.register(league_application)
 admin.site.register(coachdata)

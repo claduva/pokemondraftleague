@@ -186,7 +186,7 @@ def individual_league_settings(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_instance.host:
+    if request.user not in league_instance.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     league_settings_instance=league_settings.objects.get(league_name=league_instance)
@@ -222,7 +222,7 @@ def discordsettings(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_instance.host:
+    if request.user not in league_instance.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     try:
@@ -261,7 +261,7 @@ def delete_league(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != leaguetodelete.host:
+    if request.user not in leaguetodelete.host.all():
         messages.error(request,'Only a league host may delete a league!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     leaguetodelete.delete()
@@ -314,7 +314,7 @@ def league_apply(request,league_name):
 @login_required
 def manage_coachs(request,league_name):
     league_=league.objects.get(name=league_name)
-    if request.user != league_.host:
+    if request.user not in league_.host.all():
         messages.error(request,'Only a league host may manage coachs!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     applicants=league_application.objects.filter(league_name=league_)
@@ -442,7 +442,7 @@ def manage_tiers(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_.host:
+    if request.user not in league_.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     if request.method == 'POST':
@@ -473,7 +473,7 @@ def manage_seasons(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_.host:
+    if request.user not in league_.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     leaguesettings=league_settings.objects.get(league_name=league_)
@@ -544,7 +544,7 @@ def edit_tier(request,league_name,tierid):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_.host:
+    if request.user not in league_.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     if request.method == 'POST':
@@ -592,7 +592,7 @@ def view_tier(request,league_name,tier):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_.host:
+    if request.user not in league_.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     if request.method == 'POST':
@@ -629,7 +629,7 @@ def default_tiers(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_.host:
+    if request.user not in league_.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     if request.method == 'POST':
@@ -692,7 +692,7 @@ def set_draft_order(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_.host:
+    if request.user not in league_.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     leaguesettings=league_settings.objects.get(league_name=league_)
@@ -751,7 +751,7 @@ def add_conference_and_division_names(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_.host:
+    if request.user not in league_.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     if request.method == 'POST':
@@ -799,7 +799,7 @@ def manage_coach(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_.host:
+    if request.user not in league_.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     context = {

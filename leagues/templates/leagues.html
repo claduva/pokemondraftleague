@@ -29,8 +29,8 @@
                         <img src="{{ item.league_name.logo.url }}" class="img-fluid">
                         <div class="d-flex justify-content-center">{{ item.league_name.name }}</div>
                     </a>
-                    <div class="d-flex justify-content-center">Hosted By:</div>
-                    <div class="d-flex justify-content-center">{{item.league_name.host}}</div>
+                    <div class="d-flex justify-content-center text-center">Hosted By:</div>
+                    <div class="d-flex justify-content-center text-center">{% for h in item.league_name.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
                     {% if item.discordurl != 'Not Provided' %}
                         <a class="text-dark" href="{{ item.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a>
                     {% endif %}
@@ -51,7 +51,7 @@
                                 <div class="d-flex justify-content-center">{{ item.name }}</div>
                             </a>
                             <div class="d-flex justify-content-center">Hosted By:</div>
-                            <div class="d-flex justify-content-center">{{item.host}}</div>
+                            <div class="d-flex justify-content-center text-center">{% for h in item.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
                             {% if item.settings.discordurl != 'Not Provided' %}
                                 <a class="text-dark" href="{{ item.settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a>
                             {% endif %}

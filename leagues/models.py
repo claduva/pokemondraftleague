@@ -10,11 +10,11 @@ from enum import Enum
 
 class league(models.Model):
     name = models.CharField(max_length=30, unique=True)
-    host = models.ForeignKey(User, on_delete=models.CASCADE,related_name='hosting')
+    host = models.ManyToManyField(User,related_name='hosting')
     logo = models.ImageField(default='league_logos/defaultleaguelogo.png',upload_to='league_logos',null=True, blank=True)
 
     def __str__(self):
-        return f'{self.name} hosted by {self.host.username}'
+        return f'{self.name}'
 
 class league_settings(models.Model):
     league_name = models.OneToOneField(league, on_delete=models.CASCADE,related_name="settings")
