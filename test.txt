@@ -1,23 +1,23 @@
-Team 1 Coach: dididid
+Team 1 Coach: claduva
 Team 1 Roster: 
-Munchlax, Kills: 0, Deaths: 1, +/-: -1
-Celesteela, Kills: 0, Deaths: 1, +/-: -1
-Tyranitar-Mega, Kills: 1, Deaths: 1, +/-: 0
-Landorus, Kills: 1, Deaths: 1, +/-: 0
-Drampa, Kills: 0, Deaths: 1, +/-: -1
-Gengar, Kills: 0, Deaths: 1, +/-: -1
+Celebi, Kills: 0, Deaths: 1, +/-: -1
+Mandibuzz, Kills: 0, Deaths: 1, +/-: -1
+Latias, Kills: 0, Deaths: 1, +/-: -1
+Lopunny, Kills: 1, Deaths: 1, +/-: 0
+Salazzle, Kills: 0, Deaths: 1, +/-: -1
+Froslass, Kills: 2, Deaths: 1, +/-: 1
 Mega Evolved: True
-Used Z-Move: True
+Used Z-Move: False
 
-Team 2 Coach: GarrickTheBruce
+Team 2 Coach: terravinn
 Team 2 Roster: 
-Kyurem-Black, Kills: 1, Deaths: 1, +/-: 0
-Cresselia, Kills: 0, Deaths: 1, +/-: -1
-Steelix-Mega, Kills: 0, Deaths: 0, +/-: 0
-Jolteon, Kills: 0, Deaths: 0, +/-: 0
-Umbreon, Kills: 1, Deaths: 0, +/-: 1
-Volcarona, Kills: 4, Deaths: 0, +/-: 4
+Scolipede, Kills: 4, Deaths: 0, +/-: 4
+Milotic, Kills: 0, Deaths: 1, +/-: -1
+Aerodactyl, Kills: 2, Deaths: 1, +/-: 1
+Moltres, Kills: 0, Deaths: 1, +/-: -1
+Azelf, Kills: 0, Deaths: 0, +/-: 0
+Scizor, Kills: 0, Deaths: 0, +/-: 0
 Mega Evolved: True
-Used Z-Move: True
+Used Z-Move: False
 
-Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-857461548
+Replay: http://replay.pokemonshowdown.com/draftfrontier-gen7draftleaguetier-66363

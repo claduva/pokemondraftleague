@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.forms.widgets import FileInput
+from django.forms.widgets import FileInput, CheckboxSelectMultiple, SelectMultiple
+from django.contrib.admin.widgets import FilteredSelectMultiple
 from .models import *
 from django.forms import DateTimeInput
 
@@ -15,6 +16,13 @@ class CreateLeagueForm(forms.ModelForm):
 class UpdateLeagueForm(forms.ModelForm):
     logo=forms.FileField(widget=FileInput,required=False)
     
+    def __init__(self, *args, **kwargs):
+        
+        super(UpdateLeagueForm, self).__init__(*args, **kwargs)
+        
+        self.fields["host"].widget = FilteredSelectMultiple("User", False, attrs={'rows':'2'})
+        self.fields["host"].queryset = User.objects.all().order_by('username')
+
     class Meta:
         model = league
         fields = ['name','host','logo']

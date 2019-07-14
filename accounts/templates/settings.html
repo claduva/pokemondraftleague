@@ -4,6 +4,16 @@
 
 {% block title %}Settings{% endblock %}
 {% block head%}
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/SelectFilter2.js' %}"></script>
+<script type="text/javascript" src="{% static 'admin/js/SelectBox.js' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}"/>
+
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}"/>
 {% endblock %}
 {% block body %}
 <div class="row">
@@ -99,6 +109,7 @@
             {% endfor %}
             {% endif %}
             {% else %}
+            <fieldset><div class="form-row">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for form in forms %}
@@ -107,6 +118,8 @@
                 <input name="purpose" value="Update" hidden>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
+        </div>
+        </fieldset>
             {% endif %}
             {% if usersettings %}
             <h5>Add Showdown Alt:</h5>
@@ -132,7 +145,17 @@
             {% if deletebutton %}
             <a href="deleteleague"><button class="btn btn-danger">{{deletebutton}}</button></a>
             {% endif %}
-        </div>
+        </form>
     </div>
 </div>
+{% endblock %}
+{% block footer %}
+<script type="text/javascript">
+    addEvent(window, "load", function(e) { SelectFilter.init("id_host", "host", 2, "{% static 'admin/' %}"); });
+</script>
+<!-- 
+<script type="text/javascript" src="{%  static 'accounts/scripts/getElementsBySelector.js'%}"></script>
+<script type="text/javascript" src="{%  static 'accounts/scripts/actions.js'%}"></script>
+<script type="text/javascript" src="{%  static 'accounts/scripts/SelectBox.js'%}"></script>
+ -->
 {% endblock %}
