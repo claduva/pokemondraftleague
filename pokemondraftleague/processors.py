@@ -22,14 +22,7 @@ def processor(request):
         leagueshosted = request.user.hosting.all().order_by('name')
     except:
         leagueshosted = None
-    try:  
-        allleagues = league.objects.all().filter().order_by('name')
-        for item in allleagues:
-            settings=league_settings.objects.get(league_name=item)
-            if settings.is_public==False and item.host != request.user:
-                allleagues=allleagues.exclude(pk=item.id)
-    except:
-        allleagues = None
+    allleagues = league.objects.all().exclude(name__contains='Test').order_by('name')
     try:  
         leaguescoaching = coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).order_by('league_name')
     except:
@@ -50,7 +43,6 @@ def processor(request):
         messagelist=None
         numberofmessages=0
     allpokemonlist=all_pokemon.objects.all().order_by('pokemon')
-    
     return {
         'leagueshosted': leagueshosted,
         'allleagues': allleagues,

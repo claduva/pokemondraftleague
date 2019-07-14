@@ -100,9 +100,9 @@ class coachdata(models.Model):
         return f'{self.league_name.name}: {self.coach.username}{teammate}'
 
 class award(models.Model):
-    awardname = models.CharField(max_length=20, default="None",unique=True)
+    awardname = models.CharField(max_length=50, default="None",unique=True)
     image = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='awards',null=True, blank=True)
-    
+    ordering=models.IntegerField(default=0)
     def __str__(self):
         return f'Award: {self.awardname}'
 
@@ -110,6 +110,9 @@ class coachaward(models.Model):
     coach = models.ForeignKey(User, on_delete=models.CASCADE,related_name='awards')
     award = models.ForeignKey(award, on_delete=models.CASCADE)
     text = models.CharField(max_length=200,default=None)
+
+    class Meta:
+        ordering = ['award__ordering','-text']
 
     def __str__(self):
         return f'{self.award.awardname} for {self.coach.username}'

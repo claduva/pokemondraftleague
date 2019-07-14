@@ -45,7 +45,6 @@ def home(request):
     except:
         print("error")
     form=UserRegisterForm()
-
     context = {
         "title": "Pokemon Draft League",
         "form": form,

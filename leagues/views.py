@@ -162,7 +162,7 @@ def league_list(request):
     return render(request, 'leagues.html',context)
 
 def recruiting_league_list(request):
-    recruitinglist=league_settings.objects.filter(is_recruiting=True).filter(is_public=True)
+    recruitinglist=league_settings.objects.filter(is_recruiting=True).filter(is_public=True).exclude(league_name__name__contains="Test")
     if recruitinglist.count()==0:
         recruitinglist=True
     context={
