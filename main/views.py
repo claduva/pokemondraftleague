@@ -156,95 +156,37 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request):
-    all_leagues=league.objects.all()
-    for item in all_leagues:       
-        #current seasons
-        currentseason=seasonsetting.objects.all().filter(league=item)
-        for s in currentseason:
-            awardtext=f'{item.name} {s.seasonname}'
-            #check finals 
-            try:
-                awardtogive=award.objects.get(awardname="Champion")
-                finalsmatch=schedule.objects.all().filter(season=s).exclude(winner__isnull=True).get(week="Playoffs Finals")
-                winner=finalsmatch.winner
-                if winner==finalsmatch.team1: runnerup=finalsmatch.team2 
-                else: runnerup=finalsmatch.team1
-                awardcheck(winner.coach,awardtogive,awardtext)
-                if winner.teammate != None:
-                    awardcheck(winner.teammate,awardtogive,awardtext)
-                awardtogive=award.objects.get(awardname="Runnerup")    
-                awardcheck(runnerup.coach,awardtogive,awardtext)
-                if runnerup.teammate != None:
-                    awardcheck(runnerup.teammate,awardtogive,awardtext)
-            except:
-                print('Finals not played')
-            #check third place
-            try:
-                awardtogive=award.objects.get(awardname="Thirdplace")
-                thirdplacematch=schedule.objects.all().filter(season=s).exclude(winner__isnull=True).get(week="Playoffs Third Place Match")
-                winner=thirdplacematch.winner
-                awardcheck(winner.coach,awardtogive,awardtext)
-                if winner.teammate != None:
-                    awardcheck(winner.teammate,awardtogive,awardtext)
-            except:
-                print('Third place match not played')
-            ##check playoffs
-            awardtogive=award.objects.get(awardname="Playoffs")
-            season_playoffmatches=schedule.objects.all().filter(season=s,week__contains="Playoffs").exclude(winner__isnull=True).distinct('winner')
-            for m in season_playoffmatches:
-                awardcheck(m.team1.coach,awardtogive,awardtext)
-                awardcheck(m.team2.coach,awardtogive,awardtext)
-                if m.team1.teammate != None: 
-                    awardcheck(m.team1.teammate,awardtogive,awardtext)
-                if m.team2.teammate != None: 
-                    awardcheck(m.team2.teammate,awardtogive,awardtext)       
-        #historical seasons
-        historical_seasons=historical_team.objects.all().filter(league=item).distinct('seasonname')
-        for s in historical_seasons:
-            awardtext=f'{item.name} {s.seasonname}'
-            #check finals 
-            try:
-                awardtogive=award.objects.get(awardname="Champion")
-                finalsmatch=historical_match.objects.all().filter(team1__seasonname=s.seasonname).exclude(winner__isnull=True).get(week="Playoffs Finals")
-                winner=finalsmatch.winner
-                if winner==finalsmatch.team1: runnerup=finalsmatch.team2 
-                else: runnerup=finalsmatch.team1
-                awardcheck(winner.coach1,awardtogive,awardtext)
-                if winner.coach2 != None:
-                    awardcheck(winner.coach2,awardtogive,awardtext)
-                awardtogive=award.objects.get(awardname="Runnerup")    
-                awardcheck(runnerup.coach1,awardtogive,awardtext)
-                if runnerup.coach2 != None:
-                    awardcheck(runnerup.coach2,awardtogive,awardtext)
-            except:
-                print('Finals not played')
-            #check third place
-            try:
-                awardtogive=award.objects.get(awardname="Thirdplace")
-                thirdplacematch=historical_match.objects.all().filter(team1__seasonname=s.seasonname).exclude(winner__isnull=True).get(week="Playoffs Third Place Match")
-                winner=thirdplacematch.winner
-                awardcheck(winner.coach1,awardtogive,awardtext)
-                if winner.coach2 != None:
-                    awardcheck(winner.coach2,awardtogive,awardtext)
-            except:
-                print('Third place match not played')
-            ##check playoffs
-            awardtogive=award.objects.get(awardname="Playoffs")
-            season_playoffmatches=historical_match.objects.all().filter(team1__seasonname=s.seasonname,week__contains="Playoffs").exclude(winner__isnull=True).distinct('winner')
-            awardtext=f'{item.name} {s.seasonname}'
-            for m in season_playoffmatches:
-                awardcheck(m.team1.coach1,awardtogive,awardtext)
-                awardcheck(m.team2.coach1,awardtogive,awardtext)
-                if m.team1.coach2 != None: 
-                    awardcheck(m.team1.coach2,awardtogive,awardtext)
-                if m.team2.coach2 != None: 
-                    awardcheck(m.team2.coach2,awardtogive,awardtext)
+    all_users=User.objects.all()
+    admin=User.objects.get(username="Professor_Oak")
+    for u in all_users:
+        active=coachdata.objects.all().filter(Q(coach=u)|Q(teammate=u)).exclude(league_name__name__contains="Test")
+        past=historical_team.objects.all().filter(Q(coach1=u)|Q(coach2=u)).exclude(league__name__contains="Test")
+        teams=league_team.objects.all().filter(alternate=u)
+        seasoncount=active.count()+past.count()+teams.count()
+        awardtext='Pokemon Draft League'
+        if seasoncount>0:
+            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least one season. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
+            awardtogive=award.objects.get(awardname="1 Season Played")
+            awardcheck(u,awardtogive,awardtext,messagebody,admin)
+        if seasoncount>2:
+            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least three seasons. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
+            awardtogive=award.objects.get(awardname="3 Seasons Played")
+            awardcheck(u,awardtogive,awardtext,messagebody,admin)
+        if seasoncount>4:
+            awardtogive=award.objects.get(awardname="5 Seasons Played")
+            awardcheck(u,awardtogive,awardtext,messagebody,admin)
+            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least five seasons. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
+        if seasoncount>9:
+            awardtogive=award.objects.get(awardname="10 Seasons Played")
+            awardcheck(u,awardtogive,awardtext,messagebody,admin)
+            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least ten seasons. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
     return redirect('home')
 
-def awardcheck(coach,awardtogive,awardtext):
+def awardcheck(coach,awardtogive,awardtext,messagebody,admin):
     try:
         coachaward.objects.filter(coach=coach, award=awardtogive).get(text=awardtext)
     except:
+        inbox.objects.create(sender=admin,recipient=coach,messagesubject='You have been awarded a trophy!', messagebody=messagebody)
         coachaward.objects.create(coach=coach,award=awardtogive,text=awardtext)
 
 def findpoke(team1,team2,pokemonname,line_count):
