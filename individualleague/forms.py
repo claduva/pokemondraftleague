@@ -23,7 +23,7 @@ class CreateMatchForm(forms.ModelForm):
         self.fields['team2'].label_from_instance = lambda obj: obj.teamname
         c=[(i+1,i+1) for i in range(season.seasonlength)]
         d=[(f'Playoffs Round {i+1}',f'Playoffs Round {i+1}') for i in range(season.playoffslength-3)]
-        e=[('Playoffs Quarterfinals','Playoffs Quarterfinals'),('Playoffs Semifinals','Playoffs Semifinals'),('Playoffs Finals','Playoffs Finals')]
+        e=[('Playoffs Quarterfinals','Playoffs Quarterfinals'),('Playoffs Semifinals','Playoffs Semifinals'),('Playoffs Third Place Match','Playoffs Third Place Match'),('Playoffs Finals','Playoffs Finals')]
         c=c+d+e
         self.fields['week']=forms.ChoiceField(choices=c)
 
