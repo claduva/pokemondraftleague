@@ -29,3 +29,7 @@ def halve(thelist):
             secondhalf.append(item)
         i+=1
     return [firsthalf,secondhalf]
+
+@register.filter
+def integer(string):
+    return int(string)
