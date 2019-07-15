@@ -313,7 +313,12 @@ def league_apply(request,league_name):
 
 @login_required
 def manage_coachs(request,league_name):
-    league_=league.objects.get(name=league_name)
+    league_name=league_name.replace("_"," ")
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
     if request.user not in league_.host.all():
         messages.error(request,'Only a league host may manage coachs!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
@@ -793,7 +798,8 @@ def delete_division(request,league_name):
     return redirect('add_conference_and_division_names',league_name=league_name)        
 
 @login_required
-def manage_coach(request,league_name):
+def manage_coach(request,league_name,coachofinterest):
+    league_name=league_name.replace("_"," ")
     try:
         league_=league.objects.get(name=league_name)
     except:
@@ -802,43 +808,42 @@ def manage_coach(request,league_name):
     if request.user not in league_.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
+    try:
+        coachofinterest=coachdata.objects.filter(league_name=league_).get(coach__username=coachofinterest)
+    except:
+        messages.error(request,'Coach does not exist!',extra_tags='danger')
+        league_name=league_name.replace(" ","_")
+        return redirect('manage_coachs', league_name=league_name)
+    form=ManageCoachForm(league_,instance=coachofinterest)
+    try:
+        season=seasonsetting.objects.get(league=league_)
+        seasonnotinsession=False
+    except:
+        seasonnotinsession=True
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
-    }
+        'coachofinterest':coachofinterest,
+    } 
     if request.method == 'POST':
         formtype=request.POST['formtype']
-        coach=coachdata.objects.get(id=request.POST['coach'])
-        if formtype=="load":
-            form=ManageCoachForm(league_,instance=coach)
-            try:
-                season=seasonsetting.objects.get(league=league_)
-                seasonnotinsession=False
-            except:
-                seasonnotinsession=True
-            context.update({
-                'coach':coach,
-                'form':form,
-                'coachform':True,
-                'seasonnotinsession': seasonnotinsession,
-                })
-            return render(request, 'managecoach.html',context)
-        elif formtype=="update":
-            form=ManageCoachForm(league_,request.POST,request.FILES,instance=coach)
+        coachtoupdate=coachdata.objects.get(id=request.POST['coachtoupdate'])
+        print(coachtoupdate)
+        if formtype=="Update":
+            form=ManageCoachForm(league_,request.POST,request.FILES,instance=coachtoupdate)
             if form.is_valid():
-                #form.save()
-                print('here')
-                messages.success(request,f'{coach.coach} has been updated!')
+                form.save()
+                messages.success(request,f'{coachofinterest.coach.username} has been updated!')
                 return redirect('manage_coachs', league_name=league_name)
         elif formtype=="Adjust Draft":
             context.update({
-                'coach':coach,
+                'coachtoupdate':coachtoupdate,
                 'adjustdraft': True,
                 })
             return render(request, 'managecoach.html',context)
         elif formtype=="Adjust Roster":
             context.update({
-                'coach':coach,
+                'coachtoupdate':coachtoupdate,
                 'adjustroster': True,
                 })
             return render(request, 'managecoach.html',context)
@@ -866,31 +871,36 @@ def manage_coach(request,league_name):
             return redirect('manage_coachs', league_name=league_name)
         elif formtype=="Adjust Record":
             context.update({
-                'form': UpdateCoachRecordForm(instance=coach),
-                'coach':coach,
+                'form': UpdateCoachRecordForm(instance=coachtoupdate),
+                'coachtoupdate':coachtoupdate,
                 'adjustrecord': True,
                 })
             return render(request, 'managecoach.html',context)
         elif formtype=="updatecoachdata":
-            form=UpdateCoachRecordForm(request.POST,instance=coach)
+            form=UpdateCoachRecordForm(request.POST,instance=coachtoupdate)
             if form.is_valid():
                 form.save()
-                messages.success(request,f'{coach.coach} has been updated!')
+                messages.success(request,f'{coachtoupdate.coach.username} has been updated!')
                 return redirect('manage_coachs', league_name=league_name)
             return redirect('manage_coachs', league_name=league_name)
         elif formtype=="Add Showdown Alt":
-            alts=showdownalts.objects.all().filter(user=coach.coach)
+            alts=showdownalts.objects.all().filter(user=coachtoupdate.coach)
             context.update({
                 'alts':alts,
-                'coach':coach,
+                'coachtoupdate':coachtoupdate,
                 'addalt': True,
                 })
             return render(request, 'managecoach.html',context)
         elif formtype=="addalt":
-            showdownalts.objects.create(user=coach.coach,showdownalt=request.POST['givenalt'])
-            messages.success(request,f'{coach.coach} has been updated!')
-            return redirect('manage_coachs', league_name=league_name)
-    return redirect('manage_coachs', league_name=league_name)
+            showdownalts.objects.create(user=coachtoupdate.coach,showdownalt=request.POST['givenalt'])
+            messages.success(request,f'{coachtoupdate.coach} has been updated!')
+            return redirect('manage_coachs', league_name=league_name)     
+    context.update({
+        'form':form,
+        'coachform':True,
+        'seasonnotinsession': seasonnotinsession,
+    })
+    return render(request, 'managecoach.html',context)
 
 @login_required
 def designate_z_users(request,league_name):

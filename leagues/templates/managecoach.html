@@ -20,29 +20,29 @@
     <div class="col-md-8">
         <div class="row content-section">
             <div class="col-12 d-flex justify-content-between">
-                <h4>Manage {{coach.coach}}</h4>
+                <h4>Manage {{coachofinterest.coach.username}}</h4>
                 <div class="row">
                 <form class="col-md-4" method="POST">
                         {% csrf_token %}
-                        <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                        <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
                         <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Add Showdown Alt">
                 </form>
                 <form class="col-md-4" method="post">{% csrf_token %}
-                    <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                    <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
                     <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Adjust Record">
                 </form>
                 <form class="col-md-4" method="post">{% csrf_token %}
-                        <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                        <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
                         <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Adjust Draft">
                     </form>
                     <form class="col-md-3" method="post">{% csrf_token %}
-                        <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                        <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
                         <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Adjust Roster">
                 </form>
                 {% if seasonnotinsession %}
                 <form class="col-md-4" action="{% url 'removecoach' league_name=league_name %}" method="POST">
                     {% csrf_token %}
-                        <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                        <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
                         <input name="formtype" type="submit" class="btn btn-danger buttonpadding" value="Remove Coach">
                 </form>
                 {% endif %}
@@ -58,26 +58,25 @@
                 <form method="post">
                     {% csrf_token %}
                     {{ form|crispy  }}
-                    <input type="text" value="update" name="formtype" hidden>
-                    <input type="text" value="{{ coach.id }}" name="coach" hidden>
-                    <input type="submit" class="btn btn-primary" value="Update">
+                    <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
+                    <input name="formtype" type="submit" class="btn btn-primary" value="Update">
                 </form>
                 {% elif adjustdraft %}
                 <h5>Draft</h5>
-                {% for item in coach.draftpicks.all %}
+                {% for item in coachtoupdate.draftpicks.all %}
                     <form method="post">{% csrf_token %}
                         <input name="pokemontoupdate" value={{item.id}} hidden>
-                        <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                        <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
                         <input name="pokemontoupdateto" list="allpokemon" value="{{item.pokemon.pokemon}}">
                         <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Update Draft">
                     </form>
                 {% endfor %}
                 {% elif adjustroster %}
                 <h5>Roster</h5>
-                {% for item in coach.teamroster.all %}
+                {% for item in coachtoupdate.teamroster.all %}
                     <form method="post">{% csrf_token %}
                         <input name="pokemontoupdate" value={{item.id}} hidden>
-                        <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                        <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
                         <input name="pokemontoupdateto" list="allpokemon" value="{{item.pokemon.pokemon}}">
                         <input name="formtype" type="submit" class="btn btn-primary buttonpadding" value="Update Roster">
                     </form>
@@ -87,7 +86,7 @@
                     {% csrf_token %}
                     {{ form|crispy  }}
                     <input type="text" value="updatecoachdata" name="formtype" hidden>
-                    <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                    <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
                     <input type="submit" class="btn btn-primary" value="Update">
                 </form>
                 {% elif addalt %}
@@ -95,7 +94,7 @@
                     {% csrf_token %}
                     <input type="text" name="givenalt">
                     <input type="text" value="addalt" name="formtype" hidden>
-                    <input type="text" value="{{ coach.id }}" name="coach" hidden>
+                    <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
                     <input type="submit" class="btn btn-primary" value="Add Alt">
                 </form>
                 <h5>Existing Alts</h5>

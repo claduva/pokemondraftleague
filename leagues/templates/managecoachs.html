@@ -41,15 +41,10 @@
                 <h4>Coachs (Spots Remaining: {{ numberofcoachs }})</h4>
                 {% for item in coachs %}
                 <div class="row">
-                    <form action="{% url 'managecoach' league_name=league_name %}" method="POST">
-                        {% csrf_token %}
-                        <div class="d-flex align-items-center">
-                            <input type="text" value="{{ item.id }}" name="coach" hidden>
-                            <input type="text" value="load" name="formtype" hidden>
-                            <button type="submit" class="btn btn-primary buttonpadding">Manage</button>
-                            <div>{{item.coach}}</div>
-                        </div>
-                    </form>
+                    <div class="d-flex align-items-center">
+                        <a href="{% url 'manage_coach' league_name=league_name coachofinterest=item.coach.username %}"><button class="btn btn-primary buttonpadding">Manage</button></a>
+                        <div>{{item.coach.username}}</div>
+                    </div>
                 </div>
                 {% endfor %}
             </div>
