@@ -38,6 +38,12 @@ class pickems(models.Model):
     def __str__(self):
         return f'Rules for {self.season.league.name}'
 
+class pickemleaderboard(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    numbercorrect=models.IntegerField(default=0)
+    matchescompleted=models.IntegerField(default=0)
+    submitted=models.IntegerField(default=0)
+
 class rule(models.Model):
     season = models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
     rules=models.TextField(default="No rules announced")

@@ -11,6 +11,17 @@
     <div class="navbar-nav">
       {% if not leaguepage and not otherseasons %}
       <a class="nav-item nav-link" href="{% url 'league_list' %}">Leagues</a>
+      {% if leagueshosted %}
+      <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Leagues Hosting</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            {% for item in leagueshosted %}
+            <a class="dropdown-item" href="{% url 'league_detail' league_name=item.name %}">{{item.name}}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
       <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">Leaderboards</a>

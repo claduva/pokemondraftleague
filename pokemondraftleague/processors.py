@@ -19,7 +19,7 @@ from pokemondatabase.models import *
 
 def processor(request):
     try:
-        leagueshosted = league.objects.all().filter(host=request.user)
+        leagueshosted = league.objects.all().filter(host=request.user).order_by('name')
     except Exception as e:
         print(e)
         leagueshosted = None
