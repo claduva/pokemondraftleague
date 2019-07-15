@@ -80,7 +80,7 @@ def userleaderboard(request):
     return  render(request,"userleaderboard.html",context)
 
 def pickemleaderboard(request):
-    leaderboard=pickem_leaderboard.objects.all().order_by('-numbercorrect').exclude(matchescompleted__lt=5)
+    leaderboard=pickem_leaderboard.objects.all().order_by('-numbercorrect').exclude(matchescompleted__lt=1)
     context = {
         "title": "Pickem Leaderboard",
         "leaderboard": leaderboard
