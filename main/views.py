@@ -80,41 +80,14 @@ def userleaderboard(request):
     return  render(request,"userleaderboard.html",context)
 
 def pickemleaderboard(request):
-    leaderboard_=pickems.objects.all().distinct('user')
-    leaderboard=[]
-    for item in leaderboard_:
-        user_=item.user
-        userpickems=user_.pickems.all()
-        submitted=userpickems.count()
-        correct=userpickems.filter(correct=True).count()
-        matchescompleted=userpickems.filter(correct=True).exclude(match__replay='Link').count()
-        try:
-            percentcorrect=round(correct/matchescompleted*100)
-        except:
-            percentcorrect=0
-        pickemdata={
-            'user': user_,
-            'submitted':submitted,
-            'matchescompleted': matchescompleted,
-            'correct':correct,
-            'percentcorrect':percentcorrect,
-        }
-        leaderboard.append(pickemdata)
-    leaderboard.sort(
-                        key=lambda instance: [instance['percentcorrect'],instance['correct'],instance['submitted']],
-                        reverse=True
-                        )
+    leaderboard=pickem_leaderboard.objects.all().order_by('-numbercorrect').exclude(matchescompleted__lt=5)
     context = {
         "title": "Pickem Leaderboard",
         "leaderboard": leaderboard
     }
     return  render(request,"pickemleaderboard.html",context)
 
-def runscript(request):
-    leaderboard=pickem_leaderboard.objects.all().delete()
-    allusers=User.objects.all()
-    for item in allusers:
-        pickem_leaderboard.objects.create(user=item)
+def runscript(request):        
     return redirect('home')
 
 def awardcheck(coach,awardtogive,awardtext,messagebody,admin):

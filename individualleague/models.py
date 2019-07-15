@@ -34,15 +34,20 @@ class pickems(models.Model):
     match = models.ForeignKey(schedule,on_delete=models.SET_NULL,null=True)
     pick = models.ForeignKey(coachdata,on_delete=models.SET_NULL,null=True)
     correct = models.BooleanField(default=False)
+    submitted = models.DateField(auto_now_add=True)
 
-    def __str__(self):
-        return f'Rules for {self.season.league.name}'
 
 class pickem_leaderboard(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    numbercorrect=models.IntegerField(default=0)
+    numbercorrect = models.IntegerField(default=0)
     matchescompleted=models.IntegerField(default=0)
     submitted=models.IntegerField(default=0)
+
+    def percentcorrect(self):
+        try:
+            return f'{round(self.numbercorrect/self.matchescompleted*100,1)}%'
+        except:
+            return '0.0%'
 
 class rule(models.Model):
     season = models.ForeignKey(seasonsetting,on_delete=models.CASCADE)
