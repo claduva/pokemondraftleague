@@ -88,12 +88,6 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request):   
-    recipient=User.objects.get(username='claduva')     
-    inbox.objects.create(
-        sender=recipient,
-        recipient=recipient,
-        messagebody=""
-    )
     return redirect('home')
 
 def awardcheck(coach,awardtogive,awardtext,messagebody,admin):

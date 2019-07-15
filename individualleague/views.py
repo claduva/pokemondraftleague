@@ -11,6 +11,8 @@ from django.db.models import Q
 
 import json
 import math
+from datetime import datetime, timezone, timedelta
+import pytz
 
 from dal import autocomplete
 
@@ -271,7 +273,7 @@ def create_match(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    if request.user != league_.host:
+    if request.user not in league_.host.all():
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     leaguesettings=league_settings.objects.get(league_name=league_)
@@ -368,6 +370,9 @@ def league_schedule(request,league_name):
             matches.append([item,pickem])
         leagueschedule.append([str(i+1),matches])
     ishost=(request.user==league_.host)
+    timezone = pytz.timezone('UTC')
+    elapsed=timezone.localize(datetime.now())-season.seasonstart
+    currentweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
     context = {
         'league': league_,
         'leaguepage': True,
@@ -375,7 +380,8 @@ def league_schedule(request,league_name):
         'league_name': league_name,
         'leagueschedule': leagueschedule,
         'ishost': ishost,
-        'numberofweeks': range(numberofweeks)
+        'numberofweeks': range(numberofweeks),
+        'currentweek': currentweek,
     }
     if request.method=="POST":
         if request.POST['purpose']=="Go":

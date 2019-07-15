@@ -73,7 +73,7 @@
                 </td>
             </tr>
             {% endif %}
-            {% if match.replay == 'Link' and request.user.is_authenticated %}
+            {% if match.replay == 'Link' and request.user.is_authenticated and currentweek < match.week %}
             <tr class="bg-lightgrey text-dark text-center">
                 <td colspan="4">
                     <div><strong>Who Will Win?</strong></div>
