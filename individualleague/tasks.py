@@ -14,6 +14,23 @@ from individualleague.models import schedule, roster
 def print_message_test():
   print("Celery is working!!")
 
+@shared_task(name = "run_pickems")
+def run_pickems():
+  leaderboard=pickem_leaderboard.objects.all()
+  for item in leaderboard:
+      item.submitted=0
+      item.numbercorrect=0
+      item.matchescompleted=0
+      item.save()
+      pickemlist=item.user.pickems.all()
+      for p in pickemlist:
+          item.submitted+=1
+          if p.match.replay != "Link":
+              item.matchescompleted+=1
+              if p.pick==p.match.winner:
+                  item.numbercorrect+=1
+      item.save()
+
 @shared_task(name = "execute_fa_and_trades")
 def execute_free_agency_and_trades():
   #free agencies

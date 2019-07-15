@@ -118,8 +118,8 @@
         aria-haspopup="true" aria-expanded="false">
         <div class="badgeheader">
           <img src="{{ user.profile.pfp.url }}" class="rounded-circle" width="30" height="30" alt="">
-          {% if numberofmessages > 0 %}
-          <span class="badge">{{ numberofmessages }}</span>
+          {% if unreadmessages > 0 %}
+          <span class="badge">{{ unreadmessages }}</span>
           {% endif %}
         </div>
       </a>
@@ -127,8 +127,8 @@
         <a class="dropdown-item" href="{% url 'user_profile' username=user %}">Logged in as {{ user }}</a>
         <a class="dropdown-item" href="{% url 'user_profile' username=user %}">Your Profile</a>
         <a class="dropdown-item" href="{% url 'inbox' %}">Inbox
-          {% if numberofmessages > 0 %}
-          <span class="badge badge-danger">{{ numberofmessages }}</span>
+          {% if unreadmessages > 0 %}
+          <span class="badge badge-danger">{{ unreadmessages }}</span>
           {% endif %}
         </a>
         <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>

@@ -40,6 +40,7 @@ def processor(request):
     if request.user.is_authenticated:
         messagelist=inbox.objects.all().filter(recipient=request.user)
         numberofmessages=messagelist.count()
+        unreadmessages=messagelist.exclude(read=True).count()
     else:
         messagelist=None
         numberofmessages=0
@@ -52,5 +53,6 @@ def processor(request):
         'site_settings': site_settings,
         'messagelist':messagelist,
         'numberofmessages': numberofmessages,
+        'unreadmessages':unreadmessages,
         'allpokemonlist':allpokemonlist,
         }

@@ -112,6 +112,8 @@ def inbox_item_view(request,messageid):
     if request.user != messageofinterest.recipient:
         messages.error(request,"You do not have permission to view this message!",extra_tags="danger")
         return redirect('inbox')
+    messageofinterest.read=True
+    messageofinterest.save()
     context = {
         'messageofinterest': messageofinterest,
     }
