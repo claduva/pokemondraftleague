@@ -23,7 +23,9 @@
             <div class="d-flex justify-content-between">
                 <h2>{{ settingheading }}</h2>
                 <div>
-                    <a href=""><button class="btn btn-primary">Randomize</button></a>
+                    <form method="POST">{% csrf_token %}
+                        <input name="formpurpose" type="submit" class="btn btn-primary" value="Randomize">
+                    </form>
                 </div>
             </div>
             <form action="{% url 'set_draft_order' league_name=league_name %}" method="post">
@@ -38,7 +40,7 @@
                     </select>
                 </div>
                 {% endfor %}
-                <button type="submit" class="btn btn-primary">Set</button>
+                <input name="formpurpose" type="submit" class="btn btn-primary" value="Set">
             </form>
         </div>
     </div>

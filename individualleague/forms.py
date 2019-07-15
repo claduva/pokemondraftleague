@@ -95,3 +95,17 @@ class LeavePickForm(forms.ModelForm):
         super(LeavePickForm, self).__init__(*args, **kwargs)
         self.fields['pick'].queryset = availablepokemon.order_by('pokemon')
         self.fields['backup'].queryset = availablepokemon.order_by('pokemon')
+
+class ChangeMatchAttributionForm(forms.ModelForm):
+    
+    class Meta:
+        model = schedule
+        fields = ['team1','team1alternateattribution','team2','team2alternateattribution']
+
+    def __init__(self, *args, **kwargs):
+        super(ChangeMatchAttributionForm, self).__init__(*args, **kwargs)
+        self.fields['team1alternateattribution'].required=False
+        self.fields['team1alternateattribution'].queryset=User.objects.all().order_by('username')
+        self.fields['team2alternateattribution'].required=False
+        self.fields['team2alternateattribution'].queryset=User.objects.all().order_by('username')
+        

@@ -25,21 +25,10 @@ def user_profile(request,username):
     try:
         userofinterest=User.objects.get(username=username)
         userprofile=userofinterest.profile
-        coaching=coachdata.objects.filter(Q(coach=userofinterest)|Q(teammate=userofinterest))
-        for item in coaching:
-            userprofile.wins+=item.wins
-            userprofile.losses+=item.losses
-            userprofile.differential+=item.differential
-        priorseasons=historical_team.objects.filter(Q(coach1=userofinterest)|Q(coach2=userofinterest))
-        for item in priorseasons:
-            userprofile.wins+=item.wins
-            userprofile.losses+=item.losses
-            userprofile.differential+=item.differential
         try:
             winpercent=f'{round(userprofile.wins/(userprofile.wins+userprofile.losses)*100)}%'
         except:
             winpercent='N/A'
-        seasonsplayed=coaching.count()+priorseasons.count()
     except:
         messages.error(request,'User does not exist!',extra_tags='danger')
         return redirect('home')
@@ -47,7 +36,6 @@ def user_profile(request,username):
         "title": f"{username}'s Profile",
         'userofinterest':userofinterest,
         'winpercent':winpercent,
-        'seasonsplayed':seasonsplayed,
     }
     return render(request, 'userprofile.html',context)
 

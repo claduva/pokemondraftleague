@@ -12,6 +12,7 @@ from django.db.models import Q
 from datetime import datetime, timezone, timedelta
 import pytz
 import math
+import random
 
 from .forms import *
 from .models import *
@@ -714,22 +715,38 @@ def set_draft_order(request,league_name):
         messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
         return redirect('individual_league_settings',league_name=league_name)
     if request.method == 'POST':
-        currentdraft=draft.objects.all().filter(season=seasonsettings)
-        for item in currentdraft:
-            item.delete()
-        if draftstyle=="Snake":
+        formpurpose=request.POST['formpurpose']
+        if formpurpose=='Set':
+            currentdraft=draft.objects.all().filter(season=seasonsettings).delete()
+            if draftstyle=="Snake":
+                order=[]
+                for i in range(needednumberofcoaches):
+                    order.append(coachdata.objects.filter(teamname=request.POST[str(i+1)],league_name=league_).first())
+                flippedorder=order[::-1]
+                numberofpicks=seasonsettings.picksperteam
+                for i in range(numberofpicks):
+                    if i%2 == 0:
+                        for item in order:
+                            draft.objects.create(season=seasonsettings,team=item)
+                    else:    
+                        for item in flippedorder:
+                            draft.objects.create(season=seasonsettings,team=item)
+        elif formpurpose=='Randomize':
+            currentdraft=draft.objects.all().filter(season=seasonsettings).delete()
+            coachstoadd=coachdata.objects.all().filter(league_name=league_)
             order=[]
-            for i in range(needednumberofcoaches):
-                order.append(coachdata.objects.filter(teamname=request.POST[str(i+1)],league_name=league_).first())
+            for item in coachstoadd:
+                order.append(item)
+            random.shuffle(order)
             flippedorder=order[::-1]
             numberofpicks=seasonsettings.picksperteam
             for i in range(numberofpicks):
-                if i%2 == 0:
-                    for item in order:
-                        draft.objects.create(season=seasonsettings,team=item)
-                else:    
-                    for item in flippedorder:
-                        draft.objects.create(season=seasonsettings,team=item)
+                    if i%2 == 0:
+                        for item in order:
+                            draft.objects.create(season=seasonsettings,team=item)
+                    else:    
+                        for item in flippedorder:
+                            draft.objects.create(season=seasonsettings,team=item)
         messages.success(request,'Draft order has been set!')
         return redirect('individual_league_settings',league_name=league_name)        
     context = {

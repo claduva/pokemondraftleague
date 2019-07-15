@@ -1240,6 +1240,41 @@ def league_playoffs(request,league_name):
     }
     return render(request, 'schedule.html',context)
 
+@login_required
+def change_match_attribution(request,league_name,matchid):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        return redirect('league_list')
+    try:
+        match=schedule.objects.get(pk=matchid)
+        if match.replay == "Link":
+            messages.error(request,f'A replay for that match does not exist!',extra_tags="danger")
+            return redirect('league_schedule',league_name=league_name)
+    except:
+        return redirect('league_schedule',league_name=league_name)
+    if request.user.is_staff==False:
+        messages.error(request,f'Only staff may use this function',extra_tags="danger")
+        return redirect('league_schedule',league_name=league_name)
+    if request.method=="POST":
+        form=ChangeMatchAttributionForm(request.POST,instance=match)
+        if form.is_valid():
+            print(form.cleaned_data)
+            form.save()
+            messages.success(request,f'Match was updated!')
+        return redirect('league_schedule',league_name=league_name)
+    form=ChangeMatchAttributionForm(instance=match)
+    context={
+        'form':form,
+        'league_name':league_name,
+        'matchid':matchid,
+        'league': league_,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        }
+    return render(request,"matchattribution.html",context)
+
 class PokemonAutocomplete(autocomplete.Select2QuerySetView):
     def get_queryset(self):
         qs = all_pokemon.objects.all().order_by('pokemon')

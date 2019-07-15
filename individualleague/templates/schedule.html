@@ -14,21 +14,21 @@
     <div class="col-md-4">
         <h3 class="d-flex justify-content-center">{% if playoffs %}Playoffs {% endif %}Schedule</h3>
         <div class="d-flex justify-content-center">
-        <form method="post">{% csrf_token %}
-            <select name="weekselect">
-                <option value="All">All</option>
-                {% if playoffs %}
-                {% for item in playoffweeks %}
-                <option value="{{item.week}}">{{item.week}}</option>
-                {% endfor %}
-                {% else %}
-                {% for i in numberofweeks %}
-                <option value="{{i|add:1}}">Week {{i|add:1}}</option>
-                {% endfor %}
-                {% endif %}
-            </select>
-            <input name="purpose" type="submit" class="btn btn-sm btn-primary btn-sm" value="Go">
-        </form>
+            <form method="post">{% csrf_token %}
+                <select name="weekselect">
+                    <option value="All">All</option>
+                    {% if playoffs %}
+                    {% for item in playoffweeks %}
+                    <option value="{{item.week}}">{{item.week}}</option>
+                    {% endfor %}
+                    {% else %}
+                    {% for i in numberofweeks %}
+                    <option value="{{i|add:1}}">Week {{i|add:1}}</option>
+                    {% endfor %}
+                    {% endif %}
+                </select>
+                <input name="purpose" type="submit" class="btn btn-sm btn-primary btn-sm" value="Go">
+            </form>
         </div>
     </div>
     <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
@@ -68,46 +68,47 @@
             <tr class="bg-lightgrey text-dark">
                 <td colspan="4">
                     <div class="d-flex justify-content-center">
-                        <a href="{% url 'league_matchup' league_name=league_name matchid=match.id %}"><button class="btn btn-sm btn-dark">View Matchup</button></a></div>
+                        <a href="{% url 'league_matchup' league_name=league_name matchid=match.id %}"><button
+                                class="btn btn-sm btn-dark">View Matchup</button></a></div>
                 </td>
             </tr>
             {% endif %}
             {% if match.replay == 'Link' and request.user.is_authenticated %}
             <tr class="bg-lightgrey text-dark text-center">
-                    <td colspan="4">
-                        <div><strong>Who Will Win?</strong></div>
-                        <div class="d-flex justify-content-center">
-                            <div>
-                                <form method="post">{% csrf_token %}
-                                    <input name="purpose" value="t1pickem" hidden>
-                                    <input name="matchid" value='{{match.id}}' hidden>
-                                    {% if pickem.userpickem.pick == match.team1 %}
-                                    <button class="btn btn-sm btn-info">
+                <td colspan="4">
+                    <div><strong>Who Will Win?</strong></div>
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <form method="post">{% csrf_token %}
+                                <input name="purpose" value="t1pickem" hidden>
+                                <input name="matchid" value='{{match.id}}' hidden>
+                                {% if pickem.userpickem.pick == match.team1 %}
+                                <button class="btn btn-sm btn-info">
                                     {% else %}
                                     <button class="btn btn-sm btn-dark">
-                                    {% endif %}
+                                        {% endif %}
                                         <div>{{match.team1.teamabbreviation}}</div>
                                         <div>{{pickem.team1count}}</div>
                                     </button>
-                                </form>
-                            </div>
-                            <div>
-                                <form method="post">{% csrf_token %}
-                                    <input name="purpose" value="t2pickem" hidden>
-                                    <input name="matchid" value='{{match.id}}' hidden>
-                                    {% if pickem.userpickem.pick == match.team2 %}
-                                    <button class="btn btn-sm btn-info">
+                            </form>
+                        </div>
+                        <div>
+                            <form method="post">{% csrf_token %}
+                                <input name="purpose" value="t2pickem" hidden>
+                                <input name="matchid" value='{{match.id}}' hidden>
+                                {% if pickem.userpickem.pick == match.team2 %}
+                                <button class="btn btn-sm btn-info">
                                     {% else %}
                                     <button class="btn btn-sm btn-dark">
-                                    {% endif %}
+                                        {% endif %}
                                         <div>{{match.team2.teamabbreviation}}</div>
                                         <div>{{pickem.team2count}}</div>
                                     </button>
-                                </form>
-                            </div>
+                            </form>
                         </div>
-                    </td>
-                </tr>
+                    </div>
+                </td>
+            </tr>
             {% endif %}
             <tr class="bg-lightgrey text-dark rounded-bottom">
                 {% if match.replay == 'Link' %}
@@ -134,24 +135,35 @@
                             <input name="purpose" value='t1ff' hidden>
                             <input name="matchid" value='{{match.id}}' hidden>
                             <button class="btn btn-sm btn-dark">{{match.team1.teamabbreviation}} Forfeit</button>
-                        </form>  
+                        </form>
                         <form method='post'>{% csrf_token %}
                             <input name="purpose" value='t2ff' hidden>
                             <input name="matchid" value='{{match.id}}' hidden>
                             <button class="btn btn-sm btn-dark">{{match.team2.teamabbreviation}} Forfeit</button>
-                        </form>   
+                        </form>
                     </div>
                     <div class="d-flex justify-content-center">
                         <form method='post'>{% csrf_token %}
                             <input name="purpose" value='bothff' hidden>
                             <input name="matchid" value='{{match.id}}' hidden>
                             <button class="btn btn-sm btn-dark">Both Forfeit</button>
-                        </form>   
+                        </form>
                     </div>
                 </td>
-                </tr>
+            </tr>
             {% endif %}
-            <tr class="spacer"><td colspan="4"></td></tr>
+            {% if request.user.is_staff and match.replay != 'Link' %}
+            <tr class="bg-lightgrey text-dark rounded-bottom">
+                <td colspan="4">
+                    <div class="d-flex justify-content-center">
+                        <a href="{% url 'change_match_attribution' league_name=league_name matchid=match.id %}"><button class="btn btn-sm btn-dark">Change Attribution of Match to Different User</button></a>
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+            <tr class="spacer">
+                <td colspan="4"></td>
+            </tr>
             {% endfor %}
         </table>
     </div>

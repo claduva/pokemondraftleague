@@ -183,7 +183,7 @@ class roster(models.Model):
 class draft(models.Model):
     season = models.ForeignKey(seasonsetting, on_delete=models.CASCADE)
     team = models.ForeignKey(coachdata, on_delete=models.CASCADE,null=True,related_name="draftpicks")
-    pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True)
+    pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True,related_name="pokemondraft")
     picktime= models.DateTimeField(auto_now=True, null=True)
     skipped= models.BooleanField(default=False)
 

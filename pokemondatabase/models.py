@@ -26,6 +26,15 @@ class all_pokemon(models.Model):
     def __str__(self):
         return f'{self.pokemon}'
 
+class pokemon_leaderboard(models.Model):
+    pokemon = models.OneToOneField(all_pokemon,on_delete=models.CASCADE)
+    kills = models.IntegerField(default=0)
+    deaths = models.IntegerField(default=0)
+    differential = models.IntegerField(default=0)
+    gp = models.IntegerField(default=0)
+    gw = models.IntegerField(default=0)
+    timesdrafted = models.IntegerField(default=0)
+
 class pokemon_type(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='types')
     typing = models.CharField(max_length=15)

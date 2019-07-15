@@ -64,30 +64,7 @@ def about(request):
     return  render(request,"about.html")
 
 def pokemonleaderboard(request):
-    leaderboard_=all_pokemon.objects.all().order_by('pokemon')
-    leaderboard=[]
-    for item in leaderboard_:
-        rosterson=item.pokemonroster.all()
-        for team in rosterson:
-            if team.season.league.name.find('Test')==-1:
-                item.kills+=team.kills
-                item.deaths+=team.deaths
-                item.differential+=team.differential
-                item.gp+=team.gp
-                item.gw+=team.gw
-        historicrosterson=item.historicalpokemonroster.all()
-        for team in historicrosterson:
-            if team.team.league.name.find('Test')==-1:
-                item.kills+=team.kills
-                item.deaths+=team.deaths
-                item.differential+=team.differential
-                item.gp+=team.gp
-                item.gw+=team.gw
-        if item.gp>0:
-            leaderboard.append(item)
-    leaderboard=sorted(leaderboard, 
-                        key=lambda instance: [instance.kills,instance.differential], 
-                        reverse=True)
+    leaderboard=pokemon_leaderboard.objects.all().filter(gp__gt=0).order_by('-kills','-differential')
     context = {
         "title": "Pokemon Leaderboard",
         "leaderboard": leaderboard
@@ -95,28 +72,7 @@ def pokemonleaderboard(request):
     return  render(request,"pokemonleaderboard.html",context)
 
 def userleaderboard(request):
-    leaderboard_=profile.objects.all()
-    leaderboard=[]
-    for item in leaderboard_:
-        teamscoaching=coachdata.objects.all().filter(Q(coach=item.user)|Q(teammate=item.user))
-        for team in teamscoaching:
-            if team.league_name.name.find('Test')==-1:
-                item.wins+=team.wins
-                item.losses+=team.losses
-                item.differential+=team.differential
-                item.seasonsplayed+=1
-        teamscoaching=historical_team.objects.all().filter(Q(coach1=item.user)|Q(coach2=item.user))
-        for team in teamscoaching:
-            if team.league.name.find('Test')==-1:
-                item.wins+=team.wins
-                item.losses+=team.losses
-                item.differential+=team.differential
-                item.seasonsplayed+=1
-        if (item.wins+item.losses)>0:
-            leaderboard.append(item)
-    leaderboard=sorted(leaderboard, 
-                        key=lambda instance: [instance.wins,instance.differential], 
-                        reverse=True)
+    leaderboard=profile.objects.all().filter(wins__gt=0,losses__gt=0).order_by('-wins','-differential')
     context = {
         "title": "User Leaderboard",
         "leaderboard": leaderboard
@@ -155,30 +111,35 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request):
-    all_users=User.objects.all()
-    admin=User.objects.get(username="Professor_Oak")
-    for u in all_users:
-        active=coachdata.objects.all().filter(Q(coach=u)|Q(teammate=u)).exclude(league_name__name__contains="Test")
-        past=historical_team.objects.all().filter(Q(coach1=u)|Q(coach2=u)).exclude(league__name__contains="Test")
-        teams=league_team.objects.all().filter(alternate=u)
-        seasoncount=active.count()+past.count()+teams.count()
-        awardtext='Pokemon Draft League'
-        if seasoncount>0:
-            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least one season. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
-            awardtogive=award.objects.get(awardname="1 Season Played")
-            awardcheck(u,awardtogive,awardtext,messagebody,admin)
-        if seasoncount>2:
-            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least three seasons. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
-            awardtogive=award.objects.get(awardname="3 Seasons Played")
-            awardcheck(u,awardtogive,awardtext,messagebody,admin)
-        if seasoncount>4:
-            awardtogive=award.objects.get(awardname="5 Seasons Played")
-            awardcheck(u,awardtogive,awardtext,messagebody,admin)
-            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least five seasons. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
-        if seasoncount>9:
-            awardtogive=award.objects.get(awardname="10 Seasons Played")
-            awardcheck(u,awardtogive,awardtext,messagebody,admin)
-            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least ten seasons. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
+    leaderboard=pokemon_leaderboard.objects.all()
+    for item in leaderboard:
+        #set baseline
+        item.kills=item.pokemon.kills
+        item.deaths=item.pokemon.deaths
+        item.differential = item.pokemon.differential
+        item.gp=item.pokemon.gp
+        item.gw=item.pokemon.gw
+        item.timesdrafted=0 
+        item.save()
+        #update based on rosters
+        rosterson=item.pokemon.pokemonroster.all()
+        for team in rosterson:
+            if team.season.league.name.find('Test')==-1:
+                item.kills+=team.kills
+                item.deaths+=team.deaths
+                item.differential+=team.differential
+                item.gp+=team.gp
+                item.gw+=team.gw
+        historicrosterson=item.pokemon.historicalpokemonroster.all()
+        for team in historicrosterson:
+            if team.team.league.name.find('Test')==-1:
+                item.kills+=team.kills
+                item.deaths+=team.deaths
+                item.differential+=team.differential
+                item.gp+=team.gp
+                item.gw+=team.gw
+        item.timesdrafted=item.pokemon.historicalpokemondraft.all().count()+item.pokemon.pokemondraft.all().count()
+        item.save()
     return redirect('home')
 
 def awardcheck(coach,awardtogive,awardtext,messagebody,admin):
