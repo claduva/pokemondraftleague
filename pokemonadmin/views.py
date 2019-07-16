@@ -78,4 +78,27 @@ def pokemonadminhome(request):
             if form.is_valid():
                 form.save()
                 messages.success(request,f'Match has been updated')
+        elif request.POST['purpose']=="sendsitemessage":
+            heading=f"Send Site Message"
+            form=SiteMessageForm()
+            context.update({
+                'heading':heading,
+                'form':form,
+                'formvalue':'sendmessagetoall',
+            })
+        elif request.POST['purpose']=="sendmessagetoall":
+            form=SiteMessageForm(request.POST)
+            if form.is_valid():
+                messagesubject=form.cleaned_data['messagesubject']
+                messagebody=form.cleaned_data['messagebody']
+                admin=User.objects.get(username="Professor_Oak")
+                allusers=User.objects.all().exclude(username=admin.username)
+                for u in allusers:
+                    inbox.objects.create(
+                        sender=admin,
+                        recipient=u,
+                        messagesubject=messagesubject,
+                        messagebody=messagebody
+                    )
+                messages.success(request,f'Message Sent')
     return  render(request,"adminsettings.html",context)

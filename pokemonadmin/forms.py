@@ -7,6 +7,7 @@ from .models import *
 from pokemondatabase.models import *
 from leagues.models import *
 from individualleague.models import *
+from accounts.models import *
 
 class UpdatePokemonForm(forms.ModelForm):
 
@@ -25,3 +26,9 @@ class UpdateMatchForm(forms.ModelForm):
     class Meta:
         model = schedule
         exclude = ['season']
+
+class SiteMessageForm(forms.ModelForm):
+
+    class Meta:
+        model = inbox
+        fields = ['messagesubject','messagebody']
