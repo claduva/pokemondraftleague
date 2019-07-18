@@ -187,10 +187,7 @@ def award_check():
     #check season participation
     admin=User.objects.get(username="Professor_Oak")
     for u in all_users:
-        active=coachdata.objects.all().filter(Q(coach=u)|Q(teammate=u)).exclude(league_name__name__contains="Test")
-        past=historical_team.objects.all().filter(Q(coach1=u)|Q(coach2=u)).exclude(league__name__contains="Test")
-        teams=league_team.objects.all().filter(alternate=u)
-        seasoncount=active.count()+past.count()+teams.count()
+        seasoncount=u.profile.seasonsplayed
         awardtext='Pokemon Draft League'
         if seasoncount>0:
             messagebody=f'Congratulations! You have been awarded a trophy for participating in at least one season. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
