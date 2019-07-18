@@ -1,6 +1,5 @@
 def runscript(request):
     ##trading
-    historical_trading.objects.all().delete()
     with open('trading.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -22,7 +21,6 @@ def runscript(request):
                 line_count += 1
     
     ##free agency
-    historical_freeagency.objects.all().delete()
     with open('freeagency.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -44,7 +42,6 @@ def runscript(request):
                 line_count += 1
     
     ##roster
-    historical_roster.objects.all().delete()
     with open('roster.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -64,7 +61,6 @@ def runscript(request):
                 line_count += 1
                 
     ##draft
-    historical_draft.objects.all().delete()
     with open('draft.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
@@ -85,7 +81,6 @@ def runscript(request):
                 line_count += 1
             print(f'{line_count}')
     ##historical teams
-    historical_team.objects.all().delete()
     with open('teams.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0

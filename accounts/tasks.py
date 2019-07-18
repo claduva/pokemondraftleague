@@ -9,6 +9,7 @@ from leagues.models import *
 from individualleague.models import *
 from pokemonadmin.models import *
 from pokemondatabase.models import *
+from .models import *
 
 from pokemondraftleague.celery import app
 
