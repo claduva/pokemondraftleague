@@ -140,7 +140,7 @@ def runscript(request):
                 print(f'{teamid}')
 
 #match analysis
-with open('match.csv') as csv_file:
+    with open('match.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:

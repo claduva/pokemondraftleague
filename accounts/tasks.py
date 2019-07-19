@@ -119,7 +119,7 @@ def award_check():
                 print('Third place match not played')
             ##check playoffs
             awardtogive=award.objects.get(awardname="Playoffs")
-            season_playoffmatches=schedule.objects.all().filter(season=s,week__contains="Playoffs").exclude(winner__isnull=True).distinct('winner')
+            season_playoffmatches=schedule.objects.all().filter(season=s,season__league=item,week__contains="Playoffs").exclude(winner__isnull=True).distinct('winner')
             for m in season_playoffmatches:
                 messagebody=f'Congratulations! You have been awarded a trophy for making playoffs in a season. Check it out at https://www.pokemondraftleague.online/users/{m.team1.coach.username}'
                 awardcheck(m.team1.coach,awardtogive,awardtext,messagebody,admin)
@@ -169,7 +169,7 @@ def award_check():
                 print('Third place match not played')
             ##check playoffs
             awardtogive=award.objects.get(awardname="Playoffs")
-            season_playoffmatches=historical_match.objects.all().filter(team1__seasonname=s.seasonname,week__contains="Playoffs").exclude(winner__isnull=True).distinct('winner')
+            season_playoffmatches=historical_match.objects.all().filter(team1__league=item,team1__seasonname=s.seasonname,week__contains="Playoffs").exclude(winner__isnull=True).distinct('winner')
             awardtext=f'{item.name} {s.seasonname}'
             for m in season_playoffmatches:
                 messagebody=f'Congratulations! You have been awarded a trophy for making playoffs in a season. Check it out at https://www.pokemondraftleague.online/users/{m.team1.coach1.username}'
