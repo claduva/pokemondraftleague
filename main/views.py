@@ -88,7 +88,6 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request):
-    coachaward.objects.all().filter(award__awardname="Playoffs").delete()
     return redirect('home')
 
 def awardcheck(coach,awardtogive,awardtext,messagebody,admin):

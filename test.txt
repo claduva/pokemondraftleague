@@ -1,23 +1,23 @@
-Team 1 Coach: 1stlucariomaster
+Team 1 Coach: Dawkamist
 Team 1 Roster: 
-Tornadus, Kills: 1, Deaths: 1, +/-: 0
-Sableye-Mega, Kills: 0, Deaths: 1, +/-: -1
-Heatran, Kills: 0, Deaths: 1, +/-: -1
-Aromatisse, Kills: 0, Deaths: 1, +/-: -1
-Gogoat, Kills: 0, Deaths: 1, +/-: -1
-Krookodile, Kills: 0, Deaths: 1, +/-: -1
+Kartana, Kills: 1, Deaths: 1, +/-: 0
+Seismitoad, Kills: 0, Deaths: 1, +/-: -1
+Umbreon, Kills: 4, Deaths: 0, +/-: 4
+Mimikyu, Kills: 1, Deaths: 1, +/-: 0
+Altaria-Mega, Kills: 0, Deaths: 1, +/-: -1
+Excadrill, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: True
 Used Z-Move: True
 
-Team 2 Coach: capita's other alt
+Team 2 Coach: pyromancer19
 Team 2 Roster: 
-Hydreigon, Kills: 1, Deaths: 0, +/-: 1
-Nidoqueen, Kills: 2, Deaths: 0, +/-: 2
-Lopunny-Mega, Kills: 1, Deaths: 0, +/-: 1
-Klefki, Kills: 0, Deaths: 1, +/-: -1
-Kartana, Kills: 0, Deaths: 0, +/-: 0
-Heracross, Kills: 2, Deaths: 0, +/-: 2
-Mega Evolved: True
+Tapu Fini, Kills: 3, Deaths: 1, +/-: 2
+Archeops, Kills: 1, Deaths: 1, +/-: 0
+Bisharp, Kills: 1, Deaths: 1, +/-: 0
+Serperior, Kills: 0, Deaths: 1, +/-: -1
+Victini, Kills: 0, Deaths: 1, +/-: -1
+Shuckle, Kills: 0, Deaths: 1, +/-: -1
+Mega Evolved: False
 Used Z-Move: False
 
-Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-877114830
+Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-807654501
