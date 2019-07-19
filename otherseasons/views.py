@@ -267,12 +267,8 @@ def seasonreplay(request,league_name,seasonofinterest,matchid):
     otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname')
     url=match.replay
     outputstring, team1, team2 = replayparse(url)
-    coach1=team1.coach
-    coach2=team2.coach 
-    coach1alt=showdownalts.objects.all().filter(showdownalt=coach1).first()
-    coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
-    coach1team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
-    coach2team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
+    coach1team=match.team1
+    coach2team=match.team2
     context={
         'output': outputstring,
         'team1':team1,
