@@ -1,23 +1,23 @@
-Team 1 Coach: claduva
+Team 1 Coach: 1stlucariomaster
 Team 1 Roster: 
-Celebi, Kills: 0, Deaths: 1, +/-: -1
-Mandibuzz, Kills: 0, Deaths: 1, +/-: -1
-Latias, Kills: 0, Deaths: 1, +/-: -1
-Lopunny, Kills: 1, Deaths: 1, +/-: 0
-Salazzle, Kills: 0, Deaths: 1, +/-: -1
-Froslass, Kills: 2, Deaths: 1, +/-: 1
+Tornadus, Kills: 1, Deaths: 1, +/-: 0
+Sableye-Mega, Kills: 0, Deaths: 1, +/-: -1
+Heatran, Kills: 0, Deaths: 1, +/-: -1
+Aromatisse, Kills: 0, Deaths: 1, +/-: -1
+Gogoat, Kills: 0, Deaths: 1, +/-: -1
+Krookodile, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: True
-Used Z-Move: False
+Used Z-Move: True
 
-Team 2 Coach: terravinn
+Team 2 Coach: capita's other alt
 Team 2 Roster: 
-Scolipede, Kills: 4, Deaths: 0, +/-: 4
-Milotic, Kills: 0, Deaths: 1, +/-: -1
-Aerodactyl, Kills: 2, Deaths: 1, +/-: 1
-Moltres, Kills: 0, Deaths: 1, +/-: -1
-Azelf, Kills: 0, Deaths: 0, +/-: 0
-Scizor, Kills: 0, Deaths: 0, +/-: 0
+Hydreigon, Kills: 1, Deaths: 0, +/-: 1
+Nidoqueen, Kills: 2, Deaths: 0, +/-: 2
+Lopunny-Mega, Kills: 1, Deaths: 0, +/-: 1
+Klefki, Kills: 0, Deaths: 1, +/-: -1
+Kartana, Kills: 0, Deaths: 0, +/-: 0
+Heracross, Kills: 2, Deaths: 0, +/-: 2
 Mega Evolved: True
 Used Z-Move: False
 
-Replay: http://replay.pokemonshowdown.com/draftfrontier-gen7draftleaguetier-66363
+Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-877114830

@@ -1,12 +1,13 @@
 def directdamagekill(rawdata,team,i):
     destinybondcondition=(rawdata[i-4].find("|-singlemove|")==-1) # and (rawdata[i-4].find("Destiny Bond")>-1)
+    fainted=rawdata[i].split(" ",1)[1]
     otherconditions=(rawdata[i-1].find("[from] Hail") == -1) and (rawdata[i-1].find("[from] Leech Seed") == -1) \
         and (rawdata[i-1].find("[from] Stealth Rock") == -1) and (rawdata[i-1].find("[from] Spikes") == -1) \
         and (rawdata[i-1].find("[from] psn")==-1) and (rawdata[i-1].find("[from] brn") == -1) and (rawdata[i-2].find("fnt|[from] ability: Aftermath") == -1) \
         and (rawdata[i-1].find("[from] recoil")==-1)  and (rawdata[i-1].find("fnt|[from] ability: Iron Barbs")==-1)  and (rawdata[i-1].find("fnt|[from] ability: Rough Skin")==-1) \
-        and (rawdata[i-1].find("fnt|[from] item: Rocky Helmet")==-1) and (rawdata[i-1].find("Sandstorm")==-1) and (rawdata[i-1].find("Hail")==-1) \
+        and (rawdata[i-1].find(fainted+"|0 fnt|[from] item: Rocky Helmet")==-1) and (rawdata[i-1].find("Sandstorm")==-1) and (rawdata[i-1].find("Hail")==-1) \
         and (rawdata[i-1].find("[from] confusion")== -1) and (rawdata[i-1].find("[from] Curse")==-1) and (rawdata[i-1].find("Solar Power")==-1) \
-        and (rawdata[i-1].find("Dry Skin")==-1) and destinybondcondition        
+        and (rawdata[i-1].find("Dry Skin")==-1) and destinybondcondition
     if (rawdata[i-2].find("|move|") > -1) and otherconditions:
         killer=rawdata[i-2].split(" ",1)[1]
         killer=killer.split("|",1)[0]
@@ -37,6 +38,12 @@ def contacteffectkill(rawdata,team,fainted,i):
     or (rawdata[i-1].find("ability: Rough Skin") > -1)  or (rawdata[i-1].find("[from] Spiky Shield") > -1)) \
     and (rawdata[i-1].find("|-damage|") > -1): 
         killer=rawdata[i-1].split(" ")[-1]
+        if fainted != killer:
+            incrementkills(team,killer)
+    elif ((rawdata[i-2].find("item: Rocky Helmet") > -1) or (rawdata[i-2].find("ability: Iron Barbs") > -1) \
+    or (rawdata[i-2].find("ability: Rough Skin") > -1)  or (rawdata[i-2].find("[from] Spiky Shield") > -1)) \
+    and (rawdata[i-2].find("|-damage|") > -1): 
+        killer=rawdata[i-2].split(" ")[-1]
         if fainted != killer:
             incrementkills(team,killer)
 

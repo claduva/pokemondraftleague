@@ -86,6 +86,13 @@ def league_draft(request,league_name):
         return redirect('league_detail',league_name=league_name)
     is_host=(request.user in league_.host.all())
     currentpick=draftlist.filter(pokemon__isnull=True,skipped=False).first()
+    canskippick=False
+    try:
+        currentpickdraft=draftlist.filter(team=currentpick.team,pokemon__isnull=False)
+        if currentpickdraft.count()>=8 and (request.user==currentpick.team.coach or request.user==currentpick.team.teammate): 
+            canskippick=True
+    except:
+        pass
     if picksremaining>0:
     ## go through left picks
         picksleft=left_pick.objects.filter(coach=currentpick.team).order_by('id')
@@ -217,6 +224,14 @@ def league_draft(request,league_name):
             currentpick.skipped=True
             currentpick.save()
             messages.success(request,'That draft pick has been skipped!')
+        elif request.POST['purpose']=="Mark Draft as Done":
+            currentpick.skipped=True
+            currentpick.save()
+            otherpicks=draftlist.filter(team=currentpick.team,pokemon__isnull=True,skipped=False)
+            for p in otherpicks:
+                p.skipped=True
+                p.save()
+            messages.success(request,'That draft pick has been skipped!')
         return redirect('league_draft',league_name=league_name)
     bannedpokemon=pokemon_tier.objects.all().filter(league=league_).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
     takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
@@ -261,7 +276,8 @@ def league_draft(request,league_name):
         'draftorder':draftorder,
         'candraft':candraft,
         'form':form,
-        'leftpicks': leftpicks
+        'leftpicks': leftpicks,
+        'canskippick':canskippick,
     }
     return render(request, 'draft.html',context)
 

@@ -34,10 +34,14 @@
                 <input name="purpose" type="submit" class="btn btn-primary" value="Submit">
             </form>
             {% endif %}
-            {% if request.user in currentpick.season.league.host.all %}
+            {% if request.user in currentpick.season.league.host.all or canskippick %}
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input name="purpose" type="submit" class="btn btn-danger" value="Skip">
+            </form>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input name="purpose" type="submit" class="btn btn-danger" value="Mark Draft as Done">
             </form>
             {% endif %}
             </div>

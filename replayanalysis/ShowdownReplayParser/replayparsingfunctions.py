@@ -51,11 +51,12 @@ def findrosters(rawdata,team1,team2,t1roster,t2roster,indicestoremove,i):
         if len(t2roster)==6:
             team2.pokemon6=member
     for i in range(len(rawdata)):
-        if (rawdata[i].find("|"+member) > -1) and ((rawdata[i].find("|switch|") > -1) or (rawdata[i].find("|drag|") > -1)):            
+        if (rawdata[i].find("|"+member) > -1) and ((rawdata[i].find("|switch|") > -1) or (rawdata[i].find("|drag|") > -1)) or (rawdata[i].find("|"+member) > -1 and rawdata[i].find("|replace|") > -1):            
             nickname=rawdata[i].split(" ",1)[1].split("|",1)[0]
             break
     for i in range(len(rawdata)):
-        rawdata[i]=rawdata[i].replace(nickname,member)
+        if rawdata[i].find(nickname+"-") ==-1:
+            rawdata[i]=rawdata[i].replace(nickname,member)
         rawdata[i]=rawdata[i].replace(member + "|" + member,member)   
 
 def removeunneededlines(rawdata,indicestoremove,i):  
