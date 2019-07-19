@@ -12,6 +12,7 @@ from leagues.models import *
 class historical_team(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE)
     seasonname = models.CharField(max_length=100)
+    subseason = models.CharField(max_length=100, null=True)
     teamname = models.CharField(max_length=100)
     coach1= models.ForeignKey(User, on_delete=models.CASCADE,related_name="historical_team_coach1")
     coach1username=models.CharField(max_length=100)

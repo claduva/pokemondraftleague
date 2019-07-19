@@ -52,7 +52,32 @@ def home(request):
     return  render(request,"index.html", context)
 
 def about(request):
-    return  render(request,"about.html")
+    coachs=[]
+    coachlist=coachdata.objects.all().exclude(league_name__name__contains="Test")
+    for c in coachlist:
+        if c.coach.username not in coachs:
+            coachs.append(c.coach.username)
+        if c.teammate and c.teammate.username not in coachs:
+            coachs.append(c.teammate.username) 
+    coachlist=historical_team.objects.all().exclude(coach1__username="UnclaimedCoach")
+    for c in coachlist:
+        if c.coach1.username not in coachs:
+            coachs.append(c.coach1.username)
+        if c.coach2 and c.coach2.username not in coachs:
+            coachs.append(c.coach2.username) 
+    leagues=league.objects.all().exclude(name__contains="Test")
+    historicalmatches=historical_match.objects.all().exclude(replay="").exclude(replay__contains="FF")
+    currentmatches=schedule.objects.all().exclude(replay="Link").exclude(replay__contains="FF")
+    seasonscompleted=0
+    for l in leagues:
+        seasonscompleted+=historical_team.objects.all().filter(league=l).distinct('seasonname').count()
+    context = {
+        "numberofleagues":leagues.count(),
+        "uniquecoaches": len(coachs),
+        "seasonscompleted":seasonscompleted,
+        "matchesplayed": currentmatches.count()+historicalmatches.count(),
+    }
+    return  render(request,"about.html", context)
 
 def custom404(request,exception):
     return  render(request,"404.html")
@@ -60,8 +85,6 @@ def custom404(request,exception):
 def custom500(request,exception):
     return  render(request,"500.html")
 
-def about(request):
-    return  render(request,"about.html")
 
 def pokemonleaderboard(request):
     leaderboard=pokemon_leaderboard.objects.all().filter(gp__gt=0).order_by('-kills','-differential')
@@ -72,7 +95,7 @@ def pokemonleaderboard(request):
     return  render(request,"pokemonleaderboard.html",context)
 
 def userleaderboard(request):
-    leaderboard=profile.objects.all().filter(wins__gt=0,losses__gt=0).order_by('-wins','-differential')
+    leaderboard=profile.objects.all().filter(Q(wins__gt=0)|Q(losses__gt=0)).order_by('-wins','-differential').exclude(user__username="UnclaimedCoach")
     context = {
         "title": "User Leaderboard",
         "leaderboard": leaderboard
