@@ -140,11 +140,11 @@ def runscript(request):
                 print(f'{teamid}')
 
 #match analysis
-    with open('match.csv') as csv_file:
+with open('match.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
-            if line_count <101:#<29 or line_count >=33: #undo 29-33
+            if line_count ==0:
                 line_count += 1
                 print(line_count)
             else:
@@ -153,8 +153,8 @@ def runscript(request):
                 team2=historical_team.objects.get(id=row[4])
                 score=row[8]
                 replay=row[9]
-                t1ff=row[10]
-                t2ff=row[11]
+                t1ff=int(row[10])
+                t2ff=int(row[11])
                 try:
                     winner=historical_team.objects.get(id=row[6])
                 except:
@@ -268,21 +268,21 @@ def runscript(request):
                     item.gw+=team2_.win
                     item.save()
                 else:
-                    if team1==winner and t1ff==0 and t2ff==0:
+                    if team1==winner and t2ff==0:
                         team1score=int(score)
                         team2score=0
                         team1.wins+=1
                         team2.losses+=1
                         team1.differential+=int(score)
                         team2.differential+=(-int(score))
-                    elif team2==winner and t1ff==0 and t2ff==0:
+                    elif team2==winner and t1ff==0:
                         team1score=0
                         team2score=int(score)
                         team2.wins+=1
                         team1.losses+=1
                         team2.differential+=int(score)
                         team1.differential+=(-int(score))
-                    elif team1==winner and t1ff==0 and t2ff==1:
+                    elif team1==winner and t2ff==1:
                         team1score=3
                         team2score=0
                         team1.wins+=1
@@ -290,7 +290,7 @@ def runscript(request):
                         team2.differential+=-6
                         team1.differential+=3
                         replay="T2FF"
-                    elif team2==winner and t1ff==1 and t2ff==0:
+                    elif team2==winner and t1ff==1:
                         team1score=0
                         team2score=3
                         team2.wins+=1
@@ -298,7 +298,7 @@ def runscript(request):
                         team2.differential+=3
                         team1.differential+=-6
                         replay="T1FF"
-                    else:
+                    elif t1ff==1 and t2ff==1:
                         team1score=0
                         team2score=0
                         team2.losses+=1
@@ -306,8 +306,8 @@ def runscript(request):
                         team2.differential+=-6
                         team1.differential+=-6
                         replay="BothFF"
-                    team1.forfeit+=int(t1ff)
-                    team2.forfeit+=int(t2ff)
+                    team1.forfeit+=t1ff
+                    team2.forfeit+=t2ff
                     #create match
                     historical_match.objects.create(week=week,team1=team1,team2=team2,winner=winner,team1score=team1score,team2score=team2score,replay=replay)
                 team1.save()

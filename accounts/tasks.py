@@ -88,7 +88,7 @@ def award_check():
             #check finals 
             try:
                 awardtogive=award.objects.get(awardname="Champion")
-                finalsmatch=schedule.objects.all().filter(season=s).exclude(winner__isnull=True).get(week="Playoffs Finals")
+                finalsmatch=schedule.objects.all().filter(season=s,season__league=item).exclude(winner__isnull=True).get(week="Playoffs Finals")
                 winner=finalsmatch.winner
                 if winner==finalsmatch.team1: runnerup=finalsmatch.team2 
                 else: runnerup=finalsmatch.team1
@@ -108,7 +108,7 @@ def award_check():
             #check third place
             try:
                 awardtogive=award.objects.get(awardname="Thirdplace")
-                thirdplacematch=schedule.objects.all().filter(season=s).exclude(winner__isnull=True).get(week="Playoffs Third Place Match")
+                thirdplacematch=schedule.objects.all().filter(season=s,season__league=item).exclude(winner__isnull=True).get(week="Playoffs Third Place Match")
                 winner=thirdplacematch.winner
                 messagebody=f'Congratulations! You have been awarded a trophy for coming in third place in a season. Check it out at https://www.pokemondraftleague.online/users/{winner.coach.username}'
                 awardcheck(winner.coach,awardtogive,awardtext,messagebody,admin)
@@ -138,7 +138,7 @@ def award_check():
             #check finals 
             try:
                 awardtogive=award.objects.get(awardname="Champion")
-                finalsmatch=historical_match.objects.all().filter(team1__seasonname=s.seasonname).exclude(winner__isnull=True).get(week="Playoffs Finals")
+                finalsmatch=historical_match.objects.all().filter(team1__league=item,team1__seasonname=s.seasonname).exclude(winner__isnull=True).get(week="Playoffs Finals")
                 winner=finalsmatch.winner
                 if winner==finalsmatch.team1: runnerup=finalsmatch.team2 
                 else: runnerup=finalsmatch.team1
@@ -158,7 +158,7 @@ def award_check():
             #check third place
             try:
                 awardtogive=award.objects.get(awardname="Thirdplace")
-                thirdplacematch=historical_match.objects.all().filter(team1__seasonname=s.seasonname).exclude(winner__isnull=True).get(week="Playoffs Third Place Match")
+                thirdplacematch=historical_match.objects.all().filter(team1__league=item,team1__seasonname=s.seasonname).exclude(winner__isnull=True).get(week="Playoffs Third Place Match")
                 winner=thirdplacematch.winner
                 messagebody=f'Congratulations! You have been awarded a trophy for coming in third place in a season. Check it out at https://www.pokemondraftleague.online/users/{winner.coach1.username}'
                 awardcheck(winner.coach1,awardtogive,awardtext,messagebody,admin)

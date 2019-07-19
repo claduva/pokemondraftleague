@@ -1,23 +1,23 @@
-Team 1 Coach: Koulam
+Team 1 Coach: DuffleGamer
 Team 1 Roster: 
-Weezing, Kills: 1, Deaths: 1, +/-: 0
-Mamoswine, Kills: 0, Deaths: 1, +/-: -1
-Jirachi, Kills: 0, Deaths: 1, +/-: 0
-Kangaskhan-Mega, Kills: 0, Deaths: 1, +/-: -1
-Incineroar, Kills: 0, Deaths: 1, +/-: -1
-Rotom-Mow, Kills: 1, Deaths: 1, +/-: 0
+Scizor, Kills: 0, Deaths: 1, +/-: -1
+Chansey, Kills: 0, Deaths: 1, +/-: -1
+Gardevoir, Kills: 0, Deaths: 1, +/-: -1
+Landorus-Therian, Kills: 2, Deaths: 1, +/-: 1
+Charizard-Mega-X, Kills: 0, Deaths: 1, +/-: -1
+Rotom-Mow, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: True
 Used Z-Move: False
 
-Team 2 Coach: VegasNightMarchers
+Team 2 Coach: muskrat catcher
 Team 2 Roster: 
-Slowking, Kills: 2, Deaths: 0, +/-: 2
-Silvally, Kills: 0, Deaths: 1, +/-: -1
-Landorus-Therian, Kills: 0, Deaths: 1, +/-: -1
-Zeraora, Kills: 2, Deaths: 0, +/-: 2
-Cobalion, Kills: 2, Deaths: 0, +/-: 2
-Audino, Kills: 0, Deaths: 0, +/-: 0
+Milotic, Kills: 0, Deaths: 0, +/-: 0
+Mesprit, Kills: 0, Deaths: 0, +/-: 0
+Kyurem-Black, Kills: 3, Deaths: 0, +/-: 3
+Tapu Koko, Kills: 0, Deaths: 0, +/-: 0
+Lucario, Kills: 0, Deaths: 1, +/-: -1
+Tsareena, Kills: 2, Deaths: 1, +/-: 1
 Mega Evolved: False
 Used Z-Move: False
 
-Replay: http://replay.pokemonshowdown.com/gen7anythinggoes-853107491
+Replay: http://replay.pokemonshowdown.com/gen7ou-694837219

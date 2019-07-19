@@ -126,6 +126,9 @@
 </div>
 {% endblock %}
 {% block footer %}
+{% if form %}
+    {{ form.media }}
+{% endif %}
 <script>
     // Set the date we're counting down to
     var startDate = new Date('{{draftstart}}');

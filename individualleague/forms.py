@@ -88,7 +88,11 @@ class LeavePickForm(forms.ModelForm):
     class Meta:
         model = left_pick
         exclude = []
-        widgets = {'season': forms.HiddenInput(),'coach':forms.HiddenInput(),}
+        widgets = {
+            'season': forms.HiddenInput(),'coach':forms.HiddenInput(),
+            'pick':autocomplete.ModelSelect2(url='pokemon-autocomplete'),
+            'backup':autocomplete.ModelSelect2(url='pokemon-autocomplete'),
+            }
         labels = {'pick': 'Pick','backup':'Backup',}
     
     def __init__(self,availablepokemon, *args, **kwargs):
