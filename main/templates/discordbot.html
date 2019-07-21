@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}PDL: Discord Bot{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}">
+{% endblock %}
+{% block body %}
+<div class="row text-light bg-darkgrey rounded align-items-center mb-3">
+        <div class="col-md-12 text-center p-2">
+            <h3>Details</h3>
+            <div class="d-flex justify-content-center">
+                <div>The site has an accompanying bot that announces replays, draft picks, free agencies, and trades (More functionality to come in the future).</div>
+            </div>
+        </div>
+    </div>
+<div class="row text-light bg-darkgrey rounded align-items-center mb-3">
+    <div class="col-md-12 text-center p-2">
+        <h3>Invite the Bot</h3>
+        <div class="d-flex justify-content-center">
+            <div>You can invite the bot to your server using <a class="text-light" href="https://discordapp.com/api/oauth2/authorize?client_id=579025959211237376&permissions=8&scope=bot">this link</a>.</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

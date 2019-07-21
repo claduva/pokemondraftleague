@@ -85,6 +85,8 @@ def custom404(request,exception):
 def custom500(request,exception):
     return  render(request,"500.html")
 
+def discordbotpage(request):
+    return  render(request,"discordbot.html")
 
 def pokemonleaderboard(request):
     leaderboard=pokemon_leaderboard.objects.all().filter(gp__gt=0).order_by('-kills','-differential')
