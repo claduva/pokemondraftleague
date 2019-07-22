@@ -130,7 +130,7 @@ class ManageCoachForm(forms.ModelForm):
         self.fields['parent_team'].required=False
 
 class DesignateZUserForm(forms.Form):
-    zuser = forms.ModelChoiceField(queryset=roster.objects.all(), required=True)
+    zuser = forms.ModelChoiceField(queryset=roster.objects.all().filter(pokemon__isnull=False), required=True)
     zmovetype = forms.ChoiceField(choices=(
         ("OS","Offensive & Status"),
         ("O","Offensive"),
@@ -140,7 +140,7 @@ class DesignateZUserForm(forms.Form):
     
     def __init__(self,season,team,*args, **kwargs):
         super(DesignateZUserForm, self).__init__(*args, **kwargs)
-        self.fields['zuser'].queryset = roster.objects.all().filter(season=season,team=team).order_by('pokemon__pokemon')
+        self.fields['zuser'].queryset = roster.objects.all().filter(season=season,team=team,pokemon__isnull=False).order_by('pokemon__pokemon')
         self.fields['zuser'].label_from_instance = lambda obj: obj.pokemon.pokemon
 
 class AddTeamOfCoachsForm(forms.ModelForm):
