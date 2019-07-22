@@ -1,23 +1,23 @@
-Team 1 Coach: DuffleGamer
+Team 1 Coach: Eastonn8
 Team 1 Roster: 
-Scizor, Kills: 0, Deaths: 1, +/-: -1
-Chansey, Kills: 0, Deaths: 1, +/-: -1
-Gardevoir, Kills: 0, Deaths: 1, +/-: -1
-Landorus-Therian, Kills: 2, Deaths: 1, +/-: 1
-Charizard-Mega-X, Kills: 0, Deaths: 1, +/-: -1
-Rotom-Mow, Kills: 0, Deaths: 1, +/-: -1
-Mega Evolved: True
-Used Z-Move: False
-
-Team 2 Coach: muskrat catcher
-Team 2 Roster: 
-Milotic, Kills: 0, Deaths: 0, +/-: 0
-Mesprit, Kills: 0, Deaths: 0, +/-: 0
-Kyurem-Black, Kills: 3, Deaths: 0, +/-: 3
-Tapu Koko, Kills: 0, Deaths: 0, +/-: 0
-Lucario, Kills: 0, Deaths: 1, +/-: -1
-Tsareena, Kills: 2, Deaths: 1, +/-: 1
+Starmie, Kills: 1, Deaths: 1, +/-: 0
+Togekiss, Kills: 0, Deaths: 1, +/-: -1
+Kartana, Kills: 0, Deaths: 1, +/-: -1
+Weezing, Kills: 0, Deaths: 1, +/-: -1
+Umbreon, Kills: 1, Deaths: 1, +/-: 0
+Registeel, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: False
 Used Z-Move: False
 
-Replay: http://replay.pokemonshowdown.com/gen7ou-694837219
+Team 2 Coach: Muskrat#2
+Team 2 Roster: 
+Landorus-Therian, Kills: 0, Deaths: 0, +/-: 0
+Lickilicky, Kills: 0, Deaths: 0, +/-: 0
+Entei, Kills: 2, Deaths: 1, +/-: 1
+Raichu, Kills: 2, Deaths: 0, +/-: 2
+Zoroark, Kills: 0, Deaths: 0, +/-: 0
+Gallade, Kills: 2, Deaths: 1, +/-: 1
+Mega Evolved: False
+Used Z-Move: False
+
+Replay: https://replay.pokemonshowdown.com/gen7customgame-730516751

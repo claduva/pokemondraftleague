@@ -95,7 +95,10 @@ def league_draft(request,league_name):
         pass
     if picksremaining>0:
     ## go through left picks
-        picksleft=left_pick.objects.filter(coach=currentpick.team).order_by('id')
+        try:
+            picksleft=left_pick.objects.filter(coach=currentpick.team).order_by('id')
+        except:
+            picksleft=left_pick.objects.none()
         if picksleft.count()>0:
             for item in picksleft:
                 #check pick
@@ -155,8 +158,11 @@ def league_draft(request,league_name):
     ##
     candraft=False
     if picksremaining >0:
-        if currentpick.team.coach == request.user or currentpick.team.teammate == request.user:
-            candraft=True
+        try:
+            if currentpick.team.coach == request.user or currentpick.team.teammate == request.user:
+                candraft=True
+        except:
+            candraft=False
     if currentpick==None:
         draftactive=False
         availablepoints=0
@@ -172,9 +178,12 @@ def league_draft(request,league_name):
         availablepoints=budget-pointsused
     if picksremaining==draftsize:
         pickend=str(season.draftstart+timedelta(hours=12))
-    else:    
+    else:  
         if picksremaining>0:
-            pickend=str(draftlist.get(id=currentpick.id-1).picktime+timedelta(hours=12))
+            try:
+                pickend=str(draftlist.get(id=currentpick.id-1).picktime+timedelta(hours=12))
+            except:
+                pickend = None
         else: 
             pickend = None
     if request.method == "POST":

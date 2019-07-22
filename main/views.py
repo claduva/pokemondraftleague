@@ -113,6 +113,7 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request):
+   
     return redirect('home')
 
 def awardcheck(coach,awardtogive,awardtext,messagebody,admin):
