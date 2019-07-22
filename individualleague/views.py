@@ -536,7 +536,7 @@ def league_matchup(request,league_name,matchid):
     except:
         messages.error(request,'Match does not exist!',extra_tags='danger')
         return redirect('league_schedule',league_name=league_name)
-    team1roster_=roster.objects.filter(season=season,team=match.team1).order_by('pokemon__pokemon')
+    team1roster_=roster.objects.filter(season=season,team=match.team1,pokemon__isnull=False).order_by('pokemon__pokemon')
     team1roster=[]
     defog=[]
     rapidspin=[]
@@ -579,7 +579,7 @@ def league_matchup(request,league_name,matchid):
                 wish.append(item)
     team1moves=[['Stealth Rock',sr],['Spikes',spikes],['Toxic Spikes',tspikes],['Sticky Web',stickyweb],['Defog',defog],['Rapid Spin',rapidspin],['Heal Bell/Aromatherapy',healbell],['Wish',wish]]
 
-    team2roster_=roster.objects.filter(season=season,team=match.team2).order_by('pokemon__pokemon')
+    team2roster_=roster.objects.filter(season=season,team=match.team2,pokemon__isnull=False).order_by('pokemon__pokemon')
     team2roster=[]
     defog=[]
     rapidspin=[]
