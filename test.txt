@@ -1,23 +1,23 @@
-Team 1 Coach: Eastonn8
+Team 1 Coach: LernesBlue
 Team 1 Roster: 
-Starmie, Kills: 1, Deaths: 1, +/-: 0
-Togekiss, Kills: 0, Deaths: 1, +/-: -1
-Kartana, Kills: 0, Deaths: 1, +/-: -1
-Weezing, Kills: 0, Deaths: 1, +/-: -1
-Umbreon, Kills: 1, Deaths: 1, +/-: 0
-Registeel, Kills: 0, Deaths: 1, +/-: -1
+Bewear, Kills: 1, Deaths: 1, +/-: 0
+Darmanitan, Kills: 4, Deaths: 0, +/-: 4
+Stakataka, Kills: 0, Deaths: 1, +/-: -1
+Gligar, Kills: 1, Deaths: 1, +/-: 0
+Jellicent, Kills: 0, Deaths: 0, +/-: 0
+Roserade, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: False
 Used Z-Move: False
 
-Team 2 Coach: Muskrat#2
+Team 2 Coach: Eastonn8
 Team 2 Roster: 
-Landorus-Therian, Kills: 0, Deaths: 0, +/-: 0
-Lickilicky, Kills: 0, Deaths: 0, +/-: 0
-Entei, Kills: 2, Deaths: 1, +/-: 1
-Raichu, Kills: 2, Deaths: 0, +/-: 2
-Zoroark, Kills: 0, Deaths: 0, +/-: 0
-Gallade, Kills: 2, Deaths: 1, +/-: 1
+Magmortar, Kills: 1, Deaths: 1, +/-: 0
+Leafeon, Kills: 0, Deaths: 1, +/-: -1
+Lanturn, Kills: 0, Deaths: 1, +/-: -1
+Crobat, Kills: 0, Deaths: 1, +/-: -1
+Mesprit, Kills: 3, Deaths: 1, +/-: 2
+Regirock, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: False
-Used Z-Move: False
+Used Z-Move: True
 
-Replay: https://replay.pokemonshowdown.com/gen7customgame-730516751
+Replay: https://replay.pokemonshowdown.com/gen7ou-833258255

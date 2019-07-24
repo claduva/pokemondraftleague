@@ -357,9 +357,9 @@ def remove_coach(request,league_name):
             messages.error(request,'The season has already started!',extra_tags='danger')
             return redirect('manage_coachs',league_name=league_name)
         except:
-            coachtoremove=coachdata.objects.get(pk=request.POST['coach'])
-            #league_application.objects.create(applicant=coachtoremove.coach,league_name=coachtoremove.league_name)
-            #coachtoremove.delete()
+            coachtoremove=coachdata.objects.get(pk=request.POST['coachtoupdate'])
+            league_application.objects.create(applicant=coachtoremove.coach,league_name=coachtoremove.league_name)
+            coachtoremove.delete()
     return redirect('manage_coachs',league_name=league_name)
 
 @login_required

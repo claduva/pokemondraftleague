@@ -113,7 +113,9 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request):
-   
+    mostdrafted=pokemon_leaderboard.objects.all().order_by('-timesdrafted')[0:20]
+    for item in mostdrafted:
+        print(item.pokemon)
     return redirect('home')
 
 def awardcheck(coach,awardtogive,awardtext,messagebody,admin):
