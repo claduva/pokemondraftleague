@@ -36,17 +36,29 @@ def gothroughturns(logfile,results):
             results=checkdeath(line[1],results,index,causeofdeathlines)
             index+=1
     for mon in results['team1']['roster']:
-        print('here')
         if mon['deaths']==0:
             results['team1']['score']+=1
+            remaining=100
+            for line in mon['lines']:
+                if line[1].find("/100")>-1:
+                    remaining=int(line[1].split(f"{mon['pokemon']}|")[-1].split("/")[0])
+            mon['remaininghealth']=remaining    
         else:
             mon['remaininghealth']=0
+        results['team1']['remaininghealth']+=mon['remaininghealth']
     for mon in results['team2']['roster']:
-        print('here')
         if mon['deaths']==0:
             results['team2']['score']+=1
+            remaining=100
+            for line in mon['lines']:  
+                if line[1].find("/100")>-1:
+                    remaining=int(line[1].split(f"{mon['pokemon']}|")[-1].split("/100")[0])
+            mon['remaininghealth']=remaining    
         else:
             mon['remaininghealth']=0
+        results['team2']['remaininghealth']+=mon['remaininghealth']
+    results['team1']['remaininghealth']=f"{results['team1']['remaininghealth']}/{100*len(results['team1']['roster'])}"
+    results['team2']['remaininghealth']=f"{results['team2']['remaininghealth']}/{100*len(results['team2']['roster'])}"
     return logfile,results
 
 def checkdeath(line,results,index,turndata):
@@ -61,6 +73,7 @@ def checkdeath(line,results,index,turndata):
             if item['pokemon']==fainted:
                 item['deaths']=1
                 item['causeofdeath']=causeofdeath
+                results['team1']['deaths']+=1
     elif line.find('|faint|p2a')>-1:
         fainted=line.split(" ",1)[1]
         #find cause of death
@@ -72,6 +85,7 @@ def checkdeath(line,results,index,turndata):
             if item['pokemon']==fainted:
                 item['deaths']=1
                 item['causeofdeath']=causeofdeath
+                results['team2']['deaths']+=1
     return results
 
 def findcauseofdeath(causeofdeathline):

@@ -27,7 +27,7 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 35,
         "lines": [
           [
             5,
@@ -288,7 +288,7 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 22,
         "lines": [
           [
             8,
@@ -371,7 +371,7 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 61,
         "lines": [
           [
             0,
@@ -437,7 +437,13 @@
     "score": 5,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 12
+    "timesswitched": 12,
+    "remaininghealth": "318/600",
+    "deaths": 1,
+    "luck": 0,
+    "damagedone": 0,
+    "hphealed": 0,
+    "support": 0
   },
   "team2": {
     "coach": "ChrisChaosGamer",
@@ -1018,7 +1024,13 @@
     "score": 0,
     "megaevolved": false,
     "usedzmove": true,
-    "timesswitched": 18
+    "timesswitched": 18,
+    "remaininghealth": "0/600",
+    "deaths": 6,
+    "luck": 0,
+    "damagedone": 0,
+    "hphealed": 0,
+    "support": 0
   },
   "numberofturns": 25,
   "turns": [
