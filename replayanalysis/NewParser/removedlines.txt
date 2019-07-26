@@ -1,42 +1,50 @@
-|j|☆Eastonn8
-|j|☆TheGamer7777
-|player|p1|Eastonn8|99
-|player|p2|TheGamer7777|12
+|j|☆claduva
+|j|☆ChrisChaosGamer
+|player|p1|claduva|265
+|player|p2|ChrisChaosGamer|169
 |teamsize|p1|6
 |teamsize|p2|6
 |gametype|singles
 |gen|7
-|tier|[Gen 7] Custom Game
-|seed|54424,29466,20489,28502
+|tier|[Gen 7] Ubers
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Moody Clause: Moody is banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
 |clearpoke
-|poke|p1|Starmie|item
-|poke|p1|Kartana|item
-|poke|p1|Aromatisse|item
-|poke|p1|Mandibuzz|item
-|poke|p1|Anorith|item
-|poke|p1|Arcanine|item
-|poke|p2|Blissey|item
-|poke|p2|Alakazam|item
-|poke|p2|Alomomola|item
-|poke|p2|Donphan|item
-|poke|p2|Ferrothorn|item
-|poke|p2|Latios|item
-|teampreview|24
-|c|☆TheGamer7777|i see an anorith
-|c|☆TheGamer7777|and Im fearful
-|c|☆TheGamer7777|what does it do...
+|poke|p1|Zygarde|item
+|poke|p1|Empoleon|item
+|poke|p1|Tapu Bulu|item
+|poke|p1|Manectric|item
+|poke|p1|Conkeldurr|item
+|poke|p1|Incineroar|item
+|poke|p2|Hariyama|item
+|poke|p2|Tornadus|item
+|poke|p2|Decidueye|item
+|poke|p2|Kyurem-Black|item
+|poke|p2|Scizor|item
+|poke|p2|Mudsdale|item
+|rule|Mega Rayquaza Clause: You cannot mega evolve Rayquaza
+|teampreview
+|j| TheGamer7777
+|j| Ketchupplant
+|c| Ketchupplant|oml
+|c| TheGamer7777|Dammit clads team actually looks good
+|c| Ketchupplant|we're gonna lose
+|c| TheGamer7777|I hope so
+|j| Sovee
 |
 |start
 |
-|
-|upkeep
-|c|☆TheGamer7777|i figured
+|j| Scorbunny VGC
 |
 |
 |upkeep
-|
-|
-|upkeep
+|j| Nakora & Akikuro
+|l| Nakora & Akikuro
 |
 |
 |upkeep
@@ -45,23 +53,28 @@
 |upkeep
 |
 |
-|upkeep
-|
 |
 |upkeep
-|
-|
-|upkeep
-|c|☆TheGamer7777|rip life eastonn
+|j| jerrytheboss
 |
 |
 |upkeep
 |
 |
 |upkeep
-|c|☆TheGamer7777|round
-|c|☆TheGamer7777|is how that is meant to end
-|c|☆Eastonn8|Lol
+|j| The Old Hag
+|c|☆ChrisChaosGamer|ayy pendy's here
+|c| The Old Hag|Still fighting Bruno tho :<
+|c| The Old Hag|:>
+|c|☆ChrisChaosGamer|o shit
+|
+|
+|
+|upkeep
+|
+|
+|upkeep
+|l| Scorbunny VGC
 |
 |
 |upkeep
@@ -70,30 +83,19 @@
 |upkeep
 |
 |
-|upkeep
-|c|☆TheGamer7777|oh
-|
 |
 |upkeep
-|j| St. Voitywa XENOS
+|c| Ketchupplant|zzz
+|c| Ketchupplant|oo
+|c|☆ChrisChaosGamer|#DeepThoughts
 |
-|
-|upkeep
-|l| St. Voitywa XENOS
 |
 |
 |upkeep
+|c|☆ChrisChaosGamer|oops
+|l| jerrytheboss
 |
-|
-|upkeep
-|c|☆Eastonn8|LOL
-|
-|
-|upkeep
-|c|☆TheGamer7777|poor elephant
-|c|☆TheGamer7777|he tried
-|c|☆Eastonn8|He sure is a dumbo
-|c|☆Eastonn8|At least she didn't miss
+|j| jerrytheboss
 |
 |
 |upkeep
@@ -104,181 +106,52 @@
 |
 |upkeep
 |
-|
-|upkeep
-|
-|
-|upkeep
-|
-|-zpower|p2a: Latios
-|
-|upkeep
-|c|☆TheGamer7777|watch this
-|c|☆TheGamer7777|wow
-|c|☆TheGamer7777|really...
-|c|☆TheGamer7777|lol
+|detailschange|p1a: Manectric|Manectric-Mega
+|-mega|p1a: Manectric-Mega|Manectric|Manectite
 |
 |
 |upkeep
 |
 |
 |upkeep
+|l| Sovee
+|
+|
+|upkeep
+|c| Ketchupplant|rip sorry
 |
 |
 |upkeep
 |
 |
 |upkeep
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c|☆Eastonn8|Wtf
-|c|☆Eastonn8|Was that max SPA latios?
-|c|☆TheGamer7777|idk
-|c|☆TheGamer7777|maybe
+|c|☆claduva|ED SHEERAN RETURNSSSSS
+|c| Ketchupplant|I SEE FIRE
 |
 |
 |
 |upkeep
 |
 |
-|upkeep
-|
-|
-|detailschange|p2a: Alakazam|Alakazam-Mega
-|-mega|p2a: Alakazam-Mega|Alakazam|Alakazite
 |
 |upkeep
-|c|☆Eastonn8|You really prepped for Starmie huh
-|c|☆TheGamer7777|energy ball hits
-|c|☆TheGamer7777|gigalith
-|c|☆TheGamer7777|mamoswine
-|c|☆TheGamer7777|and sandslash
-|c|☆TheGamer7777|or did you forget you had those pokemon?
-|c|☆Eastonn8|:P
 |
 |
+|-zpower|p2a: Tornadus
 |
 |upkeep
-|c|☆TheGamer7777|oh boy
-|c|☆TheGamer7777|i think its a role
-|c|☆TheGamer7777|on top of a 70%
-|
-|
-|upkeep
-|c|☆TheGamer7777|yep
 |
 |
 |
 |upkeep
 |
 |
-|upkeep
 |
-|
-|upkeep
-|
-|
-|upkeep
-|c|☆TheGamer7777|mother fucker
-|c|☆TheGamer7777|eastonn
-|c|☆TheGamer7777|why can you read my mind
-|
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c|☆TheGamer7777|ignore that
-|c|☆Eastonn8|LOL
-|c|☆Eastonn8|That is a nice Blissey set
-|c|☆TheGamer7777|i lose gg
-|c|☆Eastonn8|Damn
-|
-|
-|upkeep
-|c|☆Eastonn8|i think you have enough bulky shit to win out, but you would have to play it right
-|c|☆TheGamer7777|no i dont
-|c|☆TheGamer7777|toxic
-|
-|
-|upkeep
-|c|☆Eastonn8|blissey has natural cure
-|c|☆TheGamer7777|thats what you think XD
-|c|☆Eastonn8|or are you using serene grace
-|c|☆Eastonn8|my god
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|-zpower|p1a: Kartana
-|
-|upkeep
-|c|☆TheGamer7777|last resort
-|c|☆TheGamer7777|really eastonn
-|c|☆Eastonn8|god damn it you suck
-|c|☆TheGamer7777|for shame
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c|☆TheGamer7777|actually
-|
-|c|☆TheGamer7777|i may win
-|
-|
-|upkeep
-|c|☆TheGamer7777|its gonna be close
-|
-|
-|upkeep
-|c|☆TheGamer7777|no wait
-|c|☆TheGamer7777|I lose
-|c|☆TheGamer7777|cause of morning sun
-|l|☆Eastonn8
-|player|p1|
-|j|☆Eastonn8
-|player|p1|Eastonn8|99
-|
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c|☆TheGamer7777|well played
-|
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c|☆TheGamer7777|crit scald maybe?
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c|☆TheGamer7777|gg
-|
-|
-|upkeep
-|
-|c|☆Eastonn8|gg
-|c|☆TheGamer7777|im super sad
-|c|☆Eastonn8|im sad my mandibuzz set didn't pan out
-|c|☆TheGamer7777|i didnt realize aromatise had an ability to stop heal block
+|c|☆claduva|gg!
+|c| Ketchupplant|gg
+|c|☆ChrisChaosGamer|gg :(
+|l| jerrytheboss
+|l|☆ChrisChaosGamer
+|l| Ketchupplant
+|l| TheGamer7777
+|l| The Old Hag

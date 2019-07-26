@@ -64,8 +64,11 @@ class historical_trading(models.Model):
 class historical_match(models.Model):
     week=models.CharField(max_length=30)
     team1=models.ForeignKey(historical_team, on_delete=models.CASCADE,related_name='historict1')
+    team1alternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="historicteam1alternateattribution",null=True)
     team2=models.ForeignKey(historical_team, on_delete=models.CASCADE,related_name='historict2')
+    team2alternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="historicteam2alternateattribution",null=True)
     winner = models.ForeignKey(historical_team, on_delete=models.CASCADE,null=True,related_name='historicwinner')
+    winneralternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="historicwinneralternateattribution",null=True)
     team1score = models.IntegerField(default=0)
     team2score = models.IntegerField(default=0)
     replay = models.CharField(max_length=100,default="Link")

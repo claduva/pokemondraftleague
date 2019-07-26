@@ -36,7 +36,6 @@ class pickems(models.Model):
     correct = models.BooleanField(default=False)
     submitted = models.DateField(auto_now_add=True)
 
-
 class pickem_leaderboard(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     numbercorrect = models.IntegerField(default=0)

@@ -18,6 +18,7 @@ from .forms import *
 from .models import *
 from leagues.models import league_team
 from pokemondatabase.models import *
+from pokemonadmin.models import *
 from individualleague.models import *
 from accounts.models import *
 
@@ -275,7 +276,7 @@ def league_apply(request,league_name):
         league_=league.objects.get(name=league_name)
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_list')
+        return redirect('league_list')
     try:
         applications=league_application.objects.filter(league_name=league_).get(applicant=request.user)
         messages.error(request,'You have already applied to '+league_name+"!",extra_tags='danger')
@@ -293,7 +294,7 @@ def league_apply(request,league_name):
             except:
                 if league_.settings.is_recruiting == False:
                     messages.error(request,league_name+' is not currently accepting applications!',extra_tags='danger')
-                    return redirect('leagues_list')
+                    return redirect('league_list')
                 if request.method == 'POST':
                     form = LeagueApplicationForm(request.POST)
                     if form.is_valid():
@@ -1034,3 +1035,106 @@ def add_team_of_coachs(request,league_name):
         'allteams': allteams,
     }
     return render(request, 'addteamofcoachs.html',context)
+
+@login_required
+def archive_season(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user not in league_.host.all():
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    unplayedgames=schedule.objects.all().filter(replay="Link",season__league=league_).count()
+    if unplayedgames>0:
+        messages.error(request,'You cannot archive a season with matches remaining to be played!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    coachdataitems=coachdata.objects.all().filter(league_name=league_)
+    rosteritems=roster.objects.all().filter(season__league=league_)
+    draftitems=draft.objects.all().filter(season__league=league_)
+    scheduleitems=schedule.objects.all().filter(season__league=league_)
+    freeagencyitems=free_agency.objects.all().filter(season__league=league_)
+    tradingitems=trading.objects.all().filter(season__league=league_)
+    season=league_.seasonsetting
+    maxid=historical_team.objects.all().order_by('-id').first().id
+    for item in coachdataitems:
+        maxid+=1
+        if item.teammate:
+            historical_team.objects.create(
+                id=maxid,
+                league = item.league_name,
+                seasonname = season.seasonname,
+                teamname = item.teamname,
+                coach1= item.coach,
+                coach1username=item.coach.username,
+                coach2=item.teammate,
+                coach2username=item.teammate.username,
+                logo = item.logo,
+                wins=item.wins,
+                losses=item.losses,
+                differential=item.differential,
+                forfeit=item.forfeit
+            )
+        else:
+            historical_team.objects.create(
+                id=maxid,
+                league = item.league_name,
+                seasonname = season.seasonname,
+                teamname = item.teamname,
+                coach1= item.coach,
+                coach1username=item.coach.username,
+                logo = item.logo,
+                wins=item.wins,
+                losses=item.losses,
+                differential=item.differential,
+                forfeit=item.forfeit
+            )
+    for item in freeagencyitems:
+        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.coach.coach)
+        maxid+=1
+        historical_freeagency.objects.create(team=team,addedpokemon=item.addedpokemon,droppedpokemon=item.droppedpokemon)
+        item.delete()
+    for item in tradingitems:
+        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.coach.coach)
+        historical_trading.objects.create(team=team,addedpokemon=item.addedpokemon,droppedpokemon=item.droppedpokemon)
+        item.delete()
+    startid=draftitems.order_by('id').first().id
+    for item in draftitems:
+        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team.coach)
+        historical_draft.objects.create(team=team,pokemon=item.pokemon,picknumber=item.id-startid+1)
+        item.delete()
+    for item in rosteritems:
+        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team.coach)
+        historical_roster.objects.create(team=team,pokemon=item.pokemon,kills=item.kills,deaths=item.deaths,differential=item.differential,gp=item.gp,gw=item.gw)
+        item.delete()
+    
+    for item in scheduleitems:
+        team1=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team1.coach)
+        team2=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team2.coach)
+        if item.team1==item.winner:
+            winner=team1
+        elif item.team2==item.winner:
+            winner=team1
+        else:
+            winner=None
+        historical_match.objects.create(
+            week=item.week,
+            team1=team1,
+            team1alternateattribution=item.team1alternateattribution,
+            team2=team2,
+            team2alternateattribution=item.team2alternateattribution,
+            winner = winner,
+            winneralternateattribution=item.winneralternateattribution,
+            team1score = item.team1score,
+            team2score = item.team2score,
+            replay = item.replay,
+            team1usedz = item.team1usedz,
+            team2usedz = item.team2usedz,
+            team1megaevolved = item.team1megaevolved,
+            team2megaevolved = item.team2megaevolved
+        )
+        item.delete()   
+    coachdataitems.delete()
+    season.delete()
+    return redirect('leagues_hosted_settings')
