@@ -39,10 +39,14 @@ def gothroughturns(logfile,results):
         print('here')
         if mon['deaths']==0:
             results['team1']['score']+=1
+        else:
+            mon['remaininghealth']=0
     for mon in results['team2']['roster']:
         print('here')
         if mon['deaths']==0:
             results['team2']['score']+=1
+        else:
+            mon['remaininghealth']=0
     return logfile,results
 
 def checkdeath(line,results,index,turndata):

@@ -55,7 +55,7 @@
                     {% endfor %}
                 </datalist>
                 {% if coachform %}
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form|crispy  }}
                     <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
@@ -82,7 +82,7 @@
                     </form>
                 {% endfor %}
                 {% elif adjustrecord %}
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form|crispy  }}
                     <input type="text" value="updatecoachdata" name="formtype" hidden>

@@ -138,7 +138,7 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 0,
         "lines": [
           [
             2,
@@ -453,7 +453,7 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 0,
         "lines": [
           [
             1,
@@ -584,7 +584,7 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 0,
         "lines": [
           [
             0,
@@ -659,7 +659,7 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 0,
         "lines": [
           [
             6,
@@ -742,7 +742,7 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 0,
         "lines": [
           [
             20,
@@ -805,7 +805,7 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 0,
         "lines": [
           [
             3,
@@ -900,7 +900,7 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 0,
         "lines": [
           [
             4,
