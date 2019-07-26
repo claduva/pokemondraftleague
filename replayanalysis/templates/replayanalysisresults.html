@@ -1,0 +1,204 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}Tools: Replay Analyzer{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="rounded-circle mediumlogo"></div>
+    <div class="col-md-4">
+        <h2 class="d-flex justify-content-center">Replay Analyzer</h2>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="rounded-circle mediumlogo"></div>
+</div>
+<div class="row content-section align-items-center">
+    <div class="col-12">
+        <iframe src="{{ results.replay }}" height="500vh" width="100%"></iframe>
+    </div>
+    <div class="col-12">
+        <h5 class="d-flex justify-content-center">
+            {% if results.team1.wins is 1 %}
+            Winning Coach: {{ results.team1.coach }}
+            {% elif results.team2.wins is 1 %}
+            Winning Coach: {{ results.team2.coach }}
+            {% endif %}
+        </h5>
+        <h5 class="d-flex justify-content-center">
+            {% if results.team1.wins is 0 %}
+            Losing Coach: {{ results.team1.coach }}
+            {% elif results.team2.wins is 0 %}
+            Losing Coach: {{ results.team2.coach }}
+            {% endif %}
+        </h5>
+        <h5 class="d-flex justify-content-center">Score:
+            {% if results.team1.wins is 1 %}
+            {{ results.team1.score }}-{{ results.team2.score }}
+            {% elif results.team2.wins is 1 %}
+            {{ results.team2.score }}-{{ results.team1.score }}
+            {% endif %}
+        </h5>
+        <h6 class="d-flex justify-content-center">Number of Turns: {{results.numberofturns}}</h6>
+        <h6 class="d-flex justify-content-center"><a class="text-light" href="{{ results.replay }}">Replay</a></h6>
+    </div>
+    <div class=col-md-6>
+        <table class="table table-sm text-center bg-lightgrey text-dark">
+            <tr>
+                <th colspan="8">
+                    <div class="d-flex justify-content-center">
+                        Coach: {{results.team1.coach}}
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>Pokemon (HP Remaining)</th>
+                <th><span title="Kills">K</span></th>
+                <th><span title="Deaths">D</span></th>
+                <th><span title="Differential">+/-</span></th>
+                <th><span title="Luck">L</span></th>
+                <th><span title="Damage Dealt">DD</span></th>
+                <th><span title="HP Healed">H</span></th>
+                <th><span title="Support Provided">SP</span></th>
+            </tr>
+            {% for item in results.team1.roster %}
+            <tr>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img class="smallsprite"
+                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                        <div>{{item.pokemon}} ({{item.remaininghealth}}/100)</div>
+                    </div>
+                </td>
+                <td>{{item.kills}}</td>
+                <td>{{item.deaths}}</td>
+                <td>{{item.kills|subtract:item.deaths}}</td>
+                <td>{{item.luck}}</td>
+                <td>{{item.damagedone}}</td>
+                <td>{{item.hphealed}}</td>
+                <td>{{item.support}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th>Total</th>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th>Self-Inflicted Deaths</th>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th>Mega Evolved?</th>
+                <td>
+                    {% if results.team1.megaevolved %}
+                    Yes
+                    {% else %}
+                    No
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Used Z-Move?</th>
+                <td>
+                    {% if results.team1.usedzmove %}
+                    Yes
+                    {% else %}
+                    No
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Times Switched</th>
+                <td>{{results.team1.timesswitched}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-sm text-center bg-lightgrey text-dark">
+            <tr>
+                <th colspan="8">
+                    <div class="d-flex justify-content-center">
+                        Coach: {{results.team2.coach}}
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>Pokemon (HP Remaining)</th>
+                <th><span title="Kills">K</span></th>
+                <th><span title="Deaths">D</span></th>
+                <th><span title="Differential">+/-</span></th>
+                <th><span title="Luck">L</span></th>
+                <th><span title="Damage Dealt">DD</span></th>
+                <th><span title="HP Healed">H</span></th>
+                <th><span title="Support Provided">SP</span></th>
+            </tr>
+            {% for item in results.team2.roster %}
+            <tr>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <img class="smallsprite"
+                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                        <div>{{item.pokemon}} ({{item.remaininghealth}}/100)</div>
+                    </div>
+                </td>
+                <td>{{item.kills}}</td>
+                <td>{{item.deaths}}</td>
+                <td>{{item.kills|subtract:item.deaths}}</td>
+                <td>{{item.luck}}</td>
+                <td>{{item.damagedone}}</td>
+                <td>{{item.hphealed}}</td>
+                <td>{{item.support}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th>Total</th>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th>Self-Inflicted Deaths</th>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th>Mega Evolved?</th>
+                <td>
+                    {% if results.team2.megaevolved %}
+                    Yes
+                    {% else %}
+                    No
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Used Z-Move?</th>
+                <td>
+                    {% if results.team2.usedzmove %}
+                    Yes
+                    {% else %}
+                    No
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Times Switched</th>
+                <td>{{results.team2.timesswitched}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

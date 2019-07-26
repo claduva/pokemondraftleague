@@ -1,0 +1,435 @@
+|switch|p1a: Anorith|Anorith|270/270
+|switch|p2a: Donphan|Donphan|383/383
+|turn|1
+|move|p1a: Anorith|Stealth Rock|p2a: Donphan
+|-sidestart|p2: TheGamer7777|move: Stealth Rock
+|move|p2a: Donphan|Stealth Rock|p1a: Anorith
+|-sidestart|p1: Eastonn8|move: Stealth Rock
+|turn|2
+|switch|p1a: Starmie|Starmie|323/323
+|-damage|p1a: Starmie|283/323|[from] Stealth Rock
+|switch|p2a: Alomomola|Alomomola|534/534
+|-damage|p2a: Alomomola|468/534|[from] Stealth Rock
+|-heal|p2a: Alomomola|501/534|[from] item: Leftovers
+|turn|3
+|move|p1a: Starmie|Rapid Spin|p2a: Alomomola
+|-damage|p2a: Alomomola|492/534
+|-sideend|p1: Eastonn8|Stealth Rock|[from] move: Rapid Spin|[of] p1a: Starmie
+|move|p2a: Alomomola|Scald|p1a: Starmie
+|-resisted|p1a: Starmie
+|-damage|p1a: Starmie|263/323
+|-status|p1a: Starmie|brn
+|-heal|p2a: Alomomola|525/534|[from] item: Leftovers
+|-damage|p1a: Starmie|243/323 brn|[from] brn
+|turn|4
+|switch|p1a: Aromatisse|Aromatisse|406/406
+|move|p2a: Alomomola|Scald|p1a: Aromatisse
+|-damage|p1a: Aromatisse|355/406
+|-heal|p2a: Alomomola|534/534|[from] item: Leftovers
+|-heal|p1a: Aromatisse|380/406|[from] item: Leftovers
+|turn|5
+|switch|p2a: Blissey|Blissey|714/714
+|-damage|p2a: Blissey|625/714|[from] Stealth Rock
+|move|p1a: Aromatisse|Moonblast|p2a: Blissey
+|-damage|p2a: Blissey|546/714
+|-heal|p1a: Aromatisse|405/406|[from] item: Leftovers
+|turn|6
+|switch|p1a: Arcanine|Arcanine|384/384
+|-ability|p1a: Arcanine|Intimidate|boost
+|-unboost|p2a: Blissey|atk|1
+|move|p2a: Blissey|Seismic Toss|p1a: Arcanine
+|-damage|p1a: Arcanine|284/384
+|-heal|p1a: Arcanine|308/384|[from] item: Leftovers
+|turn|7
+|switch|p2a: Alomomola|Alomomola|534/534
+|-damage|p2a: Alomomola|468/534|[from] Stealth Rock
+|move|p1a: Arcanine|Toxic|p2a: Alomomola
+|-status|p2a: Alomomola|tox
+|-heal|p1a: Arcanine|332/384|[from] item: Leftovers
+|-heal|p2a: Alomomola|501/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|468/534 tox|[from] psn
+|turn|8
+|switch|p1a: Starmie|Starmie|243/323
+|move|p2a: Alomomola|Scald|p1a: Starmie
+|-resisted|p1a: Starmie
+|-damage|p1a: Starmie|225/323
+|-status|p1a: Starmie|brn
+|-heal|p2a: Alomomola|501/534 tox|[from] item: Leftovers
+|-damage|p1a: Starmie|205/323 brn|[from] brn
+|-damage|p2a: Alomomola|435/534 tox|[from] psn
+|turn|9
+|-curestatus|p1a: Starmie|brn|[from] ability: Natural Cure
+|switch|p1a: Aromatisse|Aromatisse|405/406
+|switch|p2a: Ferrothorn|Ferrothorn|352/352
+|-damage|p2a: Ferrothorn|330/352|[from] Stealth Rock
+|-heal|p1a: Aromatisse|406/406|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|352/352|[from] item: Leftovers
+|turn|10
+|switch|p1a: Arcanine|Arcanine|332/384
+|-ability|p1a: Arcanine|Intimidate|boost
+|-unboost|p2a: Ferrothorn|atk|1
+|move|p2a: Ferrothorn|Stealth Rock|p1a: Arcanine
+|-sidestart|p1: Eastonn8|move: Stealth Rock
+|-heal|p1a: Arcanine|356/384|[from] item: Leftovers
+|turn|11
+|switch|p2a: Alomomola|Alomomola|534/534 tox
+|-damage|p2a: Alomomola|468/534 tox|[from] Stealth Rock
+|move|p1a: Arcanine|Flare Blitz|p2a: Alomomola
+|-resisted|p2a: Alomomola
+|-damage|p2a: Alomomola|402/534 tox
+|-damage|p1a: Arcanine|334/384|[from] Recoil
+|-heal|p1a: Arcanine|358/384|[from] item: Leftovers
+|-heal|p2a: Alomomola|435/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|402/534 tox|[from] psn
+|turn|12
+|switch|p1a: Aromatisse|Aromatisse|406/406
+|-damage|p1a: Aromatisse|356/406|[from] Stealth Rock
+|move|p2a: Alomomola|Wish|p2a: Alomomola
+|-heal|p2a: Alomomola|435/534 tox|[from] item: Leftovers
+|-heal|p1a: Aromatisse|381/406|[from] item: Leftovers
+|-damage|p2a: Alomomola|369/534 tox|[from] psn
+|turn|13
+|switch|p2a: Ferrothorn|Ferrothorn|352/352
+|-damage|p2a: Ferrothorn|330/352|[from] Stealth Rock
+|move|p1a: Aromatisse|Wish|p1a: Aromatisse
+|-heal|p2a: Ferrothorn|352/352|[from] move: Wish|[wisher] Alomomola
+|-heal|p1a: Aromatisse|406/406|[from] item: Leftovers
+|turn|14
+|switch|p1a: Arcanine|Arcanine|358/384
+|-damage|p1a: Arcanine|262/384|[from] Stealth Rock
+|-ability|p1a: Arcanine|Intimidate|boost
+|-unboost|p2a: Ferrothorn|atk|1
+|move|p2a: Ferrothorn|Knock Off|p1a: Arcanine
+|-damage|p1a: Arcanine|218/384
+|-enditem|p1a: Arcanine|Leftovers|[from] move: Knock Off|[of] p2a: Ferrothorn
+|-heal|p1a: Arcanine|384/384|[from] move: Wish|[wisher] Aromatisse
+|turn|15
+|switch|p2a: Alomomola|Alomomola|534/534 tox
+|-damage|p2a: Alomomola|468/534 tox|[from] Stealth Rock
+|move|p1a: Arcanine|Flare Blitz|p2a: Alomomola
+|-resisted|p2a: Alomomola
+|-damage|p2a: Alomomola|404/534 tox
+|-damage|p1a: Arcanine|363/384|[from] Recoil
+|-heal|p2a: Alomomola|437/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|404/534 tox|[from] psn
+|turn|16
+|switch|p1a: Aromatisse|Aromatisse|406/406
+|-damage|p1a: Aromatisse|356/406|[from] Stealth Rock
+|switch|p2a: Donphan|Donphan|383/383
+|-damage|p2a: Donphan|360/383|[from] Stealth Rock
+|-heal|p1a: Aromatisse|381/406|[from] item: Leftovers
+|turn|17
+|move|p2a: Donphan|Head Smash|p1a: Aromatisse
+|-damage|p1a: Aromatisse|91/406
+|-damage|p2a: Donphan|215/383|[from] Recoil
+|move|p1a: Aromatisse|Wish|p1a: Aromatisse
+|-heal|p1a: Aromatisse|116/406|[from] item: Leftovers
+|turn|18
+|move|p1a: Aromatisse|Protect|p1a: Aromatisse
+|-singleturn|p1a: Aromatisse|Protect
+|move|p2a: Donphan|Head Smash|p1a: Aromatisse
+|-activate|p1a: Aromatisse|move: Protect
+|-heal|p1a: Aromatisse|319/406|[from] move: Wish|[wisher] Aromatisse
+|-heal|p1a: Aromatisse|344/406|[from] item: Leftovers
+|turn|19
+|switch|p2a: Ferrothorn|Ferrothorn|352/352
+|-damage|p2a: Ferrothorn|330/352|[from] Stealth Rock
+|move|p1a: Aromatisse|Wish|p1a: Aromatisse
+|-heal|p1a: Aromatisse|369/406|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|352/352|[from] item: Leftovers
+|turn|20
+|switch|p1a: Arcanine|Arcanine|363/384
+|-damage|p1a: Arcanine|267/384|[from] Stealth Rock
+|-ability|p1a: Arcanine|Intimidate|boost
+|-unboost|p2a: Ferrothorn|atk|1
+|move|p2a: Ferrothorn|Power Whip|p1a: Arcanine
+|-resisted|p1a: Arcanine
+|-damage|p1a: Arcanine|225/384
+|-heal|p1a: Arcanine|384/384|[from] move: Wish|[wisher] Aromatisse
+|turn|21
+|switch|p2a: Alomomola|Alomomola|534/534 tox
+|-damage|p2a: Alomomola|468/534 tox|[from] Stealth Rock
+|move|p1a: Arcanine|Flare Blitz|p2a: Alomomola
+|-resisted|p2a: Alomomola
+|-damage|p2a: Alomomola|396/534 tox
+|-damage|p1a: Arcanine|360/384|[from] Recoil
+|-heal|p2a: Alomomola|429/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|396/534 tox|[from] psn
+|turn|22
+|switch|p1a: Starmie|Starmie|205/323
+|-damage|p1a: Starmie|165/323|[from] Stealth Rock
+|move|p2a: Alomomola|Scald|p1a: Starmie
+|-resisted|p1a: Starmie
+|-damage|p1a: Starmie|146/323
+|-heal|p2a: Alomomola|429/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|363/534 tox|[from] psn
+|turn|23
+|switch|p2a: Latios|Latios|302/302
+|-damage|p2a: Latios|265/302|[from] Stealth Rock
+|move|p1a: Starmie|Rapid Spin|p2a: Latios
+|-damage|p2a: Latios|253/302
+|-sideend|p1: Eastonn8|Stealth Rock|[from] move: Rapid Spin|[of] p1a: Starmie
+|turn|24
+|switch|p1a: Aromatisse|Aromatisse|369/406
+|move|p2a: Latios|Z-Heal Block|p1a: Aromatisse|[anim]Heal Block
+|-boost|p2a: Latios|spa|2|[zeffect]
+|-activate|p1a: Aromatisse|ability: Aroma Veil|[of] p1a: Aromatisse
+|debug|add volatile [healblock] interrupted
+|debug|move failed because it did nothing
+|-heal|p1a: Aromatisse|394/406|[from] item: Leftovers
+|turn|25
+|move|p2a: Latios|Ice Beam|p1a: Aromatisse
+|-damage|p1a: Aromatisse|185/406
+|move|p1a: Aromatisse|Wish|p1a: Aromatisse
+|-heal|p1a: Aromatisse|210/406|[from] item: Leftovers
+|turn|26
+|move|p1a: Aromatisse|Protect|p1a: Aromatisse
+|-singleturn|p1a: Aromatisse|Protect
+|move|p2a: Latios|Ice Beam|p1a: Aromatisse
+|-activate|p1a: Aromatisse|move: Protect
+|-heal|p1a: Aromatisse|406/406|[from] move: Wish|[wisher] Aromatisse
+|turn|27
+|move|p2a: Latios|Ice Beam|p1a: Aromatisse
+|-damage|p1a: Aromatisse|214/406
+|move|p1a: Aromatisse|Wish|p1a: Aromatisse
+|-heal|p1a: Aromatisse|239/406|[from] item: Leftovers
+|turn|28
+|switch|p1a: Starmie|Starmie|146/323
+|move|p2a: Latios|Ice Beam|p1a: Starmie
+|-resisted|p1a: Starmie
+|-damage|p1a: Starmie|67/323
+|-heal|p1a: Starmie|270/323|[from] move: Wish|[wisher] Aromatisse
+|turn|29
+|move|p2a: Latios|Heal Block|p1a: Starmie
+|-start|p1a: Starmie|move: Heal Block
+|move|p1a: Starmie|Dazzling Gleam|p2a: Latios
+|-supereffective|p2a: Latios
+|-damage|p2a: Latios|137/302
+|turn|30
+|move|p2a: Latios|Energy Ball|p1a: Starmie
+|-supereffective|p1a: Starmie
+|-damage|p1a: Starmie|0 fnt
+|faint|p1a: Starmie
+|switch|p1a: Aromatisse|Aromatisse|239/406
+|turn|31
+|move|p1a: Aromatisse|Protect|p1a: Aromatisse
+|-singleturn|p1a: Aromatisse|Protect
+|move|p2a: Latios|Ice Beam|p1a: Aromatisse
+|-activate|p1a: Aromatisse|move: Protect
+|-heal|p1a: Aromatisse|264/406|[from] item: Leftovers
+|turn|32
+|move|p2a: Latios|Ice Beam|p1a: Aromatisse
+|-damage|p1a: Aromatisse|64/406
+|move|p1a: Aromatisse|Moonblast|p2a: Latios
+|-supereffective|p2a: Latios
+|-damage|p2a: Latios|0 fnt
+|faint|p2a: Latios
+|-heal|p1a: Aromatisse|89/406|[from] item: Leftovers
+|switch|p2a: Alakazam-Mega|Alakazam-Mega|288/288
+|debug|damage event failed
+|turn|33
+|-ability|p2a: Alakazam-Mega|Aroma Veil|[from] ability: Trace|[of] p1a: Aromatisse
+|move|p2a: Alakazam-Mega|Energy Ball|p1a: Aromatisse
+|-damage|p1a: Aromatisse|0 fnt
+|faint|p1a: Aromatisse
+|switch|p1a: Mandibuzz|Mandibuzz|399/399
+|turn|34
+|move|p2a: Alakazam-Mega|Focus Blast|p1a: Mandibuzz
+|-damage|p1a: Mandibuzz|195/399
+|move|p1a: Mandibuzz|Dark Pulse|p2a: Alakazam-Mega
+|-supereffective|p2a: Alakazam-Mega
+|-damage|p2a: Alakazam-Mega|100/288
+|turn|35
+|move|p2a: Alakazam-Mega|Focus Blast|p1a: Mandibuzz
+|-damage|p1a: Mandibuzz|8/399
+|move|p1a: Mandibuzz|Dark Pulse|p2a: Alakazam-Mega
+|-supereffective|p2a: Alakazam-Mega
+|-damage|p2a: Alakazam-Mega|0 fnt
+|faint|p2a: Alakazam-Mega
+|switch|p2a: Donphan|Donphan|215/383
+|-damage|p2a: Donphan|192/383|[from] Stealth Rock
+|turn|36
+|switch|p1a: Arcanine|Arcanine|360/384
+|-ability|p1a: Arcanine|Intimidate|boost
+|-unboost|p2a: Donphan|atk|1
+|move|p2a: Donphan|Ice Shard|p1a: Arcanine
+|-resisted|p1a: Arcanine
+|-damage|p1a: Arcanine|338/384
+|turn|37
+|switch|p1a: Mandibuzz|Mandibuzz|8/399
+|switch|p2a: Alomomola|Alomomola|534/534 tox
+|-damage|p2a: Alomomola|468/534 tox|[from] Stealth Rock
+|-heal|p2a: Alomomola|501/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|468/534 tox|[from] psn
+|turn|38
+|switch|p2a: Donphan|Donphan|192/383
+|-damage|p2a: Donphan|169/383|[from] Stealth Rock
+|move|p1a: Mandibuzz|Air Slash|p2a: Donphan
+|-damage|p2a: Donphan|45/383
+|turn|39
+|move|p1a: Mandibuzz|Air Slash|p2a: Donphan
+|-damage|p2a: Donphan|0 fnt
+|faint|p2a: Donphan
+|switch|p2a: Blissey|Blissey|546/714
+|-damage|p2a: Blissey|457/714|[from] Stealth Rock
+|turn|40
+|switch|p1a: Arcanine|Arcanine|338/384
+|-ability|p1a: Arcanine|Intimidate|boost
+|-unboost|p2a: Blissey|atk|1
+|debug|doubling secondary chance
+|move|p2a: Blissey|Ice Beam|p1a: Arcanine
+|-resisted|p1a: Arcanine
+|-damage|p1a: Arcanine|305/384
+|turn|41
+|debug|before turn callback: counter
+|move|p1a: Arcanine|Toxic|p2a: Blissey
+|-status|p2a: Blissey|tox
+|move|p2a: Blissey|Counter|p1a: Arcanine
+|-fail|p1a: Arcanine
+|-damage|p2a: Blissey|413/714 tox|[from] psn
+|turn|42
+|debug|before turn callback: counter
+|move|p1a: Arcanine|Morning Sun|p1a: Arcanine
+|-heal|p1a: Arcanine|384/384
+|move|p2a: Blissey|Counter|p1a: Arcanine
+|-fail|p1a: Arcanine
+|-damage|p2a: Blissey|325/714 tox|[from] psn
+|turn|43
+|move|p1a: Arcanine|Flare Blitz|p2a: Blissey
+|-damage|p2a: Blissey|64/714 tox
+|-damage|p1a: Arcanine|298/384|[from] Recoil
+|move|p2a: Blissey|Soft-Boiled|p2a: Blissey
+|-heal|p2a: Blissey|421/714 tox
+|-damage|p2a: Blissey|289/714 tox|[from] psn
+|turn|44
+|switch|p1a: Kartana|Kartana|285/285
+|switch|p2a: Alomomola|Alomomola|534/534 tox
+|-damage|p2a: Alomomola|468/534 tox|[from] Stealth Rock
+|-heal|p2a: Alomomola|501/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|468/534 tox|[from] psn
+|turn|45
+|move|p1a: Kartana|Swords Dance|p1a: Kartana
+|-boost|p1a: Kartana|atk|2
+|move|p2a: Alomomola|Hidden Power|p1a: Kartana
+|-supereffective|p1a: Kartana
+|-damage|p1a: Kartana|41/285
+|-heal|p2a: Alomomola|501/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|435/534 tox|[from] psn
+|turn|46
+|switch|p2a: Ferrothorn|Ferrothorn|352/352
+|-damage|p2a: Ferrothorn|330/352|[from] Stealth Rock
+|move|p1a: Kartana|Breakneck Blitz|p2a: Ferrothorn|[zeffect]
+|-resisted|p2a: Ferrothorn
+|-damage|p2a: Ferrothorn|156/352
+|-heal|p2a: Ferrothorn|178/352|[from] item: Leftovers
+|turn|47
+|move|p1a: Kartana|Last Resort|p2a: Ferrothorn
+|-resisted|p2a: Ferrothorn
+|-damage|p2a: Ferrothorn|46/352
+|-damage|p1a: Kartana|6/285|[from] ability: Iron Barbs|[of] p2a: Ferrothorn
+|move|p2a: Ferrothorn|Stealth Rock|p1a: Kartana
+|-sidestart|p1: Eastonn8|move: Stealth Rock
+|-heal|p2a: Ferrothorn|68/352|[from] item: Leftovers
+|turn|48
+|move|p1a: Kartana|Last Resort|p2a: Ferrothorn
+|-resisted|p2a: Ferrothorn
+|-damage|p2a: Ferrothorn|0 fnt
+|-damage|p1a: Kartana|0 fnt|[from] ability: Iron Barbs|[of] p2a: Ferrothorn
+|faint|p2a: Ferrothorn
+|faint|p1a: Kartana
+|switch|p1a: Anorith|Anorith|270/270
+|switch|p2a: Alomomola|Alomomola|534/534 tox
+|-damage|p1a: Anorith|203/270|[from] Stealth Rock
+|-damage|p2a: Alomomola|468/534 tox|[from] Stealth Rock
+|turn|49
+|move|p1a: Anorith|X-Scissor|p2a: Alomomola
+|-damage|p2a: Alomomola|372/534 tox
+|move|p2a: Alomomola|Scald|p1a: Anorith
+|-supereffective|p1a: Anorith
+|-damage|p1a: Anorith|11/270
+|-enditem|p1a: Anorith|Liechi Berry|[eat]
+|-boost|p1a: Anorith|atk|1
+|-heal|p2a: Alomomola|405/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|372/534 tox|[from] psn
+|turn|50
+|move|p1a: Anorith|X-Scissor|p2a: Alomomola
+|-damage|p2a: Alomomola|228/534 tox
+|move|p2a: Alomomola|Scald|p1a: Anorith
+|-supereffective|p1a: Anorith
+|-damage|p1a: Anorith|0 fnt
+|faint|p1a: Anorith
+|-heal|p2a: Alomomola|261/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|195/534 tox|[from] psn
+|switch|p1a: Arcanine|Arcanine|298/384
+|-damage|p1a: Arcanine|202/384|[from] Stealth Rock
+|-ability|p1a: Arcanine|Intimidate|boost
+|-unboost|p2a: Alomomola|atk|1
+|turn|51
+|switch|p2a: Blissey|Blissey|289/714 tox
+|-damage|p2a: Blissey|200/714 tox|[from] Stealth Rock
+|move|p1a: Arcanine|Morning Sun|p1a: Arcanine
+|-heal|p1a: Arcanine|384/384
+|-damage|p2a: Blissey|156/714 tox|[from] psn
+|turn|52
+|move|p1a: Arcanine|Flare Blitz|p2a: Blissey
+|-damage|p2a: Blissey|0 fnt
+|-damage|p1a: Arcanine|333/384|[from] Recoil
+|faint|p2a: Blissey
+|switch|p2a: Alomomola|Alomomola|373/534 tox
+|-damage|p2a: Alomomola|307/534 tox|[from] Stealth Rock
+|turn|53
+|move|p1a: Arcanine|Flare Blitz|p2a: Alomomola
+|-resisted|p2a: Alomomola
+|-damage|p2a: Alomomola|242/534 tox
+|-damage|p1a: Arcanine|312/384|[from] Recoil
+|move|p2a: Alomomola|Scald|p1a: Arcanine
+|-supereffective|p1a: Arcanine
+|-damage|p1a: Arcanine|186/384
+|-heal|p2a: Alomomola|275/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|242/534 tox|[from] psn
+|turn|54
+|move|p1a: Arcanine|Morning Sun|p1a: Arcanine
+|-heal|p1a: Arcanine|378/384
+|move|p2a: Alomomola|Scald|p1a: Arcanine
+|-supereffective|p1a: Arcanine
+|-damage|p1a: Arcanine|250/384
+|-heal|p2a: Alomomola|275/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|209/534 tox|[from] psn
+|turn|55
+|move|p1a: Arcanine|Morning Sun|p1a: Arcanine
+|-heal|p1a: Arcanine|384/384
+|move|p2a: Alomomola|Scald|p1a: Arcanine
+|-supereffective|p1a: Arcanine
+|-damage|p1a: Arcanine|264/384
+|debug|natural status immunity
+|debug|immune to status
+|debug|move failed because it did nothing
+|-heal|p2a: Alomomola|242/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|143/534 tox|[from] psn
+|turn|56
+|move|p1a: Arcanine|Morning Sun|p1a: Arcanine
+|-heal|p1a: Arcanine|384/384
+|move|p2a: Alomomola|Wish|p2a: Alomomola
+|-heal|p2a: Alomomola|176/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|44/534 tox|[from] psn
+|turn|57
+|move|p2a: Alomomola|Protect|p2a: Alomomola
+|-singleturn|p2a: Alomomola|Protect
+|move|p1a: Arcanine|Flare Blitz|p2a: Alomomola
+|-activate|p2a: Alomomola|move: Protect
+|-heal|p2a: Alomomola|311/534 tox|[from] move: Wish|[wisher] Alomomola
+|-heal|p2a: Alomomola|344/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|179/534 tox|[from] psn
+|turn|58
+|move|p1a: Arcanine|Flare Blitz|p2a: Alomomola
+|-resisted|p2a: Alomomola
+|-damage|p2a: Alomomola|113/534 tox
+|debug|move failed because it did nothing
+|-damage|p1a: Arcanine|362/384|[from] Recoil
+|move|p2a: Alomomola|Scald|p1a: Arcanine
+|-supereffective|p1a: Arcanine
+|-damage|p1a: Arcanine|242/384
+|-heal|p2a: Alomomola|146/534 tox|[from] item: Leftovers
+|-damage|p2a: Alomomola|0 fnt|[from] psn
+|faint|p2a: Alomomola
+|win|Eastonn8

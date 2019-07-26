@@ -1,23 +1,23 @@
-Team 1 Coach: LernesBlue
+Team 1 Coach: Eastonn8
 Team 1 Roster: 
-Bewear, Kills: 1, Deaths: 1, +/-: 0
-Darmanitan, Kills: 4, Deaths: 0, +/-: 4
-Stakataka, Kills: 0, Deaths: 1, +/-: -1
-Gligar, Kills: 1, Deaths: 1, +/-: 0
-Jellicent, Kills: 0, Deaths: 0, +/-: 0
-Roserade, Kills: 0, Deaths: 1, +/-: -1
-Mega Evolved: False
-Used Z-Move: False
-
-Team 2 Coach: Eastonn8
-Team 2 Roster: 
-Magmortar, Kills: 1, Deaths: 1, +/-: 0
-Leafeon, Kills: 0, Deaths: 1, +/-: -1
-Lanturn, Kills: 0, Deaths: 1, +/-: -1
-Crobat, Kills: 0, Deaths: 1, +/-: -1
-Mesprit, Kills: 3, Deaths: 1, +/-: 2
-Regirock, Kills: 0, Deaths: 1, +/-: -1
+Starmie, Kills: 0, Deaths: 1, +/-: -1
+Kartana, Kills: 0, Deaths: 1, +/-: -1
+Aromatisse, Kills: 1, Deaths: 1, +/-: 0
+Mandibuzz, Kills: 2, Deaths: 0, +/-: 2
+Anorith, Kills: 0, Deaths: 1, +/-: -1
+Arcanine, Kills: 2, Deaths: 0, +/-: 2
 Mega Evolved: False
 Used Z-Move: True
 
-Replay: https://replay.pokemonshowdown.com/gen7ou-833258255
+Team 2 Coach: TheGamer7777
+Team 2 Roster: 
+Blissey, Kills: 0, Deaths: 1, +/-: -1
+Alakazam-Mega, Kills: 1, Deaths: 1, +/-: 0
+Alomomola, Kills: 1, Deaths: 1, +/-: 0
+Donphan, Kills: 0, Deaths: 1, +/-: -1
+Ferrothorn, Kills: 1, Deaths: 1, +/-: 0
+Latios, Kills: 1, Deaths: 1, +/-: 0
+Mega Evolved: True
+Used Z-Move: False
+
+Replay: http://replay.pokemonshowdown.com/gen7customgame-758459994

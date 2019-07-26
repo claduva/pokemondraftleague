@@ -15,6 +15,7 @@ from .forms import *
 from leagues.models import *
 from accounts.models import showdownalts
 from .ShowdownReplayParser.replayparser import *
+from .NewParser.parser import *
 from .helperfunctions import *
 
 # Create your views here.
@@ -37,6 +38,25 @@ def replay_analysis(request):
         'submission': True,
     }
     return  render(request,"replayanalysisform.html",context)
+
+# Create your views here.
+def replay_analysis2(request):
+    if request.method=="POST":
+        form = MatchReplayForm(request.POST)
+        if form.is_valid():
+            url=form.cleaned_data['url']
+            results = newreplayparse(url)
+            context={
+                'results': results,
+            }
+            return render(request,"replayanalysisresults.html",context)
+    form=MatchReplayForm()
+    context={
+        'form': form,
+        'submission': True,
+    }
+    return  render(request,"replayanalysisform.html",context)
+
 
 @login_required
 def upload_league_replay(request,league_name,matchid):
