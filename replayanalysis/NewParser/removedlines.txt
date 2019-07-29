@@ -1,12 +1,12 @@
 |j|☆claduva
-|j|☆ChrisChaosGamer
-|player|p1|claduva|265
-|player|p2|ChrisChaosGamer|169
+|j|☆Spygon
+|player|p1|claduva|244
+|player|p2|Spygon|220
 |teamsize|p1|6
 |teamsize|p2|6
 |gametype|singles
 |gen|7
-|tier|[Gen 7] Ubers
+|tier|[Gen 7] OU
 |rule|Sleep Clause Mod: Limit one foe put to sleep
 |rule|Species Clause: Limit one of each Pokémon
 |rule|OHKO Clause: OHKO moves are banned
@@ -15,87 +15,30 @@
 |rule|Endless Battle Clause: Forcing endless battles is banned
 |rule|HP Percentage Mod: HP is shown in percentages
 |clearpoke
-|poke|p1|Zygarde|item
-|poke|p1|Empoleon|item
-|poke|p1|Tapu Bulu|item
-|poke|p1|Manectric|item
-|poke|p1|Conkeldurr|item
-|poke|p1|Incineroar|item
-|poke|p2|Hariyama|item
-|poke|p2|Tornadus|item
-|poke|p2|Decidueye|item
+|poke|p1|Scizor|item
+|poke|p1|Lopunny|item
+|poke|p1|Chandelure|item
+|poke|p1|Toxapex|item
+|poke|p1|Azumarill|item
+|poke|p1|Piloswine|item
 |poke|p2|Kyurem-Black|item
-|poke|p2|Scizor|item
-|poke|p2|Mudsdale|item
-|rule|Mega Rayquaza Clause: You cannot mega evolve Rayquaza
+|poke|p2|Ferrothorn|item
+|poke|p2|Tapu Fini|item
+|poke|p2|Golurk|item
+|poke|p2|Purugly|item
+|poke|p2|Salazzle|item
 |teampreview
-|j| TheGamer7777
-|j| Ketchupplant
-|c| Ketchupplant|oml
-|c| TheGamer7777|Dammit clads team actually looks good
-|c| Ketchupplant|we're gonna lose
-|c| TheGamer7777|I hope so
-|j| Sovee
+|c|☆Spygon|hf
+|c|☆claduva|u2!
 |
 |start
 |
-|j| Scorbunny VGC
-|
-|
-|upkeep
-|j| Nakora & Akikuro
-|l| Nakora & Akikuro
-|
-|
-|upkeep
-|
 |
 |upkeep
 |
 |
 |
 |upkeep
-|j| jerrytheboss
-|
-|
-|upkeep
-|
-|
-|upkeep
-|j| The Old Hag
-|c|☆ChrisChaosGamer|ayy pendy's here
-|c| The Old Hag|Still fighting Bruno tho :<
-|c| The Old Hag|:>
-|c|☆ChrisChaosGamer|o shit
-|
-|
-|
-|upkeep
-|
-|
-|upkeep
-|l| Scorbunny VGC
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|
-|
-|upkeep
-|c| Ketchupplant|zzz
-|c| Ketchupplant|oo
-|c|☆ChrisChaosGamer|#DeepThoughts
-|
-|
-|
-|upkeep
-|c|☆ChrisChaosGamer|oops
-|l| jerrytheboss
-|
-|j| jerrytheboss
 |
 |
 |upkeep
@@ -106,29 +49,66 @@
 |
 |upkeep
 |
-|detailschange|p1a: Manectric|Manectric-Mega
-|-mega|p1a: Manectric-Mega|Manectric|Manectite
+|
+|upkeep
+|j| Knightmare205
+|
+|
+|upkeep
+|
+|
+|l| Knightmare205
 |
 |
 |upkeep
 |
 |
 |upkeep
-|l| Sovee
-|
-|
-|upkeep
-|c| Ketchupplant|rip sorry
 |
 |
 |upkeep
 |
 |
 |upkeep
-|c|☆claduva|ED SHEERAN RETURNSSSSS
-|c| Ketchupplant|I SEE FIRE
 |
 |
+|upkeep
+|l|☆Spygon
+|player|p2|
+|j|☆Spygon
+|player|p2|Spygon|220
+|c|☆Spygon|i want u to know i looked away from the screen and i was like oh i obviously just miseed
+|c|☆Spygon|and then clicked power whip
+|
+|
+|upkeep
+|c|☆claduva|RIP
+|
+|
+|upkeep
+|c|☆Spygon|nah it's just funny lol
+|
+|
+|upkeep
+|
+|
+|upkeep
+|
+|
+|
+|upkeep
+|c|☆Spygon|sorry
+|c|☆claduva|It happens!
+|
+|
+|upkeep
+|
+|
+|upkeep
+|
+|
+|detailschange|p1a: Lopunny|Lopunny-Mega
+|-mega|p1a: Lopunny-Mega|Lopunny-Mega|Lopunnite
 |
 |upkeep
 |
@@ -137,21 +117,36 @@
 |upkeep
 |
 |
-|-zpower|p2a: Tornadus
+|upkeep
+|
 |
 |upkeep
 |
 |
+|upkeep
+|j| Eastonn8
+|c| Eastonn8|Hi dad
+|
+|l|☆Spygon
+|player|p2|
+|c|☆claduva|ello
+|j|☆Spygon
+|player|p2|Spygon|220
+|
 |
 |upkeep
+|c|☆claduva|these hazards are gunna hurt
+|c|☆Spygon|i gotta play quick funny things are happening in my flat and i am missing them xD
+|
+|c|☆Spygon|wait i done goofed
+|c|☆Spygon|ggs
 |
 |
+|upkeep
+|-message|Spygon forfeited.
 |
-|c|☆claduva|gg!
-|c| Ketchupplant|gg
-|c|☆ChrisChaosGamer|gg :(
-|l| jerrytheboss
-|l|☆ChrisChaosGamer
-|l| Ketchupplant
-|l| TheGamer7777
-|l| The Old Hag
+|l|☆Spygon
+|c| Eastonn8|Uh
+|c|☆claduva|???
+|c|☆claduva|I thought surely one was scarfed lol
+|c| Eastonn8|I mean, he forfeited a playoff game regardless of it being over

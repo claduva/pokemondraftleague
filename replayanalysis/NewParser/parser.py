@@ -16,6 +16,8 @@ def newreplayparse(replay):
 
     logfile,results=gothroughturns(logfile,results)
 
+    results['significantevents']=sorted( results['significantevents'],key=lambda tup: tup[0])
+
     with open('replayanalysis/NewParser/results.json', 'w') as f:
         json.dump(results,f,indent=2)
 
@@ -92,8 +94,12 @@ def initializeoutput(logfile):
     results['team2']['usedzmove']=False
     results['team1']['timesswitched']=-1
     results['team2']['timesswitched']=-1
+    results['team1']['selfdeaths']=0
+    results['team2']['selfdeaths']=0
     results['team1']['remaininghealth']=0
     results['team2']['remaininghealth']=0
+    results['team1']['kills']=0
+    results['team2']['kills']=0
     results['team1']['deaths']=0
     results['team2']['deaths']=0
     results['team1']['luck']=0
@@ -107,6 +113,7 @@ def initializeoutput(logfile):
     results['numberofturns']=0
     results['turns']=[]
     results['replay']=""
+    results['significantevents']=[]
 
     logfile_=[]
     removedlines=[]
@@ -208,11 +215,17 @@ def initializeoutput(logfile):
 def namecheck(results,line,teamnumber,logfile):
     nicknamesearch=line.split(" ",1)[1].split("|")
     if nicknamesearch[0]!=nicknamesearch[1] and nicknamesearch[1].find(f"{nicknamesearch[0]}-")==-1:
+        if nicknamesearch[1].find("Silvally-")>-1:
+            line=line.replace(nicknamesearch[1],"Silvally")
+            nicknamesearch[1]="Silvally"
         for item in results[f'team{teamnumber}']['roster']:
             if item['pokemon']==nicknamesearch[1]:
                 item['nickname']=nicknamesearch[0]
                 line=line.replace(nicknamesearch[0],nicknamesearch[1])
     else:
+        if nicknamesearch[1].find("Silvally-")>-1:
+            line=line.replace(nicknamesearch[1],"Silvally")
+            nicknamesearch[1]="Silvally"
         for item in results[f'team{teamnumber}']['roster']:
             if item['pokemon']==nicknamesearch[1] and nicknamesearch[1].find("-Mega")==-1:
                 item['startform']=nicknamesearch[0]

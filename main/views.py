@@ -113,20 +113,6 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request):
-    #maxid=leaguetiertemplate.objects.all().order_by('-id').first().id
-    #leaguetiertemplate.objects.create(id=maxid+1,template="T3 and Below Free Draft",tiername="Banned",tierpoints=1000)
-    #leaguetiertemplate.objects.create(id=maxid+2,template="T3 and Below Free Draft",tiername="Free",tierpoints=0)
-
-    standard=pokemon_tier_template.objects.all().filter(template="Standard Draft League")
-    maxid=pokemon_tier_template.objects.all().order_by('-id').first().id
-    bannedtier=leaguetiertemplate.objects.all().filter(template="T3 and Below Free Draft").get(tierpoints=1000)
-    freetier=leaguetiertemplate.objects.all().filter(template="T3 and Below Free Draft").get(tierpoints=0)
-    for item in standard:
-        maxid+=1
-        if item.tier.tierpoints>100 or item.tier.tierpoints<=0 or item.pokemon.pokemon=="Solgaleo":
-            pokemon_tier_template.objects.create(id=maxid,pokemon=item.pokemon,template="T3 and Below Free Draft",tier=bannedtier)
-        else:
-            pokemon_tier_template.objects.create(id=maxid,pokemon=item.pokemon,template="T3 and Below Free Draft",tier=freetier)
     return redirect('home')
 
 def awardcheck(coach,awardtogive,awardtext,messagebody,admin):

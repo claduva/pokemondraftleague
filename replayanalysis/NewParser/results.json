@@ -3,8 +3,8 @@
     "coach": "claduva",
     "roster": [
       {
-        "pokemon": "Zygarde",
-        "startform": "Zygarde",
+        "pokemon": "Scizor",
+        "startform": "Scizor",
         "nickname": null,
         "kills": 0,
         "deaths": 0,
@@ -13,13 +13,188 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
-        "lines": []
+        "remaininghealth": 36,
+        "lines": [
+          [
+            1,
+            "|switch|p1a: Scizor|Scizor|100/100"
+          ],
+          [
+            1,
+            "|move|p2a: Purugly|Knock Off|p1a: Scizor"
+          ],
+          [
+            1,
+            "|-damage|p1a: Scizor|65/100"
+          ],
+          [
+            1,
+            "|-enditem|p1a: Scizor|Metal Coat|[from] move: Knock Off|[of] p2a: Purugly"
+          ],
+          [
+            2,
+            "|move|p1a: Scizor|U-turn|p2a: Ferrothorn"
+          ],
+          [
+            2,
+            "|-damage|p1a: Scizor|53/100|[from] ability: Iron Barbs|[of] p2a: Ferrothorn"
+          ],
+          [
+            2,
+            "|-damage|p1a: Scizor|36/100|[from] item: Rocky Helmet|[of] p2a: Ferrothorn"
+          ]
+        ]
       },
       {
-        "pokemon": "Empoleon",
-        "startform": "Empoleon",
-        "nickname": "Mumble",
+        "pokemon": "Lopunny-Mega",
+        "startform": "Lopunny",
+        "nickname": null,
+        "kills": 4,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 63,
+        "lines": [
+          [
+            8,
+            "|switch|p1a: Lopunny-Mega|Lopunny-Mega|100/100"
+          ],
+          [
+            8,
+            "|move|p2a: Purugly|U-turn|p1a: Lopunny-Mega"
+          ],
+          [
+            8,
+            "|-damage|p1a: Lopunny-Mega|63/100"
+          ],
+          [
+            19,
+            "|switch|p1a: Lopunny-Mega|Lopunny-Mega|63/100"
+          ],
+          [
+            19,
+            "|-damage|p1a: Lopunny-Mega|38/100|[from] Spikes"
+          ],
+          [
+            20,
+            "|move|p1a: Lopunny-Mega|Frustration|p2a: Tapu Fini"
+          ],
+          [
+            24,
+            "|switch|p1a: Lopunny-Mega|Lopunny-Mega|38/100"
+          ],
+          [
+            24,
+            "|-damage|p1a: Lopunny-Mega|13/100|[from] Spikes"
+          ],
+          [
+            24,
+            "|-damage|p1a: Lopunny-Mega|7/100|[from] Stealth Rock"
+          ],
+          [
+            25,
+            "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Golurk"
+          ],
+          [
+            25,
+            "|-heal|p1a: Lopunny-Mega|20/100|[from] drain|[of] p2a: Golurk"
+          ],
+          [
+            26,
+            "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Kyurem-Black"
+          ],
+          [
+            26,
+            "|-heal|p1a: Lopunny-Mega|63/100|[from] drain|[of] p2a: Kyurem-Black"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Chandelure",
+        "startform": "Chandelure",
+        "nickname": null,
+        "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 46,
+        "lines": [
+          [
+            2,
+            "|switch|p1a: Chandelure|Chandelure|100/100"
+          ],
+          [
+            3,
+            "|move|p1a: Chandelure|Substitute|p1a: Chandelure"
+          ],
+          [
+            3,
+            "|-start|p1a: Chandelure|Substitute"
+          ],
+          [
+            3,
+            "|-damage|p1a: Chandelure|76/100"
+          ],
+          [
+            3,
+            "|move|p2a: Ferrothorn|Leech Seed|p1a: Chandelure"
+          ],
+          [
+            3,
+            "|-fail|p1a: Chandelure"
+          ],
+          [
+            4,
+            "|move|p1a: Chandelure|Fire Blast|p2a: Tapu Fini"
+          ],
+          [
+            5,
+            "|move|p1a: Chandelure|Energy Ball|p2a: Tapu Fini"
+          ],
+          [
+            5,
+            "|move|p2a: Tapu Fini|Surf|p1a: Chandelure"
+          ],
+          [
+            5,
+            "|-supereffective|p1a: Chandelure"
+          ],
+          [
+            5,
+            "|-end|p1a: Chandelure|Substitute"
+          ],
+          [
+            6,
+            "|move|p1a: Chandelure|Energy Ball|p2a: Salazzle"
+          ],
+          [
+            7,
+            "|move|p2a: Salazzle|Sludge Wave|p1a: Chandelure"
+          ],
+          [
+            7,
+            "|-resisted|p1a: Chandelure"
+          ],
+          [
+            7,
+            "|-damage|p1a: Chandelure|46/100"
+          ],
+          [
+            7,
+            "|move|p1a: Chandelure|Shadow Ball|p2a: Salazzle"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Toxapex",
+        "startform": "Toxapex",
+        "nickname": null,
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
@@ -27,110 +202,225 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 35,
+        "remaininghealth": 69,
         "lines": [
           [
-            5,
-            "|switch|p1a: Empoleon|Empoleon|100/100"
+            9,
+            "|switch|p1a: Toxapex|Toxapex|100/100"
           ],
           [
-            5,
-            "|move|p2a: Mudsdale|Heavy Slam|p1a: Empoleon"
+            9,
+            "|move|p2a: Tapu Fini|Moonblast|p1a: Toxapex"
           ],
           [
-            5,
-            "|-resisted|p1a: Empoleon"
+            9,
+            "|-resisted|p1a: Toxapex"
           ],
           [
-            5,
-            "|-damage|p1a: Empoleon|94/100"
+            9,
+            "|-damage|p1a: Toxapex|86/100"
           ],
           [
-            5,
-            "|-heal|p1a: Empoleon|99/100|[from] Grassy Terrain"
+            9,
+            "|-unboost|p1a: Toxapex|spa|1"
           ],
           [
-            6,
-            "|move|p1a: Empoleon|Stealth Rock|p2a: Decidueye"
+            9,
+            "|-heal|p1a: Toxapex|92/100|[from] item: Black Sludge"
           ],
           [
-            6,
-            "|-heal|p1a: Empoleon|100/100|[from] Grassy Terrain"
+            10,
+            "|move|p1a: Toxapex|Toxic Spikes|p2a: Ferrothorn"
           ],
           [
-            13,
-            "|switch|p1a: Empoleon|Empoleon|100/100"
+            10,
+            "|-heal|p1a: Toxapex|98/100|[from] item: Black Sludge"
           ],
           [
-            13,
-            "|move|p2a: Tornadus|Hidden Power|p1a: Empoleon"
+            16,
+            "|switch|p1a: Toxapex|Toxapex|100/100"
           ],
           [
-            13,
-            "|-resisted|p1a: Empoleon"
+            16,
+            "|-damage|p1a: Toxapex|75/100|[from] Spikes"
           ],
           [
-            13,
-            "|-damage|p1a: Empoleon|95/100"
+            16,
+            "|move|p2a: Ferrothorn|Leech Seed|p1a: Toxapex"
           ],
           [
-            14,
-            "|move|p1a: Empoleon|Scald|p2a: Tornadus"
+            16,
+            "|-start|p1a: Toxapex|move: Leech Seed"
           ],
           [
-            21,
-            "|switch|p1a: Empoleon|Empoleon|95/100"
+            16,
+            "|-heal|p1a: Toxapex|82/100|[from] item: Black Sludge"
           ],
           [
-            22,
-            "|move|p1a: Empoleon|Flash Cannon|p2a: Hariyama"
-          ],
-          [
-            23,
-            "|move|p2a: Tornadus|Supersonic Skystrike|p1a: Empoleon|[zeffect]"
-          ],
-          [
-            23,
-            "|-resisted|p1a: Empoleon"
-          ],
-          [
-            23,
-            "|-damage|p1a: Empoleon|46/100"
-          ],
-          [
-            23,
-            "|move|p1a: Empoleon|Stealth Rock||[still]"
-          ],
-          [
-            23,
-            "|-fail|p1a: Empoleon"
-          ],
-          [
-            24,
-            "|move|p2a: Kyurem-Black|Ice Beam|p1a: Empoleon"
-          ],
-          [
-            24,
-            "|-resisted|p1a: Empoleon"
-          ],
-          [
-            24,
-            "|-damage|p1a: Empoleon|35/100"
-          ],
-          [
-            24,
-            "|move|p1a: Empoleon|Flash Cannon|p2a: Kyurem-Black"
-          ],
-          [
-            25,
-            "|move|p1a: Empoleon|Scald|p2a: Mudsdale"
+            16,
+            "|-damage|p1a: Toxapex|69/100|[from] Leech Seed|[of] p2a: Ferrothorn"
           ]
         ]
       },
       {
-        "pokemon": "Tapu Bulu",
-        "startform": "Tapu Bulu",
-        "nickname": "Ed Sheeran",
+        "pokemon": "Azumarill",
+        "startform": "Azumarill",
+        "nickname": "Beatrice",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            0,
+            "|switch|p1a: Azumarill|Azumarill|100/100"
+          ],
+          [
+            11,
+            "|switch|p1a: Azumarill|Azumarill|100/100"
+          ],
+          [
+            11,
+            "|move|p2a: Ferrothorn|Leech Seed|p1a: Azumarill"
+          ],
+          [
+            11,
+            "|-ability|p1a: Azumarill|Sap Sipper|boost"
+          ],
+          [
+            11,
+            "|-boost|p1a: Azumarill|atk|1"
+          ],
+          [
+            12,
+            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
+          ],
+          [
+            12,
+            "|-activate|p2a: Ferrothorn|move: Whirlpool|[of] p1a: Azumarill"
+          ],
+          [
+            12,
+            "|move|p2a: Ferrothorn|Power Whip|p1a: Azumarill"
+          ],
+          [
+            12,
+            "|-ability|p1a: Azumarill|Sap Sipper|boost"
+          ],
+          [
+            12,
+            "|-boost|p1a: Azumarill|atk|1"
+          ],
+          [
+            13,
+            "|move|p1a: Azumarill|Perish Song|p1a: Azumarill"
+          ],
+          [
+            13,
+            "|-start|p1a: Azumarill|perish3|[silent]"
+          ],
+          [
+            13,
+            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
+          ],
+          [
+            13,
+            "|-start|p1a: Azumarill|perish3"
+          ],
+          [
+            14,
+            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
+          ],
+          [
+            14,
+            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
+          ],
+          [
+            14,
+            "|-start|p1a: Azumarill|perish2"
+          ],
+          [
+            15,
+            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
+          ],
+          [
+            15,
+            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
+          ],
+          [
+            15,
+            "|-start|p1a: Azumarill|perish1"
+          ],
+          [
+            17,
+            "|switch|p1a: Azumarill|Azumarill|100/100"
+          ],
+          [
+            17,
+            "|-damage|p1a: Azumarill|75/100|[from] Spikes"
+          ],
+          [
+            17,
+            "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill"
+          ],
+          [
+            17,
+            "|-crit|p1a: Azumarill"
+          ],
+          [
+            17,
+            "|-damage|p1a: Azumarill|20/100"
+          ],
+          [
+            17,
+            "|-unboost|p1a: Azumarill|spa|1"
+          ],
+          [
+            17,
+            "|-heal|p1a: Azumarill|26/100|[from] item: Leftovers"
+          ],
+          [
+            18,
+            "|move|p1a: Azumarill|Protect|p1a: Azumarill"
+          ],
+          [
+            18,
+            "|-singleturn|p1a: Azumarill|Protect"
+          ],
+          [
+            18,
+            "|move|p2a: Tapu Fini|Hidden Power|p1a: Azumarill"
+          ],
+          [
+            18,
+            "|-activate|p1a: Azumarill|move: Protect"
+          ],
+          [
+            18,
+            "|-heal|p1a: Azumarill|33/100|[from] item: Leftovers"
+          ],
+          [
+            19,
+            "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill"
+          ],
+          [
+            19,
+            "|-damage|p1a: Azumarill|0 fnt"
+          ],
+          [
+            19,
+            "|faint|p1a: Azumarill"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Piloswine",
+        "startform": "Piloswine",
+        "nickname": null,
         "kills": 0,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
@@ -141,609 +431,93 @@
         "remaininghealth": 0,
         "lines": [
           [
-            2,
-            "|switch|p1a: Tapu Bulu|Tapu Bulu|100/100"
-          ],
-          [
-            2,
-            "|-fieldstart|move: Grassy Terrain|[from] ability: Grassy Surge|[of] p1a: Tapu Bulu"
-          ],
-          [
-            2,
-            "|move|p2a: Hariyama|Close Combat|p1a: Tapu Bulu"
-          ],
-          [
-            2,
-            "|-resisted|p1a: Tapu Bulu"
-          ],
-          [
-            2,
-            "|-damage|p1a: Tapu Bulu|62/100"
-          ],
-          [
-            2,
-            "|-heal|p1a: Tapu Bulu|68/100|[from] Grassy Terrain"
-          ],
-          [
-            16,
-            "|switch|p1a: Tapu Bulu|Tapu Bulu|68/100|[from]move: Volt Switch"
-          ],
-          [
-            16,
-            "|-fieldstart|move: Grassy Terrain|[from] ability: Grassy Surge|[of] p1a: Tapu Bulu"
-          ],
-          [
-            16,
-            "|move|p2a: Hariyama|Close Combat|p1a: Tapu Bulu"
-          ],
-          [
-            16,
-            "|-resisted|p1a: Tapu Bulu"
-          ],
-          [
-            16,
-            "|-damage|p1a: Tapu Bulu|44/100"
-          ],
-          [
-            16,
-            "|-heal|p1a: Tapu Bulu|50/100|[from] Grassy Terrain"
-          ],
-          [
-            19,
-            "|switch|p1a: Tapu Bulu|Tapu Bulu|50/100"
-          ],
-          [
-            19,
-            "|move|p2a: Mudsdale|Earthquake|p1a: Tapu Bulu"
-          ],
-          [
-            19,
-            "|-resisted|p1a: Tapu Bulu"
-          ],
-          [
-            19,
-            "|-damage|p1a: Tapu Bulu|45/100"
-          ],
-          [
-            19,
-            "|-heal|p1a: Tapu Bulu|51/100|[from] Grassy Terrain"
-          ],
-          [
-            20,
-            "|move|p1a: Tapu Bulu|Hidden Power|p2a: Scizor"
-          ],
-          [
-            20,
-            "|-heal|p1a: Tapu Bulu|57/100|[from] Grassy Terrain"
+            21,
+            "|switch|p1a: Piloswine|Piloswine|100/100"
           ],
           [
             21,
-            "|move|p2a: Kyurem-Black|Ice Beam|p1a: Tapu Bulu"
+            "|-damage|p1a: Piloswine|75/100|[from] Spikes"
           ],
           [
             21,
-            "|-supereffective|p1a: Tapu Bulu"
+            "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine"
           ],
           [
             21,
-            "|-damage|p1a: Tapu Bulu|0 fnt"
+            "|-damage|p1a: Piloswine|54/100"
           ],
           [
-            21,
-            "|faint|p1a: Tapu Bulu"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Manectric-Mega",
-        "startform": "Manectric",
-        "nickname": "Usain",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 100,
-        "lines": [
-          [
-            1,
-            "|switch|p1a: Manectric-Mega|Manectric-Mega|100/100|[from]move: U-turn"
+            22,
+            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
           ],
           [
-            15,
-            "|switch|p1a: Manectric-Mega|Manectric-Mega|100/100"
+            22,
+            "|move|p2a: Golurk|Stealth Rock|p1a: Piloswine"
           ],
           [
-            16,
-            "|-ability|p1a: Manectric-Mega|Intimidate|boost"
+            23,
+            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
           ],
           [
-            16,
-            "|move|p1a: Manectric-Mega|Volt Switch|p2a: Hariyama"
+            23,
+            "|move|p2a: Golurk|Drain Punch|p1a: Piloswine"
           ],
           [
-            17,
-            "|switch|p1a: Manectric-Mega|Manectric-Mega|100/100"
+            23,
+            "|-supereffective|p1a: Piloswine"
           ],
           [
-            17,
-            "|-ability|p1a: Manectric-Mega|Intimidate|boost"
+            23,
+            "|-damage|p1a: Piloswine|10/100"
           ],
           [
-            18,
-            "|move|p1a: Manectric-Mega|Flamethrower|p2a: Mudsdale"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Conkeldurr",
-        "startform": "Conkeldurr",
-        "nickname": "Mitch McConkeldurr",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 22,
-        "lines": [
-          [
-            8,
-            "|switch|p1a: Conkeldurr|Conkeldurr|100/100"
+            23,
+            "|-heal|p2a: Golurk|60/100|[from] drain|[of] p1a: Piloswine"
           ],
           [
-            8,
-            "|move|p2a: Hariyama|Heavy Slam|p1a: Conkeldurr"
+            24,
+            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
           ],
           [
-            8,
-            "|-damage|p1a: Conkeldurr|76/100"
+            24,
+            "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine"
           ],
           [
-            9,
-            "|move|p1a: Conkeldurr|Drain Punch|p2a: Decidueye"
+            24,
+            "|-damage|p1a: Piloswine|0 fnt"
           ],
           [
-            10,
-            "|move|p2a: Decidueye|Spirit Shackle|p1a: Conkeldurr"
-          ],
-          [
-            10,
-            "|-damage|p1a: Conkeldurr|44/100"
-          ],
-          [
-            10,
-            "|-activate|p1a: Conkeldurr|trapped"
-          ],
-          [
-            10,
-            "|move|p1a: Conkeldurr|Ice Punch|p2a: Decidueye"
-          ],
-          [
-            11,
-            "|move|p2a: Decidueye|U-turn|p1a: Conkeldurr"
-          ],
-          [
-            11,
-            "|-resisted|p1a: Conkeldurr"
-          ],
-          [
-            11,
-            "|-damage|p1a: Conkeldurr|36/100"
-          ],
-          [
-            11,
-            "|move|p1a: Conkeldurr|Ice Punch|p2a: Scizor"
-          ],
-          [
-            12,
-            "|move|p2a: Scizor|U-turn|p1a: Conkeldurr"
-          ],
-          [
-            12,
-            "|-resisted|p1a: Conkeldurr"
-          ],
-          [
-            12,
-            "|-damage|p1a: Conkeldurr|22/100"
-          ],
-          [
-            12,
-            "|move|p1a: Conkeldurr|Drain Punch|p2: Decidueye|[notarget]"
-          ],
-          [
-            12,
-            "|-fail|p1a: Conkeldurr"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Incineroar",
-        "startform": "Incineroar",
-        "nickname": "John Cena",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 61,
-        "lines": [
-          [
-            0,
-            "|switch|p1a: Incineroar|Incineroar|100/100"
-          ],
-          [
-            0,
-            "|-ability|p1a: Incineroar|Intimidate|boost"
-          ],
-          [
-            1,
-            "|move|p1a: Incineroar|U-turn|p2a: Hariyama"
-          ],
-          [
-            3,
-            "|switch|p1a: Incineroar|Incineroar|100/100"
-          ],
-          [
-            3,
-            "|-ability|p1a: Incineroar|Intimidate|boost"
-          ],
-          [
-            4,
-            "|move|p2a: Scizor|U-turn|p1a: Incineroar"
-          ],
-          [
-            4,
-            "|-damage|p1a: Incineroar|68/100"
-          ],
-          [
-            4,
-            "|move|p1a: Incineroar|Knock Off|p2a: Mudsdale"
-          ],
-          [
-            4,
-            "|-enditem|p2a: Mudsdale|Leftovers|[from] move: Knock Off|[of] p1a: Incineroar"
-          ],
-          [
-            4,
-            "|-heal|p1a: Incineroar|75/100|[from] Grassy Terrain"
-          ],
-          [
-            7,
-            "|switch|p1a: Incineroar|Incineroar|75/100"
-          ],
-          [
-            7,
-            "|-ability|p1a: Incineroar|Intimidate|boost"
-          ],
-          [
-            7,
-            "|move|p2a: Decidueye|U-turn|p1a: Incineroar"
-          ],
-          [
-            7,
-            "|-damage|p1a: Incineroar|61/100"
+            24,
+            "|faint|p1a: Piloswine"
           ]
         ]
       }
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 5,
+    "score": 4,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 12,
-    "remaininghealth": "318/600",
-    "deaths": 1,
+    "timesswitched": 10,
+    "selfdeaths": 0,
+    "remaininghealth": "214/600",
+    "kills": 6,
+    "deaths": 2,
     "luck": 0,
     "damagedone": 0,
     "hphealed": 0,
     "support": 0
   },
   "team2": {
-    "coach": "ChrisChaosGamer",
+    "coach": "Spygon",
     "roster": [
-      {
-        "pokemon": "Hariyama",
-        "startform": "Hariyama",
-        "nickname": null,
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            1,
-            "|switch|p2a: Hariyama|Hariyama|100/100"
-          ],
-          [
-            1,
-            "|move|p1a: Incineroar|U-turn|p2a: Hariyama"
-          ],
-          [
-            1,
-            "|-resisted|p2a: Hariyama"
-          ],
-          [
-            1,
-            "|-damage|p2a: Hariyama|90/100"
-          ],
-          [
-            2,
-            "|move|p2a: Hariyama|Close Combat|p1a: Tapu Bulu"
-          ],
-          [
-            2,
-            "|-unboost|p2a: Hariyama|def|1"
-          ],
-          [
-            2,
-            "|-unboost|p2a: Hariyama|spd|1"
-          ],
-          [
-            2,
-            "|-damage|p2a: Hariyama|81/100|[from] item: Life Orb"
-          ],
-          [
-            2,
-            "|-heal|p2a: Hariyama|87/100|[from] Grassy Terrain"
-          ],
-          [
-            3,
-            "|-unboost|p2a: Hariyama|atk|1"
-          ],
-          [
-            7,
-            "|switch|p2a: Hariyama|Hariyama|87/100|[from]move: U-turn"
-          ],
-          [
-            7,
-            "|-damage|p2a: Hariyama|81/100|[from] Stealth Rock"
-          ],
-          [
-            8,
-            "|move|p2a: Hariyama|Heavy Slam|p1a: Conkeldurr"
-          ],
-          [
-            8,
-            "|-damage|p2a: Hariyama|71/100|[from] item: Life Orb"
-          ],
-          [
-            15,
-            "|switch|p2a: Hariyama|Hariyama|71/100"
-          ],
-          [
-            15,
-            "|-damage|p2a: Hariyama|65/100|[from] Stealth Rock"
-          ],
-          [
-            16,
-            "|-unboost|p2a: Hariyama|atk|1"
-          ],
-          [
-            16,
-            "|move|p1a: Manectric-Mega|Volt Switch|p2a: Hariyama"
-          ],
-          [
-            16,
-            "|-damage|p2a: Hariyama|22/100"
-          ],
-          [
-            16,
-            "|move|p2a: Hariyama|Close Combat|p1a: Tapu Bulu"
-          ],
-          [
-            16,
-            "|-unboost|p2a: Hariyama|def|1"
-          ],
-          [
-            16,
-            "|-unboost|p2a: Hariyama|spd|1"
-          ],
-          [
-            16,
-            "|-damage|p2a: Hariyama|12/100|[from] item: Life Orb"
-          ],
-          [
-            16,
-            "|-heal|p2a: Hariyama|18/100|[from] Grassy Terrain"
-          ],
-          [
-            22,
-            "|switch|p2a: Hariyama|Hariyama|18/100"
-          ],
-          [
-            22,
-            "|-damage|p2a: Hariyama|12/100|[from] Stealth Rock"
-          ],
-          [
-            22,
-            "|move|p1a: Empoleon|Flash Cannon|p2a: Hariyama"
-          ],
-          [
-            22,
-            "|-damage|p2a: Hariyama|0 fnt"
-          ],
-          [
-            22,
-            "|faint|p2a: Hariyama"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Tornadus",
-        "startform": "Tornadus",
-        "nickname": null,
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Burn",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            0,
-            "|switch|p2a: Tornadus|Tornadus|100/100"
-          ],
-          [
-            0,
-            "|-unboost|p2a: Tornadus|atk|1"
-          ],
-          [
-            12,
-            "|switch|p2a: Tornadus|Tornadus|100/100"
-          ],
-          [
-            12,
-            "|-damage|p2a: Tornadus|76/100|[from] Stealth Rock"
-          ],
-          [
-            13,
-            "|move|p2a: Tornadus|Hidden Power|p1a: Empoleon"
-          ],
-          [
-            14,
-            "|move|p2a: Tornadus|Tailwind|p2a: Tornadus"
-          ],
-          [
-            14,
-            "|move|p1a: Empoleon|Scald|p2a: Tornadus"
-          ],
-          [
-            14,
-            "|-damage|p2a: Tornadus|32/100"
-          ],
-          [
-            14,
-            "|-status|p2a: Tornadus|brn"
-          ],
-          [
-            14,
-            "|-damage|p2a: Tornadus|26/100 brn|[from] brn"
-          ],
-          [
-            22,
-            "|switch|p2a: Tornadus|Tornadus|26/100 brn"
-          ],
-          [
-            22,
-            "|-damage|p2a: Tornadus|2/100 brn|[from] Stealth Rock"
-          ],
-          [
-            23,
-            "|move|p2a: Tornadus|Supersonic Skystrike|p1a: Empoleon|[zeffect]"
-          ],
-          [
-            23,
-            "|-damage|p2a: Tornadus|0 fnt|[from] brn"
-          ],
-          [
-            23,
-            "|faint|p2a: Tornadus"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Decidueye",
-        "startform": "Decidueye",
-        "nickname": null,
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            6,
-            "|switch|p2a: Decidueye|Decidueye|100/100"
-          ],
-          [
-            6,
-            "|move|p1a: Empoleon|Stealth Rock|p2a: Decidueye"
-          ],
-          [
-            7,
-            "|-unboost|p2a: Decidueye|atk|1"
-          ],
-          [
-            7,
-            "|move|p2a: Decidueye|U-turn|p1a: Incineroar"
-          ],
-          [
-            9,
-            "|switch|p2a: Decidueye|Decidueye|100/100"
-          ],
-          [
-            9,
-            "|-damage|p2a: Decidueye|88/100|[from] Stealth Rock"
-          ],
-          [
-            9,
-            "|move|p1a: Conkeldurr|Drain Punch|p2a: Decidueye"
-          ],
-          [
-            9,
-            "|-immune|p2a: Decidueye"
-          ],
-          [
-            10,
-            "|move|p2a: Decidueye|Spirit Shackle|p1a: Conkeldurr"
-          ],
-          [
-            10,
-            "|move|p1a: Conkeldurr|Ice Punch|p2a: Decidueye"
-          ],
-          [
-            10,
-            "|-supereffective|p2a: Decidueye"
-          ],
-          [
-            10,
-            "|-damage|p2a: Decidueye|8/100"
-          ],
-          [
-            11,
-            "|move|p2a: Decidueye|U-turn|p1a: Conkeldurr"
-          ],
-          [
-            12,
-            "|switch|p2a: Decidueye|Decidueye|8/100|[from]move: U-turn"
-          ],
-          [
-            12,
-            "|-damage|p2a: Decidueye|0 fnt|[from] Stealth Rock"
-          ],
-          [
-            12,
-            "|faint|p2a: Decidueye"
-          ],
-          [
-            12,
-            "|move|p1a: Conkeldurr|Drain Punch|p2: Decidueye|[notarget]"
-          ]
-        ]
-      },
       {
         "pokemon": "Kyurem-Black",
         "startform": "Kyurem",
         "nickname": null,
         "kills": 0,
         "deaths": 1,
-        "causeofdeath": "Direct Damage",
+        "causeofdeath": "Forfeit",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
@@ -751,62 +525,46 @@
         "remaininghealth": 0,
         "lines": [
           [
-            20,
+            26,
             "|switch|p2a: Kyurem-Black|Kyurem-Black|100/100"
           ],
           [
-            20,
-            "|-damage|p2a: Kyurem-Black|76/100|[from] Stealth Rock"
+            26,
+            "|-status|p2a: Kyurem-Black|psn"
           ],
           [
-            20,
+            26,
             "|-ability|p2a: Kyurem-Black|Teravolt"
           ],
           [
-            21,
-            "|move|p2a: Kyurem-Black|Ice Beam|p1a: Tapu Bulu"
+            26,
+            "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Kyurem-Black"
           ],
           [
-            23,
-            "|switch|p2a: Kyurem-Black|Kyurem-Black|76/100"
-          ],
-          [
-            23,
-            "|-damage|p2a: Kyurem-Black|51/100|[from] Stealth Rock"
-          ],
-          [
-            23,
-            "|-ability|p2a: Kyurem-Black|Teravolt"
-          ],
-          [
-            24,
-            "|move|p2a: Kyurem-Black|Ice Beam|p1a: Empoleon"
-          ],
-          [
-            24,
-            "|move|p1a: Empoleon|Flash Cannon|p2a: Kyurem-Black"
-          ],
-          [
-            24,
+            26,
             "|-supereffective|p2a: Kyurem-Black"
           ],
           [
-            24,
-            "|-damage|p2a: Kyurem-Black|0 fnt"
+            26,
+            "|-damage|p2a: Kyurem-Black|36/100 psn"
           ],
           [
-            24,
-            "|faint|p2a: Kyurem-Black"
+            26,
+            "|-heal|p1a: Lopunny-Mega|63/100|[from] drain|[of] p2a: Kyurem-Black"
+          ],
+          [
+            26,
+            "|-damage|p2a: Kyurem-Black|23/100 psn|[from] psn"
           ]
         ]
       },
       {
-        "pokemon": "Scizor",
-        "startform": "Scizor",
+        "pokemon": "Ferrothorn",
+        "startform": "Ferrothorn",
         "nickname": null,
         "kills": 0,
         "deaths": 1,
-        "causeofdeath": "Direct Damage",
+        "causeofdeath": "Perish Song",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
@@ -814,90 +572,427 @@
         "remaininghealth": 0,
         "lines": [
           [
+            2,
+            "|switch|p2a: Ferrothorn|Ferrothorn|100/100"
+          ],
+          [
+            2,
+            "|move|p1a: Scizor|U-turn|p2a: Ferrothorn"
+          ],
+          [
+            2,
+            "|-damage|p2a: Ferrothorn|76/100"
+          ],
+          [
+            2,
+            "|-damage|p1a: Scizor|53/100|[from] ability: Iron Barbs|[of] p2a: Ferrothorn"
+          ],
+          [
+            2,
+            "|-damage|p1a: Scizor|36/100|[from] item: Rocky Helmet|[of] p2a: Ferrothorn"
+          ],
+          [
             3,
-            "|switch|p2a: Scizor|Scizor|100/100"
+            "|move|p2a: Ferrothorn|Leech Seed|p1a: Chandelure"
           ],
           [
-            4,
-            "|move|p2a: Scizor|U-turn|p1a: Incineroar"
+            10,
+            "|switch|p2a: Ferrothorn|Ferrothorn|76/100"
           ],
           [
-            11,
-            "|switch|p2a: Scizor|Scizor|100/100|[from]move: U-turn"
-          ],
-          [
-            11,
-            "|-damage|p2a: Scizor|88/100|[from] Stealth Rock"
+            10,
+            "|move|p1a: Toxapex|Toxic Spikes|p2a: Ferrothorn"
           ],
           [
             11,
-            "|move|p1a: Conkeldurr|Ice Punch|p2a: Scizor"
-          ],
-          [
-            11,
-            "|-resisted|p2a: Scizor"
-          ],
-          [
-            11,
-            "|-damage|p2a: Scizor|68/100"
-          ],
-          [
-            11,
-            "|-heal|p2a: Scizor|74/100|[from] item: Leftovers"
+            "|move|p2a: Ferrothorn|Leech Seed|p1a: Azumarill"
           ],
           [
             12,
-            "|move|p2a: Scizor|U-turn|p1a: Conkeldurr"
+            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
           ],
           [
-            17,
-            "|switch|p2a: Scizor|Scizor|74/100"
+            12,
+            "|-resisted|p2a: Ferrothorn"
           ],
           [
-            17,
-            "|-damage|p2a: Scizor|62/100|[from] Stealth Rock"
+            12,
+            "|-damage|p2a: Ferrothorn|73/100"
           ],
           [
-            17,
-            "|-unboost|p2a: Scizor|atk|1"
+            12,
+            "|-activate|p2a: Ferrothorn|move: Whirlpool|[of] p1a: Azumarill"
           ],
           [
-            17,
-            "|-heal|p2a: Scizor|68/100|[from] item: Leftovers"
+            12,
+            "|move|p2a: Ferrothorn|Power Whip|p1a: Azumarill"
           ],
           [
-            17,
-            "|-heal|p2a: Scizor|74/100|[from] Grassy Terrain"
+            12,
+            "|-damage|p2a: Ferrothorn|60/100|[from] move: Whirlpool|[partiallytrapped]"
           ],
           [
-            20,
-            "|switch|p2a: Scizor|Scizor|74/100"
+            13,
+            "|-start|p2a: Ferrothorn|perish3|[silent]"
           ],
           [
-            20,
-            "|-damage|p2a: Scizor|62/100|[from] Stealth Rock"
+            13,
+            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
           ],
           [
-            20,
-            "|move|p1a: Tapu Bulu|Hidden Power|p2a: Scizor"
+            13,
+            "|-damage|p2a: Ferrothorn|48/100|[from] move: Whirlpool|[partiallytrapped]"
           ],
           [
-            20,
-            "|-supereffective|p2a: Scizor"
+            13,
+            "|-start|p2a: Ferrothorn|perish3"
           ],
           [
-            20,
-            "|-damage|p2a: Scizor|0 fnt"
+            14,
+            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
           ],
           [
-            20,
-            "|faint|p2a: Scizor"
+            14,
+            "|-resisted|p2a: Ferrothorn"
+          ],
+          [
+            14,
+            "|-damage|p2a: Ferrothorn|44/100"
+          ],
+          [
+            14,
+            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
+          ],
+          [
+            14,
+            "|-damage|p2a: Ferrothorn|31/100|[from] move: Whirlpool|[partiallytrapped]"
+          ],
+          [
+            14,
+            "|-start|p2a: Ferrothorn|perish2"
+          ],
+          [
+            15,
+            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
+          ],
+          [
+            15,
+            "|-resisted|p2a: Ferrothorn"
+          ],
+          [
+            15,
+            "|-damage|p2a: Ferrothorn|28/100"
+          ],
+          [
+            15,
+            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
+          ],
+          [
+            15,
+            "|-damage|p2a: Ferrothorn|16/100|[from] move: Whirlpool|[partiallytrapped]"
+          ],
+          [
+            15,
+            "|-start|p2a: Ferrothorn|perish1"
+          ],
+          [
+            16,
+            "|move|p2a: Ferrothorn|Leech Seed|p1a: Toxapex"
+          ],
+          [
+            16,
+            "|-damage|p1a: Toxapex|69/100|[from] Leech Seed|[of] p2a: Ferrothorn"
+          ],
+          [
+            16,
+            "|-heal|p2a: Ferrothorn|26/100|[silent]"
+          ],
+          [
+            16,
+            "|-end|p2a: Ferrothorn|Whirlpool|[partiallytrapped]"
+          ],
+          [
+            16,
+            "|-start|p2a: Ferrothorn|perish0"
+          ],
+          [
+            16,
+            "|faint|p2a: Ferrothorn"
           ]
         ]
       },
       {
-        "pokemon": "Mudsdale",
-        "startform": "Mudsdale",
+        "pokemon": "Tapu Fini",
+        "startform": "Tapu Fini",
+        "nickname": null,
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            4,
+            "|switch|p2a: Tapu Fini|Tapu Fini|100/100"
+          ],
+          [
+            4,
+            "|-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p2a: Tapu Fini"
+          ],
+          [
+            4,
+            "|move|p1a: Chandelure|Fire Blast|p2a: Tapu Fini"
+          ],
+          [
+            4,
+            "|-resisted|p2a: Tapu Fini"
+          ],
+          [
+            4,
+            "|-damage|p2a: Tapu Fini|80/100"
+          ],
+          [
+            4,
+            "|-heal|p2a: Tapu Fini|86/100|[from] item: Leftovers"
+          ],
+          [
+            5,
+            "|move|p1a: Chandelure|Energy Ball|p2a: Tapu Fini"
+          ],
+          [
+            5,
+            "|-supereffective|p2a: Tapu Fini"
+          ],
+          [
+            5,
+            "|-damage|p2a: Tapu Fini|36/100"
+          ],
+          [
+            5,
+            "|move|p2a: Tapu Fini|Surf|p1a: Chandelure"
+          ],
+          [
+            5,
+            "|-heal|p2a: Tapu Fini|42/100|[from] item: Leftovers"
+          ],
+          [
+            8,
+            "|switch|p2a: Tapu Fini|Tapu Fini|42/100"
+          ],
+          [
+            8,
+            "|-heal|p2a: Tapu Fini|48/100|[from] item: Leftovers"
+          ],
+          [
+            9,
+            "|move|p2a: Tapu Fini|Moonblast|p1a: Toxapex"
+          ],
+          [
+            9,
+            "|-heal|p2a: Tapu Fini|55/100|[from] item: Leftovers"
+          ],
+          [
+            16,
+            "|switch|p2a: Tapu Fini|Tapu Fini|55/100"
+          ],
+          [
+            16,
+            "|-status|p2a: Tapu Fini|psn"
+          ],
+          [
+            16,
+            "|-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p2a: Tapu Fini"
+          ],
+          [
+            17,
+            "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill"
+          ],
+          [
+            17,
+            "|-heal|p2a: Tapu Fini|61/100 psn|[from] item: Leftovers"
+          ],
+          [
+            17,
+            "|-damage|p2a: Tapu Fini|48/100 psn|[from] psn"
+          ],
+          [
+            18,
+            "|move|p2a: Tapu Fini|Hidden Power|p1a: Azumarill"
+          ],
+          [
+            18,
+            "|-heal|p2a: Tapu Fini|54/100 psn|[from] item: Leftovers"
+          ],
+          [
+            18,
+            "|-damage|p2a: Tapu Fini|42/100 psn|[from] psn"
+          ],
+          [
+            19,
+            "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill"
+          ],
+          [
+            19,
+            "|-heal|p2a: Tapu Fini|48/100 psn|[from] item: Leftovers"
+          ],
+          [
+            19,
+            "|-damage|p2a: Tapu Fini|35/100 psn|[from] psn"
+          ],
+          [
+            20,
+            "|move|p1a: Lopunny-Mega|Frustration|p2a: Tapu Fini"
+          ],
+          [
+            20,
+            "|-damage|p2a: Tapu Fini|0 fnt"
+          ],
+          [
+            20,
+            "|faint|p2a: Tapu Fini"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Golurk",
+        "startform": "Golurk",
+        "nickname": null,
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            20,
+            "|switch|p2a: Golurk|Golurk|100/100"
+          ],
+          [
+            21,
+            "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine"
+          ],
+          [
+            22,
+            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
+          ],
+          [
+            22,
+            "|-supereffective|p2a: Golurk"
+          ],
+          [
+            22,
+            "|-damage|p2a: Golurk|66/100"
+          ],
+          [
+            22,
+            "|move|p2a: Golurk|Stealth Rock|p1a: Piloswine"
+          ],
+          [
+            23,
+            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
+          ],
+          [
+            23,
+            "|-supereffective|p2a: Golurk"
+          ],
+          [
+            23,
+            "|-damage|p2a: Golurk|32/100"
+          ],
+          [
+            23,
+            "|move|p2a: Golurk|Drain Punch|p1a: Piloswine"
+          ],
+          [
+            23,
+            "|-heal|p2a: Golurk|60/100|[from] drain|[of] p1a: Piloswine"
+          ],
+          [
+            24,
+            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
+          ],
+          [
+            24,
+            "|-supereffective|p2a: Golurk"
+          ],
+          [
+            24,
+            "|-damage|p2a: Golurk|24/100"
+          ],
+          [
+            24,
+            "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine"
+          ],
+          [
+            25,
+            "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Golurk"
+          ],
+          [
+            25,
+            "|-damage|p2a: Golurk|0 fnt"
+          ],
+          [
+            25,
+            "|-heal|p1a: Lopunny-Mega|20/100|[from] drain|[of] p2a: Golurk"
+          ],
+          [
+            25,
+            "|faint|p2a: Golurk"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Purugly",
+        "startform": "Purugly",
+        "nickname": null,
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Forfeit",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            0,
+            "|switch|p2a: Purugly|Purugly|100/100"
+          ],
+          [
+            1,
+            "|move|p2a: Purugly|Knock Off|p1a: Scizor"
+          ],
+          [
+            1,
+            "|-enditem|p1a: Scizor|Metal Coat|[from] move: Knock Off|[of] p2a: Purugly"
+          ],
+          [
+            7,
+            "|switch|p2a: Purugly|Purugly|100/100"
+          ],
+          [
+            8,
+            "|move|p2a: Purugly|U-turn|p1a: Lopunny-Mega"
+          ],
+          [
+            25,
+            "|switch|p2a: Purugly|Purugly|100/100"
+          ],
+          [
+            25,
+            "|-status|p2a: Purugly|psn"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Salazzle",
+        "startform": "Salazzle",
         "nickname": null,
         "kills": 0,
         "deaths": 1,
@@ -909,416 +1004,377 @@
         "remaininghealth": 0,
         "lines": [
           [
-            4,
-            "|switch|p2a: Mudsdale|Mudsdale|100/100|[from]move: U-turn"
+            6,
+            "|switch|p2a: Salazzle|Salazzle|100/100"
           ],
           [
-            4,
-            "|move|p1a: Incineroar|Knock Off|p2a: Mudsdale"
+            6,
+            "|move|p1a: Chandelure|Energy Ball|p2a: Salazzle"
           ],
           [
-            4,
-            "|-damage|p2a: Mudsdale|63/100"
+            6,
+            "|-resisted|p2a: Salazzle"
           ],
           [
-            4,
-            "|-ability|p2a: Mudsdale|Stamina|boost"
+            6,
+            "|-damage|p2a: Salazzle|83/100"
           ],
           [
-            4,
-            "|-boost|p2a: Mudsdale|def|1"
+            7,
+            "|move|p2a: Salazzle|Sludge Wave|p1a: Chandelure"
           ],
           [
-            4,
-            "|-enditem|p2a: Mudsdale|Leftovers|[from] move: Knock Off|[of] p1a: Incineroar"
+            7,
+            "|move|p1a: Chandelure|Shadow Ball|p2a: Salazzle"
           ],
           [
-            4,
-            "|-heal|p2a: Mudsdale|69/100|[from] Grassy Terrain"
+            7,
+            "|-damage|p2a: Salazzle|0 fnt"
           ],
           [
-            5,
-            "|move|p2a: Mudsdale|Heavy Slam|p1a: Empoleon"
-          ],
-          [
-            5,
-            "|-heal|p2a: Mudsdale|76/100|[from] Grassy Terrain"
-          ],
-          [
-            18,
-            "|switch|p2a: Mudsdale|Mudsdale|76/100"
-          ],
-          [
-            18,
-            "|-damage|p2a: Mudsdale|69/100|[from] Stealth Rock"
-          ],
-          [
-            18,
-            "|move|p1a: Manectric-Mega|Flamethrower|p2a: Mudsdale"
-          ],
-          [
-            18,
-            "|-damage|p2a: Mudsdale|43/100"
-          ],
-          [
-            18,
-            "|-ability|p2a: Mudsdale|Stamina|boost"
-          ],
-          [
-            18,
-            "|-boost|p2a: Mudsdale|def|1"
-          ],
-          [
-            18,
-            "|-status|p2a: Mudsdale|brn"
-          ],
-          [
-            18,
-            "|-heal|p2a: Mudsdale|49/100 brn|[from] Grassy Terrain"
-          ],
-          [
-            18,
-            "|-damage|p2a: Mudsdale|43/100 brn|[from] brn"
-          ],
-          [
-            19,
-            "|move|p2a: Mudsdale|Earthquake|p1a: Tapu Bulu"
-          ],
-          [
-            19,
-            "|-heal|p2a: Mudsdale|49/100 brn|[from] Grassy Terrain"
-          ],
-          [
-            19,
-            "|-damage|p2a: Mudsdale|43/100 brn|[from] brn"
-          ],
-          [
-            24,
-            "|switch|p2a: Mudsdale|Mudsdale|43/100 brn"
-          ],
-          [
-            24,
-            "|-damage|p2a: Mudsdale|37/100 brn|[from] Stealth Rock"
-          ],
-          [
-            25,
-            "|move|p1a: Empoleon|Scald|p2a: Mudsdale"
-          ],
-          [
-            25,
-            "|-supereffective|p2a: Mudsdale"
-          ],
-          [
-            25,
-            "|-damage|p2a: Mudsdale|0 fnt"
-          ],
-          [
-            25,
-            "|faint|p2a: Mudsdale"
+            7,
+            "|faint|p2a: Salazzle"
           ]
         ]
       }
     ],
     "wins": 0,
-    "forfeit": 0,
+    "forfeit": 1,
     "score": 0,
     "megaevolved": false,
-    "usedzmove": true,
-    "timesswitched": 18,
+    "usedzmove": false,
+    "timesswitched": 10,
+    "selfdeaths": 0,
     "remaininghealth": "0/600",
+    "kills": 2,
     "deaths": 6,
     "luck": 0,
     "damagedone": 0,
     "hphealed": 0,
     "support": 0
   },
-  "numberofturns": 25,
+  "numberofturns": 27,
   "turns": [
     {
       "0": [
-        "|switch|p1a: Incineroar|Incineroar|100/100",
-        "|switch|p2a: Tornadus|Tornadus|100/100",
-        "|-ability|p1a: Incineroar|Intimidate|boost",
-        "|-unboost|p2a: Tornadus|atk|1"
+        "|switch|p1a: Azumarill|Azumarill|100/100",
+        "|switch|p2a: Purugly|Purugly|100/100"
       ]
     },
     {
       "1": [
-        "|switch|p2a: Hariyama|Hariyama|100/100",
-        "|move|p1a: Incineroar|U-turn|p2a: Hariyama",
-        "|-resisted|p2a: Hariyama",
-        "|-damage|p2a: Hariyama|90/100",
-        "|switch|p1a: Manectric-Mega|Manectric-Mega|100/100|[from]move: U-turn"
+        "|switch|p1a: Scizor|Scizor|100/100",
+        "|move|p2a: Purugly|Knock Off|p1a: Scizor",
+        "|-damage|p1a: Scizor|65/100",
+        "|-enditem|p1a: Scizor|Metal Coat|[from] move: Knock Off|[of] p2a: Purugly"
       ]
     },
     {
       "2": [
-        "|switch|p1a: Tapu Bulu|Tapu Bulu|100/100",
-        "|-fieldstart|move: Grassy Terrain|[from] ability: Grassy Surge|[of] p1a: Tapu Bulu",
-        "|move|p2a: Hariyama|Close Combat|p1a: Tapu Bulu",
-        "|-resisted|p1a: Tapu Bulu",
-        "|-damage|p1a: Tapu Bulu|62/100",
-        "|-unboost|p2a: Hariyama|def|1",
-        "|-unboost|p2a: Hariyama|spd|1",
-        "|-damage|p2a: Hariyama|81/100|[from] item: Life Orb",
-        "|-heal|p1a: Tapu Bulu|68/100|[from] Grassy Terrain",
-        "|-heal|p2a: Hariyama|87/100|[from] Grassy Terrain"
+        "|switch|p2a: Ferrothorn|Ferrothorn|100/100",
+        "|move|p1a: Scizor|U-turn|p2a: Ferrothorn",
+        "|-damage|p2a: Ferrothorn|76/100",
+        "|-damage|p1a: Scizor|53/100|[from] ability: Iron Barbs|[of] p2a: Ferrothorn",
+        "|-damage|p1a: Scizor|36/100|[from] item: Rocky Helmet|[of] p2a: Ferrothorn",
+        "|switch|p1a: Chandelure|Chandelure|100/100"
       ]
     },
     {
       "3": [
-        "|switch|p1a: Incineroar|Incineroar|100/100",
-        "|-ability|p1a: Incineroar|Intimidate|boost",
-        "|-unboost|p2a: Hariyama|atk|1",
-        "|switch|p2a: Scizor|Scizor|100/100"
+        "|move|p1a: Chandelure|Substitute|p1a: Chandelure",
+        "|-start|p1a: Chandelure|Substitute",
+        "|-damage|p1a: Chandelure|76/100",
+        "|move|p2a: Ferrothorn|Leech Seed|p1a: Chandelure",
+        "|-fail|p1a: Chandelure"
       ]
     },
     {
       "4": [
-        "|move|p2a: Scizor|U-turn|p1a: Incineroar",
-        "|-damage|p1a: Incineroar|68/100",
-        "|switch|p2a: Mudsdale|Mudsdale|100/100|[from]move: U-turn",
-        "|move|p1a: Incineroar|Knock Off|p2a: Mudsdale",
-        "|-damage|p2a: Mudsdale|63/100",
-        "|-ability|p2a: Mudsdale|Stamina|boost",
-        "|-boost|p2a: Mudsdale|def|1",
-        "|-enditem|p2a: Mudsdale|Leftovers|[from] move: Knock Off|[of] p1a: Incineroar",
-        "|-heal|p1a: Incineroar|75/100|[from] Grassy Terrain",
-        "|-heal|p2a: Mudsdale|69/100|[from] Grassy Terrain"
+        "|switch|p2a: Tapu Fini|Tapu Fini|100/100",
+        "|-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p2a: Tapu Fini",
+        "|move|p1a: Chandelure|Fire Blast|p2a: Tapu Fini",
+        "|-resisted|p2a: Tapu Fini",
+        "|-damage|p2a: Tapu Fini|80/100",
+        "|-heal|p2a: Tapu Fini|86/100|[from] item: Leftovers"
       ]
     },
     {
       "5": [
-        "|switch|p1a: Empoleon|Empoleon|100/100",
-        "|move|p2a: Mudsdale|Heavy Slam|p1a: Empoleon",
-        "|-resisted|p1a: Empoleon",
-        "|-damage|p1a: Empoleon|94/100",
-        "|-heal|p1a: Empoleon|99/100|[from] Grassy Terrain",
-        "|-heal|p2a: Mudsdale|76/100|[from] Grassy Terrain"
+        "|move|p1a: Chandelure|Energy Ball|p2a: Tapu Fini",
+        "|-supereffective|p2a: Tapu Fini",
+        "|-damage|p2a: Tapu Fini|36/100",
+        "|move|p2a: Tapu Fini|Surf|p1a: Chandelure",
+        "|-supereffective|p1a: Chandelure",
+        "|-end|p1a: Chandelure|Substitute",
+        "|-heal|p2a: Tapu Fini|42/100|[from] item: Leftovers"
       ]
     },
     {
       "6": [
-        "|switch|p2a: Decidueye|Decidueye|100/100",
-        "|move|p1a: Empoleon|Stealth Rock|p2a: Decidueye",
-        "|-sidestart|p2: ChrisChaosGamer|move: Stealth Rock",
-        "|-heal|p1a: Empoleon|100/100|[from] Grassy Terrain",
-        "|-fieldend|move: Grassy Terrain"
+        "|switch|p2a: Salazzle|Salazzle|100/100",
+        "|move|p1a: Chandelure|Energy Ball|p2a: Salazzle",
+        "|-resisted|p2a: Salazzle",
+        "|-damage|p2a: Salazzle|83/100"
       ]
     },
     {
       "7": [
-        "|switch|p1a: Incineroar|Incineroar|75/100",
-        "|-ability|p1a: Incineroar|Intimidate|boost",
-        "|-unboost|p2a: Decidueye|atk|1",
-        "|move|p2a: Decidueye|U-turn|p1a: Incineroar",
-        "|-damage|p1a: Incineroar|61/100",
-        "|switch|p2a: Hariyama|Hariyama|87/100|[from]move: U-turn",
-        "|-damage|p2a: Hariyama|81/100|[from] Stealth Rock"
+        "|move|p2a: Salazzle|Sludge Wave|p1a: Chandelure",
+        "|-resisted|p1a: Chandelure",
+        "|-damage|p1a: Chandelure|46/100",
+        "|move|p1a: Chandelure|Shadow Ball|p2a: Salazzle",
+        "|-damage|p2a: Salazzle|0 fnt",
+        "|faint|p2a: Salazzle",
+        "|switch|p2a: Purugly|Purugly|100/100"
       ]
     },
     {
       "8": [
-        "|switch|p1a: Conkeldurr|Conkeldurr|100/100",
-        "|move|p2a: Hariyama|Heavy Slam|p1a: Conkeldurr",
-        "|-damage|p1a: Conkeldurr|76/100",
-        "|-damage|p2a: Hariyama|71/100|[from] item: Life Orb"
+        "|switch|p1a: Lopunny-Mega|Lopunny-Mega|100/100",
+        "|move|p2a: Purugly|U-turn|p1a: Lopunny-Mega",
+        "|-damage|p1a: Lopunny-Mega|63/100",
+        "|switch|p2a: Tapu Fini|Tapu Fini|42/100",
+        "|-heal|p2a: Tapu Fini|48/100|[from] item: Leftovers",
+        "|-fieldend|Misty Terrain"
       ]
     },
     {
       "9": [
-        "|switch|p2a: Decidueye|Decidueye|100/100",
-        "|-damage|p2a: Decidueye|88/100|[from] Stealth Rock",
-        "|move|p1a: Conkeldurr|Drain Punch|p2a: Decidueye",
-        "|-immune|p2a: Decidueye"
+        "|switch|p1a: Toxapex|Toxapex|100/100",
+        "|move|p2a: Tapu Fini|Moonblast|p1a: Toxapex",
+        "|-resisted|p1a: Toxapex",
+        "|-damage|p1a: Toxapex|86/100",
+        "|-unboost|p1a: Toxapex|spa|1",
+        "|-heal|p2a: Tapu Fini|55/100|[from] item: Leftovers",
+        "|-heal|p1a: Toxapex|92/100|[from] item: Black Sludge"
       ]
     },
     {
       "10": [
-        "|move|p2a: Decidueye|Spirit Shackle|p1a: Conkeldurr",
-        "|-damage|p1a: Conkeldurr|44/100",
-        "|-activate|p1a: Conkeldurr|trapped",
-        "|move|p1a: Conkeldurr|Ice Punch|p2a: Decidueye",
-        "|-supereffective|p2a: Decidueye",
-        "|-damage|p2a: Decidueye|8/100"
+        "|switch|p2a: Ferrothorn|Ferrothorn|76/100",
+        "|move|p1a: Toxapex|Toxic Spikes|p2a: Ferrothorn",
+        "|-sidestart|p2: Spygon|move: Toxic Spikes",
+        "|-heal|p1a: Toxapex|98/100|[from] item: Black Sludge"
       ]
     },
     {
       "11": [
-        "|move|p2a: Decidueye|U-turn|p1a: Conkeldurr",
-        "|-resisted|p1a: Conkeldurr",
-        "|-damage|p1a: Conkeldurr|36/100",
-        "|switch|p2a: Scizor|Scizor|100/100|[from]move: U-turn",
-        "|-damage|p2a: Scizor|88/100|[from] Stealth Rock",
-        "|move|p1a: Conkeldurr|Ice Punch|p2a: Scizor",
-        "|-resisted|p2a: Scizor",
-        "|-damage|p2a: Scizor|68/100",
-        "|-heal|p2a: Scizor|74/100|[from] item: Leftovers"
+        "|switch|p1a: Azumarill|Azumarill|100/100",
+        "|move|p2a: Ferrothorn|Leech Seed|p1a: Azumarill",
+        "|-ability|p1a: Azumarill|Sap Sipper|boost",
+        "|-boost|p1a: Azumarill|atk|1"
       ]
     },
     {
       "12": [
-        "|move|p2a: Scizor|U-turn|p1a: Conkeldurr",
-        "|-resisted|p1a: Conkeldurr",
-        "|-damage|p1a: Conkeldurr|22/100",
-        "|switch|p2a: Decidueye|Decidueye|8/100|[from]move: U-turn",
-        "|-damage|p2a: Decidueye|0 fnt|[from] Stealth Rock",
-        "|faint|p2a: Decidueye",
-        "|move|p1a: Conkeldurr|Drain Punch|p2: Decidueye|[notarget]",
-        "|-fail|p1a: Conkeldurr",
-        "|switch|p2a: Tornadus|Tornadus|100/100",
-        "|-damage|p2a: Tornadus|76/100|[from] Stealth Rock"
+        "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn",
+        "|-resisted|p2a: Ferrothorn",
+        "|-damage|p2a: Ferrothorn|73/100",
+        "|-activate|p2a: Ferrothorn|move: Whirlpool|[of] p1a: Azumarill",
+        "|move|p2a: Ferrothorn|Power Whip|p1a: Azumarill",
+        "|-ability|p1a: Azumarill|Sap Sipper|boost",
+        "|-boost|p1a: Azumarill|atk|1",
+        "|-damage|p2a: Ferrothorn|60/100|[from] move: Whirlpool|[partiallytrapped]"
       ]
     },
     {
       "13": [
-        "|switch|p1a: Empoleon|Empoleon|100/100",
-        "|move|p2a: Tornadus|Hidden Power|p1a: Empoleon",
-        "|-resisted|p1a: Empoleon",
-        "|-damage|p1a: Empoleon|95/100"
+        "|move|p1a: Azumarill|Perish Song|p1a: Azumarill",
+        "|-start|p1a: Azumarill|perish3|[silent]",
+        "|-start|p2a: Ferrothorn|perish3|[silent]",
+        "|-fieldactivate|move: Perish Song",
+        "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill",
+        "|-sidestart|p1: claduva|Spikes",
+        "|-damage|p2a: Ferrothorn|48/100|[from] move: Whirlpool|[partiallytrapped]",
+        "|-start|p1a: Azumarill|perish3",
+        "|-start|p2a: Ferrothorn|perish3"
       ]
     },
     {
       "14": [
-        "|move|p2a: Tornadus|Tailwind|p2a: Tornadus",
-        "|-sidestart|p2: ChrisChaosGamer|move: Tailwind",
-        "|move|p1a: Empoleon|Scald|p2a: Tornadus",
-        "|-damage|p2a: Tornadus|32/100",
-        "|-status|p2a: Tornadus|brn",
-        "|-damage|p2a: Tornadus|26/100 brn|[from] brn"
+        "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn",
+        "|-resisted|p2a: Ferrothorn",
+        "|-damage|p2a: Ferrothorn|44/100",
+        "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill",
+        "|-sidestart|p1: claduva|Spikes",
+        "|-damage|p2a: Ferrothorn|31/100|[from] move: Whirlpool|[partiallytrapped]",
+        "|-start|p1a: Azumarill|perish2",
+        "|-start|p2a: Ferrothorn|perish2"
       ]
     },
     {
       "15": [
-        "|switch|p2a: Hariyama|Hariyama|71/100",
-        "|-damage|p2a: Hariyama|65/100|[from] Stealth Rock",
-        "|switch|p1a: Manectric-Mega|Manectric-Mega|100/100"
+        "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn",
+        "|-resisted|p2a: Ferrothorn",
+        "|-damage|p2a: Ferrothorn|28/100",
+        "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill",
+        "|-sidestart|p1: claduva|Spikes",
+        "|-damage|p2a: Ferrothorn|16/100|[from] move: Whirlpool|[partiallytrapped]",
+        "|-start|p1a: Azumarill|perish1",
+        "|-start|p2a: Ferrothorn|perish1"
       ]
     },
     {
       "16": [
-        "|-ability|p1a: Manectric-Mega|Intimidate|boost",
-        "|-unboost|p2a: Hariyama|atk|1",
-        "|move|p1a: Manectric-Mega|Volt Switch|p2a: Hariyama",
-        "|-damage|p2a: Hariyama|22/100",
-        "|switch|p1a: Tapu Bulu|Tapu Bulu|68/100|[from]move: Volt Switch",
-        "|-fieldstart|move: Grassy Terrain|[from] ability: Grassy Surge|[of] p1a: Tapu Bulu",
-        "|move|p2a: Hariyama|Close Combat|p1a: Tapu Bulu",
-        "|-resisted|p1a: Tapu Bulu",
-        "|-damage|p1a: Tapu Bulu|44/100",
-        "|-unboost|p2a: Hariyama|def|1",
-        "|-unboost|p2a: Hariyama|spd|1",
-        "|-damage|p2a: Hariyama|12/100|[from] item: Life Orb",
-        "|-heal|p2a: Hariyama|18/100|[from] Grassy Terrain",
-        "|-heal|p1a: Tapu Bulu|50/100|[from] Grassy Terrain"
+        "|switch|p1a: Toxapex|Toxapex|100/100",
+        "|-damage|p1a: Toxapex|75/100|[from] Spikes",
+        "|move|p2a: Ferrothorn|Leech Seed|p1a: Toxapex",
+        "|-start|p1a: Toxapex|move: Leech Seed",
+        "|-heal|p1a: Toxapex|82/100|[from] item: Black Sludge",
+        "|-damage|p1a: Toxapex|69/100|[from] Leech Seed|[of] p2a: Ferrothorn",
+        "|-heal|p2a: Ferrothorn|26/100|[silent]",
+        "|-end|p2a: Ferrothorn|Whirlpool|[partiallytrapped]",
+        "|-start|p2a: Ferrothorn|perish0",
+        "|faint|p2a: Ferrothorn",
+        "|switch|p2a: Tapu Fini|Tapu Fini|55/100",
+        "|-status|p2a: Tapu Fini|psn",
+        "|-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p2a: Tapu Fini"
       ]
     },
     {
       "17": [
-        "|switch|p2a: Scizor|Scizor|74/100",
-        "|-damage|p2a: Scizor|62/100|[from] Stealth Rock",
-        "|switch|p1a: Manectric-Mega|Manectric-Mega|100/100",
-        "|-ability|p1a: Manectric-Mega|Intimidate|boost",
-        "|-unboost|p2a: Scizor|atk|1",
-        "|-heal|p2a: Scizor|68/100|[from] item: Leftovers",
-        "|-heal|p2a: Scizor|74/100|[from] Grassy Terrain",
-        "|-sideend|p2: ChrisChaosGamer|move: Tailwind"
+        "|switch|p1a: Azumarill|Azumarill|100/100",
+        "|-damage|p1a: Azumarill|75/100|[from] Spikes",
+        "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill",
+        "|-crit|p1a: Azumarill",
+        "|-damage|p1a: Azumarill|20/100",
+        "|-unboost|p1a: Azumarill|spa|1",
+        "|-heal|p2a: Tapu Fini|61/100 psn|[from] item: Leftovers",
+        "|-heal|p1a: Azumarill|26/100|[from] item: Leftovers",
+        "|-damage|p2a: Tapu Fini|48/100 psn|[from] psn"
       ]
     },
     {
       "18": [
-        "|switch|p2a: Mudsdale|Mudsdale|76/100",
-        "|-damage|p2a: Mudsdale|69/100|[from] Stealth Rock",
-        "|move|p1a: Manectric-Mega|Flamethrower|p2a: Mudsdale",
-        "|-damage|p2a: Mudsdale|43/100",
-        "|-ability|p2a: Mudsdale|Stamina|boost",
-        "|-boost|p2a: Mudsdale|def|1",
-        "|-status|p2a: Mudsdale|brn",
-        "|-heal|p2a: Mudsdale|49/100 brn|[from] Grassy Terrain",
-        "|-damage|p2a: Mudsdale|43/100 brn|[from] brn"
+        "|move|p1a: Azumarill|Protect|p1a: Azumarill",
+        "|-singleturn|p1a: Azumarill|Protect",
+        "|move|p2a: Tapu Fini|Hidden Power|p1a: Azumarill",
+        "|-activate|p1a: Azumarill|move: Protect",
+        "|-heal|p2a: Tapu Fini|54/100 psn|[from] item: Leftovers",
+        "|-heal|p1a: Azumarill|33/100|[from] item: Leftovers",
+        "|-damage|p2a: Tapu Fini|42/100 psn|[from] psn"
       ]
     },
     {
       "19": [
-        "|switch|p1a: Tapu Bulu|Tapu Bulu|50/100",
-        "|move|p2a: Mudsdale|Earthquake|p1a: Tapu Bulu",
-        "|-resisted|p1a: Tapu Bulu",
-        "|-damage|p1a: Tapu Bulu|45/100",
-        "|-heal|p1a: Tapu Bulu|51/100|[from] Grassy Terrain",
-        "|-heal|p2a: Mudsdale|49/100 brn|[from] Grassy Terrain",
-        "|-damage|p2a: Mudsdale|43/100 brn|[from] brn"
+        "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill",
+        "|-damage|p1a: Azumarill|0 fnt",
+        "|faint|p1a: Azumarill",
+        "|-heal|p2a: Tapu Fini|48/100 psn|[from] item: Leftovers",
+        "|-damage|p2a: Tapu Fini|35/100 psn|[from] psn",
+        "|switch|p1a: Lopunny-Mega|Lopunny-Mega|63/100",
+        "|-damage|p1a: Lopunny-Mega|38/100|[from] Spikes"
       ]
     },
     {
       "20": [
-        "|switch|p2a: Scizor|Scizor|74/100",
-        "|-damage|p2a: Scizor|62/100|[from] Stealth Rock",
-        "|move|p1a: Tapu Bulu|Hidden Power|p2a: Scizor",
-        "|-supereffective|p2a: Scizor",
-        "|-damage|p2a: Scizor|0 fnt",
-        "|faint|p2a: Scizor",
-        "|-heal|p1a: Tapu Bulu|57/100|[from] Grassy Terrain",
-        "|-fieldend|move: Grassy Terrain",
-        "|switch|p2a: Kyurem-Black|Kyurem-Black|100/100",
-        "|-damage|p2a: Kyurem-Black|76/100|[from] Stealth Rock",
-        "|-ability|p2a: Kyurem-Black|Teravolt"
+        "|move|p1a: Lopunny-Mega|Frustration|p2a: Tapu Fini",
+        "|-damage|p2a: Tapu Fini|0 fnt",
+        "|faint|p2a: Tapu Fini",
+        "|switch|p2a: Golurk|Golurk|100/100"
       ]
     },
     {
       "21": [
-        "|move|p2a: Kyurem-Black|Ice Beam|p1a: Tapu Bulu",
-        "|-supereffective|p1a: Tapu Bulu",
-        "|-damage|p1a: Tapu Bulu|0 fnt",
-        "|faint|p1a: Tapu Bulu",
-        "|switch|p1a: Empoleon|Empoleon|95/100"
+        "|switch|p1a: Piloswine|Piloswine|100/100",
+        "|-damage|p1a: Piloswine|75/100|[from] Spikes",
+        "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine",
+        "|-damage|p1a: Piloswine|54/100",
+        "|-fieldend|Misty Terrain"
       ]
     },
     {
       "22": [
-        "|switch|p2a: Hariyama|Hariyama|18/100",
-        "|-damage|p2a: Hariyama|12/100|[from] Stealth Rock",
-        "|move|p1a: Empoleon|Flash Cannon|p2a: Hariyama",
-        "|-damage|p2a: Hariyama|0 fnt",
-        "|faint|p2a: Hariyama",
-        "|switch|p2a: Tornadus|Tornadus|26/100 brn",
-        "|-damage|p2a: Tornadus|2/100 brn|[from] Stealth Rock"
+        "|move|p1a: Piloswine|Ice Shard|p2a: Golurk",
+        "|-supereffective|p2a: Golurk",
+        "|-damage|p2a: Golurk|66/100",
+        "|move|p2a: Golurk|Stealth Rock|p1a: Piloswine",
+        "|-sidestart|p1: claduva|move: Stealth Rock"
       ]
     },
     {
       "23": [
-        "|move|p2a: Tornadus|Supersonic Skystrike|p1a: Empoleon|[zeffect]",
-        "|-resisted|p1a: Empoleon",
-        "|-damage|p1a: Empoleon|46/100",
-        "|move|p1a: Empoleon|Stealth Rock||[still]",
-        "|-fail|p1a: Empoleon",
-        "|-damage|p2a: Tornadus|0 fnt|[from] brn",
-        "|faint|p2a: Tornadus",
-        "|switch|p2a: Kyurem-Black|Kyurem-Black|76/100",
-        "|-damage|p2a: Kyurem-Black|51/100|[from] Stealth Rock",
-        "|-ability|p2a: Kyurem-Black|Teravolt"
+        "|move|p1a: Piloswine|Ice Shard|p2a: Golurk",
+        "|-supereffective|p2a: Golurk",
+        "|-damage|p2a: Golurk|32/100",
+        "|move|p2a: Golurk|Drain Punch|p1a: Piloswine",
+        "|-supereffective|p1a: Piloswine",
+        "|-damage|p1a: Piloswine|10/100",
+        "|-heal|p2a: Golurk|60/100|[from] drain|[of] p1a: Piloswine"
       ]
     },
     {
       "24": [
-        "|move|p2a: Kyurem-Black|Ice Beam|p1a: Empoleon",
-        "|-resisted|p1a: Empoleon",
-        "|-damage|p1a: Empoleon|35/100",
-        "|move|p1a: Empoleon|Flash Cannon|p2a: Kyurem-Black",
-        "|-supereffective|p2a: Kyurem-Black",
-        "|-damage|p2a: Kyurem-Black|0 fnt",
-        "|faint|p2a: Kyurem-Black",
-        "|switch|p2a: Mudsdale|Mudsdale|43/100 brn",
-        "|-damage|p2a: Mudsdale|37/100 brn|[from] Stealth Rock"
+        "|move|p1a: Piloswine|Ice Shard|p2a: Golurk",
+        "|-supereffective|p2a: Golurk",
+        "|-damage|p2a: Golurk|24/100",
+        "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine",
+        "|-damage|p1a: Piloswine|0 fnt",
+        "|faint|p1a: Piloswine",
+        "|switch|p1a: Lopunny-Mega|Lopunny-Mega|38/100",
+        "|-damage|p1a: Lopunny-Mega|13/100|[from] Spikes",
+        "|-damage|p1a: Lopunny-Mega|7/100|[from] Stealth Rock"
       ]
     },
     {
       "25": [
-        "|move|p1a: Empoleon|Scald|p2a: Mudsdale",
-        "|-supereffective|p2a: Mudsdale",
-        "|-damage|p2a: Mudsdale|0 fnt",
-        "|faint|p2a: Mudsdale"
+        "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Golurk",
+        "|-damage|p2a: Golurk|0 fnt",
+        "|-heal|p1a: Lopunny-Mega|20/100|[from] drain|[of] p2a: Golurk",
+        "|faint|p2a: Golurk",
+        "|switch|p2a: Purugly|Purugly|100/100",
+        "|-status|p2a: Purugly|psn"
       ]
+    },
+    {
+      "26": [
+        "|switch|p2a: Kyurem-Black|Kyurem-Black|100/100",
+        "|-status|p2a: Kyurem-Black|psn",
+        "|-ability|p2a: Kyurem-Black|Teravolt",
+        "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Kyurem-Black",
+        "|-supereffective|p2a: Kyurem-Black",
+        "|-damage|p2a: Kyurem-Black|36/100 psn",
+        "|-heal|p1a: Lopunny-Mega|63/100|[from] drain|[of] p2a: Kyurem-Black",
+        "|-damage|p2a: Kyurem-Black|23/100 psn|[from] psn"
+      ]
+    },
+    {
+      "27": []
     }
   ],
-  "replay": "http://replay.pokemonshowdown.com/gen7ubers-909089421"
+  "replay": "https://replay.pokemonshowdown.com/gen7ou-828150903",
+  "significantevents": [
+    [
+      7,
+      "Salazzle was killed by Chandelure."
+    ],
+    [
+      16,
+      "Ferrothorn was killed by Azumarill with Perish Song."
+    ],
+    [
+      19,
+      "Azumarill was killed by Tapu Fini."
+    ],
+    [
+      20,
+      "Tapu Fini was killed by Lopunny-Mega."
+    ],
+    [
+      24,
+      "Piloswine was killed by Golurk."
+    ],
+    [
+      25,
+      "Golurk was killed by Lopunny-Mega."
+    ],
+    [
+      27,
+      "Kyurem-Black was killed by Lopunny-Mega via forfeit."
+    ],
+    [
+      27,
+      "Purugly was killed by Lopunny-Mega via forfeit."
+    ]
+  ]
 }

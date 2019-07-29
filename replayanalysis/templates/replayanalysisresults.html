@@ -85,9 +85,9 @@
             {% endfor %}
             <tr>
                 <th>Total ({{results.team1.remaininghealth}})</th>
-                <td></td>
+                <td>{{results.team1.kills}}</td>
                 <td>{{results.team1.deaths}}</td>
-                <td></td>
+                <td>{{results.team1.kills|subtract:results.team1.deaths}}</td>
                 <td>{{results.team1.luck}}</td>
                 <td>{{results.team1.damagedone}}</td>
                 <td>{{results.team1.hphealed}}</td>
@@ -95,7 +95,7 @@
             </tr>
             <tr>
                 <th>Self-Inflicted Deaths</th>
-                <td>0</td>
+                <td>{{results.team1.selfdeaths}}</td>
             </tr>
             <tr>
                 <th>Mega Evolved?</th>
@@ -162,9 +162,9 @@
             {% endfor %}
             <tr>
                 <th>Total ({{results.team2.remaininghealth}})</th>
-                <td></td>
+                <td>{{results.team2.kills}}</td>
                 <td>{{results.team2.deaths}}</td>
-                <td></td>
+                <td>{{results.team2.kills|subtract:results.team2.deaths}}</td>
                 <td>{{results.team2.luck}}</td>
                 <td>{{results.team2.damagedone}}</td>
                 <td>{{results.team2.hphealed}}</td>
@@ -172,7 +172,7 @@
             </tr>
             <tr>
                 <th>Self-Inflicted Deaths</th>
-                <td>0</td>
+                <td>{{results.team2.selfdeaths}}</td>
             </tr>
             <tr>
                 <th>Mega Evolved?</th>
@@ -199,6 +199,18 @@
                 <td>{{results.team2.timesswitched}}</td>
             </tr>
         </table>
+    </div>
+    <div class="col-md-12">
+            <table class="table table-sm text-center bg-lightgrey text-dark">
+                <tr><th colspan="2">Significant Events</th></tr>
+                <tr><th>Turn</th><th>Event</th></tr>
+                {% for turn,event in results.significantevents %}
+                <tr>
+                    <td>{{turn}}</td>
+                    <td>{{event}}</td>
+                </tr>
+                {% endfor%}
+            </table>
     </div>
 </div>
 {% endblock %}
