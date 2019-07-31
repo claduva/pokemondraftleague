@@ -47,7 +47,7 @@ def collectturns(logfile,results):
         }
     logfile_=[]
     for line in logfile:
-        results,line=replacenames(results,line)
+        #results,line=replacenames(results,line)
         if line.find('|turn|')>-1 and i==0:
             i+=1
             results['turns'].append(turn)
@@ -121,7 +121,7 @@ def initializeoutput(logfile):
     for line in logfile:
         line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","")
         #replace nicknames
-        results,line=replacenames(results,line)
+        #results,line=replacenames(results,line)
         #find coaches
         if line.find('|player|p1|')>-1:
             results['team1']['coach']=line.split("|")[3]
@@ -134,7 +134,7 @@ def initializeoutput(logfile):
             results['team1']['roster'].append({
                 'pokemon':line.split("|")[3],
                 'startform':line.split("|")[3],
-                'nickname':None,
+                'nickname':line.split("|")[3],
                 'kills':0,
                 'deaths':0,
                 'causeofdeath':None,
@@ -150,7 +150,7 @@ def initializeoutput(logfile):
             results['team2']['roster'].append({
                 'pokemon':line.split("|")[3],
                 'startform':line.split("|")[3],
-                'nickname':None,
+                'nickname':line.split("|")[3],
                 'kills':0,
                 'deaths':0,
                 'causeofdeath':None,
@@ -187,22 +187,6 @@ def initializeoutput(logfile):
             elif ffcoach == results['team2']['coach']:
                 results['team2']['forfeit']=1
             removedlines.append(line)
-        #checkdamage
-        #elif line.find("|-damage|")>-1 and line.find("|0 fnt")==-1:
-        #    removedlines.append(line)
-        #checkhealing
-        #elif line.find("|-heal|")>-1:
-        #    removedlines.append(line)
-        #check unboost
-        #elif line.find("|-unboost|")>-1:
-        #    removedlines.append(line)
-        #check status
-        #elif line.find("|-status|")>-1:
-        #    removedlines.append(line)
-        #check boost
-        #elif line.find("|-boost|")>-1:
-        #    removedlines.append(line)
-        #remove unneeded lines
         elif line in removelist or line.find('|j|')>-1 or line.find('|c|')>-1 or line.find('|l|')>-1 or \
             line.find('|teamsize|')>-1 or line.find('|gen|')>-1 or line.find('|gametype|')>-1 or \
             line.find('|tier|')>-1 or line.find('|rule|')>-1 or line.find("|-mega|p1a")>-1 or line.find("|-mega|p2a")>-1 or \
@@ -221,7 +205,7 @@ def namecheck(results,line,teamnumber,logfile):
         for item in results[f'team{teamnumber}']['roster']:
             if item['pokemon']==nicknamesearch[1]:
                 item['nickname']=nicknamesearch[0]
-                line=line.replace(nicknamesearch[0],nicknamesearch[1])
+                #line=line.replace(nicknamesearch[0],nicknamesearch[1])
     else:
         if nicknamesearch[1].find("Silvally-")>-1:
             line=line.replace(nicknamesearch[1],"Silvally")
@@ -229,7 +213,8 @@ def namecheck(results,line,teamnumber,logfile):
         for item in results[f'team{teamnumber}']['roster']:
             if item['pokemon']==nicknamesearch[1] and nicknamesearch[1].find("-Mega")==-1:
                 item['startform']=nicknamesearch[0]
-            line=line.replace(f'{nicknamesearch[0]}|',f'{nicknamesearch[1]}|')
+                item['nickname']=nicknamesearch[0]
+            #line=line.replace(f'{nicknamesearch[0]}|',f'{nicknamesearch[1]}|')
     logfile.append(line)
     if line.find(f"|switch|p{teamnumber}a:")>-1:    
         results[f'team{teamnumber}']['timesswitched']+=1
@@ -237,15 +222,15 @@ def namecheck(results,line,teamnumber,logfile):
 
 def replacenames(results,line):
     for item in results[f'team1']['roster']:
-        if item['nickname']!=None and line.find(item['nickname'])>-1:
+        if line.find(item['nickname'])>-1:
             line=line.replace(item['nickname'],item['pokemon'])
-        elif item['pokemon']!=item['startform'] and line.find(f"{item['startform']}-")==-1:
-            line=line.replace(f"{item['startform']}",f"{item['pokemon']}")
+        #elif item['pokemon']!=item['startform'] and line.find(f"{item['startform']}-")==-1:
+        #    line=line.replace(f"{item['startform']}",f"{item['pokemon']}")
     for item in results[f'team2']['roster']:
-        if item['nickname']!=None and line.find(item['nickname'])>-1:
+        if line.find(item['nickname'])>-1:
             line=line.replace(item['nickname'],item['pokemon'])
-        elif item['pokemon']!=item['startform'] and line.find(f"{item['startform']}-")==-1:
-            line=line.replace(f"{item['startform']}",f"{item['pokemon']}")
+        #elif item['pokemon']!=item['startform'] and line.find(f"{item['startform']}-")==-1:
+        #    line=line.replace(f"{item['startform']}",f"{item['pokemon']}")
     return results,line
 
 def replacemega(results,line,teamnumber,removedlines):
@@ -253,10 +238,9 @@ def replacemega(results,line,teamnumber,removedlines):
     removedlines.append(line)
     megasearch=line.split(" ",1)[1].split("|")
     for item in results[f'team{teamnumber}']['roster']:
-        if item['pokemon']==megasearch[0]:
+        if item['pokemon']==megasearch[0] or item['nickname']==megasearch[0]:
             item['pokemon']=megasearch[1]
-            item['startform']=megasearch[0]
-    line=line.replace(megasearch[0],megasearch[1])
+    #line=line.replace(megasearch[0],megasearch[1])
     return results,line,removedlines
 
 if __name__ == "__main__":

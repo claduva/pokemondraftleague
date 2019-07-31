@@ -16,6 +16,9 @@ class Events(commands.Cog):
         user=message.author.name
         msg=message.content
         print(f'{user} said {msg}')
+        if msg.lower().find("lombre")>-1:
+            await message.channel.send("For the love of Arceus shut up about Lombre!")
+            await self.bot.delete_message(message)
 
     @commands.Cog.listener()
     async def on_command_error(self,ctx,error):

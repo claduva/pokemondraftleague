@@ -1,203 +1,176 @@
-|switch|p1a: Azumarill|Azumarill|100/100
-|switch|p2a: Purugly|Purugly|100/100
+|switch|p1a: Torterra|Torterra|100/100
+|switch|p2a: Amir|Mienshao|100/100
 |turn|1
-|switch|p1a: Scizor|Scizor|100/100
-|move|p2a: Purugly|Knock Off|p1a: Scizor
-|-damage|p1a: Scizor|65/100
-|-enditem|p1a: Scizor|Metal Coat|[from] move: Knock Off|[of] p2a: Purugly
+|move|p2a: Amir|High Jump Kick|p1a: Torterra
+|-damage|p1a: Torterra|58/100
+|move|p1a: Torterra|Reflect|p1a: Torterra
+|-sidestart|p1: muskrat catcher|Reflect
 |turn|2
-|switch|p2a: Ferrothorn|Ferrothorn|100/100
-|move|p1a: Scizor|U-turn|p2a: Ferrothorn
-|-damage|p2a: Ferrothorn|76/100
-|-damage|p1a: Scizor|53/100|[from] ability: Iron Barbs|[of] p2a: Ferrothorn
-|-damage|p1a: Scizor|36/100|[from] item: Rocky Helmet|[of] p2a: Ferrothorn
-|switch|p1a: Chandelure|Chandelure|100/100
+|switch|p2a: Rotom A Letter|Rotom|100/100
+|move|p1a: Torterra|Synthesis|p1a: Torterra
+|-heal|p1a: Torterra|100/100
 |turn|3
-|move|p1a: Chandelure|Substitute|p1a: Chandelure
-|-start|p1a: Chandelure|Substitute
-|-damage|p1a: Chandelure|76/100
-|move|p2a: Ferrothorn|Leech Seed|p1a: Chandelure
-|-fail|p1a: Chandelure
+|move|p2a: Rotom A Letter|Hidden Power|p1a: Torterra
+|-supereffective|p1a: Torterra
+|-damage|p1a: Torterra|33/100
+|move|p1a: Torterra|Wood Hammer|p2a: Rotom A Letter
+|-damage|p2a: Rotom A Letter|0 fnt
+|-damage|p1a: Torterra|11/100|[from] Recoil
+|faint|p2a: Rotom A Letter
+|switch|p2a: Amir|Mienshao|100/100
 |turn|4
-|switch|p2a: Tapu Fini|Tapu Fini|100/100
-|-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p2a: Tapu Fini
-|move|p1a: Chandelure|Fire Blast|p2a: Tapu Fini
-|-resisted|p2a: Tapu Fini
-|-damage|p2a: Tapu Fini|80/100
-|-heal|p2a: Tapu Fini|86/100|[from] item: Leftovers
+|move|p2a: Amir|U-turn|p1a: Torterra
+|-supereffective|p1a: Torterra
+|-damage|p1a: Torterra|0 fnt
+|faint|p1a: Torterra
+|switch|p2a: DragonsGuardingFri|Amoonguss|100/100|[from]move: U-turn
+|switch|p1a: Cobalion|Cobalion|100/100
 |turn|5
-|move|p1a: Chandelure|Energy Ball|p2a: Tapu Fini
-|-supereffective|p2a: Tapu Fini
-|-damage|p2a: Tapu Fini|36/100
-|move|p2a: Tapu Fini|Surf|p1a: Chandelure
-|-supereffective|p1a: Chandelure
-|-end|p1a: Chandelure|Substitute
-|-heal|p2a: Tapu Fini|42/100|[from] item: Leftovers
+|switch|p2a: Amir|Mienshao|100/100
+|move|p1a: Cobalion|Taunt|p2a: Amir
+|-start|p2a: Amir|move: Taunt
 |turn|6
-|switch|p2a: Salazzle|Salazzle|100/100
-|move|p1a: Chandelure|Energy Ball|p2a: Salazzle
-|-resisted|p2a: Salazzle
-|-damage|p2a: Salazzle|83/100
+|move|p2a: Amir|U-turn|p1a: Cobalion
+|-resisted|p1a: Cobalion
+|-damage|p1a: Cobalion|98/100
+|switch|p2a: DragonsGuardingFri|Amoonguss|100/100|[from]move: U-turn
+|move|p1a: Cobalion|Stealth Rock|p2a: DragonsGuardingFri
+|-sidestart|p2: claduva|move: Stealth Rock
 |turn|7
-|move|p2a: Salazzle|Sludge Wave|p1a: Chandelure
-|-resisted|p1a: Chandelure
-|-damage|p1a: Chandelure|46/100
-|move|p1a: Chandelure|Shadow Ball|p2a: Salazzle
-|-damage|p2a: Salazzle|0 fnt
-|faint|p2a: Salazzle
-|switch|p2a: Purugly|Purugly|100/100
+|move|p1a: Cobalion|Taunt|p2a: DragonsGuardingFri
+|-start|p2a: DragonsGuardingFri|move: Taunt
+|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Cobalion
+|-resisted|p1a: Cobalion
+|-damage|p1a: Cobalion|84/100
 |turn|8
-|switch|p1a: Lopunny-Mega|Lopunny-Mega|100/100
-|move|p2a: Purugly|U-turn|p1a: Lopunny-Mega
-|-damage|p1a: Lopunny-Mega|63/100
-|switch|p2a: Tapu Fini|Tapu Fini|42/100
-|-heal|p2a: Tapu Fini|48/100|[from] item: Leftovers
-|-fieldend|Misty Terrain
+|switch|p1a: Scolipede|Scolipede|100/100
+|switch|p2a: Amir|Mienshao|100/100
+|-damage|p2a: Amir|94/100|[from] Stealth Rock
+|-sideend|p1: muskrat catcher|Reflect
 |turn|9
-|switch|p1a: Toxapex|Toxapex|100/100
-|move|p2a: Tapu Fini|Moonblast|p1a: Toxapex
-|-resisted|p1a: Toxapex
-|-damage|p1a: Toxapex|86/100
-|-unboost|p1a: Toxapex|spa|1
-|-heal|p2a: Tapu Fini|55/100|[from] item: Leftovers
-|-heal|p1a: Toxapex|92/100|[from] item: Black Sludge
+|move|p2a: Amir|Stone Edge|p1a: Scolipede
+|-supereffective|p1a: Scolipede
+|-damage|p1a: Scolipede|4/100
+|move|p1a: Scolipede|Swords Dance|p1a: Scolipede
+|-boost|p1a: Scolipede|atk|2
+|-ability|p1a: Scolipede|Speed Boost|boost
+|-boost|p1a: Scolipede|spe|1
 |turn|10
-|switch|p2a: Ferrothorn|Ferrothorn|76/100
-|move|p1a: Toxapex|Toxic Spikes|p2a: Ferrothorn
-|-sidestart|p2: Spygon|move: Toxic Spikes
-|-heal|p1a: Toxapex|98/100|[from] item: Black Sludge
+|switch|p2a: BabySharkDooDooDoo|Garchomp|100/100
+|-damage|p2a: BabySharkDooDooDoo|94/100|[from] Stealth Rock
+|move|p1a: Scolipede|Earthquake|p2a: BabySharkDooDooDoo
+|-damage|p2a: BabySharkDooDooDoo|54/100
+|-ability|p1a: Scolipede|Speed Boost|boost
+|-boost|p1a: Scolipede|spe|1
 |turn|11
-|switch|p1a: Azumarill|Azumarill|100/100
-|move|p2a: Ferrothorn|Leech Seed|p1a: Azumarill
-|-ability|p1a: Azumarill|Sap Sipper|boost
-|-boost|p1a: Azumarill|atk|1
+|move|p1a: Scolipede|Megahorn|p2a: BabySharkDooDooDoo
+|-damage|p2a: BabySharkDooDooDoo|0 fnt
+|faint|p2a: BabySharkDooDooDoo
+|-ability|p1a: Scolipede|Speed Boost|boost
+|-boost|p1a: Scolipede|spe|1
+|switch|p2a: Ex Girlfriend|Tyranitar|100/100
+|-damage|p2a: Ex Girlfriend|88/100|[from] Stealth Rock
+|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Ex Girlfriend
 |turn|12
-|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn
-|-resisted|p2a: Ferrothorn
-|-damage|p2a: Ferrothorn|73/100
-|-activate|p2a: Ferrothorn|move: Whirlpool|[of] p1a: Azumarill
-|move|p2a: Ferrothorn|Power Whip|p1a: Azumarill
-|-ability|p1a: Azumarill|Sap Sipper|boost
-|-boost|p1a: Azumarill|atk|1
-|-damage|p2a: Ferrothorn|60/100|[from] move: Whirlpool|[partiallytrapped]
+|move|p1a: Scolipede|Earthquake|p2a: Ex Girlfriend
+|-supereffective|p2a: Ex Girlfriend
+|-damage|p2a: Ex Girlfriend|0 fnt
+|faint|p2a: Ex Girlfriend
+|-weather|Sandstorm|[upkeep]
+|-damage|p1a: Scolipede|0 fnt|[from] Sandstorm
+|faint|p1a: Scolipede
+|switch|p1a: Gyarados|Gyarados|100/100
+|switch|p2a: 6.02*10^23 Drills|Excadrill|100/100
+|-damage|p2a: 6.02*10^23 Drills|97/100|[from] Stealth Rock
+|-ability|p1a: Gyarados|Intimidate|boost
+|-unboost|p2a: 6.02*10^23 Drills|atk|1
 |turn|13
-|move|p1a: Azumarill|Perish Song|p1a: Azumarill
-|-start|p1a: Azumarill|perish3|[silent]
-|-start|p2a: Ferrothorn|perish3|[silent]
-|-fieldactivate|move: Perish Song
-|move|p2a: Ferrothorn|Spikes|p1a: Azumarill
-|-sidestart|p1: claduva|Spikes
-|-damage|p2a: Ferrothorn|48/100|[from] move: Whirlpool|[partiallytrapped]
-|-start|p1a: Azumarill|perish3
-|-start|p2a: Ferrothorn|perish3
+|move|p2a: 6.02*10^23 Drills|Continental Crush|p1a: Gyarados|[zeffect]
+|-supereffective|p1a: Gyarados
+|-damage|p1a: Gyarados|8/100
+|move|p1a: Gyarados|Dragon Dance|p1a: Gyarados
+|-boost|p1a: Gyarados|atk|1
+|-boost|p1a: Gyarados|spe|1
+|-weather|Sandstorm|[upkeep]
+|-damage|p1a: Gyarados|2/100|[from] Sandstorm
 |turn|14
-|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn
-|-resisted|p2a: Ferrothorn
-|-damage|p2a: Ferrothorn|44/100
-|move|p2a: Ferrothorn|Spikes|p1a: Azumarill
-|-sidestart|p1: claduva|Spikes
-|-damage|p2a: Ferrothorn|31/100|[from] move: Whirlpool|[partiallytrapped]
-|-start|p1a: Azumarill|perish2
-|-start|p2a: Ferrothorn|perish2
+|switch|p1a: Cobalion|Cobalion|84/100
+|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion
+|-resisted|p1a: Cobalion
+|-damage|p1a: Cobalion|72/100
+|-weather|Sandstorm|[upkeep]
 |turn|15
-|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn
-|-resisted|p2a: Ferrothorn
-|-damage|p2a: Ferrothorn|28/100
-|move|p2a: Ferrothorn|Spikes|p1a: Azumarill
-|-sidestart|p1: claduva|Spikes
-|-damage|p2a: Ferrothorn|16/100|[from] move: Whirlpool|[partiallytrapped]
-|-start|p1a: Azumarill|perish1
-|-start|p2a: Ferrothorn|perish1
+|switch|p1a: Cryogonal|Cryogonal|100/100
+|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cryogonal
+|-immune|p1a: Cryogonal|[from] ability: Levitate
+|-weather|Sandstorm|[upkeep]
 |turn|16
-|switch|p1a: Toxapex|Toxapex|100/100
-|-damage|p1a: Toxapex|75/100|[from] Spikes
-|move|p2a: Ferrothorn|Leech Seed|p1a: Toxapex
-|-start|p1a: Toxapex|move: Leech Seed
-|-heal|p1a: Toxapex|82/100|[from] item: Black Sludge
-|-damage|p1a: Toxapex|69/100|[from] Leech Seed|[of] p2a: Ferrothorn
-|-heal|p2a: Ferrothorn|26/100|[silent]
-|-end|p2a: Ferrothorn|Whirlpool|[partiallytrapped]
-|-start|p2a: Ferrothorn|perish0
-|faint|p2a: Ferrothorn
-|switch|p2a: Tapu Fini|Tapu Fini|55/100
-|-status|p2a: Tapu Fini|psn
-|-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p2a: Tapu Fini
+|switch|p1a: Cobalion|Cobalion|72/100
+|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion
+|-resisted|p1a: Cobalion
+|-damage|p1a: Cobalion|58/100
+|-weather|none
 |turn|17
-|switch|p1a: Azumarill|Azumarill|100/100
-|-damage|p1a: Azumarill|75/100|[from] Spikes
-|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill
-|-crit|p1a: Azumarill
-|-damage|p1a: Azumarill|20/100
-|-unboost|p1a: Azumarill|spa|1
-|-heal|p2a: Tapu Fini|61/100 psn|[from] item: Leftovers
-|-heal|p1a: Azumarill|26/100|[from] item: Leftovers
-|-damage|p2a: Tapu Fini|48/100 psn|[from] psn
+|move|p1a: Cobalion|Stone Edge|p2a: 6.02*10^23 Drills|[miss]
+|-miss|p1a: Cobalion|p2a: 6.02*10^23 Drills
+|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cobalion
+|-supereffective|p1a: Cobalion
+|-crit|p1a: Cobalion
+|-damage|p1a: Cobalion|0 fnt
+|faint|p1a: Cobalion
+|switch|p1a: Zygarde|Zygarde-10%|100/100
+|-ability|p1a: Zygarde|Aura Break
 |turn|18
-|move|p1a: Azumarill|Protect|p1a: Azumarill
-|-singleturn|p1a: Azumarill|Protect
-|move|p2a: Tapu Fini|Hidden Power|p1a: Azumarill
-|-activate|p1a: Azumarill|move: Protect
-|-heal|p2a: Tapu Fini|54/100 psn|[from] item: Leftovers
-|-heal|p1a: Azumarill|33/100|[from] item: Leftovers
-|-damage|p2a: Tapu Fini|42/100 psn|[from] psn
+|move|p1a: Zygarde|Dragon Dance|p1a: Zygarde
+|-boost|p1a: Zygarde|atk|1
+|-boost|p1a: Zygarde|spe|1
+|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Zygarde
+|-damage|p1a: Zygarde|35/100
 |turn|19
-|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill
-|-damage|p1a: Azumarill|0 fnt
-|faint|p1a: Azumarill
-|-heal|p2a: Tapu Fini|48/100 psn|[from] item: Leftovers
-|-damage|p2a: Tapu Fini|35/100 psn|[from] psn
-|switch|p1a: Lopunny-Mega|Lopunny-Mega|63/100
-|-damage|p1a: Lopunny-Mega|38/100|[from] Spikes
+|move|p1a: Zygarde|Thousand Arrows|p2a: 6.02*10^23 Drills
+|-supereffective|p2a: 6.02*10^23 Drills
+|-damage|p2a: 6.02*10^23 Drills|0 fnt
+|-damage|p1a: Zygarde|25/100|[from] item: Life Orb
+|faint|p2a: 6.02*10^23 Drills
+|switch|p2a: DragonsGuardingFri|Amoonguss|100/100
+|-damage|p2a: DragonsGuardingFri|88/100|[from] Stealth Rock
 |turn|20
-|move|p1a: Lopunny-Mega|Frustration|p2a: Tapu Fini
-|-damage|p2a: Tapu Fini|0 fnt
-|faint|p2a: Tapu Fini
-|switch|p2a: Golurk|Golurk|100/100
+|move|p1a: Zygarde|Outrage|p2a: DragonsGuardingFri
+|-damage|p2a: DragonsGuardingFri|2/100
+|-damage|p1a: Zygarde|15/100|[from] item: Life Orb
+|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Zygarde
+|-damage|p1a: Zygarde|0 fnt
+|-heal|p2a: DragonsGuardingFri|7/100|[from] drain|[of] p1a: Zygarde
+|faint|p1a: Zygarde
+|-heal|p2a: DragonsGuardingFri|13/100|[from] item: Black Sludge
+|switch|p1a: Cryogonal|Cryogonal|100/100
 |turn|21
-|switch|p1a: Piloswine|Piloswine|100/100
-|-damage|p1a: Piloswine|75/100|[from] Spikes
-|move|p2a: Golurk|Shadow Punch|p1a: Piloswine
-|-damage|p1a: Piloswine|54/100
-|-fieldend|Misty Terrain
+|switch|p2a: Amir|Mienshao|100/100
+|-damage|p2a: Amir|94/100|[from] Stealth Rock
+|move|p1a: Cryogonal|Ice Beam|p2a: Amir
+|-damage|p2a: Amir|39/100
+|-status|p2a: Amir|frz
 |turn|22
-|move|p1a: Piloswine|Ice Shard|p2a: Golurk
-|-supereffective|p2a: Golurk
-|-damage|p2a: Golurk|66/100
-|move|p2a: Golurk|Stealth Rock|p1a: Piloswine
-|-sidestart|p1: claduva|move: Stealth Rock
+|switch|p2a: DragonsGuardingFri|Amoonguss|46/100
+|-damage|p2a: DragonsGuardingFri|34/100|[from] Stealth Rock
+|move|p1a: Cryogonal|Ice Beam|p2a: DragonsGuardingFri
+|-supereffective|p2a: DragonsGuardingFri
+|-damage|p2a: DragonsGuardingFri|0 fnt
+|faint|p2a: DragonsGuardingFri
+|switch|p2a: Amir|Mienshao|72/100 frz
+|-damage|p2a: Amir|66/100 frz|[from] Stealth Rock
 |turn|23
-|move|p1a: Piloswine|Ice Shard|p2a: Golurk
-|-supereffective|p2a: Golurk
-|-damage|p2a: Golurk|32/100
-|move|p2a: Golurk|Drain Punch|p1a: Piloswine
-|-supereffective|p1a: Piloswine
-|-damage|p1a: Piloswine|10/100
-|-heal|p2a: Golurk|60/100|[from] drain|[of] p1a: Piloswine
+|cant|p2a: Amir|frz
+|move|p1a: Cryogonal|Knock Off|p2a: Amir
+|-resisted|p2a: Amir
+|-damage|p2a: Amir|55/100 frz
+|-enditem|p2a: Amir|Choice Scarf|[from] move: Knock Off|[of] p1a: Cryogonal
 |turn|24
-|move|p1a: Piloswine|Ice Shard|p2a: Golurk
-|-supereffective|p2a: Golurk
-|-damage|p2a: Golurk|24/100
-|move|p2a: Golurk|Shadow Punch|p1a: Piloswine
-|-damage|p1a: Piloswine|0 fnt
-|faint|p1a: Piloswine
-|switch|p1a: Lopunny-Mega|Lopunny-Mega|38/100
-|-damage|p1a: Lopunny-Mega|13/100|[from] Spikes
-|-damage|p1a: Lopunny-Mega|7/100|[from] Stealth Rock
+|move|p1a: Cryogonal|Ice Beam|p2a: Amir
+|-damage|p2a: Amir|2/100 frz
+|cant|p2a: Amir|frz
 |turn|25
-|move|p1a: Lopunny-Mega|Drain Punch|p2a: Golurk
-|-damage|p2a: Golurk|0 fnt
-|-heal|p1a: Lopunny-Mega|20/100|[from] drain|[of] p2a: Golurk
-|faint|p2a: Golurk
-|switch|p2a: Purugly|Purugly|100/100
-|-status|p2a: Purugly|psn
-|turn|26
-|switch|p2a: Kyurem-Black|Kyurem-Black|100/100
-|-status|p2a: Kyurem-Black|psn
-|-ability|p2a: Kyurem-Black|Teravolt
-|move|p1a: Lopunny-Mega|Drain Punch|p2a: Kyurem-Black
-|-supereffective|p2a: Kyurem-Black
-|-damage|p2a: Kyurem-Black|36/100 psn
-|-heal|p1a: Lopunny-Mega|63/100|[from] drain|[of] p2a: Kyurem-Black
-|-damage|p2a: Kyurem-Black|23/100 psn|[from] psn
-|turn|27
-|win|claduva
+|move|p1a: Cryogonal|Ice Beam|p2a: Amir
+|-damage|p2a: Amir|0 fnt
+|faint|p2a: Amir
+|win|muskrat catcher

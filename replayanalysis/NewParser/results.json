@@ -1,1380 +1,1220 @@
 {
   "team1": {
-    "coach": "claduva",
+    "coach": "muskrat catcher",
     "roster": [
       {
-        "pokemon": "Scizor",
-        "startform": "Scizor",
-        "nickname": null,
+        "pokemon": "Cobalion",
+        "startform": "Cobalion",
+        "nickname": "Cobalion",
         "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 36,
+        "luck": -1.76,
+        "remaininghealth": 0,
         "lines": [
-          [
-            1,
-            "|switch|p1a: Scizor|Scizor|100/100"
-          ],
-          [
-            1,
-            "|move|p2a: Purugly|Knock Off|p1a: Scizor"
-          ],
-          [
-            1,
-            "|-damage|p1a: Scizor|65/100"
-          ],
-          [
-            1,
-            "|-enditem|p1a: Scizor|Metal Coat|[from] move: Knock Off|[of] p2a: Purugly"
-          ],
-          [
-            2,
-            "|move|p1a: Scizor|U-turn|p2a: Ferrothorn"
-          ],
-          [
-            2,
-            "|-damage|p1a: Scizor|53/100|[from] ability: Iron Barbs|[of] p2a: Ferrothorn"
-          ],
-          [
-            2,
-            "|-damage|p1a: Scizor|36/100|[from] item: Rocky Helmet|[of] p2a: Ferrothorn"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Lopunny-Mega",
-        "startform": "Lopunny",
-        "nickname": null,
-        "kills": 4,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 63,
-        "lines": [
-          [
-            8,
-            "|switch|p1a: Lopunny-Mega|Lopunny-Mega|100/100"
-          ],
-          [
-            8,
-            "|move|p2a: Purugly|U-turn|p1a: Lopunny-Mega"
-          ],
-          [
-            8,
-            "|-damage|p1a: Lopunny-Mega|63/100"
-          ],
-          [
-            19,
-            "|switch|p1a: Lopunny-Mega|Lopunny-Mega|63/100"
-          ],
-          [
-            19,
-            "|-damage|p1a: Lopunny-Mega|38/100|[from] Spikes"
-          ],
-          [
-            20,
-            "|move|p1a: Lopunny-Mega|Frustration|p2a: Tapu Fini"
-          ],
-          [
-            24,
-            "|switch|p1a: Lopunny-Mega|Lopunny-Mega|38/100"
-          ],
-          [
-            24,
-            "|-damage|p1a: Lopunny-Mega|13/100|[from] Spikes"
-          ],
-          [
-            24,
-            "|-damage|p1a: Lopunny-Mega|7/100|[from] Stealth Rock"
-          ],
-          [
-            25,
-            "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Golurk"
-          ],
-          [
-            25,
-            "|-heal|p1a: Lopunny-Mega|20/100|[from] drain|[of] p2a: Golurk"
-          ],
-          [
-            26,
-            "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Kyurem-Black"
-          ],
-          [
-            26,
-            "|-heal|p1a: Lopunny-Mega|63/100|[from] drain|[of] p2a: Kyurem-Black"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Chandelure",
-        "startform": "Chandelure",
-        "nickname": null,
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 46,
-        "lines": [
-          [
-            2,
-            "|switch|p1a: Chandelure|Chandelure|100/100"
-          ],
-          [
-            3,
-            "|move|p1a: Chandelure|Substitute|p1a: Chandelure"
-          ],
-          [
-            3,
-            "|-start|p1a: Chandelure|Substitute"
-          ],
-          [
-            3,
-            "|-damage|p1a: Chandelure|76/100"
-          ],
-          [
-            3,
-            "|move|p2a: Ferrothorn|Leech Seed|p1a: Chandelure"
-          ],
-          [
-            3,
-            "|-fail|p1a: Chandelure"
-          ],
           [
             4,
-            "|move|p1a: Chandelure|Fire Blast|p2a: Tapu Fini"
+            "|switch|p1a: Cobalion|Cobalion|100/100"
           ],
           [
             5,
-            "|move|p1a: Chandelure|Energy Ball|p2a: Tapu Fini"
-          ],
-          [
-            5,
-            "|move|p2a: Tapu Fini|Surf|p1a: Chandelure"
-          ],
-          [
-            5,
-            "|-supereffective|p1a: Chandelure"
-          ],
-          [
-            5,
-            "|-end|p1a: Chandelure|Substitute"
+            "|move|p1a: Cobalion|Taunt|p2a: Amir"
           ],
           [
             6,
-            "|move|p1a: Chandelure|Energy Ball|p2a: Salazzle"
+            "|move|p2a: Amir|U-turn|p1a: Cobalion"
+          ],
+          [
+            6,
+            "|-resisted|p1a: Cobalion"
+          ],
+          [
+            6,
+            "|-damage|p1a: Cobalion|98/100"
+          ],
+          [
+            6,
+            "|move|p1a: Cobalion|Stealth Rock|p2a: DragonsGuardingFri"
           ],
           [
             7,
-            "|move|p2a: Salazzle|Sludge Wave|p1a: Chandelure"
+            "|move|p1a: Cobalion|Taunt|p2a: DragonsGuardingFri"
           ],
           [
             7,
-            "|-resisted|p1a: Chandelure"
+            "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Cobalion"
           ],
           [
             7,
-            "|-damage|p1a: Chandelure|46/100"
+            "|-resisted|p1a: Cobalion"
           ],
           [
             7,
-            "|move|p1a: Chandelure|Shadow Ball|p2a: Salazzle"
+            "|-damage|p1a: Cobalion|84/100"
+          ],
+          [
+            14,
+            "|switch|p1a: Cobalion|Cobalion|84/100"
+          ],
+          [
+            14,
+            "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion"
+          ],
+          [
+            14,
+            "|-resisted|p1a: Cobalion"
+          ],
+          [
+            14,
+            "|-damage|p1a: Cobalion|72/100"
+          ],
+          [
+            16,
+            "|switch|p1a: Cobalion|Cobalion|72/100"
+          ],
+          [
+            16,
+            "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion"
+          ],
+          [
+            16,
+            "|-resisted|p1a: Cobalion"
+          ],
+          [
+            16,
+            "|-damage|p1a: Cobalion|58/100"
+          ],
+          [
+            17,
+            "|move|p1a: Cobalion|Stone Edge|p2a: 6.02*10^23 Drills|[miss]"
+          ],
+          [
+            17,
+            "|-miss|p1a: Cobalion|p2a: 6.02*10^23 Drills"
+          ],
+          [
+            17,
+            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cobalion"
+          ],
+          [
+            17,
+            "|-supereffective|p1a: Cobalion"
+          ],
+          [
+            17,
+            "|-crit|p1a: Cobalion"
+          ],
+          [
+            17,
+            "|-damage|p1a: Cobalion|0 fnt"
+          ],
+          [
+            17,
+            "|faint|p1a: Cobalion"
           ]
         ]
       },
       {
-        "pokemon": "Toxapex",
-        "startform": "Toxapex",
-        "nickname": null,
+        "pokemon": "Gyarados",
+        "startform": "Gyarados",
+        "nickname": "Gyarados",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 69,
+        "luck": 0.04,
+        "remaininghealth": 2,
         "lines": [
           [
-            9,
-            "|switch|p1a: Toxapex|Toxapex|100/100"
+            12,
+            "|switch|p1a: Gyarados|Gyarados|100/100"
           ],
           [
-            9,
-            "|move|p2a: Tapu Fini|Moonblast|p1a: Toxapex"
+            12,
+            "|-ability|p1a: Gyarados|Intimidate|boost"
           ],
           [
-            9,
-            "|-resisted|p1a: Toxapex"
+            13,
+            "|move|p2a: 6.02*10^23 Drills|Continental Crush|p1a: Gyarados|[zeffect]"
           ],
           [
-            9,
-            "|-damage|p1a: Toxapex|86/100"
+            13,
+            "|-supereffective|p1a: Gyarados"
           ],
           [
-            9,
-            "|-unboost|p1a: Toxapex|spa|1"
+            13,
+            "|-damage|p1a: Gyarados|8/100"
           ],
           [
-            9,
-            "|-heal|p1a: Toxapex|92/100|[from] item: Black Sludge"
+            13,
+            "|move|p1a: Gyarados|Dragon Dance|p1a: Gyarados"
           ],
           [
-            10,
-            "|move|p1a: Toxapex|Toxic Spikes|p2a: Ferrothorn"
+            13,
+            "|-boost|p1a: Gyarados|atk|1"
           ],
           [
-            10,
-            "|-heal|p1a: Toxapex|98/100|[from] item: Black Sludge"
+            13,
+            "|-boost|p1a: Gyarados|spe|1"
           ],
           [
-            16,
-            "|switch|p1a: Toxapex|Toxapex|100/100"
-          ],
-          [
-            16,
-            "|-damage|p1a: Toxapex|75/100|[from] Spikes"
-          ],
-          [
-            16,
-            "|move|p2a: Ferrothorn|Leech Seed|p1a: Toxapex"
-          ],
-          [
-            16,
-            "|-start|p1a: Toxapex|move: Leech Seed"
-          ],
-          [
-            16,
-            "|-heal|p1a: Toxapex|82/100|[from] item: Black Sludge"
-          ],
-          [
-            16,
-            "|-damage|p1a: Toxapex|69/100|[from] Leech Seed|[of] p2a: Ferrothorn"
+            13,
+            "|-damage|p1a: Gyarados|2/100|[from] Sandstorm"
           ]
         ]
       },
       {
-        "pokemon": "Azumarill",
-        "startform": "Azumarill",
-        "nickname": "Beatrice",
+        "pokemon": "Torterra",
+        "startform": "Torterra",
+        "nickname": "Torterra",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0,
+        "luck": -0.02,
         "remaininghealth": 0,
         "lines": [
           [
             0,
-            "|switch|p1a: Azumarill|Azumarill|100/100"
+            "|switch|p1a: Torterra|Torterra|100/100"
           ],
           [
-            11,
-            "|switch|p1a: Azumarill|Azumarill|100/100"
+            1,
+            "|move|p2a: Amir|High Jump Kick|p1a: Torterra"
           ],
           [
-            11,
-            "|move|p2a: Ferrothorn|Leech Seed|p1a: Azumarill"
+            1,
+            "|-damage|p1a: Torterra|58/100"
           ],
           [
-            11,
-            "|-ability|p1a: Azumarill|Sap Sipper|boost"
+            1,
+            "|move|p1a: Torterra|Reflect|p1a: Torterra"
           ],
           [
-            11,
-            "|-boost|p1a: Azumarill|atk|1"
+            2,
+            "|move|p1a: Torterra|Synthesis|p1a: Torterra"
           ],
           [
-            12,
-            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
+            2,
+            "|-heal|p1a: Torterra|100/100"
           ],
           [
-            12,
-            "|-activate|p2a: Ferrothorn|move: Whirlpool|[of] p1a: Azumarill"
+            3,
+            "|move|p2a: Rotom A Letter|Hidden Power|p1a: Torterra"
           ],
           [
-            12,
-            "|move|p2a: Ferrothorn|Power Whip|p1a: Azumarill"
+            3,
+            "|-supereffective|p1a: Torterra"
           ],
           [
-            12,
-            "|-ability|p1a: Azumarill|Sap Sipper|boost"
+            3,
+            "|-damage|p1a: Torterra|33/100"
           ],
           [
-            12,
-            "|-boost|p1a: Azumarill|atk|1"
+            3,
+            "|move|p1a: Torterra|Wood Hammer|p2a: Rotom A Letter"
           ],
           [
-            13,
-            "|move|p1a: Azumarill|Perish Song|p1a: Azumarill"
+            3,
+            "|-damage|p1a: Torterra|11/100|[from] Recoil"
           ],
           [
-            13,
-            "|-start|p1a: Azumarill|perish3|[silent]"
+            4,
+            "|move|p2a: Amir|U-turn|p1a: Torterra"
           ],
           [
-            13,
-            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
+            4,
+            "|-supereffective|p1a: Torterra"
           ],
           [
-            13,
-            "|-start|p1a: Azumarill|perish3"
+            4,
+            "|-damage|p1a: Torterra|0 fnt"
           ],
           [
-            14,
-            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
-          ],
-          [
-            14,
-            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
-          ],
-          [
-            14,
-            "|-start|p1a: Azumarill|perish2"
-          ],
-          [
-            15,
-            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
-          ],
-          [
-            15,
-            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
-          ],
-          [
-            15,
-            "|-start|p1a: Azumarill|perish1"
-          ],
-          [
-            17,
-            "|switch|p1a: Azumarill|Azumarill|100/100"
-          ],
-          [
-            17,
-            "|-damage|p1a: Azumarill|75/100|[from] Spikes"
-          ],
-          [
-            17,
-            "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill"
-          ],
-          [
-            17,
-            "|-crit|p1a: Azumarill"
-          ],
-          [
-            17,
-            "|-damage|p1a: Azumarill|20/100"
-          ],
-          [
-            17,
-            "|-unboost|p1a: Azumarill|spa|1"
-          ],
-          [
-            17,
-            "|-heal|p1a: Azumarill|26/100|[from] item: Leftovers"
-          ],
-          [
-            18,
-            "|move|p1a: Azumarill|Protect|p1a: Azumarill"
-          ],
-          [
-            18,
-            "|-singleturn|p1a: Azumarill|Protect"
-          ],
-          [
-            18,
-            "|move|p2a: Tapu Fini|Hidden Power|p1a: Azumarill"
-          ],
-          [
-            18,
-            "|-activate|p1a: Azumarill|move: Protect"
-          ],
-          [
-            18,
-            "|-heal|p1a: Azumarill|33/100|[from] item: Leftovers"
-          ],
-          [
-            19,
-            "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill"
-          ],
-          [
-            19,
-            "|-damage|p1a: Azumarill|0 fnt"
-          ],
-          [
-            19,
-            "|faint|p1a: Azumarill"
+            4,
+            "|faint|p1a: Torterra"
           ]
         ]
       },
       {
-        "pokemon": "Piloswine",
-        "startform": "Piloswine",
-        "nickname": null,
-        "kills": 0,
+        "pokemon": "Zygarde-10%",
+        "startform": "Zygarde",
+        "nickname": "Zygarde",
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0,
+        "luck": 0.0,
         "remaininghealth": 0,
         "lines": [
           [
-            21,
-            "|switch|p1a: Piloswine|Piloswine|100/100"
+            17,
+            "|switch|p1a: Zygarde|Zygarde-10%|100/100"
+          ],
+          [
+            17,
+            "|-ability|p1a: Zygarde|Aura Break"
+          ],
+          [
+            18,
+            "|move|p1a: Zygarde|Dragon Dance|p1a: Zygarde"
+          ],
+          [
+            18,
+            "|-boost|p1a: Zygarde|atk|1"
+          ],
+          [
+            18,
+            "|-boost|p1a: Zygarde|spe|1"
+          ],
+          [
+            18,
+            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Zygarde"
+          ],
+          [
+            18,
+            "|-damage|p1a: Zygarde|35/100"
+          ],
+          [
+            19,
+            "|move|p1a: Zygarde|Thousand Arrows|p2a: 6.02*10^23 Drills"
+          ],
+          [
+            19,
+            "|-damage|p1a: Zygarde|25/100|[from] item: Life Orb"
+          ],
+          [
+            20,
+            "|move|p1a: Zygarde|Outrage|p2a: DragonsGuardingFri"
+          ],
+          [
+            20,
+            "|-damage|p1a: Zygarde|15/100|[from] item: Life Orb"
+          ],
+          [
+            20,
+            "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Zygarde"
+          ],
+          [
+            20,
+            "|-damage|p1a: Zygarde|0 fnt"
+          ],
+          [
+            20,
+            "|-heal|p2a: DragonsGuardingFri|7/100|[from] drain|[of] p1a: Zygarde"
+          ],
+          [
+            20,
+            "|faint|p1a: Zygarde"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Cryogonal",
+        "startform": "Cryogonal",
+        "nickname": "Cryogonal",
+        "kills": 2,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.16,
+        "remaininghealth": 100,
+        "lines": [
+          [
+            15,
+            "|switch|p1a: Cryogonal|Cryogonal|100/100"
+          ],
+          [
+            15,
+            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cryogonal"
+          ],
+          [
+            15,
+            "|-immune|p1a: Cryogonal|[from] ability: Levitate"
+          ],
+          [
+            20,
+            "|switch|p1a: Cryogonal|Cryogonal|100/100"
           ],
           [
             21,
-            "|-damage|p1a: Piloswine|75/100|[from] Spikes"
-          ],
-          [
-            21,
-            "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine"
-          ],
-          [
-            21,
-            "|-damage|p1a: Piloswine|54/100"
+            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
           ],
           [
             22,
-            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
-          ],
-          [
-            22,
-            "|move|p2a: Golurk|Stealth Rock|p1a: Piloswine"
+            "|move|p1a: Cryogonal|Ice Beam|p2a: DragonsGuardingFri"
           ],
           [
             23,
-            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
+            "|move|p1a: Cryogonal|Knock Off|p2a: Amir"
           ],
           [
             23,
-            "|move|p2a: Golurk|Drain Punch|p1a: Piloswine"
-          ],
-          [
-            23,
-            "|-supereffective|p1a: Piloswine"
-          ],
-          [
-            23,
-            "|-damage|p1a: Piloswine|10/100"
-          ],
-          [
-            23,
-            "|-heal|p2a: Golurk|60/100|[from] drain|[of] p1a: Piloswine"
+            "|-enditem|p2a: Amir|Choice Scarf|[from] move: Knock Off|[of] p1a: Cryogonal"
           ],
           [
             24,
-            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
+            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
           ],
           [
-            24,
-            "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine"
+            25,
+            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Scolipede",
+        "startform": "Scolipede",
+        "nickname": "Scolipede",
+        "kills": 2,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.13,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            8,
+            "|switch|p1a: Scolipede|Scolipede|100/100"
           ],
           [
-            24,
-            "|-damage|p1a: Piloswine|0 fnt"
+            9,
+            "|move|p2a: Amir|Stone Edge|p1a: Scolipede"
           ],
           [
-            24,
-            "|faint|p1a: Piloswine"
+            9,
+            "|-supereffective|p1a: Scolipede"
+          ],
+          [
+            9,
+            "|-damage|p1a: Scolipede|4/100"
+          ],
+          [
+            9,
+            "|move|p1a: Scolipede|Swords Dance|p1a: Scolipede"
+          ],
+          [
+            9,
+            "|-boost|p1a: Scolipede|atk|2"
+          ],
+          [
+            9,
+            "|-ability|p1a: Scolipede|Speed Boost|boost"
+          ],
+          [
+            9,
+            "|-boost|p1a: Scolipede|spe|1"
+          ],
+          [
+            10,
+            "|move|p1a: Scolipede|Earthquake|p2a: BabySharkDooDooDoo"
+          ],
+          [
+            10,
+            "|-ability|p1a: Scolipede|Speed Boost|boost"
+          ],
+          [
+            10,
+            "|-boost|p1a: Scolipede|spe|1"
+          ],
+          [
+            11,
+            "|move|p1a: Scolipede|Megahorn|p2a: BabySharkDooDooDoo"
+          ],
+          [
+            11,
+            "|-ability|p1a: Scolipede|Speed Boost|boost"
+          ],
+          [
+            11,
+            "|-boost|p1a: Scolipede|spe|1"
+          ],
+          [
+            12,
+            "|move|p1a: Scolipede|Earthquake|p2a: Ex Girlfriend"
+          ],
+          [
+            12,
+            "|-damage|p1a: Scolipede|0 fnt|[from] Sandstorm"
+          ],
+          [
+            12,
+            "|faint|p1a: Scolipede"
           ]
         ]
       }
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 4,
-    "megaevolved": true,
+    "score": 2,
+    "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 10,
+    "timesswitched": 8,
     "selfdeaths": 0,
-    "remaininghealth": "214/600",
+    "remaininghealth": "102/600",
     "kills": 6,
-    "deaths": 2,
-    "luck": 0,
+    "deaths": 4,
+    "luck": -2.03,
     "damagedone": 0,
     "hphealed": 0,
     "support": 0
   },
   "team2": {
-    "coach": "Spygon",
+    "coach": "claduva",
     "roster": [
       {
-        "pokemon": "Kyurem-Black",
-        "startform": "Kyurem",
-        "nickname": null,
+        "pokemon": "Garchomp-Mega",
+        "startform": "Garchomp",
+        "nickname": "BabySharkDooDooDoo",
         "kills": 0,
         "deaths": 1,
-        "causeofdeath": "Forfeit",
+        "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0,
+        "luck": -0.07,
         "remaininghealth": 0,
         "lines": [
           [
-            26,
-            "|switch|p2a: Kyurem-Black|Kyurem-Black|100/100"
-          ],
-          [
-            26,
-            "|-status|p2a: Kyurem-Black|psn"
-          ],
-          [
-            26,
-            "|-ability|p2a: Kyurem-Black|Teravolt"
-          ],
-          [
-            26,
-            "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Kyurem-Black"
-          ],
-          [
-            26,
-            "|-supereffective|p2a: Kyurem-Black"
-          ],
-          [
-            26,
-            "|-damage|p2a: Kyurem-Black|36/100 psn"
-          ],
-          [
-            26,
-            "|-heal|p1a: Lopunny-Mega|63/100|[from] drain|[of] p2a: Kyurem-Black"
-          ],
-          [
-            26,
-            "|-damage|p2a: Kyurem-Black|23/100 psn|[from] psn"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Ferrothorn",
-        "startform": "Ferrothorn",
-        "nickname": null,
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Perish Song",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            2,
-            "|switch|p2a: Ferrothorn|Ferrothorn|100/100"
-          ],
-          [
-            2,
-            "|move|p1a: Scizor|U-turn|p2a: Ferrothorn"
-          ],
-          [
-            2,
-            "|-damage|p2a: Ferrothorn|76/100"
-          ],
-          [
-            2,
-            "|-damage|p1a: Scizor|53/100|[from] ability: Iron Barbs|[of] p2a: Ferrothorn"
-          ],
-          [
-            2,
-            "|-damage|p1a: Scizor|36/100|[from] item: Rocky Helmet|[of] p2a: Ferrothorn"
-          ],
-          [
-            3,
-            "|move|p2a: Ferrothorn|Leech Seed|p1a: Chandelure"
+            10,
+            "|switch|p2a: BabySharkDooDooDoo|Garchomp|100/100"
           ],
           [
             10,
-            "|switch|p2a: Ferrothorn|Ferrothorn|76/100"
+            "|-damage|p2a: BabySharkDooDooDoo|94/100|[from] Stealth Rock"
           ],
           [
             10,
-            "|move|p1a: Toxapex|Toxic Spikes|p2a: Ferrothorn"
+            "|move|p1a: Scolipede|Earthquake|p2a: BabySharkDooDooDoo"
+          ],
+          [
+            10,
+            "|-damage|p2a: BabySharkDooDooDoo|54/100"
           ],
           [
             11,
-            "|move|p2a: Ferrothorn|Leech Seed|p1a: Azumarill"
+            "|move|p1a: Scolipede|Megahorn|p2a: BabySharkDooDooDoo"
           ],
           [
-            12,
-            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
+            11,
+            "|-damage|p2a: BabySharkDooDooDoo|0 fnt"
           ],
           [
-            12,
-            "|-resisted|p2a: Ferrothorn"
-          ],
-          [
-            12,
-            "|-damage|p2a: Ferrothorn|73/100"
-          ],
-          [
-            12,
-            "|-activate|p2a: Ferrothorn|move: Whirlpool|[of] p1a: Azumarill"
-          ],
-          [
-            12,
-            "|move|p2a: Ferrothorn|Power Whip|p1a: Azumarill"
-          ],
-          [
-            12,
-            "|-damage|p2a: Ferrothorn|60/100|[from] move: Whirlpool|[partiallytrapped]"
-          ],
-          [
-            13,
-            "|-start|p2a: Ferrothorn|perish3|[silent]"
-          ],
-          [
-            13,
-            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
-          ],
-          [
-            13,
-            "|-damage|p2a: Ferrothorn|48/100|[from] move: Whirlpool|[partiallytrapped]"
-          ],
-          [
-            13,
-            "|-start|p2a: Ferrothorn|perish3"
-          ],
-          [
-            14,
-            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
-          ],
-          [
-            14,
-            "|-resisted|p2a: Ferrothorn"
-          ],
-          [
-            14,
-            "|-damage|p2a: Ferrothorn|44/100"
-          ],
-          [
-            14,
-            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
-          ],
-          [
-            14,
-            "|-damage|p2a: Ferrothorn|31/100|[from] move: Whirlpool|[partiallytrapped]"
-          ],
-          [
-            14,
-            "|-start|p2a: Ferrothorn|perish2"
-          ],
-          [
-            15,
-            "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn"
-          ],
-          [
-            15,
-            "|-resisted|p2a: Ferrothorn"
-          ],
-          [
-            15,
-            "|-damage|p2a: Ferrothorn|28/100"
-          ],
-          [
-            15,
-            "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill"
-          ],
-          [
-            15,
-            "|-damage|p2a: Ferrothorn|16/100|[from] move: Whirlpool|[partiallytrapped]"
-          ],
-          [
-            15,
-            "|-start|p2a: Ferrothorn|perish1"
-          ],
-          [
-            16,
-            "|move|p2a: Ferrothorn|Leech Seed|p1a: Toxapex"
-          ],
-          [
-            16,
-            "|-damage|p1a: Toxapex|69/100|[from] Leech Seed|[of] p2a: Ferrothorn"
-          ],
-          [
-            16,
-            "|-heal|p2a: Ferrothorn|26/100|[silent]"
-          ],
-          [
-            16,
-            "|-end|p2a: Ferrothorn|Whirlpool|[partiallytrapped]"
-          ],
-          [
-            16,
-            "|-start|p2a: Ferrothorn|perish0"
-          ],
-          [
-            16,
-            "|faint|p2a: Ferrothorn"
+            11,
+            "|faint|p2a: BabySharkDooDooDoo"
           ]
         ]
       },
       {
-        "pokemon": "Tapu Fini",
-        "startform": "Tapu Fini",
-        "nickname": null,
-        "kills": 1,
+        "pokemon": "Mienshao",
+        "startform": "Mienshao",
+        "nickname": "Amir",
+        "kills": 2,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            4,
-            "|switch|p2a: Tapu Fini|Tapu Fini|100/100"
-          ],
-          [
-            4,
-            "|-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p2a: Tapu Fini"
-          ],
-          [
-            4,
-            "|move|p1a: Chandelure|Fire Blast|p2a: Tapu Fini"
-          ],
-          [
-            4,
-            "|-resisted|p2a: Tapu Fini"
-          ],
-          [
-            4,
-            "|-damage|p2a: Tapu Fini|80/100"
-          ],
-          [
-            4,
-            "|-heal|p2a: Tapu Fini|86/100|[from] item: Leftovers"
-          ],
-          [
-            5,
-            "|move|p1a: Chandelure|Energy Ball|p2a: Tapu Fini"
-          ],
-          [
-            5,
-            "|-supereffective|p2a: Tapu Fini"
-          ],
-          [
-            5,
-            "|-damage|p2a: Tapu Fini|36/100"
-          ],
-          [
-            5,
-            "|move|p2a: Tapu Fini|Surf|p1a: Chandelure"
-          ],
-          [
-            5,
-            "|-heal|p2a: Tapu Fini|42/100|[from] item: Leftovers"
-          ],
-          [
-            8,
-            "|switch|p2a: Tapu Fini|Tapu Fini|42/100"
-          ],
-          [
-            8,
-            "|-heal|p2a: Tapu Fini|48/100|[from] item: Leftovers"
-          ],
-          [
-            9,
-            "|move|p2a: Tapu Fini|Moonblast|p1a: Toxapex"
-          ],
-          [
-            9,
-            "|-heal|p2a: Tapu Fini|55/100|[from] item: Leftovers"
-          ],
-          [
-            16,
-            "|switch|p2a: Tapu Fini|Tapu Fini|55/100"
-          ],
-          [
-            16,
-            "|-status|p2a: Tapu Fini|psn"
-          ],
-          [
-            16,
-            "|-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p2a: Tapu Fini"
-          ],
-          [
-            17,
-            "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill"
-          ],
-          [
-            17,
-            "|-heal|p2a: Tapu Fini|61/100 psn|[from] item: Leftovers"
-          ],
-          [
-            17,
-            "|-damage|p2a: Tapu Fini|48/100 psn|[from] psn"
-          ],
-          [
-            18,
-            "|move|p2a: Tapu Fini|Hidden Power|p1a: Azumarill"
-          ],
-          [
-            18,
-            "|-heal|p2a: Tapu Fini|54/100 psn|[from] item: Leftovers"
-          ],
-          [
-            18,
-            "|-damage|p2a: Tapu Fini|42/100 psn|[from] psn"
-          ],
-          [
-            19,
-            "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill"
-          ],
-          [
-            19,
-            "|-heal|p2a: Tapu Fini|48/100 psn|[from] item: Leftovers"
-          ],
-          [
-            19,
-            "|-damage|p2a: Tapu Fini|35/100 psn|[from] psn"
-          ],
-          [
-            20,
-            "|move|p1a: Lopunny-Mega|Frustration|p2a: Tapu Fini"
-          ],
-          [
-            20,
-            "|-damage|p2a: Tapu Fini|0 fnt"
-          ],
-          [
-            20,
-            "|faint|p2a: Tapu Fini"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Golurk",
-        "startform": "Golurk",
-        "nickname": null,
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            20,
-            "|switch|p2a: Golurk|Golurk|100/100"
-          ],
-          [
-            21,
-            "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine"
-          ],
-          [
-            22,
-            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
-          ],
-          [
-            22,
-            "|-supereffective|p2a: Golurk"
-          ],
-          [
-            22,
-            "|-damage|p2a: Golurk|66/100"
-          ],
-          [
-            22,
-            "|move|p2a: Golurk|Stealth Rock|p1a: Piloswine"
-          ],
-          [
-            23,
-            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
-          ],
-          [
-            23,
-            "|-supereffective|p2a: Golurk"
-          ],
-          [
-            23,
-            "|-damage|p2a: Golurk|32/100"
-          ],
-          [
-            23,
-            "|move|p2a: Golurk|Drain Punch|p1a: Piloswine"
-          ],
-          [
-            23,
-            "|-heal|p2a: Golurk|60/100|[from] drain|[of] p1a: Piloswine"
-          ],
-          [
-            24,
-            "|move|p1a: Piloswine|Ice Shard|p2a: Golurk"
-          ],
-          [
-            24,
-            "|-supereffective|p2a: Golurk"
-          ],
-          [
-            24,
-            "|-damage|p2a: Golurk|24/100"
-          ],
-          [
-            24,
-            "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine"
-          ],
-          [
-            25,
-            "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Golurk"
-          ],
-          [
-            25,
-            "|-damage|p2a: Golurk|0 fnt"
-          ],
-          [
-            25,
-            "|-heal|p1a: Lopunny-Mega|20/100|[from] drain|[of] p2a: Golurk"
-          ],
-          [
-            25,
-            "|faint|p2a: Golurk"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Purugly",
-        "startform": "Purugly",
-        "nickname": null,
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Forfeit",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
+        "luck": 0.34,
         "remaininghealth": 0,
         "lines": [
           [
             0,
-            "|switch|p2a: Purugly|Purugly|100/100"
+            "|switch|p2a: Amir|Mienshao|100/100"
           ],
           [
             1,
-            "|move|p2a: Purugly|Knock Off|p1a: Scizor"
+            "|move|p2a: Amir|High Jump Kick|p1a: Torterra"
           ],
           [
-            1,
-            "|-enditem|p1a: Scizor|Metal Coat|[from] move: Knock Off|[of] p2a: Purugly"
+            3,
+            "|switch|p2a: Amir|Mienshao|100/100"
           ],
           [
-            7,
-            "|switch|p2a: Purugly|Purugly|100/100"
+            4,
+            "|move|p2a: Amir|U-turn|p1a: Torterra"
+          ],
+          [
+            5,
+            "|switch|p2a: Amir|Mienshao|100/100"
+          ],
+          [
+            5,
+            "|move|p1a: Cobalion|Taunt|p2a: Amir"
+          ],
+          [
+            5,
+            "|-start|p2a: Amir|move: Taunt"
+          ],
+          [
+            6,
+            "|move|p2a: Amir|U-turn|p1a: Cobalion"
           ],
           [
             8,
-            "|move|p2a: Purugly|U-turn|p1a: Lopunny-Mega"
+            "|switch|p2a: Amir|Mienshao|100/100"
+          ],
+          [
+            8,
+            "|-damage|p2a: Amir|94/100|[from] Stealth Rock"
+          ],
+          [
+            9,
+            "|move|p2a: Amir|Stone Edge|p1a: Scolipede"
+          ],
+          [
+            21,
+            "|switch|p2a: Amir|Mienshao|100/100"
+          ],
+          [
+            21,
+            "|-damage|p2a: Amir|94/100|[from] Stealth Rock"
+          ],
+          [
+            21,
+            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
+          ],
+          [
+            21,
+            "|-damage|p2a: Amir|39/100"
+          ],
+          [
+            21,
+            "|-status|p2a: Amir|frz"
+          ],
+          [
+            22,
+            "|switch|p2a: Amir|Mienshao|72/100 frz"
+          ],
+          [
+            22,
+            "|-damage|p2a: Amir|66/100 frz|[from] Stealth Rock"
+          ],
+          [
+            23,
+            "|cant|p2a: Amir|frz"
+          ],
+          [
+            23,
+            "|move|p1a: Cryogonal|Knock Off|p2a: Amir"
+          ],
+          [
+            23,
+            "|-resisted|p2a: Amir"
+          ],
+          [
+            23,
+            "|-damage|p2a: Amir|55/100 frz"
+          ],
+          [
+            23,
+            "|-enditem|p2a: Amir|Choice Scarf|[from] move: Knock Off|[of] p1a: Cryogonal"
+          ],
+          [
+            24,
+            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
+          ],
+          [
+            24,
+            "|-damage|p2a: Amir|2/100 frz"
+          ],
+          [
+            24,
+            "|cant|p2a: Amir|frz"
           ],
           [
             25,
-            "|switch|p2a: Purugly|Purugly|100/100"
+            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
           ],
           [
             25,
-            "|-status|p2a: Purugly|psn"
+            "|-damage|p2a: Amir|0 fnt"
+          ],
+          [
+            25,
+            "|faint|p2a: Amir"
           ]
         ]
       },
       {
-        "pokemon": "Salazzle",
-        "startform": "Salazzle",
-        "nickname": null,
+        "pokemon": "Amoonguss",
+        "startform": "Amoonguss",
+        "nickname": "DragonsGuardingFri",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.08,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            4,
+            "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100|[from]move: U-turn"
+          ],
+          [
+            6,
+            "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100|[from]move: U-turn"
+          ],
+          [
+            6,
+            "|move|p1a: Cobalion|Stealth Rock|p2a: DragonsGuardingFri"
+          ],
+          [
+            7,
+            "|move|p1a: Cobalion|Taunt|p2a: DragonsGuardingFri"
+          ],
+          [
+            7,
+            "|-start|p2a: DragonsGuardingFri|move: Taunt"
+          ],
+          [
+            7,
+            "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Cobalion"
+          ],
+          [
+            19,
+            "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100"
+          ],
+          [
+            19,
+            "|-damage|p2a: DragonsGuardingFri|88/100|[from] Stealth Rock"
+          ],
+          [
+            20,
+            "|move|p1a: Zygarde|Outrage|p2a: DragonsGuardingFri"
+          ],
+          [
+            20,
+            "|-damage|p2a: DragonsGuardingFri|2/100"
+          ],
+          [
+            20,
+            "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Zygarde"
+          ],
+          [
+            20,
+            "|-heal|p2a: DragonsGuardingFri|7/100|[from] drain|[of] p1a: Zygarde"
+          ],
+          [
+            20,
+            "|-heal|p2a: DragonsGuardingFri|13/100|[from] item: Black Sludge"
+          ],
+          [
+            22,
+            "|switch|p2a: DragonsGuardingFri|Amoonguss|46/100"
+          ],
+          [
+            22,
+            "|-damage|p2a: DragonsGuardingFri|34/100|[from] Stealth Rock"
+          ],
+          [
+            22,
+            "|move|p1a: Cryogonal|Ice Beam|p2a: DragonsGuardingFri"
+          ],
+          [
+            22,
+            "|-supereffective|p2a: DragonsGuardingFri"
+          ],
+          [
+            22,
+            "|-damage|p2a: DragonsGuardingFri|0 fnt"
+          ],
+          [
+            22,
+            "|faint|p2a: DragonsGuardingFri"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Tyranitar",
+        "startform": "Tyranitar",
+        "nickname": "Ex Girlfriend",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0,
+        "luck": 0.04,
         "remaininghealth": 0,
         "lines": [
           [
-            6,
-            "|switch|p2a: Salazzle|Salazzle|100/100"
+            11,
+            "|switch|p2a: Ex Girlfriend|Tyranitar|100/100"
           ],
           [
-            6,
-            "|move|p1a: Chandelure|Energy Ball|p2a: Salazzle"
+            11,
+            "|-damage|p2a: Ex Girlfriend|88/100|[from] Stealth Rock"
           ],
           [
-            6,
-            "|-resisted|p2a: Salazzle"
+            11,
+            "|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Ex Girlfriend"
           ],
           [
-            6,
-            "|-damage|p2a: Salazzle|83/100"
+            12,
+            "|move|p1a: Scolipede|Earthquake|p2a: Ex Girlfriend"
           ],
           [
-            7,
-            "|move|p2a: Salazzle|Sludge Wave|p1a: Chandelure"
+            12,
+            "|-supereffective|p2a: Ex Girlfriend"
           ],
           [
-            7,
-            "|move|p1a: Chandelure|Shadow Ball|p2a: Salazzle"
+            12,
+            "|-damage|p2a: Ex Girlfriend|0 fnt"
           ],
           [
-            7,
-            "|-damage|p2a: Salazzle|0 fnt"
+            12,
+            "|faint|p2a: Ex Girlfriend"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Excadrill",
+        "startform": "Excadrill",
+        "nickname": "6.02*10^23 Drills",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 1.64,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            12,
+            "|switch|p2a: 6.02*10^23 Drills|Excadrill|100/100"
           ],
           [
-            7,
-            "|faint|p2a: Salazzle"
+            12,
+            "|-damage|p2a: 6.02*10^23 Drills|97/100|[from] Stealth Rock"
+          ],
+          [
+            12,
+            "|-unboost|p2a: 6.02*10^23 Drills|atk|1"
+          ],
+          [
+            13,
+            "|move|p2a: 6.02*10^23 Drills|Continental Crush|p1a: Gyarados|[zeffect]"
+          ],
+          [
+            14,
+            "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion"
+          ],
+          [
+            15,
+            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cryogonal"
+          ],
+          [
+            16,
+            "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion"
+          ],
+          [
+            17,
+            "|move|p1a: Cobalion|Stone Edge|p2a: 6.02*10^23 Drills|[miss]"
+          ],
+          [
+            17,
+            "|-miss|p1a: Cobalion|p2a: 6.02*10^23 Drills"
+          ],
+          [
+            17,
+            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cobalion"
+          ],
+          [
+            18,
+            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Zygarde"
+          ],
+          [
+            19,
+            "|move|p1a: Zygarde|Thousand Arrows|p2a: 6.02*10^23 Drills"
+          ],
+          [
+            19,
+            "|-supereffective|p2a: 6.02*10^23 Drills"
+          ],
+          [
+            19,
+            "|-damage|p2a: 6.02*10^23 Drills|0 fnt"
+          ],
+          [
+            19,
+            "|faint|p2a: 6.02*10^23 Drills"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Rotom",
+        "startform": "Rotom",
+        "nickname": "Rotom A Letter",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.0,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            2,
+            "|switch|p2a: Rotom A Letter|Rotom|100/100"
+          ],
+          [
+            3,
+            "|move|p2a: Rotom A Letter|Hidden Power|p1a: Torterra"
+          ],
+          [
+            3,
+            "|move|p1a: Torterra|Wood Hammer|p2a: Rotom A Letter"
+          ],
+          [
+            3,
+            "|-damage|p2a: Rotom A Letter|0 fnt"
+          ],
+          [
+            3,
+            "|faint|p2a: Rotom A Letter"
           ]
         ]
       }
     ],
     "wins": 0,
-    "forfeit": 1,
+    "forfeit": 0,
     "score": 0,
-    "megaevolved": false,
-    "usedzmove": false,
-    "timesswitched": 10,
+    "megaevolved": true,
+    "usedzmove": true,
+    "timesswitched": 13,
     "selfdeaths": 0,
     "remaininghealth": "0/600",
-    "kills": 2,
+    "kills": 4,
     "deaths": 6,
-    "luck": 0,
+    "luck": 2.03,
     "damagedone": 0,
     "hphealed": 0,
     "support": 0
   },
-  "numberofturns": 27,
+  "numberofturns": 25,
   "turns": [
     {
       "0": [
-        "|switch|p1a: Azumarill|Azumarill|100/100",
-        "|switch|p2a: Purugly|Purugly|100/100"
+        "|switch|p1a: Torterra|Torterra|100/100",
+        "|switch|p2a: Amir|Mienshao|100/100"
       ]
     },
     {
       "1": [
-        "|switch|p1a: Scizor|Scizor|100/100",
-        "|move|p2a: Purugly|Knock Off|p1a: Scizor",
-        "|-damage|p1a: Scizor|65/100",
-        "|-enditem|p1a: Scizor|Metal Coat|[from] move: Knock Off|[of] p2a: Purugly"
+        "|move|p2a: Amir|High Jump Kick|p1a: Torterra",
+        "|-damage|p1a: Torterra|58/100",
+        "|move|p1a: Torterra|Reflect|p1a: Torterra",
+        "|-sidestart|p1: muskrat catcher|Reflect"
       ]
     },
     {
       "2": [
-        "|switch|p2a: Ferrothorn|Ferrothorn|100/100",
-        "|move|p1a: Scizor|U-turn|p2a: Ferrothorn",
-        "|-damage|p2a: Ferrothorn|76/100",
-        "|-damage|p1a: Scizor|53/100|[from] ability: Iron Barbs|[of] p2a: Ferrothorn",
-        "|-damage|p1a: Scizor|36/100|[from] item: Rocky Helmet|[of] p2a: Ferrothorn",
-        "|switch|p1a: Chandelure|Chandelure|100/100"
+        "|switch|p2a: Rotom A Letter|Rotom|100/100",
+        "|move|p1a: Torterra|Synthesis|p1a: Torterra",
+        "|-heal|p1a: Torterra|100/100"
       ]
     },
     {
       "3": [
-        "|move|p1a: Chandelure|Substitute|p1a: Chandelure",
-        "|-start|p1a: Chandelure|Substitute",
-        "|-damage|p1a: Chandelure|76/100",
-        "|move|p2a: Ferrothorn|Leech Seed|p1a: Chandelure",
-        "|-fail|p1a: Chandelure"
+        "|move|p2a: Rotom A Letter|Hidden Power|p1a: Torterra",
+        "|-supereffective|p1a: Torterra",
+        "|-damage|p1a: Torterra|33/100",
+        "|move|p1a: Torterra|Wood Hammer|p2a: Rotom A Letter",
+        "|-damage|p2a: Rotom A Letter|0 fnt",
+        "|-damage|p1a: Torterra|11/100|[from] Recoil",
+        "|faint|p2a: Rotom A Letter",
+        "|switch|p2a: Amir|Mienshao|100/100"
       ]
     },
     {
       "4": [
-        "|switch|p2a: Tapu Fini|Tapu Fini|100/100",
-        "|-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p2a: Tapu Fini",
-        "|move|p1a: Chandelure|Fire Blast|p2a: Tapu Fini",
-        "|-resisted|p2a: Tapu Fini",
-        "|-damage|p2a: Tapu Fini|80/100",
-        "|-heal|p2a: Tapu Fini|86/100|[from] item: Leftovers"
+        "|move|p2a: Amir|U-turn|p1a: Torterra",
+        "|-supereffective|p1a: Torterra",
+        "|-damage|p1a: Torterra|0 fnt",
+        "|faint|p1a: Torterra",
+        "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100|[from]move: U-turn",
+        "|switch|p1a: Cobalion|Cobalion|100/100"
       ]
     },
     {
       "5": [
-        "|move|p1a: Chandelure|Energy Ball|p2a: Tapu Fini",
-        "|-supereffective|p2a: Tapu Fini",
-        "|-damage|p2a: Tapu Fini|36/100",
-        "|move|p2a: Tapu Fini|Surf|p1a: Chandelure",
-        "|-supereffective|p1a: Chandelure",
-        "|-end|p1a: Chandelure|Substitute",
-        "|-heal|p2a: Tapu Fini|42/100|[from] item: Leftovers"
+        "|switch|p2a: Amir|Mienshao|100/100",
+        "|move|p1a: Cobalion|Taunt|p2a: Amir",
+        "|-start|p2a: Amir|move: Taunt"
       ]
     },
     {
       "6": [
-        "|switch|p2a: Salazzle|Salazzle|100/100",
-        "|move|p1a: Chandelure|Energy Ball|p2a: Salazzle",
-        "|-resisted|p2a: Salazzle",
-        "|-damage|p2a: Salazzle|83/100"
+        "|move|p2a: Amir|U-turn|p1a: Cobalion",
+        "|-resisted|p1a: Cobalion",
+        "|-damage|p1a: Cobalion|98/100",
+        "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100|[from]move: U-turn",
+        "|move|p1a: Cobalion|Stealth Rock|p2a: DragonsGuardingFri",
+        "|-sidestart|p2: claduva|move: Stealth Rock"
       ]
     },
     {
       "7": [
-        "|move|p2a: Salazzle|Sludge Wave|p1a: Chandelure",
-        "|-resisted|p1a: Chandelure",
-        "|-damage|p1a: Chandelure|46/100",
-        "|move|p1a: Chandelure|Shadow Ball|p2a: Salazzle",
-        "|-damage|p2a: Salazzle|0 fnt",
-        "|faint|p2a: Salazzle",
-        "|switch|p2a: Purugly|Purugly|100/100"
+        "|move|p1a: Cobalion|Taunt|p2a: DragonsGuardingFri",
+        "|-start|p2a: DragonsGuardingFri|move: Taunt",
+        "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Cobalion",
+        "|-resisted|p1a: Cobalion",
+        "|-damage|p1a: Cobalion|84/100"
       ]
     },
     {
       "8": [
-        "|switch|p1a: Lopunny-Mega|Lopunny-Mega|100/100",
-        "|move|p2a: Purugly|U-turn|p1a: Lopunny-Mega",
-        "|-damage|p1a: Lopunny-Mega|63/100",
-        "|switch|p2a: Tapu Fini|Tapu Fini|42/100",
-        "|-heal|p2a: Tapu Fini|48/100|[from] item: Leftovers",
-        "|-fieldend|Misty Terrain"
+        "|switch|p1a: Scolipede|Scolipede|100/100",
+        "|switch|p2a: Amir|Mienshao|100/100",
+        "|-damage|p2a: Amir|94/100|[from] Stealth Rock",
+        "|-sideend|p1: muskrat catcher|Reflect"
       ]
     },
     {
       "9": [
-        "|switch|p1a: Toxapex|Toxapex|100/100",
-        "|move|p2a: Tapu Fini|Moonblast|p1a: Toxapex",
-        "|-resisted|p1a: Toxapex",
-        "|-damage|p1a: Toxapex|86/100",
-        "|-unboost|p1a: Toxapex|spa|1",
-        "|-heal|p2a: Tapu Fini|55/100|[from] item: Leftovers",
-        "|-heal|p1a: Toxapex|92/100|[from] item: Black Sludge"
+        "|move|p2a: Amir|Stone Edge|p1a: Scolipede",
+        "|-supereffective|p1a: Scolipede",
+        "|-damage|p1a: Scolipede|4/100",
+        "|move|p1a: Scolipede|Swords Dance|p1a: Scolipede",
+        "|-boost|p1a: Scolipede|atk|2",
+        "|-ability|p1a: Scolipede|Speed Boost|boost",
+        "|-boost|p1a: Scolipede|spe|1"
       ]
     },
     {
       "10": [
-        "|switch|p2a: Ferrothorn|Ferrothorn|76/100",
-        "|move|p1a: Toxapex|Toxic Spikes|p2a: Ferrothorn",
-        "|-sidestart|p2: Spygon|move: Toxic Spikes",
-        "|-heal|p1a: Toxapex|98/100|[from] item: Black Sludge"
+        "|switch|p2a: BabySharkDooDooDoo|Garchomp|100/100",
+        "|-damage|p2a: BabySharkDooDooDoo|94/100|[from] Stealth Rock",
+        "|move|p1a: Scolipede|Earthquake|p2a: BabySharkDooDooDoo",
+        "|-damage|p2a: BabySharkDooDooDoo|54/100",
+        "|-ability|p1a: Scolipede|Speed Boost|boost",
+        "|-boost|p1a: Scolipede|spe|1"
       ]
     },
     {
       "11": [
-        "|switch|p1a: Azumarill|Azumarill|100/100",
-        "|move|p2a: Ferrothorn|Leech Seed|p1a: Azumarill",
-        "|-ability|p1a: Azumarill|Sap Sipper|boost",
-        "|-boost|p1a: Azumarill|atk|1"
+        "|move|p1a: Scolipede|Megahorn|p2a: BabySharkDooDooDoo",
+        "|-damage|p2a: BabySharkDooDooDoo|0 fnt",
+        "|faint|p2a: BabySharkDooDooDoo",
+        "|-ability|p1a: Scolipede|Speed Boost|boost",
+        "|-boost|p1a: Scolipede|spe|1",
+        "|switch|p2a: Ex Girlfriend|Tyranitar|100/100",
+        "|-damage|p2a: Ex Girlfriend|88/100|[from] Stealth Rock",
+        "|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Ex Girlfriend"
       ]
     },
     {
       "12": [
-        "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn",
-        "|-resisted|p2a: Ferrothorn",
-        "|-damage|p2a: Ferrothorn|73/100",
-        "|-activate|p2a: Ferrothorn|move: Whirlpool|[of] p1a: Azumarill",
-        "|move|p2a: Ferrothorn|Power Whip|p1a: Azumarill",
-        "|-ability|p1a: Azumarill|Sap Sipper|boost",
-        "|-boost|p1a: Azumarill|atk|1",
-        "|-damage|p2a: Ferrothorn|60/100|[from] move: Whirlpool|[partiallytrapped]"
+        "|move|p1a: Scolipede|Earthquake|p2a: Ex Girlfriend",
+        "|-supereffective|p2a: Ex Girlfriend",
+        "|-damage|p2a: Ex Girlfriend|0 fnt",
+        "|faint|p2a: Ex Girlfriend",
+        "|-weather|Sandstorm|[upkeep]",
+        "|-damage|p1a: Scolipede|0 fnt|[from] Sandstorm",
+        "|faint|p1a: Scolipede",
+        "|switch|p1a: Gyarados|Gyarados|100/100",
+        "|switch|p2a: 6.02*10^23 Drills|Excadrill|100/100",
+        "|-damage|p2a: 6.02*10^23 Drills|97/100|[from] Stealth Rock",
+        "|-ability|p1a: Gyarados|Intimidate|boost",
+        "|-unboost|p2a: 6.02*10^23 Drills|atk|1"
       ]
     },
     {
       "13": [
-        "|move|p1a: Azumarill|Perish Song|p1a: Azumarill",
-        "|-start|p1a: Azumarill|perish3|[silent]",
-        "|-start|p2a: Ferrothorn|perish3|[silent]",
-        "|-fieldactivate|move: Perish Song",
-        "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill",
-        "|-sidestart|p1: claduva|Spikes",
-        "|-damage|p2a: Ferrothorn|48/100|[from] move: Whirlpool|[partiallytrapped]",
-        "|-start|p1a: Azumarill|perish3",
-        "|-start|p2a: Ferrothorn|perish3"
+        "|move|p2a: 6.02*10^23 Drills|Continental Crush|p1a: Gyarados|[zeffect]",
+        "|-supereffective|p1a: Gyarados",
+        "|-damage|p1a: Gyarados|8/100",
+        "|move|p1a: Gyarados|Dragon Dance|p1a: Gyarados",
+        "|-boost|p1a: Gyarados|atk|1",
+        "|-boost|p1a: Gyarados|spe|1",
+        "|-weather|Sandstorm|[upkeep]",
+        "|-damage|p1a: Gyarados|2/100|[from] Sandstorm"
       ]
     },
     {
       "14": [
-        "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn",
-        "|-resisted|p2a: Ferrothorn",
-        "|-damage|p2a: Ferrothorn|44/100",
-        "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill",
-        "|-sidestart|p1: claduva|Spikes",
-        "|-damage|p2a: Ferrothorn|31/100|[from] move: Whirlpool|[partiallytrapped]",
-        "|-start|p1a: Azumarill|perish2",
-        "|-start|p2a: Ferrothorn|perish2"
+        "|switch|p1a: Cobalion|Cobalion|84/100",
+        "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion",
+        "|-resisted|p1a: Cobalion",
+        "|-damage|p1a: Cobalion|72/100",
+        "|-weather|Sandstorm|[upkeep]"
       ]
     },
     {
       "15": [
-        "|move|p1a: Azumarill|Whirlpool|p2a: Ferrothorn",
-        "|-resisted|p2a: Ferrothorn",
-        "|-damage|p2a: Ferrothorn|28/100",
-        "|move|p2a: Ferrothorn|Spikes|p1a: Azumarill",
-        "|-sidestart|p1: claduva|Spikes",
-        "|-damage|p2a: Ferrothorn|16/100|[from] move: Whirlpool|[partiallytrapped]",
-        "|-start|p1a: Azumarill|perish1",
-        "|-start|p2a: Ferrothorn|perish1"
+        "|switch|p1a: Cryogonal|Cryogonal|100/100",
+        "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cryogonal",
+        "|-immune|p1a: Cryogonal|[from] ability: Levitate",
+        "|-weather|Sandstorm|[upkeep]"
       ]
     },
     {
       "16": [
-        "|switch|p1a: Toxapex|Toxapex|100/100",
-        "|-damage|p1a: Toxapex|75/100|[from] Spikes",
-        "|move|p2a: Ferrothorn|Leech Seed|p1a: Toxapex",
-        "|-start|p1a: Toxapex|move: Leech Seed",
-        "|-heal|p1a: Toxapex|82/100|[from] item: Black Sludge",
-        "|-damage|p1a: Toxapex|69/100|[from] Leech Seed|[of] p2a: Ferrothorn",
-        "|-heal|p2a: Ferrothorn|26/100|[silent]",
-        "|-end|p2a: Ferrothorn|Whirlpool|[partiallytrapped]",
-        "|-start|p2a: Ferrothorn|perish0",
-        "|faint|p2a: Ferrothorn",
-        "|switch|p2a: Tapu Fini|Tapu Fini|55/100",
-        "|-status|p2a: Tapu Fini|psn",
-        "|-fieldstart|move: Misty Terrain|[from] ability: Misty Surge|[of] p2a: Tapu Fini"
+        "|switch|p1a: Cobalion|Cobalion|72/100",
+        "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion",
+        "|-resisted|p1a: Cobalion",
+        "|-damage|p1a: Cobalion|58/100",
+        "|-weather|none"
       ]
     },
     {
       "17": [
-        "|switch|p1a: Azumarill|Azumarill|100/100",
-        "|-damage|p1a: Azumarill|75/100|[from] Spikes",
-        "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill",
-        "|-crit|p1a: Azumarill",
-        "|-damage|p1a: Azumarill|20/100",
-        "|-unboost|p1a: Azumarill|spa|1",
-        "|-heal|p2a: Tapu Fini|61/100 psn|[from] item: Leftovers",
-        "|-heal|p1a: Azumarill|26/100|[from] item: Leftovers",
-        "|-damage|p2a: Tapu Fini|48/100 psn|[from] psn"
+        "|move|p1a: Cobalion|Stone Edge|p2a: 6.02*10^23 Drills|[miss]",
+        "|-miss|p1a: Cobalion|p2a: 6.02*10^23 Drills",
+        "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cobalion",
+        "|-supereffective|p1a: Cobalion",
+        "|-crit|p1a: Cobalion",
+        "|-damage|p1a: Cobalion|0 fnt",
+        "|faint|p1a: Cobalion",
+        "|switch|p1a: Zygarde|Zygarde-10%|100/100",
+        "|-ability|p1a: Zygarde|Aura Break"
       ]
     },
     {
       "18": [
-        "|move|p1a: Azumarill|Protect|p1a: Azumarill",
-        "|-singleturn|p1a: Azumarill|Protect",
-        "|move|p2a: Tapu Fini|Hidden Power|p1a: Azumarill",
-        "|-activate|p1a: Azumarill|move: Protect",
-        "|-heal|p2a: Tapu Fini|54/100 psn|[from] item: Leftovers",
-        "|-heal|p1a: Azumarill|33/100|[from] item: Leftovers",
-        "|-damage|p2a: Tapu Fini|42/100 psn|[from] psn"
+        "|move|p1a: Zygarde|Dragon Dance|p1a: Zygarde",
+        "|-boost|p1a: Zygarde|atk|1",
+        "|-boost|p1a: Zygarde|spe|1",
+        "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Zygarde",
+        "|-damage|p1a: Zygarde|35/100"
       ]
     },
     {
       "19": [
-        "|move|p2a: Tapu Fini|Moonblast|p1a: Azumarill",
-        "|-damage|p1a: Azumarill|0 fnt",
-        "|faint|p1a: Azumarill",
-        "|-heal|p2a: Tapu Fini|48/100 psn|[from] item: Leftovers",
-        "|-damage|p2a: Tapu Fini|35/100 psn|[from] psn",
-        "|switch|p1a: Lopunny-Mega|Lopunny-Mega|63/100",
-        "|-damage|p1a: Lopunny-Mega|38/100|[from] Spikes"
+        "|move|p1a: Zygarde|Thousand Arrows|p2a: 6.02*10^23 Drills",
+        "|-supereffective|p2a: 6.02*10^23 Drills",
+        "|-damage|p2a: 6.02*10^23 Drills|0 fnt",
+        "|-damage|p1a: Zygarde|25/100|[from] item: Life Orb",
+        "|faint|p2a: 6.02*10^23 Drills",
+        "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100",
+        "|-damage|p2a: DragonsGuardingFri|88/100|[from] Stealth Rock"
       ]
     },
     {
       "20": [
-        "|move|p1a: Lopunny-Mega|Frustration|p2a: Tapu Fini",
-        "|-damage|p2a: Tapu Fini|0 fnt",
-        "|faint|p2a: Tapu Fini",
-        "|switch|p2a: Golurk|Golurk|100/100"
+        "|move|p1a: Zygarde|Outrage|p2a: DragonsGuardingFri",
+        "|-damage|p2a: DragonsGuardingFri|2/100",
+        "|-damage|p1a: Zygarde|15/100|[from] item: Life Orb",
+        "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Zygarde",
+        "|-damage|p1a: Zygarde|0 fnt",
+        "|-heal|p2a: DragonsGuardingFri|7/100|[from] drain|[of] p1a: Zygarde",
+        "|faint|p1a: Zygarde",
+        "|-heal|p2a: DragonsGuardingFri|13/100|[from] item: Black Sludge",
+        "|switch|p1a: Cryogonal|Cryogonal|100/100"
       ]
     },
     {
       "21": [
-        "|switch|p1a: Piloswine|Piloswine|100/100",
-        "|-damage|p1a: Piloswine|75/100|[from] Spikes",
-        "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine",
-        "|-damage|p1a: Piloswine|54/100",
-        "|-fieldend|Misty Terrain"
+        "|switch|p2a: Amir|Mienshao|100/100",
+        "|-damage|p2a: Amir|94/100|[from] Stealth Rock",
+        "|move|p1a: Cryogonal|Ice Beam|p2a: Amir",
+        "|-damage|p2a: Amir|39/100",
+        "|-status|p2a: Amir|frz"
       ]
     },
     {
       "22": [
-        "|move|p1a: Piloswine|Ice Shard|p2a: Golurk",
-        "|-supereffective|p2a: Golurk",
-        "|-damage|p2a: Golurk|66/100",
-        "|move|p2a: Golurk|Stealth Rock|p1a: Piloswine",
-        "|-sidestart|p1: claduva|move: Stealth Rock"
+        "|switch|p2a: DragonsGuardingFri|Amoonguss|46/100",
+        "|-damage|p2a: DragonsGuardingFri|34/100|[from] Stealth Rock",
+        "|move|p1a: Cryogonal|Ice Beam|p2a: DragonsGuardingFri",
+        "|-supereffective|p2a: DragonsGuardingFri",
+        "|-damage|p2a: DragonsGuardingFri|0 fnt",
+        "|faint|p2a: DragonsGuardingFri",
+        "|switch|p2a: Amir|Mienshao|72/100 frz",
+        "|-damage|p2a: Amir|66/100 frz|[from] Stealth Rock"
       ]
     },
     {
       "23": [
-        "|move|p1a: Piloswine|Ice Shard|p2a: Golurk",
-        "|-supereffective|p2a: Golurk",
-        "|-damage|p2a: Golurk|32/100",
-        "|move|p2a: Golurk|Drain Punch|p1a: Piloswine",
-        "|-supereffective|p1a: Piloswine",
-        "|-damage|p1a: Piloswine|10/100",
-        "|-heal|p2a: Golurk|60/100|[from] drain|[of] p1a: Piloswine"
+        "|cant|p2a: Amir|frz",
+        "|move|p1a: Cryogonal|Knock Off|p2a: Amir",
+        "|-resisted|p2a: Amir",
+        "|-damage|p2a: Amir|55/100 frz",
+        "|-enditem|p2a: Amir|Choice Scarf|[from] move: Knock Off|[of] p1a: Cryogonal"
       ]
     },
     {
       "24": [
-        "|move|p1a: Piloswine|Ice Shard|p2a: Golurk",
-        "|-supereffective|p2a: Golurk",
-        "|-damage|p2a: Golurk|24/100",
-        "|move|p2a: Golurk|Shadow Punch|p1a: Piloswine",
-        "|-damage|p1a: Piloswine|0 fnt",
-        "|faint|p1a: Piloswine",
-        "|switch|p1a: Lopunny-Mega|Lopunny-Mega|38/100",
-        "|-damage|p1a: Lopunny-Mega|13/100|[from] Spikes",
-        "|-damage|p1a: Lopunny-Mega|7/100|[from] Stealth Rock"
+        "|move|p1a: Cryogonal|Ice Beam|p2a: Amir",
+        "|-damage|p2a: Amir|2/100 frz",
+        "|cant|p2a: Amir|frz"
       ]
     },
     {
       "25": [
-        "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Golurk",
-        "|-damage|p2a: Golurk|0 fnt",
-        "|-heal|p1a: Lopunny-Mega|20/100|[from] drain|[of] p2a: Golurk",
-        "|faint|p2a: Golurk",
-        "|switch|p2a: Purugly|Purugly|100/100",
-        "|-status|p2a: Purugly|psn"
+        "|move|p1a: Cryogonal|Ice Beam|p2a: Amir",
+        "|-damage|p2a: Amir|0 fnt",
+        "|faint|p2a: Amir"
       ]
-    },
-    {
-      "26": [
-        "|switch|p2a: Kyurem-Black|Kyurem-Black|100/100",
-        "|-status|p2a: Kyurem-Black|psn",
-        "|-ability|p2a: Kyurem-Black|Teravolt",
-        "|move|p1a: Lopunny-Mega|Drain Punch|p2a: Kyurem-Black",
-        "|-supereffective|p2a: Kyurem-Black",
-        "|-damage|p2a: Kyurem-Black|36/100 psn",
-        "|-heal|p1a: Lopunny-Mega|63/100|[from] drain|[of] p2a: Kyurem-Black",
-        "|-damage|p2a: Kyurem-Black|23/100 psn|[from] psn"
-      ]
-    },
-    {
-      "27": []
     }
   ],
-  "replay": "https://replay.pokemonshowdown.com/gen7ou-828150903",
+  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-952928893",
   "significantevents": [
     [
-      7,
-      "Salazzle was killed by Chandelure."
+      3,
+      "Rotom was killed by Torterra."
     ],
     [
-      16,
-      "Ferrothorn was killed by Azumarill with Perish Song."
+      4,
+      "Torterra was killed by Mienshao."
+    ],
+    [
+      9,
+      "Scolipede was killed by Mienshao."
+    ],
+    [
+      11,
+      "Garchomp-Mega was killed by Scolipede."
+    ],
+    [
+      12,
+      "Tyranitar was killed by Scolipede."
+    ],
+    [
+      17,
+      "Cobalion missed Stone Edge vs Excadrill."
+    ],
+    [
+      17,
+      "Excadrill landed a critical hit on Cobalion with Earthquake."
+    ],
+    [
+      17,
+      "Cobalion was killed by Excadrill."
     ],
     [
       19,
-      "Azumarill was killed by Tapu Fini."
+      "Excadrill was killed by Zygarde-10%."
     ],
     [
       20,
-      "Tapu Fini was killed by Lopunny-Mega."
+      "Zygarde-10% was killed by Amoonguss."
     ],
     [
-      24,
-      "Piloswine was killed by Golurk."
+      22,
+      "Amoonguss was killed by Cryogonal."
     ],
     [
       25,
-      "Golurk was killed by Lopunny-Mega."
-    ],
-    [
-      27,
-      "Kyurem-Black was killed by Lopunny-Mega via forfeit."
-    ],
-    [
-      27,
-      "Purugly was killed by Lopunny-Mega via forfeit."
+      "Mienshao was killed by Cryogonal."
     ]
   ]
 }

@@ -1,37 +1,55 @@
+|j|☆muskrat catcher
 |j|☆claduva
-|j|☆Spygon
-|player|p1|claduva|244
-|player|p2|Spygon|220
+|player|p1|muskrat catcher|129|
+|player|p2|claduva|1|
 |teamsize|p1|6
 |teamsize|p2|6
 |gametype|singles
 |gen|7
-|tier|[Gen 7] OU
-|rule|Sleep Clause Mod: Limit one foe put to sleep
-|rule|Species Clause: Limit one of each Pokémon
-|rule|OHKO Clause: OHKO moves are banned
-|rule|Moody Clause: Moody is banned
-|rule|Evasion Moves Clause: Evasion moves are banned
+|tier|[Gen 7] Anything Goes
 |rule|Endless Battle Clause: Forcing endless battles is banned
-|rule|HP Percentage Mod: HP is shown in percentages
 |clearpoke
-|poke|p1|Scizor|item
-|poke|p1|Lopunny|item
-|poke|p1|Chandelure|item
-|poke|p1|Toxapex|item
-|poke|p1|Azumarill|item
-|poke|p1|Piloswine|item
-|poke|p2|Kyurem-Black|item
-|poke|p2|Ferrothorn|item
-|poke|p2|Tapu Fini|item
-|poke|p2|Golurk|item
-|poke|p2|Purugly|item
-|poke|p2|Salazzle|item
+|poke|p1|Cobalion|item
+|poke|p1|Gyarados|item
+|poke|p1|Torterra|item
+|poke|p1|Zygarde-10%|item
+|poke|p1|Cryogonal|item
+|poke|p1|Scolipede|item
+|poke|p2|Garchomp|item
+|poke|p2|Mienshao|item
+|poke|p2|Amoonguss|item
+|poke|p2|Tyranitar|item
+|poke|p2|Excadrill|item
+|poke|p2|Rotom|item
+|rule|HP Percentage Mod: HP is shown in percentages
 |teampreview
-|c|☆Spygon|hf
-|c|☆claduva|u2!
+|c|☆claduva|Glhf!
+|j| spookd
+|c|☆muskrat catcher|you too!
+|j| bkendrick678932
+|j| flygon is bad
+|c| flygon is bad|Big tom
 |
 |start
+|l| flygon is bad
+|
+|
+|upkeep
+|
+|
+|upkeep
+|
+|
+|upkeep
+|
+|
+|c|☆claduva|y u gotta get the roll musk
+|c|☆claduva|hmmmm
+|
+|
+|upkeep
+|c|☆muskrat catcher|lol
+|
 |
 |
 |upkeep
@@ -51,64 +69,55 @@
 |
 |
 |upkeep
-|j| Knightmare205
+|c|☆muskrat catcher|I knew it
+|j| BrunoYT
+|c|☆muskrat catcher|but wait
+|c|☆muskrat catcher|that's not a 2HKO
+|c|☆muskrat catcher|sad
+|c|☆claduva|No no it is not
+|c| spookd|just crit
+|c|☆muskrat catcher|u rite
+|c|☆claduva|NERF
+|c|☆claduva|HE ALREADY GOT THE ROLL AND ROTOM AND MAYBE THE MIENSHAO STONE EDGE ROLL
+|c|☆claduva|PLUS HES MUSK
+|
+|detailschange|p2a: BabySharkDooDooDoo|Garchomp-Mega
+|-mega|p2a: BabySharkDooDooDoo|Garchomp|Garchompite
+|
+|upkeep
+|c|☆muskrat catcher|wait
+|c|☆muskrat catcher|you mega'd
+|c|☆muskrat catcher|uhh
+|c|☆muskrat catcher|cool
+|
+|c|☆muskrat catcher|I was gonna make the not go for crit play
 |
 |
 |upkeep
 |
 |
-|l| Knightmare205
+|-zpower|p2a: 6.02*10^23 Drills
+|
+|upkeep
+|c|☆muskrat catcher|frig
 |
 |
 |upkeep
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|
-|upkeep
-|l|☆Spygon
-|player|p2|
-|j|☆Spygon
-|player|p2|Spygon|220
-|c|☆Spygon|i want u to know i looked away from the screen and i was like oh i obviously just miseed
-|c|☆Spygon|and then clicked power whip
-|
-|
-|upkeep
-|c|☆claduva|RIP
-|
-|
-|upkeep
-|c|☆Spygon|nah it's just funny lol
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|
-|
-|upkeep
-|c|☆Spygon|sorry
-|c|☆claduva|It happens!
+|c| spookd|good play
+|c| spookd|i'm proud
+|c|☆muskrat catcher|it hurt to make
 |
 |
 |upkeep
 |
 |
 |upkeep
+|c| spookd|damn
+|c| spookd|i was expecting the gyara sack
+|c| spookd|but you actually give no fucks
+|c|☆muskrat catcher|I want gyara
+|c|☆muskrat catcher|i waaaaaant it
 |
-|
-|detailschange|p1a: Lopunny|Lopunny-Mega
-|-mega|p1a: Lopunny-Mega|Lopunny-Mega|Lopunnite
 |
 |upkeep
 |
@@ -120,33 +129,47 @@
 |upkeep
 |
 |
-|upkeep
-|
 |
 |upkeep
-|j| Eastonn8
-|c| Eastonn8|Hi dad
+|c|☆muskrat catcher|NOOOOOOOOOOOOOOOOOOOOOOOOOOO
 |
-|l|☆Spygon
-|player|p2|
-|c|☆claduva|ello
-|j|☆Spygon
-|player|p2|Spygon|220
 |
 |
 |upkeep
-|c|☆claduva|these hazards are gunna hurt
-|c|☆Spygon|i gotta play quick funny things are happening in my flat and i am missing them xD
-|
-|c|☆Spygon|wait i done goofed
-|c|☆Spygon|ggs
+|c|☆muskrat catcher|YOOOOOOOOOOOOOOOOOOOO
+|c| spookd|i'm gonna be honest
+|c| spookd|why would you go mienshao
+|c|☆muskrat catcher|^
+|c| spookd|still sucks tho
+|c|☆muskrat catcher|don't t1 thaw
+|c|☆muskrat catcher|don't play with my heart like that
+|c|☆muskrat catcher|I WANT IT
+|c|☆muskrat catcher|**I WAAAAAAAAAAAAANT**
 |
 |
 |upkeep
-|-message|Spygon forfeited.
 |
-|l|☆Spygon
-|c| Eastonn8|Uh
-|c|☆claduva|???
-|c|☆claduva|I thought surely one was scarfed lol
-|c| Eastonn8|I mean, he forfeited a playoff game regardless of it being over
+|c|☆muskrat catcher|hmm
+|
+|
+|upkeep
+|c|☆muskrat catcher|perhaps I don't need to risk another turn
+|
+|
+|upkeep
+|c|☆muskrat catcher|AAAAAAAAAAAA
+|c|☆claduva|Welp
+|c| spookd|well
+|c|☆claduva|gg
+|c| spookd|i'm sorry clad
+|
+|
+|c|☆muskrat catcher|gg man
+|c|☆muskrat catcher|sorry about
+|c|☆muskrat catcher|that
+|c| spookd|i know that feeling
+|l| BrunoYT
+|l| spookd
+|c|☆claduva|It was a misplay on my end anyway
+|c|☆claduva|I threw and you got the 10%
+|l| bkendrick678932
