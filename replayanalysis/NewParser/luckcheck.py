@@ -1,14 +1,20 @@
+from .secondaryeffects import *
+
 def luckcheck(results,turndata,turn):
     results=misscheck(results,turndata,turn)
     results=critcheck(results,turndata,turn)
-    #results=secondaryeffectcheck(results,turndata,turn)
+    results=secondaryeffectcheck(results,turndata,turn)
     results['team1']['luck']=round(results['team1']['luck'],2)
     results['team2']['luck']=round(results['team2']['luck'],2)
     return results
 
 def secondaryeffectcheck(results,turndata,turn):
     moveswithsecondaryeffect=[['Thunder Punch', 'par', 10], ['Fire Punch', 'brn', 10], ['Zing Zap', 'flinch', 30], ['Chatter', 'confusion', 100], ['Extrasensory', 'flinch', 10], ['Ice Punch', 'frz', 10], ['Thunder Shock', 'par', 10], ['Dynamic Punch', 'confusion', 100], ['Poison Sting', 'psn', 30], ['Focus Blast', 'boosts spd: -1 ', 10], ['Liquidation', 'boosts def: -1 ', 20], ['Crush Claw', 'boosts def: -1 ', 50], ['Metal Claw', 'self boosts: atk: 1 ', 10], ['Acid', 'boosts spd: -1 ', 10], ['Aurora Beam', 'boosts atk: -1 ', 10], ['Heart Stamp', 'flinch', 30], ['Crunch', 'boosts def: -1 ', 20], ['Water Pulse', 'confusion', 20], ['Acid Spray', 'boosts spd: -2 ', 100], ['Blizzard', 'frz', 10], ['Paleo Wave', 'boosts atk: -1 ', 20], ['Mud-Slap', 'boosts accuracy: -1 ', 100], ['Freeze-Dry', 'frz', 10], ['Flame Charge', 'self boosts: spe: 1 ', 100], ['Dizzy Punch', 'confusion', 20], ['Lunge', 'boosts atk: -1 ', 100], ['Fire Lash', 'boosts def: -1 ', 100], ['Relic Song', 'slp', 10], ['Fake Out', 'flinch', 100], ['Signal Beam', 'confusion', 10], ['Rock Tomb', 'boosts spe: -1 ', 100], ['Buzzy Buzz', 'par', 100], ['Ancient Power', 'self boosts: spa: 1, spd: 1, atk: 1, def: 1, spe: 1 ', 10], ['Steamroller', 'flinch', 30], ['Bubble Beam', 'boosts spe: -1 ', 10], ['Sludge', 'psn', 30], ['Bulldoze', 'boosts spe: -1 ', 100], ['Play Rough', 'boosts atk: -1 ', 10], ['Astonish', 'flinch', 30], ['Energy Ball', 'boosts spd: -1 ', 10], ['Zen Headbutt', 'flinch', 20], ['Iron Tail', 'boosts def: -1 ', 30], ['Shadow Strike', 'boosts def: -1 ', 50], ['Charge Beam', 'self boosts: spa: 1 ', 70], ['Secret Power', 'par', 30], ['Struggle Bug', 'boosts spa: -1 ', 100], ['Tri Attack', 'par frz or brn', 20], ['Psychic', 'boosts spd: -1 ', 10], ['Electroweb', 'boosts spe: -1 ', 100], ['Smog', 'psn', 40], ['Icy Wind', 'boosts spe: -1 ', 100], ['Steel Wing', 'self boosts: def: 1 ', 10], ['Iron Head', 'flinch', 30], ['Trop Kick', 'boosts atk: -1 ', 100], ['Headbutt', 'flinch', 30], ['Body Slam', 'par', 30], ['Bug Buzz', 'boosts spd: -1 ', 10], ['Seed Flare', 'boosts spd: -2 ', 40], ['Mist Ball', 'boosts spa: -1 ', 50], ['Earth Power', 'boosts spd: -1 ', 10], ['Bolt Strike', 'par', 20], ['Bite', 'flinch', 30], ['Inferno', 'brn', 100], ['Flamethrower', 'brn', 10], ['Rock Climb', 'confusion', 20], ['Freeze Shock', 'par', 30], ['Dark Pulse', 'flinch', 20], ['Flash Cannon', 'boosts spd: -1 ', 10], ['Floaty Fall', 'flinch', 30], ['Poison Fang', 'tox', 50], ['Sludge Bomb', 'psn', 30], ['Lick', 'par', 30], ['Diamond Storm', 'self boosts: def: 2 ', 50], ['Shadow Ball', 'boosts spd: -1 ', 20], ['Cross Poison', 'psn', 10], ['Low Sweep', 'boosts spe: -1 ', 100], ['Sludge Wave', 'psn', 10], ['Leaf Tornado', 'boosts accuracy: -1 ', 50], ['Hyper Fang', 'flinch', 10], ['Muddy Water', 'boosts accuracy: -1 ', 30], ['Thunder', 'par', 30], ['Constrict', 'boosts spe: -1 ', 10], ['Genesis Supernova', 'self  ', 100], ['Stomp', 'flinch', 30], ['Poison Tail', 'psn', 10], ['Bone Club', 'flinch', 10], ['Fire Blast', 'brn', 10], ['Mud Bomb', 'boosts accuracy: -1 ', 30], ['Twineedle', 'psn', 20], ['Splishy Splash', 'par', 30], ['Mystical Fire', 'boosts spa: -1 ', 100], ['Confusion', 'confusion', 10], ['Steam Eruption', 'brn', 30], ['Fiery Dance', 'self boosts: spa: 1 ', 50], ['Night Daze', 'boosts accuracy: -1 ', 40], ['Flare Blitz', 'brn', 10], ['Mud Shot', 'boosts spe: -1 ', 100], ['Mirror Shot', 'boosts accuracy: -1 ', 30], ['Sacred Fire', 'brn', 50], ['Ice Beam', 'frz', 10], ["Magikarp's Revenge", 'confusion', 100], ['Poison Jab', 'psn', 30], ['Double Iron Bash', 'flinch', 30], ['Nuzzle', 'par', 100], ['Zap Cannon', 'par', 100], ['Waterfall', 'flinch', 20], ['Psybeam', 'confusion', 10], ['Octazooka', 'boosts accuracy: -1 ', 50], ['Snarl', 'boosts spa: -1 ', 100], ['Spark', 'par', 30], ['Needle Arm', 'flinch', 30], ['Dragon Breath', 'par', 30], ['Air Slash', 'flinch', 30], ['Dragon Rush', 'flinch', 20], ['Silver Wind', 'self boosts: spa: 1, spd: 1, atk: 1, def: 1, spe: 1 ', 10], ['Luster Purge', 'boosts spd: -1 ', 50], ['Snore', 'flinch', 30], ['Thunderbolt', 'par', 10], ['Flame Wheel', 'brn', 10], ['Bounce', 'par', 30], ['Scald', 'brn', 30], ['Force Palm', 'par', 30], ['Hurricane', 'confusion', 30], ['Ice Burn', 'brn', 30], ['Gunk Shot', 'psn', 30], ['Blaze Kick', 'brn', 10], ['Lava Plume', 'brn', 30], ['Meteor Mash', 'self boosts: atk: 1 ', 20], ['Searing Shot', 'brn', 30], ['Twister', 'flinch', 20], ['Icicle Crash', 'flinch', 30], ['Bubble', 'boosts spe: -1 ', 10], ['Glaciate', 'boosts spe: -1 ', 100], ['Sizzly Slide', 'brn', 100], ['Rock Smash', 'boosts def: -1 ', 50], ['Volt Tackle', 'par', 10], ['Ember', 'brn', 10], ['Stoked Sparksurfer', 'par', 100], ['Powder Snow', 'frz', 10], ['Power-Up Punch', 'self boosts: atk: 1 ', 100], ['Moonblast', 'boosts spa: -1 ', 30], ['Rock Slide', 'flinch', 30], ['Shadow Bone', 'boosts def: -1 ', 20], ['Heat Wave', 'brn', 10], ['Discharge', 'par', 30], ['Ominous Wind', 'self boosts: spa: 1, spd: 1, atk: 1, def: 1, spe: 1 ', 10], ['Razor Shell', 'boosts def: -1 ', 50], ['Rolling Kick', 'flinch', 30], ['Blue Flare', 'brn', 20], ['Sky Attack', 'flinch', 30]]
+    #['confusion','boosts spd: -1 ', 'boosts def: -1 ', 'self boosts: atk: 1 ', 'boosts atk: -1 ', 'boosts spd: -2 ', 'boosts accuracy: -1 ', 'self boosts: spe: 1 ','boosts spe: -1 ', 'self boosts: spa: 1, spd: 1, atk: 1, def: 1, spe: 1 ', 'self boosts: spa: 1 ', 'boosts spa: -1 ', 'par frz or brn', 'self boosts: def: 1 ','self boosts: def: 2 ', 'self  ']
     team1expectedsecondaryeffect=0
+    for item in moveswithsecondaryeffect:
+        if item[1]=='self  ':
+            print(item[0])
     team2expectedsecondaryeffect=0
     team1expectedsecondaryeffectagainst=0
     team2expectedsecondaryeffectagainst=0
@@ -16,27 +22,27 @@ def secondaryeffectcheck(results,turndata,turn):
     team2secondaryeffect=0
     team1secondaryeffectagainst=0
     team2secondaryeffectagainst=0
+    i=0
     for line in turndata:
         if line.find("|move|p1a:")>-1 and line.find("|p2a:")>-1:
             move=line.split(" ",1)[1].split("|")[1]
-            if [item for item in movesthatcanmiss if item[0] == move]:
+            if [item for item in moveswithsecondaryeffect if item[0] == move]:
                 attacker=line.split(" ",1)[1].split('|')[0]
                 recipient=line.split("p2a: ",1)[1].split('|')[0]
-                oddsofmiss=round(1-[item[1] for item in movesthatcanmiss if item[0] == move][0]/100,2)
-                team1expectedmiss=oddsofmiss
-                team2expectedmissagainst=oddsofmiss
-                results,attacker=luckiterator(results,attacker,'team1',team1expectedmiss)
-                results,recipient=luckiterator(results,recipient,'team2',-team2expectedmissagainst)
+                item=[item for item in moveswithsecondaryeffect if item[0] == move][0]
+                oddsofeffect=round(item[2]/100,2)
+                remaininglines=turndata[i+1:]
+                results=secondarycheck(results,remaininglines,turn,item,line,recipient,2)                    
         if line.find("|move|p2a:")>-1 and line.find("|p1a:")>-1:
             move=line.split(" ",1)[1].split("|")[1]
-            if [item for item in movesthatcanmiss if item[0] == move]:
+            if [item for item in moveswithsecondaryeffect if item[0] == move]:
                 attacker=line.split(" ",1)[1].split('|')[0]
                 recipient=line.split("p1a: ",1)[1].split('|')[0]
-                oddsofmiss=round(1-[item[1] for item in movesthatcanmiss if item[0] == move][0]/100,2)
-                team2expectedmiss=oddsofmiss
-                team1expectedmissagainst=oddsofmiss
-                results,attacker=luckiterator(results,attacker,'team2',team2expectedmiss)
-                results,recipient=luckiterator(results,recipient,'team1',-team1expectedmissagainst)
+                item=[item for item in moveswithsecondaryeffect if item[0] == move][0]
+                oddsofeffect=round(item[2]/100,2)
+                remaininglines=turndata[i+1:]
+                results=secondarycheck(results,remaininglines,turn,item,line,recipient,1)  
+        i+=1
     results['team1']['luck']+=team1secondaryeffectagainst-team1secondaryeffect+team1expectedsecondaryeffect-team1expectedsecondaryeffectagainst
     results['team2']['luck']+=team2secondaryeffectagainst-team2secondaryeffect+team2expectedsecondaryeffect-team2expectedsecondaryeffectagainst
     return results

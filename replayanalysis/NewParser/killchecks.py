@@ -178,7 +178,6 @@ def blacksludgesearch(results,mon,roster,otherteam):
         i+=1
     return results
 
-
 def weathersearch(results,mon,roster,otherteam):
     return results
 

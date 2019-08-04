@@ -1,867 +1,226 @@
 {
   "team1": {
-    "coach": "muskrat catcher",
+    "coach": "BordeauxBewears",
     "roster": [
       {
-        "pokemon": "Cobalion",
-        "startform": "Cobalion",
-        "nickname": "Cobalion",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -1.76,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            4,
-            "|switch|p1a: Cobalion|Cobalion|100/100"
-          ],
-          [
-            5,
-            "|move|p1a: Cobalion|Taunt|p2a: Amir"
-          ],
-          [
-            6,
-            "|move|p2a: Amir|U-turn|p1a: Cobalion"
-          ],
-          [
-            6,
-            "|-resisted|p1a: Cobalion"
-          ],
-          [
-            6,
-            "|-damage|p1a: Cobalion|98/100"
-          ],
-          [
-            6,
-            "|move|p1a: Cobalion|Stealth Rock|p2a: DragonsGuardingFri"
-          ],
-          [
-            7,
-            "|move|p1a: Cobalion|Taunt|p2a: DragonsGuardingFri"
-          ],
-          [
-            7,
-            "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Cobalion"
-          ],
-          [
-            7,
-            "|-resisted|p1a: Cobalion"
-          ],
-          [
-            7,
-            "|-damage|p1a: Cobalion|84/100"
-          ],
-          [
-            14,
-            "|switch|p1a: Cobalion|Cobalion|84/100"
-          ],
-          [
-            14,
-            "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion"
-          ],
-          [
-            14,
-            "|-resisted|p1a: Cobalion"
-          ],
-          [
-            14,
-            "|-damage|p1a: Cobalion|72/100"
-          ],
-          [
-            16,
-            "|switch|p1a: Cobalion|Cobalion|72/100"
-          ],
-          [
-            16,
-            "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion"
-          ],
-          [
-            16,
-            "|-resisted|p1a: Cobalion"
-          ],
-          [
-            16,
-            "|-damage|p1a: Cobalion|58/100"
-          ],
-          [
-            17,
-            "|move|p1a: Cobalion|Stone Edge|p2a: 6.02*10^23 Drills|[miss]"
-          ],
-          [
-            17,
-            "|-miss|p1a: Cobalion|p2a: 6.02*10^23 Drills"
-          ],
-          [
-            17,
-            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cobalion"
-          ],
-          [
-            17,
-            "|-supereffective|p1a: Cobalion"
-          ],
-          [
-            17,
-            "|-crit|p1a: Cobalion"
-          ],
-          [
-            17,
-            "|-damage|p1a: Cobalion|0 fnt"
-          ],
-          [
-            17,
-            "|faint|p1a: Cobalion"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Gyarados",
-        "startform": "Gyarados",
-        "nickname": "Gyarados",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.04,
-        "remaininghealth": 2,
-        "lines": [
-          [
-            12,
-            "|switch|p1a: Gyarados|Gyarados|100/100"
-          ],
-          [
-            12,
-            "|-ability|p1a: Gyarados|Intimidate|boost"
-          ],
-          [
-            13,
-            "|move|p2a: 6.02*10^23 Drills|Continental Crush|p1a: Gyarados|[zeffect]"
-          ],
-          [
-            13,
-            "|-supereffective|p1a: Gyarados"
-          ],
-          [
-            13,
-            "|-damage|p1a: Gyarados|8/100"
-          ],
-          [
-            13,
-            "|move|p1a: Gyarados|Dragon Dance|p1a: Gyarados"
-          ],
-          [
-            13,
-            "|-boost|p1a: Gyarados|atk|1"
-          ],
-          [
-            13,
-            "|-boost|p1a: Gyarados|spe|1"
-          ],
-          [
-            13,
-            "|-damage|p1a: Gyarados|2/100|[from] Sandstorm"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Torterra",
-        "startform": "Torterra",
-        "nickname": "Torterra",
+        "pokemon": "Arcanine",
+        "startform": "Arcanine",
+        "nickname": "Oak",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": -0.02,
+        "luck": 1.97,
         "remaininghealth": 0,
         "lines": [
           [
-            0,
-            "|switch|p1a: Torterra|Torterra|100/100"
+            1,
+            "|switch|p1a: Oak|Arcanine|100/100"
           ],
           [
             1,
-            "|move|p2a: Amir|High Jump Kick|p1a: Torterra"
+            "|move|p2a: Rotom|Will-O-Wisp|p1a: Oak"
           ],
           [
             1,
-            "|-damage|p1a: Torterra|58/100"
-          ],
-          [
-            1,
-            "|move|p1a: Torterra|Reflect|p1a: Torterra"
+            "|-start|p1a: Oak|ability: Flash Fire"
           ],
           [
             2,
-            "|move|p1a: Torterra|Synthesis|p1a: Torterra"
+            "|move|p2a: Rotom|Volt Switch|p1a: Oak"
           ],
           [
             2,
-            "|-heal|p1a: Torterra|100/100"
+            "|-damage|p1a: Oak|81/100"
+          ],
+          [
+            2,
+            "|move|p1a: Oak|Flare Blitz|p2a: Nihilego"
+          ],
+          [
+            2,
+            "|-damage|p1a: Oak|55/100|[from] Recoil"
           ],
           [
             3,
-            "|move|p2a: Rotom A Letter|Hidden Power|p1a: Torterra"
-          ],
-          [
-            3,
-            "|-supereffective|p1a: Torterra"
-          ],
-          [
-            3,
-            "|-damage|p1a: Torterra|33/100"
-          ],
-          [
-            3,
-            "|move|p1a: Torterra|Wood Hammer|p2a: Rotom A Letter"
-          ],
-          [
-            3,
-            "|-damage|p1a: Torterra|11/100|[from] Recoil"
-          ],
-          [
-            4,
-            "|move|p2a: Amir|U-turn|p1a: Torterra"
-          ],
-          [
-            4,
-            "|-supereffective|p1a: Torterra"
-          ],
-          [
-            4,
-            "|-damage|p1a: Torterra|0 fnt"
-          ],
-          [
-            4,
-            "|faint|p1a: Torterra"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Zygarde-10%",
-        "startform": "Zygarde",
-        "nickname": "Zygarde",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            17,
-            "|switch|p1a: Zygarde|Zygarde-10%|100/100"
-          ],
-          [
-            17,
-            "|-ability|p1a: Zygarde|Aura Break"
-          ],
-          [
-            18,
-            "|move|p1a: Zygarde|Dragon Dance|p1a: Zygarde"
-          ],
-          [
-            18,
-            "|-boost|p1a: Zygarde|atk|1"
-          ],
-          [
-            18,
-            "|-boost|p1a: Zygarde|spe|1"
-          ],
-          [
-            18,
-            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Zygarde"
-          ],
-          [
-            18,
-            "|-damage|p1a: Zygarde|35/100"
-          ],
-          [
-            19,
-            "|move|p1a: Zygarde|Thousand Arrows|p2a: 6.02*10^23 Drills"
-          ],
-          [
-            19,
-            "|-damage|p1a: Zygarde|25/100|[from] item: Life Orb"
-          ],
-          [
-            20,
-            "|move|p1a: Zygarde|Outrage|p2a: DragonsGuardingFri"
-          ],
-          [
-            20,
-            "|-damage|p1a: Zygarde|15/100|[from] item: Life Orb"
-          ],
-          [
-            20,
-            "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Zygarde"
-          ],
-          [
-            20,
-            "|-damage|p1a: Zygarde|0 fnt"
-          ],
-          [
-            20,
-            "|-heal|p2a: DragonsGuardingFri|7/100|[from] drain|[of] p1a: Zygarde"
-          ],
-          [
-            20,
-            "|faint|p1a: Zygarde"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Cryogonal",
-        "startform": "Cryogonal",
-        "nickname": "Cryogonal",
-        "kills": 2,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.16,
-        "remaininghealth": 100,
-        "lines": [
-          [
-            15,
-            "|switch|p1a: Cryogonal|Cryogonal|100/100"
-          ],
-          [
-            15,
-            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cryogonal"
-          ],
-          [
-            15,
-            "|-immune|p1a: Cryogonal|[from] ability: Levitate"
-          ],
-          [
-            20,
-            "|switch|p1a: Cryogonal|Cryogonal|100/100"
-          ],
-          [
-            21,
-            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
-          ],
-          [
-            22,
-            "|move|p1a: Cryogonal|Ice Beam|p2a: DragonsGuardingFri"
-          ],
-          [
-            23,
-            "|move|p1a: Cryogonal|Knock Off|p2a: Amir"
-          ],
-          [
-            23,
-            "|-enditem|p2a: Amir|Choice Scarf|[from] move: Knock Off|[of] p1a: Cryogonal"
-          ],
-          [
-            24,
-            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
-          ],
-          [
-            25,
-            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Scolipede",
-        "startform": "Scolipede",
-        "nickname": "Scolipede",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.13,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            8,
-            "|switch|p1a: Scolipede|Scolipede|100/100"
-          ],
-          [
-            9,
-            "|move|p2a: Amir|Stone Edge|p1a: Scolipede"
-          ],
-          [
-            9,
-            "|-supereffective|p1a: Scolipede"
-          ],
-          [
-            9,
-            "|-damage|p1a: Scolipede|4/100"
-          ],
-          [
-            9,
-            "|move|p1a: Scolipede|Swords Dance|p1a: Scolipede"
-          ],
-          [
-            9,
-            "|-boost|p1a: Scolipede|atk|2"
-          ],
-          [
-            9,
-            "|-ability|p1a: Scolipede|Speed Boost|boost"
-          ],
-          [
-            9,
-            "|-boost|p1a: Scolipede|spe|1"
-          ],
-          [
-            10,
-            "|move|p1a: Scolipede|Earthquake|p2a: BabySharkDooDooDoo"
-          ],
-          [
-            10,
-            "|-ability|p1a: Scolipede|Speed Boost|boost"
-          ],
-          [
-            10,
-            "|-boost|p1a: Scolipede|spe|1"
-          ],
-          [
-            11,
-            "|move|p1a: Scolipede|Megahorn|p2a: BabySharkDooDooDoo"
-          ],
-          [
-            11,
-            "|-ability|p1a: Scolipede|Speed Boost|boost"
-          ],
-          [
-            11,
-            "|-boost|p1a: Scolipede|spe|1"
-          ],
-          [
-            12,
-            "|move|p1a: Scolipede|Earthquake|p2a: Ex Girlfriend"
-          ],
-          [
-            12,
-            "|-damage|p1a: Scolipede|0 fnt|[from] Sandstorm"
-          ],
-          [
-            12,
-            "|faint|p1a: Scolipede"
-          ]
-        ]
-      }
-    ],
-    "wins": 1,
-    "forfeit": 0,
-    "score": 2,
-    "megaevolved": false,
-    "usedzmove": false,
-    "timesswitched": 8,
-    "selfdeaths": 0,
-    "remaininghealth": "102/600",
-    "kills": 6,
-    "deaths": 4,
-    "luck": -2.03,
-    "damagedone": 0,
-    "hphealed": 0,
-    "support": 0
-  },
-  "team2": {
-    "coach": "claduva",
-    "roster": [
-      {
-        "pokemon": "Garchomp-Mega",
-        "startform": "Garchomp",
-        "nickname": "BabySharkDooDooDoo",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.07,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            10,
-            "|switch|p2a: BabySharkDooDooDoo|Garchomp|100/100"
-          ],
-          [
-            10,
-            "|-damage|p2a: BabySharkDooDooDoo|94/100|[from] Stealth Rock"
-          ],
-          [
-            10,
-            "|move|p1a: Scolipede|Earthquake|p2a: BabySharkDooDooDoo"
-          ],
-          [
-            10,
-            "|-damage|p2a: BabySharkDooDooDoo|54/100"
-          ],
-          [
-            11,
-            "|move|p1a: Scolipede|Megahorn|p2a: BabySharkDooDooDoo"
-          ],
-          [
-            11,
-            "|-damage|p2a: BabySharkDooDooDoo|0 fnt"
-          ],
-          [
-            11,
-            "|faint|p2a: BabySharkDooDooDoo"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Mienshao",
-        "startform": "Mienshao",
-        "nickname": "Amir",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.34,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            0,
-            "|switch|p2a: Amir|Mienshao|100/100"
-          ],
-          [
-            1,
-            "|move|p2a: Amir|High Jump Kick|p1a: Torterra"
-          ],
-          [
-            3,
-            "|switch|p2a: Amir|Mienshao|100/100"
-          ],
-          [
-            4,
-            "|move|p2a: Amir|U-turn|p1a: Torterra"
+            "|-end|p1a: Oak|ability: Flash Fire|[silent]"
           ],
           [
             5,
-            "|switch|p2a: Amir|Mienshao|100/100"
-          ],
-          [
-            5,
-            "|move|p1a: Cobalion|Taunt|p2a: Amir"
-          ],
-          [
-            5,
-            "|-start|p2a: Amir|move: Taunt"
+            "|switch|p1a: Oak|Arcanine|55/100"
           ],
           [
             6,
-            "|move|p2a: Amir|U-turn|p1a: Cobalion"
+            "|move|p1a: Oak|Roar|p2a: Sableye"
           ],
           [
-            8,
-            "|switch|p2a: Amir|Mienshao|100/100"
-          ],
-          [
-            8,
-            "|-damage|p2a: Amir|94/100|[from] Stealth Rock"
+            6,
+            "|move|p2a: Sableye|Roar|p1a: Oak|[from]Magic Bounce"
           ],
           [
             9,
-            "|move|p2a: Amir|Stone Edge|p1a: Scolipede"
+            "|switch|p1a: Oak|Arcanine|55/100"
           ],
           [
-            21,
-            "|switch|p2a: Amir|Mienshao|100/100"
+            35,
+            "|switch|p1a: Oak|Arcanine|55/100"
           ],
           [
-            21,
-            "|-damage|p2a: Amir|94/100|[from] Stealth Rock"
+            35,
+            "|-damage|p1a: Oak|30/100|[from] Stealth Rock"
           ],
           [
-            21,
-            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
+            36,
+            "|move|p1a: Oak|Flare Blitz|p2a: Doublade"
           ],
           [
-            21,
-            "|-damage|p2a: Amir|39/100"
+            36,
+            "|-damage|p1a: Oak|16/100|[from] Recoil"
           ],
           [
-            21,
-            "|-status|p2a: Amir|frz"
+            36,
+            "|-enditem|p1a: Oak|Iapapa Berry|[eat]"
           ],
           [
-            22,
-            "|switch|p2a: Amir|Mienshao|72/100 frz"
+            36,
+            "|-heal|p1a: Oak|66/100|[from] item: Iapapa Berry"
           ],
           [
-            22,
-            "|-damage|p2a: Amir|66/100 frz|[from] Stealth Rock"
+            37,
+            "|move|p2a: Doublade|Shadow Sneak|p1a: Oak"
           ],
           [
-            23,
-            "|cant|p2a: Amir|frz"
+            37,
+            "|-damage|p1a: Oak|44/100"
           ],
           [
-            23,
-            "|move|p1a: Cryogonal|Knock Off|p2a: Amir"
+            37,
+            "|move|p1a: Oak|Flare Blitz|p2a: Doublade"
           ],
           [
-            23,
-            "|-resisted|p2a: Amir"
+            37,
+            "|-damage|p1a: Oak|32/100|[from] Recoil"
           ],
           [
-            23,
-            "|-damage|p2a: Amir|55/100 frz"
+            38,
+            "|move|p1a: Oak|Morning Sun|p1a: Oak"
           ],
           [
-            23,
-            "|-enditem|p2a: Amir|Choice Scarf|[from] move: Knock Off|[of] p1a: Cryogonal"
+            38,
+            "|-heal|p1a: Oak|82/100"
           ],
           [
-            24,
-            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
+            39,
+            "|move|p2a: Doublade|Shadow Sneak|p1a: Oak"
           ],
           [
-            24,
-            "|-damage|p2a: Amir|2/100 frz"
+            39,
+            "|-damage|p1a: Oak|43/100"
           ],
           [
-            24,
-            "|cant|p2a: Amir|frz"
+            39,
+            "|move|p1a: Oak|Morning Sun|p1a: Oak"
           ],
           [
-            25,
-            "|move|p1a: Cryogonal|Ice Beam|p2a: Amir"
+            39,
+            "|-heal|p1a: Oak|92/100"
           ],
           [
-            25,
-            "|-damage|p2a: Amir|0 fnt"
+            40,
+            "|move|p2a: Doublade|Shadow Sneak|p1a: Oak"
           ],
           [
-            25,
-            "|faint|p2a: Amir"
+            40,
+            "|-damage|p1a: Oak|50/100"
+          ],
+          [
+            40,
+            "|move|p1a: Oak|Flare Blitz|p2a: Doublade"
+          ],
+          [
+            40,
+            "|-damage|p1a: Oak|49/100|[from] Recoil"
+          ],
+          [
+            41,
+            "|move|p2a: Scyther|Aerial Ace|p1a: Oak"
+          ],
+          [
+            41,
+            "|-damage|p1a: Oak|5/100"
+          ],
+          [
+            41,
+            "|move|p1a: Oak|Morning Sun|p1a: Oak"
+          ],
+          [
+            41,
+            "|-heal|p1a: Oak|55/100"
+          ],
+          [
+            42,
+            "|move|p2a: Scyther|Aerial Ace|p1a: Oak"
+          ],
+          [
+            42,
+            "|-damage|p1a: Oak|8/100"
+          ],
+          [
+            42,
+            "|move|p1a: Oak|Morning Sun|p1a: Oak"
+          ],
+          [
+            42,
+            "|-heal|p1a: Oak|58/100"
+          ],
+          [
+            46,
+            "|switch|p1a: Oak|Arcanine|58/100"
+          ],
+          [
+            46,
+            "|-damage|p1a: Oak|33/100|[from] Stealth Rock"
+          ],
+          [
+            47,
+            "|move|p1a: Oak|Toxic|p2a: Sableye"
+          ],
+          [
+            47,
+            "|move|p2a: Sableye|Toxic|p1a: Oak|[from]Magic Bounce|[miss]"
+          ],
+          [
+            47,
+            "|-miss|p2a: Sableye|p1a: Oak"
+          ],
+          [
+            48,
+            "|move|p1a: Oak|Flare Blitz|p2a: Sableye"
+          ],
+          [
+            48,
+            "|-damage|p1a: Oak|25/100|[from] Recoil"
+          ],
+          [
+            48,
+            "|move|p2a: Sableye|Shadow Ball|p1a: Oak"
+          ],
+          [
+            48,
+            "|-damage|p1a: Oak|0 fnt"
+          ],
+          [
+            48,
+            "|faint|p1a: Oak"
           ]
         ]
       },
       {
-        "pokemon": "Amoonguss",
-        "startform": "Amoonguss",
-        "nickname": "DragonsGuardingFri",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.08,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            4,
-            "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100|[from]move: U-turn"
-          ],
-          [
-            6,
-            "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100|[from]move: U-turn"
-          ],
-          [
-            6,
-            "|move|p1a: Cobalion|Stealth Rock|p2a: DragonsGuardingFri"
-          ],
-          [
-            7,
-            "|move|p1a: Cobalion|Taunt|p2a: DragonsGuardingFri"
-          ],
-          [
-            7,
-            "|-start|p2a: DragonsGuardingFri|move: Taunt"
-          ],
-          [
-            7,
-            "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Cobalion"
-          ],
-          [
-            19,
-            "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100"
-          ],
-          [
-            19,
-            "|-damage|p2a: DragonsGuardingFri|88/100|[from] Stealth Rock"
-          ],
-          [
-            20,
-            "|move|p1a: Zygarde|Outrage|p2a: DragonsGuardingFri"
-          ],
-          [
-            20,
-            "|-damage|p2a: DragonsGuardingFri|2/100"
-          ],
-          [
-            20,
-            "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Zygarde"
-          ],
-          [
-            20,
-            "|-heal|p2a: DragonsGuardingFri|7/100|[from] drain|[of] p1a: Zygarde"
-          ],
-          [
-            20,
-            "|-heal|p2a: DragonsGuardingFri|13/100|[from] item: Black Sludge"
-          ],
-          [
-            22,
-            "|switch|p2a: DragonsGuardingFri|Amoonguss|46/100"
-          ],
-          [
-            22,
-            "|-damage|p2a: DragonsGuardingFri|34/100|[from] Stealth Rock"
-          ],
-          [
-            22,
-            "|move|p1a: Cryogonal|Ice Beam|p2a: DragonsGuardingFri"
-          ],
-          [
-            22,
-            "|-supereffective|p2a: DragonsGuardingFri"
-          ],
-          [
-            22,
-            "|-damage|p2a: DragonsGuardingFri|0 fnt"
-          ],
-          [
-            22,
-            "|faint|p2a: DragonsGuardingFri"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Tyranitar",
-        "startform": "Tyranitar",
-        "nickname": "Ex Girlfriend",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.04,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            11,
-            "|switch|p2a: Ex Girlfriend|Tyranitar|100/100"
-          ],
-          [
-            11,
-            "|-damage|p2a: Ex Girlfriend|88/100|[from] Stealth Rock"
-          ],
-          [
-            11,
-            "|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Ex Girlfriend"
-          ],
-          [
-            12,
-            "|move|p1a: Scolipede|Earthquake|p2a: Ex Girlfriend"
-          ],
-          [
-            12,
-            "|-supereffective|p2a: Ex Girlfriend"
-          ],
-          [
-            12,
-            "|-damage|p2a: Ex Girlfriend|0 fnt"
-          ],
-          [
-            12,
-            "|faint|p2a: Ex Girlfriend"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Excadrill",
-        "startform": "Excadrill",
-        "nickname": "6.02*10^23 Drills",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 1.64,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            12,
-            "|switch|p2a: 6.02*10^23 Drills|Excadrill|100/100"
-          ],
-          [
-            12,
-            "|-damage|p2a: 6.02*10^23 Drills|97/100|[from] Stealth Rock"
-          ],
-          [
-            12,
-            "|-unboost|p2a: 6.02*10^23 Drills|atk|1"
-          ],
-          [
-            13,
-            "|move|p2a: 6.02*10^23 Drills|Continental Crush|p1a: Gyarados|[zeffect]"
-          ],
-          [
-            14,
-            "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion"
-          ],
-          [
-            15,
-            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cryogonal"
-          ],
-          [
-            16,
-            "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion"
-          ],
-          [
-            17,
-            "|move|p1a: Cobalion|Stone Edge|p2a: 6.02*10^23 Drills|[miss]"
-          ],
-          [
-            17,
-            "|-miss|p1a: Cobalion|p2a: 6.02*10^23 Drills"
-          ],
-          [
-            17,
-            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cobalion"
-          ],
-          [
-            18,
-            "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Zygarde"
-          ],
-          [
-            19,
-            "|move|p1a: Zygarde|Thousand Arrows|p2a: 6.02*10^23 Drills"
-          ],
-          [
-            19,
-            "|-supereffective|p2a: 6.02*10^23 Drills"
-          ],
-          [
-            19,
-            "|-damage|p2a: 6.02*10^23 Drills|0 fnt"
-          ],
-          [
-            19,
-            "|faint|p2a: 6.02*10^23 Drills"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Rotom",
-        "startform": "Rotom",
-        "nickname": "Rotom A Letter",
+        "pokemon": "Pinsir-Mega",
+        "startform": "Pinsir",
+        "nickname": "Gym Leader Geo",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
@@ -872,24 +231,492 @@
         "remaininghealth": 0,
         "lines": [
           [
-            2,
-            "|switch|p2a: Rotom A Letter|Rotom|100/100"
+            34,
+            "|switch|p1a: Gym Leader Geo|Pinsir|100/100"
+          ],
+          [
+            34,
+            "|-damage|p1a: Gym Leader Geo|76/100|[from] Stealth Rock"
+          ],
+          [
+            35,
+            "|move|p1a: Gym Leader Geo|Return|p2a: Sableye"
+          ],
+          [
+            35,
+            "|move|p2a: Sableye|Shadow Ball|p1a: Gym Leader Geo"
+          ],
+          [
+            35,
+            "|-damage|p1a: Gym Leader Geo|0 fnt"
+          ],
+          [
+            35,
+            "|faint|p1a: Gym Leader Geo"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Machamp",
+        "startform": "Machamp",
+        "nickname": "My son",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.48,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            3,
+            "|switch|p1a: My son|Machamp|100/100"
           ],
           [
             3,
-            "|move|p2a: Rotom A Letter|Hidden Power|p1a: Torterra"
+            "|move|p2a: Nihilego|Power Gem|p1a: My son"
           ],
           [
             3,
-            "|move|p1a: Torterra|Wood Hammer|p2a: Rotom A Letter"
+            "|-resisted|p1a: My son"
           ],
           [
             3,
-            "|-damage|p2a: Rotom A Letter|0 fnt"
+            "|-damage|p1a: My son|87/100"
           ],
           [
-            3,
-            "|faint|p2a: Rotom A Letter"
+            4,
+            "|move|p1a: My son|Knock Off|p2a: Sableye"
+          ],
+          [
+            10,
+            "|switch|p1a: My son|Machamp|87/100"
+          ],
+          [
+            10,
+            "|move|p2a: Nihilego|Stealth Rock|p1a: My son"
+          ],
+          [
+            11,
+            "|move|p2a: Nihilego|Sludge Wave|p1a: My son"
+          ],
+          [
+            11,
+            "|-damage|p1a: My son|54/100"
+          ],
+          [
+            11,
+            "|move|p1a: My son|Stone Edge|p2a: Nihilego"
+          ],
+          [
+            45,
+            "|switch|p1a: My son|Machamp|54/100"
+          ],
+          [
+            45,
+            "|-damage|p1a: My son|48/100|[from] Stealth Rock"
+          ],
+          [
+            45,
+            "|move|p2a: Rotom|Volt Switch|p1a: My son"
+          ],
+          [
+            45,
+            "|-damage|p1a: My son|31/100"
+          ],
+          [
+            48,
+            "|switch|p1a: My son|Machamp|31/100"
+          ],
+          [
+            48,
+            "|-damage|p1a: My son|24/100|[from] Stealth Rock"
+          ],
+          [
+            49,
+            "|move|p1a: My son|Stone Edge|p2a: Sableye"
+          ],
+          [
+            49,
+            "|move|p2a: Sableye|Shadow Ball|p1a: My son"
+          ],
+          [
+            49,
+            "|-damage|p1a: My son|0 fnt"
+          ],
+          [
+            49,
+            "|faint|p1a: My son"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Skarmory",
+        "startform": "Skarmory",
+        "nickname": "Best deffoger",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.08,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            14,
+            "|switch|p1a: Best deffoger|Skarmory|100/100"
+          ],
+          [
+            14,
+            "|-damage|p1a: Best deffoger|88/100|[from] Stealth Rock"
+          ],
+          [
+            14,
+            "|-heal|p1a: Best deffoger|94/100|[from] item: Leftovers"
+          ],
+          [
+            43,
+            "|switch|p1a: Best deffoger|Skarmory|94/100"
+          ],
+          [
+            43,
+            "|-damage|p1a: Best deffoger|82/100|[from] Stealth Rock"
+          ],
+          [
+            43,
+            "|move|p2a: Scyther|Aerial Ace|p1a: Best deffoger"
+          ],
+          [
+            43,
+            "|-resisted|p1a: Best deffoger"
+          ],
+          [
+            43,
+            "|-damage|p1a: Best deffoger|70/100"
+          ],
+          [
+            43,
+            "|-heal|p1a: Best deffoger|76/100|[from] item: Leftovers"
+          ],
+          [
+            49,
+            "|switch|p1a: Best deffoger|Skarmory|76/100"
+          ],
+          [
+            49,
+            "|-damage|p1a: Best deffoger|64/100|[from] Stealth Rock"
+          ],
+          [
+            50,
+            "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye"
+          ],
+          [
+            50,
+            "|-damage|p1a: Best deffoger|57/100|[from] Recoil"
+          ],
+          [
+            50,
+            "|-heal|p1a: Best deffoger|63/100|[from] item: Leftovers"
+          ],
+          [
+            51,
+            "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye"
+          ],
+          [
+            51,
+            "|-damage|p1a: Best deffoger|56/100|[from] Recoil"
+          ],
+          [
+            51,
+            "|-heal|p1a: Best deffoger|62/100|[from] item: Leftovers"
+          ],
+          [
+            52,
+            "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye"
+          ],
+          [
+            52,
+            "|-damage|p1a: Best deffoger|55/100|[from] Recoil"
+          ],
+          [
+            52,
+            "|-heal|p1a: Best deffoger|61/100|[from] item: Leftovers"
+          ],
+          [
+            53,
+            "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye"
+          ],
+          [
+            53,
+            "|-damage|p1a: Best deffoger|53/100|[from] Recoil"
+          ],
+          [
+            53,
+            "|move|p2a: Sableye|Shadow Ball|p1a: Best deffoger"
+          ],
+          [
+            53,
+            "|-damage|p1a: Best deffoger|0 fnt"
+          ],
+          [
+            53,
+            "|faint|p1a: Best deffoger"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Hoopa-Unbound",
+        "startform": "Hoopa-Unbound",
+        "nickname": "Star Platinum",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.79,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            0,
+            "|switch|p1a: Star Platinum|Hoopa-Unbound|100/100"
+          ],
+          [
+            6,
+            "|drag|p1a: Star Platinum|Hoopa-Unbound|100/100"
+          ],
+          [
+            7,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            8,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Clefable"
+          ],
+          [
+            12,
+            "|switch|p1a: Star Platinum|Hoopa-Unbound|100/100"
+          ],
+          [
+            12,
+            "|-damage|p1a: Star Platinum|88/100|[from] Stealth Rock"
+          ],
+          [
+            13,
+            "|move|p1a: Star Platinum|Shadow Ball|p2a: Clefable"
+          ],
+          [
+            15,
+            "|switch|p1a: Star Platinum|Hoopa-Unbound|88/100"
+          ],
+          [
+            15,
+            "|-damage|p1a: Star Platinum|76/100|[from] Stealth Rock"
+          ],
+          [
+            15,
+            "|move|p2a: Clefable|Fire Blast|p1a: Star Platinum"
+          ],
+          [
+            15,
+            "|-damage|p1a: Star Platinum|54/100"
+          ],
+          [
+            19,
+            "|switch|p1a: Star Platinum|Hoopa-Unbound|54/100"
+          ],
+          [
+            19,
+            "|-damage|p1a: Star Platinum|42/100|[from] Stealth Rock"
+          ],
+          [
+            20,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            21,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            22,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            23,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            24,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            25,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            26,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            27,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            28,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            29,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            30,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            31,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            32,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            33,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            34,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            34,
+            "|move|p2a: Sableye|Shadow Ball|p1a: Star Platinum"
+          ],
+          [
+            34,
+            "|-damage|p1a: Star Platinum|0 fnt"
+          ],
+          [
+            34,
+            "|faint|p1a: Star Platinum"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Blastoise",
+        "startform": "Blastoise",
+        "nickname": "BIG PUMPY",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -1.0,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            16,
+            "|switch|p1a: BIG PUMPY|Blastoise|100/100"
+          ],
+          [
+            16,
+            "|-damage|p1a: BIG PUMPY|88/100|[from] Stealth Rock"
+          ],
+          [
+            16,
+            "|move|p2a: Clefable|Moonblast|p1a: BIG PUMPY"
+          ],
+          [
+            16,
+            "|-crit|p1a: BIG PUMPY"
+          ],
+          [
+            16,
+            "|-damage|p1a: BIG PUMPY|46/100"
+          ],
+          [
+            16,
+            "|-unboost|p1a: BIG PUMPY|spa|1"
+          ],
+          [
+            16,
+            "|-heal|p1a: BIG PUMPY|52/100|[from] item: Leftovers"
+          ],
+          [
+            17,
+            "|move|p1a: BIG PUMPY|Scald|p2a: Sableye"
+          ],
+          [
+            17,
+            "|-heal|p1a: BIG PUMPY|58/100|[from] item: Leftovers"
+          ],
+          [
+            18,
+            "|move|p1a: BIG PUMPY|Scald|p2a: Sableye"
+          ],
+          [
+            18,
+            "|-heal|p1a: BIG PUMPY|64/100|[from] item: Leftovers"
+          ],
+          [
+            44,
+            "|switch|p1a: BIG PUMPY|Blastoise|64/100"
+          ],
+          [
+            44,
+            "|-damage|p1a: BIG PUMPY|51/100|[from] Stealth Rock"
+          ],
+          [
+            44,
+            "|-heal|p1a: BIG PUMPY|58/100|[from] item: Leftovers"
+          ],
+          [
+            53,
+            "|switch|p1a: BIG PUMPY|Blastoise|58/100"
+          ],
+          [
+            53,
+            "|-damage|p1a: BIG PUMPY|45/100|[from] Stealth Rock"
+          ],
+          [
+            54,
+            "|move|p1a: BIG PUMPY|Scald|p2a: Sableye"
+          ],
+          [
+            54,
+            "|move|p2a: Sableye|Shadow Ball|p1a: BIG PUMPY"
+          ],
+          [
+            54,
+            "|-damage|p1a: BIG PUMPY|7/100"
+          ],
+          [
+            54,
+            "|-heal|p1a: BIG PUMPY|13/100|[from] item: Leftovers"
+          ],
+          [
+            55,
+            "|move|p1a: BIG PUMPY|Refresh|p1a: BIG PUMPY"
+          ],
+          [
+            55,
+            "|-fail|p1a: BIG PUMPY"
+          ],
+          [
+            55,
+            "|move|p2a: Sableye|Shadow Ball|p1a: BIG PUMPY"
+          ],
+          [
+            55,
+            "|-damage|p1a: BIG PUMPY|0 fnt"
+          ],
+          [
+            55,
+            "|faint|p1a: BIG PUMPY"
           ]
         ]
       }
@@ -898,323 +725,1391 @@
     "forfeit": 0,
     "score": 0,
     "megaevolved": true,
-    "usedzmove": true,
-    "timesswitched": 13,
+    "usedzmove": false,
+    "timesswitched": 19,
     "selfdeaths": 0,
     "remaininghealth": "0/600",
-    "kills": 4,
+    "kills": 2,
     "deaths": 6,
-    "luck": 2.03,
+    "luck": 0.58,
     "damagedone": 0,
     "hphealed": 0,
     "support": 0
   },
-  "numberofturns": 25,
+  "team2": {
+    "coach": "muskrat catcher",
+    "roster": [
+      {
+        "pokemon": "Doublade",
+        "startform": "Doublade",
+        "nickname": "Doublade",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.0,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            36,
+            "|switch|p2a: Doublade|Doublade|100/100"
+          ],
+          [
+            36,
+            "|move|p1a: Oak|Flare Blitz|p2a: Doublade"
+          ],
+          [
+            36,
+            "|-supereffective|p2a: Doublade"
+          ],
+          [
+            36,
+            "|-damage|p2a: Doublade|48/100"
+          ],
+          [
+            37,
+            "|move|p2a: Doublade|Shadow Sneak|p1a: Oak"
+          ],
+          [
+            37,
+            "|move|p1a: Oak|Flare Blitz|p2a: Doublade"
+          ],
+          [
+            37,
+            "|-supereffective|p2a: Doublade"
+          ],
+          [
+            37,
+            "|-damage|p2a: Doublade|5/100"
+          ],
+          [
+            38,
+            "|move|p2a: Doublade|Swords Dance|p2a: Doublade"
+          ],
+          [
+            38,
+            "|-boost|p2a: Doublade|atk|2"
+          ],
+          [
+            39,
+            "|move|p2a: Doublade|Shadow Sneak|p1a: Oak"
+          ],
+          [
+            40,
+            "|move|p2a: Doublade|Shadow Sneak|p1a: Oak"
+          ],
+          [
+            40,
+            "|move|p1a: Oak|Flare Blitz|p2a: Doublade"
+          ],
+          [
+            40,
+            "|-supereffective|p2a: Doublade"
+          ],
+          [
+            40,
+            "|-damage|p2a: Doublade|0 fnt"
+          ],
+          [
+            40,
+            "|faint|p2a: Doublade"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Sableye-Mega",
+        "startform": "Sableye",
+        "nickname": "Sableye",
+        "kills": 6,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.4,
+        "remaininghealth": 37,
+        "lines": [
+          [
+            4,
+            "|switch|p2a: Sableye|Sableye|100/100"
+          ],
+          [
+            4,
+            "|move|p1a: My son|Knock Off|p2a: Sableye"
+          ],
+          [
+            4,
+            "|-damage|p2a: Sableye|77/100"
+          ],
+          [
+            5,
+            "|move|p2a: Sableye|Calm Mind|p2a: Sableye"
+          ],
+          [
+            5,
+            "|-boost|p2a: Sableye|spa|1"
+          ],
+          [
+            5,
+            "|-boost|p2a: Sableye|spd|1"
+          ],
+          [
+            6,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            6,
+            "|-heal|p2a: Sableye|100/100"
+          ],
+          [
+            6,
+            "|move|p1a: Oak|Roar|p2a: Sableye"
+          ],
+          [
+            6,
+            "|move|p2a: Sableye|Roar|p1a: Oak|[from]Magic Bounce"
+          ],
+          [
+            7,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            7,
+            "|-damage|p2a: Sableye|44/100"
+          ],
+          [
+            7,
+            "|move|p2a: Sableye|Calm Mind|p2a: Sableye"
+          ],
+          [
+            7,
+            "|-boost|p2a: Sableye|spa|1"
+          ],
+          [
+            7,
+            "|-boost|p2a: Sableye|spd|1"
+          ],
+          [
+            11,
+            "|switch|p2a: Sableye|Sableye-Mega|44/100"
+          ],
+          [
+            12,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            12,
+            "|-heal|p2a: Sableye|94/100"
+          ],
+          [
+            17,
+            "|switch|p2a: Sableye|Sableye-Mega|94/100"
+          ],
+          [
+            17,
+            "|move|p1a: BIG PUMPY|Scald|p2a: Sableye"
+          ],
+          [
+            17,
+            "|-damage|p2a: Sableye|78/100"
+          ],
+          [
+            18,
+            "|move|p1a: BIG PUMPY|Scald|p2a: Sableye"
+          ],
+          [
+            18,
+            "|-damage|p2a: Sableye|61/100"
+          ],
+          [
+            18,
+            "|move|p2a: Sableye|Calm Mind|p2a: Sableye"
+          ],
+          [
+            18,
+            "|-boost|p2a: Sableye|spa|1"
+          ],
+          [
+            18,
+            "|-boost|p2a: Sableye|spd|1"
+          ],
+          [
+            19,
+            "|move|p2a: Sableye|Calm Mind|p2a: Sableye"
+          ],
+          [
+            19,
+            "|-boost|p2a: Sableye|spa|1"
+          ],
+          [
+            19,
+            "|-boost|p2a: Sableye|spd|1"
+          ],
+          [
+            20,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            20,
+            "|-damage|p2a: Sableye|19/100"
+          ],
+          [
+            20,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            20,
+            "|-heal|p2a: Sableye|69/100"
+          ],
+          [
+            21,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            21,
+            "|-damage|p2a: Sableye|31/100"
+          ],
+          [
+            21,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            21,
+            "|-heal|p2a: Sableye|81/100"
+          ],
+          [
+            22,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            22,
+            "|-damage|p2a: Sableye|41/100"
+          ],
+          [
+            22,
+            "|move|p2a: Sableye|Calm Mind|p2a: Sableye"
+          ],
+          [
+            22,
+            "|-boost|p2a: Sableye|spa|1"
+          ],
+          [
+            22,
+            "|-boost|p2a: Sableye|spd|1"
+          ],
+          [
+            23,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            23,
+            "|-damage|p2a: Sableye|6/100"
+          ],
+          [
+            23,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            23,
+            "|-heal|p2a: Sableye|56/100"
+          ],
+          [
+            24,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            24,
+            "|-damage|p2a: Sableye|23/100"
+          ],
+          [
+            24,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            24,
+            "|-heal|p2a: Sableye|73/100"
+          ],
+          [
+            25,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            25,
+            "|-damage|p2a: Sableye|38/100"
+          ],
+          [
+            25,
+            "|cant|p2a: Sableye|flinch"
+          ],
+          [
+            26,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            26,
+            "|-damage|p2a: Sableye|3/100"
+          ],
+          [
+            26,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            26,
+            "|-heal|p2a: Sableye|53/100"
+          ],
+          [
+            27,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            27,
+            "|-damage|p2a: Sableye|21/100"
+          ],
+          [
+            27,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            27,
+            "|-heal|p2a: Sableye|71/100"
+          ],
+          [
+            28,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            28,
+            "|-damage|p2a: Sableye|39/100"
+          ],
+          [
+            28,
+            "|move|p2a: Sableye|Calm Mind|p2a: Sableye"
+          ],
+          [
+            28,
+            "|-boost|p2a: Sableye|spa|1"
+          ],
+          [
+            28,
+            "|-boost|p2a: Sableye|spd|1"
+          ],
+          [
+            29,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            29,
+            "|-damage|p2a: Sableye|11/100"
+          ],
+          [
+            29,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            29,
+            "|-heal|p2a: Sableye|61/100"
+          ],
+          [
+            30,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            30,
+            "|-damage|p2a: Sableye|31/100"
+          ],
+          [
+            30,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            30,
+            "|-heal|p2a: Sableye|81/100"
+          ],
+          [
+            31,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            31,
+            "|-damage|p2a: Sableye|54/100"
+          ],
+          [
+            31,
+            "|cant|p2a: Sableye|flinch"
+          ],
+          [
+            32,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            32,
+            "|-damage|p2a: Sableye|27/100"
+          ],
+          [
+            32,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            32,
+            "|-heal|p2a: Sableye|77/100"
+          ],
+          [
+            33,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            33,
+            "|-damage|p2a: Sableye|47/100"
+          ],
+          [
+            33,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            33,
+            "|-heal|p2a: Sableye|97/100"
+          ],
+          [
+            34,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye"
+          ],
+          [
+            34,
+            "|-damage|p2a: Sableye|71/100"
+          ],
+          [
+            34,
+            "|move|p2a: Sableye|Shadow Ball|p1a: Star Platinum"
+          ],
+          [
+            35,
+            "|move|p1a: Gym Leader Geo|Return|p2a: Sableye"
+          ],
+          [
+            35,
+            "|-damage|p2a: Sableye|18/100"
+          ],
+          [
+            35,
+            "|move|p2a: Sableye|Shadow Ball|p1a: Gym Leader Geo"
+          ],
+          [
+            46,
+            "|switch|p2a: Sableye|Sableye-Mega|18/100"
+          ],
+          [
+            46,
+            "|-heal|p2a: Sableye|100/100|[from] move: Healing Wish"
+          ],
+          [
+            47,
+            "|move|p1a: Oak|Toxic|p2a: Sableye"
+          ],
+          [
+            47,
+            "|move|p2a: Sableye|Toxic|p1a: Oak|[from]Magic Bounce|[miss]"
+          ],
+          [
+            47,
+            "|-miss|p2a: Sableye|p1a: Oak"
+          ],
+          [
+            47,
+            "|move|p2a: Sableye|Calm Mind|p2a: Sableye"
+          ],
+          [
+            47,
+            "|-boost|p2a: Sableye|spa|1"
+          ],
+          [
+            47,
+            "|-boost|p2a: Sableye|spd|1"
+          ],
+          [
+            48,
+            "|move|p1a: Oak|Flare Blitz|p2a: Sableye"
+          ],
+          [
+            48,
+            "|-damage|p2a: Sableye|70/100"
+          ],
+          [
+            48,
+            "|move|p2a: Sableye|Shadow Ball|p1a: Oak"
+          ],
+          [
+            49,
+            "|move|p1a: My son|Stone Edge|p2a: Sableye"
+          ],
+          [
+            49,
+            "|-damage|p2a: Sableye|44/100"
+          ],
+          [
+            49,
+            "|move|p2a: Sableye|Shadow Ball|p1a: My son"
+          ],
+          [
+            50,
+            "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye"
+          ],
+          [
+            50,
+            "|-damage|p2a: Sableye|21/100"
+          ],
+          [
+            50,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            50,
+            "|-heal|p2a: Sableye|71/100"
+          ],
+          [
+            51,
+            "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye"
+          ],
+          [
+            51,
+            "|-damage|p2a: Sableye|48/100"
+          ],
+          [
+            51,
+            "|move|p2a: Sableye|Calm Mind|p2a: Sableye"
+          ],
+          [
+            51,
+            "|-boost|p2a: Sableye|spa|1"
+          ],
+          [
+            51,
+            "|-boost|p2a: Sableye|spd|1"
+          ],
+          [
+            52,
+            "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye"
+          ],
+          [
+            52,
+            "|-damage|p2a: Sableye|24/100"
+          ],
+          [
+            52,
+            "|move|p2a: Sableye|Recover|p2a: Sableye"
+          ],
+          [
+            52,
+            "|-heal|p2a: Sableye|74/100"
+          ],
+          [
+            53,
+            "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye"
+          ],
+          [
+            53,
+            "|-damage|p2a: Sableye|49/100"
+          ],
+          [
+            53,
+            "|move|p2a: Sableye|Shadow Ball|p1a: Best deffoger"
+          ],
+          [
+            54,
+            "|move|p1a: BIG PUMPY|Scald|p2a: Sableye"
+          ],
+          [
+            54,
+            "|-damage|p2a: Sableye|37/100"
+          ],
+          [
+            54,
+            "|move|p2a: Sableye|Shadow Ball|p1a: BIG PUMPY"
+          ],
+          [
+            55,
+            "|move|p2a: Sableye|Shadow Ball|p1a: BIG PUMPY"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Clefable",
+        "startform": "Clefable",
+        "nickname": "Clefable",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "ded",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 1.15,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            8,
+            "|switch|p2a: Clefable|Clefable|100/100"
+          ],
+          [
+            8,
+            "|move|p1a: Star Platinum|Dark Pulse|p2a: Clefable"
+          ],
+          [
+            8,
+            "|-resisted|p2a: Clefable"
+          ],
+          [
+            8,
+            "|-damage|p2a: Clefable|70/100"
+          ],
+          [
+            8,
+            "|-heal|p2a: Clefable|76/100|[from] item: Leftovers"
+          ],
+          [
+            13,
+            "|switch|p2a: Clefable|Clefable|76/100"
+          ],
+          [
+            13,
+            "|move|p1a: Star Platinum|Shadow Ball|p2a: Clefable"
+          ],
+          [
+            13,
+            "|-damage|p2a: Clefable|39/100"
+          ],
+          [
+            13,
+            "|-heal|p2a: Clefable|46/100|[from] item: Leftovers"
+          ],
+          [
+            14,
+            "|move|p2a: Clefable|Moonlight|p2a: Clefable"
+          ],
+          [
+            14,
+            "|-heal|p2a: Clefable|95/100"
+          ],
+          [
+            14,
+            "|-heal|p2a: Clefable|100/100|[from] item: Leftovers"
+          ],
+          [
+            15,
+            "|move|p2a: Clefable|Fire Blast|p1a: Star Platinum"
+          ],
+          [
+            16,
+            "|move|p2a: Clefable|Moonblast|p1a: BIG PUMPY"
+          ],
+          [
+            45,
+            "|switch|p2a: Clefable|Clefable|100/100"
+          ],
+          [
+            46,
+            "|move|p2a: Clefable|Healing Wish|p2a: Clefable"
+          ],
+          [
+            46,
+            "|faint|p2a: Clefable"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Rotom-Heat",
+        "startform": "Rotom",
+        "nickname": "Rotom",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.03,
+        "remaininghealth": 100,
+        "lines": [
+          [
+            0,
+            "|switch|p2a: Rotom|Rotom-Heat|100/100"
+          ],
+          [
+            1,
+            "|move|p2a: Rotom|Will-O-Wisp|p1a: Oak"
+          ],
+          [
+            2,
+            "|move|p2a: Rotom|Volt Switch|p1a: Oak"
+          ],
+          [
+            44,
+            "|switch|p2a: Rotom|Rotom-Heat|100/100"
+          ],
+          [
+            45,
+            "|move|p2a: Rotom|Volt Switch|p1a: My son"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Scyther",
+        "startform": "Scyther",
+        "nickname": "Scyther",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.12,
+        "remaininghealth": 100,
+        "lines": [
+          [
+            40,
+            "|switch|p2a: Scyther|Scyther|100/100"
+          ],
+          [
+            41,
+            "|move|p2a: Scyther|Aerial Ace|p1a: Oak"
+          ],
+          [
+            42,
+            "|move|p2a: Scyther|Aerial Ace|p1a: Oak"
+          ],
+          [
+            43,
+            "|move|p2a: Scyther|Aerial Ace|p1a: Best deffoger"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Nihilego",
+        "startform": "Nihilego",
+        "nickname": "Nihilego",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -1.24,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            2,
+            "|switch|p2a: Nihilego|Nihilego|100/100"
+          ],
+          [
+            2,
+            "|move|p1a: Oak|Flare Blitz|p2a: Nihilego"
+          ],
+          [
+            2,
+            "|-resisted|p2a: Nihilego"
+          ],
+          [
+            2,
+            "|-crit|p2a: Nihilego"
+          ],
+          [
+            2,
+            "|-damage|p2a: Nihilego|18/100"
+          ],
+          [
+            3,
+            "|move|p2a: Nihilego|Power Gem|p1a: My son"
+          ],
+          [
+            9,
+            "|switch|p2a: Nihilego|Nihilego|18/100"
+          ],
+          [
+            10,
+            "|move|p2a: Nihilego|Stealth Rock|p1a: My son"
+          ],
+          [
+            11,
+            "|move|p2a: Nihilego|Sludge Wave|p1a: My son"
+          ],
+          [
+            11,
+            "|move|p1a: My son|Stone Edge|p2a: Nihilego"
+          ],
+          [
+            11,
+            "|-damage|p2a: Nihilego|0 fnt"
+          ],
+          [
+            11,
+            "|faint|p2a: Nihilego"
+          ]
+        ]
+      }
+    ],
+    "wins": 1,
+    "forfeit": 0,
+    "score": 3,
+    "megaevolved": true,
+    "usedzmove": false,
+    "timesswitched": 12,
+    "selfdeaths": 0,
+    "remaininghealth": "237/600",
+    "kills": 6,
+    "deaths": 3,
+    "luck": -0.58,
+    "damagedone": 0,
+    "hphealed": 0,
+    "support": 0
+  },
+  "numberofturns": 55,
   "turns": [
     {
       "0": [
-        "|switch|p1a: Torterra|Torterra|100/100",
-        "|switch|p2a: Amir|Mienshao|100/100"
+        "|switch|p1a: Star Platinum|Hoopa-Unbound|100/100",
+        "|switch|p2a: Rotom|Rotom-Heat|100/100"
       ]
     },
     {
       "1": [
-        "|move|p2a: Amir|High Jump Kick|p1a: Torterra",
-        "|-damage|p1a: Torterra|58/100",
-        "|move|p1a: Torterra|Reflect|p1a: Torterra",
-        "|-sidestart|p1: muskrat catcher|Reflect"
+        "|switch|p1a: Oak|Arcanine|100/100",
+        "|move|p2a: Rotom|Will-O-Wisp|p1a: Oak",
+        "|-start|p1a: Oak|ability: Flash Fire"
       ]
     },
     {
       "2": [
-        "|switch|p2a: Rotom A Letter|Rotom|100/100",
-        "|move|p1a: Torterra|Synthesis|p1a: Torterra",
-        "|-heal|p1a: Torterra|100/100"
+        "|move|p2a: Rotom|Volt Switch|p1a: Oak",
+        "|-damage|p1a: Oak|81/100",
+        "|switch|p2a: Nihilego|Nihilego|100/100",
+        "|move|p1a: Oak|Flare Blitz|p2a: Nihilego",
+        "|-resisted|p2a: Nihilego",
+        "|-crit|p2a: Nihilego",
+        "|-damage|p2a: Nihilego|18/100",
+        "|-damage|p1a: Oak|55/100|[from] Recoil"
       ]
     },
     {
       "3": [
-        "|move|p2a: Rotom A Letter|Hidden Power|p1a: Torterra",
-        "|-supereffective|p1a: Torterra",
-        "|-damage|p1a: Torterra|33/100",
-        "|move|p1a: Torterra|Wood Hammer|p2a: Rotom A Letter",
-        "|-damage|p2a: Rotom A Letter|0 fnt",
-        "|-damage|p1a: Torterra|11/100|[from] Recoil",
-        "|faint|p2a: Rotom A Letter",
-        "|switch|p2a: Amir|Mienshao|100/100"
+        "|-end|p1a: Oak|ability: Flash Fire|[silent]",
+        "|switch|p1a: My son|Machamp|100/100",
+        "|move|p2a: Nihilego|Power Gem|p1a: My son",
+        "|-resisted|p1a: My son",
+        "|-damage|p1a: My son|87/100"
       ]
     },
     {
       "4": [
-        "|move|p2a: Amir|U-turn|p1a: Torterra",
-        "|-supereffective|p1a: Torterra",
-        "|-damage|p1a: Torterra|0 fnt",
-        "|faint|p1a: Torterra",
-        "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100|[from]move: U-turn",
-        "|switch|p1a: Cobalion|Cobalion|100/100"
+        "|switch|p2a: Sableye|Sableye|100/100",
+        "|move|p1a: My son|Knock Off|p2a: Sableye",
+        "|-damage|p2a: Sableye|77/100"
       ]
     },
     {
       "5": [
-        "|switch|p2a: Amir|Mienshao|100/100",
-        "|move|p1a: Cobalion|Taunt|p2a: Amir",
-        "|-start|p2a: Amir|move: Taunt"
+        "|switch|p1a: Oak|Arcanine|55/100",
+        "|move|p2a: Sableye|Calm Mind|p2a: Sableye",
+        "|-boost|p2a: Sableye|spa|1",
+        "|-boost|p2a: Sableye|spd|1"
       ]
     },
     {
       "6": [
-        "|move|p2a: Amir|U-turn|p1a: Cobalion",
-        "|-resisted|p1a: Cobalion",
-        "|-damage|p1a: Cobalion|98/100",
-        "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100|[from]move: U-turn",
-        "|move|p1a: Cobalion|Stealth Rock|p2a: DragonsGuardingFri",
-        "|-sidestart|p2: claduva|move: Stealth Rock"
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|100/100",
+        "|move|p1a: Oak|Roar|p2a: Sableye",
+        "|move|p2a: Sableye|Roar|p1a: Oak|[from]Magic Bounce",
+        "|drag|p1a: Star Platinum|Hoopa-Unbound|100/100"
       ]
     },
     {
       "7": [
-        "|move|p1a: Cobalion|Taunt|p2a: DragonsGuardingFri",
-        "|-start|p2a: DragonsGuardingFri|move: Taunt",
-        "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Cobalion",
-        "|-resisted|p1a: Cobalion",
-        "|-damage|p1a: Cobalion|84/100"
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|44/100",
+        "|move|p2a: Sableye|Calm Mind|p2a: Sableye",
+        "|-boost|p2a: Sableye|spa|1",
+        "|-boost|p2a: Sableye|spd|1"
       ]
     },
     {
       "8": [
-        "|switch|p1a: Scolipede|Scolipede|100/100",
-        "|switch|p2a: Amir|Mienshao|100/100",
-        "|-damage|p2a: Amir|94/100|[from] Stealth Rock",
-        "|-sideend|p1: muskrat catcher|Reflect"
+        "|switch|p2a: Clefable|Clefable|100/100",
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Clefable",
+        "|-resisted|p2a: Clefable",
+        "|-damage|p2a: Clefable|70/100",
+        "|-heal|p2a: Clefable|76/100|[from] item: Leftovers"
       ]
     },
     {
       "9": [
-        "|move|p2a: Amir|Stone Edge|p1a: Scolipede",
-        "|-supereffective|p1a: Scolipede",
-        "|-damage|p1a: Scolipede|4/100",
-        "|move|p1a: Scolipede|Swords Dance|p1a: Scolipede",
-        "|-boost|p1a: Scolipede|atk|2",
-        "|-ability|p1a: Scolipede|Speed Boost|boost",
-        "|-boost|p1a: Scolipede|spe|1"
+        "|switch|p1a: Oak|Arcanine|55/100",
+        "|switch|p2a: Nihilego|Nihilego|18/100"
       ]
     },
     {
       "10": [
-        "|switch|p2a: BabySharkDooDooDoo|Garchomp|100/100",
-        "|-damage|p2a: BabySharkDooDooDoo|94/100|[from] Stealth Rock",
-        "|move|p1a: Scolipede|Earthquake|p2a: BabySharkDooDooDoo",
-        "|-damage|p2a: BabySharkDooDooDoo|54/100",
-        "|-ability|p1a: Scolipede|Speed Boost|boost",
-        "|-boost|p1a: Scolipede|spe|1"
+        "|switch|p1a: My son|Machamp|87/100",
+        "|move|p2a: Nihilego|Stealth Rock|p1a: My son",
+        "|-sidestart|p1: BordeauxBewears|move: Stealth Rock"
       ]
     },
     {
       "11": [
-        "|move|p1a: Scolipede|Megahorn|p2a: BabySharkDooDooDoo",
-        "|-damage|p2a: BabySharkDooDooDoo|0 fnt",
-        "|faint|p2a: BabySharkDooDooDoo",
-        "|-ability|p1a: Scolipede|Speed Boost|boost",
-        "|-boost|p1a: Scolipede|spe|1",
-        "|switch|p2a: Ex Girlfriend|Tyranitar|100/100",
-        "|-damage|p2a: Ex Girlfriend|88/100|[from] Stealth Rock",
-        "|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Ex Girlfriend"
+        "|move|p2a: Nihilego|Sludge Wave|p1a: My son",
+        "|-damage|p1a: My son|54/100",
+        "|move|p1a: My son|Stone Edge|p2a: Nihilego",
+        "|-damage|p2a: Nihilego|0 fnt",
+        "|faint|p2a: Nihilego",
+        "|switch|p2a: Sableye|Sableye-Mega|44/100"
       ]
     },
     {
       "12": [
-        "|move|p1a: Scolipede|Earthquake|p2a: Ex Girlfriend",
-        "|-supereffective|p2a: Ex Girlfriend",
-        "|-damage|p2a: Ex Girlfriend|0 fnt",
-        "|faint|p2a: Ex Girlfriend",
-        "|-weather|Sandstorm|[upkeep]",
-        "|-damage|p1a: Scolipede|0 fnt|[from] Sandstorm",
-        "|faint|p1a: Scolipede",
-        "|switch|p1a: Gyarados|Gyarados|100/100",
-        "|switch|p2a: 6.02*10^23 Drills|Excadrill|100/100",
-        "|-damage|p2a: 6.02*10^23 Drills|97/100|[from] Stealth Rock",
-        "|-ability|p1a: Gyarados|Intimidate|boost",
-        "|-unboost|p2a: 6.02*10^23 Drills|atk|1"
+        "|switch|p1a: Star Platinum|Hoopa-Unbound|100/100",
+        "|-damage|p1a: Star Platinum|88/100|[from] Stealth Rock",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|94/100"
       ]
     },
     {
       "13": [
-        "|move|p2a: 6.02*10^23 Drills|Continental Crush|p1a: Gyarados|[zeffect]",
-        "|-supereffective|p1a: Gyarados",
-        "|-damage|p1a: Gyarados|8/100",
-        "|move|p1a: Gyarados|Dragon Dance|p1a: Gyarados",
-        "|-boost|p1a: Gyarados|atk|1",
-        "|-boost|p1a: Gyarados|spe|1",
-        "|-weather|Sandstorm|[upkeep]",
-        "|-damage|p1a: Gyarados|2/100|[from] Sandstorm"
+        "|switch|p2a: Clefable|Clefable|76/100",
+        "|move|p1a: Star Platinum|Shadow Ball|p2a: Clefable",
+        "|-damage|p2a: Clefable|39/100",
+        "|-heal|p2a: Clefable|46/100|[from] item: Leftovers"
       ]
     },
     {
       "14": [
-        "|switch|p1a: Cobalion|Cobalion|84/100",
-        "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion",
-        "|-resisted|p1a: Cobalion",
-        "|-damage|p1a: Cobalion|72/100",
-        "|-weather|Sandstorm|[upkeep]"
+        "|switch|p1a: Best deffoger|Skarmory|100/100",
+        "|-damage|p1a: Best deffoger|88/100|[from] Stealth Rock",
+        "|move|p2a: Clefable|Moonlight|p2a: Clefable",
+        "|-heal|p2a: Clefable|95/100",
+        "|-heal|p1a: Best deffoger|94/100|[from] item: Leftovers",
+        "|-heal|p2a: Clefable|100/100|[from] item: Leftovers"
       ]
     },
     {
       "15": [
-        "|switch|p1a: Cryogonal|Cryogonal|100/100",
-        "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cryogonal",
-        "|-immune|p1a: Cryogonal|[from] ability: Levitate",
-        "|-weather|Sandstorm|[upkeep]"
+        "|switch|p1a: Star Platinum|Hoopa-Unbound|88/100",
+        "|-damage|p1a: Star Platinum|76/100|[from] Stealth Rock",
+        "|move|p2a: Clefable|Fire Blast|p1a: Star Platinum",
+        "|-damage|p1a: Star Platinum|54/100"
       ]
     },
     {
       "16": [
-        "|switch|p1a: Cobalion|Cobalion|72/100",
-        "|move|p2a: 6.02*10^23 Drills|Iron Head|p1a: Cobalion",
-        "|-resisted|p1a: Cobalion",
-        "|-damage|p1a: Cobalion|58/100",
-        "|-weather|none"
+        "|switch|p1a: BIG PUMPY|Blastoise|100/100",
+        "|-damage|p1a: BIG PUMPY|88/100|[from] Stealth Rock",
+        "|move|p2a: Clefable|Moonblast|p1a: BIG PUMPY",
+        "|-crit|p1a: BIG PUMPY",
+        "|-damage|p1a: BIG PUMPY|46/100",
+        "|-unboost|p1a: BIG PUMPY|spa|1",
+        "|-heal|p1a: BIG PUMPY|52/100|[from] item: Leftovers"
       ]
     },
     {
       "17": [
-        "|move|p1a: Cobalion|Stone Edge|p2a: 6.02*10^23 Drills|[miss]",
-        "|-miss|p1a: Cobalion|p2a: 6.02*10^23 Drills",
-        "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Cobalion",
-        "|-supereffective|p1a: Cobalion",
-        "|-crit|p1a: Cobalion",
-        "|-damage|p1a: Cobalion|0 fnt",
-        "|faint|p1a: Cobalion",
-        "|switch|p1a: Zygarde|Zygarde-10%|100/100",
-        "|-ability|p1a: Zygarde|Aura Break"
+        "|switch|p2a: Sableye|Sableye-Mega|94/100",
+        "|move|p1a: BIG PUMPY|Scald|p2a: Sableye",
+        "|-damage|p2a: Sableye|78/100",
+        "|-heal|p1a: BIG PUMPY|58/100|[from] item: Leftovers"
       ]
     },
     {
       "18": [
-        "|move|p1a: Zygarde|Dragon Dance|p1a: Zygarde",
-        "|-boost|p1a: Zygarde|atk|1",
-        "|-boost|p1a: Zygarde|spe|1",
-        "|move|p2a: 6.02*10^23 Drills|Earthquake|p1a: Zygarde",
-        "|-damage|p1a: Zygarde|35/100"
+        "|move|p1a: BIG PUMPY|Scald|p2a: Sableye",
+        "|-damage|p2a: Sableye|61/100",
+        "|move|p2a: Sableye|Calm Mind|p2a: Sableye",
+        "|-boost|p2a: Sableye|spa|1",
+        "|-boost|p2a: Sableye|spd|1",
+        "|-heal|p1a: BIG PUMPY|64/100|[from] item: Leftovers"
       ]
     },
     {
       "19": [
-        "|move|p1a: Zygarde|Thousand Arrows|p2a: 6.02*10^23 Drills",
-        "|-supereffective|p2a: 6.02*10^23 Drills",
-        "|-damage|p2a: 6.02*10^23 Drills|0 fnt",
-        "|-damage|p1a: Zygarde|25/100|[from] item: Life Orb",
-        "|faint|p2a: 6.02*10^23 Drills",
-        "|switch|p2a: DragonsGuardingFri|Amoonguss|100/100",
-        "|-damage|p2a: DragonsGuardingFri|88/100|[from] Stealth Rock"
+        "|switch|p1a: Star Platinum|Hoopa-Unbound|54/100",
+        "|-damage|p1a: Star Platinum|42/100|[from] Stealth Rock",
+        "|move|p2a: Sableye|Calm Mind|p2a: Sableye",
+        "|-boost|p2a: Sableye|spa|1",
+        "|-boost|p2a: Sableye|spd|1"
       ]
     },
     {
       "20": [
-        "|move|p1a: Zygarde|Outrage|p2a: DragonsGuardingFri",
-        "|-damage|p2a: DragonsGuardingFri|2/100",
-        "|-damage|p1a: Zygarde|15/100|[from] item: Life Orb",
-        "|move|p2a: DragonsGuardingFri|Giga Drain|p1a: Zygarde",
-        "|-damage|p1a: Zygarde|0 fnt",
-        "|-heal|p2a: DragonsGuardingFri|7/100|[from] drain|[of] p1a: Zygarde",
-        "|faint|p1a: Zygarde",
-        "|-heal|p2a: DragonsGuardingFri|13/100|[from] item: Black Sludge",
-        "|switch|p1a: Cryogonal|Cryogonal|100/100"
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|19/100",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|69/100"
       ]
     },
     {
       "21": [
-        "|switch|p2a: Amir|Mienshao|100/100",
-        "|-damage|p2a: Amir|94/100|[from] Stealth Rock",
-        "|move|p1a: Cryogonal|Ice Beam|p2a: Amir",
-        "|-damage|p2a: Amir|39/100",
-        "|-status|p2a: Amir|frz"
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|31/100",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|81/100"
       ]
     },
     {
       "22": [
-        "|switch|p2a: DragonsGuardingFri|Amoonguss|46/100",
-        "|-damage|p2a: DragonsGuardingFri|34/100|[from] Stealth Rock",
-        "|move|p1a: Cryogonal|Ice Beam|p2a: DragonsGuardingFri",
-        "|-supereffective|p2a: DragonsGuardingFri",
-        "|-damage|p2a: DragonsGuardingFri|0 fnt",
-        "|faint|p2a: DragonsGuardingFri",
-        "|switch|p2a: Amir|Mienshao|72/100 frz",
-        "|-damage|p2a: Amir|66/100 frz|[from] Stealth Rock"
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|41/100",
+        "|move|p2a: Sableye|Calm Mind|p2a: Sableye",
+        "|-boost|p2a: Sableye|spa|1",
+        "|-boost|p2a: Sableye|spd|1"
       ]
     },
     {
       "23": [
-        "|cant|p2a: Amir|frz",
-        "|move|p1a: Cryogonal|Knock Off|p2a: Amir",
-        "|-resisted|p2a: Amir",
-        "|-damage|p2a: Amir|55/100 frz",
-        "|-enditem|p2a: Amir|Choice Scarf|[from] move: Knock Off|[of] p1a: Cryogonal"
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|6/100",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|56/100"
       ]
     },
     {
       "24": [
-        "|move|p1a: Cryogonal|Ice Beam|p2a: Amir",
-        "|-damage|p2a: Amir|2/100 frz",
-        "|cant|p2a: Amir|frz"
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|23/100",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|73/100"
       ]
     },
     {
       "25": [
-        "|move|p1a: Cryogonal|Ice Beam|p2a: Amir",
-        "|-damage|p2a: Amir|0 fnt",
-        "|faint|p2a: Amir"
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|38/100",
+        "|cant|p2a: Sableye|flinch"
+      ]
+    },
+    {
+      "26": [
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|3/100",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|53/100"
+      ]
+    },
+    {
+      "27": [
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|21/100",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|71/100"
+      ]
+    },
+    {
+      "28": [
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|39/100",
+        "|move|p2a: Sableye|Calm Mind|p2a: Sableye",
+        "|-boost|p2a: Sableye|spa|1",
+        "|-boost|p2a: Sableye|spd|1"
+      ]
+    },
+    {
+      "29": [
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|11/100",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|61/100"
+      ]
+    },
+    {
+      "30": [
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|31/100",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|81/100"
+      ]
+    },
+    {
+      "31": [
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|54/100",
+        "|cant|p2a: Sableye|flinch"
+      ]
+    },
+    {
+      "32": [
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|27/100",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|77/100"
+      ]
+    },
+    {
+      "33": [
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|47/100",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|97/100"
+      ]
+    },
+    {
+      "34": [
+        "|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye",
+        "|-damage|p2a: Sableye|71/100",
+        "|move|p2a: Sableye|Shadow Ball|p1a: Star Platinum",
+        "|-damage|p1a: Star Platinum|0 fnt",
+        "|faint|p1a: Star Platinum",
+        "|switch|p1a: Gym Leader Geo|Pinsir|100/100",
+        "|-damage|p1a: Gym Leader Geo|76/100|[from] Stealth Rock"
+      ]
+    },
+    {
+      "35": [
+        "|move|p1a: Gym Leader Geo|Return|p2a: Sableye",
+        "|-damage|p2a: Sableye|18/100",
+        "|move|p2a: Sableye|Shadow Ball|p1a: Gym Leader Geo",
+        "|-damage|p1a: Gym Leader Geo|0 fnt",
+        "|faint|p1a: Gym Leader Geo",
+        "|switch|p1a: Oak|Arcanine|55/100",
+        "|-damage|p1a: Oak|30/100|[from] Stealth Rock"
+      ]
+    },
+    {
+      "36": [
+        "|switch|p2a: Doublade|Doublade|100/100",
+        "|move|p1a: Oak|Flare Blitz|p2a: Doublade",
+        "|-supereffective|p2a: Doublade",
+        "|-damage|p2a: Doublade|48/100",
+        "|-damage|p1a: Oak|16/100|[from] Recoil",
+        "|-enditem|p1a: Oak|Iapapa Berry|[eat]",
+        "|-heal|p1a: Oak|66/100|[from] item: Iapapa Berry"
+      ]
+    },
+    {
+      "37": [
+        "|move|p2a: Doublade|Shadow Sneak|p1a: Oak",
+        "|-damage|p1a: Oak|44/100",
+        "|move|p1a: Oak|Flare Blitz|p2a: Doublade",
+        "|-supereffective|p2a: Doublade",
+        "|-damage|p2a: Doublade|5/100",
+        "|-damage|p1a: Oak|32/100|[from] Recoil"
+      ]
+    },
+    {
+      "38": [
+        "|move|p1a: Oak|Morning Sun|p1a: Oak",
+        "|-heal|p1a: Oak|82/100",
+        "|move|p2a: Doublade|Swords Dance|p2a: Doublade",
+        "|-boost|p2a: Doublade|atk|2"
+      ]
+    },
+    {
+      "39": [
+        "|move|p2a: Doublade|Shadow Sneak|p1a: Oak",
+        "|-damage|p1a: Oak|43/100",
+        "|move|p1a: Oak|Morning Sun|p1a: Oak",
+        "|-heal|p1a: Oak|92/100"
+      ]
+    },
+    {
+      "40": [
+        "|move|p2a: Doublade|Shadow Sneak|p1a: Oak",
+        "|-damage|p1a: Oak|50/100",
+        "|move|p1a: Oak|Flare Blitz|p2a: Doublade",
+        "|-supereffective|p2a: Doublade",
+        "|-damage|p2a: Doublade|0 fnt",
+        "|-damage|p1a: Oak|49/100|[from] Recoil",
+        "|faint|p2a: Doublade",
+        "|switch|p2a: Scyther|Scyther|100/100"
+      ]
+    },
+    {
+      "41": [
+        "|move|p2a: Scyther|Aerial Ace|p1a: Oak",
+        "|-damage|p1a: Oak|5/100",
+        "|move|p1a: Oak|Morning Sun|p1a: Oak",
+        "|-heal|p1a: Oak|55/100"
+      ]
+    },
+    {
+      "42": [
+        "|move|p2a: Scyther|Aerial Ace|p1a: Oak",
+        "|-damage|p1a: Oak|8/100",
+        "|move|p1a: Oak|Morning Sun|p1a: Oak",
+        "|-heal|p1a: Oak|58/100"
+      ]
+    },
+    {
+      "43": [
+        "|switch|p1a: Best deffoger|Skarmory|94/100",
+        "|-damage|p1a: Best deffoger|82/100|[from] Stealth Rock",
+        "|move|p2a: Scyther|Aerial Ace|p1a: Best deffoger",
+        "|-resisted|p1a: Best deffoger",
+        "|-damage|p1a: Best deffoger|70/100",
+        "|-heal|p1a: Best deffoger|76/100|[from] item: Leftovers"
+      ]
+    },
+    {
+      "44": [
+        "|switch|p2a: Rotom|Rotom-Heat|100/100",
+        "|switch|p1a: BIG PUMPY|Blastoise|64/100",
+        "|-damage|p1a: BIG PUMPY|51/100|[from] Stealth Rock",
+        "|-heal|p1a: BIG PUMPY|58/100|[from] item: Leftovers"
+      ]
+    },
+    {
+      "45": [
+        "|switch|p1a: My son|Machamp|54/100",
+        "|-damage|p1a: My son|48/100|[from] Stealth Rock",
+        "|move|p2a: Rotom|Volt Switch|p1a: My son",
+        "|-damage|p1a: My son|31/100",
+        "|switch|p2a: Clefable|Clefable|100/100"
+      ]
+    },
+    {
+      "46": [
+        "|switch|p1a: Oak|Arcanine|58/100",
+        "|-damage|p1a: Oak|33/100|[from] Stealth Rock",
+        "|move|p2a: Clefable|Healing Wish|p2a: Clefable",
+        "|faint|p2a: Clefable",
+        "|switch|p2a: Sableye|Sableye-Mega|18/100",
+        "|-heal|p2a: Sableye|100/100|[from] move: Healing Wish"
+      ]
+    },
+    {
+      "47": [
+        "|move|p1a: Oak|Toxic|p2a: Sableye",
+        "|move|p2a: Sableye|Toxic|p1a: Oak|[from]Magic Bounce|[miss]",
+        "|-miss|p2a: Sableye|p1a: Oak",
+        "|move|p2a: Sableye|Calm Mind|p2a: Sableye",
+        "|-boost|p2a: Sableye|spa|1",
+        "|-boost|p2a: Sableye|spd|1"
+      ]
+    },
+    {
+      "48": [
+        "|move|p1a: Oak|Flare Blitz|p2a: Sableye",
+        "|-damage|p2a: Sableye|70/100",
+        "|-damage|p1a: Oak|25/100|[from] Recoil",
+        "|move|p2a: Sableye|Shadow Ball|p1a: Oak",
+        "|-damage|p1a: Oak|0 fnt",
+        "|faint|p1a: Oak",
+        "|switch|p1a: My son|Machamp|31/100",
+        "|-damage|p1a: My son|24/100|[from] Stealth Rock"
+      ]
+    },
+    {
+      "49": [
+        "|move|p1a: My son|Stone Edge|p2a: Sableye",
+        "|-damage|p2a: Sableye|44/100",
+        "|move|p2a: Sableye|Shadow Ball|p1a: My son",
+        "|-damage|p1a: My son|0 fnt",
+        "|faint|p1a: My son",
+        "|switch|p1a: Best deffoger|Skarmory|76/100",
+        "|-damage|p1a: Best deffoger|64/100|[from] Stealth Rock"
+      ]
+    },
+    {
+      "50": [
+        "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye",
+        "|-damage|p2a: Sableye|21/100",
+        "|-damage|p1a: Best deffoger|57/100|[from] Recoil",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|71/100",
+        "|-heal|p1a: Best deffoger|63/100|[from] item: Leftovers"
+      ]
+    },
+    {
+      "51": [
+        "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye",
+        "|-damage|p2a: Sableye|48/100",
+        "|-damage|p1a: Best deffoger|56/100|[from] Recoil",
+        "|move|p2a: Sableye|Calm Mind|p2a: Sableye",
+        "|-boost|p2a: Sableye|spa|1",
+        "|-boost|p2a: Sableye|spd|1",
+        "|-heal|p1a: Best deffoger|62/100|[from] item: Leftovers"
+      ]
+    },
+    {
+      "52": [
+        "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye",
+        "|-damage|p2a: Sableye|24/100",
+        "|-damage|p1a: Best deffoger|55/100|[from] Recoil",
+        "|move|p2a: Sableye|Recover|p2a: Sableye",
+        "|-heal|p2a: Sableye|74/100",
+        "|-heal|p1a: Best deffoger|61/100|[from] item: Leftovers"
+      ]
+    },
+    {
+      "53": [
+        "|move|p1a: Best deffoger|Brave Bird|p2a: Sableye",
+        "|-damage|p2a: Sableye|49/100",
+        "|-damage|p1a: Best deffoger|53/100|[from] Recoil",
+        "|move|p2a: Sableye|Shadow Ball|p1a: Best deffoger",
+        "|-damage|p1a: Best deffoger|0 fnt",
+        "|faint|p1a: Best deffoger",
+        "|switch|p1a: BIG PUMPY|Blastoise|58/100",
+        "|-damage|p1a: BIG PUMPY|45/100|[from] Stealth Rock"
+      ]
+    },
+    {
+      "54": [
+        "|move|p1a: BIG PUMPY|Scald|p2a: Sableye",
+        "|-damage|p2a: Sableye|37/100",
+        "|move|p2a: Sableye|Shadow Ball|p1a: BIG PUMPY",
+        "|-damage|p1a: BIG PUMPY|7/100",
+        "|-heal|p1a: BIG PUMPY|13/100|[from] item: Leftovers"
+      ]
+    },
+    {
+      "55": [
+        "|move|p1a: BIG PUMPY|Refresh|p1a: BIG PUMPY",
+        "|-fail|p1a: BIG PUMPY",
+        "|move|p2a: Sableye|Shadow Ball|p1a: BIG PUMPY",
+        "|-damage|p1a: BIG PUMPY|0 fnt",
+        "|faint|p1a: BIG PUMPY"
       ]
     }
   ],
-  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-952928893",
+  "replay": "https://replay.pokemonshowdown.com/draftfrontier-gen7draftleaguetier-70868",
   "significantevents": [
     [
-      3,
-      "Rotom was killed by Torterra."
-    ],
-    [
-      4,
-      "Torterra was killed by Mienshao."
-    ],
-    [
-      9,
-      "Scolipede was killed by Mienshao."
+      2,
+      "Arcanine landed a critical hit on Nihilego with Flare Blitz."
     ],
     [
       11,
-      "Garchomp-Mega was killed by Scolipede."
+      "Nihilego was killed by Machamp."
     ],
     [
-      12,
-      "Tyranitar was killed by Scolipede."
+      16,
+      "Clefable landed a critical hit on Blastoise with Moonblast."
     ],
     [
-      17,
-      "Cobalion missed Stone Edge vs Excadrill."
+      34,
+      "Hoopa-Unbound was killed by Sableye-Mega."
     ],
     [
-      17,
-      "Excadrill landed a critical hit on Cobalion with Earthquake."
+      35,
+      "Pinsir-Mega was killed by Sableye-Mega."
     ],
     [
-      17,
-      "Cobalion was killed by Excadrill."
+      40,
+      "Doublade was killed by Arcanine."
     ],
     [
-      19,
-      "Excadrill was killed by Zygarde-10%."
+      47,
+      "Sableye-Mega missed Toxic vs Arcanine."
     ],
     [
-      20,
-      "Zygarde-10% was killed by Amoonguss."
+      48,
+      "Arcanine was killed by Sableye-Mega."
     ],
     [
-      22,
-      "Amoonguss was killed by Cryogonal."
+      49,
+      "Machamp was killed by Sableye-Mega."
     ],
     [
-      25,
-      "Mienshao was killed by Cryogonal."
+      53,
+      "Skarmory was killed by Sableye-Mega."
+    ],
+    [
+      55,
+      "Blastoise was killed by Sableye-Mega."
     ]
   ]
 }
