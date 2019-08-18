@@ -75,19 +75,71 @@ def flinchcheck(results,remaininglines,turn,item,line,recipient,otherteam):
             break
     return results
 
+def confusioncheck(results,remaininglines,turn,item,line,recipient,otherteam):
+    for line_ in remaininglines:
+        if line_.find(f"|cant|p{otherteam}a: {recipient}|flinch")>-1:
+            #team1expectedsecondaryeffect=oddsofeffect
+            #team2expectedsecondaryeffectagainst=oddsofeffect
+            #results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
+            #results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
+            print('Confusion Happened')
+            break
+    return results
+
+def selfboostcheck(results,remaininglines,turn,item,line,recipient,otherteam):
+    for line_ in remaininglines:
+        if line_.find(f"|cant|p{otherteam}a: {recipient}|flinch")>-1:
+            #team1expectedsecondaryeffect=oddsofeffect
+            #team2expectedsecondaryeffectagainst=oddsofeffect
+            #results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
+            #results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
+            print('Self Boosts Happened')
+            break
+    return results
+
+def boostcheck(results,remaininglines,turn,item,line,recipient,otherteam):
+    for line_ in remaininglines:
+        if line_.find(f"|cant|p{otherteam}a: {recipient}|flinch")>-1:
+            #team1expectedsecondaryeffect=oddsofeffect
+            #team2expectedsecondaryeffectagainst=oddsofeffect
+            #results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
+            #results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
+            print('Boosts Happened')
+            break
+    return results
+
+def triattackcheck(results,remaininglines,turn,item,line,recipient,otherteam):
+    for line_ in remaininglines:
+        if line_.find(f"|cant|p{otherteam}a: {recipient}|flinch")>-1:
+            #team1expectedsecondaryeffect=oddsofeffect
+            #team2expectedsecondaryeffectagainst=oddsofeffect
+            #results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
+            #results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
+            print('Confusion Happened')
+            break
+    return results
+
 def secondarycheck(results,remaininglines,turn,item,line,recipient,otherteam):
     if item[1]=='frz':  
         results=freezecheck(results,remaininglines,turn,item,line,recipient,otherteam)    
-    if item[1]=='brn':  
+    elif item[1]=='brn':  
         results=burncheck(results,remaininglines,turn,item,line,recipient,otherteam)  
-    if item[1]=='par':  
+    elif item[1]=='par':  
         results=paralysischeck(results,remaininglines,turn,item,line,recipient,otherteam)  
-    if item[1]=='psn':  
+    elif item[1]=='psn':  
         results=poisoncheck(results,remaininglines,turn,item,line,recipient,otherteam)  
-    if item[1]=='tox':  
+    elif item[1]=='tox':  
         results=toxiccheck(results,remaininglines,turn,item,line,recipient,otherteam)
-    if item[1]=='slp':  
+    elif item[1]=='slp':  
         results=sleepcheck(results,remaininglines,turn,item,line,recipient,otherteam)
-    if item[1]=='flinch':  
+    elif item[1]=='flinch':  
         results=flinchcheck(results,remaininglines,turn,item,line,recipient,otherteam)
+    elif item[1]=='confusion':  
+        results=flinchcheck(results,remaininglines,turn,item,line,recipient,otherteam)
+    elif item[1].find("self boosts")>-1:
+        results=selfboostcheck(results,remaininglines,turn,item,line,recipient,otherteam)
+    elif item[1].find("boosts")>-1:
+        results=boostcheck(results,remaininglines,turn,item,line,recipient,otherteam)
+    elif item[1]=='par frz or brn':
+        results=triattackcheck(results,remaininglines,turn,item,line,recipient,otherteam)
     return results

@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'pokemonadmin.apps.PokemonadminConfig',
     'discordbot.apps.DiscordbotConfig',
+    'draftplanner.apps.DraftplannerConfig',
     'individualleague.apps.IndividualleagueConfig',
     'leagues.apps.LeaguesConfig',
     'main.apps.MainConfig',

@@ -20,6 +20,7 @@ urlpatterns = [
     path("leagues/<str:league_name>/tiersbytype/<str:typingofinterest>", views.tiers_by_type_detail, name="tiers_by_type_detail"),
     path("leagues/<str:league_name>/league_leaders/", views.league_leaders, name="league_leaders"),
     path("settings/league/<str:league_name>/manageseasons/creatematch/", views.create_match, name="create_match"),
+    path("settings/league/<str:league_name>/manageseasons/createroundrobinschedule/", views.createroundrobinschedule, name="createroundrobinschedule"),
     path("leagues/<str:league_name>/hall_of_fame/", views.league_hall_of_fame, name="league_hall_of_fame"),
     path("leagues/<str:league_name>/hall_of_fame/add_entry/", views.league_hall_of_fame_add_entry, name="league_hall_of_fame_add_entry"),
     path("leagues/<str:league_name>/hall_of_fame/add_roster/", views.league_hall_of_fame_add_roster, name="league_hall_of_fame_add_roster"),

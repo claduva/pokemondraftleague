@@ -1,437 +1,38 @@
-|j|☆BordeauxBewears
-|j|☆muskrat catcher
-|player|p1|BordeauxBewears|165
-|player|p2|muskrat catcher|129
+|j|☆TheGamer7777
+|j|☆ParadoxicalRemedy
+|player|p1|TheGamer7777|12|
+|player|p2|ParadoxicalRemedy|65|
 |teamsize|p1|6
 |teamsize|p2|6
 |gametype|singles
 |gen|7
-|tier|[Gen 7] Draft League Tier
-|rule|Sleep Clause Mod: Limit one foe put to sleep
-|rule|Species Clause: Limit one of each Pokémon
-|rule|OHKO Clause: OHKO moves are banned
-|rule|Moody Clause: Moody is banned
-|rule|Evasion Moves Clause: Evasion moves are banned
+|tier|[Gen 7] Anything Goes
 |rule|Endless Battle Clause: Forcing endless battles is banned
-|rule|HP Percentage Mod: HP is shown in percentages
 |clearpoke
-|poke|p1|Arcanine|item
-|poke|p1|Pinsir|item
-|poke|p1|Machamp|item
-|poke|p1|Skarmory|item
-|poke|p1|Hoopa-Unbound|item
-|poke|p1|Blastoise|item
-|poke|p2|Doublade|item
-|poke|p2|Sableye|item
-|poke|p2|Clefable|item
-|poke|p2|Rotom-Heat|item
-|poke|p2|Scyther|item
-|poke|p2|Nihilego|item
+|poke|p1|Aerodactyl|item
+|poke|p1|Marowak-Alola|item
+|poke|p1|Passimian|item
+|poke|p1|Donphan|item
+|poke|p1|Komala|item
+|poke|p1|Roserade|item
+|poke|p2|Zebstrika|item
+|poke|p2|Luxray|item
+|poke|p2|Flygon|item
+|poke|p2|Gallade|item
+|poke|p2|Regice|item
+|poke|p2|Beedrill|item
+|rule|HP Percentage Mod: HP is shown in percentages
 |teampreview
-|c|☆BordeauxBewears|HF !
-|c|☆muskrat catcher|you too!
-|j| wiliat9
-|c|☆BordeauxBewears|It's pokemon so I don't expect to lol
-|c|☆muskrat catcher|also smart man, not wishing me good luck
-|c|☆muskrat catcher|clad made that misplay yesterday
-|c|☆muskrat catcher|lol
-|c|☆BordeauxBewears|Hehe you know it ;)
-|c|☆BordeauxBewears|Plus I'd rather no luck be involved rather than both of us getting lucky
-|j| Accidental
-|c| Accidental|Good luck to nobody
-|c| Accidental|I hope everybody gets haxed af
-|c|☆muskrat catcher|excellent
-|c| Accidental|(reverse psychology, screw you fate)
-|j| bkendrick678932
-|j| master_of_rave
-|c|☆muskrat catcher|gimme one sec sorry someone at the door
-|c|☆BordeauxBewears|glad I planned on not going to sleep too late
-|c|☆BordeauxBewears|Jk take your time 
-|j| BChezza
-|c| BChezza|I hate this game before it's even started thanks musks draft
-|c|☆BordeauxBewears|Yeah I'm not too hyped either
-|c| Accidental|Lol
-|c| BChezza|enjoy clef + sable
-|c|☆muskrat catcher|alright so sorry about that I'm back
-|l| Accidental
+|c|☆TheGamer7777|gl
+|j| Eastonn8
+|c|☆ParadoxicalRemedy|GL
 |
 |start
-|j| Accidental
 |
-|
-|upkeep
-|c| Accidental|O
-|c| BChezza|We powering up
-|
-|c| Accidental|I kinda wanna record lines to play when i watch battles
-|c| Accidental|Like the battle revolution announcer
-|c|☆BordeauxBewears|Wdym ?
-|c| Accidental|"The red corner starts to attack!"
-|c| Accidental|"A solid hit!"
-|c|☆BordeauxBewears|I need myself the press button like Pkmn Trainer Steve had, that said "That was easy"
-|c| Accidental|"It couldn't take it! It's down!"
-|c| BChezza|Dw musk take your time
-|c| wiliat9|so I've had this on in the background for a while
-|c| wiliat9|how is it only turn 2 
-|c|☆muskrat catcher|sorry lol I had to answer my door
-|c| wiliat9|oh ok
-|c| BChezza|The only way to defeat musk
-|c| BChezza|Divert his attention
-|c|☆BordeauxBewears|Timer ?
-|
-|
-|upkeep
-|c| BChezza|Nope
-|c| BChezza|We don't do timers here
-|c| BChezza|Nice crit
-|c|☆BordeauxBewears|Thanks, Showdown did it without my consent
-|c| BChezza|2 turns in and we are already in real s6 hours
-|
-|
-|upkeep
-|c| Accidental|Smh
-|c| BChezza|That's his son
-|c| Accidental|What about his grandson
-|c| BChezza|Hello lernes' son
-|c| Accidental|What's his name again
-|c|☆BordeauxBewears|He's in the process
-|c|☆BordeauxBewears|And his name is my son's son
-|c| Accidental|Ah i see
-|c| wiliat9|woah is that child labour
-|
-|
-|upkeep
-|c| Accidental|Yum
-|c| BChezza|Very intuitive
-|c| wiliat9|im like 50% sure that's illega
-|c| BChezza|Y u m
-|c|☆BordeauxBewears|And now the fun stops
-|c| wiliat9|its musk
-|c| BChezza|Pack up everyone
-|c| wiliat9|no fun allowed
-|c| BChezza|We had our fun
-|c| wiliat9|especially when it involves hp fire @muskrat catcher
-|
-|-mega|p2a: Sableye|Sableye|Sablenite
-|detailschange|p2a: Sableye|Sableye-Mega
-|
-|upkeep
-|c| Accidental|P
-|c| Accidental|O
-|
-|
-|upkeep
-|c| BChezza|Oh no
-|c| Accidental|Lol
-|c| Accidental|Uh
-|c|☆muskrat catcher|um ok
-|c| BChezza|lol
-|c| Accidental|Predicted?
-|c| wiliat9|nuce
-|c|☆BordeauxBewears|Purpose
-|c| BChezza|Now that
-|c| Accidental|Nice
-|c| Accidental|That's good stuff
-|c| BChezza|Is what I call a slow u turn
-|c| Accidental|Lol
-|c|☆BordeauxBewears|Exact
-|c| Accidental|All planned
-|c| BChezza|Tbh all worked to plan bringing out hoopa
-|c|☆BordeauxBewears|Well Hoopa was not planned lol
-|
-|
-|upkeep
-|c| BChezza|Oh no I smell a crit
-|c| Accidental|Inb4 illegal double ability 
-|c| Accidental|Shell armor
-|c|☆muskrat catcher|lol
-|c| Accidental|S u t a P u r a c h i n a m u
-|c| master_of_rave|I smell a flinch
-|c| BChezza|Oh that too
-|c| BChezza|Oh this sucks
-|c| BChezza|I hate this
-|
-|
-|upkeep
-|c| Accidental|Oof
-|c| Accidental|No balls
-|c| Accidental|Should've recovered smh
-|c| BChezza|That's a very respectible play
-|
-|
-|upkeep
-|l| BChezza
-|
-|
-|upkeep
-|j| BChezza
-|c| Accidental|R a c k s
-|c| BChezza|And the rocks are up
-|c|☆muskrat catcher|**RHACKS**
-|l| bkendrick678932
-|
+|-zpower|p1a: Amir's Strength
 |
 |upkeep
 |
-|c| BChezza|Racks and sacks
-|c| Accidental|Sock his rocks off
-|c| Accidental|Heh
-|
-|
-|upkeep
-|l|☆BordeauxBewears
-|player|p1|
-|c| BChezza|Adios
-|j|☆BordeauxBewears
-|player|p1|BordeauxBewears|165
-|c|☆BordeauxBewears|Sorry just lost internet lol
-|c| BChezza|Hola
-|j| bkendrick678932
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c| BChezza|I love deffogers
-|c| BChezza|I really do
-|c| BChezza|Can't get enough of them
-|
-|
-|upkeep
-|c|☆BordeauxBewears|ez
-|c| master_of_rave|The crit drop
-|c|☆muskrat catcher|gotta get that crit AND drop baby
-|c| master_of_rave|A musk special
-|c| BChezza|Crit for crit
-|
-|
-|upkeep
-|c| BChezza|These rocks are here to stay
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c| master_of_rave|here we are again
-|c| BChezza|Crit time
-|c| BChezza|More crits
-|c|☆BordeauxBewears|can't win, I can't beat that set
-|c| master_of_rave|Crit flinch him
-|c| BChezza|Crit kills but ye
-|c| master_of_rave|Flinch anyways
-|c| master_of_rave|Even if we can't see it
-|
-|
-|upkeep
-|c| master_of_rave|Round 2
-|c| Accidental|R i p
-|c| master_of_rave|keep at it
-|c| BChezza|Wew
-|c|☆BordeauxBewears|Such a fun mon lol
-|c| BChezza|Honestly I think musk loses this
-|c|☆BordeauxBewears|Nice one 
-|c| Accidental|Unless...
-|c| BChezza|Bc he can't dodge the 20% forever
-|
-|
-|upkeep
-|c| master_of_rave|hmmm
-|c|☆BordeauxBewears|Does he need to ?
-|
-|
-|upkeep
-|c| BChezza|OK niw
-|c| BChezza|Now he should be fine
-|c| Accidental|Well
-|
-|
-|upkeep
-|c| Accidental|Crit
-|c| master_of_rave|Crit now
-|c| BChezza|Just no crits
-|
-|
-|upkeep
-|c| BChezza|If this was metronome
-|c| Accidental|C r i t
-|c| master_of_rave|Crit flinch
-|c| Accidental|Seems like specs from the damage
-|c| Accidental|But we'll see
-|c| master_of_rave|This time for sure
-|c| BChezza|flinch.exe not found
-|
-|
-|upkeep
-|c| Accidental|There it is
-|c| master_of_rave|o
-|c|☆BordeauxBewears|Flinch now does nothing
-|c| BChezza|Ik it's not it has to be specs
-|c|☆muskrat catcher|unless double
-|c| master_of_rave|Another one
-|c|☆BordeauxBewears|Rollls my dudes do you see them ?
-|c| BChezza|Another one
-|
-|
-|upkeep
-|c| Accidental|Cmon bby
-|
-|
-|upkeep
-|c| Accidental|Surprised no crit lmao
-|
-|
-|upkeep
-|l| bkendrick678932
-|c|☆BordeauxBewears|Back to square no
-|c|☆BordeauxBewears|one
-|c| BChezza|Tbh
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c| BChezza|Musk playing risky asf
-|c| Accidental|^
-|
-|
-|upkeep
-|c| Accidental|Greedy af
-|c| Accidental|It's fine i love it
-|c| master_of_rave|He's asking to get crit
-|c| master_of_rave|Pls universe
-|c|☆BordeauxBewears|We know I ain't a lucky player
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c| Accidental|Oof
-|j| claduva
-|c|☆BordeauxBewears|GG
-|c|☆muskrat catcher|not exactly but
-|c|☆BordeauxBewears|What about forfaits ?
-|c| Accidental|All kills go to the mon currently out if you ff
-|c| wiliat9|it just means sableye would get 6 kills
-|c| BChezza|You don't wanna play it out
-|c| Accidental|I would play it out
-|c|☆muskrat catcher|I mean its really not GG you got physical threats there
-|c| Accidental|You never know
-|c| BChezza|At least try + see what happens
-|c| claduva|site really punishes forfeits
-|c|☆BordeauxBewears|He's max Phys def
-|c|☆BordeauxBewears|With 71% hp
-|c| Accidental|C r i t
-|c| BChezza|OK and you don't need to just give up
-|c| Accidental|Just click buttons tbh tbh
-|c| BChezza|Believe in the crits
-|c|☆BordeauxBewears|That's just not fun though
-|
-|
-|-mega|p1a: Gym Leader Geo|Pinsir|Pinsirite
-|detailschange|p1a: Gym Leader Geo|Pinsir-Mega
-|
-|upkeep
-|c| BChezza|See
-|c| Accidental|Ez
-|
-|c| Accidental|Inb4 is max spatk instead
-|c|☆BordeauxBewears|My T1 is utter trash
-|c| Accidental|True
-|c| BChezza|There's no point giving up when it's all to play for
-|
-|
-|upkeep
-|c|☆BordeauxBewears|and my mega can't carry a team of T3s
-|c| Accidental|Hoopa needs more support than anything
-|c|☆muskrat catcher|oh my the heck is this set
-|c|☆muskrat catcher|I was like
-|c| Accidental|Lol
-|c|☆muskrat catcher|sure it was vest
-|c| BChezza|Strong iapapa
-|c| Accidental|But roar lol
-|c|☆BordeauxBewears|Well Arcanine is a mon I really enjoy building with
-|c|☆muskrat catcher|oh
-|c| Accidental|Musk how are you winning
-|c| BChezza|If you hate the team that much start looking at trades with others
-|c| Accidental|When you're thiiiis bad
-|c| Accidental|Heh
-|c|☆BordeauxBewears|I can't
-|c|☆BordeauxBewears|The team is really trash
-|c| Accidental|Oof
-|c|☆BordeauxBewears|And nobody would want Hoope
-|c|☆BordeauxBewears|I can't drop it
-|c| wiliat9|musk's really a bad player its just everyone feels sorry for him
-|c|☆muskrat catcher|LOL
-|
-|
-|upkeep
-|c| BChezza|But for now just play out the game
-|c|☆muskrat catcher|what in the world are rolls
-|c| Accidental|Lol rolls
-|c| BChezza|Wow
-|c|☆muskrat catcher|52 to 4
-|c|☆muskrat catcher|43*
-|c|☆muskrat catcher|that's like
-|c|☆muskrat catcher|wow
-|c| Accidental|It seems the reverse psychology is working tbh
-|c|☆BordeauxBewears|My fucking luck
-|c|☆BordeauxBewears|That's it
-|c| BChezza|Muskrat catcher robbed by rolls
-|c|☆BordeauxBewears|if Hoopa wasn't enough a demonstration here it is
-|j| ECE young
-|c| ECE young|This is still going???
-|c| ECE young|It's been like 40 minutes
-|
-|
-|upkeep
-|c| BChezza|But you got a high/max roll to begin with
-|c| BChezza|GREEDY SD
-|j|♛AAron2420 YT
-|l|♛AAron2420 YT
-|c|☆muskrat catcher|he made the winning play so I made the counter winning play
-|c| Accidental|Lol
-|
-|
-|upkeep
-|c| BChezza|But you didn't make the winning play there
-|c| BChezza|Heh
-|
-|
-|upkeep
-|
-|c| BChezza|Another scyther special boys
-|c| wiliat9|big scyther's here
-|c| Accidental|Cmere bb
-|c| Accidental|Give daddy scythe a hug
-|
-|
-|upkeep
-|c| ECE young|Smashed
-|c| Accidental|Huh
-|c| BChezza|That would hurt
-|c| BChezza|OK this thing sucms
-|
-|
-|upkeep
-|c| wiliat9|musk you fool
-|c| wiliat9|actually wait
-|c| wiliat9|nvm
-|c| BChezza|CRIT CRIT CRIT CRIT
-|c| BChezza|Ik it's to burn mornin sun's but
-|c|☆muskrat catcher|I'm still really interested to see this thing's spread
-|c|☆muskrat catcher|after the battle
-|c| BChezza|CRIT CRIT CRIT CRIT
-|c| Accidental|No
 |
 |
 |upkeep
@@ -445,27 +46,25 @@
 |
 |
 |upkeep
+|c|☆TheGamer7777|swagger is banned
+|c|☆ParadoxicalRemedy|It is? I did not know that
+|c|☆TheGamer7777|yeah its in the rules page
 |
-|c| Accidental|Lol its back
-|c| BChezza|LOOOL
-|c| BChezza|POG
-|c|☆BordeauxBewears|I hate how disgusting that is
-|c| Accidental|Lol
-|c|☆BordeauxBewears|But then again
-|c| Accidental|Have fun fighting another sable
-|c|☆BordeauxBewears|I said it before the game started
-|c| Accidental|Ye
-|c|☆BordeauxBewears|Ain't no fun left for me 
-|c| Accidental|Oof
-|c| BChezza|Again, the site isn't kind to forfeits
 |
 |
 |upkeep
-|c|☆muskrat catcher|lol
-|c| Accidental|Uh
-|c| BChezza|Better to play it out
-|c| Accidental|Ok
-|c|☆BordeauxBewears|Do I look like I can salvage this team and my season ?
+|c|☆ParadoxicalRemedy|I will delete this team then
+|c|☆ParadoxicalRemedy|How do you want to proceed? I am willing to forfeit over this.
+|c|☆TheGamer7777|i dont mind still playing it out. It didnt change anything
+|
+|
+|upkeep
+|
+|
+|upkeep
+|
+|
+|upkeep
 |
 |
 |upkeep
@@ -474,54 +73,19 @@
 |
 |upkeep
 |
-|c| Accidental|Lol rip
 |
 |
 |upkeep
 |
 |
 |upkeep
-|c|☆BordeauxBewears|Why are you calm minding ?
-|c| Accidental|What is that fourth move
-|c|☆muskrat catcher|playing it safe
-|c| Accidental|Smh
-|c|☆muskrat catcher|4th is wisp
-|c|☆BordeauxBewears|Why are you keeping this gamer going ?
-|c| Accidental|Just click ball my dude
-|c|☆BordeauxBewears|Safe what ?
-|c| BChezza|Playing it safe vs blastoise
-|c|☆muskrat catcher|I'm recovering I'll start clicking shadow ball next turn
-|c| Accidental|Toise has no recovery lol
-|c|☆muskrat catcher|I don't wanna get like crit twice or somthin
-|c|☆muskrat catcher|I want my diff
-|c|☆BordeauxBewears|See 
-|c| Accidental|Inb4 banded aqua jet
-|c| Accidental|Aight 
-|c| BChezza|Even if you don't agree with the play
-|c|☆BordeauxBewears|This is why using sableye isn't a problem
-|c| BChezza|His intentions aren't to stsll
-|c|☆BordeauxBewears|But being this disrespectful is
+|
 |
 |
 |upkeep
 |
 |
-|upkeep
-|c| BChezza|Musk isn't a disrespectful person
 |
-|c| Accidental|^
-|c|☆muskrat catcher|Like for real dude no disrespect intended
-|
-|
-|upkeep
-|
-|
-|c| BChezza|Seriously, the last person here to disrespect is musk
-|c|☆muskrat catcher|gg
-|c|☆BordeauxBewears|Gg though
-|l|☆BordeauxBewears
-|l| wiliat9
-|l| BChezza
-|l| claduva
-|l| ECE young
-|l| Accidental
+|c|☆TheGamer7777|gg para
+|c|☆ParadoxicalRemedy|GG, I'll redo my stuff for week 2 on
+|c|☆TheGamer7777|now you know for next time not to bring swagger, you might want to review the rules though

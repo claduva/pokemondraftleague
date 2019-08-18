@@ -1314,3 +1314,60 @@ class PokemonAutocomplete(autocomplete.Select2QuerySetView):
             qs = qs.filter(pokemon__istartswith=self.q)
 
         return qs
+
+@login_required
+def createroundrobinschedule(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user not in league_.host.all():
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    leaguesettings=league_settings.objects.get(league_name=league_)
+    needednumberofcoaches=leaguesettings.number_of_teams
+    currentcoaches=coachdata.objects.filter(league_name=league_)
+    currentcoachescount=len(currentcoaches)
+    try:
+        seasonsettings=seasonsetting.objects.get(league=league_)
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if needednumberofcoaches != currentcoachescount: 
+        messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
+        return redirect('individual_league_settings',league_name=league_name)
+    existingmatches=schedule.objects.all().filter(season=seasonsettings).exclude(replay='Link')
+    if existingmatches.count()>0:
+        messages.error(request,'Matches already exist!',extra_tags='danger')
+        return redirect('manage_seasons',league_name=league_name)
+    schedule.objects.all().filter(season=seasonsettings).delete()
+    #get conferences
+    conferences=conference_name.objects.all().filter(league=league_)
+    conference_rosters=[]
+    for c in conferences:
+        coachs=coachdata.objects.all().filter(conference=c)
+        conference_rosters.append(coachs)
+    #create matches
+    interconfteams=[]
+    for conference in conference_rosters:
+        conference=list(conference)
+        if len(conference) % 2:
+            conference.append(None)
+        count=len(conference)
+        sets=count-1
+        interconf=[]
+        for week in range(sets):
+            for i in range(int(count/2)):
+                if conference[i]!=None and conference[count-i-1]!=None:
+                    schedule.objects.create(season=seasonsettings,week=str(week+1),team1=conference[i],team2=conference[count-i-1])
+                elif conference[i]==None:
+                    interconf.append(conference[count-i-1])
+                elif conference[count-i-1]==None:
+                    interconf.append(conference[i])
+            conference.insert(1, conference.pop())
+        interconfteams.append(interconf)
+    for i in range(len(interconfteams[0])):
+        schedule.objects.create(season=seasonsettings,week=str(i+1),team1=interconfteams[0][i],team2=interconfteams[1][i])
+    return redirect('manage_seasons',league_name=league_name)

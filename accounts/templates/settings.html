@@ -65,6 +65,8 @@
                             Draft Order</button></a>
                     <a href="{% url 'create_match' league_name=league_name %}"><button class="btn btn-primary">Create
                             Match</button></a>
+                    <a href="{% url 'createroundrobinschedule' league_name=league_name %}"><button class="btn btn-primary">Create
+                                Round Robin</button></a>
                     <a href="{% url 'archive_season' league_name=league_name %}"><button class="btn btn-warning">Archive Season</button></a>
                 </div>
                 {% endif %}

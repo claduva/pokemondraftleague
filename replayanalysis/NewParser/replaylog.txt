@@ -1,333 +1,105 @@
-|switch|p1a: Star Platinum|Hoopa-Unbound|100/100
-|switch|p2a: Rotom|Rotom-Heat|100/100
+|switch|p1a: Amir's Strength|Aerodactyl|100/100
+|switch|p2a: Blue Gatorade|Gallade|100/100
+|-ability|p1a: Amir's Strength|Unnerve|p2: ParadoxicalRemedy
 |turn|1
-|switch|p1a: Oak|Arcanine|100/100
-|move|p2a: Rotom|Will-O-Wisp|p1a: Oak
-|-start|p1a: Oak|ability: Flash Fire
+|move|p1a: Amir's Strength|Supersonic Skystrike|p2a: Blue Gatorade|[zeffect]
+|-supereffective|p2a: Blue Gatorade
+|-damage|p2a: Blue Gatorade|0 fnt
+|faint|p2a: Blue Gatorade
+|switch|p2a: Zap Happy|Zebstrika|100/100
 |turn|2
-|move|p2a: Rotom|Volt Switch|p1a: Oak
-|-damage|p1a: Oak|81/100
-|switch|p2a: Nihilego|Nihilego|100/100
-|move|p1a: Oak|Flare Blitz|p2a: Nihilego
-|-resisted|p2a: Nihilego
-|-crit|p2a: Nihilego
-|-damage|p2a: Nihilego|18/100
-|-damage|p1a: Oak|55/100|[from] Recoil
+|switch|p1a: Amir's Burden|Donphan|100/100
+|move|p2a: Zap Happy|Thunderbolt|p1a: Amir's Burden
+|-immune|p1a: Amir's Burden
 |turn|3
-|-end|p1a: Oak|ability: Flash Fire|[silent]
-|switch|p1a: My son|Machamp|100/100
-|move|p2a: Nihilego|Power Gem|p1a: My son
-|-resisted|p1a: My son
-|-damage|p1a: My son|87/100
+|move|p2a: Zap Happy|Hidden Power|p1a: Amir's Burden
+|-supereffective|p1a: Amir's Burden
+|-damage|p1a: Amir's Burden|58/100
+|move|p1a: Amir's Burden|Earthquake|p2a: Zap Happy
+|-supereffective|p2a: Zap Happy
+|-damage|p2a: Zap Happy|0 fnt
+|faint|p2a: Zap Happy
+|-heal|p1a: Amir's Burden|64/100|[from] item: Leftovers
+|switch|p2a: Crystal Cinco Bing|Regice|100/100
 |turn|4
-|switch|p2a: Sableye|Sableye|100/100
-|move|p1a: My son|Knock Off|p2a: Sableye
-|-damage|p2a: Sableye|77/100
+|switch|p1a: Tired Amir|Komala|100/100
+|-ability|p1a: Tired Amir|Comatose
+|move|p2a: Crystal Cinco Bing|Substitute|p2a: Crystal Cinco Bing
+|-start|p2a: Crystal Cinco Bing|Substitute
+|-damage|p2a: Crystal Cinco Bing|76/100
+|-heal|p2a: Crystal Cinco Bing|82/100|[from] item: Leftovers
 |turn|5
-|switch|p1a: Oak|Arcanine|55/100
-|move|p2a: Sableye|Calm Mind|p2a: Sableye
-|-boost|p2a: Sableye|spa|1
-|-boost|p2a: Sableye|spd|1
+|move|p1a: Tired Amir|Knock Off|p2a: Crystal Cinco Bing
+|-end|p2a: Crystal Cinco Bing|Substitute
+|move|p2a: Crystal Cinco Bing|Swagger|p1a: Tired Amir
+|-boost|p1a: Tired Amir|atk|2
+|-start|p1a: Tired Amir|confusion
+|-heal|p2a: Crystal Cinco Bing|88/100|[from] item: Leftovers
 |turn|6
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|100/100
-|move|p1a: Oak|Roar|p2a: Sableye
-|move|p2a: Sableye|Roar|p1a: Oak|[from]Magic Bounce
-|drag|p1a: Star Platinum|Hoopa-Unbound|100/100
+|-activate|p1a: Tired Amir|confusion
+|move|p1a: Tired Amir|U-turn|p2a: Crystal Cinco Bing
+|-damage|p2a: Crystal Cinco Bing|43/100
+|switch|p1a: Amir's Rage|Marowak-Alola|100/100|[from]move: U-turn
+|move|p2a: Crystal Cinco Bing|Substitute|p2a: Crystal Cinco Bing
+|-start|p2a: Crystal Cinco Bing|Substitute
+|-damage|p2a: Crystal Cinco Bing|18/100
+|-heal|p2a: Crystal Cinco Bing|24/100|[from] item: Leftovers
 |turn|7
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|44/100
-|move|p2a: Sableye|Calm Mind|p2a: Sableye
-|-boost|p2a: Sableye|spa|1
-|-boost|p2a: Sableye|spd|1
+|move|p1a: Amir's Rage|Shadow Bone|p2a: Crystal Cinco Bing
+|-end|p2a: Crystal Cinco Bing|Substitute
+|move|p2a: Crystal Cinco Bing|Thunderbolt|p1a: Amir's Rage
+|-ability|p1a: Amir's Rage|Lightning Rod|boost
+|-boost|p1a: Amir's Rage|spa|1
+|-heal|p2a: Crystal Cinco Bing|30/100|[from] item: Leftovers
 |turn|8
-|switch|p2a: Clefable|Clefable|100/100
-|move|p1a: Star Platinum|Dark Pulse|p2a: Clefable
-|-resisted|p2a: Clefable
-|-damage|p2a: Clefable|70/100
-|-heal|p2a: Clefable|76/100|[from] item: Leftovers
+|switch|p2a: parado11Swag|Flygon|100/100
+|move|p1a: Amir's Rage|Shadow Bone|p2a: parado11Swag
+|-damage|p2a: parado11Swag|1/100
 |turn|9
-|switch|p1a: Oak|Arcanine|55/100
-|switch|p2a: Nihilego|Nihilego|18/100
+|switch|p1a: Amir's Strength|Aerodactyl|100/100
+|-ability|p1a: Amir's Strength|Unnerve|p2: ParadoxicalRemedy
+|move|p2a: parado11Swag|Rock Slide|p1a: Amir's Strength
+|-supereffective|p1a: Amir's Strength
+|-damage|p1a: Amir's Strength|36/100
 |turn|10
-|switch|p1a: My son|Machamp|87/100
-|move|p2a: Nihilego|Stealth Rock|p1a: My son
-|-sidestart|p1: BordeauxBewears|move: Stealth Rock
+|move|p1a: Amir's Strength|Ice Fang|p2a: parado11Swag
+|-supereffective|p2a: parado11Swag
+|-damage|p2a: parado11Swag|0 fnt
+|faint|p2a: parado11Swag
+|switch|p2a: SheDrill|Beedrill|100/100
 |turn|11
-|move|p2a: Nihilego|Sludge Wave|p1a: My son
-|-damage|p1a: My son|54/100
-|move|p1a: My son|Stone Edge|p2a: Nihilego
-|-damage|p2a: Nihilego|0 fnt
-|faint|p2a: Nihilego
-|switch|p2a: Sableye|Sableye-Mega|44/100
+|move|p1a: Amir's Strength|Rock Slide|p2a: SheDrill
+|-supereffective|p2a: SheDrill
+|-enditem|p2a: SheDrill|Focus Sash
+|-damage|p2a: SheDrill|1/100
+|move|p2a: SheDrill|Poison Jab|p1a: Amir's Strength
+|-resisted|p1a: Amir's Strength
+|-damage|p1a: Amir's Strength|13/100
+|-status|p1a: Amir's Strength|psn
+|-damage|p1a: Amir's Strength|1/100 psn|[from] psn
 |turn|12
-|switch|p1a: Star Platinum|Hoopa-Unbound|100/100
-|-damage|p1a: Star Platinum|88/100|[from] Stealth Rock
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|94/100
+|switch|p1a: Amir's Weekend|Passimian|100/100
+|move|p2a: SheDrill|U-turn|p1a: Amir's Weekend
+|-resisted|p1a: Amir's Weekend
+|-damage|p1a: Amir's Weekend|87/100
+|switch|p2a: Luxray|Luxray|100/100|[from]move: U-turn
+|-ability|p2a: Luxray|Intimidate|boost
+|-unboost|p1a: Amir's Weekend|atk|1
+|-ability|p1a: Amir's Weekend|Defiant|boost
+|-boost|p1a: Amir's Weekend|atk|2
 |turn|13
-|switch|p2a: Clefable|Clefable|76/100
-|move|p1a: Star Platinum|Shadow Ball|p2a: Clefable
-|-damage|p2a: Clefable|39/100
-|-heal|p2a: Clefable|46/100|[from] item: Leftovers
+|move|p1a: Amir's Weekend|Earthquake|p2a: Luxray
+|-supereffective|p2a: Luxray
+|-damage|p2a: Luxray|0 fnt
+|faint|p2a: Luxray
+|switch|p2a: Crystal Cinco Bing|Regice|30/100
 |turn|14
-|switch|p1a: Best deffoger|Skarmory|100/100
-|-damage|p1a: Best deffoger|88/100|[from] Stealth Rock
-|move|p2a: Clefable|Moonlight|p2a: Clefable
-|-heal|p2a: Clefable|95/100
-|-heal|p1a: Best deffoger|94/100|[from] item: Leftovers
-|-heal|p2a: Clefable|100/100|[from] item: Leftovers
+|move|p1a: Amir's Weekend|Earthquake|p2a: Crystal Cinco Bing
+|-damage|p2a: Crystal Cinco Bing|0 fnt
+|faint|p2a: Crystal Cinco Bing
+|switch|p2a: SheDrill|Beedrill|1/100
 |turn|15
-|switch|p1a: Star Platinum|Hoopa-Unbound|88/100
-|-damage|p1a: Star Platinum|76/100|[from] Stealth Rock
-|move|p2a: Clefable|Fire Blast|p1a: Star Platinum
-|-damage|p1a: Star Platinum|54/100
-|turn|16
-|switch|p1a: BIG PUMPY|Blastoise|100/100
-|-damage|p1a: BIG PUMPY|88/100|[from] Stealth Rock
-|move|p2a: Clefable|Moonblast|p1a: BIG PUMPY
-|-crit|p1a: BIG PUMPY
-|-damage|p1a: BIG PUMPY|46/100
-|-unboost|p1a: BIG PUMPY|spa|1
-|-heal|p1a: BIG PUMPY|52/100|[from] item: Leftovers
-|turn|17
-|switch|p2a: Sableye|Sableye-Mega|94/100
-|move|p1a: BIG PUMPY|Scald|p2a: Sableye
-|-damage|p2a: Sableye|78/100
-|-heal|p1a: BIG PUMPY|58/100|[from] item: Leftovers
-|turn|18
-|move|p1a: BIG PUMPY|Scald|p2a: Sableye
-|-damage|p2a: Sableye|61/100
-|move|p2a: Sableye|Calm Mind|p2a: Sableye
-|-boost|p2a: Sableye|spa|1
-|-boost|p2a: Sableye|spd|1
-|-heal|p1a: BIG PUMPY|64/100|[from] item: Leftovers
-|turn|19
-|switch|p1a: Star Platinum|Hoopa-Unbound|54/100
-|-damage|p1a: Star Platinum|42/100|[from] Stealth Rock
-|move|p2a: Sableye|Calm Mind|p2a: Sableye
-|-boost|p2a: Sableye|spa|1
-|-boost|p2a: Sableye|spd|1
-|turn|20
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|19/100
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|69/100
-|turn|21
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|31/100
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|81/100
-|turn|22
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|41/100
-|move|p2a: Sableye|Calm Mind|p2a: Sableye
-|-boost|p2a: Sableye|spa|1
-|-boost|p2a: Sableye|spd|1
-|turn|23
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|6/100
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|56/100
-|turn|24
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|23/100
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|73/100
-|turn|25
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|38/100
-|cant|p2a: Sableye|flinch
-|turn|26
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|3/100
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|53/100
-|turn|27
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|21/100
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|71/100
-|turn|28
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|39/100
-|move|p2a: Sableye|Calm Mind|p2a: Sableye
-|-boost|p2a: Sableye|spa|1
-|-boost|p2a: Sableye|spd|1
-|turn|29
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|11/100
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|61/100
-|turn|30
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|31/100
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|81/100
-|turn|31
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|54/100
-|cant|p2a: Sableye|flinch
-|turn|32
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|27/100
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|77/100
-|turn|33
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|47/100
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|97/100
-|turn|34
-|move|p1a: Star Platinum|Dark Pulse|p2a: Sableye
-|-damage|p2a: Sableye|71/100
-|move|p2a: Sableye|Shadow Ball|p1a: Star Platinum
-|-damage|p1a: Star Platinum|0 fnt
-|faint|p1a: Star Platinum
-|switch|p1a: Gym Leader Geo|Pinsir|100/100
-|-damage|p1a: Gym Leader Geo|76/100|[from] Stealth Rock
-|turn|35
-|move|p1a: Gym Leader Geo|Return|p2a: Sableye
-|-damage|p2a: Sableye|18/100
-|move|p2a: Sableye|Shadow Ball|p1a: Gym Leader Geo
-|-damage|p1a: Gym Leader Geo|0 fnt
-|faint|p1a: Gym Leader Geo
-|switch|p1a: Oak|Arcanine|55/100
-|-damage|p1a: Oak|30/100|[from] Stealth Rock
-|turn|36
-|switch|p2a: Doublade|Doublade|100/100
-|move|p1a: Oak|Flare Blitz|p2a: Doublade
-|-supereffective|p2a: Doublade
-|-damage|p2a: Doublade|48/100
-|-damage|p1a: Oak|16/100|[from] Recoil
-|-enditem|p1a: Oak|Iapapa Berry|[eat]
-|-heal|p1a: Oak|66/100|[from] item: Iapapa Berry
-|turn|37
-|move|p2a: Doublade|Shadow Sneak|p1a: Oak
-|-damage|p1a: Oak|44/100
-|move|p1a: Oak|Flare Blitz|p2a: Doublade
-|-supereffective|p2a: Doublade
-|-damage|p2a: Doublade|5/100
-|-damage|p1a: Oak|32/100|[from] Recoil
-|turn|38
-|move|p1a: Oak|Morning Sun|p1a: Oak
-|-heal|p1a: Oak|82/100
-|move|p2a: Doublade|Swords Dance|p2a: Doublade
-|-boost|p2a: Doublade|atk|2
-|turn|39
-|move|p2a: Doublade|Shadow Sneak|p1a: Oak
-|-damage|p1a: Oak|43/100
-|move|p1a: Oak|Morning Sun|p1a: Oak
-|-heal|p1a: Oak|92/100
-|turn|40
-|move|p2a: Doublade|Shadow Sneak|p1a: Oak
-|-damage|p1a: Oak|50/100
-|move|p1a: Oak|Flare Blitz|p2a: Doublade
-|-supereffective|p2a: Doublade
-|-damage|p2a: Doublade|0 fnt
-|-damage|p1a: Oak|49/100|[from] Recoil
-|faint|p2a: Doublade
-|switch|p2a: Scyther|Scyther|100/100
-|turn|41
-|move|p2a: Scyther|Aerial Ace|p1a: Oak
-|-damage|p1a: Oak|5/100
-|move|p1a: Oak|Morning Sun|p1a: Oak
-|-heal|p1a: Oak|55/100
-|turn|42
-|move|p2a: Scyther|Aerial Ace|p1a: Oak
-|-damage|p1a: Oak|8/100
-|move|p1a: Oak|Morning Sun|p1a: Oak
-|-heal|p1a: Oak|58/100
-|turn|43
-|switch|p1a: Best deffoger|Skarmory|94/100
-|-damage|p1a: Best deffoger|82/100|[from] Stealth Rock
-|move|p2a: Scyther|Aerial Ace|p1a: Best deffoger
-|-resisted|p1a: Best deffoger
-|-damage|p1a: Best deffoger|70/100
-|-heal|p1a: Best deffoger|76/100|[from] item: Leftovers
-|turn|44
-|switch|p2a: Rotom|Rotom-Heat|100/100
-|switch|p1a: BIG PUMPY|Blastoise|64/100
-|-damage|p1a: BIG PUMPY|51/100|[from] Stealth Rock
-|-heal|p1a: BIG PUMPY|58/100|[from] item: Leftovers
-|turn|45
-|switch|p1a: My son|Machamp|54/100
-|-damage|p1a: My son|48/100|[from] Stealth Rock
-|move|p2a: Rotom|Volt Switch|p1a: My son
-|-damage|p1a: My son|31/100
-|switch|p2a: Clefable|Clefable|100/100
-|turn|46
-|switch|p1a: Oak|Arcanine|58/100
-|-damage|p1a: Oak|33/100|[from] Stealth Rock
-|move|p2a: Clefable|Healing Wish|p2a: Clefable
-|faint|p2a: Clefable
-|switch|p2a: Sableye|Sableye-Mega|18/100
-|-heal|p2a: Sableye|100/100|[from] move: Healing Wish
-|turn|47
-|move|p1a: Oak|Toxic|p2a: Sableye
-|move|p2a: Sableye|Toxic|p1a: Oak|[from]Magic Bounce|[miss]
-|-miss|p2a: Sableye|p1a: Oak
-|move|p2a: Sableye|Calm Mind|p2a: Sableye
-|-boost|p2a: Sableye|spa|1
-|-boost|p2a: Sableye|spd|1
-|turn|48
-|move|p1a: Oak|Flare Blitz|p2a: Sableye
-|-damage|p2a: Sableye|70/100
-|-damage|p1a: Oak|25/100|[from] Recoil
-|move|p2a: Sableye|Shadow Ball|p1a: Oak
-|-damage|p1a: Oak|0 fnt
-|faint|p1a: Oak
-|switch|p1a: My son|Machamp|31/100
-|-damage|p1a: My son|24/100|[from] Stealth Rock
-|turn|49
-|move|p1a: My son|Stone Edge|p2a: Sableye
-|-damage|p2a: Sableye|44/100
-|move|p2a: Sableye|Shadow Ball|p1a: My son
-|-damage|p1a: My son|0 fnt
-|faint|p1a: My son
-|switch|p1a: Best deffoger|Skarmory|76/100
-|-damage|p1a: Best deffoger|64/100|[from] Stealth Rock
-|turn|50
-|move|p1a: Best deffoger|Brave Bird|p2a: Sableye
-|-damage|p2a: Sableye|21/100
-|-damage|p1a: Best deffoger|57/100|[from] Recoil
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|71/100
-|-heal|p1a: Best deffoger|63/100|[from] item: Leftovers
-|turn|51
-|move|p1a: Best deffoger|Brave Bird|p2a: Sableye
-|-damage|p2a: Sableye|48/100
-|-damage|p1a: Best deffoger|56/100|[from] Recoil
-|move|p2a: Sableye|Calm Mind|p2a: Sableye
-|-boost|p2a: Sableye|spa|1
-|-boost|p2a: Sableye|spd|1
-|-heal|p1a: Best deffoger|62/100|[from] item: Leftovers
-|turn|52
-|move|p1a: Best deffoger|Brave Bird|p2a: Sableye
-|-damage|p2a: Sableye|24/100
-|-damage|p1a: Best deffoger|55/100|[from] Recoil
-|move|p2a: Sableye|Recover|p2a: Sableye
-|-heal|p2a: Sableye|74/100
-|-heal|p1a: Best deffoger|61/100|[from] item: Leftovers
-|turn|53
-|move|p1a: Best deffoger|Brave Bird|p2a: Sableye
-|-damage|p2a: Sableye|49/100
-|-damage|p1a: Best deffoger|53/100|[from] Recoil
-|move|p2a: Sableye|Shadow Ball|p1a: Best deffoger
-|-damage|p1a: Best deffoger|0 fnt
-|faint|p1a: Best deffoger
-|switch|p1a: BIG PUMPY|Blastoise|58/100
-|-damage|p1a: BIG PUMPY|45/100|[from] Stealth Rock
-|turn|54
-|move|p1a: BIG PUMPY|Scald|p2a: Sableye
-|-damage|p2a: Sableye|37/100
-|move|p2a: Sableye|Shadow Ball|p1a: BIG PUMPY
-|-damage|p1a: BIG PUMPY|7/100
-|-heal|p1a: BIG PUMPY|13/100|[from] item: Leftovers
-|turn|55
-|move|p1a: BIG PUMPY|Refresh|p1a: BIG PUMPY
-|-fail|p1a: BIG PUMPY
-|move|p2a: Sableye|Shadow Ball|p1a: BIG PUMPY
-|-damage|p1a: BIG PUMPY|0 fnt
-|faint|p1a: BIG PUMPY
-|win|muskrat catcher
+|move|p1a: Amir's Weekend|Earthquake|p2a: SheDrill
+|-damage|p2a: SheDrill|0 fnt
+|faint|p2a: SheDrill
+|win|TheGamer7777

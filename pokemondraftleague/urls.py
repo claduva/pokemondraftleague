@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),
     path('', include('accounts.urls')),
+    path('', include('draftplanner.urls')),
     path('', include('pokemonadmin.urls')),
     path('',include("individualleague.urls")),
     path('',include("leagues.urls")),
