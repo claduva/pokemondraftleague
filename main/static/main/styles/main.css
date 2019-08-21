@@ -7,10 +7,16 @@ body{
   display: inline-block;
 }
 
+div.scrolldiv{
+  overflow: auto;
+  max-height: 400px;
+}
+
 div.nicEdit-main{
   background-color: white !important;
   color: black !important;
 }
+
 
 .badgeheader .badge {
   position: absolute;

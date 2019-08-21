@@ -8,6 +8,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
 from django.db.models import Q
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
+from django.http import HttpResponse
 
 import json
 import math
@@ -27,3 +31,10 @@ def draftplanner(request):
     context = {
     }
     return render(request, 'draftplanner.html',context)
+
+@csrf_exempt
+def getmon(request):
+    lookupmon=request.POST['lookupmon']
+    pokemonsearchlist=all_pokemon.objects.filter(pokemon__istartswith=lookupmon).order_by('pokemon')
+    data=serializers.serialize('json', list(pokemonsearchlist),fields=('pokemon'))
+    return HttpResponse(data, content_type='application/json')
