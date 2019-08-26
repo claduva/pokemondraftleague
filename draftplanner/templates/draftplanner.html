@@ -7,38 +7,48 @@
 {% endblock %}
 {% block body %}
 <div class="row bg-darkgrey rounded text-light mb-2 align-items-center">
-    <div class="col-4">
-        <div class="bg-lightgrey text-dark text-center border m-1 rounded">
-        <h5>Save Current Draft</h5>
-        <form>{% csrf_token %}
-            <input type="text" value="Untitled">
-            <button class="btn btn-primary btn-sm">Save</button>
-        </form>
+    <div class="col-3">
+        <div class="bg-lightgrey text-dark text-center border my-2 rounded">
+            <strong>Current Draft Name</strong>
+            <input id="draftname" type="text" value="{{defaultname}}">
         </div>
     </div>
-    <div class="col-4">
-        <div class="bg-lightgrey text-dark text-center border m-1 rounded">
-        <h5>Load Existing Draft</h5>
-        <form>{% csrf_token %}
-            <select></select>
-            <button class="btn btn-primary btn-sm">Load</button>
-        </form>
+    <div class="col-3">
+        <div class="bg-lightgrey text-dark text-center border my-2 rounded align-items-stretch">
+            <strong>Associated League</strong>
+                <select id="associatedleague">
+                    <option value="None">None Selected</option>
+                    {% for item in allleagues %}
+                    <option value={{item.id}}>{{item.name}}</option>
+                    {% endfor %}
+                </select>
         </div>
     </div>
-    <div class="col-4">
-            <div class="bg-lightgrey text-dark text-center border m-1 rounded">
-            <h5>Delete Current Draft</h5>
-            <form>{% csrf_token %}
-                <button class="btn btn-danger btn-sm">Delete</button>
-            </form>
-            </div>
+    <div class="col-3">
+        <div class="bg-lightgrey text-dark text-center border my-2 rounded">
+            <strong>Load Existing Draft</strong>
+                <select id="draftselect">
+                    <option value="None">None Selected</option>
+                    {% for item in usersdrafts %}
+                    <option value={{item.id}}>{{item.draftname}}</option>
+                    {% endfor %}
+                </select>
+                <button id="loadbutton" class="btn btn-primary btn-sm">Load</button>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="bg-lightgrey text-dark text-center border my-2 rounded">
+            <strong>Delete Current Draft</strong>
+            <button id="deletebutton" class="btn btn-danger btn-sm">Delete</button>
+        </div>
     </div>
 </div>
 <div class="row bg-darkgrey rounded text-light mb-2 align-items-center">
     <div class="col-12">
+        <div hidden><input id="draftloaded"></div>
         <div id="topmonlist" class="row mx-0 my-2 d-flex justify-content-center">
-            <div class='col-1 bg-lightgrey text-dark text-center border'>
-                <img src='https://play.pokemonshowdown.com/sprites/xyani/unown-question.gif'>
+            <div class='col-1 activemon text-dark text-center border nomonselected'>
+                <img class="mediumsprite" src='https://play.pokemonshowdown.com/sprites/xyani/unown-question.gif'>
             </div>
             <div id="addmon"
                 class="col-1 bg-lightgrey text-dark text-center border d-flex align-items-center justify-content-center">
@@ -51,10 +61,10 @@
     <div class="col-12">
         <div class="row mx-0 mt-2 bg-lightgrey text-dark border">
             <div class="col-2 py-2">
-                <div class="d-flex justify-content-center"><img
+                <div id="selectedmon" class="d-flex justify-content-center"><img class="mediumsprite"
                         src="https://play.pokemonshowdown.com/sprites/xyani/unown-question.gif"></div>
                 <small><strong>Pokemon</strong></small>
-                <form>{% csrf_token %}
+                <form>
                     <input id="moninput" type="text">
                 </form>
             </div>

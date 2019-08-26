@@ -42,7 +42,11 @@ div.nicEdit-main{
 }
 
 .bg-lightgrey{
-  background-color: rgb(247, 244, 244);
+  background-color: rgba(244, 246, 247, 0.849);
+}
+
+.activemon{
+  background-color: rgb(177, 216, 226);
 }
 
 .sub-body{
