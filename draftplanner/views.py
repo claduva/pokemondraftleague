@@ -27,6 +27,7 @@ from accounts.models import *
 from datetime import datetime, timedelta,timezone
 from operator import itemgetter
 
+@login_required
 def draftplanner(request):
     usersdrafts=planned_draft.objects.all().filter(user=request.user)
     defaultname=None
