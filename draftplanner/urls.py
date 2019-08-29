@@ -8,4 +8,5 @@ urlpatterns = [
     path("draftplanner/getdraft", views.getdraft, name="getdraft"),
     path("draftplanner/savedraft", views.savedraft, name="savedraft"),
     path("draftplanner/deletedraft", views.deletedraft, name="deletedraft"),
+    path("draftplanner/updatedata", views.updatedata, name="updatedata"),
 ]

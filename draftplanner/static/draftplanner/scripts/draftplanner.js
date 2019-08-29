@@ -53,6 +53,7 @@ $(document).ready(function() {
           $("#monsearchlist").empty();
           $(".activemon").empty();
           updateactivemon($(this).text());
+          updatedata()
           $(".activemon").removeClass("nomonselected").addClass("monselected")
           //select loaded mon
           $(".monselected").click(function() {
@@ -67,6 +68,7 @@ $(document).ready(function() {
                 .children()
                 .text()
             );
+            updatedata()
           });
         });
       }
@@ -129,6 +131,7 @@ $(document).ready(function() {
                 .text()
             );
           });
+          updatedata()
         }
       );
     } else {
@@ -214,4 +217,72 @@ function updateactivemon(name) {
   $(".activemon").append("<div class='saveidentifier' hidden>" +
   name +
   "</div>")
+}
+
+function updatedata() {
+    savelist = [];
+    $(".saveidentifier").each(function() {
+      savelist.push($(this).text());
+    });
+    $.post(
+      "/draftplanner/updatedata",
+      {
+        savelist: savelist,
+      },
+      function(data) {
+        settodefault()
+        for (i = 0; i < data.response.length; i++) {
+          if (data.response[i][2]=="Y"){
+          appendsprite(data.response[i][0],data.response[i][1])
+          }
+          else{
+            $(data.response[i][0]).empty().append(data.response[i][1])
+          }
+        }
+      }
+    );
+}
+
+function appendsprite(identifier,name){
+  if ($(identifier).html()=="None" || $(identifier).html()=="X"){
+  $(identifier).empty()
+  }
+  $(identifier).append(
+    "<img class='smallsprite' src='https://play.pokemonshowdown.com/sprites/xyani/" +
+      name
+        .toLowerCase()
+        .replace(" ", "")
+        .replace(".", "")
+        .replace(":", "")
+        .replace("%", "")
+        .replace("mega-,mega")
+        .replace("nidoran-m,nidoran")
+        .replace("o-o,oo")
+        .replace("dusk-mane,duskmane")
+        .replace("dawn-wings", "dawnwings") +
+      ".gif'>"
+  );
+}
+
+function settodefault(){
+  $("#Fire").empty().append("X")
+  $("#Grass").empty().append("X")
+  $("#Water").empty().append("X")
+  $("#Dark").empty().append("X")
+  $("#Fighting").empty().append("X")
+  $("#Fairy").empty().append("X")
+  $("#Electric").empty().append("X")
+  $("#Ground").empty().append("X")
+  $("#Poison").empty().append("X")
+  $("#Dragon").empty().append("X")
+  $("#Steel").empty().append("X")
+  $("#Psychic").empty().append("X")
+  $("#Ghost").empty().append("X")
+  $("#speed_g1").empty().append("None")
+  $("#speed_g2").empty().append("None")
+  $("#speed_g3").empty().append("None")
+  $("#speed_g4").empty().append("None")
+  $("#speed_g5").empty().append("None")
+  $("#speed_g6").empty().append("None")
+  $("#largestspeedgap").empty().append("N/A")
 }

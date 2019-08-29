@@ -85,7 +85,6 @@ def savedraft(request):
         associatedleague=None
     savelist=request.POST.getlist('savelist[]')
     existingdraft=request.POST['existingdraft']
-    print(existingdraft)
     if len(savelist)>0:
         if existingdraft=='':
             drafttoedit=planned_draft.objects.create(
@@ -117,5 +116,53 @@ def deletedraft(request):
     planned_draft.objects.get(id=int(loadeddraft)).delete()
     data={
         'response':'Success'
+        }
+    return JsonResponse(data)
+
+@csrf_exempt
+def updatedata(request):
+    savelist=request.POST.getlist('savelist[]')
+    data=[]
+    speeds=[]
+    for item in savelist:
+        monofinterest=all_pokemon.objects.get(pokemon=item)
+        #moveset
+        movesofinterest=["Stealth Rock","Spikes","Toxic Spikes","Sticky Web","Rapid Spin","Defog","Wish","Heal Bell","Aromatherapy"]
+        for m in monofinterest.moves.all().filter(moveinfo__name__in=movesofinterest):
+            if m.moveinfo.name=="Aromatherapy" or m.moveinfo.name=="Heal Bell":
+                data.append((f"#Cleric",item,'Y'))
+            elif m.moveinfo.name.find(" ")>-1:
+                data.append((f"#{m.moveinfo.name.replace(' ','')}",item,'Y'))
+            else:
+                data.append((f"#{m.moveinfo.name}",item,'Y'))
+        #types
+        for t in monofinterest.types.all():
+            data.append((f"#{t.typing}",item,'Y'))
+        #monspeed
+        monspeed=monofinterest.speed
+        speeds.append(monspeed)
+        if monspeed<31:
+            data.append(("#speed_g1",item,'Y'))
+        elif monspeed<51:
+            data.append(("#speed_g2",item,'Y'))
+        elif monspeed<71:
+            data.append(("#speed_g3",item,'Y'))
+        elif monspeed<91:
+            data.append(("#speed_g4",item,'Y'))
+        elif monspeed<111:
+            data.append(("#speed_g5",item,'Y'))
+        elif monspeed >110:
+            data.append(("#speed_g6",item,'Y'))
+    #max speed gap
+    if len(speeds)>1:
+        speeds.sort()
+        maxdif=0
+        for i in range(len(speeds)-1):
+            dif=speeds[i+1]-speeds[i]
+            if dif>maxdif:
+                maxdif=dif
+        data.append(("#largestspeedgap",maxdif,'N'))
+    data={
+        'response': data
         }
     return JsonResponse(data)
