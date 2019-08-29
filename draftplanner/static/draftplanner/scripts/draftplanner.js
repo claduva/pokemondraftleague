@@ -285,4 +285,12 @@ function settodefault(){
   $("#speed_g5").empty().append("None")
   $("#speed_g6").empty().append("None")
   $("#largestspeedgap").empty().append("N/A")
+  $("#StealthRock").empty().append("None")
+  $("#Spikes").empty().append("None")
+  $("#ToxicSpikes").empty().append("None")
+  $("#StickyWeb").empty().append("None")
+  $("#Defog").empty().append("None")
+  $("#RapidSpin").empty().append("None")
+  $("#Cleric").empty().append("None")
+  $("#Wish").empty().append("None")
 }
