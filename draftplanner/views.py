@@ -12,6 +12,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from django.http import HttpResponse
+from django.forms.models import model_to_dict
 
 import json
 import math
@@ -153,6 +154,12 @@ def updatedata(request):
             data.append(("#speed_g5",item,'Y'))
         elif monspeed >110:
             data.append(("#speed_g6",item,'Y'))
+        ##resists and weaknesses
+        moneffectiveness=monofinterest.effectiveness
+        moneffectivenessdict=model_to_dict(moneffectiveness)
+        for key, value in moneffectivenessdict.items():
+            if key != "id" and key != "pokemon" and value != 0:
+                data.append((f"#{key.title()}{value}",item,'Y'))
     #max speed gap
     if len(speeds)>1:
         speeds.sort()

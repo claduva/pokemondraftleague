@@ -314,3 +314,147 @@ def runscript(request):
                 team2.save()
                 line_count += 1
                 print(line_count)
+
+    ##effectiveness calc
+    ap=all_pokemon.objects.all()
+    j=1
+    for i in ap:
+        print(j)
+        typing=i.types.all()
+        i=i.effectiveness
+        for t in typing:
+            if t.typing=="Bug":
+                i.fighting+=1
+                i.flying+=-1
+                i.ground+=1
+                i.rock+=-1
+                i.fire+=-1
+                i.grass+=1
+            elif t.typing=="Dark":
+                i.fighting+=-1
+                i.bug+=-1
+                i.ghost+=1
+                i.dark+=1
+                i.fairy+=-1
+            elif t.typing=="Dragon":
+                i.fire+=1
+                i.water+=1
+                i.grass+=1
+                i.electric+=1
+                i.ice+=-1
+                i.dragon+=-1
+                i.fairy+=-1
+            elif t.typing=="Electric":
+                i.flying+=1
+                i.ground+=-1
+                i.steel+=1
+                i.electric+=1
+            elif t.typing=="Fairy":
+                i.fighting+=1
+                i.poison+=-1
+                i.bug+=1
+                i.steel+=-1
+                i.dark+=1
+            elif t.typing=="Fighting":
+                i.flying+=-1
+                i.rock+=1
+                i.bug+=1
+                i.psychic+=-1
+                i.dark+=1
+                i.fairy+=-1
+            elif t.typing=="Fire":
+                i.ground+=-1
+                i.rock+=-1
+                i.bug+=1
+                i.steel+=1
+                i.fire+=1
+                i.water+=-1
+                i.grass+=1
+                i.ice+=1
+                i.fairy+=1
+            elif t.typing=="Flying":
+                i.fighting+=1
+                i.rock+=-1
+                i.bug+=1
+                i.grass+=1
+                i.electric+=-1
+                i.ice+=-1
+            elif t.typing=="Ghost":
+                i.poison+=1
+                i.bug+=1
+                i.dark+=-1
+                i.ghost+=-1
+            elif t.typing=="Grass":
+                i.flying+=-1
+                i.poison+=-1
+                i.grass+=1
+                i.ground+=1
+                i.bug+=-1
+                i.fire+=-1
+                i.water+=1
+                i.electric+=1
+                i.ice+=-1
+            elif t.typing=="Ground":
+                i.poison+=1
+                i.rock+=1
+                i.water+=-1
+                i.grass+=-1
+                i.ice+=-1
+            elif t.typing=="Ice":
+                i.fighting+=1
+                i.steel+=1
+                i.fire+=1
+                i.rock+=1
+                i.ice+=-1
+            elif t.typing=="Normal":
+                i.fighting+=-1
+            elif t.typing=="Poison":
+                i.fighting+=1
+                i.poison+=1
+                i.ground+=-1
+                i.bug+=1
+                i.grass+=1
+                i.psychic+=-1
+                i.fairy+=1
+            elif t.typing=="Psychic":
+                i.fighting+=1
+                i.bug+=-1
+                i.ghost+=-1
+                i.dark+=-1
+                i.psychic+=1
+            elif t.typing=="Rock":
+                i.normal+=1
+                i.fighting+=-1
+                i.flying+=1
+                i.poison+=1
+                i.ground+=-1
+                i.steel+=1
+                i.fire+=1
+                i.water+=-1
+                i.grass+=-1
+            elif t.typing=="Steel":
+                i.normal+=1
+                i.fighting+=-1
+                i.flying+=1
+                i.ground+=-1
+                i.rock+=1
+                i.bug+=1
+                i.steel+=1
+                i.fire+=-1
+                i.grass+=1
+                i.psychic+=1
+                i.ice+=1
+                i.dragon+=1
+                i.fairy+=1
+            elif t.typing=="Water":
+                i.steel+=1
+                i.fire+=1
+                i.water+=1
+                i.grass+=-1
+                i.electric=-1
+                i.ice+=1
+            else:
+                print(t.typing)
+        i.save()
+        j+=1
+    return redirect('home')

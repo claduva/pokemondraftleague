@@ -87,3 +87,24 @@ class pokemon_tier_template(models.Model):
     
     def __str__(self):
         return f'Template: {self.template}, Pokemon: {self.pokemon.pokemon}'
+
+class pokemon_effectiveness(models.Model):
+    pokemon = models.OneToOneField(all_pokemon,on_delete=models.CASCADE,related_name="effectiveness")
+    bug=models.IntegerField(default=0)
+    dark=models.IntegerField(default=0)
+    dragon=models.IntegerField(default=0)
+    electric=models.IntegerField(default=0)
+    fairy=models.IntegerField(default=0)
+    fighting=models.IntegerField(default=0)
+    fire=models.IntegerField(default=0)
+    flying=models.IntegerField(default=0)
+    ghost=models.IntegerField(default=0)
+    grass=models.IntegerField(default=0)
+    ground=models.IntegerField(default=0)
+    ice=models.IntegerField(default=0)
+    normal=models.IntegerField(default=0)
+    poison=models.IntegerField(default=0)
+    psychic=models.IntegerField(default=0)
+    rock=models.IntegerField(default=0)
+    steel=models.IntegerField(default=0)
+    water=models.IntegerField(default=0)
