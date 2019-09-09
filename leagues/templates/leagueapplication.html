@@ -11,16 +11,9 @@
         <div class="col-md-4 media-body">
             <div class="d-flex justify-content-center"><img src="{{league.logo.url}}" class="rounded-circle"></div>
             <h3 class="d-flex justify-content-center">{{league.name}}</h3>
-            <div class="d-flex justify-content-center">Hosted by {{league.host}}</div>
-            {% if league.league_settings.discordurl is not 'Not Provided' %}
-            <a href="{{ item.league_settings.discordurl }}">
-                <div class="d-flex justify-content-center">Join the Discord</div>
-            </a>
-            {% endif %}
-            {% if league.league_settings.is_recruiting %}
-            <div class="d-flex justify-content-center text-success">Recruiting Coaches!</div>
-            {% else  %}
-            <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
+        <div class="d-flex justify-content-center text-center">Hosted by {% for h in league.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
+        {% if league.settings.discordurl != 'Not Provided' %}
+        <div class="d-flex justify-content-center"><a href="{{ league.settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a></div>
             {% endif %}
         </div>
         <div class="col-md-8">

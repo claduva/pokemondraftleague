@@ -142,16 +142,19 @@ def create_league(request):
         form = CreateLeagueForm(request.POST)
         if form.is_valid():
             newleague=form.save()
+            newleague.host.add(request.user)
+            newleague.save()
             messages.success(request,f'Your league has been successfully created!')
             allpokes=all_pokemon.objects.all()
             i=pokemon_tier.objects.all().order_by('id').last().id
-            for item in allpokes:
-                i+=1
-                pokemon_tier.objects.create(id=i,pokemon=item,league=newleague)
+            #for item in allpokes:
+            #    i+=1
+            #    pokemon_tier.objects.create(id=i,pokemon=item,league=newleague)
             return redirect('league_list')
+        else:
+            print(form.errors)
     else:
         form = CreateLeagueForm(initial={'host': request.user})
-
     context = {
         'form': form,
     }

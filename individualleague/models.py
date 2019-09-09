@@ -62,6 +62,9 @@ class free_agency(models.Model):
     addedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="added")
     timeadded=models.DateTimeField(auto_now_add=True)
     executed=models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.coach.coach.username}: {self.season.league}'
     
 class trade_request(models.Model):
     offeredpokemon=models.ForeignKey(roster,on_delete=models.CASCADE,related_name="tradedroppedrequest")

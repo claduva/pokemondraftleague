@@ -59,6 +59,9 @@ class division_name(models.Model):
 class league_application(models.Model):
     applicant = models.ForeignKey(User, on_delete=models.CASCADE)
     league_name = models.ForeignKey(league, on_delete=models.CASCADE)
+    discord_name = models.CharField(max_length=50,default="None")
+    draft_league_resume = models.TextField(default="None")
+    tier_preference = models.CharField(max_length=50,default="None")
 
     def __str__(self):
         return f'{self.applicant.username}\'s application for {self.league_name.name}'

@@ -10,8 +10,8 @@ class CreateLeagueForm(forms.ModelForm):
 
     class Meta:
         model = league
-        fields = ['name','host']
-        widgets = {'host': forms.HiddenInput()}
+        fields = ['name']
+        #widgets = {'host': forms.HiddenInput()}
 
 class UpdateLeagueForm(forms.ModelForm):
     logo=forms.FileField(widget=FileInput,required=False)
@@ -36,7 +36,7 @@ class LeagueApplicationForm(forms.ModelForm):
     
     class Meta:
         model = league_application
-        fields = ['applicant','league_name']
+        fields = ['applicant','league_name','discord_name','draft_league_resume','tier_preference']
         widgets = {
             'applicant': forms.HiddenInput(),
             'league_name': forms.HiddenInput(),
