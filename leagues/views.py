@@ -353,6 +353,18 @@ def add_coach(request,league_name):
     return redirect('manage_coachs',league_name=league_name)
 
 @login_required
+def view_application(request,league_name):
+    if request.POST:
+        application=league_application.objects.get(pk=request.POST['coach'])
+        context = {
+            'league_name': league_name,
+            'leagueshostedsettings': True,
+            "appofinterest":application,
+        }
+        return render(request, 'view_application.html',context)
+    return redirect('manage_coachs',league_name=league_name)
+
+@login_required
 def remove_coach(request,league_name):
     if request.POST:
         league_=league.objects.get(name=league_name)
