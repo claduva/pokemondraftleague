@@ -18,16 +18,12 @@
         </div>
     </div>
     <div class="col-md-8">
-        <div class="bg-darkgrey rounded text-light p-3">
-            <h3>{{appofinterest.applicant.username}}'s Application for {{appofinterest.league_name.name}}</h3>
-            <div class="bg-lightgrey rounded text-dark p-2">
-            <h5>Discord Name</h5>
-            <div>{{appofinterest.discord_name}}</div>
-            <h5>Draft League Resume</h5>
-            <div>{{appofinterest.draft_league_resume}}</div>
-            <h5>Tier Preference</h5>
-            <div>{{appofinterest.tier_preference}}</div>
-            </div>
+        <div class="bg-darkgrey rounded p-3 text-light">
+            <h3>League Configuration of {{league_name}}</h3>
+            <form method="post">{% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-primary" type="submit">
+            </form>
         </div>
     </div>
 </div>

@@ -221,6 +221,53 @@ def individual_league_settings(request,league_name):
     return render(request, 'settings.html',context)
 
 @login_required
+def league_configuration(request,league_name):
+    try:
+        league_instance=league.objects.get(name=league_name)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.user not in league_instance.host.all():
+        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.method == 'POST':
+        try:
+            existingconfiguration=league_instance.configuration
+            form=LeagueConfigurationForm(request.POST,instance=existingconfiguration)
+        except:
+            form=LeagueConfigurationForm(request.POST)
+        if form.is_valid():
+            config=form.save()
+            try:
+                league_instance.subleague.all().delete()
+            except:
+                pass
+            if config.number_of_subleagues==1:
+                league_subleague.objects.create(league=league_instance,subleague="Main")
+            messages.success(request,league_name+' has been updated!')
+            return redirect('individual_league_settings',league_name=league_name)
+        else:
+            print(form.errors)
+    try:
+        existingconfiguration=league_instance.configuration
+        form=LeagueConfigurationForm(initial={'league':league_instance},instance=existingconfiguration)
+    except:
+        form=LeagueConfigurationForm(initial={'league':league_instance})
+    try:    
+        subleagues=league_instance.subleague.all()
+        print(subleagues)
+    except:
+        subleagues=None
+    context = {
+        'league_name': league_name,
+        'settingheading': league_name,
+        'leagueshostedsettings': True,
+        'form':form,
+        'subleagues':subleagues,
+    }
+    return render(request, 'leagueconfiguration.html',context)
+
+@login_required
 def discordsettings(request,league_name):
     try:
         league_instance=league.objects.get(name=league_name)

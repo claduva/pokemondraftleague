@@ -11,7 +11,6 @@ class CreateLeagueForm(forms.ModelForm):
     class Meta:
         model = league
         fields = ['name']
-        #widgets = {'host': forms.HiddenInput()}
 
 class UpdateLeagueForm(forms.ModelForm):
     logo=forms.FileField(widget=FileInput,required=False)
@@ -30,7 +29,16 @@ class UpdateLeagueSettingsForm(forms.ModelForm):
 
     class Meta:
         model = league_settings
-        fields = ['is_recruiting','discordurl','discordserver','number_of_teams','number_of_conferences','number_of_divisions','teambased','allows_teams','is_public']
+        fields = ['is_recruiting','number_of_teams','number_of_conferences','number_of_divisions','teambased','allows_teams','is_public']
+
+class LeagueConfigurationForm(forms.ModelForm):
+
+    class Meta:
+        model = league_configuration
+        exclude=[]
+        widgets = {
+            'league': forms.HiddenInput(),
+            }
 
 class LeagueApplicationForm(forms.ModelForm):
     

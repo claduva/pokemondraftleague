@@ -24,15 +24,34 @@ class league_settings(models.Model):
     is_recruiting = models.BooleanField(default=True)
     allows_teams = models.BooleanField(default=False)
     teambased = models.BooleanField(default=False)
-    discordurl = models.CharField(max_length=100, default="Not Provided")
-    discordserver = models.CharField(max_length=100, default="Not Provided")
     is_public = models.BooleanField(default=True)
 
     def __str__(self):
         return f'League settings for {self.league_name.name}'
 
+class league_configuration(models.Model):
+    league = models.OneToOneField(league, on_delete=models.CASCADE,related_name="configuration")
+    number_of_subleagues = models.IntegerField(default=1)
+    number_of_teams_per_league = models.IntegerField(default=16)
+    number_of_conferences_per_league = models.IntegerField(default=2)
+    number_of_divisions_per_league = models.IntegerField(default=2)
+    allows_teams = models.BooleanField(default=False)
+    teambased = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'League configuration for {self.league.name}'
+
+class league_subleague(models.Model):
+    league = models.ForeignKey(league, on_delete=models.CASCADE,related_name="subleague")
+    subleague = models.CharField(max_length=30)
+
+    def __str__(self):
+        return f'Subleague for {self.league.name}'
+
 class discord_settings(models.Model):
     league = models.OneToOneField(league, on_delete=models.CASCADE,related_name="discord_settings")
+    discordurl = models.CharField(max_length=100, default="Not Provided")
+    discordserver = models.CharField(max_length=100, default="Not Provided")
     draftchannel=models.CharField(max_length=100, default="Not Provided")
     freeagencychannel=models.CharField(max_length=100, default="Not Provided")
     tradechannel=models.CharField(max_length=100, default="Not Provided")
