@@ -15,6 +15,7 @@ class all_pokemon(models.Model):
     s_attack = models.IntegerField()
     s_defense = models.IntegerField()
     speed = models.IntegerField()
+    bst = models.IntegerField(null=True)
     is_fully_evolved = models.BooleanField()
     kills = models.IntegerField(default=0)
     deaths = models.IntegerField(default=0)

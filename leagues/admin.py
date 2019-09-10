@@ -9,6 +9,8 @@ class LeagueAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(league,LeagueAdmin)
+admin.site.register(league_configuration)
+admin.site.register(league_subleague)
 admin.site.register(league_settings)
 admin.site.register(league_application)
 admin.site.register(coachdata)

@@ -22,8 +22,21 @@
             <h3>League Configuration of {{league_name}}</h3>
             <form method="post">{% csrf_token %}
                 {{ form|crispy }}
-                <input class="btn btn-primary" type="submit">
+                <input name="purpose" class="btn btn-primary" type="submit">
             </form>
+            {% if showsubleagues %}
+            <h4>Subleagues</h4>
+            
+            {% for item in subleagues %}
+            <div>
+                <form method="post">{% csrf_token %}
+                <input name="slname" value={{item.subleague}}>
+                <input name="itemid" value={{item.id}} hidden>
+                <input name="purpose" class="btn btn-primary btn-sm" type="submit" value="Rename">
+                </form>
+            </div>
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>

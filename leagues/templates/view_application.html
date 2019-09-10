@@ -26,7 +26,9 @@
             <h5>Draft League Resume</h5>
             <div>{{appofinterest.draft_league_resume}}</div>
             <h5>Tier Preference</h5>
-            <div>{{appofinterest.tier_preference}}</div>
+            {% for item in appofinterest.tier_preference.all %}
+            <div>{{item.subleague}}</div>
+            {% endfor %}
             </div>
         </div>
     </div>

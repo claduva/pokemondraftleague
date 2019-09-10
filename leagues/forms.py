@@ -45,10 +45,17 @@ class LeagueApplicationForm(forms.ModelForm):
     class Meta:
         model = league_application
         fields = ['applicant','league_name','discord_name','draft_league_resume','tier_preference']
+        
         widgets = {
             'applicant': forms.HiddenInput(),
             'league_name': forms.HiddenInput(),
             }
+    
+    def __init__(self,league, *args, **kwargs):
+        super(LeagueApplicationForm, self).__init__(*args, **kwargs)
+        self.fields["tier_preference"].widget = FilteredSelectMultiple("league_subleague", False, attrs={'rows':'2'})
+        self.fields["tier_preference"].queryset = league_subleague.objects.all().filter(league=league)
+
 
 class CreateTierForm(forms.ModelForm):
     

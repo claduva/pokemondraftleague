@@ -68,41 +68,44 @@ def league_detail(request,league_name):
         seasonstart=None
     if settings.teambased:
         parent_team_list=league_team.objects.all().filter(league=league_)
-        allmatches=season.schedule.all()
-        numberofweeks=season.seasonlength
-        for i in range(numberofweeks):
-            weekmatches=allmatches.filter(week=i+1)
-            incompletematches=weekmatches.filter(replay='Link').count()
-            for parent_team in parent_team_list:
-                leaguematches=0
-                leaguewins=0
-                if i==0:
-                    parent_team.wins=0;parent_team.losses=0;parent_team.ties=0;parent_team.gp=0;parent_team.gw=0;parent_team.points=0;parent_team.differential=0
-                for coach in parent_team.child_teams.all():
-                    try:
-                        coachmatch=weekmatches.get(Q(team1=coach)|Q(team2=coach))
-                        if coachmatch.replay != "Link":
-                            parent_team.gp+=1
-                            if coach==coachmatch.winner:
-                                parent_team.gw+=1
-                                parent_team.differential+=abs(coachmatch.team1score-coachmatch.team2score)
-                                leaguewins+=1
-                            else:
-                                parent_team.differential+=0-abs(coachmatch.team1score-coachmatch.team2score)
-                            leaguematches+=1
-                    except:
-                        nomatch=True
-                if leaguematches>0 and incompletematches==0:
-                    winpercent=leaguewins/leaguematches
-                    if winpercent>0.5:
-                        parent_team.wins+=1
-                        parent_team.points+=3
-                    elif winpercent<0.5:
-                        parent_team.losses+=1  
-                    else:
-                        parent_team.ties+=1 
-                        parent_team.points+=1
-                parent_team.save()
+        try:
+            allmatches=season.schedule.all()
+            numberofweeks=season.seasonlength
+            for i in range(numberofweeks):
+                weekmatches=allmatches.filter(week=i+1)
+                incompletematches=weekmatches.filter(replay='Link').count()
+                for parent_team in parent_team_list:
+                    leaguematches=0
+                    leaguewins=0
+                    if i==0:
+                        parent_team.wins=0;parent_team.losses=0;parent_team.ties=0;parent_team.gp=0;parent_team.gw=0;parent_team.points=0;parent_team.differential=0
+                    for coach in parent_team.child_teams.all():
+                        try:
+                            coachmatch=weekmatches.get(Q(team1=coach)|Q(team2=coach))
+                            if coachmatch.replay != "Link":
+                                parent_team.gp+=1
+                                if coach==coachmatch.winner:
+                                    parent_team.gw+=1
+                                    parent_team.differential+=abs(coachmatch.team1score-coachmatch.team2score)
+                                    leaguewins+=1
+                                else:
+                                    parent_team.differential+=0-abs(coachmatch.team1score-coachmatch.team2score)
+                                leaguematches+=1
+                        except:
+                            nomatch=True
+                    if leaguematches>0 and incompletematches==0:
+                        winpercent=leaguewins/leaguematches
+                        if winpercent>0.5:
+                            parent_team.wins+=1
+                            parent_team.points+=3
+                        elif winpercent<0.5:
+                            parent_team.losses+=1  
+                        else:
+                            parent_team.ties+=1 
+                            parent_team.points+=1
+                    parent_team.save()
+        except:
+            pass
         parent_teams=[]
         parent_team_list=parent_team_list.order_by('-points','-gw','-differential')
         for parent_team in parent_team_list:            
@@ -231,31 +234,42 @@ def league_configuration(request,league_name):
         messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     if request.method == 'POST':
-        try:
-            existingconfiguration=league_instance.configuration
-            form=LeagueConfigurationForm(request.POST,instance=existingconfiguration)
-        except:
-            form=LeagueConfigurationForm(request.POST)
-        if form.is_valid():
-            config=form.save()
+        formpurpose=request.POST['purpose']
+        if formpurpose=="Submit":
             try:
-                league_instance.subleague.all().delete()
+                existingconfiguration=league_instance.configuration
+                form=LeagueConfigurationForm(request.POST,instance=existingconfiguration)
             except:
-                pass
-            if config.number_of_subleagues==1:
-                league_subleague.objects.create(league=league_instance,subleague="Main")
-            messages.success(request,league_name+' has been updated!')
-            return redirect('individual_league_settings',league_name=league_name)
-        else:
-            print(form.errors)
+                form=LeagueConfigurationForm(request.POST)
+            if form.is_valid():
+                config=form.save()
+                try:
+                    league_instance.subleague.all().delete()
+                except:
+                    pass
+                if config.number_of_subleagues==1:
+                    league_subleague.objects.create(league=league_instance,subleague="Main")
+                elif config.number_of_subleagues>1:
+                    for i in range(config.number_of_subleagues):
+                        league_subleague.objects.create(league=league_instance,subleague=f"Subleague{i+1}")
+                messages.success(request,league_name+' has been updated!')
+        elif formpurpose=="Rename":
+            itemid=request.POST['itemid']
+            slname=request.POST['slname']
+            print(slname)
+            i=league_subleague.objects.get(id=int(itemid))
+            i.subleague=slname
+            i.save()
     try:
         existingconfiguration=league_instance.configuration
         form=LeagueConfigurationForm(initial={'league':league_instance},instance=existingconfiguration)
     except:
         form=LeagueConfigurationForm(initial={'league':league_instance})
+    showsubleagues=False
     try:    
         subleagues=league_instance.subleague.all()
-        print(subleagues)
+        if subleagues.count()>1:
+            showsubleagues=True
     except:
         subleagues=None
     context = {
@@ -264,6 +278,7 @@ def league_configuration(request,league_name):
         'leagueshostedsettings': True,
         'form':form,
         'subleagues':subleagues,
+        'showsubleagues':showsubleagues,
     }
     return render(request, 'leagueconfiguration.html',context)
 
@@ -346,13 +361,13 @@ def league_apply(request,league_name):
                     messages.error(request,league_name+' is not currently accepting applications!',extra_tags='danger')
                     return redirect('league_list')
                 if request.method == 'POST':
-                    form = LeagueApplicationForm(request.POST)
+                    form = LeagueApplicationForm(league_,request.POST)
                     if form.is_valid():
                         form.save()
                         messages.success(request,'You have successfully applied to '+league_name+"!")
                         return redirect('league_detail',league_name=league_name)
                 else:
-                    form = LeagueApplicationForm(initial={
+                    form = LeagueApplicationForm(league_,initial={
                         'applicant': request.user,
                         'league_name': league_
                         })

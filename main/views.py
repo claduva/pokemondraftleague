@@ -113,6 +113,11 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request):
+    allcoachs=coachdata.objects.all()
+    for item in allcoachs:
+        sl=item.league_name.subleague.first()
+        item.subleague=sl
+        item.save()
     return redirect('home')
 
 def awardcheck(coach,awardtogive,awardtext,messagebody,admin):

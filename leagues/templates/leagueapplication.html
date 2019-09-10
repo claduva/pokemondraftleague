@@ -4,6 +4,14 @@
 
 {% block title %}{{league.name}}{% endblock %}
 {% block head%}
+<script type="text/javascript" src="{% static 'accounts/scripts/admin.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/core.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/jquery.init.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/SelectFilter2.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/SelectBox.js' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/styles/widgets.css' %}" />
 {% endblock %}
 {% block body %}
 <div class="content-section">

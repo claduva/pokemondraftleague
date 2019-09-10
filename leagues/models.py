@@ -46,7 +46,7 @@ class league_subleague(models.Model):
     subleague = models.CharField(max_length=30)
 
     def __str__(self):
-        return f'Subleague for {self.league.name}'
+        return f'{self.league.name}: {self.subleague}'
 
 class discord_settings(models.Model):
     league = models.OneToOneField(league, on_delete=models.CASCADE,related_name="discord_settings")
@@ -80,7 +80,7 @@ class league_application(models.Model):
     league_name = models.ForeignKey(league, on_delete=models.CASCADE)
     discord_name = models.CharField(max_length=50,default="None")
     draft_league_resume = models.TextField(default="None")
-    tier_preference = models.CharField(max_length=50,default="None")
+    tier_preference = models.ManyToManyField(league_subleague,related_name='apptiers')
 
     def __str__(self):
         return f'{self.applicant.username}\'s application for {self.league_name.name}'
@@ -89,7 +89,7 @@ class league_team(models.Model):
     league=models.ForeignKey(league,on_delete=models.CASCADE,related_name="leagueteam")
     name=models.CharField(max_length=50,default="Not Specified")
     logo = models.ImageField(default='league_logos/defaultleaguelogo.png',upload_to='team_logos',null=True, blank=True)
-    alternate=models.ForeignKey(User,on_delete=models.CASCADE,null=True,related_name='alternate')
+    captain=models.ForeignKey(User,on_delete=models.CASCADE,null=True,related_name='alternate')
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0)
     ties = models.IntegerField(default=0)
@@ -106,6 +106,7 @@ class coachdata(models.Model):
     teamname = models.CharField(max_length=100, default="To Be Determined")
     teammate = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,related_name='teammate')
     parent_team = models.ForeignKey(league_team, on_delete=models.SET_NULL, null=True,related_name="child_teams")
+    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
     conference = models.ForeignKey(conference_name, on_delete=models.SET_NULL, null=True)
     division = models.ForeignKey(division_name, on_delete=models.SET_NULL, null=True)
     wins = models.IntegerField(default=0)

@@ -13,6 +13,7 @@ urlpatterns = [
     path("leagues/<str:league_name>/rules/", views.league_rules, name="league_rules"),
     path("leagues/<str:league_name>/rules/edit", views.edit_league_rules, name="edit_league_rules"),
     path("leagues/<str:league_name>/tiers/", views.league_tiers, name="league_tiers"),
+    path("leagues/<str:league_name>/tiers/filter", views.league_tier_filter, name="league_tier_filter"),
     path("leagues/<str:league_name>/tiers-available/", views.available_league_tiers, name="available_league_tiers"),
     path("leagues/<str:league_name>/tiers/<str:tiername>/", views.individual_league_tier, name="individual_league_tier"),
     path("leagues/<str:league_name>/tiers-available/<str:tiername>/", views.available_individual_league_tier, name="available_individual_league_tier"),

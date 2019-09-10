@@ -2,8 +2,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
-from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
@@ -703,36 +704,49 @@ def league_tiers(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
-    tiers=leaguetiers.objects.all().filter(league=league_).order_by('-tierpoints')
-    mega=[]
+    tierlist_=pokemon_tier.objects.all().filter(league=league_).exclude(tier__tiername="Banned").order_by('-tier__tierpoints','pokemon__pokemon')
+    rosterlist=roster.objects.all().filter(season__league=league_)
+    rosterlist_=list(rosterlist.values_list('pokemon',flat=True))
     tierlist=[]
-    banned=False
-    for item in tiers:
-        tieritems=[]
-        tieritems_=pokemon_tier.objects.all().filter(tier=item).order_by('pokemon__pokemon')
-        for pokemon in tieritems_:
-            try:    
-                rosterspot=pokemon.pokemon.pokemonroster.get(season=league_.seasonsetting)
-                team=rosterspot.team
-            except:
-                team=None
-            tieritems.append([pokemon,team])
-        if item.tiername.find("Mega")>-1:
-            mega.append([item,tieritems])   
-        elif item.tiername.find("Banned")>-1:
-            banned=True 
+    for item in tierlist_:
+        if item.pokemon.id in rosterlist_:
+            owner=rosterlist.get(pokemon__id=item.pokemon.id)
+            tierlist.append((item,f"Signed by {owner.team.teamabbreviation}"))
         else:
-            tierlist.append([item,tieritems]) 
+            tierlist.append((item,"FREE"))
+    types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     context = {
         'league': league_,
         'leaguepage': True,
         'league_teams': league_teams,
         'league_name': league_name,
         'tiers': tierlist,
-        'mega': mega,
-        'banned': banned,
+        'types':types,
     }
     return render(request, 'tiers.html',context)
+
+@csrf_exempt
+def league_tier_filter(request,league_name):
+    league_=league.objects.get(name=league_name)
+    tierlist_=pokemon_tier.objects.all().filter(league=league_)
+    tierlist=[]
+    for item in tierlist_:
+        tierlist.append({
+            'tiername':item.tier.tiername,
+            'tierpoints':item.tier.tierpoints,
+            'pokemon':item.pokemon.pokemon,
+            'hp':item.pokemon.hp,
+            'attack':item.pokemon.attack,
+            'defense':item.pokemon.defense,
+            's_attack':item.pokemon.s_attack,
+            's_defense':item.pokemon.s_defense,
+            'speed':item.pokemon.speed,
+            'bst':item.pokemon.bst,
+        })
+    data={
+        'tierlist':tierlist
+        }
+    return JsonResponse(data)
 
 def individual_league_tier(request,league_name,tiername):
     try:
