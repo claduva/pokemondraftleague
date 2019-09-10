@@ -56,7 +56,11 @@
         <div class="tieritem" data-tier="{{item.tier.tierpoints}}" data-bst="{{item.pokemon.bst}}"
             data-pokemon="{{item.pokemon.pokemon}}" data-available="{{item2}}">
             <a href="">
-                <div class="row bg-lightgrey text-dark rounded mb-1">
+            {% if item2 == "FREE" %}
+                <div class="row bg-green text-dark rounded mb-1">
+            {% else %}
+                <div class="row bg-red text-dark rounded mb-1">
+            {% endif %}
                     <div class="col-2 justify-content-center d-flex align-items-center">
                         <div>{{item2}}</div>
                     </div>

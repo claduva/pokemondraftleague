@@ -49,6 +49,14 @@ div.nicEdit-main{
   background-color: rgba(244, 246, 247, 0.849);
 }
 
+.bg-green{
+  background-color: rgb(202, 243, 215);
+}
+
+.bg-red{
+  background-color: rgb(245, 209, 202);
+}
+
 .activemon{
   background-color: rgb(177, 216, 226);
 }
