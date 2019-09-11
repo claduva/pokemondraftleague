@@ -686,7 +686,7 @@ def league_tiers(request,league_name):
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
-    tierlist_=pokemon_tier.objects.all().filter(league=league_).exclude(tier__tiername="Banned").order_by('-tier__tierpoints','pokemon__pokemon')[0:30]
+    tierlist_=pokemon_tier.objects.all().filter(league=league_).exclude(tier__tiername="Banned").order_by('-tier__tierpoints','pokemon__pokemon')
     tierchoices=leaguetiers.objects.all().filter(league=league_).exclude(tiername="Banned").order_by('tiername')
     rosterlist=roster.objects.all().filter(season__league=league_)
     rosterlist_=list(rosterlist.values_list('pokemon',flat=True))
@@ -757,7 +757,7 @@ def freeagency(request,league_name):
     if fa_remaining < 1:
         messages.error(request,'You do not have any free agencies remaining!',extra_tags='danger')
         return redirect('league_detail',league_name=league_name)
-    pendingfreeagency=free_agency.objects.all().filter(executed=False)
+    pendingfreeagency=free_agency.objects.all().filter(executed=False,season=season)
     context = {
         'league': league_,
         'leaguepage': True,
