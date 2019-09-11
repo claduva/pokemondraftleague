@@ -705,6 +705,7 @@ def league_tiers(request,league_name):
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('league_list')
     tierlist_=pokemon_tier.objects.all().filter(league=league_).exclude(tier__tiername="Banned").order_by('-tier__tierpoints','pokemon__pokemon')
+    tierchoices=leaguetiers.objects.all().filter(league=league_).exclude(tiername="Banned").order_by('tiername')
     rosterlist=roster.objects.all().filter(season__league=league_)
     rosterlist_=list(rosterlist.values_list('pokemon',flat=True))
     tierlist=[]
@@ -722,6 +723,7 @@ def league_tiers(request,league_name):
         'league_name': league_name,
         'tiers': tierlist,
         'types':types,
+        'tierchoices':tierchoices,
     }
     return render(request, 'tiers.html',context)
 

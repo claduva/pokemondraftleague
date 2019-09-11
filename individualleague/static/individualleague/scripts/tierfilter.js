@@ -25,6 +25,8 @@ $(document).ready(function() {
   });
   $("#available").change(function() {
     availablechoice=$("#available").val()
+    tierchoice=$("#tierchoice").val()
+    typingchoice=$("#typing").val()
     tl=$(".tieritem")
     if (availablechoice=="allpokemon"){
         tl.each(function(){
@@ -41,7 +43,30 @@ $(document).ready(function() {
         })
     }
   });
+  $("#tierchoice").change(function() {
+    availablechoice=$("#available").val()
+    tierchoice=$("#tierchoice").val()
+    typingchoice=$("#typing").val()
+    tl=$(".tieritem")
+    if (tierchoice=="none"){
+        tl.each(function(){
+            item=$(this)
+            item.show()
+        })
+    }
+    else {
+        tl.each(function(){
+            item=$(this)
+            item.hide()
+            if (item.attr("data-tier")==tierchoice){
+                item.show()
+            }
+        })
+    }
+  });
   $("#typing").change(function() {
+    availablechoice=$("#available").val()
+    tierchoice=$("#tierchoice").val()
     typingchoice=$("#typing").val()
     tl=$(".tieritem")
     if (typingchoice=="none"){
@@ -53,9 +78,9 @@ $(document).ready(function() {
     else {
         tl.each(function(){
             item=$(this)
-            item.show()
-            if (item.find("."+typingchoice).length==0){
-                item.hide()
+            item.hide()
+            if (item.find("."+typingchoice).length>0){
+                item.show()
             }
         })
     }

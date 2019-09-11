@@ -27,6 +27,14 @@
                 </select>
             </div>
             <div class="px-1">
+                <select id="tierchoice" class="form-control">
+                    <option value="none">Show All Tiers</option>
+                    {% for t in tierchoices %}
+                    <option value="{{t.tierpoints}}">Show Only {{t.tiername}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="px-1">
                 <select id="typing" class="form-control">
                     <option value="none">Show All Types</option>
                     {% for type in types %}
@@ -80,7 +88,7 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="col-4 d-flex">
+                    <div class="col-4 d-flex justify-content-center">
                         <div class="px-1">
                             <div><small>HP</small></div>
                             <div><small>{{item.pokemon.hp}}</small></div>
