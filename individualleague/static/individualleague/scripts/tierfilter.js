@@ -31,13 +31,17 @@ $(document).ready(function() {
     if (availablechoice=="allpokemon"){
         tl.each(function(){
             item=$(this)
-            item.show()
+            item.removeClass('hidden-available')
+            checkShow(item)
         })
     }
     else if (availablechoice=="available"){
         tl.each(function(){
             item=$(this)
+            item.removeClass('hidden-available')
+            checkShow(item)
             if (item.attr("data-available")!="FREE"){
+                item.addClass('hidden-available')
                 item.hide()
             }
         })
@@ -51,15 +55,18 @@ $(document).ready(function() {
     if (tierchoice=="none"){
         tl.each(function(){
             item=$(this)
-            item.show()
+            item.removeClass('hidden-tier')
+            checkShow(item)
         })
     }
     else {
         tl.each(function(){
             item=$(this)
-            item.hide()
-            if (item.attr("data-tier")==tierchoice){
-                item.show()
+            item.removeClass('hidden-tier')
+            checkShow(item)
+            if (item.attr("data-tier")!=tierchoice){
+                item.addClass('hidden-tier')
+                item.hide()
             }
         })
     }
@@ -72,15 +79,18 @@ $(document).ready(function() {
     if (typingchoice=="none"){
         tl.each(function(){
             item=$(this)
-            item.show()
+            item.removeClass('hidden-type')
+            checkShow(item)
         })
     }
     else {
         tl.each(function(){
             item=$(this)
-            item.hide()
-            if (item.find("."+typingchoice).length>0){
-                item.show()
+            item.removeClass('hidden-type')
+            checkShow(item)
+            if (item.find("."+typingchoice).length==0){
+                item.hide()
+                item.addClass('hidden-type')
             }
         })
     }
@@ -119,4 +129,10 @@ function sortMeByAlph(arg, sel, elem, order) {
         return 0;
     });
     sel.detach().appendTo(elem)
+}
+
+function checkShow(item){
+    if(item.hasClass('hidden-type')==false && item.hasClass('hidden-tier')==false && item.hasClass('hidden-available')==false){
+        item.show()
+    }
 }
