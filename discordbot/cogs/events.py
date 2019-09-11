@@ -16,7 +16,7 @@ class Events(commands.Cog):
         user=message.author.name
         msg=message.content
         print(f'{user} said {msg}')
-        if msg.lower().find("lombre")>-1:
+        if msg.lower().replace("-","").replace(" ","").replace(".","").find("lombre")>-1 or msg.lower().replace("-","").replace(" ","").replace(".","").find("mbre")>-1:
             await message.delete()
             await message.channel.send("For the love of Arceus shut up about Lombre!")
 
