@@ -301,7 +301,7 @@ def confirm_league_replay(request,league_name,matchid):
             form.save()
             messages.success(request,'Replay has been saved!')
             league_=match.season.league
-            discordserver=league_.settings.discordserver
+            discordserver=league_.discord_settings.discordserver
             discordchannel=league_.discord_settings.replaychannel
             title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
             replay_announcements.objects.create(
@@ -514,7 +514,7 @@ def upload_league_replay_manual(request,league_name,matchid):
             t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
             messages.success(request,"Match has been saved!")
             league_=match.season.league
-            discordserver=league_.settings.discordserver
+            discordserver=league_.discord_settings.discordserver
             discordchannel=league_.discord_settings.replaychannel
             title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
             replay_announcements.objects.create(

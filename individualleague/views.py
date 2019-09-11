@@ -1,20 +1,13 @@
-from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy
-from django.views import generic
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
-from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.contrib import messages
 from django.db.models import Q
 
-import json
 import math
 from datetime import datetime, timezone, timedelta
 import pytz
-
 from dal import autocomplete
 
 from .models import *
@@ -22,20 +15,12 @@ from leagues.models import *
 from pokemondatabase.models import *
 from accounts.models import *
 from .forms import *
-from datetime import datetime, timedelta,timezone
-from operator import itemgetter
 
 def team_page(request,league_name,team_abbreviation):
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('league_list')
-    try:
-        season=seasonsetting.objects.get(league=league_)  
-    except:
-        messages.error(request,'Season does not exist!',extra_tags='danger')
-        return redirect('league_detail',league_name=league_name)
+    league_=checkifleague(request,league_name)
+    if league_=='Error': return redirect('league_list')
+    season=checkifseason(request,league_)
+    if season=='Error': return redirect('league_detail',league_name=league_name)
     try:
         team=coachdata.objects.filter(league_name=league_,teamabbreviation=team_abbreviation).first()
         try:
@@ -63,13 +48,10 @@ def team_page(request,league_name,team_abbreviation):
     return render(request, 'teampage.html',context)
 
 def league_draft(request,league_name):
-    try:
-        league_=league.objects.get(name=league_name)
-        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
-        coachcount=league_teams.count()
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('league_list')
+    league_=checkifleague(request,league_name)
+    if league_=='Error': return redirect('league_list')
+    league_teams=league_.leagueteams.all()
+    coachcount=league_teams.count()
     try:
         season=seasonsetting.objects.get(league=league_)
         draftstart=str(season.draftstart)
@@ -120,7 +102,7 @@ def league_draft(request,league_name):
                     except:
                         upnext="The draft has concluded"
                     draft_announcements.objects.create(
-                        league=league_.settings.discordserver,
+                        league=league_.discord_settings.discordserver,
                         league_name=league_.name.replace(' ','%20'),
                         text=text,
                         upnext=upnext,
@@ -146,7 +128,7 @@ def league_draft(request,league_name):
                         except:
                             upnext="The draft has concluded"
                         draft_announcements.objects.create(
-                            league=league_.settings.discordserver,
+                            league=league_.discord_settings.discordserver,
                             league_name=league_.name.replace(' ','%20'),
                             text=text,
                             upnext=upnext,
@@ -212,7 +194,7 @@ def league_draft(request,league_name):
             except:
                 upnext="The draft has concluded"
             draft_announcements.objects.create(
-                league=league_.settings.discordserver,
+                league=league_.discord_settings.discordserver,
                 league_name=league_.name.replace(' ','%20'),
                 text=text,
                 upnext=upnext,
@@ -508,7 +490,7 @@ def league_schedule(request,league_name):
             team2.save()
             matchtoupdate.save()
             league_=matchtoupdate.season.league
-            discordserver=league_.settings.discordserver
+            discordserver=league_.discord_settings.discordserver
             discordchannel=league_.discord_settings.replaychannel
             title=f"Week: {matchtoupdate.week}. {matchtoupdate.team1.teamname} vs {matchtoupdate.team2.teamname}: {matchtoupdate.replay}."
             replay_announcements.objects.create(
@@ -752,7 +734,7 @@ def freeagency(request,league_name):
         if form.is_valid(): 
             fadata=form.save()
             messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
-            discordserver=league_.settings.discordserver
+            discordserver=league_.discord_settings.discordserver
             discordchannel=league_.discord_settings.freeagencychannel
             request_league=seasonsetting.objects.get(league=league_)
             league_start=request_league.seasonstart
@@ -872,74 +854,6 @@ def league_hall_of_fame(request,league_name):
         'league_name': league_name,
         'is_host': is_host,
         'halloffameentries':halloffameentries,
-    }
-    return render(request, 'halloffame.html',context)
-
-def league_hall_of_fame_add_entry(request,league_name):
-    try:
-        league_=league.objects.get(name=league_name)
-        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('league_list')
-    try:
-        season=seasonsetting.objects.get(league=league_)
-    except:
-        messages.error(request,'Season does not exist!',extra_tags='danger')
-        return redirect('league_detail',league_name=league_name)
-    is_host=(request.user in league_.host.all())
-    if not is_host:
-        messages.error(request,'Only the league host may add a hall of fame entry!',extra_tags='danger')
-        return redirect('league_detail',league_name=league_name)
-    if request.method=="POST":
-        form=AddHallOfFameEntryForm(request.POST,request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request,'Your Hall of Fame entry has been added!')
-        else:
-            messages.error(request,f'{form.errors}',extra_tags='danger')
-        return redirect('league_hall_of_fame',league_name=league_name)
-    form=AddHallOfFameEntryForm(initial={'league':league_})
-    context = {
-        'league': league_,
-        'leaguepage': True,
-        'league_teams': league_teams,
-        'league_name': league_name,
-        'form':form,
-    }
-    return render(request, 'halloffame.html',context)
-
-def league_hall_of_fame_add_roster(request,league_name):
-    try:
-        league_=league.objects.get(name=league_name)
-        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('league_list')
-    try:
-        season=seasonsetting.objects.get(league=league_)
-    except:
-        messages.error(request,'Season does not exist!',extra_tags='danger')
-        return redirect('league_detail',league_name=league_name)
-    is_host=(request.user in league_.host.all())
-    if not is_host:
-        messages.error(request,'Only the league host may add a hall of fame roster entry!',extra_tags='danger')
-        return redirect('league_detail',league_name=league_name)
-    if request.method=="POST":
-        form=AddHallOfFameRosterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request,'Your Hall of Fame roster entry has been added!')
-        else:
-            messages.error(request,f'{form.errors}',extra_tags='danger')
-        return redirect('league_hall_of_fame',league_name=league_name)
-    form=AddHallOfFameRosterForm()
-    context = {
-        'league': league_,
-        'leaguepage': True,
-        'league_teams': league_teams,
-        'league_name': league_name,
-        'form': form,
     }
     return render(request, 'halloffame.html',context)
 
@@ -1185,3 +1099,19 @@ def createroundrobinschedule(request,league_name):
     for i in range(len(interconfteams[0])):
         schedule.objects.create(season=seasonsettings,week=str(i+1),team1=interconfteams[0][i],team2=interconfteams[1][i])
     return redirect('manage_seasons',league_name=league_name)
+
+def checkifleague(request,league_name):
+    try:
+        league_=league.objects.get(name=league_name)
+        return league_
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return 'Error'
+
+def checkifseason(request,league_):
+    try:
+        season=seasonsetting.objects.get(league=league_)  
+        return season
+    except:
+        messages.error(request,'Season does not exist!',extra_tags='danger')
+        return 'Error'
