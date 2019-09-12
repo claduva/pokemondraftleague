@@ -5,7 +5,7 @@ from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
 from PIL import Image
 
-from leagues.models import league,leaguetiers,leaguetiertemplate
+from leagues.models import league,league_subleague,leaguetiers,leaguetiertemplate
 
 class all_pokemon(models.Model):
     pokemon = models.CharField(max_length=30,unique=True)
@@ -76,6 +76,7 @@ class pokemon_moveset(models.Model):
 class pokemon_tier(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='pokemon_tiers')
     league = models.ForeignKey(league,on_delete=models.CASCADE,related_name='leaguepokemontiers')
+    subleague = models.ForeignKey(league_subleague,on_delete=models.CASCADE,related_name='subleaguepokemontiers',null=True)
     tier = models.ForeignKey(leaguetiers,on_delete=models.SET_NULL,null=True)
 
     def __str__(self):

@@ -50,6 +50,7 @@ class league_subleague(models.Model):
 
 class discord_settings(models.Model):
     league = models.OneToOneField(league, on_delete=models.CASCADE,related_name="discord_settings")
+    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
     discordurl = models.CharField(max_length=100, default="Not Provided")
     discordserver = models.CharField(max_length=100, default="Not Provided")
     draftchannel=models.CharField(max_length=100, default="Not Provided")
@@ -62,6 +63,7 @@ class discord_settings(models.Model):
 
 class conference_name(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE,related_name="conferences")
+    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=20)
 
     def __str__(self):
@@ -69,6 +71,7 @@ class conference_name(models.Model):
 
 class division_name(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE)
+    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=20)
     associatedconference = models.ForeignKey(conference_name, on_delete=models.CASCADE,related_name='divisions')
 
@@ -143,6 +146,7 @@ class coachaward(models.Model):
 
 class leaguetiers(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE,related_name='leaguetiers')
+    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
     tiername = models.CharField(max_length=20, default="Not Specified")
     tierpoints = models.IntegerField(default=0)
 
@@ -159,6 +163,7 @@ class leaguetiertemplate(models.Model):
 
 class seasonsetting(models.Model):
     league = models.OneToOneField(league, on_delete=models.CASCADE)
+    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
     seasonname= models.CharField(max_length=25, default="Season 1")
     draftstart=models.DateTimeField(null=True)
     drafttimer=models.IntegerField(default=12)
