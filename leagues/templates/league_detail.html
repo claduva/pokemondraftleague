@@ -101,7 +101,7 @@
                     <tr>
                         <td>
                             <a class="d-flex text-dark"
-                                href="{% url 'team_page' league_name=league_name team_abbreviation=coach.teamabbreviation %}">
+                                href="{% url 'team_page' league_name=league_name subleague_name=coach.subleague.subleague team_abbreviation=coach.teamabbreviation %}">
                                 <div class="small-logo"><img class="img-fluid rounded-sprite"
                                         src="{{ coach.logo.url }}"></div>
                                 <div> {{ coach.teamname }} ({{ coach.teamabbreviation }})</div>
