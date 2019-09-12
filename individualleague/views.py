@@ -15,23 +15,18 @@ from leagues.models import *
 from pokemondatabase.models import *
 from accounts.models import *
 from .forms import *
+from pokemondraftleague.customdecorators import check_if_subleague, check_if_league, check_if_season, check_if_team
 
-def team_page(request,league_name,team_abbreviation):
-    league_=checkifleague(request,league_name)
-    if league_=='Error': return redirect('league_list')
-    season=checkifseason(request,league_)
-    if season=='Error': return redirect('league_detail',league_name=league_name)
-    try:
-        team=coachdata.objects.filter(league_name=league_,teamabbreviation=team_abbreviation).first()
-        try:
-            season=seasonsetting.objects.get(league=league_)
-            teamroster=roster.objects.all().filter(season=season,team=team).order_by('id')
-        except:
-            teamroster=None   
-    except:
-        messages.error(request,'Team does not exist!',extra_tags='danger')
-        return redirect('league_detail',league_name=league_name) 
-    league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
+@check_if_league
+@check_if_subleague
+@check_if_season
+@check_if_team
+def team_page(request,league_name,subleague_name,team_abbreviation):
+    league_=league.objects.get(name=league_name)
+    season=seasonsetting.objects.get(league=league_)  
+    team=coachdata.objects.filter(league_name__name=league_name).get(teamabbreviation=team_abbreviation)
+    teamroster=team.teamroster.all().order_by('id')
+    league_teams=league_.leagueteams.all().order_by('teamname')
     matchs=schedule.objects.all().filter(season=season).filter(Q(team1=team)|Q(team2=team))
     results=matchs.exclude(replay="Link").order_by('-id')
     upcoming=matchs.filter(replay="Link").order_by('id')[0:4]
@@ -1099,19 +1094,3 @@ def createroundrobinschedule(request,league_name):
     for i in range(len(interconfteams[0])):
         schedule.objects.create(season=seasonsettings,week=str(i+1),team1=interconfteams[0][i],team2=interconfteams[1][i])
     return redirect('manage_seasons',league_name=league_name)
-
-def checkifleague(request,league_name):
-    try:
-        league_=league.objects.get(name=league_name)
-        return league_
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return 'Error'
-
-def checkifseason(request,league_):
-    try:
-        season=seasonsetting.objects.get(league=league_)  
-        return season
-    except:
-        messages.error(request,'Season does not exist!',extra_tags='danger')
-        return 'Error'
