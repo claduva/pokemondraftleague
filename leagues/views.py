@@ -21,7 +21,9 @@ from pokemondatabase.models import *
 from pokemonadmin.models import *
 from individualleague.models import *
 from accounts.models import *
+from pokemondraftleague.customdecorators import check_if_subleague, check_if_league, check_if_season, check_if_team, check_if_host
 
+@check_if_subleague
 def league_detail(request,league_name):
     try:
         league_=league.objects.get(name=league_name)

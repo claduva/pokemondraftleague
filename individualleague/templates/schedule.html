@@ -3,13 +3,13 @@
 {% load crispy_forms_tags %}
 {% load extratags %}
 
-{% block title %}{{league.name}}:{% if playoffs %}Playoffs {% endif %} Schedule{% endblock %}
+{% block title %}{{league_name}}:{% if playoffs %}Playoffs {% endif %} Schedule{% endblock %}
 {% block head%}
 {% endblock %}
 {% block body %}
 
 <div class="row content-section align-items-center">
-    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-4">
         <h3 class="d-flex justify-content-center">{% if playoffs %}Playoffs {% endif %}Schedule</h3>
@@ -31,7 +31,7 @@
             </form>
         </div>
     </div>
-    <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-md-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo">
     </div>
 </div>
 <div class="row content-section align-items-start justify-content-around">
@@ -68,7 +68,7 @@
             <tr class="bg-lightgrey text-dark">
                 <td colspan="4">
                     <div class="d-flex justify-content-center">
-                        <a href="{% url 'league_matchup' league_name=league_name matchid=match.id %}"><button
+                        <a href="{% url 'league_matchup' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}"><button
                                 class="btn btn-sm btn-dark">View Matchup</button></a></div>
                 </td>
             </tr>
@@ -112,7 +112,7 @@
             {% endif %}
             <tr class="bg-lightgrey text-dark rounded-bottom">
                 {% if match.replay == 'Link' %}
-                {% if request.user in match.season.league.host.all or request.user == match.team1.coach or request.user == match.team1.teammate or request.user == match.team2.coach or request.user == match.team3.teammate %}
+                {% if request.user in match.season.subleague.league.host.all or request.user == match.team1.coach or request.user == match.team1.teammate or request.user == match.team2.coach or request.user == match.team3.teammate %}
                 <td colspan="4">
                     <div class="d-flex justify-content-center"><a
                             href="{% url 'upload_league_replay' league_name=league_name matchid=match.id %}"><button
@@ -127,7 +127,7 @@
                 </td>
                 {% endif %}
             </tr>
-            {% if request.user in match.season.league.host.all and match.replay == 'Link' %}
+            {% if request.user in match.season.subleague.league.host.all and match.replay == 'Link' %}
             <tr class="bg-lightgrey text-dark rounded-bottom">
                 <td colspan="4">
                     <div class="d-flex justify-content-center">
@@ -156,7 +156,7 @@
             <tr class="bg-lightgrey text-dark rounded-bottom">
                 <td colspan="4">
                     <div class="d-flex justify-content-center">
-                        <a href="{% url 'change_match_attribution' league_name=league_name matchid=match.id %}"><button class="btn btn-sm btn-dark">Change Attribution of Match to Different User</button></a>
+                        <a href="{% url 'change_match_attribution' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}"><button class="btn btn-sm btn-dark">Change Attribution of Match to Different User</button></a>
                     </div>
                 </td>
             </tr>

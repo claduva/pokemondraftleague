@@ -3,17 +3,17 @@
 {% load crispy_forms_tags %}
 {% load extratags %}
 
-{% block title %}{{league.name}}: Rules{% endblock %}
+{% block title %}{{league_name}}: Rules{% endblock %}
 {% block head%}
 {% endblock %}
 {% block body %}
 
 <div class="row content-section align-items-center">
-    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo"></div>
     <div class="col-md-4">
         <h3 class="d-flex justify-content-center">Rules</h3>
     </div>
-    <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo"></div>
 </div>
 {% if editrules %}
 <div class="row content-section align-items-center">
@@ -29,7 +29,7 @@
 <div class="row content-section align-items-center">
     {% if is_host %}
         <div class="col-md-12 d-flex justify-content-end">
-            <a href="{% url 'edit_league_rules' league_name=league_name %}"><button class="btn btn-primary">Edit</button></a>
+            <a href="{% url 'edit_league_rules' league_name=league_name subleague_name=subleague.subleague %}"><button class="btn btn-primary">Edit</button></a>
         </div>
     {% endif %}
     <div class="col-md-12 bg-lightgrey text-dark rounded">

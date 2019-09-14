@@ -2,29 +2,29 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}{{league.name}}{% endblock %}
+{% block title %}{{league_name}}{% endblock %}
 {% block head%}
 {% endblock %}
 {% block body %}
 
 <div class="row content-section align-items-center">
-    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-4">
-        <h3 class="d-flex justify-content-center">{{league.name}}</h3>
-        <div class="d-flex justify-content-center text-center">Hosted by {% for h in league.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
-        {% if league.discord_settings.discordurl != 'Not Provided' %}
-            <div class="d-flex justify-content-center"><a href="{{ league.discord_settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a></div>
+        <h3 class="d-flex justify-content-center">{{league_name}}</h3>
+        <div class="d-flex justify-content-center text-center">Hosted by {% for h in subleague.league.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
+        {% if subleague.league.discord_settings.discordurl != 'Not Provided' %}
+            <div class="d-flex justify-content-center"><a href="{{ subleague.league.discord_settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a></div>
             {% endif %}
     </div>
     <div class="col-md-4 d-flex justify-content-end">
-        {% if league.settings.is_recruiting %}
+        {% if subleague.league.settings.is_recruiting %}
         {% if apply %}
         <div class="d-flex justify-content-center"><a href="apply"><button class="btn btn-success">Apply</button></a>
         </div>
         {% endif %}
         {% else  %}
-        <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+        <div class="col-md-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo">
         </div>
         {% endif %}
     </div>

@@ -47,15 +47,15 @@
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">League Resources</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="{% url 'league_schedule' league_name=league_name %}">Schedule</a>
-          <a class="dropdown-item" href="{% url 'league_playoffs' league_name=league_name %}">Playoffs</a>
-          <a class="dropdown-item" href="{% url 'league_tiers' league_name=league_name %}">Tiers</a>
-          <a class="dropdown-item" href="{% url 'league_draft' league_name=league_name %}">Draft</a>
-          <a class="dropdown-item" href="{% url 'free_agency' league_name=league_name %}">Free Agency</a>
-          <a class="dropdown-item" href="{% url 'trading' league_name=league_name %}">Trading</a>
-          <a class="dropdown-item" href="{% url 'league_leaders' league_name=league_name %}">League Leaders</a>
-          <a class="dropdown-item" href="{% url 'league_rules' league_name=league_name %}">Rules</a>
-          <a class="dropdown-item" href="{% url 'league_hall_of_fame' league_name=league_name %}">Hall of Fame</a>
+          <a class="dropdown-item" href="{% url 'league_schedule' league_name=league_name subleague_name=subleague.subleague %}">Schedule</a>
+          <a class="dropdown-item" href="{% url 'league_playoffs' league_name=league_name subleague_name=subleague.subleague %}">Playoffs</a>
+          <a class="dropdown-item" href="{% url 'league_tiers' league_name=league_name subleague_name=subleague.subleague %}">Tiers</a>
+          <a class="dropdown-item" href="{% url 'league_draft' league_name=league_name subleague_name=subleague.subleague %}">Draft</a>
+          <a class="dropdown-item" href="{% url 'free_agency' league_name=league_name subleague_name=subleague.subleague %}">Free Agency</a>
+          <a class="dropdown-item" href="{% url 'trading' league_name=league_name subleague_name=subleague.subleague %}">Trading</a>
+          <a class="dropdown-item" href="{% url 'league_leaders' league_name=league_name subleague_name=subleague.subleague %}">League Leaders</a>
+          <a class="dropdown-item" href="{% url 'league_rules' league_name=league_name subleague_name=subleague.subleague %}">Rules</a>
+          <a class="dropdown-item" href="{% url 'league_hall_of_fame' league_name=league_name subleague_name=subleague.subleague %}">Hall of Fame</a>
           <a class="dropdown-item" href="{% url 'otherseasonslist' league_name=league_name %}">View Other Seasons</a>
         </div>
       </div>

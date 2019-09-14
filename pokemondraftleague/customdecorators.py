@@ -18,12 +18,11 @@ def check_if_league(view):
 def check_if_subleague(view):
     def wrap(request, *args, **kwargs):
         try:
-            league_=league_subleague.objects.filter(league__name=kwargs['league_name'])
-            print(league_)
-            league_=league_.get(subleague=kwargs['subleague_name'])
+            league_=league_subleague.objects.filter(league__name=kwargs['league_name']).get(subleague=kwargs['subleague_name'])
             return view(request, *args, **kwargs)
         except Exception as e:
             print(e)
+            print('subleague')
             messages.error(request,'League does not exist!',extra_tags='danger')
             return redirect('league_list')
     return wrap
@@ -31,10 +30,11 @@ def check_if_subleague(view):
 def check_if_season(view):
     def wrap(request, *args, **kwargs):
         try:
-            season=seasonsetting.objects.get(league__name=kwargs['league_name'])  
+            season=seasonsetting.objects.filter(subleague__league__name=kwargs['league_name']).get(subleague__subleague=kwargs['subleague_name'])
             return view(request, *args, **kwargs)
         except Exception as e:
             print(e)
+            print('season')
             messages.error(request,'Season does not exist!',extra_tags='danger')
             return redirect('league_detail',league_name=kwargs['league_name'])
     return wrap
@@ -46,6 +46,17 @@ def check_if_team(view):
             return view(request, *args, **kwargs)
         except Exception as e:
             print(e)
+            print('team')
             messages.error(request,'Team does not exist!',extra_tags='danger')
             return redirect('league_detail',league_name=kwargs['league_name']) 
+    return wrap
+
+def check_if_host(view):
+    def wrap(request, *args, **kwargs):
+        subleague=league_subleague.objects.filter(league__name=kwargs['league_name']).get(subleague=kwargs['subleague_name'])
+        if request.user not in subleague.league.host.all():
+            messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
+            return redirect('leagues_hosted_settings')
+        else:    
+            return view(request, *args, **kwargs)
     return wrap

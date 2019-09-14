@@ -66,7 +66,7 @@
                 <div>
                     <a href="{% url 'set_draft_order' league_name=league_name %}"><button class="btn btn-primary">Set
                             Draft Order</button></a>
-                    <a href="{% url 'create_match' league_name=league_name %}"><button class="btn btn-primary">Create
+                    <a href="{% url 'create_match' league_name=league_name subleague_name=subleague.subleague %}"><button class="btn btn-primary">Create
                             Match</button></a>
                     <a href="{% url 'createroundrobinschedule' league_name=league_name %}"><button class="btn btn-primary">Create
                                 Round Robin</button></a>

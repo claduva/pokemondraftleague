@@ -3,38 +3,19 @@
 {% load crispy_forms_tags %}
 {% load extratags %}
 
-{% block title %}{{league.name}}: Hall Of Fame{% endblock %}
+{% block title %}{{league_name}}: Hall Of Fame{% endblock %}
 {% block head%}
 {% endblock %}
 {% block body %}
 
 <div class="row content-section align-items-center">
-    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo"></div>
     <div class="col-md-4">
         <h3 class="d-flex justify-content-center">Hall of Fame</h3>
-        {% if is_host %}
-        <div>
-            <a href="{% url 'league_hall_of_fame_add_entry' league_name=league_name %}"><button class="btn btn-primary">Add Entry</button></a>
-            <a href="{% url 'league_hall_of_fame_add_roster' league_name=league_name %}"><button class="btn btn-primary">Add Roster Item to Entry</button></a>
-        </div>
-        {% endif %}
     </div>
-    <div class="col-md-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo"></div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo"></div>
 </div>
 <div class="row content-section align-items-center">
-    {% if form %}
-    <div class="col-12">
-        <form method="post" enctype='multipart/form-data'>
-            {% csrf_token %}
-            {% if form.pokemon %}
-            {{ form.as_p }}
-            {% else %}
-            {{ form|crispy }}
-            {% endif %}
-            <input class="btn btn-primary" type="submit">
-        </form>
-    </div>
-    {% else %}
         <div class="col-12">
             {% for item in halloffameentries %}
                 <div class="row bg-lightgrey text-dark border rounded mb-2">
@@ -59,7 +40,6 @@
                 </div>
             {% endfor %}
         </div>
-    {% endif %}
 </div>
 {% endblock %}
 {% block footer %}

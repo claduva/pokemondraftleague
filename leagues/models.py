@@ -109,7 +109,7 @@ class coachdata(models.Model):
     teamname = models.CharField(max_length=100, default="To Be Determined")
     teammate = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,related_name='teammate')
     parent_team = models.ForeignKey(league_team, on_delete=models.SET_NULL, null=True,related_name="child_teams")
-    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
+    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True,related_name='subleague_coachs')
     conference = models.ForeignKey(conference_name, on_delete=models.SET_NULL, null=True)
     division = models.ForeignKey(division_name, on_delete=models.SET_NULL, null=True)
     wins = models.IntegerField(default=0)
@@ -163,7 +163,7 @@ class leaguetiertemplate(models.Model):
 
 class seasonsetting(models.Model):
     league = models.OneToOneField(league, on_delete=models.CASCADE)
-    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
+    subleague = models.OneToOneField(league_subleague,on_delete=models.SET_NULL, null=True)
     seasonname= models.CharField(max_length=25, default="Season 1")
     draftstart=models.DateTimeField(null=True)
     drafttimer=models.IntegerField(default=12)
