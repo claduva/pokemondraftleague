@@ -1,7 +1,7 @@
-
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from leagues.models import *
+from individualleague.models import *
 
 def check_if_league(view):
     def wrap(request, *args, **kwargs):
@@ -13,7 +13,6 @@ def check_if_league(view):
             messages.error(request,'League does not exist!',extra_tags='danger')
             return redirect('league_list')
     return wrap
-
 
 def check_if_subleague(view):
     def wrap(request, *args, **kwargs):
@@ -59,4 +58,16 @@ def check_if_host(view):
             return redirect('leagues_hosted_settings')
         else:    
             return view(request, *args, **kwargs)
+    return wrap
+
+def check_if_match(view):
+    def wrap(request, *args, **kwargs):
+        try:
+            match=schedule.objects.get(pk=kwargs['matchid'])
+            return view(request, *args, **kwargs)
+        except Exception as e:
+            print(e)
+            print('match')
+            messages.error(request,'Match does not exist!',extra_tags='danger')
+            return redirect('league_schedule',league_name=kwargs['league_name'])
     return wrap

@@ -115,14 +115,14 @@
                 {% if request.user in match.season.subleague.league.host.all or request.user == match.team1.coach or request.user == match.team1.teammate or request.user == match.team2.coach or request.user == match.team3.teammate %}
                 <td colspan="4">
                     <div class="d-flex justify-content-center"><a
-                            href="{% url 'upload_league_replay' league_name=league_name matchid=match.id %}"><button
+                            href="{% url 'upload_league_replay' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}"><button
                                 class="btn btn-sm btn-dark">Upload Replay</button></a></div>
                 </td>
                 {% endif %}
                 {% else %}
                 <td colspan="4">
                     <div class="d-flex justify-content-center"><a
-                            href="{% url 'league_match_results' league_name=league_name matchid=match.id %}"><button
+                            href="{% url 'league_match_results' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}"><button
                                 class="btn btn-sm btn-dark">Replay</button></a></div>
                 </td>
                 {% endif %}

@@ -21,15 +21,18 @@ from pokemondraftleague.customdecorators import check_if_subleague, check_if_lea
 def league_detail(request,league_name):
     league_=league.objects.get(name=league_name)
     subleagues=league_.subleague.all()
+    
     if subleagues.count()==1:
         loi=subleagues.first()
         return redirect('subleague_detail',league_name=league_name,subleague_name=loi.subleague)
     else:
+        print(subleagues)
         loi=subleagues.first()
         return redirect('subleague_detail',league_name=league_name,subleague_name=loi.subleague)
 
 @check_if_subleague
 def subleague_detail(request,league_name,subleague_name):
+   
     league_name=league_name.replace('%20',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
@@ -141,6 +144,47 @@ def subleague_detail(request,league_name,subleague_name):
         'seasonstart':seasonstart
         }
         return render(request, 'league_detail.html',context)
+
+@check_if_league
+@login_required
+def league_apply(request,league_name):
+    league_name=league_name.replace('%20',' ')
+    league_=league.objects.get(name=league_name)
+    try:
+        applications=league_application.objects.filter(league_name=league_).get(applicant=request.user)
+        messages.error(request,'You have already applied to '+league_name+"!",extra_tags='danger')
+        return redirect('league_detail',league_name=league_name)
+    except:
+        try:
+            coachdata.objects.filter(league_name=league_).get(teammate=request.user)
+            messages.error(request,'You are already a coach in '+league_name+"!",extra_tags='danger')
+            return redirect('league_detail',league_name=league_name)
+        except:
+            try:
+                coachdata.objects.filter(league_name=league_).get(coach=request.user)
+                messages.error(request,'You are already a coach in '+league_name+"!",extra_tags='danger')
+                return redirect('league_detail',league_name=league_name)
+            except:
+                if league_.settings.is_recruiting == False:
+                    messages.error(request,league_name+' is not currently accepting applications!',extra_tags='danger')
+                    return redirect('league_list')
+                if request.method == 'POST':
+                    form = LeagueApplicationForm(league_,request.POST)
+                    if form.is_valid():
+                        form.save()
+                        messages.success(request,'You have successfully applied to '+league_name+"!")
+                        return redirect('league_detail',league_name=league_name)
+                else:
+                    form = LeagueApplicationForm(league_,initial={
+                        'applicant': request.user,
+                        'league_name': league_
+                        })
+                    
+                context = {
+                    'league': league,
+                    'forms': [form],
+                }
+                return render(request, 'leagueapplication.html',context)
 
 @check_if_subleague
 @check_if_season
@@ -387,71 +431,6 @@ def league_draft(request,league_name,subleague_name):
         'canskippick':canskippick,
     }
     return render(request, 'draft.html',context)
-
-@login_required
-@check_if_subleague
-@check_if_season
-@check_if_host
-def create_match(request,league_name,subleague_name):
-    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    seasonsettings=subleague.seasonsetting
-    leaguesettings=league_settings.objects.get(league_name=subleague.league)
-    needednumberofcoaches=leaguesettings.number_of_teams
-    currentcoaches=coachdata.objects.filter(league_name=subleague.league)
-    currentcoachescount=len(currentcoaches)
-    if needednumberofcoaches != currentcoachescount: 
-        messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
-        return redirect('individual_league_settings',league_name=league_name)
-    form = CreateMatchForm(seasonsettings,subleague.league,initial={'season':seasonsettings})
-    settingheading='Create New Match'
-    edit=False
-    matchid=None
-    if request.method == 'POST':  
-        formpurpose=request.POST['formpurpose']
-        if formpurpose=="Create":
-            form = CreateMatchForm(seasonsettings,subleague.league,request.POST)
-            if form.is_valid() :
-                form.save()
-                messages.success(request,'That match has been added!')
-            return redirect('create_match',league_name=league_name)
-        elif formpurpose=="Submit":
-            matchofinterest=schedule.objects.get(id=request.POST['matchid'])
-            form = CreateMatchForm(seasonsettings,subleague.league,request.POST,instance=matchofinterest)
-            if form.is_valid() :
-                form.save()
-                messages.success(request,'That match has been added!')
-            else:
-                print(form.errors)
-            return redirect('create_match',league_name=league_name)
-        elif formpurpose=="Edit":
-            matchofinterest=schedule.objects.get(id=request.POST['matchid'])
-            form = CreateMatchForm(seasonsettings,league_,instance=matchofinterest)
-            settingheading='Edit Match'
-            matchid=matchofinterest.id
-            edit=True
-        elif formpurpose=="Delete":
-            schedule.objects.get(id=request.POST['matchid']).delete()
-            messages.success(request,'That match has been deleted!')
-            return redirect('create_match',league_name=league_name)
-    create=True
-    manageseason=False
-    existingmatches=schedule.objects.all().filter(season=seasonsettings).order_by('week','id')
-    context = {
-        'subleague':subleague,
-        'league_name': league_name,
-        'leagueshostedsettings': True,
-        'league_teams': league_teams,
-        'forms': [form],
-        'seasonsettings': seasonsettings,
-        'settingheading': settingheading,
-        'create': create,
-        'edit':edit,
-        'matchid':matchid,
-        'manageseason': manageseason,
-        'existingmatches':existingmatches,
-    }
-    return render(request, 'settings.html',context)
 
 @check_if_subleague
 @check_if_season
@@ -1091,53 +1070,3 @@ class PokemonAutocomplete(autocomplete.Select2QuerySetView):
             qs = qs.filter(pokemon__istartswith=self.q)
 
         return qs
-
-@login_required
-@check_if_subleague
-@check_if_season
-@check_if_host
-def createroundrobinschedule(request,league_name,subleague_name):
-    league_name=league_name.replace('%20',' ')
-    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    season=subleague.seasonsetting
-    league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    leaguesettings=league_settings.objects.get(league_name=subleague.league)
-    needednumberofcoaches=leaguesettings.number_of_teams
-    currentcoaches=coachdata.objects.filter(league_name=subleague.league)
-    currentcoachescount=len(currentcoaches)
-    if needednumberofcoaches != currentcoachescount: 
-        messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
-        return redirect('individual_league_settings',league_name=league_name)
-    existingmatches=schedule.objects.all().filter(season=seasonsettings).exclude(replay='Link')
-    if existingmatches.count()>0:
-        messages.error(request,'Matches already exist!',extra_tags='danger')
-        return redirect('manage_seasons',league_name=league_name)
-    schedule.objects.all().filter(season=seasonsettings).delete()
-    #get conferences
-    conferences=conference_name.objects.all().filter(league=subleague.league)
-    conference_rosters=[]
-    for c in conferences:
-        coachs=coachdata.objects.all().filter(conference=c)
-        conference_rosters.append(coachs)
-    #create matches
-    interconfteams=[]
-    for conference in conference_rosters:
-        conference=list(conference)
-        if len(conference) % 2:
-            conference.append(None)
-        count=len(conference)
-        sets=count-1
-        interconf=[]
-        for week in range(sets):
-            for i in range(int(count/2)):
-                if conference[i]!=None and conference[count-i-1]!=None:
-                    schedule.objects.create(season=seasonsettings,week=str(week+1),team1=conference[i],team2=conference[count-i-1])
-                elif conference[i]==None:
-                    interconf.append(conference[count-i-1])
-                elif conference[count-i-1]==None:
-                    interconf.append(conference[i])
-            conference.insert(1, conference.pop())
-        interconfteams.append(interconf)
-    for i in range(len(interconfteams[0])):
-        schedule.objects.create(season=seasonsettings,week=str(i+1),team1=interconfteams[0][i],team2=interconfteams[1][i])
-    return redirect('manage_seasons',league_name=league_name)

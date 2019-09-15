@@ -17,8 +17,8 @@ from accounts.models import showdownalts
 from .ShowdownReplayParser.replayparser import *
 from .NewParser.parser import *
 from .helperfunctions import *
+from pokemondraftleague.customdecorators import check_if_subleague, check_if_league, check_if_season, check_if_team, check_if_host, check_if_match
 
-# Create your views here.
 def replay_analysis(request):
     if request.method=="POST":
         form = MatchReplayForm(request.POST)
@@ -39,7 +39,6 @@ def replay_analysis(request):
     }
     return  render(request,"replayanalysisform.html",context)
 
-# Create your views here.
 def replay_analysis2(request):
     if request.method=="POST":
         form = MatchReplayForm(request.POST)
@@ -57,21 +56,17 @@ def replay_analysis2(request):
     }
     return  render(request,"replayanalysisform.html",context)
 
-
+@check_if_subleague
+@check_if_season
+@check_if_match
 @login_required
-def upload_league_replay(request,league_name,matchid):
-    try:
-        league_=league.objects.get(name=league_name)
-        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
-    except:
-        return redirect('league_list')
-    try:
-        match=schedule.objects.get(pk=matchid)
-        if match.replay != "Link":
-            messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
-            return redirect('league_schedule',league_name=league_name)
-    except:
-        return redirect('league_schedule',league_name=league_name)
+def upload_league_replay(request,league_name,subleague_name,matchid):
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    match=schedule.objects.get(pk=matchid)
+    if match.replay != "Link":
+        messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
+        return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
     if request.method=="POST":
         form = LeagueReplayForm(request.POST,instance=match)
         if form.is_valid():
@@ -81,17 +76,17 @@ def upload_league_replay(request,league_name,matchid):
             coach2=team2.coach
             try:
                 coach1alt=showdownalts.objects.all().filter(showdownalt=coach1).first()
-                coach1team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
+                coach1team=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
             except:
                 messages.error(request,f'A matching showdown alt for {coach1} was not found!',extra_tags='danger')
-                return redirect('league_schedule',league_name=league_name)
+                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             try:
                 coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
-                coach2team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
+                coach2team=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
                 print(coach2alt)
             except:
                 messages.error(request,f'A matching showdown alt for {coach2} was not found!',extra_tags='danger')
-                return redirect('league_schedule',league_name=league_name)
+                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             context={
                 'output': outputstring,
                 'team1':team1,
@@ -103,7 +98,7 @@ def upload_league_replay(request,league_name,matchid):
                 'form': form,
                 'league_name':league_name,
                 'matchid':matchid,
-                'league': league_,
+                'subleague': subleague,
                 'leaguepage': True,
                 'league_teams': league_teams,
             }
@@ -114,35 +109,26 @@ def upload_league_replay(request,league_name,matchid):
         'submission': True,
         'league_name':league_name,
         'matchid':matchid,
-        'league': league_,
+        'subleague': subleague,
         'leaguepage': True,
         'league_teams': league_teams,
     }
     return  render(request,"replayanalysisform.html",context)
 
+@check_if_subleague
+@check_if_season
+@check_if_match
 @login_required
-def confirm_league_replay(request,league_name,matchid):
-    try:
-        league_=league.objects.get(name=league_name)
-        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
-    except:
-        return redirect('league_list')
-    try:
-        season=league_.seasonsetting
-    except:
-        return redirect('league_list')
-    try:
-        match=schedule.objects.get(pk=matchid)
-    except:
-        return redirect('league_schedule',league_name=league_name)
+def confirm_league_replay(request,league_name,subleague_name,matchid):
+    league_name=league_name.replace('%20',' ')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    season=subleague.seasonsetting
+    league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    match=schedule.objects.get(pk=matchid)
     if request.method=="POST":
-        try:
-            match=schedule.objects.get(pk=matchid)
-        except:
-            return redirect('league_schedule',league_name=league_name)
         if match.replay != "Link":
             messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
-            return redirect('league_schedule',league_name=league_name)
+            return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
         form = LeagueReplayForm(request.POST,instance=match)
         if form.is_valid():
             url=form.cleaned_data['replay']
@@ -151,16 +137,16 @@ def confirm_league_replay(request,league_name,matchid):
             coach2=team2.coach
             try:
                 coach1alt=showdownalts.objects.all().filter(showdownalt=coach1).first()
-                coach1team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
+                coach1team=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
             except:
                 messages.error(request,f'No coach matching {team1.coach} could be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
+                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             try:
                 coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
-                coach2team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
+                coach2team=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
             except:
                 messages.error(request,f'No coach matching {team1.coach} could be found!',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name)
+                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             #update team1 pokemon data
             t1pokemon1=checkpokemon(team1.pokemon1,season,coach1team,league_name,request)
             t1pokemon2=checkpokemon(team1.pokemon2,season,coach1team,league_name,request)
@@ -300,13 +286,12 @@ def confirm_league_replay(request,league_name,matchid):
             match.save()
             form.save()
             messages.success(request,'Replay has been saved!')
-            league_=match.season.league
-            discordserver=league_.discord_settings.discordserver
-            discordchannel=league_.discord_settings.replaychannel
+            discordserver=subleague.league.discord_settings.discordserver
+            discordchannel=subleague.league.discord_settings.replaychannel
             title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
             replay_announcements.objects.create(
                 league = discordserver,
-                league_name = league_.name,
+                league_name = subleague.league.name,
                 text = title,
                 replaychannel = discordchannel
             )
@@ -315,22 +300,19 @@ def confirm_league_replay(request,league_name,matchid):
                 if item.pick==match.winner:
                     item.correct=True
                     item.save()
-            return  redirect('league_schedule',league_name=league_name)
-    return  redirect('league_schedule',league_name=league_name)
+            return  redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
+    return  redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
 
-def league_match_results(request,league_name,matchid):
-    try:
-        league_=league.objects.get(name=league_name)
-        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
-    except:
-        return redirect('league_list')
-    try:
-        match=schedule.objects.get(pk=matchid)
-        if match.replay == "Link":
-            messages.error(request,f'A replay for that match does not exist!',extra_tags="danger")
-            return redirect('league_schedule',league_name=league_name)
-    except:
-        return redirect('league_schedule',league_name=league_name)
+@check_if_subleague
+@check_if_season
+@check_if_match
+def league_match_results(request,league_name,subleague_name,matchid):
+    league_name=league_name.replace('%20',' ')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    if match.replay == "Link":
+        messages.error(request,f'A replay for that match does not exist!',extra_tags="danger")
+        return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
     try:
         manualreplay=manual_replay.objects.get(match=match)
         showreplay=False
@@ -358,8 +340,8 @@ def league_match_results(request,league_name,matchid):
         coach2=team2.coach 
         coach1alt=showdownalts.objects.all().filter(showdownalt=coach1).first()
         coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
-        coach1team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
-        coach2team=coachdata.objects.all().filter(league_name=league_).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
+        coach1team=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
+        coach2team=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
         context={
             'output': outputstring,
             'team1':team1,
@@ -370,36 +352,24 @@ def league_match_results(request,league_name,matchid):
             'league_name':league_name,
             'matchid':matchid,
             'showreplay': True,
-            'league': league_,
+            'subleague': subleague,
             'leaguepage': True,
             'league_teams': league_teams,
         }
         return render(request,"replayanalysisform.html",context)
 
+@check_if_subleague
+@check_if_season
+@check_if_match
 @login_required
-def upload_league_replay_manual(request,league_name,matchid):
-    try:
-        league_=league.objects.get(name=league_name)
-        league_teams=coachdata.objects.all().filter(league_name=league_).order_by('teamname')
-    except:
-        return redirect('league_list')
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,f'League does not exist!',extra_tags="danger")
-        return redirect('league_list')
-    try:
-        season=seasonsetting.objects.get(league=league_)
-    except:
-        messages.error(request,f'Season does not exist!',extra_tags="danger")
-        return redirect('league_list')
-    try:
-        match=schedule.objects.get(pk=matchid)
-        if match.replay != "Link":
-            messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
-            return redirect('league_schedule',league_name=league_name)
-    except:
-        return redirect('league_schedule',league_name=league_name)
+def upload_league_replay_manual(request,league_name,subleague_name,matchid):
+    league_name=league_name.replace('%20',' ')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    season=subleague.seasonsetting
+    league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    if match.replay != "Link":
+        messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
+        return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
     if request.method=="POST":
         form=ManualLeagueReplayForm(match,request.POST)
         if form.is_valid():
@@ -513,13 +483,12 @@ def upload_league_replay_manual(request,league_name,matchid):
             t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
             t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
             messages.success(request,"Match has been saved!")
-            league_=match.season.league
-            discordserver=league_.discord_settings.discordserver
-            discordchannel=league_.discord_settings.replaychannel
+            discordserver=subleague.league.discord_settings.discordserver
+            discordchannel=subleague.league.discord_settings.replaychannel
             title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
             replay_announcements.objects.create(
                 league = discordserver,
-                league_name = league_.name,
+                league_name = league_name,
                 text = title,
                 replaychannel = discordchannel
             )
@@ -528,14 +497,14 @@ def upload_league_replay_manual(request,league_name,matchid):
                 if item.pick==match.winner:
                     item.correct=True
                     item.save()
-            return redirect('league_schedule',league_name=league_name)
+            return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
     form=ManualLeagueReplayForm(match,initial={'match':match})
     context={
         'form': form,
         'manual_submission': True,
         'league_name':league_name,
         'matchid':matchid,
-        'league': league_,
+        'subleague': subleague,
         'leaguepage': True,
         'match': match,
         'league_teams': league_teams,

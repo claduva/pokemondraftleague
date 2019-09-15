@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [ 
     path("leagues/<str:league_name>/", views.league_detail, name="league_detail"),
+    path("leagues/<str:league_name>/apply/", views.league_apply, name="league_application"),
     path("leagues/<str:league_name>/<str:subleague_name>/", views.subleague_detail, name="subleague_detail"),
     path("leagues/<str:league_name>/<str:subleague_name>/teams/<str:team_abbreviation>/", views.team_page, name="team_page"),
     path("leagues/<str:league_name>/<str:subleague_name>/draft/", views.league_draft, name="league_draft"),
@@ -16,8 +17,6 @@ urlpatterns = [
     path("leagues/<str:league_name>/<str:subleague_name>/rules/edit", views.edit_league_rules, name="edit_league_rules"),
     path("leagues/<str:league_name>/<str:subleague_name>/tiers/", views.league_tiers, name="league_tiers"),
     path("leagues/<str:league_name>/<str:subleague_name>/league_leaders/", views.league_leaders, name="league_leaders"),
-    path("settings/league/<str:league_name>/<str:subleague_name>/manageseasons/creatematch/", views.create_match, name="create_match"),
-    path("settings/league/<str:league_name>/<str:subleague_name>/manageseasons/createroundrobinschedule/", views.createroundrobinschedule, name="createroundrobinschedule"),
     path("leagues/<str:league_name>/<str:subleague_name>/hall_of_fame/", views.league_hall_of_fame, name="league_hall_of_fame"),
     path("leagues/<str:league_name>/<str:subleague_name>/playoffs/", views.league_playoffs, name="league_playoffs"),
     path('pokemon-autocomplete/',views.PokemonAutocomplete.as_view(),name='pokemon-autocomplete',),

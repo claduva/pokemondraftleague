@@ -28,7 +28,7 @@
     <div class="col-md-12 d-flex justify-content-between">
         <h3 class="pt-2">Upload Replay by URL</h3>
         {% if league_name %}
-        <a href="{% url 'upload_league_replay_manual' league_name=league_name matchid=matchid %}"><button class="btn btn-primary">Manually Input Data</button></a>
+        <a href="{% url 'upload_league_replay_manual' league_name=league_name subleague_name=subleague.subleague matchid=matchid %}"><button class="btn btn-primary">Manually Input Data</button></a>
         {% endif %}
     </div>
     <div class="col-md-12">
@@ -328,12 +328,12 @@
     {% if confirm %}
         <div class="col-12 d-flex justify-content-center">
             <div>
-                <form action="{% url 'confirm_league_replay' league_name=league_name matchid=matchid %}" method="post">
+                <form action="{% url 'confirm_league_replay' league_name=league_name subleague_name=subleague.subleague matchid=matchid %}" method="post">
                     {% csrf_token %}
                     <div hidden>{{ form }}</div>
                     <input class="btn btn-success" type="submit" value="Confirm">
                 </form>
-                <a href="{% url 'upload_league_replay' league_name=league_name matchid=matchid %}"><button class="btn btn-danger">Reject</button></a>
+                <a href="{% url 'upload_league_replay' league_name=league_name subleague_name=subleague.subleague matchid=matchid %}"><button class="btn btn-danger">Reject</button></a>
             </div>
         </div>
     {% endif %}

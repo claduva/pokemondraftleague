@@ -11,37 +11,8 @@
     <div class="col-md-12 bg-darkgrey rounded p-3">
         <div class="d-flex justify-content-between">
             <h1 class="text-light">{{ leagueheading }}</h1>
-            {% if not recruitinglist %}
-                <div><a href="{% url 'recruiting_league_list' %}"><button class="btn btn-sm btn-primary">Only Show Recruiting Leagues</button></a></div>
-            {% else %}
-                <div><a href="{% url 'league_list' %}"><button class="btn btn-sm btn-primary">Show All Leagues</button></a></div>
-            {% endif %}
         </div>
         <div class="row align-items-stretch justify-content-around">
-            {% if recruitinglist %}
-                {% if recruitinglist is True %}
-                    <h2>None</h2>
-                {% else %}
-                {% for item in recruitinglist %}
-                <div class="col-md-2 mb-2">
-                    <div class="card h-100 bg-lightgrey text-center">
-                    <a class="text-dark" href="{{ item.league_name.name }}">
-                        <img src="{{ item.league_name.logo.url }}" class="img-fluid">
-                        <div class="d-flex justify-content-center">{{ item.league_name.name }}</div>
-                    </a>
-                    <div class="d-flex justify-content-center text-center">Hosted By:</div>
-                    <div class="d-flex justify-content-center text-center">{% for h in item.league_name.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
-                    {% if item.league_name.discord_settings.discordurl != 'Not Provided' %}
-                        <a class="text-dark" href="{{ item.league_name.discord_settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a>
-                    {% endif %}
-                    {% if item.is_recruiting %}
-                        <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
-                    {% endif %}
-                    </div>
-                </div>
-                {% endfor %}
-                {% endif %}
-            {% else %}
                 {% if allleagues %}
                     {% for item in allleagues %}
                     <div class="col-md-2 mb-2">
@@ -63,8 +34,7 @@
                     {% endfor %}
                 {% else %}
                     <div>None</div>
-                {% endif %}
-            {% endif %}    
+                {% endif %}   
         </div>
     </div>
 </div>
