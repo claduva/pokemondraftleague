@@ -310,6 +310,7 @@ def league_match_results(request,league_name,subleague_name,matchid):
     league_name=league_name.replace('%20',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    match=schedule.objects.get(pk=matchid)
     if match.replay == "Link":
         messages.error(request,f'A replay for that match does not exist!',extra_tags="danger")
         return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
@@ -367,6 +368,7 @@ def upload_league_replay_manual(request,league_name,subleague_name,matchid):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    match=schedule.objects.get(pk=matchid)
     if match.replay != "Link":
         messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
         return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)

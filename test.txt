@@ -1,23 +1,23 @@
-Team 1 Coach: CoolMeDownB
+Team 1 Coach: Eastonn8
 Team 1 Roster: 
-Lycanroc-Dusk, Kills: 2, Deaths: 1, +/-: 1
-Manectric-Mega, Kills: 0, Deaths: 1, +/-: -1
-Mimikyu, Kills: 0, Deaths: 1, +/-: -1
-Landorus-Therian, Kills: 0, Deaths: 1, +/-: -1
-Muk-Alola, Kills: 1, Deaths: 1, +/-: 0
-Slowbro, Kills: 0, Deaths: 1, +/-: -1
-Mega Evolved: True
-Used Z-Move: False
+Crobat, Kills: 2, Deaths: 0, +/-: 2
+Uxie, Kills: 0, Deaths: 1, +/-: -1
+Stakataka, Kills: 3, Deaths: 0, +/-: 3
+Mr. Mime, Kills: 0, Deaths: 1, +/-: -1
+Leafeon, Kills: 1, Deaths: 0, +/-: 1
+Jellicent, Kills: 0, Deaths: 1, +/-: -1
+Mega Evolved: False
+Used Z-Move: True
 
-Team 2 Coach: bkendrick678932
+Team 2 Coach: NT Naganadels
 Team 2 Roster: 
-Mamoswine, Kills: 1, Deaths: 1, +/-: 0
-Tapu Koko, Kills: 0, Deaths: 0, +/-: 0
-Alomomola, Kills: 2, Deaths: 0, +/-: 2
-Latias, Kills: 2, Deaths: 1, +/-: 1
-Gigalith, Kills: 0, Deaths: 0, +/-: 0
-Amoonguss, Kills: 1, Deaths: 1, +/-: 0
+Lycanroc-Dusk, Kills: 2, Deaths: 1, +/-: 1
+Swampert, Kills: 0, Deaths: 1, +/-: -1
+Togedemaru, Kills: 0, Deaths: 1, +/-: -1
+Comfey, Kills: 0, Deaths: 1, +/-: -1
+Incineroar, Kills: 1, Deaths: 1, +/-: 0
+Lurantis, Kills: 0, Deaths: 1, +/-: -1
 Mega Evolved: False
 Used Z-Move: False
 
-Replay: https://replay.pokemonshowdown.com/draftfrontier-gen7draftleaguetier-79399
+Replay: https://replay.pokemonshowdown.com/gen7anythinggoes-976561813
