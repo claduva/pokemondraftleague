@@ -37,7 +37,7 @@
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right text-center p-0">
                         <a class="text-dark" href="leagueconfiguration">
-                                    <li class="border">League Configuration</li>
+                            <li class="border">League Configuration</li>
                         </a>
                         <a class="text-dark" href="managecoachs">
                             <li class="border">Manage Coachs</li>
@@ -63,22 +63,52 @@
                 </div>
                 {% endif %}
                 {% if manageseason %}
-                <div>
-                    <a href="{% url 'set_draft_order' league_name=league_name %}"><button class="btn btn-primary">Set
-                            Draft Order</button></a>
-                    <a href="{% url 'create_match' league_name=league_name subleague_name=subleague.subleague %}"><button class="btn btn-primary">Create
-                            Match</button></a>
-                    <a href="{% url 'createroundrobinschedule' league_name=league_name %}"><button class="btn btn-primary">Create
-                                Round Robin</button></a>
-                    <a href="{% url 'archive_season' league_name=league_name %}"><button class="btn btn-warning">Archive Season</button></a>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Management
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right text-center p-0">
+                        <a class="text-dark" href="{% url 'manage_tiers' league_name=league_name subleague_name=subleague.subleague %}">
+                            <li class="border">Manage Tiers</li>
+                        </a>
+                        <a class="text-dark" href="{% url 'add_conference_and_division_names' league_name=league_name subleague_name=subleague.subleague %}">
+                            <li class="border">Add Conference and Division Names</li>
+                        </a>
+                        <a class="text-dark" href="{% url 'discord_settings' league_name=league_name subleague_name=subleague.subleague %}s">
+                            <li class="border">Discord Settings</li>
+                        </a>
+                        {% if addleagueteam %}
+                        <a class="text-dark" href="{% url 'add_team_of_coachs' league_name=league_name subleague_name=subleague.subleague %}">
+                            <li class="border">Manage Teams of Coachs</li>
+                        </a>
+                        {% endif %}
+                        <a class="text-dark" href="{% url 'set_draft_order' league_name=league_name subleague_name=subleague.subleague %}">
+                            <li class="border">Set
+                                Draft Order</li>
+                        </a>
+                        <a class="text-dark" href="{% url 'create_match' league_name=league_name subleague_name=subleague.subleague %}">
+                            <li class="border">Create
+                                Match</li>
+                        </a>
+                        <a class="text-dark" href="{% url 'createroundrobinschedule' league_name=league_name subleague_name=subleague.subleague %}">
+                            <li class="border">Create
+                                Round Robin</li>
+                        </a>
+                        <a class="text-dark" href="{% url 'archive_season' league_name=league_name %}">
+                            <li class="border">Archive Season</li>
+                        </a>
+                    </ul>
                 </div>
-                {% endif %}
-                {% if leaguescoachingsettings %}
                 <div>
-                    <a href="{% url 'designate_z_users' league_name=league_name %}"><button
-                            class="btn btn-primary">Designate Z Users</button></a>
+                    <div>
+                    </div>
+                    {% endif %}
+                    {% if leaguescoachingsettings %}
+                    <div>
+                        <a href="{% url 'designate_z_users' league_name=league_name %}"><button
+                                class="btn btn-primary">Designate Z Users</button></a>
+                    </div>
+                    {% endif %}
                 </div>
-                {% endif %}
             </div>
             {% if create %}
             <form method="post" enctype="multipart/form-data">
@@ -113,15 +143,15 @@
             {% endif %}
             {% else %}
             <div class="form-row">
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {% for form in forms %}
-                        {{ form|crispy  }}
-                        {% endfor %}
-                        <input name="purpose" value="Update" hidden>
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </form>
-                </div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for form in forms %}
+                    {{ form|crispy  }}
+                    {% endfor %}
+                    <input name="purpose" value="Update" hidden>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
             {% endif %}
             {% if usersettings %}
             <h5>Add Showdown Alt:</h5>
@@ -149,13 +179,12 @@
             {% endif %}
             </form>
         </div>
-    </div>
-    {% endblock %}
-    {% block footer %}
-    
-    <!-- 
+        {% endblock %}
+        {% block footer %}
+
+        <!-- 
 <script type="text/javascript" src="{%  static 'accounts/scripts/getElementsBySelector.js'%}"></script>
 <script type="text/javascript" src="{%  static 'accounts/scripts/actions.js'%}"></script>
 <script type="text/javascript" src="{%  static 'accounts/scripts/SelectBox.js'%}"></script>
  -->
-    {% endblock %}
+        {% endblock %}

@@ -19,7 +19,20 @@
     </div>
     <div class="col-md-8">
         <div class="bg-darkgrey rounded p-3 text-light">
+            <div class="d-flex justify-content-between">
             <h3>League Configuration of {{league_name}}</h3>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Manage Subleague
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right text-center p-0">
+                    {% for item in subleagues %}
+                    <a class="text-dark" href="{% url 'manage_seasons' league_name=league_name subleague_name=item.subleague %}">
+                                <li class="border">{{item.subleague}}</li>
+                    </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
             <form method="post">{% csrf_token %}
                 {{ form|crispy }}
                 <input name="purpose" class="btn btn-primary" type="submit">

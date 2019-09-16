@@ -61,16 +61,11 @@ def leagues_hosted_settings(request):
     }
     return render(request, 'leaguelist.html',context)
 
+@check_if_league
+@check_if_host
 @login_required
 def individual_league_settings(request,league_name):
-    try:
-        league_instance=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_instance.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    league_instance=league.objects.get(name=league_name)
     league_settings_instance=league_settings.objects.get(league_name=league_instance)
     if request.method == 'POST':
         l_form = UpdateLeagueForm(
@@ -97,16 +92,11 @@ def individual_league_settings(request,league_name):
     }
     return render(request, 'settings.html',context)
 
+@check_if_league
+@check_if_host
 @login_required
 def league_configuration(request,league_name):
-    try:
-        league_instance=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_instance.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    league_instance=league.objects.get(name=league_name)
     if request.method == 'POST':
         formpurpose=request.POST['purpose']
         if formpurpose=="Submit":
@@ -156,18 +146,13 @@ def league_configuration(request,league_name):
     }
     return render(request, 'leagueconfiguration.html',context)
 
+@check_if_subleague
+@check_if_host
 @login_required
 def discordsettings(request,league_name,subleague_name):
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     try:
-        league_instance=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_instance.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    try:
-        discordinstance=discord_settings.objects.get(league=league_instance)
+        discordinstance=discord_settings.objects.get(league=subleague.league)
         form=DiscordSettingsForm(instance=discordinstance)
         if request.method=='POST':
             form=DiscordSettingsForm(request.POST,instance=discordinstance)
@@ -179,7 +164,7 @@ def discordsettings(request,league_name,subleague_name):
             return redirect('individual_league_settings',league_name=league_name)
     except Exception as e:
         print(e)
-        form=DiscordSettingsForm(initial={'league':league_instance})
+        form=DiscordSettingsForm(initial={'league':subleague.league})
         if request.method=='POST':
             form=DiscordSettingsForm(request.POST)
             if form.is_valid():
@@ -195,17 +180,12 @@ def discordsettings(request,league_name,subleague_name):
     }
     return render(request, 'formsettings.html',context)
 
+@check_if_league
+@check_if_host
 @login_required
 def manage_coachs(request,league_name):
     league_name=league_name.replace("_"," ")
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_.host.all():
-        messages.error(request,'Only a league host may manage coachs!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    league_=league.objects.get(name=league_name)
     applicants=league_application.objects.filter(league_name=league_)
     totalapplicants=len(applicants)
     coachs=coachdata.objects.filter(league_name=league_).order_by('coach__username')
@@ -336,16 +316,11 @@ def individual_league_coaching_settings(request,league_name):
     }
     return render(request, 'settings.html',context)
 
+@check_if_subleague
+@check_if_host
 @login_required
 def manage_tiers(request,league_name,subleague_name):
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     if request.method == 'POST':
         form = CreateTierForm(request.POST)
         if form.is_valid() :
@@ -353,10 +328,9 @@ def manage_tiers(request,league_name,subleague_name):
             messages.success(request,'Tier has been added!')
             return redirect('manage_tiers',league_name=league_name)
     else:
-        form = CreateTierForm(initial={'league': league_})
-
-    pokemontiers=pokemon_tier.objects.filter(league=league_).all().order_by('pokemon__pokemon','tier')
-    leaguestiers=leaguetiers.objects.filter(league=league_).all().order_by('tiername')
+        form = CreateTierForm(initial={'league': subleague.league})
+    pokemontiers=pokemon_tier.objects.filter(league=subleague.league).all().order_by('pokemon__pokemon','tier')
+    leaguestiers=leaguetiers.objects.filter(league=subleague.league).all().order_by('tiername')
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
@@ -367,26 +341,21 @@ def manage_tiers(request,league_name,subleague_name):
     }
     return render(request, 'managetiers.html',context)
 
+@check_if_subleague
+@check_if_host
 @login_required
 def manage_seasons(request,league_name,subleague_name):
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    leaguesettings=league_settings.objects.get(league_name=league_)
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    leaguesettings=league_settings.objects.get(league_name=subleague.league)
     needednumberofcoaches=leaguesettings.number_of_teams
-    currentcoaches=coachdata.objects.filter(league_name=league_)
+    currentcoaches=coachdata.objects.filter(league_name=subleague.league)
     currentcoachescount=len(currentcoaches)
     if needednumberofcoaches != currentcoachescount: 
         messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
         return redirect('individual_league_settings',league_name=league_name)
     if request.method == 'POST':
         try:
-            seasonsettings=seasonsetting.objects.get(league=league_)
+            seasonsettings=seasonsetting.objects.get(league=subleague.league)
             form = EditSeasonSettingsForm(request.POST,instance=seasonsettings)
             if form.is_valid():
                 form.save()
@@ -409,18 +378,19 @@ def manage_seasons(request,league_name,subleague_name):
                 return redirect('manage_seasons',league_name=league_name)
     else:
         try:
-            seasonsettings=seasonsetting.objects.get(league=league_)
+            seasonsettings=seasonsetting.objects.get(league=subleague.league)
             form = EditSeasonSettingsForm(instance=seasonsettings)
             settingheading='Update Season Settings'
             create=False
             manageseason=True
         except:
             seasonsettings=None
-            form = CreateSeasonSettingsForm(initial={'league': league_})
+            form = CreateSeasonSettingsForm(initial={'league': subleague.league})
             settingheading='Create New Season'
             create=True
             manageseason=False
     context = {
+        'subleague':subleague,
         'league_name': league_name,
         'leagueshostedsettings': True,
         'forms': [form],
@@ -438,16 +408,11 @@ def delete_tier(request,league_name,subleague_name):
         tiertodelete.delete()
     return redirect('manage_tiers',league_name=league_name)
 
+@check_if_subleague
+@check_if_host
 @login_required
 def edit_tier(request,league_name,subleague_name,tierid):
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     if request.method == 'POST':
         tierinstance=leaguetiers.objects.get(pk=tierid)
         form = UpdateTierForm(request.POST,instance=tierinstance)
@@ -458,8 +423,8 @@ def edit_tier(request,league_name,subleague_name,tierid):
     else:
         tierinstance=leaguetiers.objects.get(pk=tierid)
         form=UpdateTierForm(instance=tierinstance)
-    pokemontiers=None#pokemon_tier.objects.filter(league=league_).all().order_by('pokemon__pokemon','points')
-    leaguestiers=leaguetiers.objects.filter(league=league_).all().order_by('tiername')
+    pokemontiers=pokemon_tier.objects.filter(league=subleague.league).all().order_by('pokemon__pokemon','points')
+    leaguestiers=leaguetiers.objects.filter(league=subleague.league).all().order_by('tiername')
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
@@ -470,13 +435,12 @@ def edit_tier(request,league_name,subleague_name,tierid):
     }
     return render(request, 'managetiers.html',context)
 
+@check_if_subleague
+@check_if_host
 @login_required
 def update_tier(request,league_name,subleague_name):
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_=subleague.league
     if request.POST:
         pokemonofinterest=all_pokemon.objects.get(pokemon=request.POST['pokemon-select'])
         pokemontoupdate=pokemon_tier.objects.filter(league=league_).get(pokemon=pokemonofinterest)
@@ -486,16 +450,12 @@ def update_tier(request,league_name,subleague_name):
         messages.success(request,'Tier has been edited!')
     return redirect('manage_tiers',league_name=league_name)
 
+@check_if_subleague
+@check_if_host
 @login_required
 def view_tier(request,league_name,subleague_name,tier):
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_=subleague.league
     if request.method == 'POST':
         form = CreateTierForm(request.POST)
         if form.is_valid() :
@@ -522,17 +482,13 @@ def view_tier(request,league_name,subleague_name,tier):
     }
     return render(request, 'managetiers.html',context)
 
+@check_if_subleague
+@check_if_host
 @login_required
 def default_tiers(request,league_name,subleague_name):
-    try:
-        league_=league.objects.get(name=league_name)
-        tier="Untiered"
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_=subleague.league
+    tier="Untiered"
     if request.method == 'POST':
         purpose=request.POST['purposeid']
         if purpose=='Select':
@@ -586,16 +542,12 @@ def default_tiers(request,league_name,subleague_name):
     }
     return render(request, 'managetiers.html',context)
 
+@check_if_subleague
+@check_if_host
 @login_required
 def set_draft_order(request,league_name,subleague_name):
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_=subleague.league
     leaguesettings=league_settings.objects.get(league_name=league_)
     needednumberofcoaches=leaguesettings.number_of_teams
     currentcoaches=coachdata.objects.filter(league_name=league_).order_by('teamname')
@@ -652,25 +604,21 @@ def set_draft_order(request,league_name,subleague_name):
     }
     return render(request, 'draftorder.html',context)
 
+@check_if_subleague
+@check_if_host
 @login_required
 def add_conference_and_division_names(request,league_name,subleague_name):
-    try:
-        league_=league.objects.get(name=league_name)
-        leaguesettings=league_settings.objects.get(league_name=league_)
-        currentconferences = conference_name.objects.all().filter(league=league_)
-        currentdivisions = division_name.objects.all().filter(league=league_)
-        totalconferences=leaguesettings.number_of_conferences
-        totaldivisions=leaguesettings.number_of_divisions
-        neededconferences=totalconferences-currentconferences.count()
-        neededdivisions=totaldivisions-currentdivisions.count()
-        if int(totalconferences/totaldivisions)==1:
-            neededdivisions=0 
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_=subleague.league
+    leaguesettings=league_settings.objects.get(league_name=league_)
+    currentconferences = conference_name.objects.all().filter(league=league_)
+    currentdivisions = division_name.objects.all().filter(league=league_)
+    totalconferences=leaguesettings.number_of_conferences
+    totaldivisions=leaguesettings.number_of_divisions
+    neededconferences=totalconferences-currentconferences.count()
+    neededdivisions=totaldivisions-currentdivisions.count()
+    if int(totalconferences/totaldivisions)==1:
+        neededdivisions=0 
     if request.method == 'POST':
         name=request.POST['itemname']
         category=request.POST['category']
@@ -709,17 +657,13 @@ def delete_division(request,league_name,subleague_name):
         messages.success(request,'Division has been deleted!')
     return redirect('add_conference_and_division_names',league_name=league_name)        
 
+@check_if_subleague
+@check_if_host
 @login_required
 def manage_coach(request,league_name,coachofinterest):
     league_name=league_name.replace("_"," ")
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_=subleague.league
     try:
         coachofinterest=coachdata.objects.filter(league_name=league_).get(coach__username=coachofinterest)
     except:
@@ -813,6 +757,7 @@ def manage_coach(request,league_name,coachofinterest):
         'seasonnotinsession': seasonnotinsession,
     })
     return render(request, 'managecoach.html',context)
+
 
 @login_required
 def designate_z_users(request,league_name):
