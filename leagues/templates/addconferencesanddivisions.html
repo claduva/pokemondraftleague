@@ -25,7 +25,7 @@
                         <h5>Current Conferences (Needed= {{neededconferences}})</h5>
                         {% if currentconferences %}
                             {% for item in currentconferences %}
-                                <form action="{% url 'delete_conference' league_name=league_name %}" method="post">{% csrf_token %}
+                                <form action="{% url 'delete_conference' league_name=league_name subleague_name=subleague.subleague %}" method="post">{% csrf_token %}
                                     <div>-{{ item.name }} 
                                         <input type='text' name="itemid" value="{{ item.id }}" hidden>
                                         <input type= submit class="btn btn-danger" value="Delete">
@@ -40,7 +40,7 @@
                         <h5>Current Divisions (Needed= {{ neededdivisions }})</h5>
                         {% if currentdivisions %}
                             {% for item in currentdivisions %}
-                                <form action="{% url 'delete_division' league_name=league_name %}" method="post">{% csrf_token %}
+                                <form action="{% url 'delete_division' league_name=league_name subleague_name=subleague.subleague %}" method="post">{% csrf_token %}
                                     <div>-{{ item.name }} 
                                         <input type='text' name="itemid" value="{{ item.id }}" hidden>
                                         <input type= submit class="btn btn-danger" value="Delete">

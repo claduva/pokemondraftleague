@@ -20,8 +20,8 @@ def check_if_subleague(view):
             league_=league_subleague.objects.filter(league__name=kwargs['league_name']).get(subleague=kwargs['subleague_name'])
             return view(request, *args, **kwargs)
         except Exception as e:
-            print(e)
             print('subleague')
+            print(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
             return redirect('league_list')
     return wrap

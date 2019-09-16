@@ -21,7 +21,6 @@ from pokemondraftleague.customdecorators import check_if_subleague, check_if_lea
 def league_detail(request,league_name):
     league_=league.objects.get(name=league_name)
     subleagues=league_.subleague.all()
-    
     if subleagues.count()==1:
         loi=subleagues.first()
         return redirect('subleague_detail',league_name=league_name,subleague_name=loi.subleague)
@@ -32,7 +31,6 @@ def league_detail(request,league_name):
 
 @check_if_subleague
 def subleague_detail(request,league_name,subleague_name):
-   
     league_name=league_name.replace('%20',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
@@ -111,7 +109,7 @@ def subleague_detail(request,league_name,subleague_name):
                             parent_team.ties+=1 
                             parent_team.points+=1
                     parent_team.save()
-        except:
+        except Exception as e:
             pass
         parent_teams=[]
         parent_team_list=parent_team_list.order_by('-points','-gw','-differential')
@@ -175,13 +173,15 @@ def league_apply(request,league_name):
                         messages.success(request,'You have successfully applied to '+league_name+"!")
                         return redirect('league_detail',league_name=league_name)
                 else:
+                    print('here')
+                    form=None
                     form = LeagueApplicationForm(league_,initial={
                         'applicant': request.user,
                         'league_name': league_
                         })
                     
                 context = {
-                    'league': league,
+                    'league': league_,
                     'forms': [form],
                 }
                 return render(request, 'leagueapplication.html',context)

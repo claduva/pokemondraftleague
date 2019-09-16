@@ -49,8 +49,8 @@ class league_subleague(models.Model):
         return f'{self.league.name}: {self.subleague}'
 
 class discord_settings(models.Model):
-    league = models.OneToOneField(league, on_delete=models.CASCADE,related_name="discord_settings")
-    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
+    league = models.ForeignKey(league, on_delete=models.CASCADE,related_name="discord_settings")
+    subleague = models.OneToOneField(league_subleague,on_delete=models.SET_NULL, null=True)
     discordurl = models.CharField(max_length=100, default="Not Provided")
     discordserver = models.CharField(max_length=100, default="Not Provided")
     draftchannel=models.CharField(max_length=100, default="Not Provided")
@@ -162,8 +162,8 @@ class leaguetiertemplate(models.Model):
         return f'Template: {self.template}, Tiername: {self.tiername}'
 
 class seasonsetting(models.Model):
-    league = models.OneToOneField(league, on_delete=models.CASCADE)
-    subleague = models.OneToOneField(league_subleague,on_delete=models.SET_NULL, null=True)
+    league = models.ForeignKey(league, on_delete=models.CASCADE)
+    subleague = models.OneToOneField(league_subleague,on_delete=models.CASCADE, null=True)
     seasonname= models.CharField(max_length=25, default="Season 1")
     draftstart=models.DateTimeField(null=True)
     drafttimer=models.IntegerField(default=12)

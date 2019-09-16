@@ -6,7 +6,6 @@ from .models import *
 from individualleague.models import *
 from django.forms import DateTimeInput
 
-
 class CreateLeagueForm(forms.ModelForm):
 
     class Meta:
@@ -40,22 +39,6 @@ class LeagueConfigurationForm(forms.ModelForm):
         widgets = {
             'league': forms.HiddenInput(),
             }
-
-class LeagueApplicationForm(forms.ModelForm):
-    
-    class Meta:
-        model = league_application
-        fields = ['applicant','league_name','discord_name','draft_league_resume','tier_preference']
-        
-        widgets = {
-            'applicant': forms.HiddenInput(),
-            'league_name': forms.HiddenInput(),
-            }
-    
-    def __init__(self,league, *args, **kwargs):
-        super(LeagueApplicationForm, self).__init__(*args, **kwargs)
-        self.fields["tier_preference"].widget = FilteredSelectMultiple("league_subleague", False, attrs={'rows':'2'})
-        self.fields["tier_preference"].queryset = league_subleague.objects.all().filter(league=league)
 
 
 class CreateTierForm(forms.ModelForm):
@@ -112,9 +95,10 @@ class CreateSeasonSettingsForm(forms.ModelForm):
 
     class Meta:
         model = seasonsetting
-        fields = ['league','seasonname','draftbudget','drafttype','picksperteam','seasonlength','playoffslength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
+        fields = ['league','subleague','seasonname','draftbudget','drafttype','picksperteam','seasonlength','playoffslength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
         widgets = {
             'league': forms.HiddenInput(),
+            'subleague': forms.HiddenInput(),
             }
 
 class EditSeasonSettingsForm(forms.ModelForm):
@@ -171,7 +155,7 @@ class DiscordSettingsForm(forms.ModelForm):
     class Meta:
         model=discord_settings
         exclude=[]
-        widgets = {'league': forms.HiddenInput()}
+        widgets = {'league': forms.HiddenInput(),'subleague': forms.HiddenInput()}
 
 class CreateMatchForm(forms.ModelForm):
     

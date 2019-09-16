@@ -2,30 +2,12 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms.widgets import FileInput
+from django.contrib.admin.widgets import FilteredSelectMultiple
 
 from dal import autocomplete
 
 from leagues.models import *
 from .models import *
-
-class CreateMatchForm(forms.ModelForm):
-    
-    class Meta:
-        model = schedule
-        fields = ['season','week','team1','team2']
-        widgets = {'season': forms.HiddenInput()}
-
-    def __init__(self,season,league, *args, **kwargs):
-        super(CreateMatchForm, self).__init__(*args, **kwargs)
-        self.fields['team1'].queryset = coachdata.objects.filter(league_name=league).order_by('teamname')
-        self.fields['team1'].label_from_instance = lambda obj: obj.teamname
-        self.fields['team2'].queryset = coachdata.objects.filter(league_name=league).order_by('teamname')
-        self.fields['team2'].label_from_instance = lambda obj: obj.teamname
-        c=[(i+1,i+1) for i in range(season.seasonlength)]
-        d=[(f'Playoffs Round {i+1}',f'Playoffs Round {i+1}') for i in range(season.playoffslength-3)]
-        e=[('Playoffs Quarterfinals','Playoffs Quarterfinals'),('Playoffs Semifinals','Playoffs Semifinals'),('Playoffs Third Place Match','Playoffs Third Place Match'),('Playoffs Finals','Playoffs Finals')]
-        c=c+d+e
-        self.fields['week']=forms.ChoiceField(choices=c)
 
 class FreeAgencyForm(forms.ModelForm):
     
@@ -113,3 +95,18 @@ class ChangeMatchAttributionForm(forms.ModelForm):
         self.fields['team2alternateattribution'].required=False
         self.fields['team2alternateattribution'].queryset=User.objects.all().order_by('username')
         
+class LeagueApplicationForm(forms.ModelForm):
+    
+    class Meta:
+        model = league_application
+        fields = ['applicant','league_name','discord_name','draft_league_resume','tier_preference']
+        
+        widgets = {
+            'applicant': forms.HiddenInput(),
+            'league_name': forms.HiddenInput(),
+            }
+    
+    def __init__(self,league, *args, **kwargs):
+        super(LeagueApplicationForm, self).__init__(*args, **kwargs)
+        self.fields["tier_preference"].widget = FilteredSelectMultiple("league_subleague", False, attrs={'rows':'2'})
+        self.fields["tier_preference"].queryset = league_subleague.objects.all().filter(league=league)

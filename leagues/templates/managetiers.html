@@ -23,7 +23,7 @@
             <div class="col-md-12 d-flex justify-content-between p-0 m-0">
                 {% if not defaulttemplate %}
                 <h3>Update Pokemon's Tier</h3>
-                <a href="{% url 'default_tiers' league_name=league_name %}"><button class="btn btn-primary">Use Tier
+                <a href="{% url 'default_tiers' league_name=league_name subleague_name=subleague.subleague %}"><button class="btn btn-primary">Use Tier
                         Template</button></a>
                 {% else %}
                 <h3 class="p-0 m-0">Select Template</h3>

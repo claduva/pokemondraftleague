@@ -32,11 +32,6 @@ def create_league(request):
             newleague.host.add(request.user)
             newleague.save()
             messages.success(request,f'Your league has been successfully created!')
-            allpokes=all_pokemon.objects.all()
-            i=pokemon_tier.objects.all().order_by('id').last().id
-            #for item in allpokes:
-            #    i+=1
-            #    pokemon_tier.objects.create(id=i,pokemon=item,league=newleague)
             return redirect('league_list')
         else:
             print(form.errors)
@@ -112,11 +107,22 @@ def league_configuration(request,league_name):
                     league_instance.subleague.all().delete()
                 except:
                     pass
+                pokemon_tier.objects.filter(league=league_instance).all().delete()
                 if config.number_of_subleagues==1:
-                    league_subleague.objects.create(league=league_instance,subleague="Main")
+                    sl=league_subleague.objects.create(league=league_instance,subleague="Main")
+                    allpokes=all_pokemon.objects.all()
+                    i=pokemon_tier.objects.all().order_by('id').last().id
+                    for item in allpokes:
+                        i+=1
+                        pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl)
                 elif config.number_of_subleagues>1:
                     for i in range(config.number_of_subleagues):
-                        league_subleague.objects.create(league=league_instance,subleague=f"Subleague{i+1}")
+                        sl=league_subleague.objects.create(league=league_instance,subleague=f"Subleague{i+1}")
+                        allpokes=all_pokemon.objects.all()
+                        i=pokemon_tier.objects.all().order_by('id').last().id
+                        for item in allpokes:
+                            i+=1
+                            pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl)
                 messages.success(request,league_name+' has been updated!')
         elif formpurpose=="Rename":
             itemid=request.POST['itemid']
@@ -153,7 +159,7 @@ def league_configuration(request,league_name):
 def discordsettings(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     try:
-        discordinstance=discord_settings.objects.get(league=subleague.league)
+        discordinstance=discord_settings.objects.get(subleague=subleague)
         form=DiscordSettingsForm(instance=discordinstance)
         if request.method=='POST':
             form=DiscordSettingsForm(request.POST,instance=discordinstance)
@@ -162,10 +168,9 @@ def discordsettings(request,league_name,subleague_name):
                 messages.success(request,league_name+' has been updated!')
             else:
                 messages.error(request,'Form invalid!')
-            return redirect('individual_league_settings',league_name=league_name)
+            return redirect('manage_seasons',league_name=league_name,subleague_name=subleague_name)
     except Exception as e:
-        print(e)
-        form=DiscordSettingsForm(initial={'league':subleague.league})
+        form=DiscordSettingsForm(initial={'league':subleague.league,'subleague':subleague,})
         if request.method=='POST':
             form=DiscordSettingsForm(request.POST)
             if form.is_valid():
@@ -173,9 +178,9 @@ def discordsettings(request,league_name,subleague_name):
                 messages.success(request,league_name+' has been updated!')
             else:
                 messages.error(request,'Form invalid!')
-            return redirect('individual_league_settings',league_name=league_name)
+            return redirect('manage_seasons',league_name=league_name,subleague_name=subleague_name)
     context = {
-        'settingheading': f'{league_name} Discord Settings',
+        'settingheading': f'{subleague} Discord Settings',
         'forms': [form],
         'leagueshostedsettings': True,
     }
@@ -339,6 +344,7 @@ def manage_tiers(request,league_name,subleague_name):
         'leaguetiers':leaguestiers,
         'forms': [form],
         'managetiers': True,
+        'subleague':subleague,
     }
     return render(request, 'managetiers.html',context)
 
@@ -351,22 +357,22 @@ def manage_seasons(request,league_name,subleague_name):
     needednumberofcoaches=leaguesettings.number_of_teams
     currentcoaches=coachdata.objects.filter(league_name=subleague.league)
     currentcoachescount=len(currentcoaches)
-    if needednumberofcoaches != currentcoachescount: 
-        messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
-        return redirect('individual_league_settings',league_name=league_name)
+    #if needednumberofcoaches != currentcoachescount: 
+    #    messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
+    #    return redirect('individual_league_settings',league_name=league_name)
     if request.method == 'POST':
         try:
-            seasonsettings=seasonsetting.objects.get(league=subleague.league)
+            seasonsettings=seasonsetting.objects.get(subleague=subleague)
             form = EditSeasonSettingsForm(request.POST,instance=seasonsettings)
             if form.is_valid():
                 form.save()
                 messages.success(request,'Season settings have been updated!')
             else:
                 messages.error(request,form.errors,extra_tags='danger')    
-            return redirect('manage_seasons',league_name=league_name)
-        except:    
+        except:   
             form = CreateSeasonSettingsForm(request.POST)
-            if form.is_valid() :
+            print('here') 
+            if form.is_valid():
                 thisseason=form.save()
                 picksperteam=form.cleaned_data['picksperteam']
                 rosterid=roster.objects.all().order_by('id').last().id
@@ -376,17 +382,17 @@ def manage_seasons(request,league_name,subleague_name):
                         roster.objects.create(id=rosterid,season=thisseason,team=coach)
                 rule.objects.create(season=thisseason)
                 messages.success(request,'Your season has been created!')
-                return redirect('manage_seasons',league_name=league_name)
+        return redirect('manage_seasons',league_name=league_name,subleague_name=subleague_name)
     else:
         try:
-            seasonsettings=seasonsetting.objects.get(league=subleague.league)
+            seasonsettings=seasonsetting.objects.get(subleague=subleague)
             form = EditSeasonSettingsForm(instance=seasonsettings)
             settingheading='Update Season Settings'
             create=False
             manageseason=True
         except:
             seasonsettings=None
-            form = CreateSeasonSettingsForm(initial={'league': subleague.league})
+            form = CreateSeasonSettingsForm(initial={'league': subleague.league,'subleague':subleague})
             settingheading='Create New Season'
             create=True
             manageseason=False
@@ -612,8 +618,8 @@ def add_conference_and_division_names(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_=subleague.league
     leaguesettings=league_settings.objects.get(league_name=league_)
-    currentconferences = conference_name.objects.all().filter(league=league_)
-    currentdivisions = division_name.objects.all().filter(league=league_)
+    currentconferences = conference_name.objects.all().filter(subleague=subleague)
+    currentdivisions = division_name.objects.all().filter(subleague=subleague)
     totalconferences=leaguesettings.number_of_conferences
     totaldivisions=leaguesettings.number_of_divisions
     neededconferences=totalconferences-currentconferences.count()
@@ -624,12 +630,12 @@ def add_conference_and_division_names(request,league_name,subleague_name):
         name=request.POST['itemname']
         category=request.POST['category']
         if category=='conference':
-            conference_name.objects.create(league=league_,name=name)
+            conference_name.objects.create(league=league_,subleague=subleague,name=name)
         elif category=='division':
-            associatedconference=conference_name.objects.all().filter(league=league_).get(name=request.POST['divisionconference'])
-            division_name.objects.create(league=league_,name=name,associatedconference=associatedconference)
+            associatedconference=conference_name.objects.all().filter(subleague=subleague).get(name=request.POST['divisionconference'])
+            division_name.objects.create(league=league_,subleague=subleague,name=name,associatedconference=associatedconference)
         messages.success(request,f'{name} has been added as a {category}!')
-        return redirect('add_conference_and_division_names',league_name=league_name)        
+        return redirect('add_conference_and_division_names',league_name=league_name,subleague_name=subleague_name)        
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
@@ -637,6 +643,7 @@ def add_conference_and_division_names(request,league_name,subleague_name):
         'currentdivisions': currentdivisions,
         'neededconferences': neededconferences,
         'neededdivisions': neededdivisions,
+        'subleague':subleague,
     }
     return render(request, 'addconferencesanddivisions.html',context)
 
