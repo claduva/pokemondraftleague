@@ -34,7 +34,7 @@
                     {% if leagueshosted %}
                     {% for item in leagueshosted %}
                     <div class="col-md-3">
-                        <a href="{{ item.name }}">
+                        <a href="{% url 'individual_league_settings' league_name=item.name %}">
                             <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
                             <div class="d-flex justify-content-center">{{ item.name }}</div>
                         </a>

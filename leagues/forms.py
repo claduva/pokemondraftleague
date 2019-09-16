@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.forms.widgets import FileInput, CheckboxSelectMultiple, SelectMultiple
 from django.contrib.admin.widgets import FilteredSelectMultiple
 from .models import *
+from individualleague.models import *
 from django.forms import DateTimeInput
 
 
@@ -171,3 +172,22 @@ class DiscordSettingsForm(forms.ModelForm):
         model=discord_settings
         exclude=[]
         widgets = {'league': forms.HiddenInput()}
+
+class CreateMatchForm(forms.ModelForm):
+    
+    class Meta:
+        model = schedule
+        fields = ['season','week','team1','team2']
+        widgets = {'season': forms.HiddenInput()}
+
+    def __init__(self,season,league, *args, **kwargs):
+        super(CreateMatchForm, self).__init__(*args, **kwargs)
+        self.fields['team1'].queryset = coachdata.objects.filter(league_name=league).order_by('teamname')
+        self.fields['team1'].label_from_instance = lambda obj: obj.teamname
+        self.fields['team2'].queryset = coachdata.objects.filter(league_name=league).order_by('teamname')
+        self.fields['team2'].label_from_instance = lambda obj: obj.teamname
+        c=[(i+1,i+1) for i in range(season.seasonlength)]
+        d=[(f'Playoffs Round {i+1}',f'Playoffs Round {i+1}') for i in range(season.playoffslength-3)]
+        e=[('Playoffs Quarterfinals','Playoffs Quarterfinals'),('Playoffs Semifinals','Playoffs Semifinals'),('Playoffs Third Place Match','Playoffs Third Place Match'),('Playoffs Finals','Playoffs Finals')]
+        c=c+d+e
+        self.fields['week']=forms.ChoiceField(choices=c)

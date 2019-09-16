@@ -89,6 +89,7 @@ def individual_league_settings(request,league_name):
         'deletebutton': 'Delete League',
         'leagueshostedsettings': True,
         'addleagueteam': addleagueteam,
+        'league_name':league_name,
     }
     return render(request, 'settings.html',context)
 

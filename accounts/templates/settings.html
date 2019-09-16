@@ -36,23 +36,11 @@
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Management
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right text-center p-0">
-                        <a class="text-dark" href="leagueconfiguration">
+                        <a class="text-dark" href="{% url 'league_configuration' league_name=league_name %}">
                             <li class="border">League Configuration</li>
                         </a>
                         <a class="text-dark" href="managecoachs">
                             <li class="border">Manage Coachs</li>
-                        </a>
-                        <a class="text-dark" href="managetiers">
-                            <li class="border">Manage Tiers</li>
-                        </a>
-                        <a class="text-dark" href="manageseasons">
-                            <li class="border">Manage Seasons</li>
-                        </a>
-                        <a class="text-dark" href="conferenceanddivisionnames">
-                            <li class="border">Add Conference and Division Names</li>
-                        </a>
-                        <a class="text-dark" href="discord_settings">
-                            <li class="border">Discord Settings</li>
                         </a>
                         {% if addleagueteam %}
                         <a class="text-dark" href="addteamofcoachs">

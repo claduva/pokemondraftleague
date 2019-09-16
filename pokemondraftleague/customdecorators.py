@@ -52,8 +52,8 @@ def check_if_team(view):
 
 def check_if_host(view):
     def wrap(request, *args, **kwargs):
-        subleague=league_subleague.objects.filter(league__name=kwargs['league_name']).get(subleague=kwargs['subleague_name'])
-        if request.user not in subleague.league.host.all():
+        league_=league.objects.get(name=kwargs['league_name'])
+        if request.user not in league_.host.all():
             messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
             return redirect('leagues_hosted_settings')
         else:    
