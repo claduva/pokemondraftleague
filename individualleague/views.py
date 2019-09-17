@@ -64,7 +64,7 @@ def subleague_detail(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     settings=league_settings.objects.get(league_name=subleague.league)
-    conferencelist=conference_name.objects.all().filter(league=subleague.league).order_by('id')
+    conferencelist=conference_name.objects.all().filter(subleague=subleague).order_by('id')
     conferences=[]
     for item in conferencelist:
         divisionlist=division_name.objects.all().filter(associatedconference=item).order_by('id')
@@ -91,7 +91,7 @@ def subleague_detail(request,league_name,subleague_name):
             except:
                 apply=True
     try:
-        season=seasonsetting.objects.get(league=subleague.league)
+        season=seasonsetting.objects.get(subleague=subleague)
         timezone = pytz.timezone('UTC')
         elapsed=timezone.localize(datetime.now())-season.seasonstart
         timercurrentweek=math.ceil(elapsed.total_seconds()/60/60/24/7)

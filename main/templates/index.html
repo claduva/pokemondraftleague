@@ -70,15 +70,11 @@
                         </a>
                         <div class="d-flex justify-content-center">Hosted By:</div>
                         <div class="d-flex justify-content-center text-center">Hosted by {% for h in item.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
-                        {% if item.settings.discordurl != 'Not Provided' %}
-                        <a class="text-dark" href="{{ item.league_settings.discordurl }}">
-                            <div class="d-flex justify-content-center">Join the Discord</div>
-                        </a>
-                        {% endif %}
                         {% if item.settings.is_recruiting %}
                         <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
-                        {% else  %}
-                        <div class="d-flex justify-content-center text-danger">Not Recruiting</div>
+                        {% if item.subleague.first.discord_settings.discordurl != "Not Provided" %}
+                            <div class="d-flex justify-content-center"><a href="{{ item.subleague.first.discord_settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a></div>
+                        {% endif %}
                         {% endif %}
                     </div>
             </div>

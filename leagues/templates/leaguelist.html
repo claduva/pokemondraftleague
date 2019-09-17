@@ -9,12 +9,12 @@
 {% block body %}
 <div class="row">
         <div class="col-md-4">
-                <div class="content-section">
+                <div class="bg-darkgrey rounded p-2 text-light">
                   <h3>Settings</h3>
                     {% include 'settingssidebar.html' %}
                 </div>
             </div>
-        <div class="col-md-8 content-section">
+        <div class="col-md-8 bg-darkgrey rounded p-2 text-light">
             <div class="row align-items-center">
                 <div class="col-md-12 d-flex justify-content-center">
                     <h3>{{ settingheading }}</h3>
@@ -24,20 +24,24 @@
                 {% if leaguescoachingpage %}
                     {% for item in leaguescoaching %}
                     <div class="col-md-3">
+                        <div class="bg-lightgrey rounded card my-1">
                         <a href="{{ item.league_name.name }}">
-                            <img src="{{ item.league_name.logo.url }}" class="img-fluid rounded-circle">
-                            <div class="d-flex justify-content-center">{{ item.league_name.name }}</div>
+                            <div class="d-flex justify-content-center"><img src="{{ item.league_name.logo.url }}" class="img-fluid rounded-circle"></div>
+                            <div class="d-flex justify-content-center text-dark">{{ item.league_name.name }}</div>
                         </a>
+                        </div>
                     </div>
                     {% endfor %}
                 {% else %}
                     {% if leagueshosted %}
                     {% for item in leagueshosted %}
                     <div class="col-md-3">
+                        <div class="bg-lightgrey rounded card my-1">
                         <a href="{% url 'individual_league_settings' league_name=item.name %}">
-                            <img src="{{ item.logo.url }}" class="img-fluid rounded-circle">
-                            <div class="d-flex justify-content-center">{{ item.name }}</div>
+                            <div class="d-flex justify-content-center"><img src="{{ item.logo.url }}" class="img-fluid rounded-circle"></div>
+                            <div class="d-flex justify-content-center text-dark">{{ item.name }}</div>
                         </a>
+                        </div>
                     </div>
                     {% endfor %}
                     {% else %}
