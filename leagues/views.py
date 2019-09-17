@@ -528,16 +528,16 @@ def default_tiers(request,league_name,subleague_name):
             subleague.subleaguetiers.all().delete()
             subleague.subleaguepokemontiers.all().delete()
             #add new
-            leagueofinterest=league.objects.get(id=request.POST['leagueid'])
-            leagueofinteresttiers=leagueofinterest.leaguetiers.all()
+            leagueofinterest=league_subleague.objects.get(id=request.POST['leagueid'])
+            leagueofinteresttiers=leagueofinterest.subleaguetiers.all()
             for item in leagueofinteresttiers:
-                leaguetiers.objects.create(league=league_,tiername=item.tiername,tierpoints=item.tierpoints)
-            leagueofinteresttiering=leagueofinterest.leaguepokemontiers.all()
+                leaguetiers.objects.create(league=league_,subleague=subleague,tiername=item.tiername,tierpoints=item.tierpoints)
+            leagueofinteresttiering=leagueofinterest.subleaguepokemontiers.all()
             startid=pokemon_tier.objects.all().order_by('id').last().id
             for item in leagueofinteresttiering:
                 startid+=1
-                tiertouse=leaguetiers.objects.filter(league=league_).get(tiername=item.tier.tiername)
-                pokemon_tier.objects.create(id=startid,pokemon=item.pokemon,league=league_,tier=tiertouse)
+                tiertouse=leaguetiers.objects.filter(subleague=subleague).get(tiername=item.tier.tiername)
+                pokemon_tier.objects.create(id=startid,pokemon=item.pokemon,league=league_,subleague=subleague,tier=tiertouse)
         return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
     else:
         pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
