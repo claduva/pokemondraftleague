@@ -41,8 +41,34 @@
 <div class="row content-section align-items-center">
     <div class="col-md-12">
         <div class="row align-items-center">
-            <div class="col-md-12 d-flex justify-content-center">
-                <h3>Standings</h3>
+            <div class="col-md-12">
+                <h3 class="text-center">Standings</h3>
+                <table class="table table-sm bg-lightgrey text-dark">
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Manager</th>
+                        <th>Record</th>
+                        <th>Week 1</th>
+                        <th>Week 2</th>
+                        <th>Week 3</th>
+                        <th>Week 4</th>
+                        <th>Week 5</th>
+                    </tr>
+                    {% for team in league_teams %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><div><img class="small-logo" src="{{team.logo.url }}">{{ team.name }}</div></td>
+                        <td>{{ team.captain.username }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                </table>
             </div>
         </div>
     </div>

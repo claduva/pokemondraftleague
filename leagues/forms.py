@@ -45,18 +45,18 @@ class CreateTierForm(forms.ModelForm):
     
     class Meta:
         model = leaguetiers
-        fields = ['league','tiername','tierpoints']
+        fields = ['league','subleague','tiername','tierpoints']
         widgets = {
-            'league': forms.HiddenInput(),
+            'league': forms.HiddenInput(),'subleague': forms.HiddenInput(),
             }
 
 class UpdateTierForm(forms.ModelForm):
     
     class Meta:
         model = leaguetiers
-        fields = ['league','tiername','tierpoints']
+        fields = ['league','subleague','tiername','tierpoints']
         widgets = {
-            'league': forms.HiddenInput(),
+            'league': forms.HiddenInput(),'subleague': forms.HiddenInput(),
             }
 
 class UpdateCoachInfoForm(forms.ModelForm):
@@ -147,8 +147,13 @@ class AddTeamOfCoachsForm(forms.ModelForm):
     
     class Meta:
         model=league_team
-        exclude=[]
+        exclude=['wins','losses','ties','points','gp','gw','differential']
         widgets = {'league': forms.HiddenInput()}
+    
+    def __init__(self,*args, **kwargs):
+        super(AddTeamOfCoachsForm, self).__init__(*args, **kwargs)
+        self.fields['captain'].queryset = User.objects.all().order_by('username')
+
 
 class DiscordSettingsForm(forms.ModelForm):
     

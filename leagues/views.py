@@ -98,32 +98,36 @@ def league_configuration(request,league_name):
         if formpurpose=="Submit":
             try:
                 existingconfiguration=league_instance.configuration
+                numsubleagues=existingconfiguration.number_of_subleagues
                 form=LeagueConfigurationForm(request.POST,instance=existingconfiguration)
             except:
                 form=LeagueConfigurationForm(request.POST)
+                numsubleagues=None
             if form.is_valid():
                 config=form.save()
-                try:
-                    league_instance.subleague.all().delete()
-                except:
-                    pass
-                pokemon_tier.objects.filter(league=league_instance).all().delete()
-                if config.number_of_subleagues==1:
-                    sl=league_subleague.objects.create(league=league_instance,subleague="Main")
-                    allpokes=all_pokemon.objects.all()
-                    i=pokemon_tier.objects.all().order_by('id').last().id
-                    for item in allpokes:
-                        i+=1
-                        pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl)
-                elif config.number_of_subleagues>1:
-                    for i in range(config.number_of_subleagues):
-                        sl=league_subleague.objects.create(league=league_instance,subleague=f"Subleague{i+1}")
+                newnumsubleagues=config.number_of_subleagues
+                if newnumsubleagues != numsubleagues:
+                    try:
+                        league_instance.subleague.all().delete()
+                    except:
+                        pass
+                    pokemon_tier.objects.filter(league=league_instance).all().delete()
+                    if config.number_of_subleagues==1:
+                        sl=league_subleague.objects.create(league=league_instance,subleague="Main")
                         allpokes=all_pokemon.objects.all()
                         i=pokemon_tier.objects.all().order_by('id').last().id
                         for item in allpokes:
                             i+=1
                             pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl)
-                messages.success(request,league_name+' has been updated!')
+                    elif config.number_of_subleagues>1:
+                        for i in range(config.number_of_subleagues):
+                            sl=league_subleague.objects.create(league=league_instance,subleague=f"Subleague{i+1}")
+                            allpokes=all_pokemon.objects.all()
+                            i=pokemon_tier.objects.all().order_by('id').last().id
+                            for item in allpokes:
+                                i+=1
+                                pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl)
+                    messages.success(request,league_name+' has been updated!')
         elif formpurpose=="Rename":
             itemid=request.POST['itemid']
             slname=request.POST['slname']
@@ -325,32 +329,6 @@ def individual_league_coaching_settings(request,league_name):
 @check_if_subleague
 @check_if_host
 @login_required
-def manage_tiers(request,league_name,subleague_name):
-    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    if request.method == 'POST':
-        form = CreateTierForm(request.POST)
-        if form.is_valid() :
-            form.save()
-            messages.success(request,'Tier has been added!')
-            return redirect('manage_tiers',league_name=league_name)
-    else:
-        form = CreateTierForm(initial={'league': subleague.league})
-    pokemontiers=pokemon_tier.objects.filter(league=subleague.league).all().order_by('pokemon__pokemon','tier')
-    leaguestiers=leaguetiers.objects.filter(league=subleague.league).all().order_by('tiername')
-    context = {
-        'league_name': league_name,
-        'leagueshostedsettings': True,
-        'pokemontiers': pokemontiers,
-        'leaguetiers':leaguestiers,
-        'forms': [form],
-        'managetiers': True,
-        'subleague':subleague,
-    }
-    return render(request, 'managetiers.html',context)
-
-@check_if_subleague
-@check_if_host
-@login_required
 def manage_seasons(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     leaguesettings=league_settings.objects.get(league_name=subleague.league)
@@ -408,13 +386,41 @@ def manage_seasons(request,league_name,subleague_name):
     }
     return render(request, 'settings.html',context)
 
+#works
+@check_if_subleague
+@check_if_host
+@login_required
+def manage_tiers(request,league_name,subleague_name):
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    if request.method == 'POST':
+        form = CreateTierForm(request.POST)
+        if form.is_valid() :
+            form.save()
+            messages.success(request,'Tier has been added!')
+            return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
+    else:
+        form = CreateTierForm(initial={'league': subleague.league,'subleague':subleague})
+    pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
+    leaguestiers=leaguetiers.objects.filter(subleague=subleague).all().order_by('tiername')
+    context = {
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+        'pokemontiers': pokemontiers,
+        'leaguetiers':leaguestiers,
+        'forms': [form],
+        'managetiers': True,
+        'subleague':subleague,
+    }
+    return render(request, 'managetiers.html',context)
+
+#works
 @login_required
 def delete_tier(request,league_name,subleague_name):
     if request.POST:
-        tiertodelete=leaguetiers.objects.get(pk=request.POST['tiertodelete'])
-        tiertodelete.delete()
-    return redirect('manage_tiers',league_name=league_name)
+        tiertodelete=leaguetiers.objects.get(pk=request.POST['tiertodelete']).delete()
+    return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
 
+#works
 @check_if_subleague
 @check_if_host
 @login_required
@@ -426,12 +432,12 @@ def edit_tier(request,league_name,subleague_name,tierid):
         if form.is_valid() :
             form.save()
             messages.success(request,'Tier has been edited!')
-            return redirect('manage_tiers',league_name=league_name)
+            return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
     else:
         tierinstance=leaguetiers.objects.get(pk=tierid)
         form=UpdateTierForm(instance=tierinstance)
-    pokemontiers=pokemon_tier.objects.filter(league=subleague.league).all().order_by('pokemon__pokemon','points')
-    leaguestiers=leaguetiers.objects.filter(league=subleague.league).all().order_by('tiername')
+    pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier__tierpoints')
+    leaguestiers=leaguetiers.objects.filter(subleague=subleague).all().order_by('tiername')
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
@@ -439,9 +445,11 @@ def edit_tier(request,league_name,subleague_name,tierid):
         'leaguetiers':leaguestiers,
         'forms': [form],
         'editingtier': True,
+        'subleague':subleague,
     }
     return render(request, 'managetiers.html',context)
 
+#works
 @check_if_subleague
 @check_if_host
 @login_required
@@ -450,13 +458,14 @@ def update_tier(request,league_name,subleague_name):
     league_=subleague.league
     if request.POST:
         pokemonofinterest=all_pokemon.objects.get(pokemon=request.POST['pokemon-select'])
-        pokemontoupdate=pokemon_tier.objects.filter(league=league_).get(pokemon=pokemonofinterest)
+        pokemontoupdate=pokemon_tier.objects.filter(subleague=subleague).get(pokemon=pokemonofinterest)
         tiertoadd=leaguetiers.objects.get(pk=request.POST['tier-select'])
         pokemontoupdate.tier=tiertoadd
         pokemontoupdate.save()
         messages.success(request,'Tier has been edited!')
-    return redirect('manage_tiers',league_name=league_name)
+    return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
 
+#works
 @check_if_subleague
 @check_if_host
 @login_required
@@ -468,26 +477,28 @@ def view_tier(request,league_name,subleague_name,tier):
         if form.is_valid() :
             form.save()
             messages.success(request,'Tier has been added!')
-            return redirect('manage_tiers',league_name=league_name)
+            return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
     else:
-        form = CreateTierForm(initial={'league': league_})
-        pokemontiers=pokemon_tier.objects.filter(league=league_).all().order_by('pokemon__pokemon','tier')
-        leaguestiers=leaguetiers.objects.filter(league=league_).all().order_by('tiername')
+        form = CreateTierForm(initial={'league': league_,',subleague':subleague})
+        pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
+        leaguestiers=leaguetiers.objects.filter(subleague=subleague).all().order_by('tiername')
         if tier=="Untiered":
-            pokemonlist=pokemon_tier.objects.filter(league=league_,tier=None).all().order_by('pokemon__pokemon')
+            pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
         else:
             tier=tier.replace("_"," ")
-            tierofinterest=leaguetiers.objects.filter(league=league_,tiername=tier).first()
-            pokemonlist=pokemon_tier.objects.filter(league=league_,tier=tierofinterest).all().order_by('pokemon__pokemon')
+            tierofinterest=leaguetiers.objects.filter(subleague=subleague,tiername=tier).first()
+            pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=tierofinterest).all().order_by('pokemon__pokemon')
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
         'pokemontiers': pokemontiers,
         'leaguetiers':leaguestiers,
         'forms': [form],
-        'pokemonlist': pokemonlist
+        'pokemonlist': pokemonlist,
+        'subleague':subleague,
     }
     return render(request, 'managetiers.html',context)
+
 
 @check_if_subleague
 @check_if_host
@@ -501,24 +512,21 @@ def default_tiers(request,league_name,subleague_name):
         if purpose=='Select':
             templatetierset=leaguetiertemplate.objects.all().filter(template=request.POST['template-select'])
             templatepokemonset=pokemon_tier_template.objects.all().filter(template=request.POST['template-select'])
-            existingtiers=leaguetiers.objects.all().filter(league=league_)
-            existingpokemontiers=pokemon_tier.objects.all().filter(league=league_)
-            for item in existingtiers:
-                item.delete()
+            existingtiers=leaguetiers.objects.all().filter(subleague=subleague).delete()
+            existingpokemontiers=pokemon_tier.objects.all().filter(subleague=subleague)
             for item in templatetierset:
-                leaguetiers.objects.create(league=league_,tiername=item.tiername,tierpoints=item.tierpoints)
-            for item in existingpokemontiers:
-                item.delete()
+                leaguetiers.objects.create(league=league_,subleague=subleague,tiername=item.tiername,tierpoints=item.tierpoints)
+            existingpokemontiers.delete()
             i=pokemon_tier.objects.all().order_by('id').last().id
             for item in templatepokemonset:
                 i+=1
-                tiertouse=leaguetiers.objects.filter(league=league_).get(tiername=item.tier.tiername)
-                pokemon_tier.objects.create(id=i,pokemon=item.pokemon,league=league_,tier=tiertouse)
+                tiertouse=leaguetiers.objects.filter(subleague=subleague).get(tiername=item.tier.tiername)
+                pokemon_tier.objects.create(id=i,pokemon=item.pokemon,league=league_,subleague=subleague,tier=tiertouse)
             messages.success(request,'The template has been applied!')
         elif purpose=="Use":
             #delete existing
-            league_.leaguetiers.all().delete()
-            league_.leaguepokemontiers.all().delete()
+            subleague.subleaguetiers.all().delete()
+            subleague.subleaguepokemontiers.all().delete()
             #add new
             leagueofinterest=league.objects.get(id=request.POST['leagueid'])
             leagueofinteresttiers=leagueofinterest.leaguetiers.all()
@@ -530,13 +538,13 @@ def default_tiers(request,league_name,subleague_name):
                 startid+=1
                 tiertouse=leaguetiers.objects.filter(league=league_).get(tiername=item.tier.tiername)
                 pokemon_tier.objects.create(id=startid,pokemon=item.pokemon,league=league_,tier=tiertouse)
-        return redirect('manage_tiers',league_name=league_name)
+        return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
     else:
-        pokemonlist=pokemon_tier.objects.filter(league=league_,tier=None).all().order_by('pokemon__pokemon')
-        pokemontiers=pokemon_tier.objects.filter(league=league_).all().order_by('pokemon__pokemon','tier')
-        leaguestiers=leaguetiers.objects.filter(league=league_).all().order_by('tiername')
+        pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
+        pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
+        leaguestiers=leaguetiers.objects.filter(subleague=subleague).all().order_by('tiername')
         availabletemplates=leaguetiertemplate.objects.all().distinct('template')
-        form = CreateTierForm(initial={'league': league_})
+        form = CreateTierForm(initial={'league': league_,'subleague': subleague})
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
@@ -546,6 +554,7 @@ def default_tiers(request,league_name,subleague_name):
         'pokemonlist': pokemonlist,
         'defaulttemplate': True,
         'availabletemplates': availabletemplates,
+        'subleague':subleague,
     }
     return render(request, 'managetiers.html',context)
 

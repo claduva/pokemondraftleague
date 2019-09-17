@@ -99,7 +99,7 @@ class LeagueApplicationForm(forms.ModelForm):
     
     class Meta:
         model = league_application
-        fields = ['applicant','league_name','discord_name','draft_league_resume','tier_preference']
+        fields = ['applicant','league_name','discord_name','teamabbreviation','teamname','draft_league_resume','tier_preference']
         
         widgets = {
             'applicant': forms.HiddenInput(),

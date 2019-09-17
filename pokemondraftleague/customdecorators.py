@@ -6,7 +6,7 @@ from individualleague.models import *
 def check_if_league(view):
     def wrap(request, *args, **kwargs):
         try:
-            league_=league.objects.get(name=kwargs['league_name'])
+            league_=league.objects.get(name=kwargs['league_name'].replace("_"," "))
             return view(request, *args, **kwargs)
         except Exception as e:
             print(e)
@@ -17,11 +17,11 @@ def check_if_league(view):
 def check_if_subleague(view):
     def wrap(request, *args, **kwargs):
         try:
-            league_=league_subleague.objects.filter(league__name=kwargs['league_name']).get(subleague=kwargs['subleague_name'])
+            league_=league_subleague.objects.filter(league__name=kwargs['league_name'].replace("_"," ")).get(subleague=kwargs['subleague_name'])
             return view(request, *args, **kwargs)
         except Exception as e:
             print('subleague')
-            print(e)
+            raise(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
             return redirect('league_list')
     return wrap

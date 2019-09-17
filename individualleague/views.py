@@ -19,23 +19,48 @@ from pokemondraftleague.customdecorators import check_if_subleague, check_if_lea
 
 @check_if_league
 def league_detail(request,league_name):
+    league_name=league_name.replace("_"," ")
     league_=league.objects.get(name=league_name)
     subleagues=league_.subleague.all().order_by('subleague')
     if subleagues.count()==1:
         loi=subleagues.first()
         return redirect('subleague_detail',league_name=league_name,subleague_name=loi.subleague)
     else:
+        league_teams=league_.leagueteam.all()
         context = {
             'league': league_,
             'league_name': league_name,
             'subleagues':subleagues,
             'leaguecomposite':True,
             'apply':True,
+            'league_teams':league_teams,
         }
         return render(request, 'subleague_composite_detail.html',context)
+
+@check_if_league
+def teampage_detail(request,league_name,team_name):
+    league_name=league_name.replace("_"," ")
+    team_name=team_name.replace("_"," ")
+    league_=league.objects.get(name=league_name)
+    subleagues=league_.subleague.all().order_by('subleague')
+    league_teams=league_.leagueteam.all()
+    team_of_interest=league_teams.get(name=team_name)
+    leagueteam_teams=None
+    context = {
+        'league': league_,
+        'league_name': league_name,
+        'subleagues':subleagues,
+        'leaguecomposite':True,
+        'apply':True,
+        'league_teams':league_teams,
+        'team_of_interest':team_of_interest,
+        'leagueteam_teams':leagueteam_teams,
+    }
+    return render(request, 'leagueteam_detail.html',context)
+
 @check_if_subleague
 def subleague_detail(request,league_name,subleague_name):
-    league_name=league_name.replace('%20',' ')
+    league_name=league_name.replace('%20',' ').replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     settings=league_settings.objects.get(league_name=subleague.league)

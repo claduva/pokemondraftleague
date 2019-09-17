@@ -6,8 +6,6 @@ from django.core.files.storage import default_storage as storage
 
 from enum import Enum
 
-
-
 class league(models.Model):
     name = models.CharField(max_length=30, unique=True)
     host = models.ManyToManyField(User,related_name='hosting')
@@ -82,6 +80,8 @@ class league_application(models.Model):
     applicant = models.ForeignKey(User, on_delete=models.CASCADE)
     league_name = models.ForeignKey(league, on_delete=models.CASCADE)
     discord_name = models.CharField(max_length=50,default="None")
+    teamabbreviation = models.CharField(max_length=3, default="TBD")
+    teamname = models.CharField(max_length=100, default="To Be Determined")
     draft_league_resume = models.TextField(default="None")
     tier_preference = models.ManyToManyField(league_subleague,related_name='apptiers')
 
@@ -146,7 +146,7 @@ class coachaward(models.Model):
 
 class leaguetiers(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE,related_name='leaguetiers')
-    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
+    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True,related_name='subleaguetiers')
     tiername = models.CharField(max_length=20, default="Not Specified")
     tierpoints = models.IntegerField(default=0)
 

@@ -73,12 +73,22 @@
       {% elif leaguecomposite %}
       <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name %}">{{ league_name }} Home</a>
       <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Teams</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            {% for item in league_teams %}
+            <a class="dropdown-item"
+              href="{% url 'teampage_detail' league_name=league_name|replace:' ,_' team_name=item.name|replace:' ,_' %}">{{ item.name  }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">Subleagues</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           {% for item in subleagues %}
           <a class="dropdown-item"
-            href="{% url 'subleague_detail' league_name=league_name subleague_name=item.subleague %}">{{ item.subleague|replace:'_, '  }}</a>
+            href="{% url 'subleague_detail' league_name=league_name|replace:' ,_' subleague_name=item.subleague %}">{{ item.subleague|replace:'_, '  }}</a>
           {% endfor %}
         </div>
       </div>
