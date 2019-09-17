@@ -20,15 +20,19 @@ from pokemondraftleague.customdecorators import check_if_subleague, check_if_lea
 @check_if_league
 def league_detail(request,league_name):
     league_=league.objects.get(name=league_name)
-    subleagues=league_.subleague.all()
+    subleagues=league_.subleague.all().order_by('subleague')
     if subleagues.count()==1:
         loi=subleagues.first()
         return redirect('subleague_detail',league_name=league_name,subleague_name=loi.subleague)
     else:
-        print(subleagues)
-        loi=subleagues.first()
-        return redirect('subleague_detail',league_name=league_name,subleague_name=loi.subleague)
-
+        context = {
+            'league': league_,
+            'league_name': league_name,
+            'subleagues':subleagues,
+            'leaguecomposite':True,
+            'apply':True,
+        }
+        return render(request, 'subleague_composite_detail.html',context)
 @check_if_subleague
 def subleague_detail(request,league_name,subleague_name):
     league_name=league_name.replace('%20',' ')
@@ -71,66 +75,7 @@ def subleague_detail(request,league_name,subleague_name):
         season=None
         timercurrentweek=None
         seasonstart=None
-    if settings.teambased:
-        parent_team_list=league_team.objects.all().filter(league=subleague.league)
-        try:
-            allmatches=season.schedule.all()
-            numberofweeks=season.seasonlength
-            for i in range(numberofweeks):
-                weekmatches=allmatches.filter(week=i+1)
-                incompletematches=weekmatches.filter(replay='Link').count()
-                for parent_team in parent_team_list:
-                    leaguematches=0
-                    leaguewins=0
-                    if i==0:
-                        parent_team.wins=0;parent_team.losses=0;parent_team.ties=0;parent_team.gp=0;parent_team.gw=0;parent_team.points=0;parent_team.differential=0
-                    for coach in parent_team.child_teams.all():
-                        try:
-                            coachmatch=weekmatches.get(Q(team1=coach)|Q(team2=coach))
-                            if coachmatch.replay != "Link":
-                                parent_team.gp+=1
-                                if coach==coachmatch.winner:
-                                    parent_team.gw+=1
-                                    parent_team.differential+=abs(coachmatch.team1score-coachmatch.team2score)
-                                    leaguewins+=1
-                                else:
-                                    parent_team.differential+=0-abs(coachmatch.team1score-coachmatch.team2score)
-                                leaguematches+=1
-                        except:
-                            nomatch=True
-                    if leaguematches>0 and incompletematches==0:
-                        winpercent=leaguewins/leaguematches
-                        if winpercent>0.5:
-                            parent_team.wins+=1
-                            parent_team.points+=3
-                        elif winpercent<0.5:
-                            parent_team.losses+=1  
-                        else:
-                            parent_team.ties+=1 
-                            parent_team.points+=1
-                    parent_team.save()
-        except Exception as e:
-            pass
-        parent_teams=[]
-        parent_team_list=parent_team_list.order_by('-points','-gw','-differential')
-        for parent_team in parent_team_list:            
-            parent_teams.append([parent_team,parent_team.child_teams.all().order_by('-wins','losses','-differential')])
-        context = {
-        'subleague': subleague,
-        'apply': apply,
-        'leaguepage': True,
-        'league_name': league_name,
-        'league_teams': league_teams,
-        'conference': conferences[0][0],
-        'season':season,
-        'timercurrentweek': timercurrentweek,
-        'seasonstart':seasonstart,
-        'parent_teams':parent_teams,
-        'coachs':coachs,
-        }
-        return render(request, 'league_detail_team_based.html',context)
-    else:
-        context = {
+    context = {
         'subleague': subleague,
         'apply': apply,
         'leaguepage': True,
@@ -141,7 +86,7 @@ def subleague_detail(request,league_name,subleague_name):
         'timercurrentweek': timercurrentweek,
         'seasonstart':seasonstart
         }
-        return render(request, 'league_detail.html',context)
+    return render(request, 'league_detail.html',context)
 
 @check_if_league
 @login_required
@@ -743,9 +688,9 @@ def edit_league_rules(request,league_name,subleague_name):
 def league_tiers(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    tierlist_=pokemon_tier.objects.all().filter(league=subleague.league).exclude(tier__tiername="Banned").order_by('-tier__tierpoints','pokemon__pokemon')
-    tierchoices=leaguetiers.objects.all().filter(league=subleague.league).exclude(tiername="Banned").order_by('tiername')
-    rosterlist=roster.objects.all().filter(season__league=subleague.league)
+    tierlist_=pokemon_tier.objects.all().filter(subleague=subleague).exclude(tier__tiername="Banned").order_by('-tier__tierpoints','pokemon__pokemon')
+    tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
+    rosterlist=roster.objects.all().filter(season__subleague=subleague)
     rosterlist_=list(rosterlist.values_list('pokemon',flat=True))
     tierlist=[]
     for item in tierlist_:

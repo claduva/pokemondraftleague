@@ -1,0 +1,94 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{league_name}}{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">{{league_name}}</h3>
+        <div class="d-flex justify-content-center text-center">Hosted by {% for h in league.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
+        <div class="d-flex justify-content-center text-center"><a href="{% url 'league_application' league_name=league_name %}"><button class="btn btn-primary btn-sm">Apply</button></a></div>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end">
+        <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+        </div>
+    </div>
+</div>
+<div class="row content-section align-items-center d-flex justify-content-center">
+    <h4 id="weekindicator" class="col-md-6 text-center">
+        Current Week: 
+        {% if seasonstart %}
+        <span id="currentweek"></span>
+        {% else %}
+        <span>Not currently in season</span>
+        {% endif %}
+    </h4>
+    <h4 id="timer" class="col-md-6 text-center">
+        Time Remaining In Week: 
+        {% if seasonstart %}
+        <span id="remaining"></span>
+        {% else %}
+        <span>Not currently in season</span>
+        {% endif %}
+    </h4>
+</div>
+<div class="row content-section align-items-center">
+    <div class="col-md-12">
+        <div class="row align-items-center">
+            <div class="col-md-12 d-flex justify-content-center">
+                <h3>Standings</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<script>
+    // Set the date we're counting down to
+    var startDate = '{{seasonstart}}'
+    var oldCountDownDate = new Date(startDate);
+
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+        var week = Math.ceil((new Date() - oldCountDownDate) / 60 / 60 / 24 / 7 / 1000)
+        var countDownDate = new Date(startDate);
+        countDownDate.setDate(oldCountDownDate.getDate() + week * 7);
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        leaguelength=parseInt('{{ season.seasonlength }}',10)
+        if (week>leaguelength){
+            document.getElementById("currentweek").innerHTML = 'Playoffs';
+            document.getElementById("timer").style.display="none";
+        }
+        else{
+            document.getElementById("currentweek").innerHTML = "Week " + week;
+            document.getElementById("remaining").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        }
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("remaining").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+</script>
+{% endblock %}

@@ -9,28 +9,28 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <div class="navbar-nav">
-      {% if not leaguepage and not otherseasons %}
+      {% if not leaguepage and not otherseasons and not leaguecomposite %}
       <a class="nav-item nav-link" href="{% url 'league_list' %}">Leagues</a>
       {% if leagueshosted %}
       <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Leagues Hosting</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            {% for item in leagueshosted %}
-            <a class="dropdown-item" href="{% url 'league_detail' league_name=item.name %}">{{item.name}}</a>
-            {% endfor %}
-          </div>
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Leagues Hosting</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {% for item in leagueshosted %}
+          <a class="dropdown-item" href="{% url 'league_detail' league_name=item.name %}">{{item.name}}</a>
+          {% endfor %}
         </div>
-        {% endif %}
+      </div>
+      {% endif %}
       <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Leaderboards</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'userleaderboard' %}">User Leaderboard</a>
-            <a class="dropdown-item" href="{% url 'pokemonleaderboard' %}">Pokemon Leaderboard</a>
-            <a class="dropdown-item" href="{% url 'pickemleaderboard' %}">Pickems Leaderboard</a>
-          </div>
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Leaderboards</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'userleaderboard' %}">User Leaderboard</a>
+          <a class="dropdown-item" href="{% url 'pokemonleaderboard' %}">Pokemon Leaderboard</a>
+          <a class="dropdown-item" href="{% url 'pickemleaderboard' %}">Pickems Leaderboard</a>
         </div>
+      </div>
       {% elif leaguepage %}
       <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name %}">{{ league_name }} Home</a>
       <div class="nav-item dropdown">
@@ -47,61 +47,95 @@
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">League Resources</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="{% url 'league_schedule' league_name=league_name subleague_name=subleague.subleague %}">Schedule</a>
-          <a class="dropdown-item" href="{% url 'league_playoffs' league_name=league_name subleague_name=subleague.subleague %}">Playoffs</a>
-          <a class="dropdown-item" href="{% url 'league_tiers' league_name=league_name subleague_name=subleague.subleague %}">Tiers</a>
-          <a class="dropdown-item" href="{% url 'league_draft' league_name=league_name subleague_name=subleague.subleague %}">Draft</a>
-          <a class="dropdown-item" href="{% url 'free_agency' league_name=league_name subleague_name=subleague.subleague %}">Free Agency</a>
-          <a class="dropdown-item" href="{% url 'trading' league_name=league_name subleague_name=subleague.subleague %}">Trading</a>
-          <a class="dropdown-item" href="{% url 'league_leaders' league_name=league_name subleague_name=subleague.subleague %}">League Leaders</a>
-          <a class="dropdown-item" href="{% url 'league_rules' league_name=league_name subleague_name=subleague.subleague %}">Rules</a>
-          <a class="dropdown-item" href="{% url 'league_hall_of_fame' league_name=league_name subleague_name=subleague.subleague %}">Hall of Fame</a>
+          <a class="dropdown-item"
+            href="{% url 'league_schedule' league_name=league_name subleague_name=subleague.subleague %}">Schedule</a>
+          <a class="dropdown-item"
+            href="{% url 'league_playoffs' league_name=league_name subleague_name=subleague.subleague %}">Playoffs</a>
+          <a class="dropdown-item"
+            href="{% url 'league_tiers' league_name=league_name subleague_name=subleague.subleague %}">Tiers</a>
+          <a class="dropdown-item"
+            href="{% url 'league_draft' league_name=league_name subleague_name=subleague.subleague %}">Draft</a>
+          <a class="dropdown-item"
+            href="{% url 'free_agency' league_name=league_name subleague_name=subleague.subleague %}">Free Agency</a>
+          <a class="dropdown-item"
+            href="{% url 'trading' league_name=league_name subleague_name=subleague.subleague %}">Trading</a>
+          <a class="dropdown-item"
+            href="{% url 'league_leaders' league_name=league_name subleague_name=subleague.subleague %}">League
+            Leaders</a>
+          <a class="dropdown-item"
+            href="{% url 'league_rules' league_name=league_name subleague_name=subleague.subleague %}">Rules</a>
+          <a class="dropdown-item"
+            href="{% url 'league_hall_of_fame' league_name=league_name subleague_name=subleague.subleague %}">Hall of
+            Fame</a>
           <a class="dropdown-item" href="{% url 'otherseasonslist' league_name=league_name %}">View Other Seasons</a>
+        </div>
+      </div>
+      {% elif leaguecomposite %}
+      <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name %}">{{ league_name }} Home</a>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Subleagues</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {% for item in subleagues %}
+          <a class="dropdown-item"
+            href="{% url 'subleague_detail' league_name=league_name subleague_name=item.subleague %}">{{ item.subleague|replace:'_, '  }}</a>
+          {% endfor %}
         </div>
       </div>
       {% else %}
       <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name %}">{{ league_name }} Home</a>
       <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Other Seasons</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            {% for item in otherseasons %}
-            <a class="dropdown-item"
-              href="{% url 'seasondetail' league_name=league_name seasonofinterest=item.seasonname|replace:' ,_' %}">{{ item.seasonname }}</a>
-            {% endfor %}
-          </div>
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Other Seasons</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {% for item in otherseasons %}
+          <a class="dropdown-item"
+            href="{% url 'seasondetail' league_name=league_name seasonofinterest=item.seasonname|replace:' ,_' %}">{{ item.seasonname }}</a>
+          {% endfor %}
         </div>
-        {% if season_teams %}
-        <a class="nav-item nav-link" href="{% url 'seasondetail' league_name=league_name seasonofinterest=season.seasonname|replace:' ,_' %}">{{ league_name }} {{season.seasonname}} Home</a>
-        <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">Team Pages</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              {% for team in season_teams %}
-              <a class="dropdown-item"
-                href="{% url 'seasonteamdetail' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' teamofinterest=team.teamname|replace:' ,_' %}">{{ team.teamname }}</a>
-              {% endfor %}
-            </div>
-          </div>
-          <div class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">Season Resources</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{% url 'seasonschedule' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Regular Season Matches</a>
-                <a class="dropdown-item" href="{% url 'seasonplayoffs' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Playoffs</a>
-                <a class="dropdown-item" href="{% url 'seasondraft' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Draft</a>
-                <a class="dropdown-item" href="{% url 'seasontransactions' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Transactions</a>
-                <a class="dropdown-item" href="{% url 'seasonleagueleaders' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">League Leaders</a>
-                <a class="dropdown-item" href="{% url 'seasonhalloffame' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Hall of Fame</a>
-              </div>
-            </div>
-            {% endif %}
+      </div>
+      {% if season_teams %}
+      <a class="nav-item nav-link"
+        href="{% url 'seasondetail' league_name=league_name seasonofinterest=season.seasonname|replace:' ,_' %}">{{ league_name }}
+        {{season.seasonname}} Home</a>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Team Pages</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {% for team in season_teams %}
+          <a class="dropdown-item"
+            href="{% url 'seasonteamdetail' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' teamofinterest=team.teamname|replace:' ,_' %}">{{ team.teamname }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Season Resources</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item"
+            href="{% url 'seasonschedule' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Regular
+            Season Matches</a>
+          <a class="dropdown-item"
+            href="{% url 'seasonplayoffs' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Playoffs</a>
+          <a class="dropdown-item"
+            href="{% url 'seasondraft' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Draft</a>
+          <a class="dropdown-item"
+            href="{% url 'seasontransactions' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Transactions</a>
+          <a class="dropdown-item"
+            href="{% url 'seasonleagueleaders' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">League
+            Leaders</a>
+          <a class="dropdown-item"
+            href="{% url 'seasonhalloffame' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' %}">Hall
+            of Fame</a>
+        </div>
+      </div>
+      {% endif %}
       {% endif %}
       <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">Tools</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'discordbot' %}">Discord Bot</a>
+          <a class="dropdown-item" href="{% url 'discordbot' %}">Discord Bot</a>
           <a class="dropdown-item" href="{% url 'pokedex' %}">Pokedex</a>
           <a class="dropdown-item" href="{% url 'draftplanner' %}">Draft Planner</a>
           <a class="dropdown-item" href="{% url 'replay_analysis' %}">Replay Analyzer</a>
@@ -110,39 +144,39 @@
       </div>
       <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
     </div>
-  
+
     <!-- Navbar Right Side -->
-  <div class="navbar-nav ml-auto">
-    {% if user.is_authenticated %}
-    <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        <div class="badgeheader">
-          <img src="{{ user.profile.pfp.url }}" class="rounded-circle" width="30" height="30" alt="">
-          {% if unreadmessages > 0 %}
-          <span class="badge">{{ unreadmessages }}</span>
-          {% endif %}
-        </div>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="{% url 'user_profile' username=user %}">Logged in as {{ user }}</a>
-        <a class="dropdown-item" href="{% url 'user_profile' username=user %}">Your Profile</a>
-        <a class="dropdown-item" href="{% url 'inbox' %}">Inbox
-          {% if unreadmessages > 0 %}
-          <span class="badge badge-danger">{{ unreadmessages }}</span>
-          {% endif %}
+    <div class="navbar-nav ml-auto">
+      {% if user.is_authenticated %}
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <div class="badgeheader">
+            <img src="{{ user.profile.pfp.url }}" class="rounded-circle" width="30" height="30" alt="">
+            {% if unreadmessages > 0 %}
+            <span class="badge">{{ unreadmessages }}</span>
+            {% endif %}
+          </div>
         </a>
-        <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
-        {% if user.is_staff %}
-        <a class="dropdown-item" href="/admin/">Admin</a>
-        {% endif %}
-        <a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'user_profile' username=user %}">Logged in as {{ user }}</a>
+          <a class="dropdown-item" href="{% url 'user_profile' username=user %}">Your Profile</a>
+          <a class="dropdown-item" href="{% url 'inbox' %}">Inbox
+            {% if unreadmessages > 0 %}
+            <span class="badge badge-danger">{{ unreadmessages }}</span>
+            {% endif %}
+          </a>
+          <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
+          {% if user.is_staff %}
+          <a class="dropdown-item" href="/admin/">Admin</a>
+          {% endif %}
+          <a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a>
+        </div>
       </div>
+      {% else %}
+      <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+      <a class="nav-item nav-link" href="{% url 'signup' %}">Register</a>
+      {% endif %}
     </div>
-    {% else %}
-    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-    <a class="nav-item nav-link" href="{% url 'signup' %}">Register</a>
-    {% endif %}
   </div>
-</div>
 </nav>
