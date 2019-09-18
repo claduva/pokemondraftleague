@@ -18,6 +18,7 @@ from accounts.models import *
 from leagues.models import *
 from individualleague.models import *
 from pokemonadmin.models import *
+from pokemondatabase.models import *
 
 def home(request):
     try:
