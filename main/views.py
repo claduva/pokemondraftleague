@@ -32,8 +32,8 @@ def home(request):
                 "recentresults": recentresults,
             }
             return  render(request,"coachlandingpage.html", context)
-    except:
-        print("error")
+    except Exception as e:
+        print(e)
     form=UserRegisterForm()
     context = {
         "title": "Pokemon Draft League",

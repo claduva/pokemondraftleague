@@ -8,4 +8,5 @@ admin.site.register(historical_roster)
 admin.site.register(historical_freeagency)
 admin.site.register(historical_trading)
 admin.site.register(historical_match)
+admin.site.register(historical_team)
 

@@ -674,13 +674,12 @@ def delete_division(request,league_name,subleague_name):
         messages.success(request,'Division has been deleted!')
     return redirect('add_conference_and_division_names',league_name=league_name)        
 
-@check_if_subleague
+@check_if_league
 @check_if_host
 @login_required
 def manage_coach(request,league_name,coachofinterest):
     league_name=league_name.replace("_"," ")
-    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    league_=subleague.league
+    league_=league.objects.get(name=league_name.replace("_"," "))
     try:
         coachofinterest=coachdata.objects.filter(league_name=league_).get(coach__username=coachofinterest)
     except:
@@ -892,16 +891,11 @@ def add_team_of_coachs(request,league_name):
     }
     return render(request, 'addteamofcoachs.html',context)
 
+@check_if_league
+@check_if_host
 @login_required
 def archive_season(request,league_name):
-    try:
-        league_=league.objects.get(name=league_name)
-    except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
-    if request.user not in league_.host.all():
-        messages.error(request,'Only a league host may access a leagues settings!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+    league_=league.objects.get(name=league_name)
     unplayedgames=schedule.objects.all().filter(replay="Link",season__league=league_).count()
     if unplayedgames>0:
         messages.error(request,'You cannot archive a season with matches remaining to be played!',extra_tags='danger')
@@ -912,7 +906,7 @@ def archive_season(request,league_name):
     scheduleitems=schedule.objects.all().filter(season__league=league_)
     freeagencyitems=free_agency.objects.all().filter(season__league=league_)
     tradingitems=trading.objects.all().filter(season__league=league_)
-    season=league_.seasonsetting
+    season=league_.subleague.first().seasonsetting
     maxid=historical_team.objects.all().order_by('-id').first().id
     for item in coachdataitems:
         maxid+=1

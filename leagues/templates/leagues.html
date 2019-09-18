@@ -26,7 +26,7 @@
                             {% if item.settings.is_recruiting %}
                                 <div class="d-flex justify-content-center text-success">Recruiting Coaches</div>
                             {% endif %}
-                            {% if item.subleague.first.discord_settings.discordurl != "Not Provided" %}
+                            {% if item.subleague.first.discord_settings.discordurl != "Not Provided" and item.subleague.first.discord_settings %}
                                 <div class="d-flex justify-content-center"><a href="{{ item.subleague.first.discord_settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a></div>
                             {% endif %}
                         </div>
