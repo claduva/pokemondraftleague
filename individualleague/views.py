@@ -223,7 +223,7 @@ def league_draft(request,league_name,subleague_name):
                     currentpick.save()
                     item.delete()
                     text=f'The {currentpick.team.teamname} have drafted {item.pick.pokemon}'
-                    draftchannel=subleague.league.discord_settings.draftchannel
+                    draftchannel=subleague.discord_settings.draftchannel
                     #send to bot
                     try:
                         upnext=draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.username
@@ -231,7 +231,7 @@ def league_draft(request,league_name,subleague_name):
                     except:
                         upnext="The draft has concluded"
                     draft_announcements.objects.create(
-                        league=subleague.league.discord_settings.discordserver,
+                        league=subleague.discord_settings.discordserver,
                         league_name=subleague.league.name.replace(' ','%20'),
                         text=text,
                         upnext=upnext,
@@ -249,7 +249,7 @@ def league_draft(request,league_name,subleague_name):
                         currentpick.save()
                         item.delete()
                         text=f'The {currentpick.team.teamname} have drafted {item.backup.pokemon}'
-                        draftchannel=subleague.league.discord_settings.draftchannel
+                        draftchannel=subleague.discord_settings.draftchannel
                         #send to bot
                         try:
                             upnext=draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.username
@@ -257,7 +257,7 @@ def league_draft(request,league_name,subleague_name):
                         except:
                             upnext="The draft has concluded"
                         draft_announcements.objects.create(
-                            league=subleague.league.discord_settings.discordserver,
+                            league=subleague.discord_settings.discordserver,
                             league_name=subleague.league.name.replace(' ','%20'),
                             text=text,
                             upnext=upnext,
@@ -315,7 +315,7 @@ def league_draft(request,league_name,subleague_name):
             rosterspot.save()
             currentpick.save()
             text=f'The {currentpick.team.teamname} have drafted {draftpick.pokemon}'
-            draftchannel=subleague.league.discord_settings.draftchannel
+            draftchannel=subleague.discord_settings.draftchannel
             #send to bot
             try:
                 upnext=draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.username
@@ -323,7 +323,7 @@ def league_draft(request,league_name,subleague_name):
             except:
                 upnext="The draft has concluded"
             draft_announcements.objects.create(
-                league=subleague.league.discord_settings.discordserver,
+                league=subleague.discord_settings.discordserver,
                 league_name=subleague.league.name.replace(' ','%20'),
                 text=text,
                 upnext=upnext,
@@ -542,8 +542,8 @@ def league_schedule(request,league_name,subleague_name):
             team2.save()
             matchtoupdate.save()
             league_=matchtoupdate.season.league
-            discordserver=league_.discord_settings.discordserver
-            discordchannel=league_.discord_settings.replaychannel
+            discordserver=subleague.discord_settings.discordserver
+            discordchannel=subleague.discord_settings.replaychannel
             title=f"Week: {matchtoupdate.week}. {matchtoupdate.team1.teamname} vs {matchtoupdate.team2.teamname}: {matchtoupdate.replay}."
             replay_announcements.objects.create(
                 league = discordserver,
@@ -755,8 +755,8 @@ def freeagency(request,league_name,subleague_name):
         if form.is_valid(): 
             fadata=form.save()
             messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
-            discordserver=subleague.league.discord_settings.discordserver
-            discordchannel=subleague.league.discord_settings.freeagencychannel
+            discordserver=subleague.discord_settings.discordserver
+            discordchannel=subleague.discord_settings.freeagencychannel
             request_league=seasonsetting.objects.get(league=subleague.league)
             league_start=request_league.seasonstart
             elapsed=fadata.timeadded-league_start
