@@ -20,7 +20,7 @@
     <div class="col-md-4 d-flex justify-content-end">
         {% if subleague.league.settings.is_recruiting %}
         {% if apply %}
-        <div class="d-flex justify-content-center"><a href="apply"><button class="btn btn-success">Apply</button></a>
+        <div class="d-flex justify-content-center"><a href="{% url 'league_application' league_name=league_name  %}"><button class="btn btn-success">Apply</button></a>
         </div>
         {% endif %}
         {% else  %}
