@@ -13,7 +13,7 @@ def check_if_league(view):
             print(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
             error_message.objects.create(
-                associated_view=str(view),
+                associated_view=str(request),
                 error_message=str(e)
             )
             return redirect('league_list')
@@ -29,7 +29,7 @@ def check_if_subleague(view):
             print(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
             error_message.objects.create(
-                associated_view=str(view),
+                associated_view=str(request),
                 error_message=str(e)
             )
             return redirect('league_list')
@@ -45,7 +45,7 @@ def check_if_season(view):
             print('season')
             messages.error(request,'Season does not exist!',extra_tags='danger')
             error_message.objects.create(
-                associated_view=str(view),
+                associated_view=str(request),
                 error_message=str(e)
             )
             return redirect('league_detail',league_name=kwargs['league_name'])
@@ -61,7 +61,7 @@ def check_if_team(view):
             print('team')
             messages.error(request,'Team does not exist!',extra_tags='danger')
             error_message.objects.create(
-                associated_view=str(view),
+                associated_view=str(request),
                 error_message=str(e)
             )
             return redirect('league_detail',league_name=kwargs['league_name']) 
@@ -87,7 +87,7 @@ def check_if_match(view):
             print('match')
             messages.error(request,'Match does not exist!',extra_tags='danger')
             error_message.objects.create(
-                associated_view=str(view),
+                associated_view=str(request),
                 error_message=str(e)
             )
             return redirect('league_schedule',league_name=kwargs['league_name'])

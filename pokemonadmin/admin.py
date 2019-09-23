@@ -9,4 +9,4 @@ admin.site.register(historical_freeagency)
 admin.site.register(historical_trading)
 admin.site.register(historical_match)
 admin.site.register(historical_team)
-
+admin.site.register(error_message)
