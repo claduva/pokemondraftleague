@@ -214,23 +214,32 @@ def manage_coachs(request,league_name):
     return render(request, 'managecoachs.html',context)
 
 @login_required
-def add_coach(request,league_name):
-    if request.POST:
-        application=league_application.objects.get(pk=request.POST['coach'])
-        coachdata.objects.create(coach=application.applicant,league_name=application.league_name)
-        application.delete()
-    return redirect('manage_coachs',league_name=league_name)
-
-@login_required
 def view_application(request,league_name):
     if request.POST:
-        application=league_application.objects.get(pk=request.POST['coach'])
-        context = {
-            'league_name': league_name,
-            'leagueshostedsettings': True,
-            "appofinterest":application,
-        }
-        return render(request, 'view_application.html',context)
+        formpurpose=request.POST['purpose']
+        if formpurpose=="View":
+            application=league_application.objects.get(pk=request.POST['coach'])
+            context = {
+                'league_name': league_name,
+                'leagueshostedsettings': True,
+                "appofinterest":application,
+            }
+            return render(request, 'view_application.html',context)
+        elif formpurpose=="Delete Application":
+            league_application.objects.get(id=request.POST['appid']).delete()
+            messages.success(request,'Application has been deleted!')
+        elif formpurpose=="Add to Subleague":
+            appofinterest=league_application.objects.get(id=request.POST['appid'])
+            subleagueofinterest=league_subleague.objects.get(id=request.POST['subleagueid'])
+            coachdata.objects.create(
+                coach=appofinterest.applicant,
+                league_name=appofinterest.league_name,
+                subleague=subleagueofinterest,
+                teamabbreviation=appofinterest.teamabbreviation,
+                teamname=appofinterest.teamname,
+                )
+            appofinterest.delete()
+            messages.success(request,'Coach has been added!')
     return redirect('manage_coachs',league_name=league_name)
 
 @login_required

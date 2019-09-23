@@ -76,3 +76,7 @@ class historical_match(models.Model):
     team2usedz = models.BooleanField(default=False)
     team1megaevolved = models.BooleanField(default=False)
     team2megaevolved = models.BooleanField(default=False)
+
+class error_message(models.Model):
+    associated_view=models.CharField(max_length=200)
+    error_message=models.CharField(max_length=200)

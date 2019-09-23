@@ -27,7 +27,7 @@
                     {% csrf_token %}
                     <div class="row d-flex align-items-center">
                         <input type="text" value="{{ item.id }}" name="coach" hidden>
-                        <input type="submit" class="btn btn-primary buttonpadding" value="View">
+                        <input name="purpose" type="submit" class="btn btn-primary buttonpadding" value="View">
                         <div>{{ item.applicant }}</div>
                     </div>
                 </form>

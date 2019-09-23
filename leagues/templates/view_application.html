@@ -21,14 +21,31 @@
         <div class="bg-darkgrey rounded text-light p-3">
             <h3>{{appofinterest.applicant.username}}'s Application for {{appofinterest.league_name.name}}</h3>
             <div class="bg-lightgrey rounded text-dark p-2">
-            <h5>Discord Name</h5>
-            <div>{{appofinterest.discord_name}}</div>
-            <h5>Draft League Resume</h5>
-            <div>{{appofinterest.draft_league_resume}}</div>
-            <h5>Tier Preference</h5>
-            {% for item in appofinterest.tier_preference.all %}
-            <div>{{item.subleague}}</div>
-            {% endfor %}
+                <div class="d-flex justify-content-between">
+                    <h5>Discord Name</h5>
+                    <div class="d-flex">
+                    <form method="post">{% csrf_token %}
+                        <select name="subleagueid">
+                                {% for item in appofinterest.tier_preference.all %}
+                                <option value="{{item.id}}">{{item.subleague}}</option>
+                                {% endfor %}
+                        </select>
+                        <input name="appid" value="{{appofinterest.id}}" hidden readonly>
+                        <input name="purpose" type="submit" value="Add to Subleague" class="btn btn-primary btn-sm">
+                    </form>
+                    <form method="post">{% csrf_token %}
+                            <input name="appid" value="{{appofinterest.id}}" hidden readonly>
+                            <input name="purpose" type="submit" value="Delete Application" class="btn btn-danger btn-sm">
+                    </form>
+                    </div>
+                </div>
+                <div>{{appofinterest.discord_name}}</div>
+                <h5>Draft League Resume</h5>
+                <div>{{appofinterest.draft_league_resume}}</div>
+                <h5>Tier Preference</h5>
+                {% for item in appofinterest.tier_preference.all %}
+                <div>{{item.subleague}}</div>
+                {% endfor %}
             </div>
         </div>
     </div>

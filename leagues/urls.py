@@ -13,7 +13,6 @@ urlpatterns = [
     path("settings/league/<str:league_name>/", views.individual_league_settings, name="individual_league_settings"),
     path("settings/league/<str:league_name>/leagueconfiguration/", views.league_configuration, name="league_configuration"),
     path("settings/league/<str:league_name>/managecoachs/", views.manage_coachs, name="manage_coachs"),
-    path("settings/league/<str:league_name>/managecoachs/addcoach/", views.add_coach, name="addcoach"),
     path("settings/league/<str:league_name>/managecoachs/viewapplication/", views.view_application, name="view_application"),
     path("settings/league/<str:league_name>/managecoachs/removecoach/", views.remove_coach, name="removecoach"),
     path("settings/league/<str:league_name>/managecoach/<str:coachofinterest>/", views.manage_coach, name="manage_coach"),

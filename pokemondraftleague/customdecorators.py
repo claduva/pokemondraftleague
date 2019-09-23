@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from leagues.models import *
 from individualleague.models import *
+from pokemonadmin.models import *
 
 def check_if_league(view):
     def wrap(request, *args, **kwargs):
@@ -11,6 +12,10 @@ def check_if_league(view):
         except Exception as e:
             print(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
+            error_message.objects.create(
+                associated_view=str(view),
+                error_message=str(e)
+            )
             return redirect('league_list')
     return wrap
 
@@ -23,6 +28,10 @@ def check_if_subleague(view):
             print('subleague')
             print(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
+            error_message.objects.create(
+                associated_view=str(view),
+                error_message=str(e)
+            )
             return redirect('league_list')
     return wrap
 
@@ -35,6 +44,10 @@ def check_if_season(view):
             print(e)
             print('season')
             messages.error(request,'Season does not exist!',extra_tags='danger')
+            error_message.objects.create(
+                associated_view=str(view),
+                error_message=str(e)
+            )
             return redirect('league_detail',league_name=kwargs['league_name'])
     return wrap
 
@@ -47,6 +60,10 @@ def check_if_team(view):
             print(e)
             print('team')
             messages.error(request,'Team does not exist!',extra_tags='danger')
+            error_message.objects.create(
+                associated_view=str(view),
+                error_message=str(e)
+            )
             return redirect('league_detail',league_name=kwargs['league_name']) 
     return wrap
 
@@ -69,5 +86,9 @@ def check_if_match(view):
             print(e)
             print('match')
             messages.error(request,'Match does not exist!',extra_tags='danger')
+            error_message.objects.create(
+                associated_view=str(view),
+                error_message=str(e)
+            )
             return redirect('league_schedule',league_name=kwargs['league_name'])
     return wrap
