@@ -238,7 +238,7 @@ def league_draft(request,league_name,subleague_name):
                         draftchannel=draftchannel,
                         upnextid=upnextid
                     )
-                    return redirect('league_draft',league_name=league_name)
+                    return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
                 else:
                     searchroster=roster.objects.filter(season=season,pokemon=item.backup).first()     
                     if searchroster == None:
@@ -264,7 +264,7 @@ def league_draft(request,league_name,subleague_name):
                             draftchannel=draftchannel,
                             upnextid=upnextid
                         )
-                        return redirect('league_draft',league_name=league_name)
+                        return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
                     else:     
                         item.delete()
     ##
@@ -304,11 +304,11 @@ def league_draft(request,league_name,subleague_name):
                 draftpick=all_pokemon.objects.get(pokemon=request.POST['draftpick'])
             except:
                 messages.error(request,f'{request.POST["draftpick"]} is not a pokemon!',extra_tags='danger')
-                return redirect('league_draft',league_name=league_name)
+                return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
             searchroster=roster.objects.filter(season=season,pokemon=draftpick).first()
             if searchroster!=None:
                 messages.error(request,f'{draftpick.pokemon } has already been drafted!',extra_tags='danger')
-                return redirect('league_draft',league_name=league_name)
+                return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
             currentpick.pokemon=draftpick
             rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
             rosterspot.pokemon=draftpick
@@ -353,7 +353,7 @@ def league_draft(request,league_name,subleague_name):
                 p.skipped=True
                 p.save()
             messages.success(request,'That draft pick has been skipped!')
-        return redirect('league_draft',league_name=league_name)
+        return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
     bannedpokemon=pokemon_tier.objects.all().filter(league=subleague.league).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
     takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
     availablepokemon=all_pokemon.objects.all().order_by('pokemon').exclude(id__in=takenpokemon).exclude(id__in=bannedpokemon)
@@ -479,7 +479,7 @@ def league_schedule(request,league_name,subleague_name):
                     pickemtoupdate.save()
             except:
                 pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team1)
-            return redirect('league_schedule',league_name=league_name)
+            return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
         elif request.POST['purpose']=="t2pickem":
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             try:
@@ -491,7 +491,7 @@ def league_schedule(request,league_name,subleague_name):
                     pickemtoupdate.save()
             except:
                 pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team2)
-            return redirect('league_schedule',league_name=league_name)
+            return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
         else:
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             team1=matchtoupdate.team1
@@ -551,7 +551,7 @@ def league_schedule(request,league_name,subleague_name):
                 text = title,
                 replaychannel = discordchannel
             )
-            return redirect('league_schedule',league_name=league_name)
+            return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
     return render(request, 'schedule.html',context)
 
 @check_if_subleague
@@ -564,7 +564,7 @@ def league_matchup(request,league_name,subleague_name,matchid):
         match=schedule.objects.get(id=matchid)
     except:
         messages.error(request,'Match does not exist!',extra_tags='danger')
-        return redirect('league_schedule',league_name=league_name)
+        return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
     team1roster_=roster.objects.filter(season=season,team=match.team1,pokemon__isnull=False).order_by('pokemon__pokemon')
     team1roster=[]
     defog=[]
@@ -695,7 +695,7 @@ def edit_league_rules(request,league_name,subleague_name):
         if form.is_valid():
             form.save()
             messages.success(request,'Rules have been updated!')
-        return redirect('league_rules',league_name=league_name)
+        return redirect('league_rules',league_name=league_name,subleague_name=subleague_name)
     form=RuleChangeForm(instance=ruleset)
     context = {
         'subleague': subleague,
@@ -772,7 +772,7 @@ def freeagency(request,league_name,subleague_name):
                 text = title,
                 freeagencychannel = discordchannel
             )
-            return redirect('free_agency',league_name=league_name)
+            return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
     form=FreeAgencyForm(coachroster,availablepokemon,initial={'coach':coach,'season':season})
     fa_remaining=season.freeagenciesallowed-free_agency.objects.all().filter(season=season,coach=coach).count()
     if fa_remaining < 1:
@@ -921,7 +921,7 @@ def league_playoffs(request,league_name,subleague_name):
                     pickemtoupdate.save()
             except:
                 pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team1)
-            return redirect('league_playoffs',league_name=league_name)
+            return redirect('league_playoffs',league_name=league_name,subleague_name=subleague_name)
         elif request.POST['purpose']=="t2pickem":
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             try:
@@ -933,7 +933,7 @@ def league_playoffs(request,league_name,subleague_name):
                     pickemtoupdate.save()
             except:
                 pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team2)
-            return redirect('league_playoffs',league_name=league_name)
+            return redirect('league_playoffs',league_name=league_name,subleague_name=subleague_name)
         else:
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             team1=matchtoupdate.team1
@@ -983,7 +983,7 @@ def league_playoffs(request,league_name,subleague_name):
             team1.save()
             team2.save()
             matchtoupdate.save()
-            return redirect('league_playoffs',league_name=league_name)
+            return redirect('league_playoffs',league_name=league_name,subleague_name=subleague_name)
     context = {
         'subleague': subleague,
         'leaguepage': True,
@@ -1008,9 +1008,9 @@ def change_match_attribution(request,league_name,subleague_name,matchid):
         match=schedule.objects.get(pk=matchid)
         if match.replay == "Link":
             messages.error(request,f'A replay for that match does not exist!',extra_tags="danger")
-            return redirect('league_schedule',league_name=league_name)
+            return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
     except:
-        return redirect('league_schedule',league_name=league_name)
+        return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
     if request.user.is_staff==False:
         messages.error(request,f'Only staff may use this function',extra_tags="danger")
         return redirect('league_schedule',league_name=league_name)
@@ -1020,7 +1020,7 @@ def change_match_attribution(request,league_name,subleague_name,matchid):
             print(form.cleaned_data)
             form.save()
             messages.success(request,f'Match was updated!')
-        return redirect('league_schedule',league_name=league_name)
+        return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
     form=ChangeMatchAttributionForm(instance=match)
     context={
         'form':form,

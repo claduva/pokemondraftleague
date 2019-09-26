@@ -672,7 +672,7 @@ def delete_conference(request,league_name,subleague_name):
         itemtodelete=conference_name.objects.get(pk=itemid)
         itemtodelete.delete()
         messages.success(request,'Conference has been deleted!')
-    return redirect('add_conference_and_division_names',league_name=league_name)        
+    return redirect('add_conference_and_division_names',league_name=league_name,subleague_name=subleague_name)        
 
 @login_required
 def delete_division(request,league_name,subleague_name):
@@ -681,7 +681,7 @@ def delete_division(request,league_name,subleague_name):
         itemtodelete=division_name.objects.get(pk=itemid)
         itemtodelete.delete()
         messages.success(request,'Division has been deleted!')
-    return redirect('add_conference_and_division_names',league_name=league_name)        
+    return redirect('add_conference_and_division_names',league_name=league_name,subleague_name=subleague_name)        
 
 @check_if_league
 @check_if_host
@@ -1017,7 +1017,7 @@ def createroundrobinschedule(request,league_name,subleague_name):
     existingmatches=schedule.objects.all().filter(season=seasonsettings).exclude(replay='Link')
     if existingmatches.count()>0:
         messages.error(request,'Matches already exist!',extra_tags='danger')
-        return redirect('manage_seasons',league_name=league_name)
+        return redirect('manage_seasons',league_name=league_name,subleague_name=subleague_name)
     schedule.objects.all().filter(season=seasonsettings).delete()
     #get conferences
     conferences=conference_name.objects.all().filter(league=subleague.league)
@@ -1046,7 +1046,7 @@ def createroundrobinschedule(request,league_name,subleague_name):
         interconfteams.append(interconf)
     for i in range(len(interconfteams[0])):
         schedule.objects.create(season=seasonsettings,week=str(i+1),team1=interconfteams[0][i],team2=interconfteams[1][i])
-    return redirect('manage_seasons',league_name=league_name)
+    return redirect('manage_seasons',league_name=league_name,subleague_name=subleague_name)
 
 @login_required
 @check_if_subleague
@@ -1074,7 +1074,7 @@ def create_match(request,league_name,subleague_name):
             if form.is_valid() :
                 form.save()
                 messages.success(request,'That match has been added!')
-            return redirect('create_match',league_name=league_name)
+            return redirect('create_match',league_name=league_name,subleague_name=subleague_name)
         elif formpurpose=="Submit":
             matchofinterest=schedule.objects.get(id=request.POST['matchid'])
             form = CreateMatchForm(seasonsettings,subleague.league,request.POST,instance=matchofinterest)
@@ -1083,7 +1083,7 @@ def create_match(request,league_name,subleague_name):
                 messages.success(request,'That match has been added!')
             else:
                 print(form.errors)
-            return redirect('create_match',league_name=league_name)
+            return redirect('create_match',league_name=league_name,subleague_name=subleague_name)
         elif formpurpose=="Edit":
             matchofinterest=schedule.objects.get(id=request.POST['matchid'])
             form = CreateMatchForm(seasonsettings,league_,instance=matchofinterest)
@@ -1093,7 +1093,7 @@ def create_match(request,league_name,subleague_name):
         elif formpurpose=="Delete":
             schedule.objects.get(id=request.POST['matchid']).delete()
             messages.success(request,'That match has been deleted!')
-            return redirect('create_match',league_name=league_name)
+            return redirect('create_match',league_name=league_name,subleague_name=subleague_name)
     create=True
     manageseason=False
     existingmatches=schedule.objects.all().filter(season=seasonsettings).order_by('week','id')
