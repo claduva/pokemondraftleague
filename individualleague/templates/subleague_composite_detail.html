@@ -61,7 +61,7 @@
                     {% for team in league_teams %}
                     <tr>
                         <td>{{ forloop.counter }}</td>
-                        <td><div><img class="small-logo" src="{{team.logo.url }}">{{ team.name }}</div></td>
+                        <td><a class="text-dark" href="{% url 'teampage_detail' league_name=league_name team_name=team.name %}"><div><img class="small-logo" src="{{team.logo.url }}">{{ team.name }}</div></a></td>
                         <td>{{ team.captain.username }}</td>
                         <td></td>
                         <td></td>

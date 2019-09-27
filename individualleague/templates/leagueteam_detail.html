@@ -50,6 +50,7 @@
                     <tr>
                         <th>Team</th>
                         <th>Coach</th>
+                        <th>Subleague</th>
                         <th>Record</th>
                         <th>Week 1</th>
                         <th>Week 2</th>
@@ -57,11 +58,12 @@
                         <th>Week 4</th>
                         <th>Week 5</th>
                     </tr>
-                    {% for team in leagueteam_teams %}
+                    {% for team in team_of_interest.child_teams.all %}
                     <tr>
-                        <td><div><img class="small-logo" src="{{team.logo.url }}">{{ team.teamname }}</div></td>
+                        <td><a class="text-dark" href="{% url 'team_page' league_name=team.league_name.name subleague_name=team.subleague.subleague team_abbreviation=team.teamabbreviation %}"><div><img class="small-logo" src="{{team.logo.url }}">{{ team.teamname }}</div></a></td>
                         <td>{{ team.coach.username }}</td>
-                        <td></td>
+                        <td><a class="text-dark" href="{% url 'subleague_detail' league_name=team.league_name.name subleague_name=team.subleague.subleague %}">{{team.subleague.subleague}}</a></td>
+                        <td>{{team.wins}}-{{team.losses}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
