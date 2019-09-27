@@ -95,7 +95,7 @@ class CreateSeasonSettingsForm(forms.ModelForm):
 
     class Meta:
         model = seasonsetting
-        fields = ['league','subleague','seasonname','draftbudget','drafttype','picksperteam','seasonlength','playoffslength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
+        fields = ['league','subleague','seasonname','number_of_teams','draftbudget','drafttype','picksperteam','seasonlength','playoffslength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
         widgets = {
             'league': forms.HiddenInput(),
             'subleague': forms.HiddenInput(),
@@ -108,7 +108,7 @@ class EditSeasonSettingsForm(forms.ModelForm):
 
     class Meta:
         model = seasonsetting
-        fields = ['seasonname','draftstart','drafttimer','draftbudget','drafttype','seasonstart','seasonlength','playoffslength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
+        fields = ['seasonname','number_of_teams','draftstart','drafttimer','draftbudget','drafttype','seasonstart','seasonlength','playoffslength','freeagenciesallowed','tradesallowed','numzusers','candeletez']
         
 class ManageCoachForm(forms.ModelForm):
     logo=forms.FileField(widget=FileInput,required=False)
@@ -117,11 +117,12 @@ class ManageCoachForm(forms.ModelForm):
         model = coachdata
         fields = ['coach','teamname','teamabbreviation','logo','parent_team','teammate','conference','division']
 
-    def __init__(self,league, *args, **kwargs):
+    def __init__(self,league,subleague, *args, **kwargs):
         super(ManageCoachForm, self).__init__(*args, **kwargs)
         self.fields['coach'].queryset = User.objects.all().order_by('username')
-        self.fields['conference'].queryset = conference_name.objects.filter(league=league).order_by('name')
-        self.fields['division'].queryset = division_name.objects.filter(league=league).order_by('name')
+        self.fields['conference'].queryset = conference_name.objects.filter(subleague=subleague).order_by('name')
+
+        self.fields['division'].queryset = division_name.objects.filter(subleague=subleague).order_by('name')
         self.fields['division'].required = False
         self.fields['teammate'].required=False
         self.fields['teammate'].queryset = User.objects.all().order_by('username')

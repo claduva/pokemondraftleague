@@ -1,74 +1,39 @@
-|j|☆TheGamer7777
-|j|☆ParadoxicalRemedy
-|player|p1|TheGamer7777|12|
-|player|p2|ParadoxicalRemedy|65|
+|j|‽Guest 5164858
+|j|☆claduva
+|player|p1|Guest 5164858|33|1000
+|player|p2|claduva|266|1000
 |teamsize|p1|6
 |teamsize|p2|6
 |gametype|singles
 |gen|7
-|tier|[Gen 7] Anything Goes
+|tier|[Gen 7] OU (Blitz)
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Moody Clause: Moody is banned
+|rule|Evasion Moves Clause: Evasion moves are banned
 |rule|Endless Battle Clause: Forcing endless battles is banned
-|clearpoke
-|poke|p1|Aerodactyl|item
-|poke|p1|Marowak-Alola|item
-|poke|p1|Passimian|item
-|poke|p1|Donphan|item
-|poke|p1|Komala|item
-|poke|p1|Roserade|item
-|poke|p2|Zebstrika|item
-|poke|p2|Luxray|item
-|poke|p2|Flygon|item
-|poke|p2|Gallade|item
-|poke|p2|Regice|item
-|poke|p2|Beedrill|item
 |rule|HP Percentage Mod: HP is shown in percentages
+|clearpoke
+|poke|p1|Azumarill|item
+|poke|p1|Linoone|item
+|poke|p1|Slurpuff|item
+|poke|p1|Ditto|item
+|poke|p1|Porygon-Z|item
+|poke|p1|Charizard|item
+|poke|p2|Porygon2|item
+|poke|p2|Porygon-Z|item
+|poke|p2|Silvally|item
+|poke|p2|Togetic|item
+|poke|p2|Togekiss|item
+|poke|p2|Togepi|item
+|rule|Blitz: Super-fast timer
 |teampreview
-|c|☆TheGamer7777|gl
-|j| Eastonn8
-|c|☆ParadoxicalRemedy|GL
 |
 |start
 |
-|-zpower|p1a: Amir's Strength
 |
 |upkeep
-|
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|
-|
-|upkeep
-|
-|
-|upkeep
-|c|☆TheGamer7777|swagger is banned
-|c|☆ParadoxicalRemedy|It is? I did not know that
-|c|☆TheGamer7777|yeah its in the rules page
-|
-|
-|
-|upkeep
-|c|☆ParadoxicalRemedy|I will delete this team then
-|c|☆ParadoxicalRemedy|How do you want to proceed? I am willing to forfeit over this.
-|c|☆TheGamer7777|i dont mind still playing it out. It didnt change anything
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
-|
-|upkeep
-|
 |
 |
 |upkeep
@@ -86,6 +51,22 @@
 |
 |
 |
-|c|☆TheGamer7777|gg para
-|c|☆ParadoxicalRemedy|GG, I'll redo my stuff for week 2 on
-|c|☆TheGamer7777|now you know for next time not to bring swagger, you might want to review the rules though
+|upkeep
+|
+|
+|
+|upkeep
+|
+|
+|
+|upkeep
+|
+|
+|upkeep
+|
+|
+|upkeep
+|
+|
+|
+|l|‽Guest 5164858

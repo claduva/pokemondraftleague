@@ -1,274 +1,223 @@
 {
   "team1": {
-    "coach": "TheGamer7777",
+    "coach": "Guest 5164858",
     "roster": [
       {
-        "pokemon": "Aerodactyl",
-        "startform": "Aerodactyl",
-        "nickname": "Amir's Strength",
+        "pokemon": "Azumarill",
+        "startform": "Azumarill",
+        "nickname": "Azumarill",
+        "kills": 4,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.08,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            0,
+            "|switch|p1a: Azumarill|Azumarill|100/100"
+          ],
+          [
+            1,
+            "|move|p2a: Silvally|Tri Attack|p1a: Azumarill"
+          ],
+          [
+            1,
+            "|-damage|p1a: Azumarill|54/100"
+          ],
+          [
+            1,
+            "|move|p1a: Azumarill|Belly Drum|p1a: Azumarill"
+          ],
+          [
+            1,
+            "|-damage|p1a: Azumarill|4/100"
+          ],
+          [
+            1,
+            "|-setboost|p1a: Azumarill|atk|6|[from] move: Belly Drum"
+          ],
+          [
+            1,
+            "|-enditem|p1a: Azumarill|Sitrus Berry|[eat]"
+          ],
+          [
+            1,
+            "|-heal|p1a: Azumarill|29/100|[from] item: Sitrus Berry"
+          ],
+          [
+            2,
+            "|move|p1a: Azumarill|Aqua Jet|p2a: Silvally"
+          ],
+          [
+            3,
+            "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss"
+          ],
+          [
+            3,
+            "|move|p2a: Togekiss|Tri Attack|p1a: Azumarill"
+          ],
+          [
+            3,
+            "|-damage|p1a: Azumarill|3/100"
+          ],
+          [
+            3,
+            "|-status|p1a: Azumarill|par"
+          ],
+          [
+            4,
+            "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss"
+          ],
+          [
+            5,
+            "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon-Z"
+          ],
+          [
+            6,
+            "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon2"
+          ],
+          [
+            7,
+            "|cant|p1a: Azumarill|par"
+          ],
+          [
+            7,
+            "|move|p2a: Togetic|Tri Attack|p1a: Azumarill"
+          ],
+          [
+            7,
+            "|-damage|p1a: Azumarill|0 fnt"
+          ],
+          [
+            7,
+            "|faint|p1a: Azumarill"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Linoone",
+        "startform": "Linoone",
+        "nickname": "Linoone",
         "kills": 2,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0.01,
-        "remaininghealth": 1,
+        "luck": -0.0,
+        "remaininghealth": 45,
         "lines": [
           [
-            0,
-            "|switch|p1a: Amir's Strength|Aerodactyl|100/100"
-          ],
-          [
-            0,
-            "|-ability|p1a: Amir's Strength|Unnerve|p2: ParadoxicalRemedy"
-          ],
-          [
-            1,
-            "|move|p1a: Amir's Strength|Supersonic Skystrike|p2a: Blue Gatorade|[zeffect]"
-          ],
-          [
-            9,
-            "|switch|p1a: Amir's Strength|Aerodactyl|100/100"
-          ],
-          [
-            9,
-            "|-ability|p1a: Amir's Strength|Unnerve|p2: ParadoxicalRemedy"
-          ],
-          [
-            9,
-            "|move|p2a: parado11Swag|Rock Slide|p1a: Amir's Strength"
-          ],
-          [
-            9,
-            "|-supereffective|p1a: Amir's Strength"
-          ],
-          [
-            9,
-            "|-damage|p1a: Amir's Strength|36/100"
-          ],
-          [
-            10,
-            "|move|p1a: Amir's Strength|Ice Fang|p2a: parado11Swag"
-          ],
-          [
-            11,
-            "|move|p1a: Amir's Strength|Rock Slide|p2a: SheDrill"
-          ],
-          [
-            11,
-            "|move|p2a: SheDrill|Poison Jab|p1a: Amir's Strength"
-          ],
-          [
-            11,
-            "|-resisted|p1a: Amir's Strength"
-          ],
-          [
-            11,
-            "|-damage|p1a: Amir's Strength|13/100"
-          ],
-          [
-            11,
-            "|-status|p1a: Amir's Strength|psn"
-          ],
-          [
-            11,
-            "|-damage|p1a: Amir's Strength|1/100 psn|[from] psn"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Marowak-Alola",
-        "startform": "Marowak-Alola",
-        "nickname": "Amir's Rage",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.04,
-        "remaininghealth": 100,
-        "lines": [
-          [
-            6,
-            "|switch|p1a: Amir's Rage|Marowak-Alola|100/100|[from]move: U-turn"
-          ],
-          [
             7,
-            "|move|p1a: Amir's Rage|Shadow Bone|p2a: Crystal Cinco Bing"
-          ],
-          [
-            7,
-            "|move|p2a: Crystal Cinco Bing|Thunderbolt|p1a: Amir's Rage"
-          ],
-          [
-            7,
-            "|-ability|p1a: Amir's Rage|Lightning Rod|boost"
-          ],
-          [
-            7,
-            "|-boost|p1a: Amir's Rage|spa|1"
+            "|switch|p1a: Linoone|Linoone|100/100"
           ],
           [
             8,
-            "|move|p1a: Amir's Rage|Shadow Bone|p2a: parado11Swag"
+            "|move|p2a: Togetic|Tri Attack|p1a: Linoone"
+          ],
+          [
+            8,
+            "|-damage|p1a: Linoone|73/100"
+          ],
+          [
+            8,
+            "|-status|p1a: Linoone|frz"
+          ],
+          [
+            8,
+            "|cant|p1a: Linoone|frz"
+          ],
+          [
+            9,
+            "|move|p2a: Togetic|Tri Attack|p1a: Linoone"
+          ],
+          [
+            9,
+            "|-damage|p1a: Linoone|45/100 frz"
+          ],
+          [
+            9,
+            "|-enditem|p1a: Linoone|Figy Berry|[eat]"
+          ],
+          [
+            9,
+            "|-heal|p1a: Linoone|95/100 frz|[from] item: Figy Berry"
+          ],
+          [
+            9,
+            "|-curestatus|p1a: Linoone|frz|[msg]"
+          ],
+          [
+            9,
+            "|move|p1a: Linoone|Belly Drum|p1a: Linoone"
+          ],
+          [
+            9,
+            "|-damage|p1a: Linoone|45/100"
+          ],
+          [
+            9,
+            "|-setboost|p1a: Linoone|atk|6|[from] move: Belly Drum"
+          ],
+          [
+            10,
+            "|move|p1a: Linoone|Extreme Speed|p2a: Togetic"
+          ],
+          [
+            11,
+            "|move|p1a: Linoone|Extreme Speed|p2a: Togepi"
           ]
         ]
       },
       {
-        "pokemon": "Passimian",
-        "startform": "Passimian",
-        "nickname": "Amir's Weekend",
-        "kills": 3,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.08,
-        "remaininghealth": 87,
-        "lines": [
-          [
-            12,
-            "|switch|p1a: Amir's Weekend|Passimian|100/100"
-          ],
-          [
-            12,
-            "|move|p2a: SheDrill|U-turn|p1a: Amir's Weekend"
-          ],
-          [
-            12,
-            "|-resisted|p1a: Amir's Weekend"
-          ],
-          [
-            12,
-            "|-damage|p1a: Amir's Weekend|87/100"
-          ],
-          [
-            12,
-            "|-unboost|p1a: Amir's Weekend|atk|1"
-          ],
-          [
-            12,
-            "|-ability|p1a: Amir's Weekend|Defiant|boost"
-          ],
-          [
-            12,
-            "|-boost|p1a: Amir's Weekend|atk|2"
-          ],
-          [
-            13,
-            "|move|p1a: Amir's Weekend|Earthquake|p2a: Luxray"
-          ],
-          [
-            14,
-            "|move|p1a: Amir's Weekend|Earthquake|p2a: Crystal Cinco Bing"
-          ],
-          [
-            15,
-            "|move|p1a: Amir's Weekend|Earthquake|p2a: SheDrill"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Donphan",
-        "startform": "Donphan",
-        "nickname": "Amir's Burden",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.04,
-        "remaininghealth": 64,
-        "lines": [
-          [
-            2,
-            "|switch|p1a: Amir's Burden|Donphan|100/100"
-          ],
-          [
-            2,
-            "|move|p2a: Zap Happy|Thunderbolt|p1a: Amir's Burden"
-          ],
-          [
-            2,
-            "|-immune|p1a: Amir's Burden"
-          ],
-          [
-            3,
-            "|move|p2a: Zap Happy|Hidden Power|p1a: Amir's Burden"
-          ],
-          [
-            3,
-            "|-supereffective|p1a: Amir's Burden"
-          ],
-          [
-            3,
-            "|-damage|p1a: Amir's Burden|58/100"
-          ],
-          [
-            3,
-            "|move|p1a: Amir's Burden|Earthquake|p2a: Zap Happy"
-          ],
-          [
-            3,
-            "|-heal|p1a: Amir's Burden|64/100|[from] item: Leftovers"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Komala",
-        "startform": "Komala",
-        "nickname": "Tired Amir",
+        "pokemon": "Slurpuff",
+        "startform": "Slurpuff",
+        "nickname": "Slurpuff",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": -0.19,
+        "luck": 0,
         "remaininghealth": 100,
-        "lines": [
-          [
-            4,
-            "|switch|p1a: Tired Amir|Komala|100/100"
-          ],
-          [
-            4,
-            "|-ability|p1a: Tired Amir|Comatose"
-          ],
-          [
-            5,
-            "|move|p1a: Tired Amir|Knock Off|p2a: Crystal Cinco Bing"
-          ],
-          [
-            5,
-            "|move|p2a: Crystal Cinco Bing|Swagger|p1a: Tired Amir"
-          ],
-          [
-            5,
-            "|-boost|p1a: Tired Amir|atk|2"
-          ],
-          [
-            5,
-            "|-start|p1a: Tired Amir|confusion"
-          ],
-          [
-            6,
-            "|-activate|p1a: Tired Amir|confusion"
-          ],
-          [
-            6,
-            "|move|p1a: Tired Amir|U-turn|p2a: Crystal Cinco Bing"
-          ]
-        ]
+        "lines": []
       },
       {
-        "pokemon": "Roserade",
-        "startform": "Roserade",
-        "nickname": "Roserade",
+        "pokemon": "Ditto",
+        "startform": "Ditto",
+        "nickname": "Ditto",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 100,
+        "lines": []
+      },
+      {
+        "pokemon": "Porygon-Z",
+        "startform": "Porygon-Z",
+        "nickname": "Porygon-Z",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 100,
+        "lines": []
+      },
+      {
+        "pokemon": "Charizard",
+        "startform": "Charizard",
+        "nickname": "Charizard",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
@@ -282,69 +231,26 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 6,
+    "score": 5,
     "megaevolved": false,
-    "usedzmove": true,
-    "timesswitched": 5,
+    "usedzmove": false,
+    "timesswitched": 1,
     "selfdeaths": 0,
-    "remaininghealth": "452/600",
+    "remaininghealth": "445/600",
     "kills": 6,
-    "deaths": 0,
-    "luck": -0.26,
+    "deaths": 1,
+    "luck": -0.08,
     "damagedone": 0,
     "hphealed": 0,
     "support": 0
   },
   "team2": {
-    "coach": "ParadoxicalRemedy",
+    "coach": "claduva",
     "roster": [
       {
-        "pokemon": "Zebstrika",
-        "startform": "Zebstrika",
-        "nickname": "Zap Happy",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.04,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            1,
-            "|switch|p2a: Zap Happy|Zebstrika|100/100"
-          ],
-          [
-            2,
-            "|move|p2a: Zap Happy|Thunderbolt|p1a: Amir's Burden"
-          ],
-          [
-            3,
-            "|move|p2a: Zap Happy|Hidden Power|p1a: Amir's Burden"
-          ],
-          [
-            3,
-            "|move|p1a: Amir's Burden|Earthquake|p2a: Zap Happy"
-          ],
-          [
-            3,
-            "|-supereffective|p2a: Zap Happy"
-          ],
-          [
-            3,
-            "|-damage|p2a: Zap Happy|0 fnt"
-          ],
-          [
-            3,
-            "|faint|p2a: Zap Happy"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Luxray",
-        "startform": "Luxray",
-        "nickname": "Luxray",
+        "pokemon": "Porygon2",
+        "startform": "Porygon2",
+        "nickname": "Porygon2",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
@@ -355,82 +261,35 @@
         "remaininghealth": 0,
         "lines": [
           [
-            12,
-            "|switch|p2a: Luxray|Luxray|100/100|[from]move: U-turn"
+            5,
+            "|switch|p2a: Porygon2|Porygon2|100/100"
           ],
           [
-            12,
-            "|-ability|p2a: Luxray|Intimidate|boost"
+            5,
+            "|-ability|p2a: Porygon2|Download|boost"
           ],
           [
-            13,
-            "|move|p1a: Amir's Weekend|Earthquake|p2a: Luxray"
+            5,
+            "|-boost|p2a: Porygon2|spa|1"
           ],
           [
-            13,
-            "|-supereffective|p2a: Luxray"
+            6,
+            "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon2"
           ],
           [
-            13,
-            "|-damage|p2a: Luxray|0 fnt"
+            6,
+            "|-damage|p2a: Porygon2|0 fnt"
           ],
           [
-            13,
-            "|faint|p2a: Luxray"
+            6,
+            "|faint|p2a: Porygon2"
           ]
         ]
       },
       {
-        "pokemon": "Flygon",
-        "startform": "Flygon",
-        "nickname": "parado11Swag",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.09,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            8,
-            "|switch|p2a: parado11Swag|Flygon|100/100"
-          ],
-          [
-            8,
-            "|move|p1a: Amir's Rage|Shadow Bone|p2a: parado11Swag"
-          ],
-          [
-            8,
-            "|-damage|p2a: parado11Swag|1/100"
-          ],
-          [
-            9,
-            "|move|p2a: parado11Swag|Rock Slide|p1a: Amir's Strength"
-          ],
-          [
-            10,
-            "|move|p1a: Amir's Strength|Ice Fang|p2a: parado11Swag"
-          ],
-          [
-            10,
-            "|-supereffective|p2a: parado11Swag"
-          ],
-          [
-            10,
-            "|-damage|p2a: parado11Swag|0 fnt"
-          ],
-          [
-            10,
-            "|faint|p2a: parado11Swag"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Gallade",
-        "startform": "Gallade",
-        "nickname": "Blue Gatorade",
+        "pokemon": "Porygon-Z",
+        "startform": "Porygon-Z",
+        "nickname": "Porygon-Z",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
@@ -438,193 +297,175 @@
         "damagedone": 0,
         "hphealed": 0,
         "luck": 0.04,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            4,
+            "|switch|p2a: Porygon-Z|Porygon-Z|100/100"
+          ],
+          [
+            5,
+            "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon-Z"
+          ],
+          [
+            5,
+            "|-damage|p2a: Porygon-Z|0 fnt"
+          ],
+          [
+            5,
+            "|faint|p2a: Porygon-Z"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Silvally",
+        "startform": "Silvally",
+        "nickname": "Silvally",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.0,
         "remaininghealth": 0,
         "lines": [
           [
             0,
-            "|switch|p2a: Blue Gatorade|Gallade|100/100"
+            "|switch|p2a: Silvally|Silvally|100/100"
           ],
           [
             1,
-            "|move|p1a: Amir's Strength|Supersonic Skystrike|p2a: Blue Gatorade|[zeffect]"
+            "|move|p2a: Silvally|Tri Attack|p1a: Azumarill"
           ],
           [
-            1,
-            "|-supereffective|p2a: Blue Gatorade"
+            2,
+            "|move|p1a: Azumarill|Aqua Jet|p2a: Silvally"
           ],
           [
-            1,
-            "|-damage|p2a: Blue Gatorade|0 fnt"
+            2,
+            "|-damage|p2a: Silvally|0 fnt"
           ],
           [
-            1,
-            "|faint|p2a: Blue Gatorade"
+            2,
+            "|faint|p2a: Silvally"
           ]
         ]
       },
       {
-        "pokemon": "Regice",
-        "startform": "Regice",
-        "nickname": "Crystal Cinco Bing",
-        "kills": 0,
+        "pokemon": "Togetic",
+        "startform": "Togetic",
+        "nickname": "Togetic",
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0.23,
+        "luck": -0.08,
         "remaininghealth": 0,
         "lines": [
           [
-            3,
-            "|switch|p2a: Crystal Cinco Bing|Regice|100/100"
-          ],
-          [
-            4,
-            "|move|p2a: Crystal Cinco Bing|Substitute|p2a: Crystal Cinco Bing"
-          ],
-          [
-            4,
-            "|-start|p2a: Crystal Cinco Bing|Substitute"
-          ],
-          [
-            4,
-            "|-damage|p2a: Crystal Cinco Bing|76/100"
-          ],
-          [
-            4,
-            "|-heal|p2a: Crystal Cinco Bing|82/100|[from] item: Leftovers"
-          ],
-          [
-            5,
-            "|move|p1a: Tired Amir|Knock Off|p2a: Crystal Cinco Bing"
-          ],
-          [
-            5,
-            "|-end|p2a: Crystal Cinco Bing|Substitute"
-          ],
-          [
-            5,
-            "|move|p2a: Crystal Cinco Bing|Swagger|p1a: Tired Amir"
-          ],
-          [
-            5,
-            "|-heal|p2a: Crystal Cinco Bing|88/100|[from] item: Leftovers"
-          ],
-          [
             6,
-            "|move|p1a: Tired Amir|U-turn|p2a: Crystal Cinco Bing"
-          ],
-          [
-            6,
-            "|-damage|p2a: Crystal Cinco Bing|43/100"
-          ],
-          [
-            6,
-            "|move|p2a: Crystal Cinco Bing|Substitute|p2a: Crystal Cinco Bing"
-          ],
-          [
-            6,
-            "|-start|p2a: Crystal Cinco Bing|Substitute"
-          ],
-          [
-            6,
-            "|-damage|p2a: Crystal Cinco Bing|18/100"
-          ],
-          [
-            6,
-            "|-heal|p2a: Crystal Cinco Bing|24/100|[from] item: Leftovers"
+            "|switch|p2a: Togetic|Togetic|100/100"
           ],
           [
             7,
-            "|move|p1a: Amir's Rage|Shadow Bone|p2a: Crystal Cinco Bing"
+            "|move|p2a: Togetic|Tri Attack|p1a: Azumarill"
           ],
           [
-            7,
-            "|-end|p2a: Crystal Cinco Bing|Substitute"
+            8,
+            "|move|p2a: Togetic|Tri Attack|p1a: Linoone"
           ],
           [
-            7,
-            "|move|p2a: Crystal Cinco Bing|Thunderbolt|p1a: Amir's Rage"
+            9,
+            "|move|p2a: Togetic|Tri Attack|p1a: Linoone"
           ],
           [
-            7,
-            "|-heal|p2a: Crystal Cinco Bing|30/100|[from] item: Leftovers"
+            10,
+            "|move|p1a: Linoone|Extreme Speed|p2a: Togetic"
           ],
           [
-            13,
-            "|switch|p2a: Crystal Cinco Bing|Regice|30/100"
+            10,
+            "|-damage|p2a: Togetic|0 fnt"
           ],
           [
-            14,
-            "|move|p1a: Amir's Weekend|Earthquake|p2a: Crystal Cinco Bing"
-          ],
-          [
-            14,
-            "|-damage|p2a: Crystal Cinco Bing|0 fnt"
-          ],
-          [
-            14,
-            "|faint|p2a: Crystal Cinco Bing"
+            10,
+            "|faint|p2a: Togetic"
           ]
         ]
       },
       {
-        "pokemon": "Beedrill",
-        "startform": "Beedrill",
-        "nickname": "SheDrill",
+        "pokemon": "Togekiss",
+        "startform": "Togekiss",
+        "nickname": "Togekiss",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": -0.1,
+        "luck": 0.04,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            2,
+            "|switch|p2a: Togekiss|Togekiss|100/100"
+          ],
+          [
+            3,
+            "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss"
+          ],
+          [
+            3,
+            "|-damage|p2a: Togekiss|8/100"
+          ],
+          [
+            3,
+            "|move|p2a: Togekiss|Tri Attack|p1a: Azumarill"
+          ],
+          [
+            4,
+            "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss"
+          ],
+          [
+            4,
+            "|-damage|p2a: Togekiss|0 fnt"
+          ],
+          [
+            4,
+            "|faint|p2a: Togekiss"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Togepi",
+        "startform": "Togepi",
+        "nickname": "Togepi",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.04,
         "remaininghealth": 0,
         "lines": [
           [
             10,
-            "|switch|p2a: SheDrill|Beedrill|100/100"
+            "|switch|p2a: Togepi|Togepi|100/100"
           ],
           [
             11,
-            "|move|p1a: Amir's Strength|Rock Slide|p2a: SheDrill"
+            "|move|p1a: Linoone|Extreme Speed|p2a: Togepi"
           ],
           [
             11,
-            "|-supereffective|p2a: SheDrill"
+            "|-damage|p2a: Togepi|0 fnt"
           ],
           [
             11,
-            "|-enditem|p2a: SheDrill|Focus Sash"
-          ],
-          [
-            11,
-            "|-damage|p2a: SheDrill|1/100"
-          ],
-          [
-            11,
-            "|move|p2a: SheDrill|Poison Jab|p1a: Amir's Strength"
-          ],
-          [
-            12,
-            "|move|p2a: SheDrill|U-turn|p1a: Amir's Weekend"
-          ],
-          [
-            14,
-            "|switch|p2a: SheDrill|Beedrill|1/100"
-          ],
-          [
-            15,
-            "|move|p1a: Amir's Weekend|Earthquake|p2a: SheDrill"
-          ],
-          [
-            15,
-            "|-damage|p2a: SheDrill|0 fnt"
-          ],
-          [
-            15,
-            "|faint|p2a: SheDrill"
+            "|faint|p2a: Togepi"
           ]
         ]
       }
@@ -634,197 +475,158 @@
     "score": 0,
     "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 7,
+    "timesswitched": 5,
     "selfdeaths": 0,
     "remaininghealth": "0/600",
-    "kills": 0,
+    "kills": 1,
     "deaths": 6,
-    "luck": 0.26,
+    "luck": 0.08,
     "damagedone": 0,
     "hphealed": 0,
     "support": 0
   },
-  "numberofturns": 15,
+  "numberofturns": 11,
   "turns": [
     {
       "0": [
-        "|switch|p1a: Amir's Strength|Aerodactyl|100/100",
-        "|switch|p2a: Blue Gatorade|Gallade|100/100",
-        "|-ability|p1a: Amir's Strength|Unnerve|p2: ParadoxicalRemedy"
+        "|rated|",
+        "|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by Guest 5164858)",
+        "|switch|p1a: Azumarill|Azumarill|100/100",
+        "|switch|p2a: Silvally|Silvally|100/100"
       ]
     },
     {
       "1": [
-        "|move|p1a: Amir's Strength|Supersonic Skystrike|p2a: Blue Gatorade|[zeffect]",
-        "|-supereffective|p2a: Blue Gatorade",
-        "|-damage|p2a: Blue Gatorade|0 fnt",
-        "|faint|p2a: Blue Gatorade",
-        "|switch|p2a: Zap Happy|Zebstrika|100/100"
+        "|inactive|Guest 5164858 has 10 seconds left.",
+        "|inactive|Guest 5164858 has 5 seconds left.",
+        "|move|p2a: Silvally|Tri Attack|p1a: Azumarill",
+        "|-damage|p1a: Azumarill|54/100",
+        "|move|p1a: Azumarill|Belly Drum|p1a: Azumarill",
+        "|-damage|p1a: Azumarill|4/100",
+        "|-setboost|p1a: Azumarill|atk|6|[from] move: Belly Drum",
+        "|-enditem|p1a: Azumarill|Sitrus Berry|[eat]",
+        "|-heal|p1a: Azumarill|29/100|[from] item: Sitrus Berry"
       ]
     },
     {
       "2": [
-        "|switch|p1a: Amir's Burden|Donphan|100/100",
-        "|move|p2a: Zap Happy|Thunderbolt|p1a: Amir's Burden",
-        "|-immune|p1a: Amir's Burden"
+        "|inactive|Guest 5164858 has 10 seconds left this turn.",
+        "|move|p1a: Azumarill|Aqua Jet|p2a: Silvally",
+        "|-damage|p2a: Silvally|0 fnt",
+        "|faint|p2a: Silvally",
+        "|inactive|claduva has 10 seconds left.",
+        "|switch|p2a: Togekiss|Togekiss|100/100"
       ]
     },
     {
       "3": [
-        "|move|p2a: Zap Happy|Hidden Power|p1a: Amir's Burden",
-        "|-supereffective|p1a: Amir's Burden",
-        "|-damage|p1a: Amir's Burden|58/100",
-        "|move|p1a: Amir's Burden|Earthquake|p2a: Zap Happy",
-        "|-supereffective|p2a: Zap Happy",
-        "|-damage|p2a: Zap Happy|0 fnt",
-        "|faint|p2a: Zap Happy",
-        "|-heal|p1a: Amir's Burden|64/100|[from] item: Leftovers",
-        "|switch|p2a: Crystal Cinco Bing|Regice|100/100"
+        "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss",
+        "|-damage|p2a: Togekiss|8/100",
+        "|move|p2a: Togekiss|Tri Attack|p1a: Azumarill",
+        "|-damage|p1a: Azumarill|3/100",
+        "|-status|p1a: Azumarill|par"
       ]
     },
     {
       "4": [
-        "|switch|p1a: Tired Amir|Komala|100/100",
-        "|-ability|p1a: Tired Amir|Comatose",
-        "|move|p2a: Crystal Cinco Bing|Substitute|p2a: Crystal Cinco Bing",
-        "|-start|p2a: Crystal Cinco Bing|Substitute",
-        "|-damage|p2a: Crystal Cinco Bing|76/100",
-        "|-heal|p2a: Crystal Cinco Bing|82/100|[from] item: Leftovers"
+        "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss",
+        "|-damage|p2a: Togekiss|0 fnt",
+        "|faint|p2a: Togekiss",
+        "|switch|p2a: Porygon-Z|Porygon-Z|100/100"
       ]
     },
     {
       "5": [
-        "|move|p1a: Tired Amir|Knock Off|p2a: Crystal Cinco Bing",
-        "|-end|p2a: Crystal Cinco Bing|Substitute",
-        "|move|p2a: Crystal Cinco Bing|Swagger|p1a: Tired Amir",
-        "|-boost|p1a: Tired Amir|atk|2",
-        "|-start|p1a: Tired Amir|confusion",
-        "|-heal|p2a: Crystal Cinco Bing|88/100|[from] item: Leftovers"
+        "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon-Z",
+        "|-damage|p2a: Porygon-Z|0 fnt",
+        "|faint|p2a: Porygon-Z",
+        "|switch|p2a: Porygon2|Porygon2|100/100",
+        "|-ability|p2a: Porygon2|Download|boost",
+        "|-boost|p2a: Porygon2|spa|1"
       ]
     },
     {
       "6": [
-        "|-activate|p1a: Tired Amir|confusion",
-        "|move|p1a: Tired Amir|U-turn|p2a: Crystal Cinco Bing",
-        "|-damage|p2a: Crystal Cinco Bing|43/100",
-        "|switch|p1a: Amir's Rage|Marowak-Alola|100/100|[from]move: U-turn",
-        "|move|p2a: Crystal Cinco Bing|Substitute|p2a: Crystal Cinco Bing",
-        "|-start|p2a: Crystal Cinco Bing|Substitute",
-        "|-damage|p2a: Crystal Cinco Bing|18/100",
-        "|-heal|p2a: Crystal Cinco Bing|24/100|[from] item: Leftovers"
+        "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon2",
+        "|-damage|p2a: Porygon2|0 fnt",
+        "|faint|p2a: Porygon2",
+        "|switch|p2a: Togetic|Togetic|100/100"
       ]
     },
     {
       "7": [
-        "|move|p1a: Amir's Rage|Shadow Bone|p2a: Crystal Cinco Bing",
-        "|-end|p2a: Crystal Cinco Bing|Substitute",
-        "|move|p2a: Crystal Cinco Bing|Thunderbolt|p1a: Amir's Rage",
-        "|-ability|p1a: Amir's Rage|Lightning Rod|boost",
-        "|-boost|p1a: Amir's Rage|spa|1",
-        "|-heal|p2a: Crystal Cinco Bing|30/100|[from] item: Leftovers"
+        "|cant|p1a: Azumarill|par",
+        "|move|p2a: Togetic|Tri Attack|p1a: Azumarill",
+        "|-damage|p1a: Azumarill|0 fnt",
+        "|faint|p1a: Azumarill",
+        "|switch|p1a: Linoone|Linoone|100/100"
       ]
     },
     {
       "8": [
-        "|switch|p2a: parado11Swag|Flygon|100/100",
-        "|move|p1a: Amir's Rage|Shadow Bone|p2a: parado11Swag",
-        "|-damage|p2a: parado11Swag|1/100"
+        "|move|p2a: Togetic|Tri Attack|p1a: Linoone",
+        "|-damage|p1a: Linoone|73/100",
+        "|-status|p1a: Linoone|frz",
+        "|cant|p1a: Linoone|frz"
       ]
     },
     {
       "9": [
-        "|switch|p1a: Amir's Strength|Aerodactyl|100/100",
-        "|-ability|p1a: Amir's Strength|Unnerve|p2: ParadoxicalRemedy",
-        "|move|p2a: parado11Swag|Rock Slide|p1a: Amir's Strength",
-        "|-supereffective|p1a: Amir's Strength",
-        "|-damage|p1a: Amir's Strength|36/100"
+        "|move|p2a: Togetic|Tri Attack|p1a: Linoone",
+        "|-damage|p1a: Linoone|45/100 frz",
+        "|-enditem|p1a: Linoone|Figy Berry|[eat]",
+        "|-heal|p1a: Linoone|95/100 frz|[from] item: Figy Berry",
+        "|-curestatus|p1a: Linoone|frz|[msg]",
+        "|move|p1a: Linoone|Belly Drum|p1a: Linoone",
+        "|-damage|p1a: Linoone|45/100",
+        "|-setboost|p1a: Linoone|atk|6|[from] move: Belly Drum"
       ]
     },
     {
       "10": [
-        "|move|p1a: Amir's Strength|Ice Fang|p2a: parado11Swag",
-        "|-supereffective|p2a: parado11Swag",
-        "|-damage|p2a: parado11Swag|0 fnt",
-        "|faint|p2a: parado11Swag",
-        "|switch|p2a: SheDrill|Beedrill|100/100"
+        "|move|p1a: Linoone|Extreme Speed|p2a: Togetic",
+        "|-damage|p2a: Togetic|0 fnt",
+        "|faint|p2a: Togetic",
+        "|switch|p2a: Togepi|Togepi|100/100"
       ]
     },
     {
       "11": [
-        "|move|p1a: Amir's Strength|Rock Slide|p2a: SheDrill",
-        "|-supereffective|p2a: SheDrill",
-        "|-enditem|p2a: SheDrill|Focus Sash",
-        "|-damage|p2a: SheDrill|1/100",
-        "|move|p2a: SheDrill|Poison Jab|p1a: Amir's Strength",
-        "|-resisted|p1a: Amir's Strength",
-        "|-damage|p1a: Amir's Strength|13/100",
-        "|-status|p1a: Amir's Strength|psn",
-        "|-damage|p1a: Amir's Strength|1/100 psn|[from] psn"
-      ]
-    },
-    {
-      "12": [
-        "|switch|p1a: Amir's Weekend|Passimian|100/100",
-        "|move|p2a: SheDrill|U-turn|p1a: Amir's Weekend",
-        "|-resisted|p1a: Amir's Weekend",
-        "|-damage|p1a: Amir's Weekend|87/100",
-        "|switch|p2a: Luxray|Luxray|100/100|[from]move: U-turn",
-        "|-ability|p2a: Luxray|Intimidate|boost",
-        "|-unboost|p1a: Amir's Weekend|atk|1",
-        "|-ability|p1a: Amir's Weekend|Defiant|boost",
-        "|-boost|p1a: Amir's Weekend|atk|2"
-      ]
-    },
-    {
-      "13": [
-        "|move|p1a: Amir's Weekend|Earthquake|p2a: Luxray",
-        "|-supereffective|p2a: Luxray",
-        "|-damage|p2a: Luxray|0 fnt",
-        "|faint|p2a: Luxray",
-        "|switch|p2a: Crystal Cinco Bing|Regice|30/100"
-      ]
-    },
-    {
-      "14": [
-        "|move|p1a: Amir's Weekend|Earthquake|p2a: Crystal Cinco Bing",
-        "|-damage|p2a: Crystal Cinco Bing|0 fnt",
-        "|faint|p2a: Crystal Cinco Bing",
-        "|switch|p2a: SheDrill|Beedrill|1/100"
-      ]
-    },
-    {
-      "15": [
-        "|move|p1a: Amir's Weekend|Earthquake|p2a: SheDrill",
-        "|-damage|p2a: SheDrill|0 fnt",
-        "|faint|p2a: SheDrill"
+        "|move|p1a: Linoone|Extreme Speed|p2a: Togepi",
+        "|-damage|p2a: Togepi|0 fnt",
+        "|faint|p2a: Togepi"
       ]
     }
   ],
-  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-957877179",
+  "replay": "https://replay.pokemonshowdown.com/gen7oublitz-983160541",
   "significantevents": [
     [
-      1,
-      "Gallade was killed by Aerodactyl."
+      2,
+      "Silvally was killed by Azumarill."
     ],
     [
-      3,
-      "Zebstrika was killed by Donphan."
+      4,
+      "Togekiss was killed by Azumarill."
+    ],
+    [
+      5,
+      "Porygon-Z was killed by Azumarill."
+    ],
+    [
+      6,
+      "Porygon2 was killed by Azumarill."
+    ],
+    [
+      7,
+      "Azumarill was killed by Togetic."
     ],
     [
       10,
-      "Flygon was killed by Aerodactyl."
+      "Togetic was killed by Linoone."
     ],
     [
-      13,
-      "Luxray was killed by Passimian."
-    ],
-    [
-      14,
-      "Regice was killed by Passimian."
-    ],
-    [
-      15,
-      "Beedrill was killed by Passimian."
+      11,
+      "Togepi was killed by Linoone."
     ]
   ]
 }

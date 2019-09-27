@@ -199,17 +199,15 @@ def manage_coachs(request,league_name):
     applicants=league_application.objects.filter(league_name=league_)
     totalapplicants=len(applicants)
     coachs=coachdata.objects.filter(league_name=league_).order_by('coach__username')
-    leaguecapacity=league_.settings.number_of_teams
-    numberofcoachs=leaguecapacity-len(coachs)
-    spotsremaining=(numberofcoachs>0)
+    spotsremaining=True
     context = {
         'applicants': applicants,
         'coachs': coachs,
         'league_name': league_name,
         'leagueshostedsettings': True,
-        'numberofcoachs': numberofcoachs,
         'totalapplicants': totalapplicants,
         'spotsremaining': spotsremaining,
+        'league': league_,
     }
     return render(request, 'managecoachs.html',context)
 
@@ -695,7 +693,7 @@ def manage_coach(request,league_name,coachofinterest):
         messages.error(request,'Coach does not exist!',extra_tags='danger')
         league_name=league_name.replace(" ","_")
         return redirect('manage_coachs', league_name=league_name)
-    form=ManageCoachForm(league_,instance=coachofinterest)
+    form=ManageCoachForm(league_,coachofinterest.subleague,instance=coachofinterest)
     try:
         season=seasonsetting.objects.get(league=league_)
         seasonnotinsession=False
@@ -711,7 +709,7 @@ def manage_coach(request,league_name,coachofinterest):
         coachtoupdate=coachdata.objects.get(id=request.POST['coachtoupdate'])
         print(coachtoupdate)
         if formtype=="Update":
-            form=ManageCoachForm(league_,request.POST,request.FILES,instance=coachtoupdate)
+            form=ManageCoachForm(league_,coachtoupdate.subleague,request.POST,request.FILES,instance=coachtoupdate)
             if form.is_valid():
                 form.save()
                 messages.success(request,f'{coachofinterest.coach.username} has been updated!')

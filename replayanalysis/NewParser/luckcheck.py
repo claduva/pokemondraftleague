@@ -28,7 +28,7 @@ def secondaryeffectcheck(results,turndata,turn):
                 item=[item for item in moveswithsecondaryeffect if item[0] == move][0]
                 oddsofeffect=round(item[2]/100,2)
                 remaininglines=turndata[i+1:]
-                results=secondarycheck(results,remaininglines,turn,item,line,recipient,2)                    
+                results=secondarycheck(results,remaininglines,turn,item,line,recipient,attacker,2,1,oddsofeffect)                    
         if line.find("|move|p2a:")>-1 and line.find("|p1a:")>-1:
             move=line.split(" ",1)[1].split("|")[1]
             if [item for item in moveswithsecondaryeffect if item[0] == move]:
@@ -37,7 +37,7 @@ def secondaryeffectcheck(results,turndata,turn):
                 item=[item for item in moveswithsecondaryeffect if item[0] == move][0]
                 oddsofeffect=round(item[2]/100,2)
                 remaininglines=turndata[i+1:]
-                results=secondarycheck(results,remaininglines,turn,item,line,recipient,1)  
+                results=secondarycheck(results,remaininglines,turn,item,line,recipient,attacker,1,2,oddsofeffect)  
         i+=1
     results['team1']['luck']+=team1secondaryeffectagainst-team1secondaryeffect+team1expectedsecondaryeffect-team1expectedsecondaryeffectagainst
     results['team2']['luck']+=team2secondaryeffectagainst-team2secondaryeffect+team2expectedsecondaryeffect-team2expectedsecondaryeffectagainst

@@ -1,5 +1,6 @@
 {% extends "template.html" %}
 {% load static %}
+{% load extratags %}
 {% load crispy_forms_tags %}
 
 {% block title %}Settings{% endblock %}
@@ -38,14 +39,18 @@
                 {% endif %}
             </div>
             <div class="col-md-6">
-                <h4>Coachs (Spots Remaining: {{ numberofcoachs }})</h4>
-                {% for item in coachs %}
+                <h4>Coachs </h4>
+                {% for item_ in league.subleague.all %}
+                <h5>{{item_.subleague}}</h5>
+                <div><small>(Spots Remaining: {{item_.seasonsetting.number_of_teams|subtract:item_.subleague_coachs.all.count}}/{{item_.seasonsetting.number_of_teams}})</small></div>
+                {% for item in item_.subleague_coachs.all %}
                 <div class="row">
                     <div class="d-flex align-items-center">
                         <a href="{% url 'manage_coach' league_name=league_name coachofinterest=item.coach.username %}"><button class="btn btn-primary buttonpadding">Manage</button></a>
                         <div>{{item.coach.username}}</div>
                     </div>
                 </div>
+                {% endfor %}
                 {% endfor %}
             </div>
         </div>
