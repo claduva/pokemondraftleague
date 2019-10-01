@@ -354,7 +354,7 @@ def league_draft(request,league_name,subleague_name):
                 p.save()
             messages.success(request,'That draft pick has been skipped!')
         return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
-    bannedpokemon=pokemon_tier.objects.all().filter(league=subleague.league).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
+    bannedpokemon=pokemon_tier.objects.all().filter(subleague=subleague).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
     takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
     availablepokemon=all_pokemon.objects.all().order_by('pokemon').exclude(id__in=takenpokemon).exclude(id__in=bannedpokemon)
     try:
@@ -372,7 +372,7 @@ def league_draft(request,league_name,subleague_name):
         team=[]
         for pick in team_:
             if pick.pokemon != None:
-                cost=pick.pokemon.pokemon_tiers.all().get(league=subleague.league).tier.tierpoints
+                cost=pick.pokemon.pokemon_tiers.all().get(subleague=subleague).tier.tierpoints
                 team.append([pick,cost])
                 budget+=(-cost)
             else:

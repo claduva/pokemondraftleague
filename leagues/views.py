@@ -582,6 +582,7 @@ def set_draft_order(request,league_name,subleague_name):
         formpurpose=request.POST['formpurpose']
         if formpurpose=='Set':
             currentdraft=draft.objects.all().filter(season=seasonsettings).delete()
+            currentroster=roster.objects.all().filter(season=seasonsettings).delete()
             if draftstyle=="Snake":
                 order=[]
                 for i in range(needednumberofcoaches):
@@ -592,11 +593,14 @@ def set_draft_order(request,league_name,subleague_name):
                     if i%2 == 0:
                         for item in order:
                             draft.objects.create(season=seasonsettings,team=item)
+                            roster.objects.create(season=seasonsettings,team=item)
                     else:    
                         for item in flippedorder:
                             draft.objects.create(season=seasonsettings,team=item)
+                            roster.objects.create(season=seasonsettings,team=item)
         elif formpurpose=='Randomize':
             currentdraft=draft.objects.all().filter(season=seasonsettings).delete()
+            currentroster=roster.objects.all().filter(season=seasonsettings).delete()
             coachstoadd=coachdata.objects.all().filter(subleague=subleague)
             order=[]
             for item in coachstoadd:
@@ -608,9 +612,11 @@ def set_draft_order(request,league_name,subleague_name):
                     if i%2 == 0:
                         for item in order:
                             draft.objects.create(season=seasonsettings,team=item)
+                            roster.objects.create(season=seasonsettings,team=item)
                     else:    
                         for item in flippedorder:
                             draft.objects.create(season=seasonsettings,team=item)
+                            roster.objects.create(season=seasonsettings,team=item)
         messages.success(request,'Draft order has been set!')
         return redirect('individual_league_settings',league_name=league_name)        
     context = {
