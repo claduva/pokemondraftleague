@@ -28,7 +28,7 @@
                     </form>
                 </div>
             </div>
-            <form action="{% url 'set_draft_order' league_name=league_name %}" method="post">
+            <form action="{% url 'set_draft_order' league_name=league_name subleague_name=subleague.subleague %}" method="post">
                 {% csrf_token %}
                 {% for team in currentcoaches %}
                 <div>

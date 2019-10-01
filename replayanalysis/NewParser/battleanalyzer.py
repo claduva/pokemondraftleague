@@ -7,6 +7,7 @@ def gothroughturns(logfile,results):
         turndata=turns[i][str(i)]
         #check luck
         results=luckcheck(results,turndata,i)
+        results=supportcheck(results,turndata,i)
         for line in turndata:
             #add to line data
             for mon in results['team1']['roster']:
@@ -93,8 +94,25 @@ def killersearch(results,mon,roster,otherteam):
         results['significantevents'].append([deathturn,f'{mon["pokemon"]} killed themself with {mon["causeofdeath"]}'])
     return results
 
-def supportcheck():
+def supportcheck(results,turndata,turn):
     supportmoves=['Reflect','Light Screen','Heal Bell','Aromatherapy','Wish','Stealth Rocks','Spikes','Toxic Spikes','Sticky Web', 'Aurora Veil','Defog','Rapid Spin','Hail','Sandstorm','Sunny Day','Rain Dance','Encore','Taunt','Haze','Clear Smog','Roar','Whirlwind','Leech Seed','Toxic','Will-O-Wisp','Stun Spore','Poison Powder','Block','Mean Look','Dark Void','Destiny Bond','Disable','Electric Terrain','Embargo','Endure','Fairy Lock',"Forest's Curse",'Glare','Grass Whistle','Grassy Terrain','Gravity','Grudge','Heal Block','Healing Wish','Hypnosis','Lucky Chant','Lunar Dance','Magic Coat','Magic Room','Mean Look','Memento','Mist','Misty Terrain','Mud Sport','Parting Shot','Perish Song','Poison Gas','Psychic Terrain','Safeguard','Simple Beam','Sing','Skill Swap','Sleep Powder','Soak','Speed Swap','Spider Web','Spite','Spore','Sweet Kiss','Switcheroo','Tailwind','Thunder Wave','Torment','Toxic Thread','Trick','Trick Room','Water Sport','Wonder Room','Worry Seed','Yawn']
+    for line in turndata:
+        for move in supportmoves:
+            if line.find("|move|p1a: ")>-1 and line.find(f"|{move}|")>-1:
+                supportiterator(results,line,'team1',move,turn)
+            if line.find("|move|p2a: ")>-1 and line.find(f"|{move}|")>-1:
+                supportiterator(results,line,'team2',move,turn)
+    return results
+
+def supportiterator(results,line,team,move,turn):
+    results[team]['support']+=1
+    pokemon=line.split(' ',1)[1].split(f"|{move}")[0]
+    for mon in results[team]['roster']:
+        if mon['nickname']==pokemon:
+            mon['support']+=1
+            pokemon=mon['pokemon']
+    results['significantevents'].append([turn,f'{pokemon} provided support by using {move}'])
+    return results,pokemon
 
 def checkdeath(line,results,index,turndata):
     if line.find('|faint|p1a')>-1:

@@ -566,24 +566,18 @@ def default_tiers(request,league_name,subleague_name):
     return render(request, 'managetiers.html',context)
 
 @check_if_subleague
+@check_if_season
 @check_if_host
 @login_required
 def set_draft_order(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_=subleague.league
     leaguesettings=league_settings.objects.get(league_name=league_)
-    needednumberofcoaches=leaguesettings.number_of_teams
-    currentcoaches=coachdata.objects.filter(league_name=league_).order_by('teamname')
+    currentcoaches=coachdata.objects.filter(subleague=subleague).order_by('teamname')
     currentcoachescount=len(currentcoaches)
-    try:
-        seasonsettings=seasonsetting.objects.get(league=league_)
-        draftstyle=seasonsettings.drafttype  
-    except:
-        messages.error(request,'Season does not exist!',extra_tags='danger')
-        return redirect('individual_league_settings',league_name=league_name)
-    if needednumberofcoaches != currentcoachescount: 
-        messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
-        return redirect('individual_league_settings',league_name=league_name)
+    seasonsettings=seasonsetting.objects.filter(subleague__league__name=league_name).get(subleague__subleague=subleague_name)
+    needednumberofcoaches=seasonsettings.number_of_teams
+    draftstyle=seasonsettings.drafttype  
     if request.method == 'POST':
         formpurpose=request.POST['formpurpose']
         if formpurpose=='Set':
@@ -591,7 +585,7 @@ def set_draft_order(request,league_name,subleague_name):
             if draftstyle=="Snake":
                 order=[]
                 for i in range(needednumberofcoaches):
-                    order.append(coachdata.objects.filter(teamname=request.POST[str(i+1)],league_name=league_).first())
+                    order.append(coachdata.objects.filter(teamname=request.POST[str(i+1)],subleague=subleague).first())
                 flippedorder=order[::-1]
                 numberofpicks=seasonsettings.picksperteam
                 for i in range(numberofpicks):
@@ -603,7 +597,7 @@ def set_draft_order(request,league_name,subleague_name):
                             draft.objects.create(season=seasonsettings,team=item)
         elif formpurpose=='Randomize':
             currentdraft=draft.objects.all().filter(season=seasonsettings).delete()
-            coachstoadd=coachdata.objects.all().filter(league_name=league_)
+            coachstoadd=coachdata.objects.all().filter(subleague=subleague)
             order=[]
             for item in coachstoadd:
                 order.append(item)
@@ -624,6 +618,7 @@ def set_draft_order(request,league_name,subleague_name):
         'leagueshostedsettings': True,
         'settingheading': 'Set Draft Order',
         'currentcoaches': currentcoaches,
+        'subleague':subleague,
     }
     return render(request, 'draftorder.html',context)
 

@@ -1,181 +1,559 @@
 {
   "team1": {
-    "coach": "Guest 5164858",
+    "coach": "muskrat catcher",
     "roster": [
       {
-        "pokemon": "Azumarill",
-        "startform": "Azumarill",
-        "nickname": "Azumarill",
-        "kills": 4,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
+        "pokemon": "Sableye-Mega",
+        "startform": "Sableye",
+        "nickname": "Sableye",
+        "kills": 5,
+        "deaths": 0,
+        "causeofdeath": null,
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": -0.08,
-        "remaininghealth": 0,
+        "luck": 0.26,
+        "remaininghealth": 67,
         "lines": [
           [
             0,
-            "|switch|p1a: Azumarill|Azumarill|100/100"
+            "|switch|p1a: Sableye|Sableye|100/100"
           ],
           [
             1,
-            "|move|p2a: Silvally|Tri Attack|p1a: Azumarill"
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Sableye"
           ],
           [
             1,
-            "|-damage|p1a: Azumarill|54/100"
+            "|-resisted|p1a: Sableye"
           ],
           [
             1,
-            "|move|p1a: Azumarill|Belly Drum|p1a: Azumarill"
+            "|-damage|p1a: Sableye|82/100"
           ],
           [
             1,
-            "|-damage|p1a: Azumarill|4/100"
+            "|move|p1a: Sableye|Recover|p1a: Sableye"
           ],
           [
             1,
-            "|-setboost|p1a: Azumarill|atk|6|[from] move: Belly Drum"
+            "|-heal|p1a: Sableye|100/100"
           ],
           [
-            1,
-            "|-enditem|p1a: Azumarill|Sitrus Berry|[eat]"
+            16,
+            "|switch|p1a: Sableye|Sableye-Mega|100/100"
           ],
           [
-            1,
-            "|-heal|p1a: Azumarill|29/100|[from] item: Sitrus Berry"
+            17,
+            "|move|p1a: Sableye|Calm Mind|p1a: Sableye"
           ],
           [
-            2,
-            "|move|p1a: Azumarill|Aqua Jet|p2a: Silvally"
+            17,
+            "|-boost|p1a: Sableye|spa|1"
           ],
           [
-            3,
-            "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss"
+            17,
+            "|-boost|p1a: Sableye|spd|1"
           ],
           [
-            3,
-            "|move|p2a: Togekiss|Tri Attack|p1a: Azumarill"
+            18,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
           ],
           [
-            3,
-            "|-damage|p1a: Azumarill|3/100"
+            18,
+            "|-supereffective|p1a: Sableye"
           ],
           [
-            3,
-            "|-status|p1a: Azumarill|par"
+            18,
+            "|-damage|p1a: Sableye|55/100"
           ],
           [
-            4,
-            "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss"
+            18,
+            "|move|p1a: Sableye|Calm Mind|p1a: Sableye"
           ],
+          [
+            18,
+            "|-boost|p1a: Sableye|spa|1"
+          ],
+          [
+            18,
+            "|-boost|p1a: Sableye|spd|1"
+          ],
+          [
+            19,
+            "|move|p1a: Sableye|Recover|p1a: Sableye"
+          ],
+          [
+            19,
+            "|-heal|p1a: Sableye|100/100"
+          ],
+          [
+            20,
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Sableye"
+          ],
+          [
+            20,
+            "|-resisted|p1a: Sableye"
+          ],
+          [
+            20,
+            "|-damage|p1a: Sableye|92/100"
+          ],
+          [
+            20,
+            "|move|p1a: Sableye|Calm Mind|p1a: Sableye"
+          ],
+          [
+            20,
+            "|-boost|p1a: Sableye|spa|1"
+          ],
+          [
+            20,
+            "|-boost|p1a: Sableye|spd|1"
+          ],
+          [
+            21,
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Sableye"
+          ],
+          [
+            21,
+            "|-resisted|p1a: Sableye"
+          ],
+          [
+            21,
+            "|-damage|p1a: Sableye|84/100"
+          ],
+          [
+            21,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Roserade"
+          ],
+          [
+            22,
+            "|move|p1a: Sableye|Recover|p1a: Sableye"
+          ],
+          [
+            22,
+            "|-heal|p1a: Sableye|100/100"
+          ],
+          [
+            23,
+            "|move|p2a: Tapu Koko|Nature's Madness|p1a: Sableye"
+          ],
+          [
+            23,
+            "|-damage|p1a: Sableye|50/100"
+          ],
+          [
+            23,
+            "|move|p1a: Sableye|Calm Mind|p1a: Sableye"
+          ],
+          [
+            23,
+            "|-boost|p1a: Sableye|spa|1"
+          ],
+          [
+            23,
+            "|-boost|p1a: Sableye|spd|1"
+          ],
+          [
+            24,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            24,
+            "|-supereffective|p1a: Sableye"
+          ],
+          [
+            24,
+            "|-damage|p1a: Sableye|27/100"
+          ],
+          [
+            24,
+            "|move|p1a: Sableye|Recover|p1a: Sableye"
+          ],
+          [
+            24,
+            "|-heal|p1a: Sableye|77/100"
+          ],
+          [
+            25,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            25,
+            "|-supereffective|p1a: Sableye"
+          ],
+          [
+            25,
+            "|-damage|p1a: Sableye|52/100"
+          ],
+          [
+            25,
+            "|move|p1a: Sableye|Recover|p1a: Sableye"
+          ],
+          [
+            25,
+            "|-heal|p1a: Sableye|100/100"
+          ],
+          [
+            26,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            26,
+            "|-supereffective|p1a: Sableye"
+          ],
+          [
+            26,
+            "|-damage|p1a: Sableye|78/100"
+          ],
+          [
+            26,
+            "|move|p1a: Sableye|Calm Mind|p1a: Sableye"
+          ],
+          [
+            26,
+            "|-boost|p1a: Sableye|spa|1"
+          ],
+          [
+            26,
+            "|-boost|p1a: Sableye|spd|1"
+          ],
+          [
+            27,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            27,
+            "|-supereffective|p1a: Sableye"
+          ],
+          [
+            27,
+            "|-damage|p1a: Sableye|56/100"
+          ],
+          [
+            27,
+            "|move|p1a: Sableye|Calm Mind|p1a: Sableye"
+          ],
+          [
+            27,
+            "|-boost|p1a: Sableye|spa|1"
+          ],
+          [
+            27,
+            "|-boost|p1a: Sableye|spd|1"
+          ],
+          [
+            28,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            28,
+            "|-supereffective|p1a: Sableye"
+          ],
+          [
+            28,
+            "|-damage|p1a: Sableye|37/100"
+          ],
+          [
+            28,
+            "|move|p1a: Sableye|Recover|p1a: Sableye"
+          ],
+          [
+            28,
+            "|-heal|p1a: Sableye|87/100"
+          ],
+          [
+            29,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            29,
+            "|-supereffective|p1a: Sableye"
+          ],
+          [
+            29,
+            "|-damage|p1a: Sableye|70/100"
+          ],
+          [
+            29,
+            "|move|p1a: Sableye|Recover|p1a: Sableye"
+          ],
+          [
+            29,
+            "|-heal|p1a: Sableye|100/100"
+          ],
+          [
+            30,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            30,
+            "|-supereffective|p1a: Sableye"
+          ],
+          [
+            30,
+            "|-damage|p1a: Sableye|84/100"
+          ],
+          [
+            30,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Tapu Koko"
+          ],
+          [
+            31,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty"
+          ],
+          [
+            32,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty"
+          ],
+          [
+            33,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty"
+          ],
+          [
+            34,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Garchomp"
+          ],
+          [
+            35,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty"
+          ],
+          [
+            36,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty"
+          ],
+          [
+            37,
+            "|move|p2a: Keldeo|Hydro Pump|p1a: Sableye"
+          ],
+          [
+            37,
+            "|-damage|p1a: Sableye|67/100"
+          ],
+          [
+            37,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Keldeo"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Torterra",
+        "startform": "Torterra",
+        "nickname": "Torterra",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": "ded",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.1,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            12,
+            "|switch|p1a: Torterra|Torterra|100/100"
+          ],
+          [
+            13,
+            "|move|p2a: Tapu Koko|Guardian of Alola|p1a: Torterra|[zeffect]"
+          ],
+          [
+            13,
+            "|-damage|p1a: Torterra|26/100"
+          ],
+          [
+            13,
+            "|move|p1a: Torterra|Rock Polish|p1a: Torterra"
+          ],
+          [
+            13,
+            "|-boost|p1a: Torterra|spe|2"
+          ],
+          [
+            14,
+            "|move|p1a: Torterra|Crunch|p2a: Bronzong"
+          ],
+          [
+            15,
+            "|move|p1a: Torterra|Crunch|p2a: Bronzong"
+          ],
+          [
+            16,
+            "|move|p2a: Garchomp|Dual Chop|p1a: Torterra"
+          ],
+          [
+            16,
+            "|-damage|p1a: Torterra|6/100"
+          ],
+          [
+            16,
+            "|-damage|p1a: Torterra|0 fnt"
+          ],
+          [
+            16,
+            "|-hitcount|p1a: Torterra|2"
+          ],
+          [
+            16,
+            "|faint|p1a: Torterra"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Rotom-Heat",
+        "startform": "Rotom",
+        "nickname": "Rotom",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.14,
+        "remaininghealth": 57,
+        "lines": [
           [
             5,
-            "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon-Z"
+            "|switch|p1a: Rotom|Rotom-Heat|100/100"
           ],
           [
             6,
-            "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon2"
+            "|move|p1a: Rotom|Overheat|p2a: Bronzong"
+          ],
+          [
+            6,
+            "|-unboost|p1a: Rotom|spa|2"
           ],
           [
             7,
-            "|cant|p1a: Azumarill|par"
-          ],
-          [
-            7,
-            "|move|p2a: Togetic|Tri Attack|p1a: Azumarill"
-          ],
-          [
-            7,
-            "|-damage|p1a: Azumarill|0 fnt"
-          ],
-          [
-            7,
-            "|faint|p1a: Azumarill"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Linoone",
-        "startform": "Linoone",
-        "nickname": "Linoone",
-        "kills": 2,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.0,
-        "remaininghealth": 45,
-        "lines": [
-          [
-            7,
-            "|switch|p1a: Linoone|Linoone|100/100"
-          ],
-          [
-            8,
-            "|move|p2a: Togetic|Tri Attack|p1a: Linoone"
-          ],
-          [
-            8,
-            "|-damage|p1a: Linoone|73/100"
-          ],
-          [
-            8,
-            "|-status|p1a: Linoone|frz"
-          ],
-          [
-            8,
-            "|cant|p1a: Linoone|frz"
+            "|move|p1a: Rotom|Volt Switch|p2a: Garchomp"
           ],
           [
             9,
-            "|move|p2a: Togetic|Tri Attack|p1a: Linoone"
+            "|switch|p1a: Rotom|Rotom-Heat|100/100"
           ],
           [
             9,
-            "|-damage|p1a: Linoone|45/100 frz"
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Rotom"
           ],
           [
             9,
-            "|-enditem|p1a: Linoone|Figy Berry|[eat]"
-          ],
-          [
-            9,
-            "|-heal|p1a: Linoone|95/100 frz|[from] item: Figy Berry"
-          ],
-          [
-            9,
-            "|-curestatus|p1a: Linoone|frz|[msg]"
-          ],
-          [
-            9,
-            "|move|p1a: Linoone|Belly Drum|p1a: Linoone"
-          ],
-          [
-            9,
-            "|-damage|p1a: Linoone|45/100"
-          ],
-          [
-            9,
-            "|-setboost|p1a: Linoone|atk|6|[from] move: Belly Drum"
+            "|-damage|p1a: Rotom|57/100"
           ],
           [
             10,
-            "|move|p1a: Linoone|Extreme Speed|p2a: Togetic"
+            "|move|p1a: Rotom|Overheat|p2a: Roserade"
+          ],
+          [
+            10,
+            "|-unboost|p1a: Rotom|spa|2"
           ],
           [
             11,
-            "|move|p1a: Linoone|Extreme Speed|p2a: Togepi"
+            "|move|p1a: Rotom|Overheat|p2a: Garchomp"
+          ],
+          [
+            11,
+            "|-unboost|p1a: Rotom|spa|2"
+          ],
+          [
+            12,
+            "|move|p1a: Rotom|Volt Switch|p2a: Tapu Koko"
           ]
         ]
       },
       {
-        "pokemon": "Slurpuff",
-        "startform": "Slurpuff",
-        "nickname": "Slurpuff",
+        "pokemon": "Nihilego",
+        "startform": "Nihilego",
+        "nickname": "Nihilego",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 1,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.04,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            2,
+            "|switch|p1a: Nihilego|Nihilego|100/100"
+          ],
+          [
+            2,
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Nihilego"
+          ],
+          [
+            2,
+            "|-resisted|p1a: Nihilego"
+          ],
+          [
+            2,
+            "|-damage|p1a: Nihilego|95/100"
+          ],
+          [
+            3,
+            "|move|p1a: Nihilego|Toxic Spikes|p2a: Roserade"
+          ],
+          [
+            3,
+            "|move|p2a: Roserade|Hidden Power|p1a: Nihilego"
+          ],
+          [
+            3,
+            "|-supereffective|p1a: Nihilego"
+          ],
+          [
+            3,
+            "|-damage|p1a: Nihilego|31/100"
+          ],
+          [
+            4,
+            "|move|p1a: Nihilego|Pain Split|p2a: Roserade"
+          ],
+          [
+            4,
+            "|-sethp|p2a: Roserade|70/100|p1a: Nihilego|54/100|[from] move: Pain Split"
+          ],
+          [
+            4,
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Nihilego"
+          ],
+          [
+            4,
+            "|-resisted|p1a: Nihilego"
+          ],
+          [
+            4,
+            "|-damage|p1a: Nihilego|48/100"
+          ],
+          [
+            5,
+            "|move|p1a: Nihilego|Sludge Bomb|p2a: Roserade"
+          ],
+          [
+            5,
+            "|move|p2a: Roserade|Hidden Power|p1a: Nihilego"
+          ],
+          [
+            5,
+            "|-supereffective|p1a: Nihilego"
+          ],
+          [
+            5,
+            "|-damage|p1a: Nihilego|0 fnt"
+          ],
+          [
+            5,
+            "|faint|p1a: Nihilego"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Tentacruel",
+        "startform": "Tentacruel",
+        "nickname": "Tentacruel",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
@@ -187,9 +565,9 @@
         "lines": []
       },
       {
-        "pokemon": "Ditto",
-        "startform": "Ditto",
-        "nickname": "Ditto",
+        "pokemon": "Clefable",
+        "startform": "Clefable",
+        "nickname": "Clefable",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
@@ -198,274 +576,607 @@
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 100,
-        "lines": []
-      },
-      {
-        "pokemon": "Porygon-Z",
-        "startform": "Porygon-Z",
-        "nickname": "Porygon-Z",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 100,
-        "lines": []
-      },
-      {
-        "pokemon": "Charizard",
-        "startform": "Charizard",
-        "nickname": "Charizard",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 100,
-        "lines": []
+        "lines": [
+          [
+            8,
+            "|switch|p1a: Clefable|Clefable|100/100"
+          ]
+        ]
       }
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 5,
-    "megaevolved": false,
+    "score": 4,
+    "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 1,
+    "timesswitched": 6,
     "selfdeaths": 0,
-    "remaininghealth": "445/600",
+    "remaininghealth": "324/600",
     "kills": 6,
-    "deaths": 1,
-    "luck": -0.08,
+    "deaths": 2,
+    "luck": -0.06,
     "damagedone": 0,
     "hphealed": 0,
-    "support": 0
+    "support": 1
   },
   "team2": {
-    "coach": "claduva",
+    "coach": "ECE young",
     "roster": [
       {
-        "pokemon": "Porygon2",
-        "startform": "Porygon2",
-        "nickname": "Porygon2",
+        "pokemon": "Tapu Koko",
+        "startform": "Tapu Koko",
+        "nickname": "Tapu Koko",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0.04,
+        "luck": -0.22,
         "remaininghealth": 0,
         "lines": [
           [
-            5,
-            "|switch|p2a: Porygon2|Porygon2|100/100"
+            12,
+            "|switch|p2a: Tapu Koko|Tapu Koko|100/100"
           ],
           [
-            5,
-            "|-ability|p2a: Porygon2|Download|boost"
+            12,
+            "|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Tapu Koko"
           ],
           [
-            5,
-            "|-boost|p2a: Porygon2|spa|1"
+            12,
+            "|move|p1a: Rotom|Volt Switch|p2a: Tapu Koko"
           ],
           [
-            6,
-            "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon2"
+            12,
+            "|-resisted|p2a: Tapu Koko"
           ],
           [
-            6,
-            "|-damage|p2a: Porygon2|0 fnt"
+            12,
+            "|-damage|p2a: Tapu Koko|92/100"
           ],
           [
-            6,
-            "|faint|p2a: Porygon2"
+            13,
+            "|move|p2a: Tapu Koko|Guardian of Alola|p1a: Torterra|[zeffect]"
+          ],
+          [
+            17,
+            "|switch|p2a: Tapu Koko|Tapu Koko|92/100"
+          ],
+          [
+            17,
+            "|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Tapu Koko"
+          ],
+          [
+            18,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            22,
+            "|switch|p2a: Tapu Koko|Tapu Koko|92/100"
+          ],
+          [
+            22,
+            "|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Tapu Koko"
+          ],
+          [
+            23,
+            "|move|p2a: Tapu Koko|Nature's Madness|p1a: Sableye"
+          ],
+          [
+            24,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            25,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            26,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            27,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            28,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            29,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            30,
+            "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye"
+          ],
+          [
+            30,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Tapu Koko"
+          ],
+          [
+            30,
+            "|-damage|p2a: Tapu Koko|0 fnt"
+          ],
+          [
+            30,
+            "|faint|p2a: Tapu Koko"
           ]
         ]
       },
       {
-        "pokemon": "Porygon-Z",
-        "startform": "Porygon-Z",
-        "nickname": "Porygon-Z",
+        "pokemon": "Garchomp",
+        "startform": "Garchomp",
+        "nickname": "Garchomp",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0.04,
+        "luck": 0.08,
         "remaininghealth": 0,
         "lines": [
           [
-            4,
-            "|switch|p2a: Porygon-Z|Porygon-Z|100/100"
+            7,
+            "|switch|p2a: Garchomp|Garchomp|100/100"
           ],
           [
-            5,
-            "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon-Z"
+            7,
+            "|-status|p2a: Garchomp|psn"
           ],
           [
-            5,
-            "|-damage|p2a: Porygon-Z|0 fnt"
+            7,
+            "|move|p1a: Rotom|Volt Switch|p2a: Garchomp"
           ],
           [
-            5,
-            "|faint|p2a: Porygon-Z"
+            7,
+            "|-immune|p2a: Garchomp|[msg]"
+          ],
+          [
+            7,
+            "|-damage|p2a: Garchomp|88/100 psn|[from] psn"
+          ],
+          [
+            11,
+            "|switch|p2a: Garchomp|Garchomp|88/100 psn"
+          ],
+          [
+            11,
+            "|move|p1a: Rotom|Overheat|p2a: Garchomp"
+          ],
+          [
+            11,
+            "|-resisted|p2a: Garchomp"
+          ],
+          [
+            11,
+            "|-damage|p2a: Garchomp|73/100 psn"
+          ],
+          [
+            11,
+            "|-damage|p2a: Garchomp|61/100 psn|[from] psn"
+          ],
+          [
+            15,
+            "|switch|p2a: Garchomp|Garchomp|61/100 psn"
+          ],
+          [
+            16,
+            "|move|p2a: Garchomp|Dual Chop|p1a: Torterra"
+          ],
+          [
+            16,
+            "|-damage|p2a: Garchomp|48/100 psn|[from] psn"
+          ],
+          [
+            21,
+            "|switch|p2a: Garchomp|Garchomp|48/100 psn"
+          ],
+          [
+            34,
+            "|switch|p2a: Garchomp|Garchomp|48/100 psn"
+          ],
+          [
+            34,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Garchomp"
+          ],
+          [
+            34,
+            "|-damage|p2a: Garchomp|0 fnt"
+          ],
+          [
+            34,
+            "|faint|p2a: Garchomp"
           ]
         ]
       },
       {
-        "pokemon": "Silvally",
-        "startform": "Silvally",
-        "nickname": "Silvally",
+        "pokemon": "Keldeo",
+        "startform": "Keldeo",
+        "nickname": "Keldeo",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0.0,
+        "luck": 0.2,
         "remaininghealth": 0,
         "lines": [
           [
-            0,
-            "|switch|p2a: Silvally|Silvally|100/100"
+            36,
+            "|switch|p2a: Keldeo|Keldeo|100/100"
           ],
           [
-            1,
-            "|move|p2a: Silvally|Tri Attack|p1a: Azumarill"
+            37,
+            "|move|p2a: Keldeo|Hydro Pump|p1a: Sableye"
           ],
           [
-            2,
-            "|move|p1a: Azumarill|Aqua Jet|p2a: Silvally"
+            37,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Keldeo"
           ],
           [
-            2,
-            "|-damage|p2a: Silvally|0 fnt"
+            37,
+            "|-damage|p2a: Keldeo|0 fnt"
           ],
           [
-            2,
-            "|faint|p2a: Silvally"
+            37,
+            "|faint|p2a: Keldeo"
           ]
         ]
       },
       {
-        "pokemon": "Togetic",
-        "startform": "Togetic",
-        "nickname": "Togetic",
+        "pokemon": "Roserade",
+        "startform": "Roserade",
+        "nickname": "Roserade",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": "Direct Damage",
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": -0.08,
+        "luck": -0.22,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            0,
+            "|switch|p2a: Roserade|Roserade|100/100"
+          ],
+          [
+            1,
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Sableye"
+          ],
+          [
+            2,
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Nihilego"
+          ],
+          [
+            3,
+            "|move|p1a: Nihilego|Toxic Spikes|p2a: Roserade"
+          ],
+          [
+            3,
+            "|move|p2a: Roserade|Hidden Power|p1a: Nihilego"
+          ],
+          [
+            4,
+            "|move|p1a: Nihilego|Pain Split|p2a: Roserade"
+          ],
+          [
+            4,
+            "|-sethp|p2a: Roserade|70/100|p1a: Nihilego|54/100|[from] move: Pain Split"
+          ],
+          [
+            4,
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Nihilego"
+          ],
+          [
+            5,
+            "|move|p1a: Nihilego|Sludge Bomb|p2a: Roserade"
+          ],
+          [
+            5,
+            "|-damage|p2a: Roserade|31/100"
+          ],
+          [
+            5,
+            "|move|p2a: Roserade|Hidden Power|p1a: Nihilego"
+          ],
+          [
+            8,
+            "|switch|p2a: Roserade|Roserade|31/100"
+          ],
+          [
+            8,
+            "|-sideend|p2: ECE young|move: Toxic Spikes|[of] p2a: Roserade"
+          ],
+          [
+            9,
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Rotom"
+          ],
+          [
+            10,
+            "|move|p2a: Roserade|Synthesis|p2a: Roserade"
+          ],
+          [
+            10,
+            "|-heal|p2a: Roserade|80/100"
+          ],
+          [
+            10,
+            "|move|p1a: Rotom|Overheat|p2a: Roserade"
+          ],
+          [
+            10,
+            "|-supereffective|p2a: Roserade"
+          ],
+          [
+            10,
+            "|-enditem|p2a: Roserade|Occa Berry|[eat]"
+          ],
+          [
+            10,
+            "|-enditem|p2a: Roserade|Occa Berry|[weaken]"
+          ],
+          [
+            10,
+            "|-damage|p2a: Roserade|13/100"
+          ],
+          [
+            19,
+            "|switch|p2a: Roserade|Roserade|13/100"
+          ],
+          [
+            20,
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Sableye"
+          ],
+          [
+            21,
+            "|move|p2a: Roserade|Sludge Bomb|p1a: Sableye"
+          ],
+          [
+            21,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Roserade"
+          ],
+          [
+            21,
+            "|-damage|p2a: Roserade|0 fnt"
+          ],
+          [
+            21,
+            "|faint|p2a: Roserade"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Scrafty",
+        "startform": "Scrafty",
+        "nickname": "Scrafty",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.2,
+        "remaininghealth": 0,
+        "lines": [
+          [
+            30,
+            "|switch|p2a: Scrafty|Scrafty|100/100"
+          ],
+          [
+            31,
+            "|move|p2a: Scrafty|Bulk Up|p2a: Scrafty"
+          ],
+          [
+            31,
+            "|-boost|p2a: Scrafty|atk|1"
+          ],
+          [
+            31,
+            "|-boost|p2a: Scrafty|def|1"
+          ],
+          [
+            31,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty"
+          ],
+          [
+            31,
+            "|-resisted|p2a: Scrafty"
+          ],
+          [
+            31,
+            "|-damage|p2a: Scrafty|60/100"
+          ],
+          [
+            31,
+            "|-heal|p2a: Scrafty|66/100|[from] item: Leftovers"
+          ],
+          [
+            32,
+            "|move|p2a: Scrafty|Bulk Up|p2a: Scrafty"
+          ],
+          [
+            32,
+            "|-boost|p2a: Scrafty|atk|1"
+          ],
+          [
+            32,
+            "|-boost|p2a: Scrafty|def|1"
+          ],
+          [
+            32,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty"
+          ],
+          [
+            32,
+            "|-resisted|p2a: Scrafty"
+          ],
+          [
+            32,
+            "|-damage|p2a: Scrafty|31/100"
+          ],
+          [
+            32,
+            "|-heal|p2a: Scrafty|37/100|[from] item: Leftovers"
+          ],
+          [
+            33,
+            "|move|p2a: Scrafty|Rest|p2a: Scrafty"
+          ],
+          [
+            33,
+            "|-status|p2a: Scrafty|slp"
+          ],
+          [
+            33,
+            "|-heal|p2a: Scrafty|100/100 slp|[silent]"
+          ],
+          [
+            33,
+            "|-status|p2a: Scrafty|slp|[from] move: Rest"
+          ],
+          [
+            33,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty"
+          ],
+          [
+            33,
+            "|-resisted|p2a: Scrafty"
+          ],
+          [
+            33,
+            "|-damage|p2a: Scrafty|63/100 slp"
+          ],
+          [
+            33,
+            "|-unboost|p2a: Scrafty|spd|1"
+          ],
+          [
+            33,
+            "|-heal|p2a: Scrafty|69/100 slp|[from] item: Leftovers"
+          ],
+          [
+            34,
+            "|switch|p2a: Scrafty|Scrafty|69/100 slp"
+          ],
+          [
+            35,
+            "|cant|p2a: Scrafty|slp"
+          ],
+          [
+            35,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty"
+          ],
+          [
+            35,
+            "|-resisted|p2a: Scrafty"
+          ],
+          [
+            35,
+            "|-damage|p2a: Scrafty|31/100 slp"
+          ],
+          [
+            35,
+            "|-unboost|p2a: Scrafty|spd|1"
+          ],
+          [
+            35,
+            "|-heal|p2a: Scrafty|37/100 slp|[from] item: Leftovers"
+          ],
+          [
+            36,
+            "|cant|p2a: Scrafty|slp"
+          ],
+          [
+            36,
+            "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty"
+          ],
+          [
+            36,
+            "|-resisted|p2a: Scrafty"
+          ],
+          [
+            36,
+            "|-damage|p2a: Scrafty|0 fnt"
+          ],
+          [
+            36,
+            "|faint|p2a: Scrafty"
+          ]
+        ]
+      },
+      {
+        "pokemon": "Bronzong",
+        "startform": "Bronzong",
+        "nickname": "Bronzong",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": "Direct Damage",
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.02,
         "remaininghealth": 0,
         "lines": [
           [
             6,
-            "|switch|p2a: Togetic|Togetic|100/100"
+            "|switch|p2a: Bronzong|Bronzong|100/100"
           ],
           [
-            7,
-            "|move|p2a: Togetic|Tri Attack|p1a: Azumarill"
+            6,
+            "|move|p1a: Rotom|Overheat|p2a: Bronzong"
           ],
           [
-            8,
-            "|move|p2a: Togetic|Tri Attack|p1a: Linoone"
+            6,
+            "|-supereffective|p2a: Bronzong"
           ],
           [
-            9,
-            "|move|p2a: Togetic|Tri Attack|p1a: Linoone"
+            6,
+            "|-enditem|p2a: Bronzong|Occa Berry|[eat]"
           ],
           [
-            10,
-            "|move|p1a: Linoone|Extreme Speed|p2a: Togetic"
+            6,
+            "|-enditem|p2a: Bronzong|Occa Berry|[weaken]"
           ],
           [
-            10,
-            "|-damage|p2a: Togetic|0 fnt"
+            6,
+            "|-damage|p2a: Bronzong|48/100"
           ],
           [
-            10,
-            "|faint|p2a: Togetic"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Togekiss",
-        "startform": "Togekiss",
-        "nickname": "Togekiss",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.04,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            2,
-            "|switch|p2a: Togekiss|Togekiss|100/100"
+            14,
+            "|switch|p2a: Bronzong|Bronzong|48/100"
           ],
           [
-            3,
-            "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss"
+            14,
+            "|move|p1a: Torterra|Crunch|p2a: Bronzong"
           ],
           [
-            3,
-            "|-damage|p2a: Togekiss|8/100"
+            14,
+            "|-supereffective|p2a: Bronzong"
           ],
           [
-            3,
-            "|move|p2a: Togekiss|Tri Attack|p1a: Azumarill"
+            14,
+            "|-damage|p2a: Bronzong|12/100"
           ],
           [
-            4,
-            "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss"
+            15,
+            "|move|p1a: Torterra|Crunch|p2a: Bronzong"
           ],
           [
-            4,
-            "|-damage|p2a: Togekiss|0 fnt"
+            15,
+            "|-supereffective|p2a: Bronzong"
           ],
           [
-            4,
-            "|faint|p2a: Togekiss"
-          ]
-        ]
-      },
-      {
-        "pokemon": "Togepi",
-        "startform": "Togepi",
-        "nickname": "Togepi",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": "Direct Damage",
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.04,
-        "remaininghealth": 0,
-        "lines": [
-          [
-            10,
-            "|switch|p2a: Togepi|Togepi|100/100"
+            15,
+            "|-damage|p2a: Bronzong|0 fnt"
           ],
           [
-            11,
-            "|move|p1a: Linoone|Extreme Speed|p2a: Togepi"
-          ],
-          [
-            11,
-            "|-damage|p2a: Togepi|0 fnt"
-          ],
-          [
-            11,
-            "|faint|p2a: Togepi"
+            15,
+            "|faint|p2a: Bronzong"
           ]
         ]
       }
@@ -474,159 +1185,414 @@
     "forfeit": 0,
     "score": 0,
     "megaevolved": false,
-    "usedzmove": false,
-    "timesswitched": 5,
+    "usedzmove": true,
+    "timesswitched": 15,
     "selfdeaths": 0,
     "remaininghealth": "0/600",
     "kills": 1,
     "deaths": 6,
-    "luck": 0.08,
+    "luck": 0.06,
     "damagedone": 0,
     "hphealed": 0,
     "support": 0
   },
-  "numberofturns": 11,
+  "numberofturns": 37,
   "turns": [
     {
       "0": [
-        "|rated|",
-        "|inactive|Battle timer is ON: inactive players will automatically lose when time's up. (requested by Guest 5164858)",
-        "|switch|p1a: Azumarill|Azumarill|100/100",
-        "|switch|p2a: Silvally|Silvally|100/100"
+        "|switch|p1a: Sableye|Sableye|100/100",
+        "|switch|p2a: Roserade|Roserade|100/100"
       ]
     },
     {
       "1": [
-        "|inactive|Guest 5164858 has 10 seconds left.",
-        "|inactive|Guest 5164858 has 5 seconds left.",
-        "|move|p2a: Silvally|Tri Attack|p1a: Azumarill",
-        "|-damage|p1a: Azumarill|54/100",
-        "|move|p1a: Azumarill|Belly Drum|p1a: Azumarill",
-        "|-damage|p1a: Azumarill|4/100",
-        "|-setboost|p1a: Azumarill|atk|6|[from] move: Belly Drum",
-        "|-enditem|p1a: Azumarill|Sitrus Berry|[eat]",
-        "|-heal|p1a: Azumarill|29/100|[from] item: Sitrus Berry"
+        "|move|p2a: Roserade|Sludge Bomb|p1a: Sableye",
+        "|-resisted|p1a: Sableye",
+        "|-damage|p1a: Sableye|82/100",
+        "|move|p1a: Sableye|Recover|p1a: Sableye",
+        "|-heal|p1a: Sableye|100/100"
       ]
     },
     {
       "2": [
-        "|inactive|Guest 5164858 has 10 seconds left this turn.",
-        "|move|p1a: Azumarill|Aqua Jet|p2a: Silvally",
-        "|-damage|p2a: Silvally|0 fnt",
-        "|faint|p2a: Silvally",
-        "|inactive|claduva has 10 seconds left.",
-        "|switch|p2a: Togekiss|Togekiss|100/100"
+        "|switch|p1a: Nihilego|Nihilego|100/100",
+        "|move|p2a: Roserade|Sludge Bomb|p1a: Nihilego",
+        "|-resisted|p1a: Nihilego",
+        "|-damage|p1a: Nihilego|95/100"
       ]
     },
     {
       "3": [
-        "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss",
-        "|-damage|p2a: Togekiss|8/100",
-        "|move|p2a: Togekiss|Tri Attack|p1a: Azumarill",
-        "|-damage|p1a: Azumarill|3/100",
-        "|-status|p1a: Azumarill|par"
+        "|move|p1a: Nihilego|Toxic Spikes|p2a: Roserade",
+        "|-sidestart|p2: ECE young|move: Toxic Spikes",
+        "|move|p2a: Roserade|Hidden Power|p1a: Nihilego",
+        "|-supereffective|p1a: Nihilego",
+        "|-damage|p1a: Nihilego|31/100"
       ]
     },
     {
       "4": [
-        "|move|p1a: Azumarill|Aqua Jet|p2a: Togekiss",
-        "|-damage|p2a: Togekiss|0 fnt",
-        "|faint|p2a: Togekiss",
-        "|switch|p2a: Porygon-Z|Porygon-Z|100/100"
+        "|move|p1a: Nihilego|Pain Split|p2a: Roserade",
+        "|-sethp|p2a: Roserade|70/100|p1a: Nihilego|54/100|[from] move: Pain Split",
+        "|move|p2a: Roserade|Sludge Bomb|p1a: Nihilego",
+        "|-resisted|p1a: Nihilego",
+        "|-damage|p1a: Nihilego|48/100"
       ]
     },
     {
       "5": [
-        "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon-Z",
-        "|-damage|p2a: Porygon-Z|0 fnt",
-        "|faint|p2a: Porygon-Z",
-        "|switch|p2a: Porygon2|Porygon2|100/100",
-        "|-ability|p2a: Porygon2|Download|boost",
-        "|-boost|p2a: Porygon2|spa|1"
+        "|move|p1a: Nihilego|Sludge Bomb|p2a: Roserade",
+        "|-damage|p2a: Roserade|31/100",
+        "|move|p2a: Roserade|Hidden Power|p1a: Nihilego",
+        "|-supereffective|p1a: Nihilego",
+        "|-damage|p1a: Nihilego|0 fnt",
+        "|faint|p1a: Nihilego",
+        "|switch|p1a: Rotom|Rotom-Heat|100/100"
       ]
     },
     {
       "6": [
-        "|move|p1a: Azumarill|Aqua Jet|p2a: Porygon2",
-        "|-damage|p2a: Porygon2|0 fnt",
-        "|faint|p2a: Porygon2",
-        "|switch|p2a: Togetic|Togetic|100/100"
+        "|switch|p2a: Bronzong|Bronzong|100/100",
+        "|move|p1a: Rotom|Overheat|p2a: Bronzong",
+        "|-supereffective|p2a: Bronzong",
+        "|-enditem|p2a: Bronzong|Occa Berry|[eat]",
+        "|-enditem|p2a: Bronzong|Occa Berry|[weaken]",
+        "|-damage|p2a: Bronzong|48/100",
+        "|-unboost|p1a: Rotom|spa|2"
       ]
     },
     {
       "7": [
-        "|cant|p1a: Azumarill|par",
-        "|move|p2a: Togetic|Tri Attack|p1a: Azumarill",
-        "|-damage|p1a: Azumarill|0 fnt",
-        "|faint|p1a: Azumarill",
-        "|switch|p1a: Linoone|Linoone|100/100"
+        "|switch|p2a: Garchomp|Garchomp|100/100",
+        "|-status|p2a: Garchomp|psn",
+        "|move|p1a: Rotom|Volt Switch|p2a: Garchomp",
+        "|-immune|p2a: Garchomp|[msg]",
+        "|-damage|p2a: Garchomp|88/100 psn|[from] psn"
       ]
     },
     {
       "8": [
-        "|move|p2a: Togetic|Tri Attack|p1a: Linoone",
-        "|-damage|p1a: Linoone|73/100",
-        "|-status|p1a: Linoone|frz",
-        "|cant|p1a: Linoone|frz"
+        "|switch|p2a: Roserade|Roserade|31/100",
+        "|-sideend|p2: ECE young|move: Toxic Spikes|[of] p2a: Roserade",
+        "|switch|p1a: Clefable|Clefable|100/100"
       ]
     },
     {
       "9": [
-        "|move|p2a: Togetic|Tri Attack|p1a: Linoone",
-        "|-damage|p1a: Linoone|45/100 frz",
-        "|-enditem|p1a: Linoone|Figy Berry|[eat]",
-        "|-heal|p1a: Linoone|95/100 frz|[from] item: Figy Berry",
-        "|-curestatus|p1a: Linoone|frz|[msg]",
-        "|move|p1a: Linoone|Belly Drum|p1a: Linoone",
-        "|-damage|p1a: Linoone|45/100",
-        "|-setboost|p1a: Linoone|atk|6|[from] move: Belly Drum"
+        "|switch|p1a: Rotom|Rotom-Heat|100/100",
+        "|move|p2a: Roserade|Sludge Bomb|p1a: Rotom",
+        "|-damage|p1a: Rotom|57/100"
       ]
     },
     {
       "10": [
-        "|move|p1a: Linoone|Extreme Speed|p2a: Togetic",
-        "|-damage|p2a: Togetic|0 fnt",
-        "|faint|p2a: Togetic",
-        "|switch|p2a: Togepi|Togepi|100/100"
+        "|move|p2a: Roserade|Synthesis|p2a: Roserade",
+        "|-heal|p2a: Roserade|80/100",
+        "|move|p1a: Rotom|Overheat|p2a: Roserade",
+        "|-supereffective|p2a: Roserade",
+        "|-enditem|p2a: Roserade|Occa Berry|[eat]",
+        "|-enditem|p2a: Roserade|Occa Berry|[weaken]",
+        "|-damage|p2a: Roserade|13/100",
+        "|-unboost|p1a: Rotom|spa|2"
       ]
     },
     {
       "11": [
-        "|move|p1a: Linoone|Extreme Speed|p2a: Togepi",
-        "|-damage|p2a: Togepi|0 fnt",
-        "|faint|p2a: Togepi"
+        "|switch|p2a: Garchomp|Garchomp|88/100 psn",
+        "|move|p1a: Rotom|Overheat|p2a: Garchomp",
+        "|-resisted|p2a: Garchomp",
+        "|-damage|p2a: Garchomp|73/100 psn",
+        "|-unboost|p1a: Rotom|spa|2",
+        "|-damage|p2a: Garchomp|61/100 psn|[from] psn"
+      ]
+    },
+    {
+      "12": [
+        "|switch|p2a: Tapu Koko|Tapu Koko|100/100",
+        "|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Tapu Koko",
+        "|move|p1a: Rotom|Volt Switch|p2a: Tapu Koko",
+        "|-resisted|p2a: Tapu Koko",
+        "|-damage|p2a: Tapu Koko|92/100",
+        "|switch|p1a: Torterra|Torterra|100/100"
+      ]
+    },
+    {
+      "13": [
+        "|move|p2a: Tapu Koko|Guardian of Alola|p1a: Torterra|[zeffect]",
+        "|-damage|p1a: Torterra|26/100",
+        "|move|p1a: Torterra|Rock Polish|p1a: Torterra",
+        "|-boost|p1a: Torterra|spe|2"
+      ]
+    },
+    {
+      "14": [
+        "|switch|p2a: Bronzong|Bronzong|48/100",
+        "|move|p1a: Torterra|Crunch|p2a: Bronzong",
+        "|-supereffective|p2a: Bronzong",
+        "|-damage|p2a: Bronzong|12/100"
+      ]
+    },
+    {
+      "15": [
+        "|move|p1a: Torterra|Crunch|p2a: Bronzong",
+        "|-supereffective|p2a: Bronzong",
+        "|-damage|p2a: Bronzong|0 fnt",
+        "|faint|p2a: Bronzong",
+        "|switch|p2a: Garchomp|Garchomp|61/100 psn"
+      ]
+    },
+    {
+      "16": [
+        "|move|p2a: Garchomp|Dual Chop|p1a: Torterra",
+        "|-damage|p1a: Torterra|6/100",
+        "|-damage|p1a: Torterra|0 fnt",
+        "|-hitcount|p1a: Torterra|2",
+        "|faint|p1a: Torterra",
+        "|-damage|p2a: Garchomp|48/100 psn|[from] psn",
+        "|-fieldend|move: Electric Terrain",
+        "|switch|p1a: Sableye|Sableye-Mega|100/100"
+      ]
+    },
+    {
+      "17": [
+        "|switch|p2a: Tapu Koko|Tapu Koko|92/100",
+        "|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Tapu Koko",
+        "|move|p1a: Sableye|Calm Mind|p1a: Sableye",
+        "|-boost|p1a: Sableye|spa|1",
+        "|-boost|p1a: Sableye|spd|1"
+      ]
+    },
+    {
+      "18": [
+        "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye",
+        "|-supereffective|p1a: Sableye",
+        "|-damage|p1a: Sableye|55/100",
+        "|move|p1a: Sableye|Calm Mind|p1a: Sableye",
+        "|-boost|p1a: Sableye|spa|1",
+        "|-boost|p1a: Sableye|spd|1"
+      ]
+    },
+    {
+      "19": [
+        "|switch|p2a: Roserade|Roserade|13/100",
+        "|move|p1a: Sableye|Recover|p1a: Sableye",
+        "|-heal|p1a: Sableye|100/100"
+      ]
+    },
+    {
+      "20": [
+        "|move|p2a: Roserade|Sludge Bomb|p1a: Sableye",
+        "|-resisted|p1a: Sableye",
+        "|-damage|p1a: Sableye|92/100",
+        "|move|p1a: Sableye|Calm Mind|p1a: Sableye",
+        "|-boost|p1a: Sableye|spa|1",
+        "|-boost|p1a: Sableye|spd|1"
+      ]
+    },
+    {
+      "21": [
+        "|move|p2a: Roserade|Sludge Bomb|p1a: Sableye",
+        "|-resisted|p1a: Sableye",
+        "|-damage|p1a: Sableye|84/100",
+        "|move|p1a: Sableye|Shadow Ball|p2a: Roserade",
+        "|-damage|p2a: Roserade|0 fnt",
+        "|faint|p2a: Roserade",
+        "|-fieldend|move: Electric Terrain",
+        "|switch|p2a: Garchomp|Garchomp|48/100 psn"
+      ]
+    },
+    {
+      "22": [
+        "|switch|p2a: Tapu Koko|Tapu Koko|92/100",
+        "|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Tapu Koko",
+        "|move|p1a: Sableye|Recover|p1a: Sableye",
+        "|-heal|p1a: Sableye|100/100"
+      ]
+    },
+    {
+      "23": [
+        "|move|p2a: Tapu Koko|Nature's Madness|p1a: Sableye",
+        "|-damage|p1a: Sableye|50/100",
+        "|move|p1a: Sableye|Calm Mind|p1a: Sableye",
+        "|-boost|p1a: Sableye|spa|1",
+        "|-boost|p1a: Sableye|spd|1"
+      ]
+    },
+    {
+      "24": [
+        "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye",
+        "|-supereffective|p1a: Sableye",
+        "|-damage|p1a: Sableye|27/100",
+        "|move|p1a: Sableye|Recover|p1a: Sableye",
+        "|-heal|p1a: Sableye|77/100"
+      ]
+    },
+    {
+      "25": [
+        "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye",
+        "|-supereffective|p1a: Sableye",
+        "|-damage|p1a: Sableye|52/100",
+        "|move|p1a: Sableye|Recover|p1a: Sableye",
+        "|-heal|p1a: Sableye|100/100"
+      ]
+    },
+    {
+      "26": [
+        "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye",
+        "|-supereffective|p1a: Sableye",
+        "|-damage|p1a: Sableye|78/100",
+        "|move|p1a: Sableye|Calm Mind|p1a: Sableye",
+        "|-boost|p1a: Sableye|spa|1",
+        "|-boost|p1a: Sableye|spd|1",
+        "|-fieldend|move: Electric Terrain"
+      ]
+    },
+    {
+      "27": [
+        "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye",
+        "|-supereffective|p1a: Sableye",
+        "|-damage|p1a: Sableye|56/100",
+        "|move|p1a: Sableye|Calm Mind|p1a: Sableye",
+        "|-boost|p1a: Sableye|spa|1",
+        "|-boost|p1a: Sableye|spd|1"
+      ]
+    },
+    {
+      "28": [
+        "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye",
+        "|-supereffective|p1a: Sableye",
+        "|-damage|p1a: Sableye|37/100",
+        "|move|p1a: Sableye|Recover|p1a: Sableye",
+        "|-heal|p1a: Sableye|87/100"
+      ]
+    },
+    {
+      "29": [
+        "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye",
+        "|-supereffective|p1a: Sableye",
+        "|-damage|p1a: Sableye|70/100",
+        "|move|p1a: Sableye|Recover|p1a: Sableye",
+        "|-heal|p1a: Sableye|100/100"
+      ]
+    },
+    {
+      "30": [
+        "|move|p2a: Tapu Koko|Dazzling Gleam|p1a: Sableye",
+        "|-supereffective|p1a: Sableye",
+        "|-damage|p1a: Sableye|84/100",
+        "|move|p1a: Sableye|Shadow Ball|p2a: Tapu Koko",
+        "|-damage|p2a: Tapu Koko|0 fnt",
+        "|faint|p2a: Tapu Koko",
+        "|switch|p2a: Scrafty|Scrafty|100/100"
+      ]
+    },
+    {
+      "31": [
+        "|move|p2a: Scrafty|Bulk Up|p2a: Scrafty",
+        "|-boost|p2a: Scrafty|atk|1",
+        "|-boost|p2a: Scrafty|def|1",
+        "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty",
+        "|-resisted|p2a: Scrafty",
+        "|-damage|p2a: Scrafty|60/100",
+        "|-heal|p2a: Scrafty|66/100|[from] item: Leftovers"
+      ]
+    },
+    {
+      "32": [
+        "|move|p2a: Scrafty|Bulk Up|p2a: Scrafty",
+        "|-boost|p2a: Scrafty|atk|1",
+        "|-boost|p2a: Scrafty|def|1",
+        "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty",
+        "|-resisted|p2a: Scrafty",
+        "|-damage|p2a: Scrafty|31/100",
+        "|-heal|p2a: Scrafty|37/100|[from] item: Leftovers"
+      ]
+    },
+    {
+      "33": [
+        "|move|p2a: Scrafty|Rest|p2a: Scrafty",
+        "|-status|p2a: Scrafty|slp",
+        "|-heal|p2a: Scrafty|100/100 slp|[silent]",
+        "|-status|p2a: Scrafty|slp|[from] move: Rest",
+        "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty",
+        "|-resisted|p2a: Scrafty",
+        "|-damage|p2a: Scrafty|63/100 slp",
+        "|-unboost|p2a: Scrafty|spd|1",
+        "|-heal|p2a: Scrafty|69/100 slp|[from] item: Leftovers"
+      ]
+    },
+    {
+      "34": [
+        "|switch|p2a: Garchomp|Garchomp|48/100 psn",
+        "|move|p1a: Sableye|Shadow Ball|p2a: Garchomp",
+        "|-damage|p2a: Garchomp|0 fnt",
+        "|faint|p2a: Garchomp",
+        "|switch|p2a: Scrafty|Scrafty|69/100 slp"
+      ]
+    },
+    {
+      "35": [
+        "|cant|p2a: Scrafty|slp",
+        "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty",
+        "|-resisted|p2a: Scrafty",
+        "|-damage|p2a: Scrafty|31/100 slp",
+        "|-unboost|p2a: Scrafty|spd|1",
+        "|-heal|p2a: Scrafty|37/100 slp|[from] item: Leftovers"
+      ]
+    },
+    {
+      "36": [
+        "|cant|p2a: Scrafty|slp",
+        "|move|p1a: Sableye|Shadow Ball|p2a: Scrafty",
+        "|-resisted|p2a: Scrafty",
+        "|-damage|p2a: Scrafty|0 fnt",
+        "|faint|p2a: Scrafty",
+        "|switch|p2a: Keldeo|Keldeo|100/100"
+      ]
+    },
+    {
+      "37": [
+        "|move|p2a: Keldeo|Hydro Pump|p1a: Sableye",
+        "|-damage|p1a: Sableye|67/100",
+        "|move|p1a: Sableye|Shadow Ball|p2a: Keldeo",
+        "|-damage|p2a: Keldeo|0 fnt",
+        "|faint|p2a: Keldeo"
       ]
     }
   ],
-  "replay": "https://replay.pokemonshowdown.com/gen7oublitz-983160541",
+  "replay": "https://replay.pokemonshowdown.com/draftfrontier-gen7draftleaguetier-78258",
   "significantevents": [
     [
-      2,
-      "Silvally was killed by Azumarill."
-    ],
-    [
-      4,
-      "Togekiss was killed by Azumarill."
+      3,
+      "Nihilego provided support by using Toxic Spikes"
     ],
     [
       5,
-      "Porygon-Z was killed by Azumarill."
+      "Nihilego was killed by Roserade."
     ],
     [
-      6,
-      "Porygon2 was killed by Azumarill."
+      15,
+      "Bronzong was killed by Torterra."
     ],
     [
-      7,
-      "Azumarill was killed by Togetic."
+      21,
+      "Roserade was killed by Sableye-Mega."
     ],
     [
-      10,
-      "Togetic was killed by Linoone."
+      30,
+      "Tapu Koko was killed by Sableye-Mega."
     ],
     [
-      11,
-      "Togepi was killed by Linoone."
+      34,
+      "Garchomp was killed by Sableye-Mega."
+    ],
+    [
+      36,
+      "Scrafty was killed by Sableye-Mega."
+    ],
+    [
+      37,
+      "Keldeo was killed by Sableye-Mega."
     ]
   ]
 }
