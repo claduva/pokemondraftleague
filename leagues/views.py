@@ -589,15 +589,18 @@ def set_draft_order(request,league_name,subleague_name):
                     order.append(coachdata.objects.filter(teamname=request.POST[str(i+1)],subleague=subleague).first())
                 flippedorder=order[::-1]
                 numberofpicks=seasonsettings.picksperteam
+                id_=roster.objects.all().order_by('-id').first().id
                 for i in range(numberofpicks):
                     if i%2 == 0:
                         for item in order:
+                            id_+=1
                             draft.objects.create(season=seasonsettings,team=item)
-                            roster.objects.create(season=seasonsettings,team=item)
+                            roster.objects.create(id=id_,season=seasonsettings,team=item)
                     else:    
                         for item in flippedorder:
+                            id_+=1
                             draft.objects.create(season=seasonsettings,team=item)
-                            roster.objects.create(season=seasonsettings,team=item)
+                            roster.objects.create(id=id_,season=seasonsettings,team=item)
         elif formpurpose=='Randomize':
             currentdraft=draft.objects.all().filter(season=seasonsettings).delete()
             currentroster=roster.objects.all().filter(season=seasonsettings).delete()
@@ -608,15 +611,18 @@ def set_draft_order(request,league_name,subleague_name):
             random.shuffle(order)
             flippedorder=order[::-1]
             numberofpicks=seasonsettings.picksperteam
+            id_=roster.objects.all().order_by('id').last().id
             for i in range(numberofpicks):
-                    if i%2 == 0:
-                        for item in order:
-                            draft.objects.create(season=seasonsettings,team=item)
-                            roster.objects.create(season=seasonsettings,team=item)
-                    else:    
-                        for item in flippedorder:
-                            draft.objects.create(season=seasonsettings,team=item)
-                            roster.objects.create(season=seasonsettings,team=item)
+                if i%2 == 0:
+                    for item in order:
+                        id_+=1
+                        draft.objects.create(season=seasonsettings,team=item)
+                        roster.objects.create(id=id_,season=seasonsettings,team=item)
+                else:    
+                    for item in flippedorder:
+                        id_+=1
+                        draft.objects.create(season=seasonsettings,team=item)
+                        roster.objects.create(id=id_,season=seasonsettings,team=item)
         messages.success(request,'Draft order has been set!')
         return redirect('individual_league_settings',league_name=league_name)        
     context = {

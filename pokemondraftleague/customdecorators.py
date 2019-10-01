@@ -27,7 +27,6 @@ def check_if_subleague(view):
         except Exception as e:
             print('subleague')
             print(e)
-            raise(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),
@@ -44,7 +43,6 @@ def check_if_season(view):
         except Exception as e:
             print(e)
             print('season')
-            raise(e)
             messages.error(request,'Season does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),
