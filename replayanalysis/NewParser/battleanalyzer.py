@@ -8,6 +8,7 @@ def gothroughturns(logfile,results):
         #check luck
         results=luckcheck(results,turndata,i)
         results=supportcheck(results,turndata,i)
+        results=damagecheck(results,turndata,i)
         for line in turndata:
             #add to line data
             for mon in results['team1']['roster']:
@@ -112,6 +113,30 @@ def supportiterator(results,line,team,move,turn):
             mon['support']+=1
             pokemon=mon['pokemon']
     results['significantevents'].append([turn,f'{pokemon} provided support by using {move}'])
+    return results,pokemon
+
+def damagecheck(results,turndata,turn):
+    #Stealth Rock, 
+    for line in turndata:
+        if line.find("|-damage|p1a: ")>-1:
+            endhp=line.split("|")[3].split("/")[0].split(" ")[0]
+            damagedpokemon=line.split(" ",1)[1].split("|")[0]
+            #print(damagedpokemon)
+        if line.find("|-damage|p2a: ")>-1:
+            endhp=line.split("|")[3].split("/")[0].split(" ")[0]
+            damagedpokemon=line.split(" ",1)[1].split("|")[0]
+            #print(damagedpokemon)
+    return results
+
+def damageiterator(results,line,team,move,turn):
+    results[team]['support']+=1
+    pokemon=line.split(' ',1)[1].split(f"|{move}")[0]
+    for mon in results[team]['roster']:
+        if mon['nickname']==pokemon:
+            mon['support']+=1
+            pokemon=mon['pokemon']
+    print(results['significantevents'])
+    #results['significantevents'].append([turn,f'{pokemon} provided support by using {move}'])
     return results,pokemon
 
 def checkdeath(line,results,index,turndata):

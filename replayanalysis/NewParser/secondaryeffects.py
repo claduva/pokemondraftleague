@@ -5,7 +5,7 @@ def freezecheck(results,remaininglines,turn,item,line,recipient,attacker,otherte
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Freeze Happened')
+            #print('Freeze Happened')
             break
     return results
 
@@ -16,7 +16,7 @@ def paralysischeck(results,remaininglines,turn,item,line,recipient,attacker,othe
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Paralysis Happened')
+            #print('Paralysis Happened')
             break
     return results
 
@@ -27,7 +27,7 @@ def burncheck(results,remaininglines,turn,item,line,recipient,attacker,otherteam
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Burn Happened')
+            #print('Burn Happened')
             break
     return results
 
@@ -38,7 +38,7 @@ def poisoncheck(results,remaininglines,turn,item,line,recipient,attacker,otherte
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Poison Happened')
+            #print('Poison Happened')
             break
     return results
 
@@ -49,7 +49,7 @@ def toxiccheck(results,remaininglines,turn,item,line,recipient,attacker,othertea
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Toxic Happened')
+            #print('Toxic Happened')
             break
     return results
 
@@ -60,7 +60,7 @@ def sleepcheck(results,remaininglines,turn,item,line,recipient,attacker,othertea
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Sleep Happened')
+            #print('Sleep Happened')
             break
     return results
 
@@ -71,7 +71,7 @@ def flinchcheck(results,remaininglines,turn,item,line,recipient,attacker,otherte
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Flinch Happened')
+            #print('Flinch Happened')
             break
     return results
 
@@ -82,7 +82,7 @@ def confusioncheck(results,remaininglines,turn,item,line,recipient,attacker,othe
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Confusion Happened')
+            #print('Confusion Happened')
             break
     return results
 
@@ -93,7 +93,7 @@ def selfboostcheck(results,remaininglines,turn,item,line,recipient,attacker,this
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Self Boosts Happened')
+            #print('Self Boosts Happened')
             break
     return results
 
@@ -104,7 +104,7 @@ def boostcheck(results,remaininglines,turn,item,line,recipient,attacker,othertea
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Unboosts Happened')
+            #print('Unboosts Happened')
             break
     return results
 
@@ -115,7 +115,7 @@ def triattackcheck(results,remaininglines,turn,item,line,recipient,attacker,othe
             team2expectedsecondaryeffectagainst=oddsofeffect
             results,attacker=luckiterator(results,attacker,'team1',team1expectedsecondaryeffect)
             results,recipient=luckiterator(results,recipient,'team2',-team2expectedsecondaryeffectagainst)
-            print('Tri Attack Happened')
+            #print('Tri Attack Happened')
             break
     return results
 

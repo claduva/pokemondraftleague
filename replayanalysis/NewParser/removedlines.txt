@@ -1,7 +1,5 @@
 |j|☆muskrat catcher
 |j|☆ECE young
-|player|p1|muskrat catcher|129
-|player|p2|ECE young|264
 |teamsize|p1|6
 |teamsize|p2|6
 |gametype|singles
@@ -15,18 +13,6 @@
 |rule|Endless Battle Clause: Forcing endless battles is banned
 |rule|HP Percentage Mod: HP is shown in percentages
 |clearpoke
-|poke|p1|Sableye|item
-|poke|p1|Torterra|item
-|poke|p1|Rotom-Heat|item
-|poke|p1|Nihilego|item
-|poke|p1|Tentacruel|item
-|poke|p1|Clefable|item
-|poke|p2|Tapu Koko|item
-|poke|p2|Garchomp|item
-|poke|p2|Keldeo|item
-|poke|p2|Roserade|item
-|poke|p2|Scrafty|item
-|poke|p2|Bronzong|item
 |teampreview
 |c|☆ECE young|hf man
 |j| terravinn
@@ -43,7 +29,7 @@
 |j| bkendrick678932
 |
 |-mega|p1a: Sableye|Sableye|Sablenite
-|detailschange|p1a: Sableye|Sableye-Mega
+|detailschange|p1a: Sableye|Sableye-Mega, M
 |
 |upkeep
 |

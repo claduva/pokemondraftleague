@@ -43,6 +43,7 @@ def check_if_season(view):
         except Exception as e:
             print(e)
             print('season')
+            raise(e)
             messages.error(request,'Season does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),

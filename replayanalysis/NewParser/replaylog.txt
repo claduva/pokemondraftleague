@@ -1,5 +1,19 @@
-|switch|p1a: Sableye|Sableye|100/100
-|switch|p2a: Roserade|Roserade|100/100
+|player|p1|muskrat catcher|129
+|player|p2|ECE young|264
+|poke|p1|Sableye, M|item
+|poke|p1|Torterra, M|item
+|poke|p1|Rotom-Heat|item
+|poke|p1|Nihilego|item
+|poke|p1|Tentacruel, F|item
+|poke|p1|Clefable, M|item
+|poke|p2|Tapu Koko|item
+|poke|p2|Garchomp, M|item
+|poke|p2|Keldeo|item
+|poke|p2|Roserade, F|item
+|poke|p2|Scrafty, F|item
+|poke|p2|Bronzong|item
+|switch|p1a: Sableye|Sableye, M|100/100
+|switch|p2a: Roserade|Roserade, F|100/100
 |turn|1
 |move|p2a: Roserade|Sludge Bomb|p1a: Sableye
 |-resisted|p1a: Sableye
@@ -40,15 +54,15 @@
 |-damage|p2a: Bronzong|48/100
 |-unboost|p1a: Rotom|spa|2
 |turn|7
-|switch|p2a: Garchomp|Garchomp|100/100
+|switch|p2a: Garchomp|Garchomp, M|100/100
 |-status|p2a: Garchomp|psn
 |move|p1a: Rotom|Volt Switch|p2a: Garchomp
 |-immune|p2a: Garchomp|[msg]
 |-damage|p2a: Garchomp|88/100 psn|[from] psn
 |turn|8
-|switch|p2a: Roserade|Roserade|31/100
+|switch|p2a: Roserade|Roserade, F|31/100
 |-sideend|p2: ECE young|move: Toxic Spikes|[of] p2a: Roserade
-|switch|p1a: Clefable|Clefable|100/100
+|switch|p1a: Clefable|Clefable, M|100/100
 |turn|9
 |switch|p1a: Rotom|Rotom-Heat|100/100
 |move|p2a: Roserade|Sludge Bomb|p1a: Rotom
@@ -63,7 +77,7 @@
 |-damage|p2a: Roserade|13/100
 |-unboost|p1a: Rotom|spa|2
 |turn|11
-|switch|p2a: Garchomp|Garchomp|88/100 psn
+|switch|p2a: Garchomp|Garchomp, M|88/100 psn
 |move|p1a: Rotom|Overheat|p2a: Garchomp
 |-resisted|p2a: Garchomp
 |-damage|p2a: Garchomp|73/100 psn
@@ -75,7 +89,7 @@
 |move|p1a: Rotom|Volt Switch|p2a: Tapu Koko
 |-resisted|p2a: Tapu Koko
 |-damage|p2a: Tapu Koko|92/100
-|switch|p1a: Torterra|Torterra|100/100
+|switch|p1a: Torterra|Torterra, M|100/100
 |turn|13
 |move|p2a: Tapu Koko|Guardian of Alola|p1a: Torterra|[zeffect]
 |-damage|p1a: Torterra|26/100
@@ -91,7 +105,7 @@
 |-supereffective|p2a: Bronzong
 |-damage|p2a: Bronzong|0 fnt
 |faint|p2a: Bronzong
-|switch|p2a: Garchomp|Garchomp|61/100 psn
+|switch|p2a: Garchomp|Garchomp, M|61/100 psn
 |turn|16
 |move|p2a: Garchomp|Dual Chop|p1a: Torterra
 |-damage|p1a: Torterra|6/100
@@ -100,7 +114,7 @@
 |faint|p1a: Torterra
 |-damage|p2a: Garchomp|48/100 psn|[from] psn
 |-fieldend|move: Electric Terrain
-|switch|p1a: Sableye|Sableye-Mega|100/100
+|switch|p1a: Sableye|Sableye-Mega, M|100/100
 |turn|17
 |switch|p2a: Tapu Koko|Tapu Koko|92/100
 |-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Tapu Koko
@@ -115,7 +129,7 @@
 |-boost|p1a: Sableye|spa|1
 |-boost|p1a: Sableye|spd|1
 |turn|19
-|switch|p2a: Roserade|Roserade|13/100
+|switch|p2a: Roserade|Roserade, F|13/100
 |move|p1a: Sableye|Recover|p1a: Sableye
 |-heal|p1a: Sableye|100/100
 |turn|20
@@ -133,7 +147,7 @@
 |-damage|p2a: Roserade|0 fnt
 |faint|p2a: Roserade
 |-fieldend|move: Electric Terrain
-|switch|p2a: Garchomp|Garchomp|48/100 psn
+|switch|p2a: Garchomp|Garchomp, M|48/100 psn
 |turn|22
 |switch|p2a: Tapu Koko|Tapu Koko|92/100
 |-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Tapu Koko
@@ -191,7 +205,7 @@
 |move|p1a: Sableye|Shadow Ball|p2a: Tapu Koko
 |-damage|p2a: Tapu Koko|0 fnt
 |faint|p2a: Tapu Koko
-|switch|p2a: Scrafty|Scrafty|100/100
+|switch|p2a: Scrafty|Scrafty, F|100/100
 |turn|31
 |move|p2a: Scrafty|Bulk Up|p2a: Scrafty
 |-boost|p2a: Scrafty|atk|1
@@ -219,11 +233,11 @@
 |-unboost|p2a: Scrafty|spd|1
 |-heal|p2a: Scrafty|69/100 slp|[from] item: Leftovers
 |turn|34
-|switch|p2a: Garchomp|Garchomp|48/100 psn
+|switch|p2a: Garchomp|Garchomp, M|48/100 psn
 |move|p1a: Sableye|Shadow Ball|p2a: Garchomp
 |-damage|p2a: Garchomp|0 fnt
 |faint|p2a: Garchomp
-|switch|p2a: Scrafty|Scrafty|69/100 slp
+|switch|p2a: Scrafty|Scrafty, F|69/100 slp
 |turn|35
 |cant|p2a: Scrafty|slp
 |move|p1a: Sableye|Shadow Ball|p2a: Scrafty
