@@ -66,19 +66,42 @@ def damage_function(line,parsedlogfile,results):
     previoushealth=pokemon['remaininghealth']
     pokemon['remaininghealth']=healthremaining
     damagedone=previoushealth-healthremaining
-    #update fainted
-    if healthremaining==0:
-        pokemon['deaths']=1
-        results['significantevents'].append([line[1],f"{pokemon['pokemon']} fainted"])
     #determine damager
     if line[3].find("[from]")>-1:
         #not direct damage consider future sight
         cause=None
     else:
         #search for damager
-        turndata=list(filter(lambda x: x[1] == line[1] and x[0] < line[0], parsedlogfile))
-        print(turndata)
+        damager,move=damager_search(parsedlogfile,line,team,pokemon,results,damagedone)
+    #update fainted
+    if healthremaining==0:
+        pokemon['deaths']=1
+        if damager: 
+            damager['kills']+=1
+            results['significantevents'].append([line[1],f"{damager['pokemon']} killed {pokemon['pokemon']} with {move}"])
+        else: 
+            results['significantevents'].append([line[1],f"{pokemon['pokemon']} fainted"])
     return line,parsedlogfile,results
+
+def damager_search(parsedlogfile,line,team,pokemon,results,damagedone):
+    damager=None
+    move=None
+    turndata=list(filter(lambda x: x[1] == line[1] and x[0] < line[0], parsedlogfile))
+    turndata=turndata[::-1]
+    for line in turndata:
+        if team=="p1a":
+            if line[2]=="move" and line[3].split(":",1)[0]=="p2a" and line[3].find(f"p1a: {pokemon['pokemon']}")>-1:
+                damager=line[3].split(" ",1)[1].split("|",1)[0]
+                damager=roster_search("p2a",damager,results)
+                damager['damagedone']+=damagedone
+                move=line[3].split("|")[1]
+        elif team=="p2a":
+            if line[2]=="move" and line[3].split(":",1)[0]=="p1a" and line[3].find(f"p2a: {pokemon['pokemon']}")>-1:
+                damager=line[3].split(" ",1)[1].split("|",1)[0]
+                damager=roster_search("p1a",damager,results)
+                damager['damagedone']+=damagedone
+                move=line[3].split("|")[1]
+    return damager,move
 
 def player_function(line,parsedlogfile,results):
     if line[3].split("|",1)[0]=="p1":
@@ -140,6 +163,7 @@ def message_function(line,parsedlogfile,results):
 
 def namecheck(results,line,teamnumber):
     nicknamesearch=line[3].split(" ",1)[1].split("|")
+    healthremaining=int(line[3].split("|")[2].split("/",1)[0])
     if nicknamesearch[0]!=nicknamesearch[1] and nicknamesearch[1].find(f"{nicknamesearch[0]}-")==-1:
         if nicknamesearch[1].find("Silvally-")>-1:
             line[3]=line[3].replace(nicknamesearch[1],"Silvally")
@@ -147,6 +171,7 @@ def namecheck(results,line,teamnumber):
         for item in results[f'team{teamnumber}']['roster']:
             if item['pokemon']==nicknamesearch[1]:
                 item['nickname']=nicknamesearch[0]
+                item['remaininghealth']=healthremaining
     else:
         if nicknamesearch[1].find("Silvally-")>-1:
             line[3]=line[3].replace(nicknamesearch[1],"Silvally")
@@ -155,6 +180,7 @@ def namecheck(results,line,teamnumber):
             if item['pokemon']==nicknamesearch[1] and nicknamesearch[1].find("-Mega")==-1:
                 item['startform']=nicknamesearch[0]
                 item['nickname']=nicknamesearch[0]
+                item['remaininghealth']=healthremaining
     if line[2]=="switch":    
         results[f'team{teamnumber}']['timesswitched']+=1
     return results,line

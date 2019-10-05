@@ -6,11 +6,11 @@
         "pokemon": "Sableye-Mega",
         "startform": "Sableye",
         "nickname": "Sableye",
-        "kills": 0,
+        "kills": 5,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 359,
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 67,
@@ -20,11 +20,11 @@
         "pokemon": "Torterra",
         "startform": "Torterra",
         "nickname": "Torterra",
-        "kills": 0,
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 48,
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 0,
@@ -38,7 +38,7 @@
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 93,
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 57,
@@ -52,7 +52,7 @@
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 69,
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 0,
@@ -113,7 +113,7 @@
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 74,
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 0,
@@ -123,11 +123,11 @@
         "pokemon": "Garchomp",
         "startform": "Garchomp",
         "nickname": "Garchomp",
-        "kills": 0,
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 26,
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 0,
@@ -151,11 +151,11 @@
         "pokemon": "Roserade",
         "startform": "Roserade",
         "nickname": "Roserade",
-        "kills": 0,
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 100,
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 0,
@@ -211,35 +211,35 @@
   "significantevents": [
     [
       5,
-      "Nihilego fainted"
+      "Roserade killed Nihilego with Hidden Power"
     ],
     [
       15,
-      "Bronzong fainted"
+      "Torterra killed Bronzong with Crunch"
     ],
     [
       16,
-      "Torterra fainted"
+      "Garchomp killed Torterra with Dual Chop"
     ],
     [
       21,
-      "Roserade fainted"
+      "Sableye-Mega killed Roserade with Shadow Ball"
     ],
     [
       30,
-      "Tapu Koko fainted"
+      "Sableye-Mega killed Tapu Koko with Shadow Ball"
     ],
     [
       34,
-      "Garchomp fainted"
+      "Sableye-Mega killed Garchomp with Shadow Ball"
     ],
     [
       36,
-      "Scrafty fainted"
+      "Sableye-Mega killed Scrafty with Shadow Ball"
     ],
     [
       37,
-      "Keldeo fainted"
+      "Sableye-Mega killed Keldeo with Shadow Ball"
     ]
   ]
 }

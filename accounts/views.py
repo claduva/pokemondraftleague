@@ -172,8 +172,8 @@ def accept_trade(request,messageid):
         messageofinterest.traderequest.delete()   
         messages.success(request,'Trade request accepted!')
         league_=offeredteam.league_name
-        discordserver=league_.discord_settings.discordserver
-        discordchannel=league_.discord_settings.tradechannel
+        discordserver=league_.subleague.first().discord_settings.discordserver
+        discordchannel=league_.subleague.first().discord_settings.tradechannel
         request_league=seasonsetting.objects.get(league=league_)
         league_start=request_league.seasonstart
         elapsed=offered_.timeadded-league_start
