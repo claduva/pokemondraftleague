@@ -1057,24 +1057,21 @@ def create_match(request,league_name,subleague_name):
     needednumberofcoaches=leaguesettings.number_of_teams
     currentcoaches=coachdata.objects.filter(league_name=subleague.league)
     currentcoachescount=len(currentcoaches)
-    if needednumberofcoaches != currentcoachescount: 
-        messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
-        return redirect('individual_league_settings',league_name=league_name)
-    form = CreateMatchForm(seasonsettings,subleague.league,initial={'season':seasonsettings})
+    form = CreateMatchForm(seasonsettings,subleague,initial={'season':seasonsettings})
     settingheading='Create New Match'
     edit=False
     matchid=None
     if request.method == 'POST':  
         formpurpose=request.POST['formpurpose']
         if formpurpose=="Create":
-            form = CreateMatchForm(seasonsettings,subleague.league,request.POST)
+            form = CreateMatchForm(seasonsettings,subleague,request.POST)
             if form.is_valid() :
                 form.save()
                 messages.success(request,'That match has been added!')
             return redirect('create_match',league_name=league_name,subleague_name=subleague_name)
         elif formpurpose=="Submit":
             matchofinterest=schedule.objects.get(id=request.POST['matchid'])
-            form = CreateMatchForm(seasonsettings,subleague.league,request.POST,instance=matchofinterest)
+            form = CreateMatchForm(seasonsettings,subleague,request.POST,instance=matchofinterest)
             if form.is_valid() :
                 form.save()
                 messages.success(request,'That match has been added!')
@@ -1083,7 +1080,7 @@ def create_match(request,league_name,subleague_name):
             return redirect('create_match',league_name=league_name,subleague_name=subleague_name)
         elif formpurpose=="Edit":
             matchofinterest=schedule.objects.get(id=request.POST['matchid'])
-            form = CreateMatchForm(seasonsettings,league_,instance=matchofinterest)
+            form = CreateMatchForm(seasonsettings,subleague,instance=matchofinterest)
             settingheading='Edit Match'
             matchid=matchofinterest.id
             edit=True

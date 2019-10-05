@@ -135,8 +135,7 @@ def damageiterator(results,line,team,move,turn):
         if mon['nickname']==pokemon:
             mon['support']+=1
             pokemon=mon['pokemon']
-    print(results['significantevents'])
-    #results['significantevents'].append([turn,f'{pokemon} provided support by using {move}'])
+    results['significantevents'].append([turn,f'{pokemon} provided support by using {move}'])
     return results,pokemon
 
 def checkdeath(line,results,index,turndata):

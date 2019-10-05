@@ -10,8 +10,8 @@
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 359,
-        "hphealed": 0,
+        "damagedone": 440,
+        "hphealed": 257,
         "luck": 0,
         "remaininghealth": 67,
         "lines": []
@@ -38,7 +38,7 @@
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 93,
+        "damagedone": 142,
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 57,
@@ -51,7 +51,7 @@
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
+        "support": 1,
         "damagedone": 69,
         "hphealed": 0,
         "luck": 0,
@@ -156,7 +156,7 @@
         "causeofdeath": null,
         "support": 0,
         "damagedone": 100,
-        "hphealed": 0,
+        "hphealed": 49,
         "luck": 0,
         "remaininghealth": 0,
         "lines": []
@@ -170,7 +170,7 @@
         "causeofdeath": null,
         "support": 0,
         "damagedone": 0,
-        "hphealed": 0,
+        "hphealed": 87,
         "luck": 0,
         "remaininghealth": 0,
         "lines": []
@@ -209,6 +209,10 @@
   "turns": [],
   "replay": "https://replay.pokemonshowdown.com/draftfrontier-gen7draftleaguetier-78258",
   "significantevents": [
+    [
+      3,
+      "Nihilego provided support by using Toxic Spikes"
+    ],
     [
       5,
       "Roserade killed Nihilego with Hidden Power"

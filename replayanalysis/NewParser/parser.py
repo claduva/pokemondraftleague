@@ -1,19 +1,19 @@
 import requests
 import json
 
-from .battleanalyzer import *
-
 def replay_parse_switch(argument,parsedlogfile,results):
     switcher = {
         'damage': damage_function,
+        'detailschange': detailschange_function,
+        'drag': switch_drag_function,
+        'heal':heal_function,
+        'message': message_function,
+        'move': move_function,
         'player': player_function,
         'poke': poke_function,
-        'win': win_function,
         'switch': switch_drag_function,
-        'drag': switch_drag_function,
-        'message': message_function,
+        'win': win_function,
         'zpower': zpower_function,
-        'detailschange': detailschange_function,
         #gen,turn,start,tie,detailschange,transform,formechange,switchout,faint,swap,move,cant,message,start,end,ability,endability,item,enditem,status,curestatus,cureteam,singleturn,singlemove,sidestart,sideend,weather,fieldstart,fieldend,sethp,message,hint,activate,heal,boost,unboost,setboost,swapboost,copyboost,clearboost,clearpositiveboost,clearnegativeboost,invertboost,clearallboost,crit,supereffective,resisted,block,fail,immune,miss,center,notarget,mega,primal,zpower,burst,zbroken,hitcount,waiting,anim
     }
     # Get the function from switcher dictionary
@@ -102,6 +102,43 @@ def damager_search(parsedlogfile,line,team,pokemon,results,damagedone):
                 damager['damagedone']+=damagedone
                 move=line[3].split("|")[1]
     return damager,move
+
+def heal_function(line,parsedlogfile,results):
+    team=line[3].split(":",1)[0]
+    pokemon=line[3].split(" ",1)[1].split("|")[0]
+    healthremaining=int(line[3].split("|",1)[1].split("/",1)[0])
+    #searchroster
+    pokemon=roster_search(team,pokemon,results)
+    #update remaining health
+    previoushealth=pokemon['remaininghealth']
+    pokemon['remaininghealth']=healthremaining
+    healthhealed=healthremaining-previoushealth
+    #update health healed
+    pokemon['hphealed']+=healthhealed
+    return line,parsedlogfile,results
+
+def move_function(line,parsedlogfile,results):
+    move=line[3].split("|")[1]
+    team=line[3].split(":",1)[0]
+    #check for support
+    results=supportcheck(results,move,team,line)
+    return line,parsedlogfile,results
+
+def supportcheck(results,move,team,line):
+    supportmoves=['Reflect','Light Screen','Heal Bell','Aromatherapy','Wish','Stealth Rocks','Spikes','Toxic Spikes','Sticky Web', 'Aurora Veil','Defog','Rapid Spin','Hail','Sandstorm','Sunny Day','Rain Dance','Encore','Taunt','Haze','Clear Smog','Roar','Whirlwind','Leech Seed','Toxic','Will-O-Wisp','Stun Spore','Poison Powder','Block','Mean Look','Dark Void','Destiny Bond','Disable','Electric Terrain','Embargo','Endure','Fairy Lock',"Forest's Curse",'Glare','Grass Whistle','Grassy Terrain','Gravity','Grudge','Heal Block','Healing Wish','Hypnosis','Lucky Chant','Lunar Dance','Magic Coat','Magic Room','Mean Look','Memento','Mist','Misty Terrain','Mud Sport','Parting Shot','Perish Song','Poison Gas','Psychic Terrain','Safeguard','Simple Beam','Sing','Skill Swap','Sleep Powder','Soak','Speed Swap','Spider Web','Spite','Spore','Sweet Kiss','Switcheroo','Tailwind','Thunder Wave','Torment','Toxic Thread','Trick','Trick Room','Water Sport','Wonder Room','Worry Seed','Yawn']
+    if move in supportmoves and team=="p1a":
+        supportiterator(results,line,'team1',move)
+    elif move in supportmoves and team=="p2a":
+        supportiterator(results,line,'team1',move)
+    return results
+
+def supportiterator(results,line,team,move):
+    pokemon=line[3].split(' ',1)[1].split(f"|{move}")[0]
+    #searchroster
+    pokemon=roster_search(team,pokemon,results)
+    pokemon['support']+=1
+    results['significantevents'].append([line[1],f"{pokemon['pokemon']} provided support by using {move}"])
+    return results,pokemon
 
 def player_function(line,parsedlogfile,results):
     if line[3].split("|",1)[0]=="p1":
