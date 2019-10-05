@@ -1,0 +1,68 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Settings{% endblock %}
+{% block head%}
+<script type="text/javascript" src="{% static 'accounts/scripts/admin.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/core.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/jquery.init.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/SelectFilter2.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/SelectBox.js' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/styles/widgets.css' %}" />
+
+{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="content-section">
+            <div class="d-flex justify-content-between">
+                <h3>Settings</h3>
+                {% if leagueshostedsettings %}
+                <a href="{% url 'leagues_hosted_settings' %}"><button class="btn btn-primary">Back</button></a>
+                {% endif %}
+            </div>
+            {% include 'settingssidebar.html' %}
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="content-section">
+            <div class="d-flex justify-content-between">
+                <h2>{{ settingheading }}</h2>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for form in forms %}
+                {{ form|crispy  }}
+                {% endfor %}
+                {% if edit %}
+                <input name="matchid" value='{{matchid}}' hidden>
+                <input name="formpurpose" type="submit" class="btn btn-primary" value="Submit">
+                {% else %}
+                <input name="formpurpose" type="submit" class="btn btn-primary" value="Create">
+                {% endif %}
+            </form>
+            {% if existingmatches %}
+            <h5>Existing Matches</h5>
+            {% for item in existingmatches %}
+            <div class="d-flex">
+                <div>Week {{item.week}}: {{item.team1.teamname}} vs {{item.team2.teamname}}</div>
+                <form method="post">
+                    {% csrf_token %}
+                    <input name="matchid" value='{{item.id}}' hidden>
+                    <input name="formpurpose" type="submit" class="btn btn-primary p-1 m-1" value='Edit'>
+                </form>
+                <form method="post">
+                    {% csrf_token %}
+                    <input name="matchid" value='{{item.id}}' hidden>
+                    <input name="formpurpose" type="submit" class="btn btn-danger p-1 m-1" value='Delete'>
+                </form>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

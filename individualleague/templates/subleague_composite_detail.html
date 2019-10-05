@@ -51,24 +51,20 @@
                         <th>Rank</th>
                         <th>Team</th>
                         <th>Manager</th>
-                        <th>Record</th>
-                        <th>Week 1</th>
-                        <th>Week 2</th>
-                        <th>Week 3</th>
-                        <th>Week 4</th>
-                        <th>Week 5</th>
+                        <th>Record (W-L-T)</th>
+                        {% for i in numberofweeks %}
+                            <th>Week {{ forloop.counter }}</th>
+                        {% endfor %}
                     </tr>
-                    {% for team in league_teams %}
+                    {% for team,schedule in standings %}
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <td><a class="text-dark" href="{% url 'teampage_detail' league_name=league_name team_name=team.name %}"><div><img class="small-logo" src="{{team.logo.url }}">{{ team.name }}</div></a></td>
                         <td>{{ team.captain.username }}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{team.wins}}-{{team.losses}}-{{team.ties}} ({{team.points}} pts) | {{team.differential}}</td>
+                        {% for week,wins,losses in schedule %}
+                        <td>{{wins}}-{{losses}} (vs {{week.shortname}})</td>
+                        {% endfor %}
                     </tr>
                     {% endfor %}
                 </table>

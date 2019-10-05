@@ -1105,4 +1105,4 @@ def create_match(request,league_name,subleague_name):
         'manageseason': manageseason,
         'existingmatches':existingmatches,
     }
-    return render(request, 'settings.html',context)
+    return render(request, 'creatematch.html',context)
