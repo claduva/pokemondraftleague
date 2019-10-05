@@ -26,51 +26,63 @@ def league_detail(request,league_name):
         loi=subleagues.first()
         return redirect('subleague_detail',league_name=league_name,subleague_name=loi.subleague)
     else:
-        standings=[]
-        league_teams=league_.leagueteam.all()
-        for item in league_teams:
-            teamschedule=[]
-            teamschedule_=schedule.objects.all().filter(Q(team1=item.child_teams.first())|Q(team2=item.child_teams.first()))
-            for match in teamschedule_:
-                #find opponent
-                opponent=None
-                if item==match.team1.parent_team:
-                    opponent=match.team2.parent_team
-                elif item==match.team2.parent_team:
-                    opponent=match.team1.parent_team
-                #weekly record
-                wins=0
-                losses=0
-                weeksmatches=schedule.objects.all().filter(Q(team1__parent_team=item)|Q(team2__parent_team=item)).filter(week=match.week).exclude(replay="Link")
-                for m in weeksmatches:
-                    if m.winner.parent_team==item:
-                         wins+=1 
-                    else: 
-                        losses+=1
-                teamschedule.append([opponent,wins,losses])
-                #update records
-                unplayedgames=schedule.objects.all().filter(Q(team1__parent_team=item)|Q(team2__parent_team=item)).filter(week=match.week).filter(replay="Link")
-                item.wins=0; item.losses=0; item.ties=0
-                if unplayedgames.count()==0:
-                    if wins>losses:
-                        item.wins+=1
-                    elif wins<losses:
-                        item.losses+=1
-                    else:
-                        item.ties+=1
-                    item.save()
-            standings.append([item,teamschedule])
-        numberofweeks=range(teamschedule_.count())
-        context = {
+        try:
+            standings=[]
+            league_teams=league_.leagueteam.all()
+            for item in league_teams:
+                teamschedule=[]
+                teamschedule_=schedule.objects.all().filter(Q(team1=item.child_teams.first())|Q(team2=item.child_teams.first()))
+                for match in teamschedule_:
+                    #find opponent
+                    opponent=None
+                    if item==match.team1.parent_team:
+                        opponent=match.team2.parent_team
+                    elif item==match.team2.parent_team:
+                        opponent=match.team1.parent_team
+                    #weekly record
+                    wins=0
+                    losses=0
+                    weeksmatches=schedule.objects.all().filter(Q(team1__parent_team=item)|Q(team2__parent_team=item)).filter(week=match.week).exclude(replay="Link")
+                    for m in weeksmatches:
+                        if m.winner.parent_team==item:
+                            wins+=1 
+                        else: 
+                            losses+=1
+                    teamschedule.append([opponent,wins,losses])
+                    #update records
+                    unplayedgames=schedule.objects.all().filter(Q(team1__parent_team=item)|Q(team2__parent_team=item)).filter(week=match.week).filter(replay="Link")
+                    item.wins=0; item.losses=0; item.ties=0
+                    if unplayedgames.count()==0:
+                        if wins>losses:
+                            item.wins+=1
+                        elif wins<losses:
+                            item.losses+=1
+                        else:
+                            item.ties+=1
+                        item.save()
+                standings.append([item,teamschedule])
+            numberofweeks=range(teamschedule_.count())
+            context = {
+                'league': league_,
+                'league_name': league_name,
+                'subleagues':subleagues,
+                'leaguecomposite':True,
+                'apply':True,
+                'league_teams':league_teams,
+                'standings':standings,
+                'numberofweeks':numberofweeks,
+            }
+        except:
+            context = {
             'league': league_,
             'league_name': league_name,
             'subleagues':subleagues,
             'leaguecomposite':True,
             'apply':True,
             'league_teams':league_teams,
-            'standings':standings,
-            'numberofweeks':numberofweeks,
-        }
+            'standings':None,
+            'numberofweeks':None,
+            }
         return render(request, 'subleague_composite_detail.html',context)
 
 @check_if_league
