@@ -805,7 +805,7 @@ def freeagency(request,league_name,subleague_name):
             messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
             discordserver=subleague.discord_settings.discordserver
             discordchannel=subleague.discord_settings.freeagencychannel
-            request_league=seasonsetting.objects.get(league=subleague.league)
+            request_league=season
             league_start=request_league.seasonstart
             elapsed=fadata.timeadded-league_start
             weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)

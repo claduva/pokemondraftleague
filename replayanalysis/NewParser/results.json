@@ -1,89 +1,89 @@
 {
   "team1": {
-    "coach": "muskrat catcher",
+    "coach": "Joey_RiverAPP",
     "roster": [
       {
-        "pokemon": "Sableye-Mega",
-        "startform": "Sableye",
-        "nickname": "Sableye",
-        "kills": 5,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 440,
-        "hphealed": 257,
-        "luck": 0,
-        "remaininghealth": 67,
-        "lines": []
-      },
-      {
-        "pokemon": "Torterra",
-        "startform": "Torterra",
-        "nickname": "Torterra",
-        "kills": 1,
+        "pokemon": "Politoed",
+        "startform": "Politoed",
+        "nickname": "Politoed",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
         "damagedone": 48,
-        "hphealed": 0,
+        "hphealed": 64,
         "luck": 0,
         "remaininghealth": 0,
         "lines": []
       },
       {
-        "pokemon": "Rotom-Heat",
-        "startform": "Rotom",
-        "nickname": "Rotom",
-        "kills": 0,
+        "pokemon": "Snorlax",
+        "startform": "Snorlax",
+        "nickname": "Snorlax",
+        "kills": 1,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 142,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 57,
+        "damagedone": 94,
+        "hphealed": 99,
+        "luck": 1.7,
+        "remaininghealth": 99,
         "lines": []
       },
       {
-        "pokemon": "Nihilego",
-        "startform": "Nihilego",
-        "nickname": "Nihilego",
+        "pokemon": "Houndoom-Mega",
+        "startform": "Houndoom",
+        "nickname": "Houndoom",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 69,
+        "support": 0,
+        "damagedone": 68,
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 0,
         "lines": []
       },
       {
-        "pokemon": "Tentacruel",
-        "startform": "Tentacruel",
-        "nickname": "Tentacruel",
+        "pokemon": "Raikou",
+        "startform": "Raikou",
+        "nickname": "Raikou",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 16,
         "hphealed": 0,
         "luck": 0,
         "remaininghealth": 100,
         "lines": []
       },
       {
-        "pokemon": "Clefable",
-        "startform": "Clefable",
-        "nickname": "Clefable",
-        "kills": 0,
+        "pokemon": "Groudon",
+        "startform": "Groudon",
+        "nickname": "Groudon",
+        "kills": 4,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 253,
         "hphealed": 0,
         "luck": 0,
-        "remaininghealth": 100,
+        "remaininghealth": 73,
+        "lines": []
+      },
+      {
+        "pokemon": "Forretress",
+        "startform": "Forretress",
+        "nickname": "Forretress",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 39,
+        "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 0,
         "lines": []
       }
     ],
@@ -92,7 +92,7 @@
     "score": 0,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 6,
+    "timesswitched": 19,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "kills": 0,
@@ -103,88 +103,88 @@
     "support": 0
   },
   "team2": {
-    "coach": "ECE young",
+    "coach": "claduva",
     "roster": [
       {
-        "pokemon": "Tapu Koko",
-        "startform": "Tapu Koko",
-        "nickname": "Tapu Koko",
+        "pokemon": "Reshiram",
+        "startform": "Reshiram",
+        "nickname": "Reshiram",
         "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 74,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 0,
-        "lines": []
-      },
-      {
-        "pokemon": "Garchomp",
-        "startform": "Garchomp",
-        "nickname": "Garchomp",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 26,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 0,
-        "lines": []
-      },
-      {
-        "pokemon": "Keldeo",
-        "startform": "Keldeo",
-        "nickname": "Keldeo",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0,
-        "remaininghealth": 0,
-        "lines": []
-      },
-      {
-        "pokemon": "Roserade",
-        "startform": "Roserade",
-        "nickname": "Roserade",
-        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
         "damagedone": 100,
-        "hphealed": 49,
-        "luck": 0,
+        "hphealed": 57,
+        "luck": -1.7,
         "remaininghealth": 0,
         "lines": []
       },
       {
-        "pokemon": "Scrafty",
-        "startform": "Scrafty",
-        "nickname": "Scrafty",
+        "pokemon": "Vaporeon",
+        "startform": "Vaporeon",
+        "nickname": "Vaporeon",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
         "damagedone": 0,
-        "hphealed": 87,
+        "hphealed": 97,
         "luck": 0,
         "remaininghealth": 0,
         "lines": []
       },
       {
-        "pokemon": "Bronzong",
-        "startform": "Bronzong",
-        "nickname": "Bronzong",
+        "pokemon": "Nidoqueen",
+        "startform": "Nidoqueen",
+        "nickname": "Nidoqueen",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 44,
         "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 0,
+        "lines": []
+      },
+      {
+        "pokemon": "Buzzwole",
+        "startform": "Buzzwole",
+        "nickname": "Buzzwole",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 56,
+        "hphealed": 75,
+        "luck": 0,
+        "remaininghealth": 0,
+        "lines": []
+      },
+      {
+        "pokemon": "Darmanitan",
+        "startform": "Darmanitan",
+        "nickname": "Darmanitan",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 101,
+        "hphealed": 0,
+        "luck": 0,
+        "remaininghealth": 0,
+        "lines": []
+      },
+      {
+        "pokemon": "Tapu Lele",
+        "startform": "Tapu Lele",
+        "nickname": "Tapu Lele",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 150,
+        "hphealed": 12,
         "luck": 0,
         "remaininghealth": 0,
         "lines": []
@@ -194,8 +194,8 @@
     "forfeit": 0,
     "score": 0,
     "megaevolved": false,
-    "usedzmove": true,
-    "timesswitched": 15,
+    "usedzmove": false,
+    "timesswitched": 20,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "kills": 0,
@@ -205,45 +205,53 @@
     "hphealed": 0,
     "support": 0
   },
-  "numberofturns": 37,
+  "numberofturns": 45,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/draftfrontier-gen7draftleaguetier-78258",
+  "replay": "https://replay.pokemonshowdown.com/gen7ubers-978674117",
   "significantevents": [
     [
-      3,
-      "Nihilego provided support by using Toxic Spikes"
+      11,
+      "Forretress killed Nidoqueen with Earthquake"
     ],
     [
-      5,
-      "Roserade killed Nihilego with Hidden Power"
+      18,
+      "LUCK: Reshiram missed Blue Flare against Snorlax"
     ],
     [
-      15,
-      "Torterra killed Bronzong with Crunch"
+      25,
+      "Houndoom-Mega fainted"
     ],
     [
-      16,
-      "Garchomp killed Torterra with Dual Chop"
-    ],
-    [
-      21,
-      "Sableye-Mega killed Roserade with Shadow Ball"
-    ],
-    [
-      30,
-      "Sableye-Mega killed Tapu Koko with Shadow Ball"
+      29,
+      "Groudon killed Buzzwole with Fire Punch"
     ],
     [
       34,
-      "Sableye-Mega killed Garchomp with Shadow Ball"
+      "Tapu Lele killed Forretress with Psychic"
     ],
     [
-      36,
-      "Sableye-Mega killed Scrafty with Shadow Ball"
+      38,
+      "LUCK: Reshiram missed Blue Flare against Snorlax"
     ],
     [
-      37,
-      "Sableye-Mega killed Keldeo with Shadow Ball"
+      39,
+      "Snorlax killed Reshiram with Earthquake"
+    ],
+    [
+      41,
+      "Darmanitan killed Politoed with Superpower"
+    ],
+    [
+      43,
+      "Groudon killed Vaporeon with Earthquake"
+    ],
+    [
+      44,
+      "Groudon killed Tapu Lele with Earthquake"
+    ],
+    [
+      45,
+      "Groudon killed Darmanitan with Earthquake"
     ]
   ]
 }

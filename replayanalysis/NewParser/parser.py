@@ -1,6 +1,8 @@
 import requests
 import json
 
+from .luckfunctions import *
+
 def replay_parse_switch(argument,parsedlogfile,results):
     switcher = {
         'damage': damage_function,
@@ -121,7 +123,10 @@ def move_function(line,parsedlogfile,results):
     move=line[3].split("|")[1]
     team=line[3].split(":",1)[0]
     #check for support
-    results=supportcheck(results,move,team,line)
+    #results=supportcheck(results,move,team,line)
+    #check for miss
+    if line[3].find("|[miss]")>-1:
+        line,parsedlogfile,results=miss_function(line,parsedlogfile,results)
     return line,parsedlogfile,results
 
 def supportcheck(results,move,team,line):
@@ -136,6 +141,7 @@ def supportiterator(results,line,team,move):
     pokemon=line[3].split(' ',1)[1].split(f"|{move}")[0]
     #searchroster
     pokemon=roster_search(team,pokemon,results)
+    print(pokemon)
     pokemon['support']+=1
     results['significantevents'].append([line[1],f"{pokemon['pokemon']} provided support by using {move}"])
     return results,pokemon

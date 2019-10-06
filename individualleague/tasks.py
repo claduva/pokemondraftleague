@@ -38,7 +38,7 @@ def execute_free_agency_and_trades():
   print(unexecutedfa)
   #check if completed matches
   for item in unexecutedfa:
-    request_league=seasonsetting.objects.get(league=item.season.league)
+    request_league=seasonsetting.objects.get(subleague=item.season.subleague)
     league_start=request_league.seasonstart
     elapsed=item.timeadded-league_start
     requestedweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
@@ -79,7 +79,7 @@ def execute_free_agency_and_trades():
   print(unexecutedtrades)
   #check if completed matches
   for item in unexecutedtrades:
-    request_league=seasonsetting.objects.get(league=item.season.league)
+    request_league=seasonsetting.objects.get(subleague=item.season.subleague)
     league_start=request_league.seasonstart
     elapsed=item.timeadded-league_start
     requestedweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
