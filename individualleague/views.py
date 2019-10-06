@@ -862,7 +862,7 @@ def trading_view(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    coach=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).first()
+    coach=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).filter(subleague=subleague).first()
     coachroster=roster.objects.all().filter(season=season,team=coach,pokemon__isnull=False).order_by('pokemon__pokemon')
     availablepokemon=roster.objects.all().filter(season=season,pokemon__isnull=False).exclude(team=coach).order_by('pokemon__pokemon')
     if request.method=="POST":
