@@ -821,6 +821,7 @@ def designate_z_users(request,league_name):
     }
     return render(request, 'designatezusers.html',context)
 
+@check_if_league
 @login_required
 def delete_z_user(request,league_name):
     try:
@@ -831,7 +832,7 @@ def delete_z_user(request,league_name):
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_coaching_settings')
     try:
-        season=seasonsetting.objects.get(league=league_instance)
+        season=coachinstance.subleague.seasonsetting
     except:
         messages.error(request,'Season does not exist!',extra_tags='danger')
         return redirect('leagues_coaching_settings')
