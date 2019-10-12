@@ -1,313 +1,359 @@
 {
   "team1": {
-    "coach": "Joey_RiverAPP",
-    "roster": [
-      {
-        "pokemon": "Politoed",
-        "startform": "Politoed",
-        "nickname": "Politoed",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 4,
-        "damagedone": 48,
-        "hphealed": 64,
-        "luck": -0.38,
-        "remaininghealth": 0,
-        "lines": []
-      },
-      {
-        "pokemon": "Snorlax",
-        "startform": "Snorlax",
-        "nickname": "Snorlax",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 94,
-        "hphealed": 99,
-        "luck": 3.07,
-        "remaininghealth": 99,
-        "lines": []
-      },
-      {
-        "pokemon": "Houndoom-Mega",
-        "startform": "Houndoom",
-        "nickname": "Houndoom",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 68,
-        "hphealed": 0,
-        "luck": 0.4,
-        "remaininghealth": 0,
-        "lines": []
-      },
-      {
-        "pokemon": "Raikou",
-        "startform": "Raikou",
-        "nickname": "Raikou",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 16,
-        "hphealed": 0,
-        "luck": 0.02,
-        "remaininghealth": 100,
-        "lines": []
-      },
-      {
-        "pokemon": "Groudon",
-        "startform": "Groudon",
-        "nickname": "Groudon",
-        "kills": 4,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 253,
-        "hphealed": 0,
-        "luck": 0.8,
-        "remaininghealth": 73,
-        "lines": []
-      },
-      {
-        "pokemon": "Forretress",
-        "startform": "Forretress",
-        "nickname": "Forretress",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 39,
-        "hphealed": 0,
-        "luck": 0.2,
-        "remaininghealth": 0,
-        "lines": []
-      }
-    ],
-    "wins": 1,
-    "forfeit": 0,
-    "score": 3,
-    "megaevolved": true,
-    "usedzmove": false,
-    "timesswitched": 19,
-    "selfdeaths": 0,
-    "remaininghealth": 0,
-    "kills": 6,
-    "deaths": 3,
-    "luck": 4.11,
-    "damagedone": 518,
-    "hphealed": 163,
-    "support": 4
-  },
-  "team2": {
     "coach": "claduva",
     "roster": [
       {
-        "pokemon": "Reshiram",
-        "startform": "Reshiram",
-        "nickname": "Reshiram",
+        "pokemon": "Torracat",
+        "startform": "Torracat",
+        "nickname": "Amir",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 100,
-        "hphealed": 0,
-        "luck": -2.38,
+        "damagedone": 36,
+        "hphealed": 42,
+        "luck": 0.88,
         "remaininghealth": 0,
-        "lines": []
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "tox": "Marina"
       },
       {
-        "pokemon": "Vaporeon",
-        "startform": "Vaporeon",
-        "nickname": "Vaporeon",
+        "pokemon": "Excadrill",
+        "startform": "Excadrill",
+        "nickname": "6.02*10^23 Drills",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 6,
+        "support": 1,
+        "damagedone": 131,
+        "hphealed": 0,
+        "luck": 0.4,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null
+      },
+      {
+        "pokemon": "Lopunny-Mega",
+        "startform": "Lopunny",
+        "nickname": "THICC",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 202,
+        "hphealed": 73,
+        "luck": -0.14,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "tox": "Marina"
+      },
+      {
+        "pokemon": "Porygon-Z",
+        "startform": "Porygon-Z",
+        "nickname": "Where's The Z?",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 54,
+        "hphealed": -10,
+        "luck": -2.07,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "par": "Patchouli"
+      },
+      {
+        "pokemon": "Latias",
+        "startform": "Latias",
+        "nickname": "Catbirb",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
         "damagedone": 0,
-        "hphealed": 166,
-        "luck": 0.2,
+        "hphealed": 6,
+        "luck": -0.32,
         "remaininghealth": 0,
-        "lines": []
+        "lines": [],
+        "confusion": null,
+        "psn": null
       },
       {
-        "pokemon": "Nidoqueen",
-        "startform": "Nidoqueen",
-        "nickname": "Nidoqueen",
+        "pokemon": "Venomoth",
+        "startform": "Venomoth",
+        "nickname": "Bug",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 44,
-        "hphealed": 0,
-        "luck": -0.86,
+        "damagedone": 80,
+        "hphealed": 49,
+        "luck": 0.64,
         "remaininghealth": 0,
-        "lines": []
-      },
-      {
-        "pokemon": "Buzzwole",
-        "startform": "Buzzwole",
-        "nickname": "Buzzwole",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 56,
-        "hphealed": 75,
-        "luck": -1.5,
-        "remaininghealth": 0,
-        "lines": []
-      },
-      {
-        "pokemon": "Darmanitan",
-        "startform": "Darmanitan",
-        "nickname": "Darmanitan",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 101,
-        "hphealed": 0,
-        "luck": 1,
-        "remaininghealth": 0,
-        "lines": []
-      },
-      {
-        "pokemon": "Tapu Lele",
-        "startform": "Tapu Lele",
-        "nickname": "Tapu Lele",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 150,
-        "hphealed": 0,
-        "luck": -0.56,
-        "remaininghealth": 0,
-        "lines": []
+        "lines": [],
+        "confusion": null,
+        "psn": null
       }
     ],
     "wins": 0,
     "forfeit": 0,
     "score": 0,
-    "megaevolved": false,
-    "usedzmove": false,
-    "timesswitched": 20,
+    "megaevolved": true,
+    "usedzmove": true,
+    "timesswitched": 8,
     "selfdeaths": 0,
+    "selfdamage": 0,
     "remaininghealth": 0,
+    "totalhealth": 600,
     "kills": 2,
     "deaths": 6,
-    "luck": -4.1,
-    "damagedone": 451,
-    "hphealed": 241,
-    "support": 6
+    "luck": -0.61,
+    "damagedone": 503,
+    "hphealed": 160,
+    "support": 3,
+    "activemon": "Bug",
+    "Toxic Spikes": null,
+    "Spike": null,
+    "Stealth Rock": "Patchouli",
+    "Future Sight": null,
+    "Sandstorm": null,
+    "Hail": null
   },
-  "numberofturns": 45,
+  "team2": {
+    "coach": "A Mere Noob",
+    "roster": [
+      {
+        "pokemon": "Terrakion",
+        "startform": "Terrakion",
+        "nickname": "Porthos",
+        "kills": 3,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 214,
+        "hphealed": 0,
+        "luck": -0.36,
+        "remaininghealth": 2,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Alomomola",
+        "startform": "Alomomola",
+        "nickname": "Marina",
+        "kills": 2,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 5,
+        "damagedone": 273,
+        "hphealed": 163,
+        "luck": -1.42,
+        "remaininghealth": 64,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Uxie",
+        "startform": "Uxie",
+        "nickname": "Patchouli",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 107,
+        "hphealed": 6,
+        "luck": 0.93,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Mawile",
+        "startform": "Mawile",
+        "nickname": "Mawile",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.0,
+        "remaininghealth": 100,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Nidoqueen",
+        "startform": "Nidoqueen",
+        "nickname": "Miko",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 140,
+        "hphealed": 0,
+        "luck": 1.5,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Weavile",
+        "startform": "Weavile",
+        "nickname": "Haku",
+        "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 26,
+        "hphealed": 0,
+        "luck": -0.04,
+        "remaininghealth": 100,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      }
+    ],
+    "wins": 1,
+    "forfeit": 0,
+    "score": 4,
+    "megaevolved": false,
+    "usedzmove": false,
+    "timesswitched": 13,
+    "selfdeaths": 0,
+    "selfdamage": 0,
+    "remaininghealth": 266,
+    "totalhealth": 600,
+    "kills": 6,
+    "deaths": 2,
+    "luck": 0.61,
+    "damagedone": 760,
+    "hphealed": 169,
+    "support": 7,
+    "activemon": "Porthos",
+    "Toxic Spikes": null,
+    "Spikes": null,
+    "Stealth Rock": "6.02*10^23 Drills",
+    "Future Sight": null,
+    "Sandstorm": null,
+    "Hail": null
+  },
+  "numberofturns": 35,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen7ubers-978674117",
+  "replay": "https://replay.pokemonshowdown.com/draftfrontier-gen7draftleaguetier-70854",
   "significantevents": [
     [
-      1,
-      "Politoed provided support by using Toxic"
-    ],
-    [
-      2,
-      "LUCK: Nidoqueen was burned by Politoed with Scald"
-    ],
-    [
-      4,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
       5,
-      "Vaporeon provided support by using Toxic"
+      "Uxie provided support by using Thunder Wave"
     ],
     [
       6,
-      "Politoed provided support by using Encore"
+      "Uxie provided support by using Stealth Rock"
+    ],
+    [
+      9,
+      "Porygon-Z killed Nidoqueen with Tri Attack"
     ],
     [
       10,
-      "Vaporeon provided support by using Wish"
+      "Weavile killed Porygon-Z with Pursuit"
     ],
     [
-      11,
-      "Forretress killed Nidoqueen with Earthquake"
+      13,
+      "Alomomola provided support by using Wish"
     ],
     [
-      16,
-      "Vaporeon provided support by using Wish"
+      15,
+      "Lopunny-Mega provided support by using Encore"
     ],
     [
       18,
-      "LUCK: Reshiram missed Blue Flare against Snorlax"
+      "Excadrill provided support by using Stealth Rock"
     ],
     [
-      19,
-      "LUCK: Buzzwole was paralyzed by Snorlax with Body Slam"
+      18,
+      "Alomomola killed Excadrill with Scald"
     ],
     [
-      22,
-      "Vaporeon provided support by using Wish"
+      21,
+      "Terrakion killed Latias with Stone Edge"
+    ],
+    [
+      23,
+      "Alomomola provided support by using Toxic"
+    ],
+    [
+      24,
+      "Lopunny-Mega provided support by using Encore"
+    ],
+    [
+      24,
+      "Alomomola provided support by using Toxic"
     ],
     [
       25,
-      "Houndoom-Mega fainted"
+      "Lopunny-Mega killed Uxie with Facade"
     ],
     [
-      27,
-      "LUCK: Groudon landed a crit on Buzzwole with "
+      26,
+      "Terrakion killed Lopunny-Mega with Earthquake"
+    ],
+    [
+      28,
+      "Alomomola provided support by using Toxic"
     ],
     [
       29,
-      "Groudon killed Buzzwole with Fire Punch"
-    ],
-    [
-      31,
-      "Politoed provided support by using Toxic"
-    ],
-    [
-      31,
-      "Vaporeon provided support by using Wish"
+      "Alomomola provided support by using Wish"
     ],
     [
       32,
-      "Politoed provided support by using Toxic"
+      "Alomomola killed Torracat with Scald"
     ],
     [
       34,
-      "Tapu Lele killed Forretress with Psychic"
+      "LUCK: Terrakion missed Stone Edge against Venomoth"
     ],
     [
-      38,
-      "LUCK: Reshiram missed Blue Flare against Snorlax"
-    ],
-    [
-      39,
-      "Snorlax killed Reshiram with Earthquake"
-    ],
-    [
-      41,
-      "LUCK: Politoed was crit by Darmanitan"
-    ],
-    [
-      41,
-      "Darmanitan killed Politoed with Superpower"
-    ],
-    [
-      43,
-      "Groudon killed Vaporeon with Earthquake"
-    ],
-    [
-      44,
-      "Groudon killed Tapu Lele with Earthquake"
-    ],
-    [
-      45,
-      "Groudon killed Darmanitan with Earthquake"
+      35,
+      "Terrakion killed Venomoth with Stone Edge"
     ]
-  ]
+  ],
+  "errormessage": []
 }

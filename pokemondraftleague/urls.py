@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('accounts.urls')),
     path('', include('draftplanner.urls')),
     path('', include('pokemonadmin.urls')),
+    path('',include("otherseasons.urls")),
     path('',include("leagues.urls")),
     path('',include("individualleague.urls")),
     path('',include("main.urls")),

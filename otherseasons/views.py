@@ -25,6 +25,7 @@ from replayanalysis.ShowdownReplayParser.replayparser import *
 from replayanalysis.helperfunctions import *
 
 def otherseasonslist(request,league_name):
+    print('here')
     league_name=league_name.replace('_',' ')
     try:
         league_=league.objects.get(name=league_name)

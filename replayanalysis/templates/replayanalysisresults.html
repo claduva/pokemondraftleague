@@ -22,6 +22,9 @@
         <iframe src="{{ results.replay }}" height="500vh" width="100%"></iframe>
     </div>
     <div class="col-12">
+        {% for message in results.errormessage %}
+        <div class="d-flex justify-content-center text-danger bg-warning rounded align-items-center"><h4>{{message}}</h4></div>
+        {% endfor %}
         <h5 class="d-flex justify-content-center">
             {% if results.team1.wins is 1 %}
             Winning Coach: {{ results.team1.coach }}
@@ -84,7 +87,7 @@
             </tr>
             {% endfor %}
             <tr>
-                <th>Total ({{results.team1.remaininghealth}})</th>
+                <th>Total ({{results.team1.remaininghealth}}/{{results.team1.totalhealth}})</th>
                 <td>{{results.team1.kills}}</td>
                 <td>{{results.team1.deaths}}</td>
                 <td>{{results.team1.kills|subtract:results.team1.deaths}}</td>
@@ -161,7 +164,7 @@
             </tr>
             {% endfor %}
             <tr>
-                <th>Total ({{results.team2.remaininghealth}})</th>
+                <th>Total ({{results.team2.remaininghealth}}/{{results.team2.totalhealth}})</th>
                 <td>{{results.team2.kills}}</td>
                 <td>{{results.team2.deaths}}</td>
                 <td>{{results.team2.kills|subtract:results.team2.deaths}}</td>
