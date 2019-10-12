@@ -200,7 +200,6 @@ def damager_search(parsedlogfile,line,team,pokemon,results,damagedone):
     turndata=turndata[::-1]
     for line in turndata:
         if team=="p1a":
-            print(line)
             if line[2]=="end" and line[3].find(f"p1a: {pokemon['nickname']}")>-1 and line[3].find("|move: Future Sight")>-1:
                 damager=roster_search("p2a",results['team1']['Future Sight'],results)
                 damager['damagedone']+=damagedone
@@ -355,7 +354,7 @@ def poke_function(line,parsedlogfile,results):
         results['team1']['roster'].append({
             'pokemon':line[3].split("|")[1], 'startform':line[3].split("|")[1],'nickname':line[3].split("|")[1],
             'kills':0,'deaths':0,'causeofdeath':None,'support':0,'damagedone':0,'hphealed':0,'luck':0,'remaininghealth':100,'lines':[],
-            'confusion':None,'psn':None,
+            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,
         })
     elif line[3].split("|",1)[0]=="p2":
         results['team2']['roster'].append({

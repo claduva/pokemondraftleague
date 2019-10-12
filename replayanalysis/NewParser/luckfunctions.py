@@ -141,7 +141,16 @@ def secondary_check(attacker,target,move,line,results,parsedlogfile):
     move_=moveswithsecondaryeffect[move]
     turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0], parsedlogfile))
     for line_ in turndata:
-        if line_[2]==move_[0] and line_[3].find(move_[1])>-1 and line_[3].find(move_[2])>-1:
+        if move=="Tri Attack":
+            if line_[2]==move_[0] and line_[3].find(move_[2])>-1:
+                status=line_[3].split("|")[1]
+                if status in ['brn','par','frz']:
+                    results['significantevents'].append([line[1],f"LUCK: {move_[4]}"])
+                    attacker['luck']+=100
+                    target['luck']+=-100
+                    target[status]=attacker['nickname']   
+                    break
+        elif line_[2]==move_[0] and line_[3].find(move_[1])>-1 and line_[3].find(move_[2])>-1:
             results['significantevents'].append([line[1],f"LUCK: {move_[4]}"])
             attacker['luck']+=100
             target['luck']+=-100
