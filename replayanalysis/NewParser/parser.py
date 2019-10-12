@@ -149,14 +149,19 @@ def damage_function(line,parsedlogfile,results):
     damagedone=previoushealth-healthremaining
     #determine damager
     if line[3].find("[from]")>-1:
-        #not direct damage consider future sight
+        #not direct damage
         cause=line[3].split("[from] ")[1]
         damager=None ;move=None
         if cause=="psn" and pokemon[cause]==None:
             cause="tox"
-        if cause in ['Stealth Rock','Spikes','Sandstorm','Hail']:
+        if cause in ['Stealth Rock','Spikes']:
             damager=roster_search(otherteam,results[thisteam][cause],results)
-        elif cause.find("item: Rocky Helmet")>-1:
+        elif cause in ['Sandstorm','Hail']:
+            damager=roster_search(otherteam,results[thisteam][cause],results)
+            if damager==results[thisteam][cause]: 
+                setter=roster_search(team,results[otherteam_][cause],results)
+                setter['hphealed']+=-damagedone
+        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1:
             damager=cause.split("|[of] ")[1].split(": ",1)[1]
             team=cause.split("|[of] ")[1].split(": ",1)[0]
             damager=roster_search(team,damager,results)
@@ -195,17 +200,36 @@ def damager_search(parsedlogfile,line,team,pokemon,results,damagedone):
     turndata=turndata[::-1]
     for line in turndata:
         if team=="p1a":
-            if line[2]=="move" and line[3].split(":",1)[0]=="p2a" and line[3].find(f"p1a: {pokemon['nickname']}")>-1:
+            print(line)
+            if line[2]=="end" and line[3].find(f"p1a: {pokemon['nickname']}")>-1 and line[3].find("|move: Future Sight")>-1:
+                damager=roster_search("p2a",results['team1']['Future Sight'],results)
+                damager['damagedone']+=damagedone
+                move="Future Sight"
+                break
+            elif line[2]=="start" and line[3].find(f"p1a: {pokemon['nickname']}")>-1 and line[3].find("|Substitute")>-1:
+                pokemon['hphealed']+=-damagedone
+                break
+            elif line[2]=="move" and line[3].split(":",1)[0]=="p2a" and line[3].find(f"p1a: {pokemon['nickname']}")>-1:
                 damager=line[3].split(" ",1)[1].split("|",1)[0]
                 damager=roster_search("p2a",damager,results)
                 damager['damagedone']+=damagedone
                 move=line[3].split("|")[1]
+                break
         elif team=="p2a":
-            if line[2]=="move" and line[3].split(":",1)[0]=="p1a" and line[3].find(f"p2a: {pokemon['nickname']}")>-1:
+            if line[2]=="end" and line[3].find(f"p2a: {pokemon['nickname']}")>-1 and line[3].find("|move: Future Sight")>-1:
+                damager=roster_search("p1a",results['team2']['Future Sight'],results)
+                damager['damagedone']+=damagedone
+                move="Future Sight"
+                break
+            elif line[2]=="start" and line[3].find(f"p2a: {pokemon['nickname']}")>-1 and line[3].find("|Substitute")>-1:
+                pokemon['hphealed']+=-damagedone
+                break
+            elif line[2]=="move" and line[3].split(":",1)[0]=="p1a" and line[3].find(f"p2a: {pokemon['nickname']}")>-1:
                 damager=line[3].split(" ",1)[1].split("|",1)[0]
                 damager=roster_search("p1a",damager,results)
                 damager['damagedone']+=damagedone
                 move=line[3].split("|")[1]
+                break
     return damager,move
 
 def detailschange_function(line,parsedlogfile,results):
@@ -303,6 +327,16 @@ def move_function(line,parsedlogfile,results):
         results=secondary_check(attacker,target,move,line,results,parsedlogfile)
     #check if weather
     if move in ['Sandstorm','Hail']:
+        results['team1']['Sandstorm']=None
+        results['team1']['Hail']=None
+        results['team2']['Sandstorm']=None
+        results['team2']['Hail']=None
+        if attackingteam=="p1a":
+            results['team2'][move]=attacker['nickname']
+        elif attackingteam=="p2a":
+            results['team1'][move]=attacker['nickname']
+    #check future sight:
+    if move=="Future Sight":
         if attackingteam=="p1a":
             results['team2'][move]=attacker['nickname']
         elif attackingteam=="p2a":
@@ -404,11 +438,20 @@ def weather_function(line,parsedlogfile,results):
         thisteam=line[3].split("[of] ")[1].split(":",1)[0]
         weather=line[3].split("|")[0]
         setter=line[3].split("|[of] ")[1].split(": ",1)[1]
+        results['team1']['Sandstorm']=None
+        results['team1']['Hail']=None
+        results['team2']['Sandstorm']=None
+        results['team2']['Hail']=None
         if weather in ['Sandstorm','Hail']:
             if thisteam=="p1a":
                 results['team2'][weather]=setter
             elif thisteam=="p2a":
                 results['team1'][weather]=setter
+    elif line[3]=="none":
+        results['team1']['Sandstorm']=None
+        results['team1']['Hail']=None
+        results['team2']['Sandstorm']=None
+        results['team2']['Hail']=None
     return line,parsedlogfile,results
 
 
@@ -532,6 +575,8 @@ def initializeoutput():
     results['team2']['Sandstorm']=None
     results['team1']['Hail']=None
     results['team2']['Hail']=None
+    results['team1']['Leech Seed']=None
+    results['team2']['Leech Seed']=None
     results['numberofturns']=0
     results['turns']=[]
     results['replay']=""
