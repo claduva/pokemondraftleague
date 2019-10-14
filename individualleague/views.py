@@ -44,7 +44,7 @@ def league_detail(request,league_name):
                     losses=0
                     weeksmatches=schedule.objects.all().filter(Q(team1__parent_team=item)|Q(team2__parent_team=item)).filter(week=match.week).exclude(replay="Link")
                     for m in weeksmatches:
-                        if m.winner.parent_team==item:
+                        if m.winner and m.winner.parent_team==item:
                             wins+=1 
                         else: 
                             losses+=1
@@ -72,7 +72,7 @@ def league_detail(request,league_name):
                 'standings':standings,
                 'numberofweeks':numberofweeks,
             }
-        except:
+        except Exception as e:
             context = {
             'league': league_,
             'league_name': league_name,
