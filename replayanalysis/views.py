@@ -13,7 +13,7 @@ import time
 from .models import *
 from .forms import *
 from leagues.models import *
-from accounts.models import showdownalts
+from accounts.models import showdownalts, inbox
 from .ShowdownReplayParser.replayparser import *
 from .NewParser.parser import *
 from .helperfunctions import *
@@ -50,8 +50,14 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
     if request.method=="POST":
         form = LeagueReplayForm(request.POST,instance=match)
         if form.is_valid():
+            clad=User.objects.get(username="claduva")
             url=form.cleaned_data['replay']
-            results = newreplayparse(url)
+            try:    
+                results = newreplayparse(url)
+            except:
+                inbox.objects,create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
+                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             coach1=results['team1']['coach']
             coach2=results['team2']['coach']
             try:
@@ -68,6 +74,10 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
                 return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             if len(results['errormessage'])==0:
                 save_league_replay(results,match,coach1team,coach2team)
+            else:
+                inbox.objects,create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
+                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             context={
                 'results':results,
                 'team1name':coach1team,
