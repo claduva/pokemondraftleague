@@ -25,14 +25,15 @@ def replay_analysis(request):
         form = MatchReplayForm(request.POST)
         if form.is_valid():
             clad=User.objects.get(username="claduva")
+            url=form.cleaned_data['url']
             try:    
                 results = newreplayparse(url)
             except:
-                inbox.objects,create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
                 messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
                 return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             if len(results['errormessage'])!=0:
-                inbox.objects,create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
             context={
                 'results': results,
             }
@@ -63,7 +64,7 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
             try:    
                 results = newreplayparse(url)
             except:
-                inbox.objects,create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
                 messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
                 return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             coach1=results['team1']['coach']
@@ -83,7 +84,7 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
             if len(results['errormessage'])==0:
                 save_league_replay(results,match,coach1team,coach2team)
             else:
-                inbox.objects,create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
                 messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
                 return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             context={
