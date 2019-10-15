@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
+from django.contrib.postgres.fields import JSONField
 import urllib
 import os
 from enum import Enum
@@ -76,6 +77,17 @@ class historical_match(models.Model):
     team2usedz = models.BooleanField(default=False)
     team1megaevolved = models.BooleanField(default=False)
     team2megaevolved = models.BooleanField(default=False)
+
+class historical_match_replay(models.Model):
+    week=models.CharField(max_length=30)
+    data=JSONField()
+    week=models.CharField(max_length=30)
+    team1=models.ForeignKey(historical_team, on_delete=models.CASCADE,related_name='historicreplayt1')
+    team1alternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="historicreplayteam1alternateattribution",null=True)
+    team2=models.ForeignKey(historical_team, on_delete=models.CASCADE,related_name='historicreplayt2')
+    team2alternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="historicreplayteam2alternateattribution",null=True)
+    winner = models.ForeignKey(historical_team, on_delete=models.CASCADE,null=True,related_name='historicreplaywinner')
+    winneralternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="historicreplaywinneralternateattribution",null=True)
 
 class error_message(models.Model):
     associated_view=models.CharField(max_length=200)

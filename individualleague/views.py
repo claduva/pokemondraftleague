@@ -55,10 +55,12 @@ def league_detail(request,league_name):
                     if unplayedgames.count()==0:
                         if wins>losses:
                             item.wins+=1
+                            item.points+=3
                         elif wins<losses:
                             item.losses+=1
                         else:
                             item.ties+=1
+                            item.points+=1
                         item.save()
                 standings.append([item,teamschedule])
             numberofweeks=range(teamschedule_.count())
@@ -72,7 +74,7 @@ def league_detail(request,league_name):
                 'standings':standings,
                 'numberofweeks':numberofweeks,
             }
-        except Exception as e:
+        except:
             context = {
             'league': league_,
             'league_name': league_name,

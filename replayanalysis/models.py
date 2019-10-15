@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
+from django.contrib.postgres.fields import JSONField
 
 from enum import Enum
 
@@ -56,3 +57,7 @@ class manual_replay(models.Model):
     winner=models.ForeignKey(coachdata,on_delete=models.CASCADE)
     t1forfeit=models.BooleanField(default="False")
     t2forfeit=models.BooleanField(default="False")
+
+class match_replay(models.Model):
+    match=models.ForeignKey(schedule,on_delete=models.CASCADE)
+    data=JSONField()

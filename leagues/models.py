@@ -200,6 +200,11 @@ class roster(models.Model):
     differential = models.IntegerField(default=0)
     gp = models.IntegerField(default=0)
     gw = models.IntegerField(default=0)
+    support = models.IntegerField(default=0)
+    damagedone = models.IntegerField(default=0)
+    hphealed = models.IntegerField(default=0)
+    luck = models.DecimalField(default=0,max_digits=50, decimal_places=4)
+    remaininghealth = models.IntegerField(default=0)
     zuser = models.CharField(max_length=20,choices=(
         ("OS","Offensive and Status"),
         ("O","Offensive"),

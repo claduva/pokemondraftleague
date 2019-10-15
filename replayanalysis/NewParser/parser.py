@@ -84,6 +84,7 @@ def newreplayparse(replay):
     scoretest=len(results['team1']['roster'])-results['team2']['kills']-results['team1']['selfdeaths']
     if damagedonetest!=damagedone: results['errormessage'].append("This replay's Team 1 damage numbers do not add up. Please contact claduva and do not submit the replay.")
     if scoretest!=score: results['errormessage'].append("This replay's Team 1 score numbers do not add up. Please contact claduva and do not submit the replay.")
+    if score!=0 and results['team2']['wins']==1: results['errormessage'].append("The losing team's score should be 0. Please contact claduva and do not submit the replay.")
     #team2
     damagedone=results['team2']['damagedone']
     damagedonetest=results['team1']['totalhealth']-results['team1']['remaininghealth']+results['team1']['hphealed']
@@ -91,6 +92,7 @@ def newreplayparse(replay):
     scoretest=len(results['team2']['roster'])-results['team1']['kills']-results['team2']['selfdeaths']
     if damagedonetest!=damagedone: results['errormessage'].append("This replay's Team 2 damage numbers do not add up. Please contact claduva and do not submit the replay.")
     if scoretest!=score: results['errormessage'].append("This replay's Team 2 score numbers do not add up. Please contact claduva and do not submit the replay.")
+    if score!=0 and results['team1']['wins']==1: results['errormessage'].append("The losing team's score should be 0. Please contact claduva and do not submit the replay.")
     return results
 
 def activate_function(line,parsedlogfile,results):
@@ -161,10 +163,17 @@ def damage_function(line,parsedlogfile,results):
             if damager==results[thisteam][cause]: 
                 setter=roster_search(team,results[otherteam_][cause],results)
                 setter['hphealed']+=-damagedone
-        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1:
+        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1:
             damager=cause.split("|[of] ")[1].split(": ",1)[1]
             team=cause.split("|[of] ")[1].split(": ",1)[0]
             damager=roster_search(team,damager,results)
+        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1:
+            if team=="p1a":
+                damager=results['team2']['activemon']
+                damager=roster_search("p2a",damager,results)
+            elif team=="p2a":
+                damager=results['team1']['activemon']
+                damager=roster_search("p1a",damager,results)
         elif cause in ['Recoil','item: Life Orb']:
             pokemon['hphealed']+=-damagedone
         else:
@@ -274,8 +283,10 @@ def message_function(line,parsedlogfile,results):
             lastactivemon=roster_search('p1a',lastactivemon,results)
             for mon in results['team2']['roster']:
                 if mon['deaths']==0:
+                    lastactivemon['damagedone']+=mon['remaininghealth']
+                    mon['remaininghealth']=0
                     lastactivemon['kills']+=1
-                mon['deaths']=1
+                    mon['deaths']=1
     return line,parsedlogfile,results
 
 def move_function(line,parsedlogfile,results):
@@ -340,6 +351,15 @@ def move_function(line,parsedlogfile,results):
             results['team2'][move]=attacker['nickname']
         elif attackingteam=="p2a":
             results['team1'][move]=attacker['nickname']
+    #check for suicide moves
+    if move in ['Final Gambit','Healing Wish',"Lunar Dance","Memento","Explosion","Self-Destruct"]:
+        attacker['deaths']+=1
+        attacker['hphealed']+=-attacker['remaininghealth']
+        attacker['remaininghealth']=0
+        if attackingteam=="p1a":
+            results['team1']['selfdeaths']+=1
+        elif attackingteam=="p2a":
+            results['team2']['selfdeaths']+=1
     return line,parsedlogfile,results
 
 def player_function(line,parsedlogfile,results):
@@ -365,7 +385,7 @@ def poke_function(line,parsedlogfile,results):
     return line,parsedlogfile,results
 
 def sethp_function(line,parsedlogfile,results):
-    if line[3].find("|[from] move: Pain Split"):
+    if line[3].find("|[from] move: Pain Split")>-1 and len(line[3].split("|"))>4:
         targetteam=line[3].split(":",1)[0]
         target=line[3].split("|",1)[0].split(" ",1)[1]
         targethealth=int(line[3].split("|",1)[1].split("/")[0])
@@ -383,6 +403,27 @@ def sethp_function(line,parsedlogfile,results):
         hphealed=attackerhealth-attacherstarthealth
         attacker['damagedone']+=damagedone
         attacker['hphealed']+=hphealed
+    elif line[3].find("|[from] move: Pain Split")>-1:
+        setmon=line[3].split("|")[0].split(": ")[1]
+        setmonhealth=int(line[3].split("|")[1].split("/")[0])
+        #look up move data
+        turndata=list(filter(lambda x: x[1] == line[1] and x[0] < line[0] and x[2]=="move" , parsedlogfile))[::-1][0]
+        targetteam=turndata[3].split("|")[2].split(": ",1)[0]
+        target=turndata[3].split("|")[2].split(": ",1)[1]
+        attackingteam=turndata[3].split(": ")[0]
+        attacker=turndata[3].split("|")[0].split(": ",1)[1]
+        target_=roster_search(targetteam,target,results)
+        attacker_=roster_search(attackingteam,attacker,results)
+        targetstarthealth=target_['remaininghealth']
+        attacherstarthealth=attacker_['remaininghealth']
+        if setmon==target:
+            target_['remaininghealth']=setmonhealth
+            damagedone=targetstarthealth-setmonhealth
+            attacker_['damagedone']+=damagedone
+        elif setmon==attacker:
+            attacker_['remaininghealth']=setmonhealth
+            hphealed=setmonhealth-attacherstarthealth
+            attacker_['hphealed']+=hphealed  
     return line,parsedlogfile,results
 
 def status_function(line,parsedlogfile,results):
@@ -542,8 +583,6 @@ def initializeoutput():
     results['team2']['timesswitched']=-1
     results['team1']['selfdeaths']=0
     results['team2']['selfdeaths']=0
-    results['team1']['selfdamage']=0
-    results['team2']['selfdamage']=0
     results['team1']['remaininghealth']=0
     results['team2']['remaininghealth']=0
     results['team1']['totalhealth']=0
