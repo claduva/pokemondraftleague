@@ -5,6 +5,7 @@ from django.core import serializers
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.contrib.auth.models import User
 
 import json
 from datetime import datetime
@@ -23,8 +24,15 @@ def replay_analysis(request):
     if request.method=="POST":
         form = MatchReplayForm(request.POST)
         if form.is_valid():
-            url=form.cleaned_data['url']
-            results = newreplayparse(url)
+            clad=User.objects.get(username="claduva")
+            try:    
+                results = newreplayparse(url)
+            except:
+                inbox.objects,create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
+                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
+            if len(results['errormessage'])!=0:
+                inbox.objects,create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
             context={
                 'results': results,
             }
