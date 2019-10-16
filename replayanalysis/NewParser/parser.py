@@ -17,6 +17,7 @@ def replay_parse_switch(argument,parsedlogfile,results):
         'move': move_function,
         'player': player_function,
         'poke': poke_function,
+        'replace': replace_function,
         'sethp':sethp_function,
         'status': status_function,
         'switch': switch_drag_function,
@@ -163,7 +164,7 @@ def damage_function(line,parsedlogfile,results):
             if damager==results[thisteam][cause]: 
                 setter=roster_search(team,results[otherteam_][cause],results)
                 setter['hphealed']+=-damagedone
-        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1:
+        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1 or cause.find("Spiky Shield")>-1:
             damager=cause.split("|[of] ")[1].split(": ",1)[1]
             team=cause.split("|[of] ")[1].split(": ",1)[0]
             damager=roster_search(team,damager,results)
@@ -295,12 +296,16 @@ def move_function(line,parsedlogfile,results):
     attackingteam=line[3].split(":",1)[0]
     attacker=line[3].split("|",1)[0].split(" ",1)[1]
     attacker=roster_search(attackingteam,attacker,results)
+    print(line[3])
     try:
         defendingteam=line[3].split("|")[2].split(":",1)[0]
         target=line[3].split("|")[2].split(" ",1)[1]
         target=roster_search(defendingteam,target,results)
     except:
         defendingteam=None; target=None
+    #check for 2 turn moves
+    if line[3].find("[still]")>-1:
+        return line,parsedlogfile,results
     #support moves
     supportmoves=['Reflect','Light Screen','Heal Bell','Aromatherapy','Wish','Stealth Rock','Spikes','Toxic Spikes','Sticky Web', 'Aurora Veil','Defog','Rapid Spin','Hail','Sandstorm','Sunny Day','Rain Dance','Encore','Taunt','Haze','Clear Smog','Roar','Whirlwind','Leech Seed','Toxic','Will-O-Wisp','Stun Spore','Poison Powder','Block','Mean Look','Dark Void','Destiny Bond','Disable','Electric Terrain','Embargo','Endure','Fairy Lock',"Forest's Curse",'Glare','Grass Whistle','Grassy Terrain','Gravity','Grudge','Heal Block','Healing Wish','Hypnosis','Lucky Chant','Lunar Dance','Magic Coat','Magic Room','Mean Look','Memento','Mist','Misty Terrain','Mud Sport','Parting Shot','Perish Song','Poison Gas','Psychic Terrain','Safeguard','Simple Beam','Sing','Skill Swap','Sleep Powder','Soak','Speed Swap','Spider Web','Spite','Spore','Sweet Kiss','Switcheroo','Tailwind','Thunder Wave','Torment','Toxic Thread','Trick','Trick Room','Water Sport','Wonder Room','Worry Seed','Yawn']
     #check for support
@@ -382,6 +387,14 @@ def poke_function(line,parsedlogfile,results):
             'kills':0,'deaths':0,'causeofdeath':None,'support':0,'damagedone':0,'hphealed':0,'luck':0,'remaininghealth':100,'lines':[],
             'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,
         })
+    return line,parsedlogfile,results
+
+def replace_function(line,parsedlogfile,results):
+    replaceteam=line[3].split(": ")[0]
+    replacenickname=line[3].split("|")[0].split(": ",1)[1]
+    replacemon=line[3].split("|")[1]
+    mon=roster_search(replaceteam,replacemon,results)
+    mon['nickname']=replacenickname
     return line,parsedlogfile,results
 
 def sethp_function(line,parsedlogfile,results):
@@ -537,19 +550,6 @@ def namecheck(results,line,teamnumber):
     results[f'team{teamnumber}']['activemon']=nicknamesearch[0]
     if line[2]=="switch":    
         results[f'team{teamnumber}']['timesswitched']+=1
-    return results,line
-
-def replacenames(results,line):
-    for item in results[f'team1']['roster']:
-        if line.find(item['nickname'])>-1:
-            line=line.replace(item['nickname'],item['pokemon'])
-        #elif item['pokemon']!=item['startform'] and line.find(f"{item['startform']}-")==-1:
-        #    line=line.replace(f"{item['startform']}",f"{item['pokemon']}")
-    for item in results[f'team2']['roster']:
-        if line.find(item['nickname'])>-1:
-            line=line.replace(item['nickname'],item['pokemon'])
-        #elif item['pokemon']!=item['startform'] and line.find(f"{item['startform']}-")==-1:
-        #    line=line.replace(f"{item['startform']}",f"{item['pokemon']}")
     return results,line
 
 def replacemega(results,line,teamnumber):

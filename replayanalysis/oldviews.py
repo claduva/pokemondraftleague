@@ -1,3 +1,27 @@
+
+            #save models
+            coach1team.save(); coach2team.save(); t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
+            t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
+            match.save()
+            form.save()
+            messages.success(request,'Replay has been saved!')
+            discordserver=subleague.discord_settings.discordserver
+            discordchannel=subleague.discord_settings.replaychannel
+            title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
+            replay_announcements.objects.create(
+                league = discordserver,
+                league_name = subleague.league.name,
+                text = title,
+                replaychannel = discordchannel
+            )
+            matchpickems=pickems.objects.all().filter(match=match)
+            for item in matchpickems:
+                if item.pick==match.winner:
+                    item.correct=True
+                    item.save()
+            return  redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
+    return  redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
+
 def confirm_league_replay(request,league_name,subleague_name,matchid):
     league_name=league_name.replace('%20',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
