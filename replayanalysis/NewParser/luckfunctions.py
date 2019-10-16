@@ -180,5 +180,5 @@ def crit_function(line,parsedlogfile,results):
             attacker['luck']+=100
             crittedmon_['luck']+=-100
             move=line_[3].split("|")[1]
-            results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon} with "])
+            results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon_['pokemon']} with "])
     return line,parsedlogfile,results
