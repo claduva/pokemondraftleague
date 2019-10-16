@@ -59,5 +59,5 @@ class manual_replay(models.Model):
     t2forfeit=models.BooleanField(default="False")
 
 class match_replay(models.Model):
-    match=models.ForeignKey(schedule,on_delete=models.CASCADE)
+    match=models.OneToOneField(schedule,on_delete=models.CASCADE)
     data=JSONField()

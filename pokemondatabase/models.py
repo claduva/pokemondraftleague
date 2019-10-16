@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
+from django.contrib.postgres.fields import ArrayField
 from PIL import Image
 
 from leagues.models import league,league_subleague,leaguetiers,leaguetiertemplate
@@ -23,6 +24,7 @@ class all_pokemon(models.Model):
     gp = models.IntegerField(default=0)
     gw = models.IntegerField(default=0)
     timesdrafted = models.IntegerField(default=0)
+    nicknames = ArrayField(models.CharField(max_length=10, blank=True))
 
     def __str__(self):
         return f'{self.pokemon}'

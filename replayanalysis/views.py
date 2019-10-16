@@ -28,10 +28,10 @@ def replay_analysis(request):
             url=form.cleaned_data['url']
             try:    
                 results = newreplayparse(url)
-            except:
+            except Exception as e:
                 inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
                 messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
+                raise(e)
             if len(results['errormessage'])!=0:
                 inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
             context={
@@ -82,7 +82,7 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
                 messages.error(request,f'A matching showdown alt for {coach2} was not found!',extra_tags='danger')
                 return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             if len(results['errormessage'])==0:
-                save_league_replay(results,match,coach1team,coach2team)
+                save_league_replay(request,results,match,coach1team,coach2team,form,subleague)
             else:
                 inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
                 messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
@@ -109,17 +109,142 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
     }
     return  render(request,"replayanalysisform.html",context)
 
-def save_league_replay(results,match,team1,team2):
+def save_league_replay(request,results,match,team1,team2,form,subleague):
+    try: 
+        match.match_replay
+        messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
+        return
+    except:
+        pass
     #iterate through team 1
     team1roster=team1.teamroster.all()
-    monstosave=[]
-    errormons=[]
+    objectstosave=[form]
+    erroritems=[]
     for mon in results['team1']['roster']:
-       foundmon,errormons=pokemonsearch(mon['pokemon'],team1roster,errormons)
+        foundmon,erroritems=pokemonsearch(mon['pokemon'],team1roster,erroritems)
+        if foundmon:
+            #update stats
+            foundmon.kills+=mon['kills']
+            foundmon.deaths+=mon['deaths']
+            foundmon.differential+=mon['kills']-mon['deaths']
+            foundmon.gp+=1
+            foundmon.gw+=results['team1']['wins']
+            foundmon.support+=mon['support']
+            foundmon.damagedone+=mon['damagedone']
+            foundmon.hphealed+=mon['hphealed']
+            foundmon.luck+=mon['luck']
+            foundmon.remaininghealth+=mon['remaininghealth']
+            #update nickname
+            #monobject=foundmon.pokemon
+            #if mon['nickname']!=mon['pokemon'] and mon['nickname']!=mon['startform']:
+            #    monobject.nicknames=monobject.nicknames.append(mon['nickname'])
+            #append to save
+            objectstosave.append(foundmon)
+            #objectstosave.append(monobject)
     #iterate through team 2
     team2roster=team2.teamroster.all()
     for mon in results['team2']['roster']:
-        foundmon,errormons=pokemonsearch(mon['pokemon'],team2roster,errormons)
+        foundmon,erroritems=pokemonsearch(mon['pokemon'],team2roster,erroritems)
+        if foundmon:
+            #update stats
+            foundmon.kills+=mon['kills']
+            foundmon.deaths+=mon['deaths']
+            foundmon.differential+=mon['kills']-mon['deaths']
+            foundmon.gp+=1
+            foundmon.gw+=results['team2']['wins']
+            foundmon.support+=mon['support']
+            foundmon.damagedone+=mon['damagedone']
+            foundmon.hphealed+=mon['hphealed']
+            foundmon.luck+=mon['luck']
+            foundmon.remaininghealth+=mon['remaininghealth']
+            #update nickname
+            #monobject=foundmon.pokemon
+            #if mon['nickname']!=mon['pokemon'] and mon['nickname']!=mon['startform']:
+            #    monobject.nicknames=monobject.nicknames.append(mon['nickname'])
+            #append to save
+            objectstosave.append(foundmon)
+            #objectstosave.append(monobject)
+    #update coach1 data
+    team1.wins+=results['team1']['wins']
+    team1.losses+=abs(results['team1']['wins']-1)
+    team1.forfeit+=results['team1']['forfeit']
+    if team1.forfeit == 1:
+        team1.differential+=(-6)
+    else:
+        team1.differential+=results['team1']['kills']-results['team1']['deaths']
+    if team1.streak < 0:
+        if results['team1']['wins'] == 1:
+            team1.streak=1
+        else:
+            team1.streak+=(-1)
+    else:
+        if results['team1']['wins'] == 1:
+            team1.streak+=1
+        else:
+            team1.streak=(-1)
+    objectstosave.append(team1)
+    #update coach2 data
+    team2.wins+=results['team2']['wins']
+    team2.losses+=abs(results['team2']['wins']-1)
+    team2.forfeit+=results['team2']['forfeit']
+    if team2.forfeit == 1:
+        team2.differential+=(-6)
+    else:
+        team2.differential+=results['team2']['kills']-results['team2']['deaths']
+    if team2.streak < 0:
+        if results['team2']['wins'] == 1:
+            team2.streak=1
+        else:
+            team2.streak+=(-1)
+    else:
+        if results['team2']['wins'] == 1:
+            team2.streak+=1
+        else:
+            team2.streak=(-1)
+    objectstosave.append(team2)
+    #update match
+    if match.team1==team1:
+        match.team1megaevolved=results['team1']['megaevolved'] 
+        match.team2megaevolved=results['team2']['megaevolved'] 
+        match.team1score=results['team1']['score'] 
+        match.team2score=results['team2']['score'] 
+        match.team1usedz=results['team1']['usedzmove'] 
+        match.team2usedz=results['team2']['usedzmove'] 
+        if results['team1']['wins'] ==1:
+            match.winner=team1
+        elif results['team2']['wins']==1:
+            match.winner=team2
+    elif match.team1==team2:    
+        match.team1megaevolved=results['team2']['megaevolved'] 
+        match.team2megaevolved=results['team1']['megaevolved'] 
+        match.team1score=results['team2']['score'] 
+        match.team2score=results['team1']['score'] 
+        match.team1usedz=results['team2']['usedzmove'] 
+        match.team2usedz=results['team1']['usedzmove'] 
+        if results['team2']['wins'] ==1:
+            match.winner=team2
+        elif results['team1']['wins']==1:
+            match.winner=team1
+    objectstosave.append(match)
+    if len(erroritems)==0:
+        for obj in objectstosave:
+            obj.save()
+        match_replay.objects.create(match=match,data=results)
+        messages.success(request,'Replay has been saved!')
+        discordserver=subleague.discord_settings.discordserver
+        discordchannel=subleague.discord_settings.replaychannel
+        title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
+        replay_announcements.objects.create(
+            league = discordserver,
+            league_name = subleague.league.name,
+            text = title,
+            replaychannel = discordchannel
+        )
+        matchpickems=pickems.objects.all().filter(match=match)
+        for item in matchpickems:
+            if item.pick==match.winner:
+                item.correct=True
+                item.save()
     return
 
 def pokemonsearch(pokemon,rosterofinterest,errormons):
