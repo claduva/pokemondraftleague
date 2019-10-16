@@ -290,29 +290,25 @@ def league_match_results(request,league_name,subleague_name,matchid):
         }
         return render(request,"manualreplayresults.html",context)
     except:
-        url=match.replay
-        outputstring, team1, team2 = replayparse(url)
-        coach1=team1.coach
-        coach2=team2.coach 
-        coach1alt=showdownalts.objects.all().filter(showdownalt=coach1).first()
-        coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
-        coach1team=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
-        coach2team=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
+        try:
+            results = match.match_replay.data
+            context={
+                    'results': results,
+            }
+        except:
+            url=match.replay
+            try:    
+                results = newreplayparse(url)
+            except Exception as e:
+                inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
+                raise(e)
+            if len(results['errormessage'])!=0:
+                inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
         context={
-            'output': outputstring,
-            'team1':team1,
-            'team2':team2,
-            'team1name':coach1team,
-            'team2name':coach2team,
-            'replay': url,
-            'league_name':league_name,
-            'matchid':matchid,
-            'showreplay': True,
-            'subleague': subleague,
-            'leaguepage': True,
-            'league_teams': league_teams,
+            'results': results,
         }
-        return render(request,"replayanalysisform.html",context)
+        return render(request,"replayanalysisresults.html",context)
 
 @check_if_subleague
 @check_if_season
