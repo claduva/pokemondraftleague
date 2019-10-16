@@ -19,6 +19,7 @@ def replay_parse_switch(argument,parsedlogfile,results):
         'poke': poke_function,
         'replace': replace_function,
         'sethp':sethp_function,
+        'start': start_function,
         'status': status_function,
         'switch': switch_drag_function,
         'weather': weather_function,
@@ -44,7 +45,7 @@ def newreplayparse(replay):
     for line in logfile:
         #remove unneeded lines
         line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","")
-        linestoremove=["|","|teampreview","|start","|clearpoke","|upkeep"]
+        linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
         linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview"]
         linepurpose=line.split("|",2)[1].replace("-","")
         #iterate turn number
@@ -52,7 +53,7 @@ def newreplayparse(replay):
             turn_number+=1
             results['numberofturns']=turn_number
         #add turn data
-        elif line not in linestoremove and linepurpose not in linepurposestoremove:
+        elif line not in linestoremove and linepurpose not in linepurposestoremove and line!="|start":
             lineremainder=line.split("|",2)[2]
             parsedlogfile.append([line_number,turn_number,linepurpose,lineremainder])
             line_number+=1
@@ -143,7 +144,7 @@ def damage_function(line,parsedlogfile,results):
     elif team=="p2a":
         otherteam="p1a";otherteam_="team1";thisteam="team2"
     pokemon=line[3].split(" ",1)[1].split("|")[0]
-    healthremaining=int(line[3].split("|",1)[1].split(" ",1)[0].split("/",1)[0])
+    healthremaining=int(line[3].split("|",1)[1].split(" ",1)[0].split("/",1)[0].split("|",1)[0])
     #searchroster
     pokemon=roster_search(team,pokemon,results)
     #update remaining health
@@ -177,8 +178,25 @@ def damage_function(line,parsedlogfile,results):
                 damager=roster_search("p1a",damager,results)
         elif cause in ['Recoil','item: Life Orb']:
             pokemon['hphealed']+=-damagedone
+        elif cause in ["item: Black Sludge","item: Sticky Barb"]:
+            matchdata=list(filter(lambda x: x[0] < line[0], parsedlogfile))[::-1]
+            switched=False
+            for line_ in matchdata:
+                if line_[2]=="item" and line_[3].find(cause.split(": ",1)[1])>-1 and line_[3].find(pokemon['nickname'])>-1:
+                    switched=True
+                if line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==True and line_[3].split("|")[0].split(": ",1)[1]!=pokemon['nickname']:
+                    damager=line_[3].split("|")[0].split(": ",1)[1]
+                    team=line_[3].split(": ",1)[0]
+                    damager=roster_search(team,damager,results)
+                    break
+                elif line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==True and line_[3].split("|")[0].split(": ",1)[1]==pokemon['nickname']:
+                    pokemon['hphealed']+=-damagedone
+                    break
         else:
-            damager=roster_search(otherteam,pokemon[cause],results)
+            if pokemon[cause]==pokemon['nickname']:
+                pokemon['hphealed']+=-damagedone
+            else:
+                damager=roster_search(otherteam,pokemon[cause],results)
         if damager:
             damager['damagedone']+=damagedone 
         if cause=="confusion":
@@ -296,7 +314,6 @@ def move_function(line,parsedlogfile,results):
     attackingteam=line[3].split(":",1)[0]
     attacker=line[3].split("|",1)[0].split(" ",1)[1]
     attacker=roster_search(attackingteam,attacker,results)
-    print(line[3])
     try:
         defendingteam=line[3].split("|")[2].split(":",1)[0]
         target=line[3].split("|")[2].split(" ",1)[1]
@@ -365,6 +382,9 @@ def move_function(line,parsedlogfile,results):
             results['team1']['selfdeaths']+=1
         elif attackingteam=="p2a":
             results['team2']['selfdeaths']+=1
+    #check for Perish Song
+    if move=="Perish Song":
+        results['Perish Song']=attacker['nickname']
     return line,parsedlogfile,results
 
 def player_function(line,parsedlogfile,results):
@@ -455,6 +475,21 @@ def status_function(line,parsedlogfile,results):
         mon[status]=activemon
         activemon=roster_search(otherteam,activemon,results)
         activemon['luck']+=70
+    elif line[3].find("[from] item: ")>-1: 
+        matchdata=list(filter(lambda x: x[0] < line[0], parsedlogfile))[::-1]
+        switched=False
+        for line_ in matchdata:
+            if line_[2]=="item" and line_[3].find(cause.split(": ",1)[1])>-1 and line_[3].find(mon['nickname'])>-1:
+                switched=True
+            if line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==True and line_[3].split("|")[0].split(": ",1)[1]!=pokemon['nickname']:
+                damager=line_[3].split("|")[0].split(": ",1)[1]
+                mon[status]=damager    
+                break
+            elif line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==True and line_[3].split("|")[0].split(": ",1)[1]==pokemon['nickname']:
+                mon[status]=mon['nickname']
+                break
+        if switched==False:
+            mon[status]=mon['nickname']
     else:
         #abilities, toxic spikes,psycho shift,fling,yawn
         movesthatcausestatus=dict([
@@ -477,6 +512,30 @@ def status_function(line,parsedlogfile,results):
                     mon[status]=attacker
         if (status=="psn" or status=="tox") and mon[status]==None and results[team_]['Toxic Spikes']!=None:
             mon[status]=results[team_]['Toxic Spikes']
+    return line,parsedlogfile,results
+
+def start_function(line,parsedlogfile,results):
+    if line[3].find("|perish0")>-1:
+        setter=results['Perish Song']
+        team=line[3].split(": ",1)[0]
+        mon=line[3].split("|")[0].split(": ",1)[1]
+        mon_=roster_search(team,mon,results)
+        mon_['deaths']=1
+        priorhealth=mon_['remaininghealth']
+        mon_['remaininghealth']=0
+        if mon == setter:
+            mon_['hphealed']+=-priorhealth
+            if team=="p1a":
+                results['team1']['selfdeaths']+=1
+            elif team=="p2a":
+                results['team2']['selfdeaths']+=1   
+        else:
+            if team=="p1a":
+                setter=roster_search("p2a",setter,results)
+            elif team=="p2a":
+                setter=roster_search("p1a",setter,results)
+            setter['damagedone']+=priorhealth
+            setter['kills']+=1
     return line,parsedlogfile,results
 
 def switch_drag_function(line,parsedlogfile,results):
@@ -615,6 +674,7 @@ def initializeoutput():
     results['team2']['Hail']=None
     results['team1']['Leech Seed']=None
     results['team2']['Leech Seed']=None
+    results['Perish Song']=None
     results['numberofturns']=0
     results['turns']=[]
     results['replay']=""

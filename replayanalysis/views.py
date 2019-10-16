@@ -29,10 +29,11 @@ def replay_analysis(request):
             try:    
                 results = newreplayparse(url)
             except Exception as e:
-                inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                if request.user != clad:
+                    inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
                 messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
                 raise(e)
-            if len(results['errormessage'])!=0:
+            if len(results['errormessage'])!=0 and request.user!=clad:
                 inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
             context={
                 'results': results,
@@ -245,6 +246,9 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
             if item.pick==match.winner:
                 item.correct=True
                 item.save()
+    else:
+        for obj in erroritems:
+            messages.error(request,f'A roster spot matching {obj} does not exist.',extra_tags="danger")
     return
 
 def pokemonsearch(pokemon,rosterofinterest,errormons):

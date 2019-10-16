@@ -1,18 +1,78 @@
 {
   "team1": {
-    "coach": "rufus 623",
+    "coach": "RandoGuy24",
     "roster": [
       {
-        "pokemon": "Absol-Mega",
-        "startform": "Absol",
-        "nickname": "Kenpachi",
+        "pokemon": "Jirachi",
+        "startform": "Jirachi",
+        "nickname": "Jirachi",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 19,
+        "damagedone": 410,
+        "hphealed": 514,
+        "luck": 2.88,
+        "remaininghealth": 41,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Altaria-Mega",
+        "startform": "Altaria",
+        "nickname": "Altaria",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 4,
+        "damagedone": 36,
+        "hphealed": 128,
+        "luck": 0.34,
+        "remaininghealth": 83,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Yveltal",
+        "startform": "Yveltal",
+        "nickname": "Yveltal",
         "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 165,
+        "hphealed": 0,
+        "luck": -0.44,
+        "remaininghealth": 100,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Salazzle",
+        "startform": "Salazzle",
+        "nickname": "Salazzle",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 204,
+        "damagedone": 131,
         "hphealed": 0,
-        "luck": 0.48,
+        "luck": -1.28,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -23,57 +83,17 @@
         "tox": null
       },
       {
-        "pokemon": "Yanmega",
-        "startform": "Yanmega",
-        "nickname": "Tommyrod",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 214,
-        "hphealed": 0,
-        "luck": -1.04,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Salamence",
-        "startform": "Salamence",
-        "nickname": "Pete",
-        "kills": 2,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 135,
-        "hphealed": -49,
-        "luck": 1.74,
-        "remaininghealth": 13,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Metagross",
-        "startform": "Metagross",
-        "nickname": "Steven",
+        "pokemon": "Pheromosa",
+        "startform": "Pheromosa",
+        "nickname": "Pheromosa",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 99,
-        "hphealed": 0,
-        "luck": -0.04,
-        "remaininghealth": 66,
+        "damagedone": 84,
+        "hphealed": -19,
+        "luck": -0.08,
+        "remaininghealth": 81,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -83,37 +103,17 @@
         "tox": null
       },
       {
-        "pokemon": "Electrode",
-        "startform": "Electrode",
-        "nickname": "Rollin Around",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 3,
-        "damagedone": 33,
-        "hphealed": 0,
-        "luck": -0.32,
-        "remaininghealth": 70,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Plant Gang"
-      },
-      {
-        "pokemon": "Snorlax",
-        "startform": "Snorlax",
-        "nickname": "Fat Paul",
-        "kills": 0,
+        "pokemon": "Tapu Fini",
+        "startform": "Tapu Fini",
+        "nickname": "Tapu Fini",
+        "kills": 5,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 39,
+        "damagedone": 378,
         "hphealed": 0,
-        "luck": 0.05,
-        "remaininghealth": 59,
+        "luck": -1.88,
+        "remaininghealth": 15,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -125,82 +125,102 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 4,
+    "score": 5,
     "megaevolved": true,
-    "usedzmove": true,
-    "timesswitched": 12,
+    "usedzmove": false,
+    "timesswitched": 40,
     "selfdeaths": 0,
-    "remaininghealth": 208,
+    "remaininghealth": 320,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 2,
-    "luck": 0.87,
-    "damagedone": 724,
-    "hphealed": -49,
-    "support": 3,
-    "activemon": "Pete",
+    "deaths": 1,
+    "luck": -0.46,
+    "damagedone": 1204,
+    "hphealed": 623,
+    "support": 23,
+    "activemon": "Tapu Fini",
     "Toxic Spikes": null,
     "Spike": null,
-    "Stealth Rock": null,
+    "Stealth Rock": "Necrozma",
     "Future Sight": null,
     "Sandstorm": null,
     "Hail": null,
     "Leech Seed": null
   },
   "team2": {
-    "coach": "Spearklez",
+    "coach": "Muskrat#2",
     "roster": [
       {
-        "pokemon": "Venusaur-Mega",
-        "startform": "Venusaur",
-        "nickname": "Plant Gang",
+        "pokemon": "Xerneas",
+        "startform": "Xerneas",
+        "nickname": "Xerneas",
         "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 228,
+        "hphealed": 0,
+        "luck": 1.42,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Necrozma",
+        "startform": "Necrozma",
+        "nickname": "Necrozma",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 4,
+        "damagedone": 233,
+        "hphealed": 160,
+        "luck": -1.2,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Landorus",
+        "startform": "Landorus",
+        "nickname": "Landorus",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 80,
+        "hphealed": -29,
+        "luck": -0.98,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Ariados",
+        "startform": "Ariados",
+        "nickname": "Ariados",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 2,
-        "damagedone": 155,
-        "hphealed": 124,
-        "luck": -1.88,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Conkeldurr",
-        "startform": "Conkeldurr",
-        "nickname": "Concker",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 33,
-        "hphealed": 0,
-        "luck": 0.19,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Gligar",
-        "startform": "Gligar",
-        "nickname": "ThatBabyAte",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0.58,
+        "luck": 0.22,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -211,36 +231,16 @@
         "tox": null
       },
       {
-        "pokemon": "Victini",
-        "startform": "Victini",
-        "nickname": "Vearklez",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 103,
-        "hphealed": 0,
-        "luck": 0.16,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Cacturne",
-        "startform": "Cacturne",
-        "nickname": "Power Stance",
+        "pokemon": "Golbat",
+        "startform": "Golbat",
+        "nickname": "Golbat",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 52,
-        "hphealed": 0,
-        "luck": 0.09,
+        "support": 5,
+        "damagedone": 243,
+        "hphealed": 338,
+        "luck": 0.66,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -251,21 +251,21 @@
         "tox": null
       },
       {
-        "pokemon": "Xatu",
-        "startform": "Xatu",
-        "nickname": "Todem",
+        "pokemon": "Milotic",
+        "startform": "Milotic",
+        "nickname": "Milotic",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.01,
+        "support": 1,
+        "damagedone": 119,
+        "hphealed": 135,
+        "luck": 0.34,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
-        "brn": null,
+        "brn": "Milotic",
         "par": null,
         "frz": null,
         "tox": null
@@ -274,86 +274,231 @@
     "wins": 0,
     "forfeit": 0,
     "score": 0,
-    "megaevolved": true,
-    "usedzmove": true,
-    "timesswitched": 15,
+    "megaevolved": false,
+    "usedzmove": false,
+    "timesswitched": 36,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 2,
+    "kills": 1,
     "deaths": 6,
-    "luck": -0.87,
-    "damagedone": 343,
-    "hphealed": 124,
-    "support": 2,
-    "activemon": "Plant Gang",
+    "luck": 0.46,
+    "damagedone": 903,
+    "hphealed": 604,
+    "support": 12,
+    "activemon": "Necrozma",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": null,
+    "Stealth Rock": "Jirachi",
     "Future Sight": null,
     "Sandstorm": null,
     "Hail": null,
     "Leech Seed": null
   },
-  "numberofturns": 35,
+  "Perish Song": null,
+  "numberofturns": 100,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-989344589",
+  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-993652224",
   "significantevents": [
     [
-      1,
-      "Electrode provided support by using Light Screen"
-    ],
-    [
       2,
-      "Electrode provided support by using Taunt"
+      "Milotic provided support by using Toxic"
     ],
     [
-      6,
-      "LUCK: Venusaur-Mega missed Sludge Bomb against Salamence"
+      4,
+      "Ariados provided support by using Sticky Web"
     ],
     [
       7,
-      "Salamence killed Xatu with Fly"
+      "LUCK: Tapu Fini was crit by Milotic"
     ],
     [
-      13,
-      "Yanmega killed Gligar with Air Slash"
+      8,
+      "LUCK: Golbat suffered a stat drop via secondary effect by Tapu Fini with Moonblast"
+    ],
+    [
+      10,
+      "Jirachi provided support by using Wish"
+    ],
+    [
+      16,
+      "Altaria provided support by using Defog"
+    ],
+    [
+      18,
+      "Jirachi provided support by using Wish"
+    ],
+    [
+      19,
+      "LUCK: Necrozma was flinched by Jirachi with Iron Head"
     ],
     [
       20,
-      "Electrode killed Cacturne with Volt Switch"
+      "Necrozma provided support by using Stealth Rock"
+    ],
+    [
+      24,
+      "Jirachi provided support by using Stealth Rock"
     ],
     [
       25,
-      "Venusaur-Mega provided support by using Leech Seed"
+      "LUCK: Necrozma was flinched by Jirachi with Iron Head"
     ],
     [
       26,
-      "Electrode provided support by using Light Screen"
+      "Jirachi provided support by using Wish"
     ],
     [
-      26,
-      "Venusaur-Mega provided support by using Toxic"
+      27,
+      "LUCK: Necrozma was flinched by Jirachi with Iron Head"
     ],
     [
       28,
-      "Yanmega killed Conkeldurr with Air Slash"
-    ],
-    [
-      29,
-      "Victini killed Yanmega with Inferno Overdrive"
+      "Jirachi provided support by using Wish"
     ],
     [
       30,
-      "Absol-Mega killed Victini with Knock Off"
+      "Altaria-Mega provided support by using Defog"
     ],
     [
-      34,
-      "Venusaur-Mega killed Absol-Mega with Sludge Bomb"
+      32,
+      "Jirachi provided support by using Stealth Rock"
     ],
     [
-      35,
-      "Salamence killed Venusaur-Mega with Supersonic Skystrike"
+      33,
+      "Jirachi provided support by using Wish"
+    ],
+    [
+      38,
+      "Yveltal killed Landorus with Dark Pulse"
+    ],
+    [
+      39,
+      "LUCK: Salazzle suffered a stat drop via secondary effect by Xerneas with Moonblast"
+    ],
+    [
+      41,
+      "Jirachi provided support by using Wish"
+    ],
+    [
+      42,
+      "Necrozma provided support by using Stealth Rock"
+    ],
+    [
+      46,
+      "Jirachi provided support by using Wish"
+    ],
+    [
+      46,
+      "Golbat provided support by using Defog"
+    ],
+    [
+      47,
+      "Jirachi provided support by using Stealth Rock"
+    ],
+    [
+      48,
+      "Necrozma provided support by using Stealth Rock"
+    ],
+    [
+      50,
+      "Jirachi provided support by using Wish"
+    ],
+    [
+      57,
+      "Ariados provided support by using Sticky Web"
+    ],
+    [
+      58,
+      "Altaria-Mega provided support by using Defog"
+    ],
+    [
+      62,
+      "Jirachi provided support by using Stealth Rock"
+    ],
+    [
+      63,
+      "Jirachi provided support by using Wish"
+    ],
+    [
+      65,
+      "Golbat provided support by using Defog"
+    ],
+    [
+      67,
+      "Jirachi provided support by using Wish"
+    ],
+    [
+      68,
+      "Jirachi provided support by using Stealth Rock"
+    ],
+    [
+      73,
+      "Jirachi provided support by using Wish"
+    ],
+    [
+      73,
+      "Golbat provided support by using Defog"
+    ],
+    [
+      74,
+      "Jirachi provided support by using Stealth Rock"
+    ],
+    [
+      75,
+      "Jirachi provided support by using Wish"
+    ],
+    [
+      75,
+      "Golbat provided support by using Defog"
+    ],
+    [
+      76,
+      "LUCK: Golbat was flinched by Jirachi with Iron Head"
+    ],
+    [
+      78,
+      "Necrozma provided support by using Stealth Rock"
+    ],
+    [
+      81,
+      "Altaria-Mega provided support by using Defog"
+    ],
+    [
+      82,
+      "LUCK: Jirachi suffered a stat drop via secondary effect by Xerneas with Moonblast"
+    ],
+    [
+      83,
+      "Jirachi provided support by using Stealth Rock"
+    ],
+    [
+      88,
+      "Golbat provided support by using Defog"
+    ],
+    [
+      94,
+      "Tapu Fini killed Golbat with Ice Beam"
+    ],
+    [
+      95,
+      "Tapu Fini killed Ariados with Ice Beam"
+    ],
+    [
+      96,
+      "Xerneas killed Salazzle with Thunderbolt"
+    ],
+    [
+      98,
+      "Tapu Fini killed Milotic with Moonblast"
+    ],
+    [
+      99,
+      "Tapu Fini killed Xerneas with Moonblast"
+    ],
+    [
+      100,
+      "Tapu Fini killed Necrozma with Moonblast"
     ]
   ],
   "errormessage": []
