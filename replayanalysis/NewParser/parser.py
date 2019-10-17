@@ -165,7 +165,7 @@ def damage_function(line,parsedlogfile,results):
             if damager==results[thisteam][cause]: 
                 setter=roster_search(team,results[otherteam_][cause],results)
                 setter['hphealed']+=-damagedone
-        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1 or cause.find("Spiky Shield")>-1:
+        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1 or cause.find("ability: Aftermath")>-1 or cause.find("Spiky Shield")>-1:
             damager=cause.split("|[of] ")[1].split(": ",1)[1]
             team=cause.split("|[of] ")[1].split(": ",1)[0]
             damager=roster_search(team,damager,results)
@@ -176,6 +176,8 @@ def damage_function(line,parsedlogfile,results):
             elif team=="p2a":
                 damager=results['team1']['activemon']
                 damager=roster_search("p1a",damager,results)
+        elif cause.find("ability: Solar Power")>-1:
+            pokemon['hphealed']+=-damagedone
         elif cause in ['Recoil','item: Life Orb']:
             pokemon['hphealed']+=-damagedone
         elif cause in ["item: Black Sludge","item: Sticky Barb"]:
@@ -201,7 +203,7 @@ def damage_function(line,parsedlogfile,results):
             damager['damagedone']+=damagedone 
         if cause=="confusion":
             activeopponent=roster_search(otherteam,results[otherteam_]['activemon'],results)
-            results['significantevents'].append([line[1],f"LUCK: {pokemon['pokemon']} hit itself in confusion caused by {damager['pokemon']}."])
+            results['significantevents'].append([line[1],f"LUCK: {pokemon['pokemon']} hit itself in confusion caused by {pokemon['confusion']}."])
             pokemon['luck']+=-100
             activeopponent['luck']+=100
     else:
@@ -277,8 +279,15 @@ def heal_function(line,parsedlogfile,results):
     pokemon['remaininghealth']=healthremaining
     healthhealed=healthremaining-previoushealth
     #update health healed
-    if line[3].find("|[wisher] ")==-1:   
+    if line[3].find("|[wisher] ")==-1 and line[3].find("[from] move: Lunar Dance")==-1:   
         pokemon['hphealed']+=healthhealed
+    elif line[3].find("[from] move: Lunar Dance")>-1 or line[3].find("[from] move: Healing Wish")>-1:   
+        turndata=list(filter(lambda x: x[1] == line[1] and x[0] < line[0], parsedlogfile))[::-1]
+        for line_ in turndata:
+            if line_[2]=="move" and line_[3].split("|")[1] in ['Healing Wish','Lunar Dance']:
+                healer=line_[3].split("|")[0].split(": ",1)[1]
+                healer=roster_search(team,healer,results)
+                healer['hphealed']+=healthhealed
     else:
         wisher=line[3].split("|[wisher] ")[1]
         wisher=roster_search(team,wisher,results)
@@ -536,6 +545,12 @@ def start_function(line,parsedlogfile,results):
                 setter=roster_search("p1a",setter,results)
             setter['damagedone']+=priorhealth
             setter['kills']+=1
+    if line[3].split("|")[1]=="confusion":
+        if line[3].split("|")[2]=="[fatigue]":
+            mon=line[3].split("|")[0].split(": ")[1]
+            team=line[3].split(": ")[0]
+            mon_=roster_search(team,mon,results)
+            mon_['confusion']=mon
     return line,parsedlogfile,results
 
 def switch_drag_function(line,parsedlogfile,results):
@@ -565,8 +580,7 @@ def weather_function(line,parsedlogfile,results):
         results['team2']['Sandstorm']=None
         results['team2']['Hail']=None
     return line,parsedlogfile,results
-
-
+    
 def win_function(line,parsedlogfile,results):
     winner=line[3]
     if winner==results['team1']['coach']:
