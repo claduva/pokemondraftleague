@@ -172,7 +172,7 @@ def crit_function(line,parsedlogfile,results):
             attacker['luck']+=100
             crittedmon_['luck']+=-100
             move=line_[3].split("|")[1]
-            results['significantevents'].append([line[1],f"LUCK: {crittedmon} was crit by {attacker['pokemon']}"])
+            results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon_['pokemon']} with {move}"])
         elif crittedteam=="p2a" and line_[2]=="move" and line_[3].split(":",1)[0]=="p1a" and line_[3].split("|")[2]==f"{crittedteam}: {crittedmon}":
             attackingteam="p1a"
             attacker=line_[3].split("|",1)[0].split(" ",1)[1]
@@ -180,5 +180,5 @@ def crit_function(line,parsedlogfile,results):
             attacker['luck']+=100
             crittedmon_['luck']+=-100
             move=line_[3].split("|")[1]
-            results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon_['pokemon']} with "])
+            results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon_['pokemon']} with {move}"])
     return line,parsedlogfile,results

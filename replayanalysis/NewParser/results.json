@@ -1,124 +1,124 @@
 {
   "team1": {
-    "coach": "DI - Revez",
+    "coach": "LernesBlue",
     "roster": [
       {
-        "pokemon": "Sylveon",
-        "startform": "Sylveon",
-        "nickname": "This Is A Cat",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 8,
-        "damagedone": 28,
-        "hphealed": 301,
-        "luck": 0.3,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": "Normal Doggo",
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Milotic",
-        "startform": "Milotic",
-        "nickname": "Eel Birb",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 8,
-        "damagedone": 388,
-        "hphealed": 237,
-        "luck": -5.25,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": "Eel Birb",
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Houndoom-Mega",
-        "startform": "Houndoom",
-        "nickname": "PrettyGoodboy",
+        "pokemon": "Jynx",
+        "startform": "Jynx",
+        "nickname": "Aisha",
         "kills": 2,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 181,
-        "hphealed": -61,
-        "luck": 1.38,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Hax God"
-      },
-      {
-        "pokemon": "Cresselia",
-        "startform": "Cresselia",
-        "nickname": "DuckBirb",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 5,
-        "damagedone": 20,
-        "hphealed": -7,
-        "luck": -0.1,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Hax God"
-      },
-      {
-        "pokemon": "Zygarde-10%",
-        "startform": "Zygarde-10%",
-        "nickname": "BestBoy",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 238,
-        "hphealed": -11,
-        "luck": 0.47,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": "BestBoy",
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Skarmory",
-        "startform": "Skarmory",
-        "nickname": "MetalBirb",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 4,
-        "damagedone": 158,
+        "damagedone": 118,
         "hphealed": 0,
-        "luck": -0.26,
+        "luck": 0.34,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
-        "par": "Normal Doggo",
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Machamp",
+        "startform": "Machamp",
+        "nickname": "Viktor",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 58,
+        "hphealed": 0,
+        "luck": -0.71,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Krookodile",
+        "startform": "Krookodile",
+        "nickname": "Maverick",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.04,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Araquanid",
+        "startform": "Araquanid",
+        "nickname": "Shklounk",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 73,
+        "hphealed": 0,
+        "luck": 0.13,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Rotom-Heat",
+        "startform": "Rotom-Heat",
+        "nickname": "It\u2019s Oven for you",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 200,
+        "hphealed": 0,
+        "luck": -0.83,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Vileplume",
+        "startform": "Vileplume",
+        "nickname": "Scintillating",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 32,
+        "luck": -0.06,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
         "frz": null,
         "tox": null
       }
@@ -126,81 +126,62 @@
     "wins": 0,
     "forfeit": 0,
     "score": 0,
-    "megaevolved": true,
+    "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 23,
-    "selfdeaths": 2,
+    "timesswitched": 16,
+    "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 4,
+    "kills": 2,
     "deaths": 6,
-    "luck": -3.46,
-    "damagedone": 1013,
-    "hphealed": 459,
-    "support": 25,
-    "activemon": "PrettyGoodboy",
+    "luck": -1.09,
+    "damagedone": 449,
+    "hphealed": 32,
+    "support": 1,
+    "activemon": "Scintillating",
     "Toxic Spikes": null,
     "Spike": null,
-    "Stealth Rock": "Diamond",
+    "Stealth Rock": null,
     "Future Sight": null,
     "Sandstorm": null,
     "Hail": null,
     "Leech Seed": null
   },
   "team2": {
-    "coach": "SleepySheepy22",
+    "coach": "TNTCool",
     "roster": [
       {
-        "pokemon": "Vaporeon",
-        "startform": "Vaporeon",
-        "nickname": "Water Doggo",
-        "kills": 1,
+        "pokemon": "Slurpuff",
+        "startform": "Slurpuff",
+        "nickname": "Xernea",
+        "kills": 4,
         "deaths": 0,
         "causeofdeath": null,
-        "support": 14,
-        "damagedone": 15,
-        "hphealed": 469,
-        "luck": 0.81,
-        "remaininghealth": 88,
+        "support": 0,
+        "damagedone": 219,
+        "hphealed": 3,
+        "luck": -0.74,
+        "remaininghealth": 45,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": null
+        "tox": null,
+        "slp": "Scintillating"
       },
       {
-        "pokemon": "Togekiss",
-        "startform": "Togekiss",
-        "nickname": "Hax Jesus",
+        "pokemon": "Braviary",
+        "startform": "Braviary",
+        "nickname": "Ho-O",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 153,
-        "hphealed": 31,
-        "luck": 0.62,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Eel Birb"
-      },
-      {
-        "pokemon": "Jirachi",
-        "startform": "Jirachi",
-        "nickname": "Hax God",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 4,
-        "damagedone": 318,
-        "hphealed": -6,
-        "luck": 2.9,
+        "damagedone": 34,
+        "hphealed": 0,
+        "luck": 0.28,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -211,17 +192,37 @@
         "tox": null
       },
       {
-        "pokemon": "Sableye-Mega",
-        "startform": "Sableye",
-        "nickname": "Mr. Crocker",
+        "pokemon": "Heliolisk",
+        "startform": "Heliolisk",
+        "nickname": "Raiko",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 51,
+        "damagedone": 28,
+        "hphealed": -9,
+        "luck": 0.6,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Xatu",
+        "startform": "Xatu",
+        "nickname": "Lugi",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 206,
         "hphealed": 50,
-        "luck": -0.58,
-        "remaininghealth": 0,
+        "luck": 1.13,
+        "remaininghealth": 22,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -231,41 +232,41 @@
         "tox": null
       },
       {
-        "pokemon": "Type: Null",
-        "startform": "Type: Null",
-        "nickname": "Normal Doggo",
+        "pokemon": "Blaziken",
+        "startform": "Blaziken",
+        "nickname": "Blaziken",
         "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 7,
-        "damagedone": 63,
-        "hphealed": 0,
-        "luck": 1.92,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Nidoqueen",
-        "startform": "Nidoqueen",
-        "nickname": "Diamond",
-        "kills": 2,
         "deaths": 0,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 459,
+        "support": 0,
+        "damagedone": 0,
         "hphealed": 0,
-        "luck": -2.21,
-        "remaininghealth": 43,
+        "luck": 0.0,
+        "remaininghealth": 100,
         "lines": [],
         "confusion": null,
         "psn": null,
-        "brn": "PrettyGoodboy",
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null
+      },
+      {
+        "pokemon": "Omastar",
+        "startform": "Omastar",
+        "nickname": "Palki",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 145,
+        "hphealed": -28,
+        "luck": -0.18,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
         "par": null,
         "frz": null,
         "tox": null
@@ -273,340 +274,84 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 2,
-    "megaevolved": true,
+    "score": 3,
+    "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 35,
-    "selfdeaths": 0,
-    "remaininghealth": 131,
+    "timesswitched": 9,
+    "selfdeaths": 1,
+    "remaininghealth": 167,
     "totalhealth": 600,
-    "kills": 4,
-    "deaths": 4,
-    "luck": 3.46,
-    "damagedone": 1059,
-    "hphealed": 544,
-    "support": 26,
-    "activemon": "Diamond",
+    "kills": 6,
+    "deaths": 3,
+    "luck": 1.09,
+    "damagedone": 632,
+    "hphealed": 16,
+    "support": 0,
+    "activemon": "Xernea",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "MetalBirb",
+    "Stealth Rock": null,
     "Future Sight": null,
     "Sandstorm": null,
     "Hail": null,
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 113,
+  "numberofturns": 23,
   "turns": [],
-  "replay": "http://replay.pokemonshowdown.com/gen7anythinggoes-737786688",
+  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-993884947",
   "significantevents": [
     [
-      2,
-      "LUCK: Type: Null was burned by Milotic with Scald"
+      1,
+      "Krookodile provided support by using Taunt"
     ],
     [
-      4,
-      "LUCK: Milotic was flinched by Togekiss with Air Slash"
+      1,
+      "Omastar killed Krookodile with Surf"
     ],
     [
-      6,
-      "Milotic provided support by using Toxic"
+      3,
+      "Omastar fainted via item: Life Orb"
     ],
     [
-      8,
-      "Milotic provided support by using Toxic"
-    ],
-    [
-      8,
-      "Vaporeon provided support by using Heal Bell"
-    ],
-    [
-      9,
-      "Milotic provided support by using Toxic"
-    ],
-    [
-      10,
-      "Type: Null provided support by using Roar"
+      7,
+      "LUCK: Vileplume was flinched by Heliolisk with Dark Pulse"
     ],
     [
       11,
-      "Sylveon provided support by using Wish"
+      "Braviary killed Araquanid with Return"
     ],
     [
       12,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      14,
-      "Type: Null provided support by using Thunder Wave"
+      "Jynx killed Braviary with Psyshock"
     ],
     [
       15,
-      "Sylveon provided support by using Wish"
+      "LUCK: Machamp was flinched by Xatu with Air Slash"
+    ],
+    [
+      16,
+      "LUCK: Xatu landed a crit on Rotom-Heat with Air Slash"
     ],
     [
       18,
-      "LUCK: Milotic was flinched by Jirachi with Iron Head"
+      "Jynx killed Heliolisk with Focus Blast"
+    ],
+    [
+      20,
+      "Slurpuff killed Rotom-Heat with Return"
     ],
     [
       21,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      21,
-      "LUCK: Milotic landed a crit on Vaporeon with "
+      "Slurpuff killed Machamp with Drain Punch"
     ],
     [
       22,
-      "Milotic provided support by using Toxic"
+      "Slurpuff killed Jynx with Drain Punch"
     ],
     [
       23,
-      "Type: Null provided support by using Roar"
-    ],
-    [
-      24,
-      "LUCK: This Is A Cat was crit by Type: Null"
-    ],
-    [
-      24,
-      "Sylveon provided support by using Wish"
-    ],
-    [
-      25,
-      "Nidoqueen provided support by using Stealth Rock"
-    ],
-    [
-      26,
-      "Skarmory provided support by using Defog"
-    ],
-    [
-      30,
-      "LUCK: Milotic was flinched by Jirachi with Iron Head"
-    ],
-    [
-      31,
-      "LUCK: Milotic was flinched by Jirachi with Iron Head"
-    ],
-    [
-      33,
-      "LUCK: Milotic was flinched by Jirachi with Iron Head"
-    ],
-    [
-      37,
-      "Milotic provided support by using Toxic"
-    ],
-    [
-      37,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      38,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      39,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      42,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      42,
-      "LUCK: Milotic missed Dragon Tail against Vaporeon"
-    ],
-    [
-      43,
-      "Vaporeon provided support by using Heal Bell"
-    ],
-    [
-      44,
-      "Milotic provided support by using Toxic"
-    ],
-    [
-      44,
-      "Type: Null provided support by using Roar"
-    ],
-    [
-      45,
-      "Type: Null provided support by using Thunder Wave"
-    ],
-    [
-      46,
-      "Type: Null provided support by using Roar"
-    ],
-    [
-      48,
-      "Cresselia provided support by using Thunder Wave"
-    ],
-    [
-      49,
-      "Jirachi provided support by using Toxic"
-    ],
-    [
-      50,
-      "LUCK: Milotic was flinched by Jirachi with Iron Head"
-    ],
-    [
-      52,
-      "LUCK: Eel Birb was crit by Jirachi"
-    ],
-    [
-      55,
-      "Milotic provided support by using Toxic"
-    ],
-    [
-      55,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      58,
-      "Milotic provided support by using Toxic"
-    ],
-    [
-      59,
-      "LUCK: Milotic was flinched by Togekiss with Air Slash"
-    ],
-    [
-      60,
-      "LUCK: Milotic was flinched by Togekiss with Air Slash"
-    ],
-    [
-      61,
-      "Togekiss killed Milotic with Air Slash"
-    ],
-    [
-      64,
-      "Skarmory provided support by using Taunt"
-    ],
-    [
-      67,
-      "Jirachi provided support by using Toxic"
-    ],
-    [
-      67,
-      "LUCK: Jirachi missed Toxic against Houndoom-Mega"
-    ],
-    [
-      68,
-      "Houndoom-Mega killed Togekiss with Flamethrower"
-    ],
-    [
-      69,
-      "Vaporeon provided support by using Heal Bell"
-    ],
-    [
-      70,
-      "Skarmory provided support by using Taunt"
-    ],
-    [
-      72,
-      "Skarmory provided support by using Stealth Rock"
-    ],
-    [
-      72,
-      "Type: Null provided support by using Thunder Wave"
-    ],
-    [
-      74,
-      "Vaporeon killed Skarmory with Scald"
-    ],
-    [
-      75,
-      "Cresselia provided support by using Thunder Wave"
-    ],
-    [
-      76,
-      "Cresselia provided support by using Sunny Day"
-    ],
-    [
-      76,
-      "Jirachi provided support by using Toxic"
-    ],
-    [
-      79,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      81,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      81,
-      "Sylveon provided support by using Wish"
-    ],
-    [
-      82,
-      "Vaporeon provided support by using Heal Bell"
-    ],
-    [
-      87,
-      "Cresselia provided support by using Sunny Day"
-    ],
-    [
-      88,
-      "Cresselia provided support by using Lunar Dance"
-    ],
-    [
-      89,
-      "Jirachi provided support by using Toxic"
-    ],
-    [
-      90,
-      "Houndoom-Mega killed Type: Null with Solar Beam"
-    ],
-    [
-      91,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      93,
-      "Zygarde-10% killed Jirachi with Thousand Arrows"
-    ],
-    [
-      95,
-      "LUCK: Zygarde-10% landed a crit on Sableye-Mega with "
-    ],
-    [
-      97,
-      "Zygarde-10% killed Sableye-Mega with Outrage"
-    ],
-    [
-      98,
-      "LUCK: Zygarde-10% hit itself in confusion caused by BestBoy."
-    ],
-    [
-      98,
-      "Zygarde-10% fainted via confusion"
-    ],
-    [
-      100,
-      "Sylveon provided support by using Wish"
-    ],
-    [
-      104,
-      "Sylveon provided support by using Wish"
-    ],
-    [
-      109,
-      "Sylveon provided support by using Wish"
-    ],
-    [
-      111,
-      "Sylveon provided support by using Wish"
-    ],
-    [
-      112,
-      "Nidoqueen killed Sylveon with Sludge Wave"
-    ],
-    [
-      113,
-      "LUCK: Nidoqueen was burned by Houndoom-Mega with Flamethrower"
-    ],
-    [
-      113,
-      "Nidoqueen killed Houndoom-Mega with Earth Power"
+      "Slurpuff killed Vileplume with Return"
     ]
   ],
   "errormessage": []
