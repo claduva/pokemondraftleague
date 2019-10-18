@@ -46,6 +46,7 @@ def newreplayparse(replay):
         #remove unneeded lines
         line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","")
         linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
+        badlines=["|start","|player|p1","|player|p2","|-notarget"]
         linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview"]
         linepurpose=line.split("|",2)[1].replace("-","")
         #iterate turn number
@@ -53,7 +54,7 @@ def newreplayparse(replay):
             turn_number+=1
             results['numberofturns']=turn_number
         #add turn data
-        elif line not in linestoremove and linepurpose not in linepurposestoremove and line!="|start":
+        elif line not in linestoremove and linepurpose not in linepurposestoremove and line not in badlines:
             lineremainder=line.split("|",2)[2]
             parsedlogfile.append([line_number,turn_number,linepurpose,lineremainder])
             line_number+=1
@@ -162,8 +163,9 @@ def damage_function(line,parsedlogfile,results):
         if cause in ['Stealth Rock','Spikes']:
             damager=roster_search(otherteam,results[thisteam][cause],results)
         elif cause.title() in ['Sandstorm','Hail']:
-            damager=roster_search(otherteam,results[thisteam][cause.title()],results)
-            if damager==results[thisteam][cause.title()]: 
+            if results[thisteam][cause.title()]!=None:
+                damager=roster_search(otherteam,results[thisteam][cause.title()],results)
+            elif results[otherteam_][cause.title()]!=None:
                 setter=roster_search(team,results[otherteam_][cause.title()],results)
                 setter['hphealed']+=-damagedone
         elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1 or cause.find("ability: Aftermath")>-1 or cause.find("ability: Innards Out")>-1  or cause.find("Spiky Shield")>-1:
@@ -731,7 +733,6 @@ def roster_search(team,pokemon,results):
             break
     if match==False:
         for mon in results[team]['roster']:
-            print(pokemon)
             if mon['nickname'].find(pokemon)>-1:
                 pokemon=mon
                 match=True
