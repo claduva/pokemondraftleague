@@ -152,6 +152,9 @@
         </div>
       </div>
       <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+      {% if user.is_staff %}
+      <a class="nav-item nav-link" href="{% url 'runscript' %}">Runscript</a>
+      {% endif %}
     </div>
 
     <!-- Navbar Right Side -->

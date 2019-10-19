@@ -20,6 +20,11 @@ from individualleague.models import *
 from pokemonadmin.models import *
 from pokemondatabase.models import *
 
+from replayanalysis.NewParser.parser import *
+from replayanalysis.models import *
+from replayanalysis.ShowdownReplayParser.replayparser import *
+from replayanalysis.helperfunctions import *
+
 def home(request):
     try:
         yourleagues=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user))
@@ -104,4 +109,14 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request): 
+    allmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
+    print(allmatches.count())
+    for match in allmatches:
+        try:
+            results = newreplayparse(match.replay)
+            if len(results['errormessage'])!=0:
+                print(match.replay)
+        except Exception as e:
+            #raise(e)
+            print(match.replay)
     return redirect('home')

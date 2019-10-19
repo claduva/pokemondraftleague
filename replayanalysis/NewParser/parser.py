@@ -43,21 +43,22 @@ def newreplayparse(replay):
     results['replay']=replay
     #iterate through logfile
     for line in logfile:
-        #remove unneeded lines
-        line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","")
-        linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
-        badlines=["|start","|player|p1","|player|p2","|-notarget"]
-        linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview"]
-        linepurpose=line.split("|",2)[1].replace("-","")
-        #iterate turn number
-        if linepurpose=="turn":
-            turn_number+=1
-            results['numberofturns']=turn_number
-        #add turn data
-        elif line not in linestoremove and linepurpose not in linepurposestoremove and line not in badlines:
-            lineremainder=line.split("|",2)[2]
-            parsedlogfile.append([line_number,turn_number,linepurpose,lineremainder])
-            line_number+=1
+        if line.find("|")>-1:
+            #remove unneeded lines
+            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","")
+            linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
+            badlines=["|start","|player|p1","|player|p2","|-notarget","|-clearallboost"]
+            linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
+            linepurpose=line.split("|",2)[1].replace("-","")
+            #iterate turn number
+            if linepurpose=="turn":
+                turn_number+=1
+                results['numberofturns']=turn_number
+            #add turn data
+            elif line not in linestoremove and linepurpose not in linepurposestoremove and line not in badlines:
+                lineremainder=line.split("|",2)[2]
+                parsedlogfile.append([line_number,turn_number,linepurpose,lineremainder])
+                line_number+=1
     #iterate through parsed logfile
     for line in parsedlogfile:
         line,parsedlogfile,results=replay_parse_switch(line,parsedlogfile,results)
@@ -109,6 +110,16 @@ def activate_function(line,parsedlogfile,results):
             attacker=roster_search("p1a",results['team1']['activemon'],results)
         attacker['luck']+=-33
         defender['luck']+=33
+    elif line[3].find("|move: Destiny Bond")>-1:
+        team=line[3].split(": ")[0]
+        killer=line[3].split("|")[0].split(": ")[1]
+        killer=roster_search(team,killer,results)
+        fainted=list(filter(lambda x: x[0] > line[0] and x[1] == line[1] and x[2]=="faint", parsedlogfile))[0]
+        faintedteam=fainted[3].split(": ")[0]
+        faintedmon=fainted[3].split(": ")[1]
+        fainted=roster_search(faintedteam,faintedmon,results)
+        killer['damagedone']+=fainted['remaininghealth']; killer['kills']+=1
+        fainted['remaininghealth']=0; fainted['deaths']=1
     return line,parsedlogfile,results
 
 def cant_function(line,parsedlogfile,results):
@@ -168,7 +179,7 @@ def damage_function(line,parsedlogfile,results):
             elif results[otherteam_][cause.title()]!=None:
                 setter=roster_search(team,results[otherteam_][cause.title()],results)
                 setter['hphealed']+=-damagedone
-        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1 or cause.find("ability: Aftermath")>-1 or cause.find("ability: Innards Out")>-1  or cause.find("Spiky Shield")>-1:
+        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1 or cause.find("ability: Aftermath")>-1 or cause.find("ability: Innards Out")>-1 or cause.find("ability: Bad Dreams")>-1  or cause.find("Spiky Shield")>-1 or cause.find("leechseed")>-1:
             damager=cause.split("|[of] ")[1].split(": ",1)[1]
             team=cause.split("|[of] ")[1].split(": ",1)[0]
             damager=roster_search(team,damager,results)
@@ -181,7 +192,7 @@ def damage_function(line,parsedlogfile,results):
                 damager=roster_search("p1a",damager,results)
         elif cause.find("ability: Solar Power")>-1:
             pokemon['hphealed']+=-damagedone
-        elif cause in ['Recoil','item: Life Orb'] or cause.find("Recoil|[of] ")>-1 or cause.find("recoil|[of] ")>-1:
+        elif cause in ['Recoil','item: Life Orb','highjumpkick','recoil'] or cause.find("Recoil|[of] ")>-1 or cause.find("recoil|[of] ")>-1:
             pokemon['hphealed']+=-damagedone
         elif cause in ["item: Black Sludge","item: Sticky Barb"]:
             matchdata=list(filter(lambda x: x[0] < line[0], parsedlogfile))[::-1]
@@ -221,7 +232,7 @@ def damage_function(line,parsedlogfile,results):
         elif damager and cause: 
             damager['kills']+=1
             results['significantevents'].append([line[1],f"{damager['pokemon']} killed {pokemon['pokemon']} via {cause}"])
-        else: 
+        else:
             results['significantevents'].append([line[1],f"{pokemon['pokemon']} fainted via {cause}"])
             results[thisteam]['selfdeaths']+=1
     return line,parsedlogfile,results
@@ -241,7 +252,7 @@ def damager_search(parsedlogfile,line,team,pokemon,results,damagedone):
             elif line[2]=="start" and line[3].find(f"p1a: {pokemon['nickname']}")>-1 and line[3].find("|Substitute")>-1:
                 pokemon['hphealed']+=-damagedone
                 break
-            elif line[2]=="move" and line[3].split(":",1)[0]=="p2a" and line[3].find(f"p1a: {pokemon['nickname']}")>-1:
+            elif line[2] in ["move","prepare"] and line[3].split(":",1)[0]=="p2a" and line[3].find(f"p1a: {pokemon['nickname']}")>-1:
                 damager=line[3].split(" ",1)[1].split("|",1)[0]
                 damager=roster_search("p2a",damager,results)
                 damager['damagedone']+=damagedone
@@ -256,7 +267,7 @@ def damager_search(parsedlogfile,line,team,pokemon,results,damagedone):
             elif line[2]=="start" and line[3].find(f"p2a: {pokemon['nickname']}")>-1 and line[3].find("|Substitute")>-1:
                 pokemon['hphealed']+=-damagedone
                 break
-            elif line[2]=="move" and line[3].split(":",1)[0]=="p1a" and line[3].find(f"p2a: {pokemon['nickname']}")>-1:
+            elif line[2] in ["move","prepare"] and line[3].split(":",1)[0]=="p1a" and line[3].find(f"p2a: {pokemon['nickname']}")>-1:
                 damager=line[3].split(" ",1)[1].split("|",1)[0]
                 damager=roster_search("p1a",damager,results)
                 damager['damagedone']+=damagedone
@@ -360,8 +371,6 @@ def move_function(line,parsedlogfile,results):
     #check if can crit
     movesthatcancrit=['Precipice Blades', 'Thunder Punch', 'Scratch', 'High Horsepower', 'Anchor Shot', 'Avalanche', 'Sand Tomb', 'Fire Punch', 'Infestation', 'Superpower', 'Zing Zap', 'Giga Drain', 'Chatter', 'Black Hole Eclipse', 'Bloom Doom', 'Triple Kick', 'Night Slash', 'Plasma Fists', 'Extrasensory', 'Ice Punch', 'Tail Slap', 'Double Slap', 'Thunder Shock', 'Splintered Stormshards', 'Sky Uppercut', 'Hyper Beam', 'Dynamic Punch', 'Poison Sting', 'Dig', 'Focus Blast', 'Liquidation', 'Double Kick', 'Ice Ball', 'Round', 'False Swipe', 'Crush Claw', 'Shadow Sneak', 'Tectonic Rage', 'Hidden Power Electric', 'Seed Bomb', 'Hidden Power Fire', 'Chip Away', 'Metal Claw', 'Acid', 'Vital Throw', 'Shock Wave', 'Baddy Bad', 'Accelerock', 'Aurora Beam', 'Heart Stamp', 'Magma Storm', 'Crunch', 'Aeroblast', 'Explosion', 'Gigavolt Havoc', 'Moongeist Beam', 'Revenge', 'Clear Smog', 'Wake-Up Slap', 'Pursuit', 'Head Smash', 'Earthquake', 'Incinerate', 'Water Pulse', 'Dragon Pulse', 'Glitzy Glow', 'Acid Spray', 'Blizzard', 'Blast Burn', 'Paleo Wave', 'Mud-Slap', 'Inferno Overdrive', 'Freeze-Dry', 'Pin Missile', 'Overheat', 'Savage Spin-Out', 'First Impression', 'Flame Charge', 'Dizzy Punch', 'Flying Press', 'Lunge', 'Prismatic Laser', 'Fly', 'U-turn', 'Future Sight', 'Fire Lash', 'Smelling Salts', 'Burn Up', 'Catastropika', 'Bug Bite', 'Hidden Power Ghost', 'Relic Song', 'Shell Trap', 'Hyperspace Hole', 'Fake Out', 'Sky Drop', 'Crabhammer', 'Light That Burns the Sky', 'Darkest Lariat', 'Hidden Power', 'Razor Leaf', 'Head Charge', 'Dive', 'Signal Beam', 'Rock Tomb', 'Power Whip', 'Buzzy Buzz', 'Ancient Power', "Let's Snuggle Forever", 'Psychic Fangs', 'Bind', 'Throat Chop', 'Parabolic Charge', 'Retaliate', 'Steamroller', 'Bullet Seed', 'Bubble Beam', 'Freezy Frost', 'Aqua Jet', 'Sludge', 'Bulldoze', 'Flame Burst', 'Thief', 'Play Rough', 'Astonish', 'Dream Eater', 'Energy Ball', 'Fury Swipes', 'Zen Headbutt', 'Belch', 'Power Trip', 'Fury Cutter', 'Iron Tail', 'Clanging Scales', 'Hidden Power Flying', 'Egg Bomb', 'Payback', 'Fusion Flare', 'Boomburst', 'Shadow Strike', 'Secret Sword', 'Thunder Fang', 'Charge Beam', 'Rapid Spin', 'Skull Bash', 'Clamp', 'Hidden Power Dragon', 'Rock Throw', 'Secret Power', 'Fairy Wind', 'Water Shuriken', 'Struggle Bug', 'Corkscrew Crash', 'Ice Fang', 'Self-Destruct', 'Sinister Arrow Raid', 'Stored Power', 'Hidden Power Psychic', 'Tri Attack', 'Psychic', 'Electroweb', 'Weather Ball', 'Shattered Psyche', 'Whirlpool', 'Smog', 'Assurance', 'Icy Wind', 'Steel Wing', 'Core Enforcer', 'Synchronoise', 'Zippy Zap', 'Petal Dance', 'Struggle', 'Iron Head', 'Trop Kick', 'Headbutt', 'Drain Punch', 'Body Slam', 'Bug Buzz', 'Fire Fang', 'Seed Flare', 'Hydro Cannon', 'Mist Ball', 'Jump Kick', 'Water Spout', 'Leaf Storm', 'Ice Shard', 'Earth Power', 'Stomping Tantrum', 'Bolt Strike', 'Bite', 'Air Cutter', 'Sappy Seed', 'Mega Kick', 'Inferno', 'Flamethrower', 'Rock Climb', 'Rock Blast', 'Feint', 'Sucker Punch', 'Doom Desire', 'Dragon Ascent', 'Freeze Shock', 'Peck', 'Drill Run', 'Leafage', 'Sunsteel Strike', 'Dark Pulse', 'Flash Cannon', 'Floaty Fall', 'Poison Fang', 'Twinkle Tackle', 'Dazzling Gleam', 'Double-Edge', 'Hidden Power Rock', 'Sludge Bomb', 'Lick', 'Fire Spin', 'Frenzy Plant', 'Close Combat', 'Bone Rush', 'Slam', 'Aqua Tail', 'Strength', 'Fusion Bolt', 'Rage', 'Diamond Storm', 'Hidden Power Dark', 'Psycho Boost', 'Surf', 'Never-Ending Nightmare', 'Gear Grind', 'Shadow Ball', 'Eruption', 'Barrage', 'Shadow Force', 'Bonemerang', 'Cross Poison', 'Draco Meteor', 'Low Sweep', 'Sludge Wave', 'Leaf Tornado', 'Hyper Fang', 'Covet', 'Hyperspace Fury', 'Karate Chop', 'Fell Stinger', 'Muddy Water', 'Thunder', 'Constrict', 'Razor Wind', 'Water Pledge', 'Brine', 'Hammer Arm', 'Last Resort', 'Pulverizing Pancake', 'Bullet Punch', 'Brick Break', 'Pay Day', 'Oblivion Wing', 'Outrage', 'Origin Pulse', 'Stomp', 'Poison Tail', 'Bone Club', 'Fire Blast', 'Malicious Moonsault', 'Brave Bird', 'Gust', 'Mud Bomb', 'Leaf Blade', 'Sparkly Swirl', 'Twineedle', 'Solar Blade', 'Splishy Splash', 'Spirit Shackle', 'Beak Blast', 'Continental Crush', 'Mystical Fire', 'Confusion', 'Pluck', 'Frost Breath', 'Roar of Time', 'Hydro Pump', 'Fury Attack', 'Swift', 'High Jump Kick', 'Brutal Swing', 'Steam Eruption', 'Petal Blizzard', 'Menacing Moonraze Maelstrom', 'Wing Attack', 'Smart Strike', 'Hidden Power Steel', 'Wood Hammer', 'Hidden Power Water', 'X-Scissor', 'Fiery Dance', 'Echoed Voice', 'Smack Down', "Land's Wrath", 'Disarming Voice', 'Mega Punch', 'Revelation Dance', 'Night Daze', 'Dragon Tail', 'Flare Blitz', 'Ice Hammer', 'Water Gun', 'V-create', 'Acid Downpour', 'Draining Kiss', 'Mud Shot', 'Clangorous Soulblaze', 'Mirror Shot', 'Megahorn', 'Thrash', 'Volt Switch', 'Pound', 'Shadow Claw', 'Sacred Fire', 'Ice Beam', 'Facade', 'Vice Grip', "Magikarp's Revenge", 'Hidden Power Ice', 'Extreme Speed', 'Poison Jab', 'Take Down', 'Phantom Force', 'Double Iron Bash', 'Nuzzle', 'Mind Blown', 'Multi-Attack', 'Zap Cannon', 'Magnet Bomb', 'Absorb', 'Waterfall', 'Hidden Power Fighting', 'Judgment', 'Hidden Power Bug', 'Psybeam', 'Knock Off', 'Octazooka', 'Hyper Voice', 'Double Hit', 'Snarl', 'Spark', 'Stone Edge', 'Venoshock', 'Rock Wrecker', 'Bouncy Bubble', 'Thousand Arrows', 'Needle Arm', 'Dragon Breath', 'Searing Sunraze Smash', 'Cut', 'Comet Punch', 'Aerial Ace', 'Air Slash', 'Leech Life', 'Acrobatics', 'Fleur Cannon', 'Dragon Rush', 'Solar Beam', 'Silver Wind', 'Mach Punch', 'Luster Purge', 'Breakneck Blitz', 'Snore', 'Submission', 'Vacuum Wave', 'Thunderbolt', 'Circle Throw', 'All-Out Pummeling', 'Flame Wheel', 'Hidden Power Poison', 'Subzero Slammer', 'Fire Pledge', 'Bounce', 'Photon Geyser', 'Giga Impact', 'Dragon Claw', 'Soul-Stealing 7-Star Strike', 'Scald', 'Magical Leaf', 'Uproar', 'Force Palm', 'Hurricane', 'Ice Burn', 'Cross Chop', 'Psyshock', 'Hidden Power Grass', '10,000,000 Volt Thunderbolt', 'Techno Blast', 'Gunk Shot', 'Wild Charge', 'Dragon Hammer', 'Horn Attack', 'Blaze Kick', 'Lava Plume', 'Psystrike', 'Spike Cannon', 'Meteor Mash', 'Horn Leech', 'Searing Shot', 'Supersonic Skystrike', 'Arm Thrust', 'Dual Chop', 'Shadow Punch', 'Foul Play', 'Twister', 'Focus Punch', 'Slash', 'Rollout', 'Icicle Spear', 'Feint Attack', 'Wrap', 'Icicle Crash', 'Devastating Drake', 'Pollen Puff', 'Sacred Sword', 'Hex', 'Bubble', 'Quick Attack', 'Glaciate', 'Psycho Cut', 'Sizzly Slide', 'Rock Smash', 'Volt Tackle', 'Oceanic Operetta', 'Grass Pledge', 'Sparkling Aria', 'Attack Order', 'Vine Whip', 'Ember', 'Spacial Rend', 'Light of Ruin', 'Stoked Sparksurfer', 'Powder Snow', 'Hold Back', 'Power-Up Punch', 'Spectral Thief', 'Moonblast', 'Hydro Vortex', 'Thousand Waves', 'Rock Slide', 'Aura Sphere', 'Shadow Bone', 'Drill Peck', 'Storm Throw', 'Heat Wave', 'Tackle', 'Discharge', 'Ominous Wind', 'Razor Shell', 'Hidden Power Ground', 'Rolling Kick', 'Blue Flare', 'Sky Attack', 'Power Gem', 'Mega Drain', 'Genesis Supernova']
     if move in movesthatcancrit:
-        with open('replayanalysis/NewParser/results.json', 'w') as f:
-            json.dump(results,f,indent=2)
         attacker['luck']+=-4
         target['luck']+=4
     #moves with secondary effect
@@ -421,27 +430,52 @@ def player_function(line,parsedlogfile,results):
     return line,parsedlogfile,results
 
 def poke_function(line,parsedlogfile,results):
+    adjustedmon=line[3].split("|")[1].replace("-Mega-X","").replace("-Mega-Y","").replace("-Mega","")
     if line[3].split("|",1)[0]=="p1":
         results['team1']['roster'].append({
-            'pokemon':line[3].split("|")[1], 'startform':line[3].split("|")[1],'nickname':line[3].split("|")[1],
+            'pokemon':line[3].split("|")[1], 'startform':adjustedmon,'nickname':adjustedmon,
             'kills':0,'deaths':0,'causeofdeath':None,'support':0,'damagedone':0,'hphealed':0,'luck':0,'remaininghealth':100,'lines':[],
             'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,
-        })
+        })  
     elif line[3].split("|",1)[0]=="p2":
         results['team2']['roster'].append({
-            'pokemon':line[3].split("|")[1], 'startform':line[3].split("|")[1],'nickname':line[3].split("|")[1],
+            'pokemon':line[3].split("|")[1], 'startform':adjustedmon,'nickname':adjustedmon,
             'kills':0,'deaths':0,'causeofdeath':None,'support':0,'damagedone':0,'hphealed':0,'luck':0,'remaininghealth':100,'lines':[],
             'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,
         })
+    if adjustedmon in ['Zorua','Zoroark']:
+        parsedlogfile=illusion_function(parsedlogfile,adjustedmon)
     return line,parsedlogfile,results
 
 def replace_function(line,parsedlogfile,results):
-    replaceteam=line[3].split(": ")[0]
-    replacenickname=line[3].split("|")[0].split(": ",1)[1]
-    replacemon=line[3].split("|")[1]
-    mon=roster_search(replaceteam,replacemon,results)
-    mon['nickname']=replacenickname
+    #replaceteam=line[3].split(": ")[0]
+    #replacenickname=line[3].split("|")[0].split(": ",1)[1]
+    #replacemon=line[3].split("|")[1]
+    #mon=roster_search(replaceteam,replacemon,results)
+    #if mon!=replacemon:
+    #    mon['nickname']=replacenickname
     return line,parsedlogfile,results
+
+def illusion_function(parsedlogfile,pokemon):
+    replacelines=list(filter(lambda x: x[2]=="replace" and x[3].find(pokemon)>-1, parsedlogfile))
+    for line_ in replacelines:
+        replaceteam=line_[3].split(": ")[0]
+        replacenickname=line_[3].split("|")[0].split(": ",1)[1]
+        replacemon=line_[3].split("|")[1]
+        relevantlines=list(filter(lambda x: x[0]<line_[0], parsedlogfile))[::-1]
+        montoreplace=None
+        for line in relevantlines:
+            if line[3].find(replaceteam)>-1:
+                montoreplace=line[3].split("|")[0].split(f"{replaceteam}: ")[1]
+                break
+        for line in relevantlines:
+            if line[2] in ['switch','drag'] and line[3].find(montoreplace)>-1:
+                monname=line[3].split("|")[1]
+                line[3]=line[3].replace(f"{replaceteam}: {montoreplace}",f"{replaceteam}: {replacenickname}").replace(monname,pokemon)
+                break
+            else:
+                line[3]=line[3].replace(f"{replaceteam}: {montoreplace}",f"{replaceteam}: {replacenickname}")
+    return parsedlogfile
 
 def sethp_function(line,parsedlogfile,results):
     if line[3].find("|[from] move: Pain Split")>-1 and len(line[3].split("|"))>4:
@@ -505,7 +539,7 @@ def status_function(line,parsedlogfile,results):
         matchdata=list(filter(lambda x: x[0] < line[0], parsedlogfile))[::-1]
         switched=False
         for line_ in matchdata:
-            if line_[2]=="item" and line_[3].find(cause.split(": ",1)[1])>-1 and line_[3].find(mon['nickname'])>-1:
+            if line_[2]=="item" and line_[3].find(mon['nickname'])>-1:#and line_[3].find(cause.split(": ",1)[1])>-1
                 switched=True
             if line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==True and line_[3].split("|")[0].split(": ",1)[1]!=pokemon['nickname']:
                 damager=line_[3].split("|")[0].split(": ",1)[1]
@@ -566,11 +600,20 @@ def start_function(line,parsedlogfile,results):
             setter['damagedone']+=priorhealth
             setter['kills']+=1
     if line[3].split("|")[1]=="confusion":
-        if line[3].split("|")[2]=="[fatigue]":
-            mon=line[3].split("|")[0].split(": ")[1]
-            team=line[3].split(": ")[0]
-            mon_=roster_search(team,mon,results)
+        mon=line[3].split("|")[0].split(": ")[1]
+        team=line[3].split(": ")[0]
+        mon_=roster_search(team,mon,results)
+        if line[3].find("[fatigue]")>-1:
             mon_['confusion']=mon
+        else:
+            turndata=list(filter(lambda x: x[0] < line[0] and x[1] == line[1] and x[2]=="move", parsedlogfile))[::-1]
+            movesthatconfuse=['Dynamic Punch']
+            for line_ in turndata:
+                move=line_[3].split("|")[1]
+                team_=line_[3].split(": ")[0]
+                attacker=line_[3].split("|")[0].split(": ")[1]
+                if move in movesthatconfuse and team_!=team:
+                    mon_['confusion']=attacker
     return line,parsedlogfile,results
 
 def switch_drag_function(line,parsedlogfile,results):
