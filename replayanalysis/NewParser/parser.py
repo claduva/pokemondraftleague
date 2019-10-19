@@ -45,7 +45,7 @@ def newreplayparse(replay):
     for line in logfile:
         if line.find("|")>-1:
             #remove unneeded lines
-            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","")
+            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("-White","").replace("-Yellow","")
             linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
             badlines=["|start","|player|p1","|player|p2","|-notarget","|-clearallboost"]
             linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
@@ -406,7 +406,10 @@ def move_function(line,parsedlogfile,results):
                 active=True
         for line_ in turndata:
             if line_[2]=="damage" and line_[3].find(attacker['nickname'])>-1 and active==True:
-                attacker['hphealed']+=-50
+                healthremaining=int(line_[3].split("|",1)[1].split(" ",1)[0].split("/",1)[0].split("|",1)[0])
+                priorhealth= attacker['remaininghealth']
+                attacker['remaininghealth']=healthremaining
+                attacker['hphealed']+=healthremaining-priorhealth
                 break
     #check for suicide moves
     if move in ['Final Gambit','Healing Wish',"Lunar Dance","Memento","Explosion","Self-Destruct"]:

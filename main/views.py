@@ -109,6 +109,7 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request): 
+    """
     allmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
     print(allmatches.count())
     for match in allmatches:
@@ -119,4 +120,5 @@ def runscript(request):
         except Exception as e:
             #raise(e)
             print(match.replay)
+    """
     return redirect('home')
