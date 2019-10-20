@@ -45,7 +45,7 @@ def newreplayparse(replay):
     for line in logfile:
         if line.find("|")>-1:
             #remove unneeded lines
-            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("-White","").replace("-Yellow","")
+            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("-White","").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","")
             linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
             badlines=["|start","|player|p1","|player|p2","|-notarget","|-clearallboost"]
             linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
@@ -79,8 +79,6 @@ def newreplayparse(replay):
     #output results to json file
     with open('replayanalysis/NewParser/results.json', 'w') as f:
         json.dump(results,f,indent=2)
-    #tests
-    fail=False
     #team1
     damagedone=results['team1']['damagedone']
     damagedonetest=results['team2']['totalhealth']-results['team2']['remaininghealth']+results['team2']['hphealed']
@@ -97,6 +95,8 @@ def newreplayparse(replay):
     if damagedonetest!=damagedone: results['errormessage'].append("This replay's Team 2 damage numbers do not add up. Please contact claduva and do not submit the replay.")
     if scoretest!=score: results['errormessage'].append("This replay's Team 2 score numbers do not add up. Please contact claduva and do not submit the replay.")
     if score!=0 and results['team1']['wins']==1: results['errormessage'].append("The losing team's score should be 0. Please contact claduva and do not submit the replay.")
+    if len(results['errormessage'])>0:
+        results=alternativereplayparse(replay)
     return results
 
 def activate_function(line,parsedlogfile,results):
@@ -179,20 +179,20 @@ def damage_function(line,parsedlogfile,results):
             elif results[otherteam_][cause.title()]!=None:
                 setter=roster_search(team,results[otherteam_][cause.title()],results)
                 setter['hphealed']+=-damagedone
-        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1 or cause.find("ability: Aftermath")>-1 or cause.find("ability: Innards Out")>-1 or cause.find("ability: Bad Dreams")>-1  or cause.find("Spiky Shield")>-1 or cause.find("leechseed")>-1:
+        elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1 or cause.find("ability: Aftermath")>-1 or cause.find("ability: Liquid Ooze")>-1 or cause.find("ability: Innards Out")>-1 or cause.find("ability: Bad Dreams")>-1  or cause.find("Spiky Shield")>-1 or cause.find("leechseed")>-1:
             damager=cause.split("|[of] ")[1].split(": ",1)[1]
             team=cause.split("|[of] ")[1].split(": ",1)[0]
             damager=roster_search(team,damager,results)
-        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1:
+        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1 or cause.find("move: Fire Spin")>-1:
             if team=="p1a":
                 damager=results['team2']['activemon']
                 damager=roster_search("p2a",damager,results)
             elif team=="p2a":
                 damager=results['team1']['activemon']
                 damager=roster_search("p1a",damager,results)
-        elif cause.find("ability: Solar Power")>-1:
+        elif cause.find("ability: Solar Power")>-1 or cause.find("ability: Dry Skin")>-1:
             pokemon['hphealed']+=-damagedone
-        elif cause in ['Recoil','item: Life Orb','highjumpkick','recoil'] or cause.find("Recoil|[of] ")>-1 or cause.find("recoil|[of] ")>-1:
+        elif cause in ['Recoil','item: Life Orb','highjumpkick','recoil','High Jump Kick'] or cause.find("Recoil|[of] ")>-1 or cause.find("recoil|[of] ")>-1:
             pokemon['hphealed']+=-damagedone
         elif cause in ["item: Black Sludge","item: Sticky Barb"]:
             matchdata=list(filter(lambda x: x[0] < line[0], parsedlogfile))[::-1]
@@ -205,7 +205,7 @@ def damage_function(line,parsedlogfile,results):
                     team=line_[3].split(": ",1)[0]
                     damager=roster_search(team,damager,results)
                     break
-                elif line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==True and line_[3].split("|")[0].split(": ",1)[1]==pokemon['nickname']:
+                elif line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==False and line_[3].split("|")[0].split(": ",1)[1]==pokemon['nickname']:
                     pokemon['hphealed']+=-damagedone
                     break
         else:
@@ -438,13 +438,13 @@ def poke_function(line,parsedlogfile,results):
         results['team1']['roster'].append({
             'pokemon':line[3].split("|")[1], 'startform':adjustedmon,'nickname':adjustedmon,
             'kills':0,'deaths':0,'causeofdeath':None,'support':0,'damagedone':0,'hphealed':0,'luck':0,'remaininghealth':100,'lines':[],
-            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,
+            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,'Curse':None,
         })  
     elif line[3].split("|",1)[0]=="p2":
         results['team2']['roster'].append({
             'pokemon':line[3].split("|")[1], 'startform':adjustedmon,'nickname':adjustedmon,
             'kills':0,'deaths':0,'causeofdeath':None,'support':0,'damagedone':0,'hphealed':0,'luck':0,'remaininghealth':100,'lines':[],
-            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,
+            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,'Curse':None,
         })
     if adjustedmon in ['Zorua','Zoroark']:
         parsedlogfile=illusion_function(parsedlogfile,adjustedmon)
@@ -617,6 +617,22 @@ def start_function(line,parsedlogfile,results):
                 attacker=line_[3].split("|")[0].split(": ")[1]
                 if move in movesthatconfuse and team_!=team:
                     mon_['confusion']=attacker
+    if line[3].split("|")[1]=="Curse":
+        mon=line[3].split("|")[0].split(": ")[1]
+        team=line[3].split(": ")[0]
+        mon_=roster_search(team,mon,results)
+        setter=line[3].split("|")[2].split(": ")[1]
+        mon_['Curse']=setter
+        turndata=list(filter(lambda x: x[0] > line[0] and x[1] == line[1] and x[2]=="damage", parsedlogfile))
+        for line_ in turndata:
+            team_=line_[3].split(": ")[0]
+            if team_!=team:
+                setter=roster_search(team_,setter,results)
+                priorhealth=setter['remaininghealth']
+                healthremaining=int(line_[3].split("|",1)[1].split(" ",1)[0].split("/",1)[0].split("|",1)[0])
+                setter['remaininghealth']=healthremaining
+                setter['hphealed']=healthremaining-priorhealth
+                break
     return line,parsedlogfile,results
 
 def switch_drag_function(line,parsedlogfile,results):
@@ -784,3 +800,78 @@ def roster_search(team,pokemon,results):
                 match=True
                 break
     return pokemon
+
+def alternativereplayparse(replay):
+    #initialize variables
+    logfile = requests.get(replay+".log").text.splitlines()
+    parsedlogfile=[]
+    line_number=0
+    turn_number=0
+    #initialize output json
+    results=initializeoutput()
+    results['replay']=replay
+    #iterate through logfile
+    for line in logfile:
+        if line.find("|")>-1:
+            #remove unneeded lines
+            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("-White","").replace("-Yellow","")
+            linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
+            badlines=["|start","|player|p1","|player|p2","|-notarget","|-clearallboost"]
+            linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
+            linepurpose=line.split("|",2)[1].replace("-","")
+            #iterate turn number
+            if linepurpose=="turn":
+                turn_number+=1
+                results['numberofturns']=turn_number
+            #add turn data
+            elif line not in linestoremove and linepurpose not in linepurposestoremove and line not in badlines:
+                lineremainder=line.split("|",2)[2]
+                parsedlogfile.append([line_number,turn_number,linepurpose,lineremainder])
+                line_number+=1
+    #iterate through parsed logfile replacing names
+    switchdraglines=list(filter(lambda x: x[2] in ["switch","drag"], parsedlogfile))[::-1]
+    for line in switchdraglines:
+        team=line[3].split(": ",)[0]
+        nickname=line[3].split("|")[0].split(": ",)[1]
+        pokemon=line[3].split("|")[1].split("-")[0]
+        if pokemon.find(nickname)==-1:
+            matchdata=list(filter(lambda x: x[0]>=line[0], parsedlogfile))
+            for line_ in matchdata:
+                line_[3]=line_[3].replace(nickname,pokemon)
+    #iterate through parsed logfile
+    for line in parsedlogfile:
+        line,parsedlogfile,results=replay_parse_switch(line,parsedlogfile,results)
+    #sort significant events
+    results['significantevents']=sorted( results['significantevents'],key=lambda tup: tup[0])
+    #update result totals
+    teams=['team1','team2']
+    categories=['kills','deaths','luck','support','hphealed','damagedone','remaininghealth']
+    for team in teams:
+        for mon in results[team]['roster']:
+            results[team]['score']+=1-mon['deaths']
+            for category in categories:
+                results[team][category]+=mon[category]
+                results[team][category]=round(results[team][category],2)
+            mon['luck']= mon['luck']/100
+            results[team]['totalhealth']+=100
+        results[team]['luck']=results[team]['luck']/100
+    #output results to json file
+    with open('replayanalysis/NewParser/results.json', 'w') as f:
+        json.dump(results,f,indent=2)
+    #team1
+    damagedone=results['team1']['damagedone']
+    damagedonetest=results['team2']['totalhealth']-results['team2']['remaininghealth']+results['team2']['hphealed']
+    score=results['team1']['score']
+    scoretest=len(results['team1']['roster'])-results['team2']['kills']-results['team1']['selfdeaths']
+    if damagedonetest!=damagedone: results['errormessage'].append("This replay's Team 1 damage numbers do not add up. Please contact claduva and do not submit the replay.")
+    if scoretest!=score: results['errormessage'].append("This replay's Team 1 score numbers do not add up. Please contact claduva and do not submit the replay.")
+    if score!=0 and results['team2']['wins']==1: results['errormessage'].append("The losing team's score should be 0. Please contact claduva and do not submit the replay.")
+    #team2
+    damagedone=results['team2']['damagedone']
+    damagedonetest=results['team1']['totalhealth']-results['team1']['remaininghealth']+results['team1']['hphealed']
+    score=results['team2']['score']
+    scoretest=len(results['team2']['roster'])-results['team1']['kills']-results['team2']['selfdeaths']
+    if damagedonetest!=damagedone: results['errormessage'].append("This replay's Team 2 damage numbers do not add up. Please contact claduva and do not submit the replay.")
+    if scoretest!=score: results['errormessage'].append("This replay's Team 2 score numbers do not add up. Please contact claduva and do not submit the replay.")
+    if score!=0 and results['team1']['wins']==1: results['errormessage'].append("The losing team's score should be 0. Please contact claduva and do not submit the replay.")
+    return results

@@ -109,16 +109,20 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request): 
-    """
-    allmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
+    allmatches=historical_match.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
     print(allmatches.count())
+    failedmatches=[]
+    i=1
     for match in allmatches:
         try:
             results = newreplayparse(match.replay)
             if len(results['errormessage'])!=0:
-                print(match.replay)
+                failedmatches.append(match)
         except Exception as e:
             #raise(e)
-            print(match.replay)
-    """
+            failedmatches.append(match)
+        print(i)
+        i+=1
+    for match in failedmatches:
+        print(match.replay)
     return redirect('home')

@@ -797,7 +797,7 @@ def freeagency(request,league_name,subleague_name):
     coach=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=request.user)|Q(teammate=request.user)).first()
     coachrosterids=coach.teamroster.all().order_by('pokemon__pokemon').exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
     coachroster=all_pokemon.objects.all().order_by('pokemon').filter(id__in=coachrosterids)
-    bannedpokemon=pokemon_tier.objects.all().filter(league=subleague.league).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
+    bannedpokemon=pokemon_tier.objects.all().filter(subleague=subleague).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
     takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
     availablepokemon=all_pokemon.objects.all().order_by('pokemon').exclude(id__in=takenpokemon).exclude(id__in=bannedpokemon)
     if request.method=="POST":

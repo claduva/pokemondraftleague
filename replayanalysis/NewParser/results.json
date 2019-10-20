@@ -1,265 +1,38 @@
 {
   "team1": {
-    "coach": "Joey_RiverAPP",
-    "roster": [
-      {
-        "pokemon": "Azumarill",
-        "startform": "Azumarill",
-        "nickname": "Azumarill",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 74,
-        "hphealed": 0,
-        "luck": -0.36,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Miltank",
-        "startform": "Miltank",
-        "nickname": "Miltank",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 26,
-        "hphealed": 0,
-        "luck": -0.4,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Gigalith",
-        "startform": "Gigalith",
-        "nickname": "Gigalith",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 48,
-        "hphealed": -25,
-        "luck": -0.7,
-        "remaininghealth": 65,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Kyurem-Black",
-        "startform": "Kyurem",
-        "nickname": "Kyurem",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 159,
-        "hphealed": 0,
-        "luck": -0.26,
-        "remaininghealth": 88,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Steelix-Mega",
-        "startform": "Steelix",
-        "nickname": "Steelix",
-        "kills": 2,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 186,
-        "hphealed": 0,
-        "luck": 0.04,
-        "remaininghealth": 60,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Decidueye",
-        "startform": "Decidueye",
-        "nickname": "Decidueye",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 70,
-        "hphealed": 63,
-        "luck": -0.14,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Napoleon"
-      }
-    ],
-    "wins": 1,
-    "forfeit": 0,
-    "score": 3,
-    "megaevolved": true,
-    "usedzmove": false,
-    "timesswitched": 10,
-    "selfdeaths": 0,
-    "remaininghealth": 213,
-    "totalhealth": 600,
-    "kills": 6,
-    "deaths": 3,
-    "luck": -1.82,
-    "damagedone": 563,
-    "hphealed": 38,
-    "support": 4,
-    "activemon": "Steelix",
-    "Toxic Spikes": null,
-    "Spike": null,
-    "Stealth Rock": "Napoleon",
-    "Future Sight": null,
-    "Sandstorm": null,
-    "Hail": null,
-    "Leech Seed": null
-  },
-  "team2": {
     "coach": "PragmaticWin",
     "roster": [
       {
-        "pokemon": "Aerodactyl-Mega",
-        "startform": "Aerodactyl",
-        "nickname": "Killzone",
+        "pokemon": "Onix",
+        "startform": "Onix",
+        "nickname": "THE GOD OF OU",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 98,
+        "hphealed": 0,
+        "luck": -0.28,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Tapu Koko",
+        "startform": "Tapu Koko",
+        "nickname": "rockstar",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 62,
-        "hphealed": 0,
-        "luck": -0.08,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Gliscor",
-        "startform": "Gliscor",
-        "nickname": "GG",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 17,
-        "hphealed": 0,
-        "luck": 0.14,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "GG"
-      },
-      {
-        "pokemon": "Empoleon",
-        "startform": "Empoleon",
-        "nickname": "Napoleon",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
         "support": 3,
-        "damagedone": 148,
-        "hphealed": 50,
-        "luck": 0.54,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Clefable",
-        "startform": "Clefable",
-        "nickname": "UNAWARE",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 23,
-        "hphealed": 12,
-        "luck": 0.7,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Kommo-o",
-        "startform": "Kommo-o",
-        "nickname": "JUGGERNAUT",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": -74,
-        "luck": 0.58,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": "Miltank",
-        "frz": null,
-        "tox": null
-      },
-      {
-        "pokemon": "Darmanitan",
-        "startform": "Darmanitan",
-        "nickname": "shofu",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 175,
-        "hphealed": -25,
+        "damagedone": 31,
+        "hphealed": 0,
         "luck": -0.06,
         "remaininghealth": 0,
         "lines": [],
@@ -268,7 +41,92 @@
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": null
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Raichu-Alola",
+        "startform": "Raichu-Alola",
+        "nickname": "Tony Hawk",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 81,
+        "hphealed": -94,
+        "luck": -0.42,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Dusclops",
+        "startform": "Dusclops",
+        "nickname": "Hellspawn",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 174,
+        "hphealed": 13,
+        "luck": -1.08,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Beedrill-Mega",
+        "startform": "Beedrill",
+        "nickname": "OG",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 4,
+        "damagedone": 173,
+        "hphealed": 13,
+        "luck": 0.48,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Rhyperior",
+        "startform": "Rhyperior",
+        "nickname": "Big Ole Boi",
+        "kills": 2,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 102,
+        "hphealed": 0,
+        "luck": -1.06,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
       }
     ],
     "wins": 0,
@@ -276,101 +134,303 @@
     "score": 0,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 14,
+    "timesswitched": 13,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 3,
+    "kills": 5,
     "deaths": 6,
-    "luck": 1.82,
-    "damagedone": 425,
-    "hphealed": -37,
-    "support": 4,
-    "activemon": "UNAWARE",
+    "luck": -2.42,
+    "damagedone": 659,
+    "hphealed": -68,
+    "support": 7,
+    "activemon": "rockstar",
+    "Toxic Spikes": null,
+    "Spike": null,
+    "Stealth Rock": null,
+    "Future Sight": null,
+    "Sandstorm": null,
+    "Hail": null,
+    "Leech Seed": null
+  },
+  "team2": {
+    "coach": "TheGamer7777",
+    "roster": [
+      {
+        "pokemon": "Magikarp",
+        "startform": "Magikarp",
+        "nickname": "G.O.A.T",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 126,
+        "hphealed": 0,
+        "luck": 0.3,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Klefki",
+        "startform": "Klefki",
+        "nickname": "Original Nickname",
+        "kills": 2,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 6,
+        "damagedone": 78,
+        "hphealed": 72,
+        "luck": 1.22,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Blissey",
+        "startform": "Blissey",
+        "nickname": "Physical Blissey",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 29,
+        "hphealed": 98,
+        "luck": 0.0,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "OG",
+        "Curse": null
+      },
+      {
+        "pokemon": "Donphan",
+        "startform": "Donphan",
+        "nickname": "Don't Bother",
+        "kills": 2,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 150,
+        "hphealed": 0,
+        "luck": -0.18,
+        "remaininghealth": 82,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "OG",
+        "Curse": null
+      },
+      {
+        "pokemon": "Latios",
+        "startform": "Latios",
+        "nickname": "Not Terrible",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 87,
+        "hphealed": -29,
+        "luck": 0.08,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Pangoro",
+        "startform": "Pangoro",
+        "nickname": "Fairy Counter",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 4,
+        "damagedone": 62,
+        "hphealed": 0,
+        "luck": 1.0,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": "Hellspawn"
+      }
+    ],
+    "wins": 1,
+    "forfeit": 0,
+    "score": 1,
+    "megaevolved": false,
+    "usedzmove": false,
+    "timesswitched": 13,
+    "selfdeaths": 0,
+    "remaininghealth": 82,
+    "totalhealth": 600,
+    "kills": 6,
+    "deaths": 5,
+    "luck": 2.42,
+    "damagedone": 532,
+    "hphealed": 141,
+    "support": 10,
+    "activemon": "Don't Bother",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Gigalith",
+    "Stealth Rock": null,
     "Future Sight": null,
     "Sandstorm": null,
     "Hail": null,
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 28,
+  "numberofturns": 47,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen7ou-993617177",
+  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-778332270",
   "significantevents": [
     [
+      1,
+      "Klefki provided support by using Reflect"
+    ],
+    [
       2,
-      "Empoleon provided support by using Stealth Rock"
+      "Klefki provided support by using Rain Dance"
     ],
     [
-      3,
-      "Decidueye provided support by using Defog"
-    ],
-    [
-      5,
-      "LUCK: Gigalith suffered a stat drop via secondary effect by Clefable with Moonblast"
+      4,
+      "Magikarp killed Onix with Hydro Pump"
     ],
     [
       6,
-      "Gigalith provided support by using Stealth Rock"
+      "Pangoro provided support by using Parting Shot"
     ],
     [
-      7,
-      "Gliscor provided support by using Defog"
+      9,
+      "Klefki provided support by using Reflect"
     ],
     [
-      11,
-      "Kyurem-Black killed Gliscor with Ice Beam"
+      10,
+      "Klefki provided support by using Light Screen"
     ],
     [
-      13,
-      "Miltank provided support by using Thunder Wave"
+      12,
+      "Klefki provided support by using Rain Dance"
+    ],
+    [
+      14,
+      "Tapu Koko provided support by using Reflect"
     ],
     [
       15,
-      "Miltank killed Kommo-o with Body Slam"
+      "Tapu Koko provided support by using Light Screen"
     ],
     [
-      16,
-      "Empoleon provided support by using Toxic"
+      17,
+      "Pangoro provided support by using Rain Dance"
     ],
     [
       18,
-      "Empoleon provided support by using Stealth Rock"
-    ],
-    [
-      19,
-      "Decidueye provided support by using Defog"
-    ],
-    [
-      21,
-      "Darmanitan killed Miltank with Flare Blitz"
+      "Pangoro provided support by using Parting Shot"
     ],
     [
       22,
-      "Gigalith killed Empoleon with Earthquake"
+      "Dusclops killed Latios with Shadow Sneak"
     ],
     [
       24,
-      "Darmanitan killed Decidueye with Earthquake"
+      "LUCK: Pangoro landed a crit on Rhyperior with Surf"
     ],
     [
       25,
-      "Azumarill killed Darmanitan with Liquidation"
+      "Pangoro provided support by using Rain Dance"
+    ],
+    [
+      25,
+      "Rhyperior killed Pangoro with Earthquake"
     ],
     [
       26,
-      "Aerodactyl-Mega killed Azumarill with Earthquake"
+      "Rhyperior killed Magikarp with Dragon Tail"
     ],
     [
       27,
-      "Steelix-Mega killed Aerodactyl-Mega with Heavy Slam"
+      "Klefki killed Rhyperior with Play Rough"
     ],
     [
-      28,
-      "Steelix-Mega killed Clefable with Heavy Slam"
+      30,
+      "LUCK: Dusclops suffered a stat drop via secondary effect by Klefki with Play Rough"
+    ],
+    [
+      31,
+      "Klefki killed Dusclops with Play Rough"
+    ],
+    [
+      32,
+      "Klefki provided support by using Reflect"
+    ],
+    [
+      32,
+      "Tapu Koko killed Klefki with Thunderbolt"
+    ],
+    [
+      33,
+      "Tapu Koko provided support by using Light Screen"
+    ],
+    [
+      37,
+      "Blissey killed Raichu-Alola with Focus Punch"
+    ],
+    [
+      38,
+      "Beedrill-Mega provided support by using Toxic"
+    ],
+    [
+      39,
+      "Beedrill-Mega provided support by using Toxic"
+    ],
+    [
+      43,
+      "Beedrill-Mega provided support by using Toxic"
+    ],
+    [
+      44,
+      "Beedrill-Mega killed Blissey via tox"
+    ],
+    [
+      45,
+      "Beedrill-Mega provided support by using Toxic"
+    ],
+    [
+      46,
+      "Donphan killed Beedrill-Mega with Earthquake"
+    ],
+    [
+      47,
+      "Donphan killed Tapu Koko with Earthquake"
     ]
   ],
   "errormessage": []
