@@ -121,7 +121,23 @@ def runscript(request):
         except Exception as e:
             #raise(e)
             failedmatches.append(match)
-        print(i)
+        if i%25==0: print(i)
+        i+=1
+    for match in failedmatches:
+        print(match.replay)
+    allmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
+    print(allmatches.count())
+    failedmatches=[]
+    i=1
+    for match in allmatches:
+        try:
+            results = newreplayparse(match.replay)
+            if len(results['errormessage'])!=0:
+                failedmatches.append(match)
+        except Exception as e:
+            #raise(e)
+            failedmatches.append(match)
+        if i%25==0: print(i)
         i+=1
     for match in failedmatches:
         print(match.replay)

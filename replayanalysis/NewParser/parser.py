@@ -47,7 +47,7 @@ def newreplayparse(replay):
             #remove unneeded lines
             line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("-White","").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","")
             linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
-            badlines=["|start","|player|p1","|player|p2","|-notarget","|-clearallboost"]
+            badlines=["|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost"]
             linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
             linepurpose=line.split("|",2)[1].replace("-","")
             #iterate turn number
@@ -192,7 +192,7 @@ def damage_function(line,parsedlogfile,results):
                 damager=roster_search("p1a",damager,results)
         elif cause.find("ability: Solar Power")>-1 or cause.find("ability: Dry Skin")>-1:
             pokemon['hphealed']+=-damagedone
-        elif cause in ['Recoil','item: Life Orb','highjumpkick','recoil','High Jump Kick'] or cause.find("Recoil|[of] ")>-1 or cause.find("recoil|[of] ")>-1:
+        elif cause in ['Recoil','item: Life Orb','highjumpkick','recoil','High Jump Kick','Mind Blown'] or cause.find("Recoil|[of] ")>-1 or cause.find("recoil|[of] ")>-1:
             pokemon['hphealed']+=-damagedone
         elif cause in ["item: Black Sludge","item: Sticky Barb"]:
             matchdata=list(filter(lambda x: x[0] < line[0], parsedlogfile))[::-1]
@@ -309,6 +309,7 @@ def heal_function(line,parsedlogfile,results):
     return line,parsedlogfile,results
 
 def message_function(line,parsedlogfile,results):
+    line[3]=line[3].replace("lost due to inactivity.","forfeited.")
     if line[3].find("forfeited.")>-1:
         ffcoach=line[3].split(" forfeited.")[0]
         if ffcoach == results['team1']['coach']:
@@ -398,7 +399,7 @@ def move_function(line,parsedlogfile,results):
         elif attackingteam=="p2a":
             results['team1'][move]=attacker['nickname']
     #check belly drum:
-    if move=="Belly Drum":
+    if move.replace("Z-","")=="Belly Drum":
         turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0], parsedlogfile))
         active=False
         for line_ in turndata:
@@ -411,15 +412,28 @@ def move_function(line,parsedlogfile,results):
                 attacker['remaininghealth']=healthremaining
                 attacker['hphealed']+=healthremaining-priorhealth
                 break
+            elif line_[2]=="heal" and line_[3].find(attacker['nickname'])>-1 and active==True:
+                healthremaining=int(line_[3].split("|",1)[1].split(" ",1)[0].split("/",1)[0].split("|",1)[0])
+                priorhealth=attacker['remaininghealth']
+                attacker['remaininghealth']=healthremaining
+                attacker['hphealed']+=healthremaining-priorhealth
     #check for suicide moves
-    if move in ['Final Gambit','Healing Wish',"Lunar Dance","Memento","Explosion","Self-Destruct"]:
-        attacker['deaths']+=1
-        attacker['hphealed']+=-attacker['remaininghealth']
-        attacker['remaininghealth']=0
-        if attackingteam=="p1a":
-            results['team1']['selfdeaths']+=1
-        elif attackingteam=="p2a":
-            results['team2']['selfdeaths']+=1
+    if move.replace("Z-","") in ['Final Gambit','Healing Wish',"Lunar Dance","Memento","Explosion","Self-Destruct"]:
+        move=move.replace("Z-","")
+        #search for miss 
+        turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0] , parsedlogfile))[::-1]
+        miss=False
+        for line in turndata:
+            if (line[2]=="miss" and line[3].split(": ")[0]==attackingteam) or (line[2]=="immune" and line[3].split(": ")[0]==defendingteam):
+                miss=True
+        if miss==False or move in ['Healing Wish',"Lunar Dance","Explosion","Self-Destruct"]:
+            attacker['deaths']+=1
+            attacker['hphealed']+=-attacker['remaininghealth']
+            attacker['remaininghealth']=0
+            if attackingteam=="p1a":
+                results['team1']['selfdeaths']+=1
+            elif attackingteam=="p2a":
+                results['team2']['selfdeaths']+=1
     #check for Perish Song
     if move=="Perish Song":
         results['Perish Song']=attacker['nickname']
