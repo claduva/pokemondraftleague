@@ -17,6 +17,10 @@ def split(string, arg):
 def subtract(int, arg):
     return int-arg
 
+@register.filter(name='percentage')
+def percentage(int, arg):
+    return round(arg/int*100,2)
+
 @register.filter
 def halve(thelist):
     firsthalf=[]

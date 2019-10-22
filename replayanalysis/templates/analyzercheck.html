@@ -1,0 +1,37 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}Tools: Check Analyzer{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="rounded-circle mediumlogo"></div>
+    <div class="col-md-4">
+        <h2 class="d-flex justify-content-center">Check Analyzer</h2>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="rounded-circle mediumlogo"></div>
+</div>
+<div class="row content-section align-items-center">
+    <div class="col-12">
+        <h3>Matches Passed: {{passedmatches}}/{{totalmatches}} ({{totalmatches|percentage:passedmatches}}%)</h3>
+        {% if failedschedule %}
+            <h5>Failed Active Matches</h5>
+            {% for match in failedschedule %}
+                <div>{{match.replay}}</div>
+            {% endfor %}
+        {% endif %}
+        {% if failedhistoric %}
+            <h5>Failed Historic Matches</h5>
+            {% for match in failedhistoric %}
+                <div>{{match.replay}}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

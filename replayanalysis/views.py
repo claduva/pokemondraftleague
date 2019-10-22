@@ -14,6 +14,7 @@ import time
 from .models import *
 from .forms import *
 from leagues.models import *
+from pokemonadmin.models import *
 from accounts.models import showdownalts, inbox
 from .ShowdownReplayParser.replayparser import *
 from .NewParser.parser import *
@@ -470,3 +471,48 @@ def upload_league_replay_manual(request,league_name,subleague_name,matchid):
         'league_teams': league_teams,
     }
     return  render(request,"replayanalysisform.html",context)
+
+
+def check_analyzer(request):
+    allmatches=historical_match.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
+    totalmatches=allmatches.count()
+    print(allmatches.count())
+    failedschedule=[]
+    i=1
+    for match in allmatches:
+        try:
+            results = newreplayparse(match.replay)
+            if len(results['errormessage'])!=0:
+                failedschedule.append(match)
+        except Exception as e:
+            #raise(e)
+            failedschedule.append(match)
+        if i%25==0: print(i)
+        i+=1
+    for match in failedschedule:
+        print(match.replay)
+    allmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
+    totalmatches+=allmatches.count()
+    print(allmatches.count())
+    failedhistoric=[]
+    i=1
+    for match in allmatches:
+        try:
+            results = newreplayparse(match.replay)
+            if len(results['errormessage'])!=0:
+                failedhistoric.append(match)
+        except Exception as e:
+            #raise(e)
+            failedhistoric.append(match)
+        if i%25==0: print(i)
+        i+=1
+    for match in failedhistoric:
+        print(match.replay)
+    passedmatches=totalmatches-len(failedhistoric)-len(failedschedule)
+    context={
+        "totalmatches": totalmatches,
+        "passedmatches": passedmatches,
+        "failedschedule":failedschedule,
+        "failedhistoric":failedhistoric,
+    }
+    return  render(request,"analyzercheck.html",context)
