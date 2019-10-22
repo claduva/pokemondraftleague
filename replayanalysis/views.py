@@ -70,6 +70,8 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
                 return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             coach1=results['team1']['coach']
             coach2=results['team2']['coach']
+            print(coach1)
+            print(coach2)
             try:
                 coach1alt=showdownalts.objects.all().filter(showdownalt=coach1).first()
                 coach1team=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user)).first()
@@ -78,6 +80,7 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
                 return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
             try:
                 coach2alt=showdownalts.objects.all().filter(showdownalt=coach2).first()
+                print(coach2alt)
                 coach2team=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user)).first()
             except:
                 messages.error(request,f'A matching showdown alt for {coach2} was not found!',extra_tags='danger')

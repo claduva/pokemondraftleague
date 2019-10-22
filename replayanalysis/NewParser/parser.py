@@ -47,7 +47,7 @@ def newreplayparse(replay):
             #remove unneeded lines
             line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("-White","").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","")
             linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
-            badlines=["|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost"]
+            badlines=["|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost","|-nothing"]
             linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
             linepurpose=line.split("|",2)[1].replace("-","")
             #iterate turn number
@@ -375,7 +375,7 @@ def move_function(line,parsedlogfile,results):
         attacker['luck']+=-4
         target['luck']+=4
     #moves with secondary effect
-    moveswithsecondaryeffect=dict([['Thunder Punch', ['par', 10]], ['Fire Punch', ['brn', 10]], ['Zing Zap', ['flinch', 30]], ['Extrasensory', ['flinch', 10]], ['Ice Punch', ['frz', 10]], ['Thunder Shock', ['par', 10]], ['Poison Sting', ['psn', 30]], ['Focus Blast', ['boosts spd: -1 ', 10]], ['Liquidation', ['boosts def: -1 ', 20]], ['Crush Claw', ['boosts def: -1 ', 50]], ['Metal Claw', ['self boosts: atk: 1 ', 10]], ['Acid', ['boosts spd: -1 ', 10]], ['Aurora Beam', ['boosts atk: -1 ', 10]], ['Heart Stamp', ['flinch', 30]], ['Crunch', ['boosts def: -1 ', 20]], ['Water Pulse', ['confusion', 20]], ['Blizzard', ['frz', 10]], ['Paleo Wave', ['boosts atk: -1 ', 20]], ['Freeze-Dry', ['frz', 10]], ['Dizzy Punch', ['confusion', 20]], ['Relic Song', ['slp', 10]], ['Signal Beam', ['confusion', 10]], ['Ancient Power', ['self boosts: spa: 1, spd: 1, atk: 1, def: 1, spe: 1 ', 10]], ['Steamroller', ['flinch', 30]], ['Bubble Beam', ['boosts spe: -1 ', 10]], ['Sludge', ['psn', 30]], ['Play Rough', ['boosts atk: -1 ', 10]], ['Astonish', ['flinch', 30]], ['Energy Ball', ['boosts spd: -1 ', 10]], ['Zen Headbutt', ['flinch', 20]], ['Iron Tail', ['boosts def: -1 ', 30]], ['Shadow Strike', ['boosts def: -1 ', 50]], ['Charge Beam', ['self boosts: spa: 1 ', 70]], ['Secret Power', ['par', 30]], ['Tri Attack', ['par frz or brn', 20]], ['Psychic', ['boosts spd: -1 ', 10]], ['Smog', ['psn', 40]], ['Steel Wing', ['self boosts: def: 1 ', 10]], ['Iron Head', ['flinch', 30]], ['Headbutt', ['flinch', 30]], ['Body Slam', ['par', 30]], ['Bug Buzz', ['boosts spd: -1 ', 10]], ['Seed Flare', ['boosts spd: -2 ', 40]], ['Mist Ball', ['boosts spa: -1 ', 50]], ['Earth Power', ['boosts spd: -1 ', 10]], ['Bolt Strike', ['par', 20]], ['Bite', ['flinch', 30]], ['Flamethrower', ['brn', 10]], ['Rock Climb', ['confusion', 20]], ['Freeze Shock', ['par', 30]], ['Dark Pulse', ['flinch', 20]], ['Flash Cannon', ['boosts spd: -1 ', 10]], ['Floaty Fall', ['flinch', 30]], ['Poison Fang', ['tox', 50]], ['Sludge Bomb', ['psn', 30]], ['Lick', ['par', 30]], ['Diamond Storm', ['self boosts: def: 2 ', 50]], ['Shadow Ball', ['boosts spd: -1 ', 20]], ['Cross Poison', ['psn', 10]], ['Sludge Wave', ['psn', 10]], ['Leaf Tornado', ['boosts accuracy: -1 ', 50]], ['Hyper Fang', ['flinch', 10]], ['Muddy Water', ['boosts accuracy: -1 ', 30]], ['Thunder', ['par', 30]], ['Constrict', ['boosts spe: -1 ', 10]], ['Stomp', ['flinch', 30]], ['Poison Tail', ['psn', 10]], ['Bone Club', ['flinch', 10]], ['Fire Blast', ['brn', 10]], ['Mud Bomb', ['boosts accuracy: -1 ', 30]], ['Twineedle', ['psn', 20]], ['Splishy Splash', ['par', 30]], ['Confusion', ['confusion', 10]], ['Steam Eruption', ['brn', 30]], ['Fiery Dance', ['self boosts: spa: 1 ', 50]], ['Night Daze', ['boosts accuracy: -1 ', 40]], ['Flare Blitz', ['brn', 10]], ['Mirror Shot', ['boosts accuracy: -1 ', 30]], ['Sacred Fire', ['brn', 50]], ['Ice Beam', ['frz', 10]], ['Poison Jab', ['psn', 30]], ['Double Iron Bash', ['flinch', 30]], ['Waterfall', ['flinch', 20]], ['Psybeam', ['confusion', 10]], ['Octazooka', ['boosts accuracy: -1 ', 50]], ['Spark', ['par', 30]], ['Needle Arm', ['flinch', 30]], ['Dragon Breath', ['par', 30]], ['Air Slash', ['flinch', 30]], ['Dragon Rush', ['flinch', 20]], ['Silver Wind', ['self boosts: spa: 1, spd: 1, atk: 1, def: 1, spe: 1 ', 10]], ['Luster Purge', ['boosts spd: -1 ', 50]], ['Snore', ['flinch', 30]], ['Thunderbolt', ['par', 10]], ['Flame Wheel', ['brn', 10]], ['Bounce', ['par', 30]], ['Scald', ['brn', 30]], ['Force Palm', ['par', 30]], ['Hurricane', ['confusion', 30]], ['Ice Burn', ['brn', 30]], ['Gunk Shot', ['psn', 30]], ['Blaze Kick', ['brn', 10]], ['Lava Plume', ['brn', 30]], ['Meteor Mash', ['self boosts: atk: 1 ', 20]], ['Searing Shot', ['brn', 30]], ['Twister', ['flinch', 20]], ['Icicle Crash', ['flinch', 30]], ['Bubble', ['boosts spe: -1 ', 10]], ['Rock Smash', ['boosts def: -1 ', 50]], ['Volt Tackle', ['par', 10]], ['Ember', ['brn', 10]], ['Powder Snow', ['frz', 10]], ['Moonblast', ['boosts spa: -1 ', 30]], ['Rock Slide', ['flinch', 30]], ['Shadow Bone', ['boosts def: -1 ', 20]], ['Heat Wave', ['brn', 10]], ['Discharge', ['par', 30]], ['Ominous Wind', ['self boosts: spa: 1, spd: 1, atk: 1, def: 1, spe: 1 ', 10]], ['Razor Shell', ['boosts def: -1 ', 50]], ['Rolling Kick', ['flinch', 30]], ['Blue Flare', ['brn', 20]], ['Sky Attack', ['flinch', 30]]])
+    moveswithsecondaryeffect=dict([['Thunder Punch', ['par', 10]],['Thunder Fang', ['par', 10]],['Ice Fang', ['frz', 10]],['Fire Fang', ['brn', 10]], ['Fire Punch', ['brn', 10]], ['Zing Zap', ['flinch', 30]], ['Extrasensory', ['flinch', 10]], ['Ice Punch', ['frz', 10]], ['Thunder Shock', ['par', 10]], ['Poison Sting', ['psn', 30]], ['Focus Blast', ['boosts spd: -1 ', 10]], ['Liquidation', ['boosts def: -1 ', 20]], ['Crush Claw', ['boosts def: -1 ', 50]], ['Metal Claw', ['self boosts: atk: 1 ', 10]], ['Acid', ['boosts spd: -1 ', 10]], ['Aurora Beam', ['boosts atk: -1 ', 10]], ['Heart Stamp', ['flinch', 30]], ['Crunch', ['boosts def: -1 ', 20]], ['Water Pulse', ['confusion', 20]], ['Blizzard', ['frz', 10]], ['Paleo Wave', ['boosts atk: -1 ', 20]], ['Freeze-Dry', ['frz', 10]], ['Dizzy Punch', ['confusion', 20]], ['Relic Song', ['slp', 10]], ['Signal Beam', ['confusion', 10]], ['Ancient Power', ['self boosts: spa: 1, spd: 1, atk: 1, def: 1, spe: 1 ', 10]], ['Steamroller', ['flinch', 30]], ['Bubble Beam', ['boosts spe: -1 ', 10]], ['Sludge', ['psn', 30]], ['Play Rough', ['boosts atk: -1 ', 10]], ['Astonish', ['flinch', 30]], ['Energy Ball', ['boosts spd: -1 ', 10]], ['Zen Headbutt', ['flinch', 20]], ['Iron Tail', ['boosts def: -1 ', 30]], ['Shadow Strike', ['boosts def: -1 ', 50]], ['Charge Beam', ['self boosts: spa: 1 ', 70]], ['Secret Power', ['par', 30]], ['Tri Attack', ['par frz or brn', 20]], ['Psychic', ['boosts spd: -1 ', 10]], ['Smog', ['psn', 40]], ['Steel Wing', ['self boosts: def: 1 ', 10]], ['Iron Head', ['flinch', 30]], ['Headbutt', ['flinch', 30]], ['Body Slam', ['par', 30]], ['Bug Buzz', ['boosts spd: -1 ', 10]], ['Seed Flare', ['boosts spd: -2 ', 40]], ['Mist Ball', ['boosts spa: -1 ', 50]], ['Earth Power', ['boosts spd: -1 ', 10]], ['Bolt Strike', ['par', 20]], ['Bite', ['flinch', 30]], ['Flamethrower', ['brn', 10]], ['Rock Climb', ['confusion', 20]], ['Freeze Shock', ['par', 30]], ['Dark Pulse', ['flinch', 20]], ['Flash Cannon', ['boosts spd: -1 ', 10]], ['Floaty Fall', ['flinch', 30]], ['Poison Fang', ['tox', 50]], ['Sludge Bomb', ['psn', 30]], ['Lick', ['par', 30]], ['Diamond Storm', ['self boosts: def: 2 ', 50]], ['Shadow Ball', ['boosts spd: -1 ', 20]], ['Cross Poison', ['psn', 10]], ['Sludge Wave', ['psn', 10]], ['Leaf Tornado', ['boosts accuracy: -1 ', 50]], ['Hyper Fang', ['flinch', 10]], ['Muddy Water', ['boosts accuracy: -1 ', 30]], ['Thunder', ['par', 30]], ['Constrict', ['boosts spe: -1 ', 10]], ['Stomp', ['flinch', 30]], ['Poison Tail', ['psn', 10]], ['Bone Club', ['flinch', 10]], ['Fire Blast', ['brn', 10]], ['Mud Bomb', ['boosts accuracy: -1 ', 30]], ['Twineedle', ['psn', 20]], ['Splishy Splash', ['par', 30]], ['Confusion', ['confusion', 10]], ['Steam Eruption', ['brn', 30]], ['Fiery Dance', ['self boosts: spa: 1 ', 50]], ['Night Daze', ['boosts accuracy: -1 ', 40]], ['Flare Blitz', ['brn', 10]], ['Mirror Shot', ['boosts accuracy: -1 ', 30]], ['Sacred Fire', ['brn', 50]], ['Ice Beam', ['frz', 10]], ['Poison Jab', ['psn', 30]], ['Double Iron Bash', ['flinch', 30]], ['Waterfall', ['flinch', 20]], ['Psybeam', ['confusion', 10]], ['Octazooka', ['boosts accuracy: -1 ', 50]], ['Spark', ['par', 30]], ['Needle Arm', ['flinch', 30]], ['Dragon Breath', ['par', 30]], ['Air Slash', ['flinch', 30]], ['Dragon Rush', ['flinch', 20]], ['Silver Wind', ['self boosts: spa: 1, spd: 1, atk: 1, def: 1, spe: 1 ', 10]], ['Luster Purge', ['boosts spd: -1 ', 50]], ['Snore', ['flinch', 30]], ['Thunderbolt', ['par', 10]], ['Flame Wheel', ['brn', 10]], ['Bounce', ['par', 30]], ['Scald', ['brn', 30]], ['Force Palm', ['par', 30]], ['Hurricane', ['confusion', 30]], ['Ice Burn', ['brn', 30]], ['Gunk Shot', ['psn', 30]], ['Blaze Kick', ['brn', 10]], ['Lava Plume', ['brn', 30]], ['Meteor Mash', ['self boosts: atk: 1 ', 20]], ['Searing Shot', ['brn', 30]], ['Twister', ['flinch', 20]], ['Icicle Crash', ['flinch', 30]], ['Bubble', ['boosts spe: -1 ', 10]], ['Rock Smash', ['boosts def: -1 ', 50]], ['Volt Tackle', ['par', 10]], ['Ember', ['brn', 10]], ['Powder Snow', ['frz', 10]], ['Moonblast', ['boosts spa: -1 ', 30]], ['Rock Slide', ['flinch', 30]], ['Shadow Bone', ['boosts def: -1 ', 20]], ['Heat Wave', ['brn', 10]], ['Discharge', ['par', 30]], ['Ominous Wind', ['self boosts: spa: 1, spd: 1, atk: 1, def: 1, spe: 1 ', 10]], ['Razor Shell', ['boosts def: -1 ', 50]], ['Rolling Kick', ['flinch', 30]], ['Blue Flare', ['brn', 20]], ['Sky Attack', ['flinch', 30]]])
     if move in moveswithsecondaryeffect.keys():
         attacker['luck']+=-moveswithsecondaryeffect[move][1]
         target['luck']+=moveswithsecondaryeffect[move][1]
@@ -417,6 +417,7 @@ def move_function(line,parsedlogfile,results):
                 priorhealth=attacker['remaininghealth']
                 attacker['remaininghealth']=healthremaining
                 attacker['hphealed']+=healthremaining-priorhealth
+                line_[2]="healprocessed"
     #check for suicide moves
     if move.replace("Z-","") in ['Final Gambit','Healing Wish',"Lunar Dance","Memento","Explosion","Self-Destruct"]:
         move=move.replace("Z-","")
@@ -483,7 +484,7 @@ def illusion_function(parsedlogfile,pokemon):
         montoreplace=None
         for line in relevantlines:
             if line[3].find(replaceteam)>-1:
-                montoreplace=line[3].split("|")[0].split(f"{replaceteam}: ")[1]
+                montoreplace=line[3].split(f"{replaceteam}: ")[1].split("|")[0]
                 break
         for line in relevantlines:
             if line[2] in ['switch','drag'] and line[3].find(montoreplace)>-1:
@@ -558,22 +559,22 @@ def status_function(line,parsedlogfile,results):
         for line_ in matchdata:
             if line_[2]=="item" and line_[3].find(mon['nickname'])>-1:#and line_[3].find(cause.split(": ",1)[1])>-1
                 switched=True
-            if line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==True and line_[3].split("|")[0].split(": ",1)[1]!=pokemon['nickname']:
+            if line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==True and line_[3].split("|")[0].split(": ",1)[1]!=mon['nickname']:
                 damager=line_[3].split("|")[0].split(": ",1)[1]
                 mon[status]=damager    
                 break
-            elif line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==True and line_[3].split("|")[0].split(": ",1)[1]==pokemon['nickname']:
+            elif line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==True and line_[3].split("|")[0].split(": ",1)[1]==mon['nickname']:
                 mon[status]=mon['nickname']
                 break
         if switched==False:
             mon[status]=mon['nickname']
     else:
         movesthatcausestatus=dict([
-            ['tox',['Toxic']],
-            ['psn',['Toxic Thread','Poison Powder','Poison Gas','Baneful Bunker']],
-            ['brn',['Beak Blast','Will-O-Wisp']],
-            ['par',['Thunder Wave','Nuzzle','Glare','Stoked Sparksurfer','Stun Spore','Zap Cannon']],
-            ['slp',['Spore','Sleep Powder','Dark Void','Grass Whistle','Hypnosis','Lovely Kiss','Sing']],
+            ['tox',['Toxic','Fling','Psycho Shift']],
+            ['psn',['Toxic Thread','Poison Powder','Poison Gas','Baneful Bunker','Fling','Psycho Shift']],
+            ['brn',['Beak Blast','Will-O-Wisp','Fling','Psycho Shift']],
+            ['par',['Thunder Wave','Nuzzle','Glare','Stoked Sparksurfer','Stun Spore','Zap Cannon','Fling','Psycho Shift']],
+            ['slp',['Spore','Sleep Powder','Dark Void','Grass Whistle','Hypnosis','Lovely Kiss','Sing','Psycho Shift']],
             ['frz',[]]
             ])
         statusmoves=movesthatcausestatus[status]
@@ -624,13 +625,19 @@ def start_function(line,parsedlogfile,results):
             mon_['confusion']=mon
         else:
             turndata=list(filter(lambda x: x[0] < line[0] and x[1] == line[1] and x[2]=="move", parsedlogfile))[::-1]
-            movesthatconfuse=['Dynamic Punch']
+            movesthatconfuse=['Dynamic Punch','Confuse Ray','Chatter','Supersonic']
             for line_ in turndata:
                 move=line_[3].split("|")[1]
                 team_=line_[3].split(": ")[0]
                 attacker=line_[3].split("|")[0].split(": ")[1]
                 if move in movesthatconfuse and team_!=team:
                     mon_['confusion']=attacker
+            if mon_['confusion']==None:
+                #check for berry
+                turndata=list(filter(lambda x: x[0] < line[0] and x[1] == line[1] and x[2]=="enditem", parsedlogfile))[::-1]
+                for line_ in turndata:
+                    if line_[3].find("Berry")>-1:
+                        mon_['confusion']=mon_['nickname']
     if line[3].split("|")[1]=="Curse":
         mon=line[3].split("|")[0].split(": ")[1]
         team=line[3].split(": ")[0]

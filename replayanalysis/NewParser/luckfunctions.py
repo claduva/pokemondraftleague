@@ -18,9 +18,12 @@ def secondary_check(attacker,target,move,line,results,parsedlogfile):
     moveswithsecondaryeffect=dict([
     ['Thunder Punch', ['status', 'par',target['nickname'],.1,f"{target['pokemon']} was paralyzed by {attacker['pokemon']} with {move}"]], 
     ['Fire Punch', ['status', 'brn',target['nickname'],.1,f"{target['pokemon']} was burned by {attacker['pokemon']} with {move}"]], 
+    ['Fire Fang', ['status', 'brn',target['nickname'],.1,f"{target['pokemon']} was burned by {attacker['pokemon']} with {move}"]], 
     ['Zing Zap', ['cant', 'flinch',target['nickname'], .3,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]], 
     ['Extrasensory', ['cant', 'flinch',target['nickname'], .1,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]], 
     ['Ice Punch', ['status', 'frz',target['nickname'], .1,f"{target['pokemon']} was frozen by {attacker['pokemon']} with {move}"]], 
+    ['Ice Fang', ['status', 'frz',target['nickname'], .1,f"{target['pokemon']} was frozen by {attacker['pokemon']} with {move}"]], 
+    ['Thunder Fang', ['status', 'par',target['nickname'],.1,f"{target['pokemon']} was paralyzed by {attacker['pokemon']} with {move}"]], 
     ['Thunder Shock', ['status', 'par',target['nickname'],.1,f"{target['pokemon']} was paralyzed by {attacker['pokemon']} with {move}"]], 
     ['Poison Sting', ['status', 'psn',target['nickname'], .3,f"{target['pokemon']} was poisoned by {attacker['pokemon']} with {move}"]], 
     ['Focus Blast', ['unboost', 'spd|1',target['nickname'], .1,f"{target['pokemon']} suffered a stat drop via secondary effect by {attacker['pokemon']} with {move}"]], 
