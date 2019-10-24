@@ -26,7 +26,7 @@ def user_stat_update():
         userprofile.damagedone=0
         userprofile.hphealed=0
         userprofile.luck =0
-        remaininghealth=0
+        userprofile.remaininghealth=0
         userprofile.save()
         coaching=coachdata.objects.filter(Q(coach=userofinterest)|Q(teammate=userofinterest)).exclude(league_name__name__contains="Test")
         for item in coaching:
@@ -37,6 +37,7 @@ def user_stat_update():
             userprofile.damagedone+=item.damagedone
             userprofile.hphealed+=item.hphealed
             userprofile.luck+=item.luck
+            userprofile.remaininghealth+=item.remaininghealth
         priorseasons=historical_team.objects.filter(Q(coach1=userofinterest)|Q(coach2=userofinterest)).exclude(league__name__contains="Test")
         for item in priorseasons:
             userprofile.wins+=item.wins
@@ -46,6 +47,7 @@ def user_stat_update():
             userprofile.damagedone+=item.damagedone
             userprofile.hphealed+=item.hphealed
             userprofile.luck+=item.luck
+            userprofile.remaininghealth+=item.remaininghealth
         #adjust for alternative coach
         differentialadjustment=0
         lossestosubtractt1=schedule.objects.all().filter(Q(team1__coach=userofinterest)|Q(team1__teammate=userofinterest)).filter(team1alternateattribution__isnull=False).exclude(Q(winner__coach=userofinterest)|Q(winner__teammate=userofinterest))

@@ -260,48 +260,78 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
-    leaderboard=pokemon_leaderboard.objects.all()
-    for item in leaderboard:
-        #set baseline
-        item.kills=item.pokemon.kills
-        item.deaths=item.pokemon.deaths
-        item.differential = item.pokemon.differential
-        item.gp=item.pokemon.gp
-        item.gw=item.pokemon.gw
-        item.timesdrafted=0 
-        item.support=item.pokemon.support
-        item.damagedone=item.pokemon.damagedone
-        item.hphealed=item.pokemon.hphealed
-        item.luck =item.pokemon.luck
-        item.remaininghealth=item.pokemon.remaininghealth
-        item.save()
-        #update based on rosters
-        rosterson=item.pokemon.pokemonroster.all()
-        for team in rosterson:
-            if team.season.league.name.find('Test')==-1:
-                item.kills+=team.kills
-                item.deaths+=team.deaths
-                item.differential+=team.differential
-                item.gp+=team.gp
-                item.gw+=team.gw
-                item.support=team.support
-                item.damagedone=team.damagedone
-                item.hphealed=team.hphealed
-                item.luck=team.luck
-                item.remaininghealth=team.remaininghealth
-        historicrosterson=item.pokemon.historicalpokemonroster.all()
-        for team in historicrosterson:
-            if team.team.league.name.find('Test')==-1:
-                item.kills+=team.kills
-                item.deaths+=team.deaths
-                item.differential+=team.differential
-                item.gp+=team.gp
-                item.gw+=team.gw
-                item.support=team.support
-                item.damagedone=team.damagedone
-                item.hphealed=team.hphealed
-                item.luck=team.luck
-                item.remaininghealth=team.remaininghealth
-        item.timesdrafted=item.pokemon.historicalpokemondraft.all().count()+item.pokemon.pokemondraft.all().count()
-        item.save()
+    allusers=User.objects.all()
+    for userofinterest in allusers:
+        userprofile=userofinterest.profile
+        userprofile.wins=0
+        userprofile.losses=0
+        userprofile.seasonsplayed=0
+        userprofile.differential=0
+        userprofile.support=0
+        userprofile.damagedone=0
+        userprofile.hphealed=0
+        userprofile.luck =0
+        userprofile.remaininghealth=0
+        userprofile.save()
+        coaching=coachdata.objects.filter(Q(coach=userofinterest)|Q(teammate=userofinterest)).exclude(league_name__name__contains="Test")
+        for item in coaching:
+            userprofile.wins+=item.wins
+            userprofile.losses+=item.losses
+            userprofile.differential+=item.differential
+            userprofile.support+=item.support
+            userprofile.damagedone+=item.damagedone
+            userprofile.hphealed+=item.hphealed
+            userprofile.luck+=item.luck
+            userprofile.remaininghealth+=item.remaininghealth
+        priorseasons=historical_team.objects.filter(Q(coach1=userofinterest)|Q(coach2=userofinterest)).exclude(league__name__contains="Test")
+        for item in priorseasons:
+            userprofile.wins+=item.wins
+            userprofile.losses+=item.losses
+            userprofile.differential+=item.differential
+            userprofile.support+=item.support
+            userprofile.damagedone+=item.damagedone
+            userprofile.hphealed+=item.hphealed
+            userprofile.luck+=item.luck
+            userprofile.remaininghealth+=item.remaininghealth
+        #adjust for alternative coach
+        differentialadjustment=0
+        lossestosubtractt1=schedule.objects.all().filter(Q(team1__coach=userofinterest)|Q(team1__teammate=userofinterest)).filter(team1alternateattribution__isnull=False).exclude(Q(winner__coach=userofinterest)|Q(winner__teammate=userofinterest))
+        for item in lossestosubtractt1:
+            differentialadjustment+=item.team2score
+        lossestosubtractt2=schedule.objects.all().filter(Q(team2__coach=userofinterest)|Q(team2__teammate=userofinterest)).filter(team2alternateattribution__isnull=False).exclude(Q(winner__coach=userofinterest)|Q(winner__teammate=userofinterest))
+        for item in lossestosubtractt2:
+            differentialadjustment+=item.team1score
+        lossestosubtract=lossestosubtractt1.count()+lossestosubtractt2.count()
+        winstosubtractt1=schedule.objects.all().filter(Q(team1__coach=userofinterest)|Q(team1__teammate=userofinterest)).filter(team1alternateattribution__isnull=False).filter(Q(winner__coach=userofinterest)|Q(winner__teammate=userofinterest))
+        for item in winstosubtractt1:
+            differentialadjustment+=(-item.team1score)
+        winstosubtractt2=schedule.objects.all().filter(Q(team2__coach=userofinterest)|Q(team2__teammate=userofinterest)).filter(team2alternateattribution__isnull=False).filter(Q(winner__coach=userofinterest)|Q(winner__teammate=userofinterest))
+        for item in winstosubtractt2:
+            differentialadjustment+=(-item.team2score)
+        winstosubtract=winstosubtractt1.count()+winstosubtractt2.count()
+        lossestoadd=0
+        lossestoaddt1=schedule.objects.all().filter(team1alternateattribution=userofinterest)
+        for item in lossestoaddt1:
+            if item.winner!=item.team1: lossestoadd+=1
+            differentialadjustment+=(-item.team2score)
+        lossestoaddt2=schedule.objects.all().filter(team2alternateattribution=userofinterest)
+        for item in lossestoaddt2:
+            if item.winner!=item.team2: lossestoadd+=1
+            differentialadjustment+=(-item.team1score)
+        winstoadd=0
+        winstoaddt1=schedule.objects.all().filter(team1alternateattribution=userofinterest)
+        for item in winstoaddt1:
+            if item.winner!=item.team2: winstoadd+=1
+            differentialadjustment+=(item.team1score)
+        winstoaddt2=schedule.objects.all().filter(team2alternateattribution=userofinterest)
+        for item in winstoaddt2:
+            if item.winner!=item.team1: winstoadd+=1
+            differentialadjustment+=(item.team2score)
+        alternativeseasoncount=schedule.objects.all().filter(Q(team1alternateattribution=userofinterest)|Q(team2alternateattribution=userofinterest)).distinct('season').count()
+        seasonsplayed=coaching.count()+priorseasons.count()+alternativeseasoncount
+        userprofile.wins+=winstoadd-winstosubtract
+        userprofile.losses+=lossestoadd-lossestosubtract
+        userprofile.differential+=differentialadjustment
+        userprofile.seasonsplayed=seasonsplayed
+        userprofile.save()
     return redirect('home')

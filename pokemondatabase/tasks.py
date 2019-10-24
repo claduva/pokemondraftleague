@@ -38,11 +38,11 @@ def pokemon_stat_update():
                 item.differential+=team.differential
                 item.gp+=team.gp
                 item.gw+=team.gw
-                item.support=team.support
-                item.damagedone=team.damagedone
-                item.hphealed=team.hphealed
-                item.luck=team.luck
-                item.remaininghealth=team.remaininghealth
+                item.support+=team.support
+                item.damagedone+=team.damagedone
+                item.hphealed+=team.hphealed
+                item.luck+=team.luck
+                item.remaininghealth+=team.remaininghealth
         historicrosterson=item.pokemon.historicalpokemonroster.all()
         for team in historicrosterson:
             if team.team.league.name.find('Test')==-1:
@@ -51,10 +51,10 @@ def pokemon_stat_update():
                 item.differential+=team.differential
                 item.gp+=team.gp
                 item.gw+=team.gw
-                item.support=team.support
-                item.damagedone=team.damagedone
-                item.hphealed=team.hphealed
-                item.luck=team.luck
-                item.remaininghealth=team.remaininghealth
+                item.support+=team.support
+                item.damagedone+=team.damagedone
+                item.hphealed+=team.hphealed
+                item.luck+=team.luck
+                item.remaininghealth+=team.remaininghealth
         item.timesdrafted=item.pokemon.historicalpokemondraft.all().count()+item.pokemon.pokemondraft.all().count()
         item.save()

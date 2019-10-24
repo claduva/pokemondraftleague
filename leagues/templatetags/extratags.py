@@ -17,6 +17,10 @@ def split(string, arg):
 def subtract(int, arg):
     return int-arg
 
+@register.filter(name='divide')
+def divide(int, arg):
+    return round(int/arg,2)
+
 @register.filter(name='percentage')
 def percentage(int, arg):
     return round(arg/int*100,2)
