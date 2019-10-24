@@ -11,7 +11,7 @@ from leagues.models import *
 from individualleague.models import *
 
 class manual_replay(models.Model):
-    match=models.ForeignKey(schedule,on_delete=models.CASCADE)
+    match=models.OneToOneField(schedule,on_delete=models.CASCADE)
     replay=models.CharField(max_length=200,default="None")
     t1megaevolved=models.BooleanField(default="False")
     t2megaevolved=models.BooleanField(default="False")

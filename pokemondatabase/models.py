@@ -23,6 +23,11 @@ class all_pokemon(models.Model):
     differential = models.IntegerField(default=0)
     gp = models.IntegerField(default=0)
     gw = models.IntegerField(default=0)
+    support = models.IntegerField(default=0)
+    damagedone = models.IntegerField(default=0)
+    hphealed = models.IntegerField(default=0)
+    luck = models.FloatField(default=0)
+    remaininghealth = models.IntegerField(default=0)
     timesdrafted = models.IntegerField(default=0)
     nicknames = ArrayField(models.CharField(max_length=10, blank=True))
 
@@ -36,6 +41,11 @@ class pokemon_leaderboard(models.Model):
     differential = models.IntegerField(default=0)
     gp = models.IntegerField(default=0)
     gw = models.IntegerField(default=0)
+    support = models.IntegerField(default=0)
+    damagedone = models.IntegerField(default=0)
+    hphealed = models.IntegerField(default=0)
+    luck = models.FloatField(default=0)
+    remaininghealth = models.IntegerField(default=0)
     timesdrafted = models.IntegerField(default=0)
 
 class pokemon_type(models.Model):

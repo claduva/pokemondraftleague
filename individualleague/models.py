@@ -19,7 +19,7 @@ class schedule(models.Model):
     winneralternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="winneralternateattribution",null=True)
     team1score = models.IntegerField(default=0)
     team2score = models.IntegerField(default=0)
-    replay = models.CharField(max_length=100,default="Link")
+    replay = models.CharField(max_length=200,default="Link")
     team1usedz = models.BooleanField(default=False)
     team2usedz = models.BooleanField(default=False)
     team1megaevolved = models.BooleanField(default=False)

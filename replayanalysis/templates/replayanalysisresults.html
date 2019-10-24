@@ -19,7 +19,9 @@
 </div>
 <div class="row content-section align-items-center">
     <div class="col-12">
+        {% if results.replay %}
         <iframe src="{{ results.replay }}" height="500vh" width="100%"></iframe>
+        {% endif %}
     </div>
     <div class="col-12">
         {% for message in results.errormessage %}

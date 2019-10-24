@@ -17,6 +17,11 @@ class profile(models.Model):
     losses = models.IntegerField(default=0)
     differential = models.IntegerField(default=0)
     seasonsplayed = models.IntegerField(default=0)
+    support = models.IntegerField(default=0)
+    damagedone = models.IntegerField(default=0)
+    hphealed = models.IntegerField(default=0)
+    luck = models.FloatField(default=0)
+    remaininghealth = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.user.username} Profile'

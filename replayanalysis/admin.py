@@ -4,3 +4,4 @@ from .models import *
 
 # Register your models here.
 admin.site.register(match_replay) 
+admin.site.register(manual_replay) 

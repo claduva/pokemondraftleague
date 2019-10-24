@@ -19,7 +19,7 @@ from accounts.models import showdownalts, inbox
 from .ShowdownReplayParser.replayparser import *
 from .NewParser.parser import *
 from .helperfunctions import *
-from pokemondraftleague.customdecorators import check_if_subleague, check_if_league, check_if_season, check_if_team, check_if_host, check_if_match
+from pokemondraftleague.customdecorators import check_if_subleague, check_if_league, check_if_season, check_if_team, check_if_host, check_if_match, check_if_clad
 
 def replay_analysis(request):
     if request.method=="POST":
@@ -472,27 +472,10 @@ def upload_league_replay_manual(request,league_name,subleague_name,matchid):
     }
     return  render(request,"replayanalysisform.html",context)
 
-
+@check_if_clad
 def check_analyzer(request):
     allmatches=historical_match.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
     totalmatches=allmatches.count()
-    print(allmatches.count())
-    failedschedule=[]
-    i=1
-    for match in allmatches:
-        try:
-            results = newreplayparse(match.replay)
-            if len(results['errormessage'])!=0:
-                failedschedule.append(match)
-        except Exception as e:
-            #raise(e)
-            failedschedule.append(match)
-        if i%25==0: print(i)
-        i+=1
-    for match in failedschedule:
-        print(match.replay)
-    allmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
-    totalmatches+=allmatches.count()
     print(allmatches.count())
     failedhistoric=[]
     i=1
@@ -501,12 +484,42 @@ def check_analyzer(request):
             results = newreplayparse(match.replay)
             if len(results['errormessage'])!=0:
                 failedhistoric.append(match)
+            else:
+                try:
+                    em=match.historical_match_replay
+                    em.data=results
+                    em.save()
+                except: 
+                    historical_match_replay.objects.create(match=match,data=results)
         except Exception as e:
-            #raise(e)
             failedhistoric.append(match)
         if i%25==0: print(i)
         i+=1
     for match in failedhistoric:
+        print(match.replay)
+    allmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
+    totalmatches+=allmatches.count()
+    print(allmatches.count())
+    failedschedule=[]
+    i=1
+    for match in allmatches:
+        try:
+            results = newreplayparse(match.replay)
+            if len(results['errormessage'])!=0:
+                failedschedule.append(match)
+            else:
+                try:
+                    em=match.match_replay
+                    em.data=results
+                    em.save()
+                except: 
+                    match_replay.objects.create(match=match,data=results)
+        except Exception as e:
+            failedschedule.append(match)
+            raise(e)
+        if i%25==0: print(i)
+        i+=1
+    for match in failedschedule:
         print(match.replay)
     passedmatches=totalmatches-len(failedhistoric)-len(failedschedule)
     context={

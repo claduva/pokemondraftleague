@@ -25,6 +25,11 @@ class historical_team(models.Model):
     losses=models.IntegerField(default=0)
     differential=models.IntegerField(default=0)
     forfeit=models.IntegerField(default=0)
+    support = models.IntegerField(default=0)
+    damagedone = models.IntegerField(default=0)
+    hphealed = models.IntegerField(default=0)
+    luck = models.FloatField(default=0)
+    remaininghealth = models.IntegerField(default=0)
 
     class Meta:
         ordering = ['-seasonname','teamname']
@@ -48,6 +53,11 @@ class historical_roster(models.Model):
     differential = models.IntegerField(default=0)
     gp = models.IntegerField(default=0)
     gw = models.IntegerField(default=0)
+    support = models.IntegerField(default=0)
+    damagedone = models.IntegerField(default=0)
+    hphealed = models.IntegerField(default=0)
+    luck = models.FloatField(default=0)
+    remaininghealth = models.IntegerField(default=0)
 
     class Meta:
         ordering = ['pokemon__pokemon']
@@ -78,16 +88,13 @@ class historical_match(models.Model):
     team1megaevolved = models.BooleanField(default=False)
     team2megaevolved = models.BooleanField(default=False)
 
+    def __str__(self):
+        return f'{self.team1.league.name} {self.team1.seasonname} Week {self.week} {self.team1.teamname} vs. {self.team2.teamname}'
+
+
 class historical_match_replay(models.Model):
-    week=models.CharField(max_length=30)
+    match=models.OneToOneField(historical_match,on_delete=models.CASCADE)
     data=JSONField()
-    week=models.CharField(max_length=30)
-    team1=models.ForeignKey(historical_team, on_delete=models.CASCADE,related_name='historicreplayt1')
-    team1alternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="historicreplayteam1alternateattribution",null=True)
-    team2=models.ForeignKey(historical_team, on_delete=models.CASCADE,related_name='historicreplayt2')
-    team2alternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="historicreplayteam2alternateattribution",null=True)
-    winner = models.ForeignKey(historical_team, on_delete=models.CASCADE,null=True,related_name='historicreplaywinner')
-    winneralternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="historicreplaywinneralternateattribution",null=True)
 
 class error_message(models.Model):
     associated_view=models.CharField(max_length=200)

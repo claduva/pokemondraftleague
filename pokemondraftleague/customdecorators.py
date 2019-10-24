@@ -78,6 +78,14 @@ def check_if_host(view):
             return view(request, *args, **kwargs)
     return wrap
 
+def check_if_clad(view):
+    def wrap(request, *args, **kwargs):
+        if request.user.username!="claduva":
+            return redirect('home')
+        else:    
+            return view(request, *args, **kwargs)
+    return wrap
+
 def check_if_match(view):
     def wrap(request, *args, **kwargs):
         try:

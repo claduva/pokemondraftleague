@@ -118,6 +118,11 @@ class coachdata(models.Model):
     differential = models.IntegerField(default=0)
     streak = models.IntegerField(default=0)
     forfeit = models.IntegerField(default=0)
+    support = models.IntegerField(default=0)
+    damagedone = models.IntegerField(default=0)
+    hphealed = models.IntegerField(default=0)
+    luck = models.FloatField(default=0)
+    remaininghealth = models.IntegerField(default=0)
 
     def __str__(self):
         if self.teammate != None:
