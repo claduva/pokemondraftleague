@@ -29,6 +29,11 @@
                     <th>+/-</th>
                     <th>GP</th>
                     <th>GW</th>
+                    <th>Damage Done</th>
+                    <th>HP Healed</th>
+                    <th>Luck</th>
+                    <th>Support Provided</th>
+                    <th>Remaining Health</th>
                 </tr>
             </thead>
             <tbody class="bg-lightgrey text-dark">
@@ -55,6 +60,11 @@
                         <td>{{ item.differential }}</td>
                         <td>{{ item.gp }}</td>
                         <td>{{ item.gw }}</td>
+                        <td>{{ item.damagedone }}</td>
+                        <td>{{ item.hphealed }}</td>
+                        <td>{{ item.luck }}</td>
+                        <td>{{ item.support }}</td>
+                        <td>{{ item.remaininghealth }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
