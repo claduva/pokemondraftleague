@@ -28,8 +28,9 @@ def league_detail(request,league_name):
     else:
         try:
             standings=[]
-            league_teams=league_.leagueteam.all()
+            league_teams=league_.leagueteam.all().order_by('-points','-differential')
             for item in league_teams:
+                item.wins=0; item.losses=0; item.ties=0; item.points=0; item.differential=0
                 teamschedule=[]
                 teamschedule_=schedule.objects.all().filter(Q(team1=item.child_teams.first())|Q(team2=item.child_teams.first())).order_by('week')
                 for match in teamschedule_:
@@ -46,12 +47,13 @@ def league_detail(request,league_name):
                     for m in weeksmatches:
                         if m.winner and m.winner.parent_team==item:
                             wins+=1 
+                            item.differential+=1
                         else: 
                             losses+=1
+                            item.differential+=-1
                     teamschedule.append([opponent,wins,losses])
                     #update records
                     unplayedgames=schedule.objects.all().filter(Q(team1__parent_team=item)|Q(team2__parent_team=item)).filter(week=match.week).filter(replay="Link")
-                    item.wins=0; item.losses=0; item.ties=0; item.points=0
                     if unplayedgames.count()==0:
                         if wins>losses:
                             item.wins+=1
