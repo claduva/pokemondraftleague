@@ -68,6 +68,16 @@ def execute_free_agency_and_trades():
       droppedpokemon.gw=0
       montoupdate.differential=droppedpokemon.differential
       droppedpokemon.differential=0
+      montoupdate.support=droppedpokemon.support
+      droppedpokemon.support=0
+      montoupdate.hphealed=droppedpokemon.hphealed
+      droppedpokemon.hphealed=0
+      montoupdate.luck=droppedpokemon.luck
+      droppedpokemon.luck=0
+      montoupdate.damagedone=droppedpokemon.damagedone
+      droppedpokemon.damagedone=0
+      montoupdate.remaininghealth=droppedpokemon.remaininghealth
+      droppedpokemon.remaininghealth=0
       droppedpokemon.zuser="N"
       droppedpokemon.pokemon=item.addedpokemon
       item.executed=True
@@ -94,7 +104,6 @@ def execute_free_agency_and_trades():
           print('Match not found')
     if completedmatches:
       #execute trades
-      droppedmon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
       montoupdate=item.droppedpokemon
       droppedpokemon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
       montoupdate.kills=droppedpokemon.kills
@@ -107,6 +116,16 @@ def execute_free_agency_and_trades():
       droppedpokemon.gw=0
       montoupdate.differential=droppedpokemon.differential
       droppedpokemon.differential=0
+      montoupdate.support=droppedpokemon.support
+      droppedpokemon.support=0
+      montoupdate.hphealed=droppedpokemon.hphealed
+      droppedpokemon.hphealed=0
+      montoupdate.luck=droppedpokemon.luck
+      droppedpokemon.luck=0
+      montoupdate.damagedone=droppedpokemon.damagedone
+      droppedpokemon.damagedone=0
+      montoupdate.remaininghealth=droppedpokemon.remaininghealth
+      droppedpokemon.remaininghealth=0
       droppedpokemon.zuser="N"
       droppedpokemon.pokemon=item.addedpokemon
       item.executed=True
