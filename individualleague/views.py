@@ -31,7 +31,7 @@ def league_detail(request,league_name):
             league_teams=league_.leagueteam.all()
             for item in league_teams:
                 teamschedule=[]
-                teamschedule_=schedule.objects.all().filter(Q(team1=item.child_teams.first())|Q(team2=item.child_teams.first()))
+                teamschedule_=schedule.objects.all().filter(Q(team1=item.child_teams.first())|Q(team2=item.child_teams.first())).order_by('week')
                 for match in teamschedule_:
                     #find opponent
                     opponent=None
@@ -51,7 +51,7 @@ def league_detail(request,league_name):
                     teamschedule.append([opponent,wins,losses])
                     #update records
                     unplayedgames=schedule.objects.all().filter(Q(team1__parent_team=item)|Q(team2__parent_team=item)).filter(week=match.week).filter(replay="Link")
-                    item.wins=0; item.losses=0; item.ties=0
+                    item.wins=0; item.losses=0; item.ties=0; item.points=0
                     if unplayedgames.count()==0:
                         if wins>losses:
                             item.wins+=1
