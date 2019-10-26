@@ -931,7 +931,12 @@ def archive_season(request,league_name):
                 wins=item.wins,
                 losses=item.losses,
                 differential=item.differential,
-                forfeit=item.forfeit
+                forfeit=item.forfeit,
+                support=item.support,
+                damagedone=item.damagedone,
+                hphealed=item.hphealed,
+                luck=item.luck,
+                remaininghealth=item.remaininghealth
             )
         else:
             historical_team.objects.create(
@@ -945,7 +950,12 @@ def archive_season(request,league_name):
                 wins=item.wins,
                 losses=item.losses,
                 differential=item.differential,
-                forfeit=item.forfeit
+                forfeit=item.forfeit,
+                support=item.support,
+                damagedone=item.damagedone,
+                hphealed=item.hphealed,
+                luck=item.luck,
+                remaininghealth=item.remaininghealth
             )
     for item in freeagencyitems:
         team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.coach.coach)
@@ -963,9 +973,8 @@ def archive_season(request,league_name):
         item.delete()
     for item in rosteritems:
         team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team.coach)
-        historical_roster.objects.create(team=team,pokemon=item.pokemon,kills=item.kills,deaths=item.deaths,differential=item.differential,gp=item.gp,gw=item.gw)
+        historical_roster.objects.create(team=team,pokemon=item.pokemon,kills=item.kills,deaths=item.deaths,differential=item.differential,gp=item.gp,gw=item.gw,support=item.support,damagedone=item.damagedone,hphealed=item.hphealed,luck=item.luck,remaininghealth=item.remaininghealth)
         item.delete()
-    
     for item in scheduleitems:
         team1=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team1.coach)
         team2=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team2.coach)
@@ -975,7 +984,7 @@ def archive_season(request,league_name):
             winner=team1
         else:
             winner=None
-        historical_match.objects.create(
+        histmatch=historical_match.objects.create(
             week=item.week,
             team1=team1,
             team1alternateattribution=item.team1alternateattribution,
@@ -991,6 +1000,11 @@ def archive_season(request,league_name):
             team1megaevolved = item.team1megaevolved,
             team2megaevolved = item.team2megaevolved
         )
+        try: 
+            mr=item.match_replay
+            historical_match_replay.objects.create(match=histmatch,data=mr.data)
+        except:
+            pass
         item.delete()   
     coachdataitems.delete()
     season.delete()
