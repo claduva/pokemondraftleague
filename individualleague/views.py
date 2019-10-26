@@ -549,7 +549,7 @@ def league_schedule(request,league_name,subleague_name):
             team1=matchtoupdate.team1
             team2=matchtoupdate.team2
             if request.POST['purpose']=="t1ff":
-                matchtoupdate.replay=f'{team1.teamabbreviation} Forfeits'
+                matchtoupdate.replay=f'Team 1 Forfeits'
                 matchtoupdate.winner=team2
                 team1.losses+=1; team2.wins+=1
                 team1.differential+=(-6); team2.differential+=3
@@ -564,7 +564,7 @@ def league_schedule(request,league_name,subleague_name):
                     team2.streak=1
                 messages.success(request,'Match has been forfeited by Team 1!')
             elif request.POST['purpose']=="t2ff":
-                matchtoupdate.replay=f'{team2.teamabbreviation} Forfeits'
+                matchtoupdate.replay=f'Team 2 Forfeits'
                 matchtoupdate.winner=team1
                 team1.wins+=1; team2.losses+=1
                 team1.differential+=3; team2.differential+=(-6)

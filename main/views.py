@@ -261,34 +261,45 @@ def updatematches(request):
     for item in ffmatches:
         team1=item.team1
         team2=item.team2
-        if item.replay.find("Both")>-1:
-            team1.losses+=1
-            team2.losses+=1
+        if item.replay=="Both Teams Forfeit":
             team1.differential+=-6
             team2.differential+=-6
-            team1.save()
-            team2.save()
-        else:
-            ffabb=item.replay.split(" Forfeits")[0]
-            if ffabb==team1.teamabbreviation:
-                item.winner=team2
-                team2.wins+=1
-                team1.losses+=1
-                team1.differential+=-6
-                team2.differential+=3
-            elif ffabb==team2.teamabbreviation:
-                item.winner=team1
-                team1.wins+=1
-                team2.losses+=1
-                team1.differential+=3
-                team2.differential+=-6
-            item.save()
-            team1.save()
-            team2.save()
+            team1.losses+=1
+            team2.losses+=1
+        elif item.replay=="Team 1 Forfeits":
+            team1.differential+=-6
+            team2.differential+=3
+            team1.losses+=1
+            team2.wins+=1
+        elif item.replay=="Team 2 Forfeits":
+            team2.differential+=-6
+            team1.differential+=3
+            team2.losses+=1
+            team1.wins+=1
+        team1.save()
+        team2.save()
+    ffmatches=historical_match.objects.all().exclude(replay="Link").exclude(replay__contains="replay.pokemonshowdown.com").exclude(replay__contains="cdn.discordapp.com").exclude(replay="N/A")
+    for item in ffmatches:
+        team1=item.team1
+        team2=item.team2
+        if item.replay=="Both Teams Forfeit":
+            team1.differential+=-6
+            team2.differential+=-6
+            team1.losses+=1
+            team2.losses+=1
+        elif item.replay=="Team 1 Forfeits":
+            team1.differential+=-6
+            team2.differential+=3
+            team1.losses+=1
+            team2.wins+=1
+        elif item.replay=="Team 2 Forfeits":
+            team2.differential+=-6
+            team1.differential+=3
+            team2.losses+=1
+            team1.wins+=1
+        team1.save()
+        team2.save()
     return redirect('home')
 
 def runscript(request): 
-    ffmatches=historical_match.objects.all().exclude(replay="Link").exclude(replay__contains="replay.pokemonshowdown.com").exclude(replay__contains="cdn.discordapp.com").filter(winner__isnull=True)
-    for item in ffmatches:
-        print(item.replay)
     return redirect('home')
