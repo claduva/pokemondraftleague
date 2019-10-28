@@ -24,6 +24,7 @@ from replayanalysis.NewParser.parser import *
 from replayanalysis.models import *
 from replayanalysis.ShowdownReplayParser.replayparser import *
 from replayanalysis.helperfunctions import *
+from pokemondraftleague.customdecorators import check_if_clad
 
 def home(request):
     try:
@@ -108,7 +109,7 @@ def pickemleaderboard(request):
     }
     return  render(request,"pickemleaderboard.html",context)
 
-
+@check_if_clad
 def updatematches(request):
     i=0
     ##zero rosters
