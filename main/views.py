@@ -257,6 +257,7 @@ def updatematches(request):
             foundmon.save()
         team1.save()
         team2.save()
+    """
     ffmatches=schedule.objects.all().exclude(replay="Link").exclude(replay__contains="replay.pokemonshowdown.com").exclude(replay__contains="cdn.discordapp.com")
     for item in ffmatches:
         team1=item.team1
@@ -299,7 +300,18 @@ def updatematches(request):
             team1.wins+=1
         team1.save()
         team2.save()
+        """
     return redirect('home')
 
 def runscript(request): 
+    ff=historical_match.objects.all().filter(replay__contains="Forfeit").filter(Q(team1__coach1__username="claduva")|Q(team2__coach1__username="claduva"))
+    for m in ff:
+        print(m.replay)
+        print(m.team1)
+        print(m.team2)
+        print(m.winner)
+        if m.winner==None:
+            m.winner=m.team1
+            m.replay="Team 2 Forfeits"
+            m.save()
     return redirect('home')
