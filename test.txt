@@ -1,23 +1,23 @@
-Team 1 Coach: pokkerz
+Team 1 Coach: claduva
 Team 1 Roster: 
-Kyurem-White, Kills: 1, Deaths: 0, +/-: 1
-, Kills: 0, Deaths: 0, +/-: 0
-, Kills: 0, Deaths: 0, +/-: 0
-, Kills: 0, Deaths: 0, +/-: 0
-, Kills: 0, Deaths: 0, +/-: 0
-, Kills: 0, Deaths: 0, +/-: 0
-Mega Evolved: False
+Zygarde, Kills: 0, Deaths: 0, +/-: 0
+Empoleon, Kills: 5, Deaths: 0, +/-: 5
+Tapu Bulu, Kills: 1, Deaths: 1, +/-: 0
+Manectric-Mega, Kills: 0, Deaths: 0, +/-: 0
+Conkeldurr, Kills: 0, Deaths: 0, +/-: 0
+Incineroar, Kills: 0, Deaths: 0, +/-: 0
+Mega Evolved: True
 Used Z-Move: False
 
-Team 2 Coach: Joey_RiverAPP
+Team 2 Coach: ChrisChaosGamer
 Team 2 Roster: 
-Houndoom-Mega, Kills: 0, Deaths: 0, +/-: 0
-Snorlax, Kills: 0, Deaths: 1, +/-: -1
-Chesnaught, Kills: 0, Deaths: 0, +/-: 0
-Groudon, Kills: 0, Deaths: 0, +/-: 0
-Raikou, Kills: 0, Deaths: 1, +/-: -1
-Forretress, Kills: 0, Deaths: 0, +/-: 0
-Mega Evolved: True
+Hariyama, Kills: 0, Deaths: 1, +/-: -1
+Tornadus, Kills: 0, Deaths: 1, +/-: -1
+Decidueye, Kills: 0, Deaths: 1, +/-: -1
+Kyurem-Black, Kills: 1, Deaths: 1, +/-: 0
+Scizor, Kills: 0, Deaths: 1, +/-: -1
+Mudsdale, Kills: 0, Deaths: 1, +/-: -1
+Mega Evolved: False
 Used Z-Move: True
 
-Replay: https://replay.pokemonshowdown.com/gen7ubers-976425199
+Replay: http://replay.pokemonshowdown.com/gen7ubers-909089421

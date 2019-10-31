@@ -67,7 +67,7 @@ def settings(request):
         'usersettings': True,
         'showdownalts': showdown_alts,
     }
-    return render(request, 'settings.html',context)
+    return render(request, 'usersettings.html',context)
 
 @login_required
 def site_settings(request):

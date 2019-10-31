@@ -23,6 +23,8 @@ from accounts.models import *
 
 from replayanalysis.ShowdownReplayParser.replayparser import *
 from replayanalysis.helperfunctions import *
+from replayanalysis.NewParser.parser import *
+from replayanalysis.helperfunctions import *
 
 def otherseasonslist(request,league_name):
     print('here')
@@ -246,6 +248,7 @@ def seasonplayoffs(request,league_name,seasonofinterest):
     return render(request, 'otherseasonschedule.html',context)
 
 def seasonreplay(request,league_name,seasonofinterest,matchid):
+    clad=User.objects.get(username="claduva")
     seasonofinterest=seasonofinterest.replace('_',' ')
     league_name=league_name.replace('_',' ')
     try:
@@ -266,27 +269,29 @@ def seasonreplay(request,league_name,seasonofinterest,matchid):
     except:
         return redirect('seasonschedule',league_name=league_name,seasonofinterest=seasonofinterest)
     otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname')
-    url=match.replay
-    outputstring, team1, team2 = replayparse(url)
-    coach1team=match.team1
-    coach2team=match.team2
+    try:
+        results = match.match_replay.data
+    except:
+        url=match.replay
+        try:    
+            results = newreplayparse(url)
+        except Exception as e:
+            inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+            messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
+            raise(e)
+        if len(results['errormessage'])!=0:
+            inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url) 
     context={
-        'output': outputstring,
-        'team1':team1,
-        'team2':team2,
-        'team1name':coach1team,
-        'team2name':coach2team,
-        'replay': url,
-        'league_name':league_name,
+        'results': results,
         'matchid':matchid,
-        'showreplay': True,
         'league': league_,
+        'league_name': league_.name,
         'otherseason':True,
         'season':season,
         'otherseasons':otherseasons,
         'season_teams':season_teams,
     }
-    return render(request,"replayanalysisform.html",context)
+    return render(request,"replayanalysisresults.html",context)
 
 def seasonleagueleaders(request,league_name,seasonofinterest):
     seasonofinterest=seasonofinterest.replace('_',' ')

@@ -110,9 +110,8 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 @check_if_clad
-def updatematches(request):
-    i=0
-    ##zero rosters
+def zerorosters(request):
+##zero rosters
     items=roster.objects.all()
     for item in items:
         item.kills=0; item.deaths=0; item.differential=0; item.gp=0; item.gw=0; item.support=0; item.damagedone=0; item.hphealed=0; item.luck=0; item.remaininghealth=0
@@ -134,6 +133,11 @@ def updatematches(request):
     for item in items:
         item.wins=0; item.losses=0; item.differential=0; item.forfeit=0; item.support=0; item.damagedone=0; item.hphealed=0; item.luck=0; item.remaininghealth=0
         item.save()
+    return redirect('home')
+
+@check_if_clad
+def updatematches(request):
+    i=0
     ##iterate through existing matches
     replays=match_replay.objects.all()
     for m in replays:
@@ -305,14 +309,4 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
-    ff=historical_match.objects.all().filter(replay__contains="Forfeit").filter(Q(team1__coach1__username="claduva")|Q(team2__coach1__username="claduva"))
-    for m in ff:
-        print(m.replay)
-        print(m.team1)
-        print(m.team2)
-        print(m.winner)
-        if m.winner==None:
-            m.winner=m.team1
-            m.replay="Team 2 Forfeits"
-            m.save()
     return redirect('home')

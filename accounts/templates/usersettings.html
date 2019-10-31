@@ -1,0 +1,82 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Settings{% endblock %}
+{% block head%}
+<script type="text/javascript" src="{% static 'accounts/scripts/admin.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/core.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/jquery.init.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/SelectFilter2.js' %}"></script>
+<script type="text/javascript" src="{% static 'accounts/scripts/SelectBox.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/styles/widgets.css' %}" />
+{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="bg-darkgrey text-light rounded p-2">
+            <div class="d-flex justify-content-between">
+                <h3>Settings</h3>
+                {% if leagueshostedsettings %}
+                <a href="{% url 'leagues_hosted_settings' %}"><button class="btn btn-primary">Back</button></a>
+                {% endif %}
+            </div>
+            {% include 'settingssidebar.html' %}
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="bg-darkgrey rounded text-light mb-2 px-3 py-2">
+            <h2>{{ settingheading }}</h2>
+            {% if create %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for form in forms %}
+                {{ form|crispy  }}
+                {% endfor %}
+                {% if edit %}
+                <input name="matchid" value='{{matchid}}' hidden>
+                <input name="formpurpose" type="submit" class="btn btn-primary" value="Submit">
+                {% else %}
+                <input name="formpurpose" type="submit" class="btn btn-primary" value="Create">
+                {% endif %}
+            </form>
+            {% else %}
+            <div class="form-row">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for form in forms %}
+                    {{ form|crispy  }}
+                    {% endfor %}
+                    <input name="purpose" value="Update" hidden>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+            {% endif %}
+            {% if usersettings %}
+            <h5>Add Showdown Alt:</h5>
+            <form action="{% url 'addalt' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="showdownalt">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+            <h5>Showdown Alts:</h5>
+            {% if showdownalts %}
+            {% for item in showdownalts %}
+            <div class="d-flex">-{{ item.showdownalt }}
+                <form class="m-1" method="post">{% csrf_token %}
+                    <input name="altid" value="{{item.id}}" hidden>
+                    <input name="purpose" type="submit" value="Delete" class="btn btn-sm btn-danger">
+                </form>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div>None</div>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

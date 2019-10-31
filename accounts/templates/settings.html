@@ -10,14 +10,12 @@
 <script type="text/javascript" src="{% static 'accounts/scripts/jquery.init.js' %}"></script>
 <script type="text/javascript" src="{% static 'accounts/scripts/SelectFilter2.js' %}"></script>
 <script type="text/javascript" src="{% static 'accounts/scripts/SelectBox.js' %}"></script>
-
 <link rel="stylesheet" type="text/css" href="{% static 'accounts/styles/widgets.css' %}" />
-
 {% endblock %}
 {% block body %}
 <div class="row">
     <div class="col-md-4">
-        <div class="content-section">
+        <div class="bg-darkgrey text-light rounded p-2">
             <div class="d-flex justify-content-between">
                 <h3>Settings</h3>
                 {% if leagueshostedsettings %}
@@ -28,7 +26,7 @@
         </div>
     </div>
     <div class="col-md-8">
-        <div class="content-section">
+        <div class="bg-darkgrey rounded text-light mb-2 px-3 py-2">
             <div class="d-flex justify-content-between">
                 <h2>{{ settingheading }}</h2>
                 {% if deletebutton %}
@@ -55,29 +53,36 @@
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Management
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right text-center p-0">
-                        <a class="text-dark" href="{% url 'manage_tiers' league_name=league_name subleague_name=subleague.subleague %}">
+                        <a class="text-dark"
+                            href="{% url 'manage_tiers' league_name=league_name subleague_name=subleague.subleague %}">
                             <li class="border">Manage Tiers</li>
                         </a>
-                        <a class="text-dark" href="{% url 'add_conference_and_division_names' league_name=league_name subleague_name=subleague.subleague %}">
+                        <a class="text-dark"
+                            href="{% url 'add_conference_and_division_names' league_name=league_name subleague_name=subleague.subleague %}">
                             <li class="border">Add Conference and Division Names</li>
                         </a>
-                        <a class="text-dark" href="{% url 'discord_settings' league_name=league_name subleague_name=subleague.subleague %}">
+                        <a class="text-dark"
+                            href="{% url 'discord_settings' league_name=league_name subleague_name=subleague.subleague %}">
                             <li class="border">Discord Settings</li>
                         </a>
                         {% if addleagueteam %}
-                        <a class="text-dark" href="{% url 'add_team_of_coachs' league_name=league_name subleague_name=subleague.subleague %}">
+                        <a class="text-dark"
+                            href="{% url 'add_team_of_coachs' league_name=league_name subleague_name=subleague.subleague %}">
                             <li class="border">Manage Teams of Coachs</li>
                         </a>
                         {% endif %}
-                        <a class="text-dark" href="{% url 'set_draft_order' league_name=league_name subleague_name=subleague.subleague %}">
+                        <a class="text-dark"
+                            href="{% url 'set_draft_order' league_name=league_name subleague_name=subleague.subleague %}">
                             <li class="border">Set
                                 Draft Order</li>
                         </a>
-                        <a class="text-dark" href="{% url 'create_match' league_name=league_name subleague_name=subleague.subleague %}">
+                        <a class="text-dark"
+                            href="{% url 'create_match' league_name=league_name subleague_name=subleague.subleague %}">
                             <li class="border">Create
                                 Match</li>
                         </a>
-                        <a class="text-dark" href="{% url 'createroundrobinschedule' league_name=league_name subleague_name=subleague.subleague %}">
+                        <a class="text-dark"
+                            href="{% url 'createroundrobinschedule' league_name=league_name subleague_name=subleague.subleague %}">
                             <li class="border">Create
                                 Round Robin</li>
                         </a>
@@ -86,10 +91,8 @@
                         </a>
                     </ul>
                 </div>
+                {% endif %}
                 <div>
-                    <div>
-                    </div>
-                    {% endif %}
                     {% if leaguescoachingsettings %}
                     <div>
                         <a href="{% url 'designate_z_users' league_name=league_name %}"><button
@@ -97,82 +100,74 @@
                     </div>
                     {% endif %}
                 </div>
-            </div>
-            {% if create %}
+        </div>
+        {% if create %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for form in forms %}
+            {{ form|crispy  }}
+            {% endfor %}
+            {% if edit %}
+            <input name="matchid" value='{{matchid}}' hidden>
+            <input name="formpurpose" type="submit" class="btn btn-primary" value="Submit">
+            {% else %}
+            <input name="formpurpose" type="submit" class="btn btn-primary" value="Create">
+            {% endif %}
+        </form>
+        {% if existingmatches %}
+        <h5>Existing Matches</h5>
+        {% for item in existingmatches %}
+        <div class="d-flex">
+            <div>Week {{item.week}}: {{item.team1.teamname}} vs {{item.team2.teamname}}</div>
+            <form method="post">
+                {% csrf_token %}
+                <input name="matchid" value='{{item.id}}' hidden>
+                <input name="formpurpose" type="submit" class="btn btn-primary p-1 m-1" value='Edit'>
+            </form>
+            <form method="post">
+                {% csrf_token %}
+                <input name="matchid" value='{{item.id}}' hidden>
+                <input name="formpurpose" type="submit" class="btn btn-danger p-1 m-1" value='Delete'>
+            </form>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% else %}
+        <div class="form-row">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for form in forms %}
                 {{ form|crispy  }}
                 {% endfor %}
-                {% if edit %}
-                <input name="matchid" value='{{matchid}}' hidden>
-                <input name="formpurpose" type="submit" class="btn btn-primary" value="Submit">
-                {% else %}
-                <input name="formpurpose" type="submit" class="btn btn-primary" value="Create">
-                {% endif %}
-            </form>
-            {% if existingmatches %}
-            <h5>Existing Matches</h5>
-            {% for item in existingmatches %}
-            <div class="d-flex">
-                <div>Week {{item.week}}: {{item.team1.teamname}} vs {{item.team2.teamname}}</div>
-                <form method="post">
-                    {% csrf_token %}
-                    <input name="matchid" value='{{item.id}}' hidden>
-                    <input name="formpurpose" type="submit" class="btn btn-primary p-1 m-1" value='Edit'>
-                </form>
-                <form method="post">
-                    {% csrf_token %}
-                    <input name="matchid" value='{{item.id}}' hidden>
-                    <input name="formpurpose" type="submit" class="btn btn-danger p-1 m-1" value='Delete'>
-                </form>
-            </div>
-            {% endfor %}
-            {% endif %}
-            {% else %}
-            <div class="form-row">
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for form in forms %}
-                    {{ form|crispy  }}
-                    {% endfor %}
-                    <input name="purpose" value="Update" hidden>
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </form>
-            </div>
-            {% endif %}
-            {% if usersettings %}
-            <h5>Add Showdown Alt:</h5>
-            <form action="{% url 'addalt' %}" method="post">
-                {% csrf_token %}
-                <input type="text" name="showdownalt">
-                <button type="submit" class="btn btn-primary">Add</button>
-            </form>
-            <h5>Showdown Alts:</h5>
-            {% if showdownalts %}
-            {% for item in showdownalts %}
-            <div class="d-flex">-{{ item.showdownalt }}
-                <form class="m-1" method="post">{% csrf_token %}
-                    <input name="altid" value="{{item.id}}" hidden>
-                    <input name="purpose" type="submit" value="Delete" class="btn btn-sm btn-danger">
-                </form>
-            </div>
-            {% endfor %}
-            {% else %}
-            <div>None</div>
-            {% endif %}
-            {% endif %}
-            {% if deletebutton %}
-            <a href="deleteleague"><button class="btn btn-danger">{{deletebutton}}</button></a>
-            {% endif %}
+                <input name="purpose" value="Update" hidden>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
-        {% endblock %}
-        {% block footer %}
-
-        <!-- 
-<script type="text/javascript" src="{%  static 'accounts/scripts/getElementsBySelector.js'%}"></script>
-<script type="text/javascript" src="{%  static 'accounts/scripts/actions.js'%}"></script>
-<script type="text/javascript" src="{%  static 'accounts/scripts/SelectBox.js'%}"></script>
- -->
-        {% endblock %}
+        {% endif %}
+        {% if usersettings %}
+        <h5>Add Showdown Alt:</h5>
+        <form action="{% url 'addalt' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="showdownalt">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+        <h5>Showdown Alts:</h5>
+        {% if showdownalts %}
+        {% for item in showdownalts %}
+        <div class="d-flex">-{{ item.showdownalt }}
+            <form class="m-1" method="post">{% csrf_token %}
+                <input name="altid" value="{{item.id}}" hidden>
+                <input name="purpose" type="submit" value="Delete" class="btn btn-sm btn-danger">
+            </form>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div>None</div>
+        {% endif %}
+        {% endif %}
+    </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}
