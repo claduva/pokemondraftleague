@@ -204,6 +204,7 @@ def damage_function(line,parsedlogfile,results):
         elif cause in ["item: Black Sludge","item: Sticky Barb"]:
             matchdata=list(filter(lambda x: x[0] < line[0], parsedlogfile))[::-1]
             switched=False
+            accounted=False
             for line_ in matchdata:
                 if line_[2]=="item" and line_[3].find(cause.split(": ",1)[1])>-1 and line_[3].find(pokemon['nickname'])>-1:
                     switched=True
@@ -211,14 +212,20 @@ def damage_function(line,parsedlogfile,results):
                     damager=line_[3].split("|")[0].split(": ",1)[1]
                     team=line_[3].split(": ",1)[0]
                     damager=roster_search(team,damager,results)
+                    accounted=True
                     break
                 elif line_[2]=="move" and line_[3].split("|")[1] in ['Trick','Switcheroo'] and switched==False and line_[3].split("|")[0].split(": ",1)[1]==pokemon['nickname']:
                     pokemon['hphealed']+=-damagedone
+                    accounted=True
                     break
+            if accounted==False:
+                pokemon['hphealed']+=-damagedone
         else:
             if pokemon[cause]==pokemon['nickname']:
                 pokemon['hphealed']+=-damagedone
             else:
+                if cause in ['psn','tox'] and pokemon[cause]==None:
+                    pokemon[cause]=results[thisteam]['Toxic Spikes']
                 damager=roster_search(otherteam,pokemon[cause],results)
         if damager:
             damager['damagedone']+=damagedone 
