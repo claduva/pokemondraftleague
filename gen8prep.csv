@@ -1,0 +1,467 @@
+Pokemon,In Gen 7?,Gen 7 Tier,HP,Attack,Defense,Sp Attack,Sp Defense,Speed,BST,Ability 1,Ability 2,Hidden Ability,Type 1,Type 2
+Bulbasaur,Yes,Tier 5,45,49,49,65,65,45,318,Overgrow,None,Chlorophyll,Grass,Poison
+Ivysaur,Yes,Tier 5,60,62,63,80,80,60,405,Overgrow,None,Chlorophyll,Grass,Poison
+Venusaur,Yes,Tier 4,80,82,83,100,100,80,525,Overgrow,None,Chlorophyll,Grass,Poison
+Charmander,Yes,Tier 5,39,52,43,60,50,65,309,Blaze,None,Solar Power,Fire,None
+Charmeleon,Yes,Tier 5,58,64,58,80,65,80,405,Blaze,None,Solar Power,Fire,None
+Charizard,Yes,Tier 5,78,84,78,109,85,100,534,Blaze,None,Solar Power,Fire,Flying
+Squirtle,Yes,Tier 5,44,48,65,50,64,43,314,Torrent,None,Rain Dish,Water,None
+Wartortle,Yes,Tier 5,59,63,80,65,80,58,405,Torrent,None,Rain Dish,Water,None
+Blastoise,Yes,Tier 4,79,83,100,85,105,78,530,Torrent,None,Rain Dish,Water,None
+Caterpie,Yes,Tier 5,45,30,35,20,20,45,195,Shield Dust,None,Run Away,Bug,None
+Metapod,Yes,Tier 5,50,20,55,25,25,30,205,Shed Skin,None,None,Bug,None
+Butterfree,Yes,Tier 5,60,45,50,90,80,70,395,Compound Eyes,None,Tinted Lens,Bug,Flying
+Pikachu,Yes,Tier 5,35,55,40,50,50,90,320,Static,None,Lightning Rod,Electric,None
+Raichu,Yes,Tier 5,60,90,55,90,80,110,485,Static,None,Lightning Rod,Electric,None
+Raichu-Alola,Yes,Tier 4,60,85,50,95,85,110,485,Surge Surfer,None,None,Electric,Psychic
+Clefairy,Yes,Tier 5,70,45,48,60,65,35,323,Cute Charm,Magic Guard,Friend Guard,Fairy,None
+Clefable,Yes,Tier 1,95,70,73,95,90,60,483,Cute Charm,Magic Guard,Unaware,Fairy,None
+Vulpix,Yes,Tier 5,38,41,40,50,65,65,299,Flash Fire,None,Drought,Fire,None
+Vulpix-Alola,Yes,Tier 5,38,41,40,50,65,65,299,Snow Cloak,None,Snow Warning,Ice,None
+Ninetales,Yes,Tier 4,73,76,75,81,100,100,505,Flash Fire,None,Drought,Fire,None
+Ninetales-Alola,Yes,Tier 2,73,67,75,81,100,109,505,Snow Cloak,None,Snow Warning,Ice,Fairy
+Oddish,Yes,Tier 5,45,50,55,75,65,30,320,Chlorophyll,None,Run Away,Grass,Poison
+Gloom,Yes,Tier 5,60,65,70,85,75,40,395,Chlorophyll,None,Stench,Grass,Poison
+Vileplume,Yes,Tier 4,75,80,85,110,90,50,490,Chlorophyll,None,Effect Spore,Grass,Poison
+Diglett,Yes,Tier 5,10,55,25,35,45,95,265,Sand Veil,Arena Trap,Sand Force,Ground,None
+Diglett-Alola,Yes,Tier 5,10,55,30,35,45,90,265,Sand Veil,Tangling Hair,Sand Force,Ground,Steel
+Dugtrio,Yes,Tier 2,35,100,50,50,70,120,425,Sand Veil,Arena Trap,Sand Force,Ground,None
+Dugtrio-Alola,Yes,Tier 5,35,100,60,50,70,110,425,Sand Veil,Tangling Hair,Sand Force,Ground,Steel
+Meowth,Yes,Tier 5,40,45,35,40,40,90,290,Pickup,Technician,Unnerve,Normal,None
+Meowth-Alola,Yes,Tier 5,40,35,35,50,40,90,290,Pickup,Technician,Rattled,Dark,None
+Meowth-Galar,No,N/A,50,65,55,40,40,40,290,Pickup,Tough Claws,Unnerve,Steel,None
+Persian,Yes,Tier 5,65,70,60,65,65,115,440,Limber,Technician,Unnerve,Normal,None
+Persian-Alola,Yes,Tier 4,65,60,60,75,65,115,440,Fur Coat,Technician,Rattled,Dark,None
+Growlithe,Yes,Tier 5,55,70,45,70,50,60,350,Intimidate,Flash Fire,Justified,Fire,None
+Arcanine,Yes,Tier 3,90,110,80,100,80,95,555,Intimidate,Flash Fire,Justified,Fire,None
+Machop,Yes,Tier 5,70,80,50,35,35,35,305,Guts,No Guard,Steadfast,Fighting,None
+Machoke,Yes,Tier 5,80,100,70,50,60,45,405,Guts,No Guard,Steadfast,Fighting,None
+Machamp,Yes,Tier 4,90,130,80,65,85,55,505,Guts,No Guard,Steadfast,Fighting,None
+Ponyta,Yes,Tier 5,50,85,55,65,65,90,410,Run Away,Flash Fire,Flame Body,Fire,None
+Ponyta-Galar,No,N/A,50,85,55,65,65,90,410,Run Away,Pastel Veil,Anticipation,Psychic,None
+Rapidash,Yes,Tier 5,65,100,70,80,80,105,500,Run Away,Flash Fire,Flame Body,Fire,None
+Rapidash-Galar,No,N/A,65,100,70,80,80,105,500,Run Away,Pastel Veil,Anticipation,Psychic,Fairy
+Farfetchd,Yes,Tier 5,52,90,55,58,62,60,377,Keen Eye,Inner Focus,Defiant,Normal,Flying
+Farfetchd-Galar,No,N/A,52,95,55,58,62,55,377,Steadfast,None,Scrappy,Fighting,None
+Shellder,Yes,Tier 5,30,65,100,45,25,40,305,Shell Armor,Skill Link,Overcoat,Water,None
+Cloyster,Yes,Tier 3,50,95,180,85,45,70,525,Shell Armor,Skill Link,Overcoat,Water,Ice
+Gastly,Yes,Tier 5,30,35,30,100,35,80,310,Levitate,None,None,Ghost,Poison
+Haunter,Yes,Tier 5,45,50,45,115,55,95,405,Levitate,None,None,Ghost,Poison
+Gengar,Yes,Tier 2,60,65,60,130,75,110,500,Cursed Body,None,None,Ghost,Poison
+Onix,Yes,Tier 5,35,45,160,30,45,70,385,Rock Head,Sturdy,Weak Armor,Rock,Ground
+Krabby,Yes,Tier 5,30,105,90,25,25,50,325,Hyper Cutter,Shell Armor,Sheer Force,Water,None
+Kingler,Yes,Tier 5,55,130,115,50,50,75,475,Hyper Cutter,Shell Armor,Sheer Force,Water,None
+Hitmonlee,Yes,Tier 4,50,120,53,35,110,87,455,Limber,Reckless,Unburden,Fighting,None
+Hitmonchan,Yes,Tier 4,50,105,79,35,110,76,455,Keen Eye,Iron Fist,Inner Focus,Fighting,None
+Koffing,Yes,Tier 5,40,65,95,60,45,35,340,Levitate,Neutralizing Gas,Stench,Poison,None
+Weezing,Yes,Tier 4,65,90,120,85,70,60,490,Levitate,Neutralizing Gas,Stench,Poison,None
+Weezing-Galar,No,N/A,65,90,120,85,70,60,490,Levitate,Neutralizing Gas,Misty Surge,Poison,Fairy
+Rhyhorn,Yes,Tier 5,80,85,95,30,30,25,345,Lightning Rod,Rock Head,Reckless,Ground,Rock
+Rhydon,Yes,Tier 5,105,130,120,45,45,40,485,Lightning Rod,Rock Head,Reckless,Ground,Rock
+Goldeen,Yes,Tier 5,45,67,60,35,50,63,320,Swift Swim,Water Veil,Lightning Rod,Water,None
+Seaking,Yes,Tier 5,80,92,65,65,80,68,450,Swift Swim,Water Veil,Lightning Rod,Water,None
+Mr.Mime,Yes,Tier 5,40,45,65,100,120,90,460,Soundproof,Filter,Technician,Psychic,Fairy
+Mr.Mime-Galar,No,N/A,50,65,65,90,90,100,460,Vital Spirit,Screen Cleaner,Ice Body,Ice,Psychic
+Magikarp,Yes,Tier 5,20,10,55,15,20,80,200,Swift Swim,None,Rattled,Water,None
+Gyarados,Yes,Tier 2,95,125,79,60,100,81,540,Intimidate,None,Moxie,Water,Flying
+Lapras,Yes,Tier 5,130,85,80,85,95,60,535,Water Absorb,Shell Armor,Hydration,Water,Ice
+Ditto,Yes,Tier 4,48,48,48,48,48,48,288,Limber,None,Imposter,Normal,None
+Eevee,Yes,Tier 5,55,55,50,45,65,55,325,Run Away,Adaptability,Anticipation,Normal,None
+Vaporeon,Yes,Tier 3,130,65,60,110,95,65,525,Water Absorb,None,Hydration,Water,None
+Jolteon,Yes,Tier 3,65,65,60,110,95,130,525,Volt Absorb,None,Quick Feet,Electric,None
+Flareon,Yes,Tier 5,65,130,60,95,110,65,525,Flash Fire,None,Guts,Fire,None
+Snorlax,Yes,Tier 3,160,110,65,65,110,30,540,Immunity,Thick Fat,Gluttony,Normal,None
+Mewtwo,Yes,Banned,106,110,90,154,90,130,680,Pressure,None,Unnerve,Psychic,None
+Mew,Yes,Tier 1,100,100,100,100,100,100,600,Synchronize,None,None,Psychic,None
+Hoothoot,Yes,Tier 5,60,30,30,36,56,50,262,Insomnia,Keen Eye,Tinted Lens,Normal,Flying
+Noctowl,Yes,Tier 5,100,50,50,86,96,70,452,Insomnia,Keen Eye,Tinted Lens,Normal,Flying
+Chinchou,Yes,Tier 5,75,38,38,56,56,67,330,Volt Absorb,Illuminate,Water Absorb,Water,Electric
+Lanturn,Yes,Tier 4,125,58,58,76,76,67,460,Volt Absorb,Illuminate,Water Absorb,Water,Electric
+Pichu,Yes,Tier 5,20,40,15,35,35,60,205,Static,None,Lightning Rod,Electric,None
+Cleffa,Yes,Tier 5,50,25,28,45,55,15,218,Cute Charm,Magic Guard,Friend Guard,Fairy,None
+Togepi,Yes,Tier 5,35,20,65,40,65,20,245,Hustle,Serene Grace,Super Luck,Fairy,None
+Togetic,Yes,Tier 4,55,40,85,80,105,40,405,Hustle,Serene Grace,Super Luck,Fairy,Flying
+Natu,Yes,Tier 5,40,50,45,70,45,70,320,Synchronize,Early Bird,Magic Bounce,Psychic,Flying
+Xatu,Yes,Tier 4,65,75,70,95,70,95,470,Synchronize,Early Bird,Magic Bounce,Psychic,Flying
+Bellossom,Yes,Tier 5,75,80,95,90,100,50,490,Chlorophyll,None,Healer,Grass,None
+Sudowoodo,Yes,Tier 5,70,100,115,30,65,30,410,Sturdy,Rock Head,Rattled,Rock,None
+Wooper,Yes,Tier 5,55,45,45,25,25,15,210,Damp,Water Absorb,Unaware,Water,Ground
+Quagsire,Yes,Tier 4,95,85,85,65,65,35,430,Damp,Water Absorb,Unaware,Water,Ground
+Espeon,Yes,Tier 3,65,65,60,130,95,110,525,Synchronize,None,Magic Bounce,Psychic,None
+Umbreon,Yes,Tier 3,95,65,110,60,130,65,525,Synchronize,None,Inner Focus,Dark,None
+Wobbuffet,Yes,Tier 5,190,33,58,33,58,33,405,Shadow Tag,None,Telepathy,Psychic,None
+Steelix,Yes,Tier 5,75,85,200,55,65,30,510,Rock Head,Sturdy,Sheer Force,Steel,Ground
+Qwilfish,Yes,Tier 4,65,95,85,55,55,85,440,Poison Point,Swift Swim,Intimidate,Water,Poison
+Shuckle,Yes,Tier 4,20,10,230,10,230,5,505,Sturdy,Gluttony,Contrary,Bug,Rock
+Sneasel,Yes,Tier 4,55,95,55,35,75,115,430,Inner Focus,Keen Eye,Pickpocket,Dark,Ice
+Swinub,Yes,Tier 5,50,50,40,30,30,50,250,Oblivious,Snow Cloak,Thick Fat,Ice,Ground
+Piloswine,Yes,Tier 5,100,100,80,60,60,50,450,Oblivious,Snow Cloak,Thick Fat,Ice,Ground
+Corsola,Yes,Tier 5,65,55,95,65,95,35,410,Hustle,Natural Cure,Regenerator,Water,Rock
+Corsola-Galar,No,N/A,60,55,100,65,100,30,410,Weak Armor,None,Cursed Body,Ghost,None
+Remoraid,Yes,Tier 5,35,65,35,65,35,65,300,Hustle,Sniper,Moody,Water,None
+Octillery,Yes,Tier 5,75,105,75,105,75,45,480,Suction Cups,Sniper,Moody,Water,None
+Delibird,Yes,Tier 5,45,55,45,65,45,75,330,Vital Spirit,Hustle,Insomnia,Ice,Flying
+Mantine,Yes,Tier 3,85,40,70,80,140,70,485,Swift Swim,Water Absorb,Water Veil,Water,Flying
+Tyrogue,Yes,Tier 5,35,35,35,35,35,35,210,Guts,Steadfast,Vital Spirit,Fighting,None
+Hitmontop,Yes,Tier 4,50,95,95,35,110,70,455,Intimidate,Technician,Steadfast,Fighting,None
+Larvitar,Yes,Tier 5,50,64,50,45,50,41,300,Guts,None,Sand Veil,Rock,Ground
+Pupitar,Yes,Tier 5,70,84,70,65,70,51,410,Shed Skin,None,None,Rock,Ground
+Tyranitar,Yes,Tier 1,100,134,110,95,100,61,600,Sand Stream,None,Unnerve,Rock,Dark
+Celebi,Yes,Tier 2,100,100,100,100,100,100,600,Natural Cure,None,None,Psychic,Grass
+Zigzagoon,Yes,Tier 5,38,30,41,30,41,60,240,Pickup,Gluttony,Quick Feet,Normal,None
+Zigzagoon-Galar,No,N/A,38,30,41,30,41,60,240,Pickup,Gluttony,Quick Feet,Dark,Normal
+Linoone,Yes,Tier 3,78,70,61,50,61,100,420,Pickup,Gluttony,Quick Feet,Normal,None
+Linoone-Galar,No,N/A,78,70,61,50,61,100,420,Pickup,Gluttony,Quick Feet,Dark,Normal
+Lotad,Yes,Tier 5,40,30,30,40,50,30,220,Swift Swim,Rain Dish,Own Tempo,Water,Grass
+Lombre,Yes,Tier 5,60,50,50,60,70,50,340,Swift Swim,Rain Dish,Own Tempo,Water,Grass
+Ludicolo,Yes,Tier 4,80,70,70,90,100,70,480,Swift Swim,Rain Dish,Own Tempo,Water,Grass
+Seedot,Yes,Tier 5,40,40,50,30,30,30,220,Chlorophyll,Early Bird,Pickpocket,Grass,None
+Nuzleaf,Yes,Tier 5,70,70,40,60,40,60,340,Chlorophyll,Early Bird,Pickpocket,Grass,Dark
+Shiftry,Yes,Tier 4,90,100,60,90,60,80,480,Chlorophyll,Early Bird,Pickpocket,Grass,Dark
+Wingull,Yes,Tier 5,40,30,30,55,30,85,270,Keen Eye,Hydration,Rain Dish,Water,Flying
+Pelipper,Yes,Tier 2,60,50,100,95,70,65,440,Keen Eye,Drizzle,Rain Dish,Water,Flying
+Ralts,Yes,Tier 5,28,25,25,45,35,40,198,Synchronize,Trace,Telepathy,Psychic,Fairy
+Kirlia,Yes,Tier 5,38,35,35,65,55,50,278,Synchronize,Trace,Telepathy,Psychic,Fairy
+Gardevoir,Yes,Tier 3,68,65,65,125,115,80,518,Synchronize,Trace,Telepathy,Psychic,Fairy
+Nincada,Yes,Tier 5,31,45,90,30,30,40,266,Compound Eyes,None,Run Away,Bug,Ground
+Ninjask,Yes,Tier 5,61,90,45,50,50,160,456,Speed Boost,None,Infiltrator,Bug,Flying
+Shedinja,Yes,Tier 5,1,90,45,30,30,40,236,Wonder Guard,None,None,Bug,Ghost
+Sableye,Yes,Tier 4,50,75,75,65,65,50,380,Keen Eye,Stall,Prankster,Dark,Ghost
+Mawile,Yes,Tier 5,50,85,85,55,55,50,380,Hyper Cutter,Intimidate,Sheer Force,Steel,Fairy
+Electrike,Yes,Tier 5,40,45,40,65,40,65,295,Static,Lightning Rod,Minus,Electric,None
+Manectric,Yes,Tier 4,70,75,60,105,60,105,475,Static,Lightning Rod,Minus,Electric,None
+Roselia,Yes,Tier 5,50,60,45,100,80,65,400,Natural Cure,Poison Point,Leaf Guard,Grass,Poison
+Wailmer,Yes,Tier 5,130,70,35,70,35,60,400,Water Veil,Oblivious,Pressure,Water,None
+Wailord,Yes,Tier 5,170,90,45,90,45,60,500,Water Veil,Oblivious,Pressure,Water,None
+Torkoal,Yes,Tier 4,70,85,140,85,70,20,470,White Smoke,Drought,Shell Armor,Fire,None
+Trapinch,Yes,Tier 5,45,100,45,45,45,10,290,Hyper Cutter,Arena Trap,Sheer Force,Ground,None
+Vibrava,Yes,Tier 5,50,70,50,50,50,70,340,Levitate,None,None,Ground,Dragon
+Flygon,Yes,Tier 3,80,100,80,80,80,100,520,Levitate,None,None,Ground,Dragon
+Lunatone,Yes,Tier 5,90,55,65,95,85,70,460,Levitate,None,None,Rock,Psychic
+Solrock,Yes,Tier 5,90,95,85,55,65,70,460,Levitate,None,None,Rock,Psychic
+Barboach,Yes,Tier 5,50,48,43,46,41,60,288,Oblivious,Anticipation,Hydration,Water,Ground
+Whiscash,Yes,Tier 5,110,78,73,76,71,60,468,Oblivious,Anticipation,Hydration,Water,Ground
+Corphish,Yes,Tier 5,43,80,65,50,35,35,308,Hyper Cutter,Shell Armor,Adaptability,Water,None
+Crawdaunt,Yes,Tier 3,63,120,85,90,55,55,468,Hyper Cutter,Shell Armor,Adaptability,Water,Dark
+Baltoy,Yes,Tier 5,40,40,55,40,70,55,300,Levitate,None,None,Ground,Psychic
+Claydol,Yes,Tier 5,60,70,105,70,120,75,500,Levitate,None,None,Ground,Psychic
+Feebas,Yes,Tier 5,20,15,20,10,55,80,200,Swift Swim,Oblivious,Adaptability,Water,None
+Milotic,Yes,Tier 2,95,60,79,100,125,81,540,Marvel Scale,Competitive,Cute Charm,Water,None
+Duskull,Yes,Tier 5,20,40,90,30,90,25,295,Levitate,None,Frisk,Ghost,None
+Dusclops,Yes,Tier 4,40,70,130,60,130,25,455,Pressure,None,Frisk,Ghost,None
+Wynaut,Yes,Tier 5,95,23,48,23,48,23,260,Shadow Tag,None,Telepathy,Psychic,None
+Snorunt,Yes,Tier 5,50,50,50,50,50,50,300,Inner Focus,Ice Body,Moody,Ice,None
+Glalie,Yes,Tier 5,80,80,80,80,80,80,480,Inner Focus,Ice Body,Moody,Ice,None
+Jirachi,Yes,Tier 1,100,100,100,100,100,100,600,Serene Grace,None,None,Steel,Psychic
+Budew,Yes,Tier 5,40,30,35,50,70,55,280,Natural Cure,Poison Point,Leaf Guard,Grass,Poison
+Roserade,Yes,Tier 3,60,70,65,125,105,90,515,Natural Cure,Poison Point,Technician,Grass,Poison
+Combee,Yes,Tier 5,30,30,42,30,42,70,244,Honey Gather,None,Hustle,Bug,Flying
+Vespiquen,Yes,Tier 5,70,80,102,80,102,40,474,Pressure,None,Unnerve,Bug,Flying
+Cherubi,Yes,Tier 5,45,35,45,62,53,35,275,Chlorophyll,None,None,Grass,None
+Cherrim,Yes,Tier 5,70,60,70,87,78,85,450,Flower Gift,None,None,Grass,None
+Shellos,Yes,Tier 5,76,48,48,57,62,34,325,Sticky Hold,Storm Drain,Sand Force,Water,None
+Gastrodon,Yes,Tier 3,111,83,68,92,82,39,475,Sticky Hold,Storm Drain,Sand Force,Water,Ground
+Drifloon,Yes,Tier 5,90,50,34,60,44,70,348,Aftermath,Unburden,Flare Boost,Ghost,Flying
+Drifblim,Yes,Tier 5,150,80,44,90,54,80,498,Aftermath,Unburden,Flare Boost,Ghost,Flying
+Stunky,Yes,Tier 5,63,63,47,41,41,74,329,Stench,Aftermath,Keen Eye,Poison,Dark
+Skuntank,Yes,Tier 4,103,93,67,71,61,84,479,Stench,Aftermath,Keen Eye,Poison,Dark
+Bronzor,Yes,Tier 5,57,24,86,24,86,23,300,Levitate,Heatproof,Heavy Metal,Steel,Psychic
+Bronzong,Yes,Tier 4,67,89,116,79,116,33,500,Levitate,Heatproof,Heavy Metal,Steel,Psychic
+Bonsly,Yes,Tier 5,50,80,95,10,45,10,290,Sturdy,Rock Head,Rattled,Rock,None
+Mime Jr.,Yes,Tier 5,20,25,45,70,90,60,310,Soundproof,Filter,Technician,Psychic,Fairy
+Munchlax,Yes,Tier 5,135,85,40,40,85,5,390,Pickup,Thick Fat,Gluttony,Normal,None
+Riolu,Yes,Tier 5,40,70,40,35,40,60,285,Steadfast,Inner Focus,Prankster,Fighting,None
+Lucario,Yes,Tier 2,70,110,70,115,70,90,525,Steadfast,Inner Focus,Justified,Fighting,Steel
+Hippopotas,Yes,Tier 5,68,72,78,38,42,32,330,Sand Stream,None,Sand Force,Ground,None
+Hippowdon,Yes,Tier 2,108,112,118,68,72,47,525,Sand Stream,None,Sand Force,Ground,None
+Skorupi,Yes,Tier 5,40,50,90,30,55,65,330,Battle Armor,Sniper,Keen Eye,Poison,Bug
+Drapion,Yes,Tier 4,70,90,110,60,75,95,500,Battle Armor,Sniper,Keen Eye,Poison,Dark
+Croagunk,Yes,Tier 5,48,61,40,61,40,50,300,Anticipation,Dry Skin,Poison Touch,Poison,Fighting
+Toxicroak,Yes,Tier 4,83,106,65,86,65,85,490,Anticipation,Dry Skin,Poison Touch,Poison,Fighting
+Mantyke,Yes,Tier 5,45,20,50,60,120,50,345,Swift Swim,Water Absorb,Water Veil,Water,Flying
+Snover,Yes,Tier 5,60,62,50,62,60,40,334,Snow Warning,None,Soundproof,Grass,Ice
+Abomasnow,Yes,Tier 4,90,92,75,92,85,60,494,Snow Warning,None,Soundproof,Grass,Ice
+Weavile,Yes,Tier 1,70,120,65,45,85,125,510,Pressure,None,Pickpocket,Dark,Ice
+Rhyperior,Yes,Tier 4,115,140,130,55,55,40,535,Lightning Rod,Solid Rock,Reckless,Ground,Rock
+Togekiss,Yes,Tier 2,85,50,95,120,115,80,545,Hustle,Serene Grace,Super Luck,Fairy,Flying
+Leafeon,Yes,Tier 5,65,110,130,60,65,95,525,Leaf Guard,None,Chlorophyll,Grass,None
+Glaceon,Yes,Tier 5,65,60,110,130,95,65,525,Snow Cloak,None,Ice Body,Ice,None
+Mamoswine,Yes,Tier 2,110,130,80,70,60,80,530,Oblivious,Snow Cloak,Thick Fat,Ice,Ground
+Gallade,Yes,Tier 4,68,125,65,65,115,80,518,Steadfast,None,Justified,Psychic,Fighting
+Dusknoir,Yes,Tier 5,45,100,135,65,135,45,525,Pressure,None,Frisk,Ghost,None
+Froslass,Yes,Tier 4,70,80,70,80,70,110,480,Snow Cloak,None,Cursed Body,Ice,Ghost
+Rotom,Yes,Tier 4,50,50,77,95,77,91,440,Levitate,None,None,Electric,Ghost
+Rotom-Heat,Yes,Tier 3,50,65,107,105,107,86,520,Levitate,None,None,Electric,Fire
+Rotom-Wash,Yes,Tier 2,50,65,107,105,107,86,520,Levitate,None,None,Electric,Water
+Rotom-Frost,Yes,Tier 5,50,65,107,105,107,86,520,Levitate,None,None,Electric,Ice
+Rotom-Fan,Yes,Tier 5,50,65,107,105,107,86,520,Levitate,None,None,Electric,Flying
+Rotom-Mow,Yes,Tier 4,50,65,107,105,107,86,520,Levitate,None,None,Electric,Grass
+Purrloin,Yes,Tier 5,41,50,37,50,37,66,281,Limber,Unburden,Prankster,Dark,None
+Liepard,Yes,Tier 5,64,88,50,88,50,106,446,Limber,Unburden,Prankster,Dark,None
+Munna,Yes,Tier 5,76,25,45,67,55,24,292,Forewarn,Synchronize,Telepathy,Psychic,None
+Musharna,Yes,Tier 5,116,55,85,107,95,29,487,Forewarn,Synchronize,Telepathy,Psychic,None
+Pidove,Yes,Tier 5,50,55,50,36,30,43,264,Big Pecks,Super Luck,Rivalry,Normal,Flying
+Tranquill,Yes,Tier 5,62,77,62,50,42,65,358,Big Pecks,Super Luck,Rivalry,Normal,Flying
+Unfezant,Yes,Tier 5,80,115,80,65,55,93,488,Big Pecks,Super Luck,Rivalry,Normal,Flying
+Roggenrola,Yes,Tier 5,55,75,85,25,25,15,280,Sturdy,Weak Armor,Sand Force,Rock,None
+Boldore,Yes,Tier 5,70,105,105,50,40,20,390,Sturdy,Weak Armor,Sand Force,Rock,None
+Gigalith,Yes,Tier 3,85,135,130,60,80,25,515,Sturdy,Sand Stream,Sand Force,Rock,None
+Woobat,Yes,Tier 5,65,45,43,55,43,72,323,Unaware,Klutz,Simple,Psychic,Flying
+Swoobat,Yes,Tier 5,67,57,55,77,55,114,425,Unaware,Klutz,Simple,Psychic,Flying
+Drilbur,Yes,Tier 5,60,85,40,30,45,68,328,Sand Rush,Sand Force,Mold Breaker,Ground,None
+Excadrill,Yes,Tier 1,110,135,60,50,65,88,508,Sand Rush,Sand Force,Mold Breaker,Ground,Steel
+Timburr,Yes,Tier 5,75,80,55,25,35,35,305,Guts,Sheer Force,Iron Fist,Fighting,None
+Gurdurr,Yes,Tier 4,85,105,85,40,50,40,405,Guts,Sheer Force,Iron Fist,Fighting,None
+Conkeldurr,Yes,Tier 2,105,140,95,55,65,45,505,Guts,Sheer Force,Iron Fist,Fighting,None
+Tympole,Yes,Tier 5,50,50,40,50,40,64,294,Swift Swim,Hydration,Water Absorb,Water,None
+Palpitoad,Yes,Tier 5,75,65,55,65,55,69,384,Swift Swim,Hydration,Water Absorb,Water,Ground
+Seismitoad,Yes,Tier 4,105,95,75,85,75,74,509,Swift Swim,Poison Touch,Water Absorb,Water,Ground
+Throh,Yes,Tier 5,120,100,85,30,85,45,465,Guts,Inner Focus,Mold Breaker,Fighting,None
+Sawk,Yes,Tier 5,75,125,75,30,75,85,465,Sturdy,Inner Focus,Mold Breaker,Fighting,None
+Cottonee,Yes,Tier 5,40,27,60,37,50,66,280,Prankster,Infiltrator,Chlorophyll,Grass,Fairy
+Whimsicott,Yes,Tier 3,60,67,85,77,75,116,480,Prankster,Infiltrator,Chlorophyll,Grass,Fairy
+Basculin,Yes,Tier 5,70,92,65,80,55,98,460,Reckless,Adaptability,Mold Breaker,Water,None
+Darumaka,Yes,Tier 5,70,90,45,15,45,50,315,Hustle,None,Inner Focus,Fire,None
+Darumaka-Galar,No,N/A,70,90,45,15,45,50,315,Hustle,None,Inner Focus,Ice,None
+Darmanitan,Yes,Tier 3,105,140,55,30,55,95,480,Sheer Force,None,Zen Mode,Fire,None
+Darmanitan-Galar,No,N/A,105,140,55,30,55,95,480,Gorilla Tactics,None,Zen Mode,Ice,None
+Maractus,Yes,Tier 5,75,86,67,106,67,60,461,Water Absorb,Chlorophyll,Storm Drain,Grass,None
+Dwebble,Yes,Tier 5,50,65,85,35,35,55,325,Sturdy,Shell Armor,Weak Armor,Bug,Rock
+Crustle,Yes,Tier 4,70,105,125,65,75,45,485,Sturdy,Shell Armor,Weak Armor,Bug,Rock
+Scraggy,Yes,Tier 5,50,75,70,35,70,48,348,Shed Skin,Moxie,Intimidate,Dark,Fighting
+Scrafty,Yes,Tier 4,65,90,115,45,115,58,488,Shed Skin,Moxie,Intimidate,Dark,Fighting
+Sigilyph,Yes,Tier 4,72,58,80,103,80,97,490,Wonder Skin,Magic Guard,Tinted Lens,Psychic,Flying
+Yamask,Yes,Tier 5,38,30,85,55,65,30,303,Mummy,None,None,Ghost,None
+Yamask-Galar,No,N/A,38,55,85,30,65,30,303,Wandering Spirit,None,None,Ground,Ghost
+Cofagrigus,Yes,Tier 3,58,50,145,95,105,30,483,Mummy,None,None,Ghost,None
+Trubbish,Yes,Tier 5,50,50,62,40,62,65,329,Stench,Sticky Hold,Aftermath,Poison,None
+Garbodor,Yes,Tier 5,80,95,82,60,82,75,474,Stench,Weak Armor,Aftermath,Poison,None
+Minccino,Yes,Tier 5,55,50,40,40,40,75,300,Cute Charm,Technician,Skill Link,Normal,None
+Cinccino,Yes,Tier 4,75,95,60,65,60,115,470,Cute Charm,Technician,Skill Link,Normal,None
+Gothita,Yes,Tier 5,45,30,50,55,65,45,290,Frisk,Competitive,Shadow Tag,Psychic,None
+Gothorita,Yes,Tier 5,60,45,70,75,85,55,390,Frisk,Competitive,Shadow Tag,Psychic,None
+Gothitelle,Yes,Tier 5,70,55,95,95,110,65,490,Frisk,Competitive,Shadow Tag,Psychic,None
+Solosis,Yes,Tier 5,45,30,40,105,50,20,290,Overcoat,Magic Guard,Regenerator,Psychic,None
+Duosion,Yes,Tier 5,65,40,50,125,60,30,370,Overcoat,Magic Guard,Regenerator,Psychic,None
+Reuniclus,Yes,Tier 2,110,65,75,125,85,30,490,Overcoat,Magic Guard,Regenerator,Psychic,None
+Vanillite,Yes,Tier 5,36,50,50,65,60,44,305,Ice Body,Snow Cloak,Weak Armor,Ice,None
+Vanillish,Yes,Tier 5,51,65,65,80,75,59,395,Ice Body,Snow Cloak,Weak Armor,Ice,None
+Vanilluxe,Yes,Tier 4,71,95,85,110,95,79,535,Ice Body,Snow Warning,Weak Armor,Ice,None
+Karrablast,Yes,Tier 5,50,75,45,40,45,60,315,Swarm,Shed Skin,No Guard,Bug,None
+Escavalier,Yes,Tier 4,70,135,105,60,105,20,495,Swarm,Shell Armor,Overcoat,Bug,Steel
+Frillish,Yes,Tier 5,55,40,50,65,85,40,335,Water Absorb,Cursed Body,Damp,Water,Ghost
+Jellicent,Yes,Tier 4,100,60,70,85,105,60,480,Water Absorb,Cursed Body,Damp,Water,Ghost
+Joltik,Yes,Tier 5,50,47,50,57,50,65,319,Compound Eyes,Unnerve,Swarm,Bug,Electric
+Galvantula,Yes,Tier 3,70,77,60,97,60,108,472,Compound Eyes,Unnerve,Swarm,Bug,Electric
+Ferroseed,Yes,Tier 5,44,50,91,24,86,10,305,Iron Barbs,None,None,Grass,Steel
+Ferrothorn,Yes,Tier 2,74,94,131,54,116,20,489,Iron Barbs,None,Anticipation,Grass,Steel
+Klink,Yes,Tier 5,40,55,70,45,60,30,300,Plus,Minus,Clear Body,Steel,None
+Klang,Yes,Tier 5,60,80,95,70,85,50,440,Plus,Minus,Clear Body,Steel,None
+Klinklang,Yes,Tier 5,60,100,115,70,85,90,520,Plus,Minus,Clear Body,Steel,None
+Elgyem,Yes,Tier 5,55,55,55,85,55,30,335,Telepathy,Synchronize,Analytic,Psychic,None
+Beheeyem,Yes,Tier 5,75,75,75,125,95,40,485,Telepathy,Synchronize,Analytic,Psychic,None
+Litwick,Yes,Tier 5,50,30,55,65,55,20,275,Flash Fire,Flame Body,Infiltrator,Ghost,Fire
+Lampent,Yes,Tier 5,60,40,60,95,60,55,370,Flash Fire,Flame Body,Infiltrator,Ghost,Fire
+Chandelure,Yes,Tier 3,60,55,90,145,90,80,520,Flash Fire,Flame Body,Infiltrator,Ghost,Fire
+Axew,Yes,Tier 5,46,87,60,30,40,57,320,Rivalry,Mold Breaker,Unnerve,Dragon,None
+Fraxure,Yes,Tier 5,66,117,70,40,50,67,410,Rivalry,Mold Breaker,Unnerve,Dragon,None
+Haxorus,Yes,Tier 2,76,147,90,60,70,97,540,Rivalry,Mold Breaker,Unnerve,Dragon,None
+Cubchoo,Yes,Tier 5,55,70,40,60,40,40,305,Snow Cloak,Slush Rush,Rattled,Ice,None
+Beartic,Yes,Tier 5,95,130,80,70,80,50,505,Snow Cloak,Slush Rush,Swift Swim,Ice,None
+Shelmet,Yes,Tier 5,50,40,85,40,65,25,305,Hydration,Shell Armor,Overcoat,Bug,None
+Accelgor,Yes,Tier 4,80,70,40,100,60,145,495,Hydration,Sticky Hold,Unburden,Bug,None
+Stunfisk,Yes,Tier 5,109,66,84,81,99,32,471,Static,Limber,Sand Veil,Ground,Electric
+Stunfisk-Galar,No,N/A,109,81,99,66,84,32,471,Mimicry,None,None,Ground,Steel
+Golett,Yes,Tier 5,59,74,50,35,50,35,303,Iron Fist,Klutz,No Guard,Ground,Ghost
+Golurk,Yes,Tier 4,89,124,80,55,80,55,483,Iron Fist,Klutz,No Guard,Ground,Ghost
+Pawniard,Yes,Tier 5,45,85,70,40,40,60,340,Defiant,Inner Focus,Pressure,Dark,Steel
+Bisharp,Yes,Tier 2,65,125,100,60,70,70,490,Defiant,Inner Focus,Pressure,Dark,Steel
+Rufflet,Yes,Tier 5,70,83,50,37,50,60,350,Keen Eye,Sheer Force,Hustle,Normal,Flying
+Braviary,Yes,Tier 4,100,123,75,57,75,80,510,Keen Eye,Sheer Force,Defiant,Normal,Flying
+Vullaby,Yes,Tier 5,70,55,75,45,65,60,370,Big Pecks,Overcoat,Weak Armor,Dark,Flying
+Mandibuzz,Yes,Tier 2,110,65,105,55,95,80,510,Big Pecks,Overcoat,Weak Armor,Dark,Flying
+Heatmor,Yes,Tier 5,85,97,66,105,66,65,484,Gluttony,Flash Fire,White Smoke,Fire,None
+Durant,Yes,Tier 4,58,109,112,48,48,109,484,Swarm,Hustle,Truant,Bug,Steel
+Deino,Yes,Tier 5,52,65,50,45,50,38,300,Hustle,None,None,Dark,Dragon
+Zweilous,Yes,Tier 5,72,85,70,65,70,58,420,Hustle,None,None,Dark,Dragon
+Hydreigon,Yes,Tier 2,92,105,90,125,90,98,600,Levitate,None,None,Dark,Dragon
+Cobalion,Yes,Tier 3,91,90,129,90,72,108,580,Justified,None,None,Steel,Fighting
+Terrakion,Yes,Tier 1,91,129,90,72,90,108,580,Justified,None,None,Rock,Fighting
+Virizion,Yes,Tier 4,91,90,72,90,129,108,580,Justified,None,None,Grass,Fighting
+Reshiram,Yes,Banned,100,120,100,150,120,90,680,Turboblaze,None,None,Dragon,Fire
+Zekrom,Yes,Banned,100,150,120,120,100,90,680,Teravolt,None,None,Dragon,Electric
+Kyurem,Yes,Tier 3,125,130,90,130,90,95,660,Pressure,None,None,Dragon,Ice
+Kyurem-White,Yes,Banned,125,120,90,170,100,95,700,Turboblaze,None,None,Dragon,Ice
+Kyurem-Black,Yes,Tier 1,125,170,100,120,90,95,700,Teravolt,None,None,Dragon,Ice
+Keldeo,Yes,Tier 1,91,72,90,129,90,108,580,Justified,None,None,Water,Fighting
+Bunnelby,Yes,Tier 5,38,36,38,32,36,57,237,Pickup,Cheek Pouch,Huge Power,Normal,None
+Diggersby,Yes,Tier 2,85,56,77,50,77,78,423,Pickup,Cheek Pouch,Huge Power,Normal,Ground
+Pancham,Yes,Tier 5,67,82,62,46,48,43,348,Iron Fist,Mold Breaker,Scrappy,Fighting,None
+Pangoro,Yes,Tier 4,95,124,78,69,71,58,495,Iron Fist,Mold Breaker,Scrappy,Fighting,Dark
+Espurr,Yes,Tier 5,62,48,54,63,60,68,355,Keen Eye,Infiltrator,Own Tempo,Psychic,None
+Meowstic,Yes,Tier 5,74,48,76,83,81,104,466,Keen Eye,Infiltrator,Prankster,Psychic,None
+Honedge,Yes,Tier 5,45,80,100,35,37,28,325,No Guard,None,None,Steel,Ghost
+Doublade,Yes,Tier 3,59,110,150,45,49,35,448,No Guard,None,None,Steel,Ghost
+Aegislash,Yes,Banned,60,50,140,50,140,60,500,Stance Change,None,None,Steel,Ghost
+Spritzee,Yes,Tier 5,78,52,60,63,65,23,341,Healer,None,Aroma Veil,Fairy,None
+Aromatisse,Yes,Tier 4,101,72,72,99,89,29,462,Healer,None,Aroma Veil,Fairy,None
+Swirlix,Yes,Tier 5,62,48,66,59,57,49,341,Sweet Veil,None,Unburden,Fairy,None
+Slurpuff,Yes,Tier 3,82,80,86,85,75,72,480,Sweet Veil,None,Unburden,Fairy,None
+Inkay,Yes,Tier 5,53,54,53,37,46,45,288,Contrary,Suction Cups,Infiltrator,Dark,Psychic
+Malamar,Yes,Tier 4,86,92,88,68,75,73,482,Contrary,Suction Cups,Infiltrator,Dark,Psychic
+Binacle,Yes,Tier 5,42,52,67,39,56,50,306,Tough Claws,Sniper,Pickpocket,Rock,Water
+Barbaracle,Yes,Tier 4,72,105,115,54,86,68,500,Tough Claws,Sniper,Pickpocket,Rock,Water
+Helioptile,Yes,Tier 5,44,38,33,61,43,70,289,Dry Skin,Sand Veil,Solar Power,Electric,Normal
+Heliolisk,Yes,Tier 3,62,55,52,109,94,109,481,Dry Skin,Sand Veil,Solar Power,Electric,Normal
+Sylveon,Yes,Tier 2,95,65,65,110,130,60,525,Cute Charm,None,Pixilate,Fairy,None
+Hawlucha,Yes,Tier 1,78,92,75,74,63,118,500,Limber,Unburden,Mold Breaker,Fighting,Flying
+Goomy,Yes,Tier 5,45,50,35,55,75,40,300,Sap Sipper,Hydration,Gooey,Dragon,None
+Sliggoo,Yes,Tier 5,68,75,53,83,113,60,452,Sap Sipper,Hydration,Gooey,Dragon,None
+Goodra,Yes,Tier 2,90,100,70,110,150,80,600,Sap Sipper,Hydration,Gooey,Dragon,None
+Phantump,Yes,Tier 5,43,70,48,50,60,38,309,Natural Cure,Frisk,Harvest,Ghost,Grass
+Trevenant,Yes,Tier 5,85,110,76,65,82,56,474,Natural Cure,Frisk,Harvest,Ghost,Grass
+Pumpkaboo,Yes,Tier 5,49,66,70,44,55,51,335,Pickup,Frisk,Insomnia,Ghost,Grass
+Gourgeist,Yes,Tier 4,65,90,122,58,75,84,494,Pickup,Frisk,Insomnia,Ghost,Grass
+Bergmite,Yes,Tier 5,55,69,85,32,35,28,304,Own Tempo,Ice Body,Sturdy,Ice,None
+Avalugg,Yes,Tier 5,95,117,184,44,46,28,514,Own Tempo,Ice Body,Sturdy,Ice,None
+Noibat,Yes,Tier 5,40,30,35,45,40,55,245,Frisk,Infiltrator,Telepathy,Flying,Dragon
+Noivern,Yes,Tier 4,85,70,80,97,80,123,535,Frisk,Infiltrator,Telepathy,Flying,Dragon
+Rowlet,Yes,Tier 5,68,55,55,50,50,42,320,Overgrow,None,Long Reach,Grass,Flying
+Dartrix,Yes,Tier 5,78,75,75,70,70,52,420,Overgrow,None,Long Reach,Grass,Flying
+Decidueye,Yes,Tier 3,78,107,75,100,100,70,530,Overgrow,None,Long Reach,Grass,Ghost
+Litten,Yes,Tier 5,45,65,40,60,40,70,320,Blaze,None,Intimidate,Fire,None
+Torracat,Yes,Tier 5,65,85,50,80,50,90,420,Blaze,None,Intimidate,Fire,None
+Incineroar,Yes,Tier 3,95,115,90,80,90,60,530,Blaze,None,Intimidate,Fire,Dark
+Popplio,Yes,Tier 5,50,54,54,66,56,40,320,Torrent,None,Liquid Voice,Water,None
+Brionne,Yes,Tier 5,60,69,69,91,81,50,420,Torrent,None,Liquid Voice,Water,None
+Primarina,Yes,Tier 3,80,74,74,126,116,60,530,Torrent,None,Liquid Voice,Water,Fairy
+Grubbin,Yes,Tier 5,47,62,45,55,45,46,300,Swarm,None,None,Bug,None
+Charjabug,Yes,Tier 5,57,82,95,55,75,36,400,Battery,None,None,Bug,Electric
+Vikavolt,Yes,Tier 4,77,70,90,145,75,43,500,Levitate,None,None,Bug,Electric
+Cutiefly,Yes,Tier 5,40,45,40,55,40,84,304,Honey Gather,Shield Dust,Sweet Veil,Bug,Fairy
+Ribombee,Yes,Tier 3,60,55,60,95,70,124,464,Honey Gather,Shield Dust,Sweet Veil,Bug,Fairy
+Wishiwashi,Yes,Tier 5,45,140,130,140,135,30,620,Schooling,None,None,Water,None
+Mareanie,Yes,Tier 5,50,53,62,43,52,45,305,Merciless,Limber,Regenerator,Poison,Water
+Toxapex,Yes,Tier 2,50,63,152,53,142,35,495,Merciless,Limber,Regenerator,Poison,Water
+Mudbray,Yes,Tier 5,70,100,70,45,55,45,385,Own Tempo,Stamina,Inner Focus,Ground,None
+Mudsdale,Yes,Tier 4,100,125,100,55,85,35,500,Own Tempo,Stamina,Inner Focus,Ground,None
+Dewpider,Yes,Tier 5,38,40,52,40,72,27,269,Water Bubble,None,Water Absorb,Water,Bug
+Araquanid,Yes,Tier 3,68,70,92,50,132,42,454,Water Bubble,None,Water Absorb,Water,Bug
+Morelull,Yes,Tier 5,40,35,55,65,75,15,285,Illuminate,Effect Spore,Rain Dish,Grass,Fairy
+Shiinotic,Yes,Tier 5,60,45,80,90,100,30,405,Illuminate,Effect Spore,Rain Dish,Grass,Fairy
+Salandit,Yes,Tier 5,48,44,40,71,40,77,320,Corrosion,None,Oblivious,Poison,Fire
+Salazzle,Yes,Tier 3,68,64,60,111,60,117,480,Corrosion,None,Oblivious,Poison,Fire
+Stufful,Yes,Tier 5,70,75,50,45,50,50,340,Fluffy,Klutz,Cute Charm,Normal,Fighting
+Bewear,Yes,Tier 3,120,125,80,55,60,60,500,Fluffy,Klutz,Unnerve,Normal,Fighting
+Bounsweet,Yes,Tier 5,42,30,38,30,38,32,210,Leaf Guard,Oblivious,Sweet Veil,Grass,None
+Steenee,Yes,Tier 5,52,40,48,40,48,62,290,Leaf Guard,Oblivious,Sweet Veil,Grass,None
+Tsareena,Yes,Tier 3,72,120,98,50,98,72,510,Leaf Guard,Queenly Majesty,Sweet Veil,Grass,None
+Oranguru,Yes,Tier 5,90,60,80,90,110,60,490,Inner Focus,Telepathy,Symbiosis,Normal,Psychic
+Passimian,Yes,Tier 5,100,120,90,40,60,80,490,Receiver,None,Defiant,Fighting,None
+Wimpod,Yes,Tier 5,25,35,40,20,30,80,230,Wimp Out,None,None,Bug,Water
+Golisopod,Yes,Tier 4,75,125,140,60,90,40,530,Emergency Exit,None,None,Bug,Water
+Pyukumuku,Yes,Tier 5,55,60,130,30,130,5,410,Innards Out,None,Unaware,Water,None
+Type:Null,Yes,Tier 4,95,95,95,95,95,59,534,Battle Armor,None,None,Normal,None
+Silvally,Yes,Tier 3,95,95,95,95,95,95,570,RKS System,None,None,Normal,None
+Turtonator,Yes,Tier 5,60,78,135,91,85,36,485,Shell Armor,None,None,Fire,Dragon
+Togedemaru,Yes,Tier 5,65,98,63,40,73,96,435,Iron Barbs,Lightning Rod,Sturdy,Electric,Steel
+Mimikyu,Yes,Tier 2,55,90,80,50,105,96,476,Disguise,None,None,Ghost,Fairy
+Drampa,Yes,Tier 4,78,60,85,135,91,36,485,Berserk,Sap Sipper,Cloud Nine,Normal,Dragon
+Dhelmise,Yes,Tier 3,70,131,100,86,90,40,517,Steelworker,None,None,Ghost,Grass
+Jangmo-o,Yes,Tier 5,45,55,65,45,45,45,300,Bulletproof,Soundproof,Overcoat,Dragon,None
+Hakamo-o,Yes,Tier 5,55,75,90,65,70,65,420,Bulletproof,Soundproof,Overcoat,Dragon,Fighting
+Kommo-o,Yes,Tier 2,75,110,125,100,105,85,600,Bulletproof,Soundproof,Overcoat,Dragon,Fighting
+Cosmog,Yes,Tier 5,43,29,31,29,31,37,200,Unaware,None,None,Psychic,None
+Cosmoem,Yes,Tier 5,43,29,131,29,131,37,400,Sturdy,None,None,Psychic,None
+Solgaleo,Yes,Banned,137,137,107,113,89,97,680,Full Metal Body,None,None,Psychic,Steel
+Lunala,Yes,Banned,137,113,89,137,107,97,680,Shadow Shield,None,None,Psychic,Ghost
+Necrozma,Yes,Tier 1,97,107,101,127,89,79,600,Prism Armor,None,None,Psychic,None
+Necrozma-Dusk-Mane,Yes,Banned,97,157,127,113,109,77,680,Prism Armor,None,None,Psychic,Steel
+Necrozma-Dawn-Wings,Yes,Banned,97,113,109,157,127,77,680,Prism Armor,None,None,Psychic,Ghost
+Marshadow,Yes,Banned,90,125,80,90,90,125,600,Technician,None,None,Fighting,Ghost
+Zeraora,Yes,Tier 2,88,112,75,102,80,143,600,Volt Absorb,None,None,Electric,None
+Meltan,No,N/A,46,65,65,55,35,34,300,Magnet Pull,None,None,Steel,None
+Melmetal,No,N/A,135,143,143,80,65,34,600,Iron Fist,None,None,Steel,None
+Grookey,No,N/A,50,65,50,40,40,65,310,Overgrow,None,Grassy Surge,Grass,None
+Thwackey,No,N/A,70,85,70,55,60,80,420,Overgrow,None,Grassy Surge,Grass,None
+Rillaboom,No,N/A,100,125,90,60,70,85,530,Overgrow,None,Grassy Surge,Grass,None
+Scorbunny,No,N/A,50,71,40,40,40,69,310,Blaze,None,Libero,Fire,None
+Raboot,No,N/A,65,86,60,55,60,94,420,Blaze,None,Libero,Fire,None
+Cinderace,No,N/A,80,116,75,65,75,119,530,Blaze,None,Libero,Fire,None
+Sobble,No,N/A,50,40,40,70,40,70,310,Torrent,None,Sniper,Water,None
+Drizzile,No,N/A,65,60,55,95,55,90,420,Torrent,None,Sniper,Water,None
+Inteleon,No,N/A,70,85,65,125,65,120,530,Torrent,None,Sniper,Water,None
+Skwovet,No,N/A,70,55,55,35,35,25,275,Cheek Pouch,None,Gluttony,Normal,None
+Greedent,No,N/A,120,95,95,55,75,20,460,Cheek Pouch,None,Gluttony,Normal,None
+Rookidee,No,N/A,38,47,35,33,35,57,245,Keen Eye,Unnerve,Big Pecks,Flying,None
+Corvisquire,No,N/A,68,67,55,43,55,77,365,Keen Eye,Unnerve,Big Pecks,Flying,None
+Corviknight,No,N/A,98,87,105,53,85,67,495,Pressure,Unnerve,Mirror Armor,Flying,Steel
+Blipbug,No,N/A,25,20,20,25,45,45,180,Swarm,Compound Eyes,Telepathy,Bug,None
+Dottler,No,N/A,50,35,80,50,90,30,335,Swarm,Compound Eyes,Telepathy,Bug,Psychic
+Orbeetle,No,N/A,60,45,110,80,120,90,505,Swarm,Frisk,Telepathy,Bug,Psychic
+Nickit,No,N/A,40,28,28,47,52,50,245,Run Away,Unburden,Stakeout,Dark,None
+Thievul,No,N/A,70,58,58,87,92,90,455,Run Away,Unburden,Stakeout,Dark,None
+Gossifleur,No,N/A,40,40,60,40,60,10,250,Cotton Down,Regenerator,Effect Spore,Grass,None
+Eldegoss,No,N/A,60,50,90,80,120,60,460,Cotton Down,Regenerator,Effect Spore,Grass,None
+Wooloo,No,N/A,42,40,55,40,45,48,270,Fluffy,Run Away,Bulletproof,Normal,None
+Dubwool,No,N/A,72,80,100,60,90,88,490,Fluffy,Steadfast,Bulletproof,Normal,None
+Chewtle,No,N/A,50,64,50,38,38,44,284,Strong Jaw,Shell Armor,Swift Swim,Water,None
+Drednaw,No,N/A,90,115,90,48,68,74,485,Strong Jaw,Shell Armor,Swift Swim,Water,Rock
+Yamper,No,N/A,59,45,50,40,50,26,270,Ball Fetch,None,Rattled,Electric,None
+Boltund,No,N/A,69,90,60,90,60,121,490,Strong Jaw,None,Competitive,Electric,None
+Rolycoly,No,N/A,30,40,50,40,50,30,240,Steam Engine,Heatproof,Flash Fire,Rock,None
+Carkol,No,N/A,80,60,90,60,70,50,410,Steam Engine,Flame Body,Flash Fire,Rock,Fire
+Coalossal,No,N/A,110,80,120,80,90,30,510,Steam Engine,Flame Body,Flash Fire,Rock,Fire
+Applin,No,N/A,40,40,80,40,40,20,260,Ripen,Gluttony,Bulletproof,Grass,Dragon
+Flapple,No,N/A,70,110,80,95,60,70,485,Ripen,Gluttony,Hustle,Grass,Dragon
+Appletun,No,N/A,110,85,80,100,80,30,485,Ripen,Gluttony,Thick Fat,Grass,Dragon
+Silicobra,No,N/A,52,57,75,35,50,46,315,Sand Spit,Shed Skin,Sand Veil,Ground,None
+Sandaconda,No,N/A,72,107,125,65,70,71,510,Sand Spit,Shed Skin,Sand Veil,Ground,None
+Cramorant,No,N/A,70,85,55,85,95,85,475,Gulp Missile,None,None,Flying,Water
+Arrokuda,No,N/A,41,63,40,40,30,66,280,Swift Swim,None,Propeller Tail,Water,None
+Barraskewda,No,N/A,61,123,60,60,50,136,490,Swift Swim,None,Propeller Tail,Water,None
+Toxel,No,N/A,40,38,35,54,35,40,242,Rattled,Static,Klutz,Electric,Poison
+Toxtricity,No,N/A,75,98,70,114,70,75,502,Punk Rock,Plus,Technician,Electric,Poison
+Sizzlipede,No,N/A,50,65,45,50,50,45,305,Flash Fire,White Smoke,Flame Body,Fire,Bug
+Centiskorch,No,N/A,100,115,65,90,90,65,525,Flash Fire,White Smoke,Flame Body,Fire,Bug
+Clobbopus,No,N/A,50,68,60,50,50,32,310,Limber,None,Technician,Fighting,None
+Grapploct,No,N/A,80,118,90,70,80,42,480,Limber,None,Technician,Fighting,None
+Sinistea,No,N/A,40,45,45,74,54,50,308,Weak Armor,None,Cursed Body,Ghost,None
+Polteageist,No,N/A,60,65,65,134,114,70,508,Weak Armor,None,Cursed Body,Ghost,None
+Hatenna,No,N/A,42,30,45,56,53,39,265,Healer,Anticipation,Magic Bounce,Psychic,None
+Hattrem,No,N/A,57,40,65,86,73,49,370,Healer,Anticipation,Magic Bounce,Psychic,None
+Hatterene,No,N/A,57,90,95,136,103,29,510,Healer,Anticipation,Magic Bounce,Psychic,Fairy
+Impidimp,No,N/A,45,45,30,55,40,50,265,Prankster,Frisk,Pickpocket,Dark,Fairy
+Morgrem,No,N/A,65,60,45,75,55,70,370,Prankster,Frisk,Pickpocket,Dark,Fairy
+Grimmsnarl,No,N/A,95,120,65,95,75,60,510,Prankster,Frisk,Pickpocket,Dark,Fairy
+Obstagoon,No,N/A,93,90,101,60,81,95,520,Reckless,Guts,Defiant,Dark,Normal
+Perrserker,No,N/A,70,110,100,50,60,50,440,Battle Armor,Tough Claws,Steely Spirit,Steel,None
+Cursola,No,N/A,60,95,50,145,130,30,510,Weak Armor,None,Perish Body,Ghost,None
+Sirfetch’d,No,N/A,62,135,95,68,82,65,507,Steadfast,None,Scrappy,Fighting,None
+Mr.Rime,No,N/A,80,85,75,110,100,70,520,Tangled Feet,Screen Cleaner,Ice Body,Ice,Psychic
+Runerigus,No,N/A,58,95,145,50,105,30,483,Wandering Spirit,None,None,Ground,Ghost
+Milcery,No,N/A,45,40,40,50,61,34,270,Sweet Veil,None,Aroma Veil,Fairy,None
+Alcremie,No,N/A,65,60,75,110,121,64,495,Sweet Veil,None,Aroma Veil,Fairy,None
+Falinks,No,N/A,65,100,100,70,60,75,470,Battle Armor,None,Defiant,Fighting,None
+Pincurchin,No,N/A,48,101,95,91,85,15,435,Lightning Rod,None,Electric Surge,Electric,None
+Snom,No,N/A,30,25,35,45,30,20,185,Shield Dust,None,Ice Scales,Ice,Bug
+Frosmoth,No,N/A,70,65,60,125,90,65,475,Shield Dust,None,Ice Scales,Ice,Bug
+Stonjourner,No,N/A,100,125,135,20,20,70,470,Power Spot,None,None,Rock,None
+Eiscue,No,N/A,75,80,110,65,90,50,470,Ice Face,None,None,Ice,None
+Indeedee,No,N/A,60,65,55,105,95,95,475,Inner Focus,Synchronize,Psychic Surge,Psychic,Normal
+Morpeko,No,N/A,58,95,58,70,58,97,436,Hunger Switch,None,None,Electric,Dark
+Cufant,No,N/A,72,80,49,40,49,40,330,Sheer Force,None,Heavy Metal,Steel,None
+Copperajah,No,N/A,122,130,69,80,69,30,500,Sheer Force,None,Heavy Metal,Steel,None
+Dracozolt,No,N/A,90,100,90,80,70,75,505,Volt Absorb,Hustle,Sand Rush,Electric,Dragon
+Arctozolt,No,N/A,90,100,90,90,80,55,505,Volt Absorb,Static,Slush Rush,Electric,Ice
+Dracovish,No,N/A,90,90,100,70,80,75,505,Water Absorb,Strong Jaw,Sand Rush,Water,Dragon
+Arctovish,No,N/A,90,90,100,80,90,55,505,Water Absorb,Ice Body,Slush Rush,Water,Ice
+Duraludon,No,N/A,70,95,115,120,50,85,535,Light Metal,Heavy Metal,Stalwart,Steel,Dragon
+Dreepy,No,N/A,28,60,30,40,30,82,270,Clear Body,Infiltrator,Cursed Body,Dragon,Ghost
+Drakloak,No,N/A,68,80,50,60,50,102,410,Clear Body,Infiltrator,Cursed Body,Dragon,Ghost
+Dragapult,No,N/A,88,120,75,100,75,142,600,Clear Body,Infiltrator,Cursed Body,Dragon,Ghost
+Zacian,No,N/A,92,130,115,80,115,138,670,Intrepid Sword,None,None,Fairy,None
+Zacian-Crowned,No,N/A,92,170,115,80,115,148,720,Intrepid Sword,None,None,Fairy,Steel
+Zamazenta,No,N/A,92,130,115,80,115,138,670,Dauntless Shield,None,None,Fighting,None
+Zamazenta-Crowned,No,N/A,92,130,145,80,145,128,720,Dauntless Shield,None,None,Fighting,Steel
+Eternatus,No,N/A,140,85,95,145,95,130,690,Pressure,None,None,Poison,Dragon

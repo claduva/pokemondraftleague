@@ -309,36 +309,4 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
-    with open("swsh.txt") as fp:
-        count=0
-        mon=""
-        monlist=[]
-        for line in fp:
-            line=line.strip()
-            #find mon
-            if line.find("Stage")>-1:
-                mon=line.split(" - ",1)[1].split(" (Stage:")[0]
-            if line.find("Base Stats")>-1:
-                line_=line.replace("Base Stats: ",",").replace(" (BST: ",",").replace(")","").replace(".",",")
-                mon+=line_
-            if line.find("Abilities")>-1:
-                line_=line.replace("Abilities: ","").replace(" (1)","").replace(" (2)","").replace(" (H)","").split(" | ")
-                if line_[0]==line_[1]:
-                    line_[1]="None"
-                if line_[0]==line_[2]:
-                    line_[2]="None"
-                for a in line_:
-                    mon+=","+a
-            if line.find("Type: ")>-1:
-                if line.find(" / ")==-1:
-                    line+=",None"
-                line_=line.replace("Type: ","").replace(" / ",",")
-                mon+=","+line_
-            #add to mon list
-            if line=="======":
-                count+=1
-                if count%2==1 and count>1:
-                    monlist.append(mon)
-                    print(mon)
-        #print(monlist)
     return redirect('home')

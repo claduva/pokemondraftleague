@@ -315,3 +315,81 @@ def runscript(request):
         i.save()
         j+=1
     return redirect('home')
+
+with open("swsh.txt") as fp:
+        count=0
+        mon=""
+        monlist=[]
+        for line in fp:
+            line=line.strip()
+            #find mon
+            if line.find("Stage")>-1:
+                mon=line.split(" - ",1)[1].split(" (Stage:")[0]
+            if line.find("Base Stats")>-1:
+                line_=line.replace("Base Stats: ",",").replace(" (BST: ",",").replace(")","").replace(".",",")
+                mon+=line_
+            if line.find("Abilities")>-1:
+                line_=line.replace("Abilities: ","").replace(" (1)","").replace(" (2)","").replace(" (H)","").split(" | ")
+                if line_[0]==line_[1]:
+                    line_[1]="None"
+                if line_[0]==line_[2]:
+                    line_[2]="None"
+                for a in line_:
+                    mon+=","+a
+            if line.find("Type: ")>-1:
+                if line.find(" / ")==-1:
+                    line+=",None"
+                line_=line.replace("Type: ","").replace(" / ",",")
+                mon+=","+line_
+            #add to mon list
+            if line=="======":
+                count+=1
+                if count%2==1 and count>1:
+                    monlist.append(mon)
+                    print(mon)
+        #print(monlist)
+
+
+#import galar mons
+ with open('gen8prep.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        idoi=all_pokemon.objects.all().order_by('id').last().id
+        abilityid=pokemon_ability.objects.all().order_by('id').last().id
+        typingid=pokemon_type.objects.all().order_by('id').last().id
+        idoi+=1
+        abilityid+=1
+        typingid+=1
+        for row in csv_reader:
+            if line_count ==0:
+                line_count += 1
+            else:
+                try:
+                    moi=all_pokemon.objects.get(pokemon=row[0])
+                    moi.hp = row[3]
+                    moi.attack = row[4]
+                    moi.defense = row[5]
+                    moi.s_attack = row[6]
+                    moi.s_defense = row[7]
+                    moi.speed = row[8]
+                    moi.bst = row[9]
+                    moi.gen8=True
+                    moi.save()
+                except:
+                    moi=all_pokemon.objects.create(id=idoi,pokemon=row[0],hp = row[3],attack = row[4],defense = row[5],s_attack = row[6],s_defense = row[7],speed = row[8],bst = row[9],is_fully_evolved = True,nicknames=[],gen8=True)
+                    idoi+=1
+                    pokemon_ability.objects.create(id=abilityid,pokemon=moi,ability=row[10])
+                    abilityid+=1
+                    if row[11] != "None":
+                        pokemon_ability.objects.create(id=abilityid,pokemon=moi,ability=row[11])
+                        abilityid+=1
+                    if row[12] != "None":
+                        pokemon_ability.objects.create(id=abilityid,pokemon=moi,ability=row[12])
+                        abilityid+=1
+                    pokemon_type.objects.create(id=typingid,pokemon=moi,typing=row[13])
+                    typingid+=1
+                    if row[14] != "None":
+                        pokemon_type.objects.create(id=typingid,pokemon=moi,typing=row[14])
+                        typingid+=1
+                    print(row[0])
+                line_count += 1

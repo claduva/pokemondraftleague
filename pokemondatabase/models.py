@@ -30,6 +30,7 @@ class all_pokemon(models.Model):
     remaininghealth = models.IntegerField(default=0)
     timesdrafted = models.IntegerField(default=0)
     nicknames = ArrayField(models.CharField(max_length=10, blank=True))
+    gen8 = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.pokemon}'
