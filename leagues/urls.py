@@ -22,6 +22,7 @@ urlpatterns = [
     path("settings/league/<str:league_name>/<str:subleague_name>/managetiers/tier/<str:tier>/", views.view_tier, name="view_tier"),
     path("settings/league/<str:league_name>/<str:subleague_name>/managetiers/default/", views.default_tiers, name="default_tiers"),
     path("settings/league/<str:league_name>/<str:subleague_name>/updatetier/", views.update_tier, name="update_tier"),
+    path("settings/updatetiering/", views.update_tiering, name="update_tiering"),
     path("settings/league/<str:league_name>/<str:subleague_name>/managetiers/edittier/<int:tierid>/", views.edit_tier, name="edit_tier"),
     path("settings/league/<str:league_name>/<str:subleague_name>/managetiers/deletetier/", views.delete_tier, name="delete_tier"),
     path("settings/league/<str:league_name>/<str:subleague_name>/manageseason/", views.manage_seasons, name="manage_seasons"),

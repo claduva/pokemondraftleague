@@ -8,6 +8,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
 from django.db.models import Q
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from datetime import datetime, timezone, timedelta
 import pytz
@@ -409,6 +411,7 @@ def manage_tiers(request,league_name,subleague_name):
         form = CreateTierForm(initial={'league': subleague.league,'subleague':subleague})
     pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
     leaguestiers=leaguetiers.objects.filter(subleague=subleague).all().order_by('tiername')
+    untiered=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
@@ -417,8 +420,28 @@ def manage_tiers(request,league_name,subleague_name):
         'forms': [form],
         'managetiers': True,
         'subleague':subleague,
+        'untiered':untiered,
     }
     return render(request, 'managetiers.html',context)
+
+@csrf_exempt
+def update_tiering(request):
+    tierid=request.POST['tierid']
+    pokemonid=request.POST['pokemonid']
+    newtierid=request.POST['newtierid']
+    newtier=leaguetiers.objects.get(id=newtierid)
+    if tierid != "Untiered":
+        poi=pokemon_tier.objects.get(id=tierid)
+        poi.tier=newtier
+        poi.save()
+    else:
+        poi=pokemon_tier.objects.get(id=pokemonid)
+        poi.tier=newtier
+        poi.save()
+    data={
+        'response':'Success'
+        }
+    return JsonResponse(data)
 
 #works
 @login_required

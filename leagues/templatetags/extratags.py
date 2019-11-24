@@ -41,3 +41,11 @@ def halve(thelist):
 @register.filter
 def integer(string):
     return int(string)
+
+@register.filter(name='limitquery')
+def limitquery(query, arg):
+    return query[0:arg]
+
+@register.filter(name='alphabetize')
+def alphabetize(query,arg):
+    return query.order_by(arg)

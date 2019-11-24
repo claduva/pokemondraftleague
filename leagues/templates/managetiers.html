@@ -22,14 +22,14 @@
         <div class="row content-section">
             <div class="col-md-12 d-flex justify-content-between p-0 m-0">
                 {% if not defaulttemplate %}
-                <h3>Update Pokemon's Tier</h3>
+                <h3>Update Tiers</h3>
                 <a href="{% url 'default_tiers' league_name=league_name subleague_name=subleague.subleague %}"><button class="btn btn-primary">Use Tier
                         Template</button></a>
                 {% else %}
                 <h3 class="p-0 m-0">Select Template</h3>
                 {% endif %}
             </div>
-            <div>
+            <div class="col-md-12">
                 {% if defaulttemplate %}
                 <form action="{% url 'default_tiers' league_name=league_name subleague_name=subleague.subleague %}" method="post">
                     {% csrf_token %}
@@ -64,29 +64,41 @@
                     </div>
                 </form>
                 {% else %}
-                <form action="{% url 'update_tier' league_name=league_name subleague_name=subleague.subleague %}" method="post">
-                    {% csrf_token %}
-                    <div>
-                        <datalist id="allpokemon">
-                            {% for item in pokemontiers %}
-                            <option value="{{item.pokemon.pokemon}}">
-                                {% endfor %}
-                        </datalist>
-                        <label for="pokemon-select">Choose a Pokemon:</label>
-                        <input id="pokemon-select" list="allpokemon" name="pokemon-select">
-                    </div>
-                    <div>
-                        <label for="tier-select">Choose a tier:</label>
-                        <select id="tier-select" name="tier-select">
-                            {% for item in leaguetiers%}
-                            <option value="{{ item.id }}">{{ item.tiername }} ({{ item.tierpoints }} points)</option>
+                <div style="height: 500px;" class="table-responsive text-nowrap overflow-auto">
+                    <table class="table text-dark bg-lightgrey text-center">
+                        <tr>
+                            <th data-tier="Untiered" class="px-2">Untiered</th>
+                            {% for item in leaguetiers %}
+                            <th data-tier="{{item.id}}" class="px-2">{{ item.tiername }}</th>
                             {% endfor %}
-                        </select>
-                    </div>
-                    <div>
-                        <input class="btn btn-primary" type="submit" value="Update">
-                    </div>
-                </form>
+                        </tr>
+                        <tr>
+                            <td class="nt">
+                                {% for item_ in untiered %}
+                                    <div data-tierid="Untiered" data-pokemonid="{{item_.id}}">{{item_.pokemon.pokemon}}<span class="rightarrow">&rarr;</span></div>
+                                {% endfor %}
+                            </td>
+                            {% for item in leaguetiers %}
+                            <td class="wt">
+                                {% if forloop.last %}
+                                {% for item_ in item.pokemon_tier_set.all %}
+                                    <div data-tierid="{{item_.id}}" data-pokemonid="{{item_.pokemon.id}}"><span class="leftarrow">&larr;</span>{{item_.pokemon.pokemon}}</div>
+                                {% endfor %}
+                                {% elif forloop.first %}
+                                {% for item_ in item.pokemon_tier_set.all %}
+                                    <div data-tierid="{{item_.id}}" data-pokemonid="{{item_.pokemon.id}}">{{item_.pokemon.pokemon}}<span class="rightarrow">&rarr;</span></div>
+                                {% endfor %}
+                                {% else %}
+                                {% for item_ in item.pokemon_tier_set.all %}
+                                    <div data-tierid="{{item_.id}}" data-pokemonid="{{item_.pokemon.id}}"><span class="leftarrow">&larr;</span>{{item_.pokemon.pokemon}}<span class="rightarrow">&rarr;</span></div>
+                                {% endfor %}
+                                {% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                </div>
+                <div><input class="px-1" type="checkbox" name="hide" value="hide">Hide Untiered</div>
                 {% endif %}
             </div>
         </div>
@@ -144,38 +156,12 @@
             {% endif %}
             {% endif %}
         </div>
-        <div class="row">
-            <div class="col-md-12 content-section">
-                <h3>Tiers</h3>
-                <div class="row align-items-center justify-content-center">
-                    {% for item in leaguetiers%}
-                    <div class="col-md-3 d-flex justify-content-center">
-                        <a href="{% url 'view_tier' league_name=league_name subleague_name=subleague.subleague tier=item.tiername|replace:' ,_' %}"><button
-                                class="btn btn-primary buttonpadding">{{ item.tiername }}<br>({{ item.tierpoints }}
-                                points)</button></a>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-3 d-flex justify-content-center">
-                        <a href="{% url 'view_tier' league_name=league_name subleague_name=subleague.subleague tier='Untiered' %}"><button
-                                class="btn btn-primary buttonpadding">Untiered</button></a>
-                    </div>
-                </div>
-                <div class="row align-items-center justify-content-center">
-                    {% for item in pokemonlist %}
-                    <div class="col-md-2">
-                        <div class="d-flex justify-content-center"><img class="mediumsprite"
-                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        </div>
-                        <div class="d-flex justify-content-center">{{ item.pokemon.pokemon }}</div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 </div>
 </div>
+{% endblock %}
+{% block footer %}
+<!-- select code -->
+<script src="{% static 'leagues/scripts/managetiers.js' %}"></script>
 {% endblock %}
