@@ -27,34 +27,6 @@ $(document).ready(function() {
           );
     });
 
-    /* $(".leftarrow").on("click",function() {
-        pi=$(this).parent("div")
-        parentcolumn=pi.parent("td")
-        // check if has r arrow
-        pi.not(":has(span.rightarrow)").append("<span class='rightarrow'>&rarr;</span>")
-        newparentcolumn=parentcolumn.prev("td")
-        if (newparentcolumn.prev("td.wt").length==0) {
-            pi.find(".leftarrow").detach()
-        }
-        pi.detach()
-        newparentcolumn.append(pi)
-        newparentcolumn.children("div").sort(asc_sort).appendTo(newparentcolumn);
-        tierid=pi.data("tierid")
-        pokemonid=pi.data("pokemonid")
-        parentth = newparentcolumn.closest('table').find('th').eq(newparentcolumn.index());
-        newtierid=parentth.data("tier")
-        $.post(
-            "/settings/updatetiering/",
-            {
-                tierid: tierid,
-                newtierid: newtierid,
-                pokemonid: pokemonid,
-            },
-            function(data) {
-            }
-          );
-    }); */
-
     $("td").on("click",".rightarrow",function() {
         pi=$(this).parent("div")
         parentcolumn=pi.parent("td")
@@ -85,6 +57,15 @@ $(document).ready(function() {
             }
           );
     });
+
+    $("#hideut").change(function() {
+        if (this.checked) {
+            $(".ut").hide()
+        } else {
+            $(".ut").show()
+        }
+    })
+
 });
 
 function asc_sort(a, b){

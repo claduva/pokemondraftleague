@@ -67,15 +67,15 @@
                 <div style="height: 500px;" class="table-responsive text-nowrap overflow-auto">
                     <table class="table text-dark bg-lightgrey text-center">
                         <tr>
-                            <th data-tier="Untiered" class="px-2">Untiered</th>
+                            <th data-tier="Untiered" class="ut px-2">Untiered</th>
                             {% for item in leaguetiers %}
                             <th data-tier="{{item.id}}" class="px-2">{{ item.tiername }}</th>
                             {% endfor %}
                         </tr>
                         <tr>
-                            <td class="nt">
+                            <td class="nt ut">
                                 {% for item_ in untiered %}
-                                    <div data-tierid="Untiered" data-pokemonid="{{item_.id}}">{{item_.pokemon.pokemon}}<span class="rightarrow">&rarr;</span></div>
+                                <div data-tierid="Untiered" data-pokemonid="{{item_.id}}">{{item_.pokemon.pokemon}}<span class="rightarrow">&rarr;</span></div>
                                 {% endfor %}
                             </td>
                             {% for item in leaguetiers %}
@@ -98,7 +98,7 @@
                         </tr>
                     </table>
                 </div>
-                <div><input class="px-1" type="checkbox" name="hide" value="hide">Hide Untiered</div>
+                <div><input id="hideut" class="px-1" type="checkbox" name="hide" value="hide">Hide Untiered</div>
                 {% endif %}
             </div>
         </div>
