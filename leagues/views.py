@@ -118,17 +118,19 @@ def league_configuration(request,league_name):
                         sl=league_subleague.objects.create(league=league_instance,subleague="Main")
                         allpokes=all_pokemon.objects.all()
                         i=pokemon_tier.objects.all().order_by('id').last().id
+                        bannedtier=leaguetiers.objects.create(league=league_instance,subleague=sl,tiername="Banned",tierpoints=1000)
                         for item in allpokes:
                             i+=1
-                            pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl)
+                            pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl,tier=bannedtier)
                     elif config.number_of_subleagues>1:
                         for i in range(config.number_of_subleagues):
                             sl=league_subleague.objects.create(league=league_instance,subleague=f"Subleague{i+1}")
                             allpokes=all_pokemon.objects.all()
                             i=pokemon_tier.objects.all().order_by('id').last().id
+                            bannedtier=leaguetiers.objects.create(league=league_instance,subleague=sl,tiername="Banned",tierpoints=1000)
                             for item in allpokes:
                                 i+=1
-                                pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl)
+                                pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl,tier=bannedtier)
                     messages.success(request,league_name+' has been updated!')
         elif formpurpose=="Rename":
             itemid=request.POST['itemid']
@@ -536,22 +538,21 @@ def view_tier(request,league_name,subleague_name,tier):
 def default_tiers(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_=subleague.league
-    tier="Untiered"
     if request.method == 'POST':
         purpose=request.POST['purposeid']
         if purpose=='Select':
-            templatetierset=leaguetiertemplate.objects.all().filter(template=request.POST['template-select'])
-            templatepokemonset=pokemon_tier_template.objects.all().filter(template=request.POST['template-select'])
-            existingtiers=leaguetiers.objects.all().filter(subleague=subleague).delete()
-            existingpokemontiers=pokemon_tier.objects.all().filter(subleague=subleague)
+            templatetierset=leaguetiertemplate.objects.all().exclude(tiername="Banned").filter(template=request.POST['template-select'])
+            leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").delete()
             for item in templatetierset:
                 leaguetiers.objects.create(league=league_,subleague=subleague,tiername=item.tiername,tierpoints=item.tierpoints)
-            existingpokemontiers.delete()
-            i=pokemon_tier.objects.all().order_by('id').last().id
+            templatepokemonset=pokemon_tier_template.objects.all().exclude(tier__tiername="Banned").filter(template=request.POST['template-select'])
+            existingpokemontiers=pokemon_tier.objects.all().filter(league=league_,subleague=subleague)
+            thisleaguetiers=leaguetiers.objects.all().filter(subleague=subleague)
             for item in templatepokemonset:
-                i+=1
-                tiertouse=leaguetiers.objects.filter(subleague=subleague).get(tiername=item.tier.tiername)
-                pokemon_tier.objects.create(id=i,pokemon=item.pokemon,league=league_,subleague=subleague,tier=tiertouse)
+                tiertouse=thisleaguetiers.get(tiername=item.tier.tiername)
+                mtu=existingpokemontiers.get(pokemon=item.pokemon)
+                mtu.tier=tiertouse
+                mtu.save()
             messages.success(request,'The template has been applied!')
         elif purpose=="Use":
             #delete existing

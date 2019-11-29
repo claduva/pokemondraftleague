@@ -160,8 +160,8 @@ class leaguetiers(models.Model):
         return f'Tier for {self.league.name}, Tiername: {self.tiername}'
 
 class leaguetiertemplate(models.Model):
-    template = models.CharField(max_length=25, default="Standard Draft League")
-    tiername = models.CharField(max_length=20, default="Not Specified")
+    template = models.CharField(max_length=50, default="Standard Draft League")
+    tiername = models.CharField(max_length=50, default="Not Specified")
     tierpoints = models.IntegerField(default=0)
 
     def __str__(self):
