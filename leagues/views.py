@@ -557,18 +557,19 @@ def default_tiers(request,league_name,subleague_name):
         elif purpose=="Use":
             #delete existing
             subleague.subleaguetiers.all().delete()
-            subleague.subleaguepokemontiers.all().delete()
             #add new
             leagueofinterest=league_subleague.objects.get(id=request.POST['leagueid'])
-            leagueofinteresttiers=leagueofinterest.subleaguetiers.all()
+            leagueofinteresttiers=leagueofinterest.subleaguetiers.all().exclude(tiername="Banned")
             for item in leagueofinteresttiers:
                 leaguetiers.objects.create(league=league_,subleague=subleague,tiername=item.tiername,tierpoints=item.tierpoints)
-            leagueofinteresttiering=leagueofinterest.subleaguepokemontiers.all()
-            startid=pokemon_tier.objects.all().order_by('id').last().id
+            leagueofinteresttiering=leagueofinterest.subleaguepokemontiers.all().exclude(tier__tiername="Banned")
+            existingpokemontiers=pokemon_tier.objects.all().filter(league=league_,subleague=subleague)
+            thisleaguetiers=leaguetiers.objects.all().filter(subleague=subleague)
             for item in leagueofinteresttiering:
-                startid+=1
-                tiertouse=leaguetiers.objects.filter(subleague=subleague).get(tiername=item.tier.tiername)
-                pokemon_tier.objects.create(id=startid,pokemon=item.pokemon,league=league_,subleague=subleague,tier=tiertouse)
+                tiertouse=thisleaguetiers.get(tiername=item.tier.tiername)
+                mtu=existingpokemontiers.get(pokemon=item.pokemon)
+                mtu.tier=tiertouse
+                mtu.save()
         return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
     else:
         pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
