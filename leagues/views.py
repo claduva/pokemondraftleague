@@ -556,7 +556,7 @@ def default_tiers(request,league_name,subleague_name):
             messages.success(request,'The template has been applied!')
         elif purpose=="Use":
             #delete existing
-            subleague.subleaguetiers.all().delete()
+            subleague.subleaguetiers.all().exclude(tiername="Banned").delete()
             #add new
             leagueofinterest=league_subleague.objects.get(id=request.POST['leagueid'])
             leagueofinteresttiers=leagueofinterest.subleaguetiers.all().exclude(tiername="Banned")
