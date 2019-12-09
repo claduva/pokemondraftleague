@@ -137,6 +137,7 @@ def zerorosters(request):
 
 @check_if_clad
 def updatematches(request):
+    """
     i=0
     ##iterate through existing matches
     replays=match_replay.objects.all()
@@ -263,6 +264,7 @@ def updatematches(request):
         team1.save()
         team2.save()
     """
+    """
     ffmatches=schedule.objects.all().exclude(replay="Link").exclude(replay__contains="replay.pokemonshowdown.com").exclude(replay__contains="cdn.discordapp.com")
     for item in ffmatches:
         team1=item.team1
@@ -309,4 +311,14 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
+    """
+    ap=all_pokemon.objects.all()
+    for item in ap:
+        spritename=item.pokemon.lower().replace(" ","").replace(".","").replace("%","").replace(":","").replace("mega-","mega").replace("nidoran-m","nidoran").replace("o-o","oo").replace("dusk-mane","duskmane").replace("dawn-wings","dawnwings")
+        url=f"https://play.pokemonshowdown.com/sprites/ani-shiny/{spritename}.gif"
+        resp = requests.get(url)
+        if resp.ok:
+            resp=resp.content
+            open(f'sprites/sumo/ani/shiny/{item.pokemon}.gif'.replace(":",""), 'wb').write(resp)
+            """
     return redirect('home')

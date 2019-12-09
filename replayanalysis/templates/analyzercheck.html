@@ -18,7 +18,10 @@
             class="rounded-circle mediumlogo"></div>
 </div>
 <div class="row content-section align-items-center">
-    <div class="col-12">
+    <div id="checkbody" class="col-12">
+        <h4>Matches to Analyze: {{totalmatches}}</h4>
+        <div>Progress: 0%</div>
+     <!--    
         <h3>Matches Passed: {{passedmatches}}/{{totalmatches}} ({{totalmatches|percentage:passedmatches}}%)</h3>
         {% if failedschedule %}
             <h5>Failed Active Matches</h5>
@@ -32,6 +35,10 @@
                 <div>{{match.replay}}</div>
             {% endfor %}
         {% endif %}
+         -->
     </div>
 </div>
+{% endblock %}
+{% block footer %}
+<script src="{% static 'individualleague/scripts/analyzercheck.js' %}"></script>
 {% endblock %}

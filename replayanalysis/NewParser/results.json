@@ -1,257 +1,19 @@
 {
   "team1": {
-    "coach": "GarrickTheBruce",
+    "coach": "BrunoYT",
     "roster": [
       {
-        "pokemon": "Ribombee",
-        "startform": "Ribombee",
-        "nickname": "Ribombee",
+        "pokemon": "Beedrill-Mega",
+        "startform": "Beedrill",
+        "nickname": "BeeKill",
         "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.02,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Pangoro",
-        "startform": "Pangoro",
-        "nickname": "Pangoro",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 63,
-        "hphealed": 0,
-        "luck": 0.1,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Blissey",
-        "startform": "Blissey",
-        "nickname": "Blissey",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 142,
-        "hphealed": 25,
-        "luck": -0.28,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Toxapex",
-        "startform": "Toxapex",
-        "nickname": "Toxapex",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 25,
-        "hphealed": -29,
-        "luck": -2.48,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Tapu Fini",
-        "Curse": null
-      },
-      {
-        "pokemon": "Goodra",
-        "startform": "Goodra",
-        "nickname": "Goodra",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 25,
-        "hphealed": 0,
-        "luck": -0.16,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Mewtwo",
-        "startform": "Mewtwo",
-        "nickname": "Mewtwo",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 209,
-        "hphealed": 0,
-        "luck": -0.42,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      }
-    ],
-    "wins": 0,
-    "forfeit": 0,
-    "score": 0,
-    "megaevolved": false,
-    "usedzmove": false,
-    "timesswitched": 14,
-    "selfdeaths": 0,
-    "remaininghealth": 0,
-    "totalhealth": 600,
-    "kills": 3,
-    "deaths": 6,
-    "luck": -3.26,
-    "damagedone": 464,
-    "hphealed": -4,
-    "support": 3,
-    "activemon": "Blissey",
-    "Toxic Spikes": null,
-    "Spike": null,
-    "Stealth Rock": null,
-    "Future Sight": null,
-    "Sandstorm": null,
-    "Hail": null,
-    "Leech Seed": null
-  },
-  "team2": {
-    "coach": "RandoGuy24",
-    "roster": [
-      {
-        "pokemon": "Pheromosa",
-        "startform": "Pheromosa",
-        "nickname": "Pheromosa",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 169,
-        "hphealed": 0,
-        "luck": 0.16,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Yveltal",
-        "startform": "Yveltal",
-        "nickname": "Yveltal",
-        "kills": 2,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 211,
+        "damagedone": 23,
         "hphealed": 0,
-        "luck": -0.36,
-        "remaininghealth": 26,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Tapu Fini",
-        "startform": "Tapu Fini",
-        "nickname": "Tapu Fini",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 4,
-        "damagedone": 66,
-        "hphealed": 0,
-        "luck": 2.0,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Ampharos-Mega",
-        "startform": "Ampharos",
-        "nickname": "Ampharos",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.28,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Jirachi",
-        "startform": "Jirachi",
-        "nickname": "Jirachi",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 150,
-        "hphealed": 86,
-        "luck": 1.18,
-        "remaininghealth": 96,
+        "luck": 0.29,
+        "remaininghealth": 19,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -264,18 +26,102 @@
       {
         "pokemon": "Cofagrigus",
         "startform": "Cofagrigus",
-        "nickname": "Cofagrigus",
+        "nickname": "Hades",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 182,
+        "hphealed": 83,
+        "luck": 1.68,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Crayola",
+        "Curse": null
+      },
+      {
+        "pokemon": "Florges",
+        "startform": "Florges",
+        "nickname": "Sprout",
+        "kills": 2,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 70,
+        "hphealed": 12,
+        "luck": -0.44,
+        "remaininghealth": 49,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Crayola",
+        "Curse": null
+      },
+      {
+        "pokemon": "Arcanine",
+        "startform": "Arcanine",
+        "nickname": "Ruby",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 318,
+        "hphealed": 66,
+        "luck": 0.32,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": "LSD",
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Blastoise",
+        "startform": "Blastoise",
+        "nickname": "Leonardo",
+        "kills": 3,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 221,
+        "hphealed": 0,
+        "luck": 0.14,
+        "remaininghealth": 1,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Zygarde",
+        "startform": "Zygarde",
+        "nickname": "Slytherin",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 104,
         "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 100,
+        "luck": -0.3,
+        "remaininghealth": 22,
         "lines": [],
         "confusion": null,
-        "psn": null,
+        "psn": "LSD",
         "brn": null,
         "par": null,
         "frz": null,
@@ -285,112 +131,314 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 3,
+    "score": 4,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 13,
-    "selfdeaths": 0,
-    "remaininghealth": 222,
+    "timesswitched": 22,
+    "selfdeaths": 1,
+    "remaininghealth": 91,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 3,
-    "luck": 3.26,
-    "damagedone": 596,
-    "hphealed": 86,
-    "support": 5,
-    "activemon": "Jirachi",
+    "deaths": 2,
+    "luck": 1.69,
+    "damagedone": 918,
+    "hphealed": 161,
+    "support": 6,
+    "activemon": "Sprout",
+    "Toxic Spikes": null,
+    "Spike": null,
+    "Stealth Rock": "Crayola",
+    "Future Sight": null,
+    "Sandstorm": null,
+    "Hail": null,
+    "Leech Seed": null
+  },
+  "team2": {
+    "coach": "Atlanta Azelfs",
+    "roster": [
+      {
+        "pokemon": "Druddigon",
+        "startform": "Druddigon",
+        "nickname": "Crayola",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 5,
+        "damagedone": 244,
+        "hphealed": 0,
+        "luck": 0.25,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Hades",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Ribombee",
+        "startform": "Ribombee",
+        "nickname": "Ya like jazz?",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 44,
+        "hphealed": 0,
+        "luck": 0.0,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Lickilicky",
+        "startform": "Lickilicky",
+        "nickname": "Thiccithicci",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 7,
+        "damagedone": 51,
+        "hphealed": 301,
+        "luck": -0.85,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Ruby",
+        "Curse": null
+      },
+      {
+        "pokemon": "Blacephalon",
+        "startform": "Blacephalon",
+        "nickname": "Mascot",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 117,
+        "hphealed": 0,
+        "luck": 0.42,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Ruby",
+        "Curse": null
+      },
+      {
+        "pokemon": "Scizor",
+        "startform": "Scizor",
+        "nickname": "Angr",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 4,
+        "hphealed": 12,
+        "luck": -1.28,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Leonardo",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Muk-Alola",
+        "startform": "Muk-Alola",
+        "nickname": "LSD",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 210,
+        "hphealed": 5,
+        "luck": -0.23,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Leonardo",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      }
+    ],
+    "wins": 0,
+    "forfeit": 0,
+    "score": 0,
+    "megaevolved": false,
+    "usedzmove": false,
+    "timesswitched": 22,
+    "selfdeaths": 0,
+    "remaininghealth": 0,
+    "totalhealth": 600,
+    "kills": 1,
+    "deaths": 6,
+    "luck": -1.69,
+    "damagedone": 670,
+    "hphealed": 318,
+    "support": 12,
+    "activemon": "LSD",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Blissey",
+    "Stealth Rock": null,
     "Future Sight": null,
     "Sandstorm": null,
     "Hail": null,
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 33,
+  "numberofturns": 51,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-1008077970",
+  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-1020321221",
   "significantevents": [
     [
       1,
-      "Ribombee provided support by using Sticky Web"
+      "Druddigon provided support by using Stealth Rock"
+    ],
+    [
+      2,
+      "Blastoise provided support by using Rapid Spin"
     ],
     [
       4,
-      "Tapu Fini provided support by using Mean Look"
+      "Lickilicky provided support by using Wish"
     ],
     [
       6,
-      "Tapu Fini provided support by using Soak"
+      "Lickilicky provided support by using Wish"
+    ],
+    [
+      7,
+      "Cofagrigus provided support by using Will-O-Wisp"
     ],
     [
       8,
-      "Tapu Fini provided support by using Toxic"
+      "Druddigon provided support by using Toxic"
     ],
     [
-      12,
-      "Tapu Fini killed Toxapex via tox"
+      8,
+      "LUCK: Druddigon suffered a stat drop via secondary effect by Cofagrigus with Shadow Ball"
     ],
     [
-      13,
-      "Blissey provided support by using Stealth Rock"
+      10,
+      "Cofagrigus provided support by using Will-O-Wisp"
     ],
     [
-      14,
-      "Pheromosa killed Ribombee with High Jump Kick"
+      11,
+      "Lickilicky provided support by using Wish"
+    ],
+    [
+      15,
+      "Arcanine provided support by using Toxic"
     ],
     [
       16,
-      "Tapu Fini provided support by using Toxic"
+      "Lickilicky provided support by using Wish"
     ],
     [
-      16,
-      "LUCK: Tapu Fini missed Toxic against Blissey"
+      18,
+      "Lickilicky provided support by using Wish"
+    ],
+    [
+      20,
+      "Druddigon provided support by using Stealth Rock"
     ],
     [
       21,
-      "Pheromosa killed Pangoro with Bug Buzz"
+      "Druddigon provided support by using Taunt"
     ],
     [
       22,
-      "Goodra killed Pheromosa with Sludge Bomb"
+      "LUCK: Scizor suffered a stat drop via secondary effect by Cofagrigus with Shadow Ball"
     ],
     [
-      23,
-      "Yveltal killed Goodra with Knock Off"
+      22,
+      "Druddigon killed Cofagrigus via tox"
+    ],
+    [
+      24,
+      "Lickilicky provided support by using Wish"
     ],
     [
       25,
-      "Mewtwo killed Ampharos-Mega with Ice Beam"
-    ],
-    [
-      26,
-      "Jirachi provided support by using Wish"
-    ],
-    [
-      29,
-      "Mewtwo killed Tapu Fini with Shadow Ball"
-    ],
-    [
-      30,
-      "Yveltal killed Mewtwo with Dark Pulse"
+      "Blastoise provided support by using Rapid Spin"
     ],
     [
       31,
-      "Blissey provided support by using Toxic"
-    ],
-    [
-      31,
-      "LUCK: Blissey missed Toxic against Jirachi"
+      "LUCK: Blastoise suffered a stat drop via secondary effect by Blacephalon with Shadow Ball"
     ],
     [
       32,
-      "LUCK: Blissey was flinched by Jirachi with Iron Head"
+      "LUCK: Scizor was burned by Blastoise with Scald"
     ],
     [
-      33,
-      "Jirachi killed Blissey with Iron Head"
+      34,
+      "Lickilicky provided support by using Wish"
+    ],
+    [
+      36,
+      "Druddigon provided support by using Toxic"
+    ],
+    [
+      37,
+      "Florges killed Druddigon with Moonblast"
+    ],
+    [
+      39,
+      "Arcanine killed Scizor with Flare Blitz"
+    ],
+    [
+      40,
+      "Arcanine provided support by using Toxic"
+    ],
+    [
+      42,
+      "Blastoise killed Lickilicky with Scald"
+    ],
+    [
+      43,
+      "LUCK: Arcanine was poisoned by Muk-Alola with Poison Jab"
+    ],
+    [
+      44,
+      "Arcanine fainted via Recoil"
+    ],
+    [
+      45,
+      "Blastoise killed Blacephalon with Scald"
+    ],
+    [
+      46,
+      "Blastoise killed Ribombee with Scald"
+    ],
+    [
+      47,
+      "LUCK: Muk-Alola was burned by Blastoise with Scald"
+    ],
+    [
+      51,
+      "Florges killed Muk-Alola with Moonblast"
     ]
   ],
   "errormessage": []

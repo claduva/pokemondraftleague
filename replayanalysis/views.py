@@ -479,6 +479,7 @@ def check_analyzer(request):
     print(allmatches.count())
     failedhistoric=[]
     i=1
+    """
     for match in allmatches:
         try:
             results = newreplayparse(match.replay)
@@ -500,7 +501,9 @@ def check_analyzer(request):
     allmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
     totalmatches+=allmatches.count()
     print(allmatches.count())
+    """
     failedschedule=[]
+    """
     i=1
     for match in allmatches:
         try:
@@ -521,6 +524,7 @@ def check_analyzer(request):
         i+=1
     for match in failedschedule:
         print(match.replay)
+    """
     passedmatches=totalmatches-len(failedhistoric)-len(failedschedule)
     context={
         "totalmatches": totalmatches,
