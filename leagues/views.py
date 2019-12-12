@@ -93,7 +93,7 @@ def individual_league_settings(request,league_name):
 @check_if_league
 @check_if_host
 @login_required
-def league_configuration(request,league_name):
+def league_configuration_(request,league_name):
     league_instance=league.objects.get(name=league_name)
     if request.method == 'POST':
         formpurpose=request.POST['purpose']
@@ -342,8 +342,8 @@ def individual_league_coaching_settings(request,league_name):
 @login_required
 def manage_seasons(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    leaguesettings=league_settings.objects.get(league_name=subleague.league)
-    needednumberofcoaches=leaguesettings.number_of_teams
+    seasonsettings=seasonsetting.objects.get(subleague=subleague)
+    needednumberofcoaches=seasonsettings.number_of_teams
     currentcoaches=coachdata.objects.filter(league_name=subleague.league)
     currentcoachescount=len(currentcoaches)
     #if needednumberofcoaches != currentcoachescount: 
@@ -351,7 +351,7 @@ def manage_seasons(request,league_name,subleague_name):
     #    return redirect('individual_league_settings',league_name=league_name)
     if request.method == 'POST':
         try:
-            seasonsettings=seasonsetting.objects.get(subleague=subleague)
+            
             form = EditSeasonSettingsForm(request.POST,instance=seasonsettings)
             if form.is_valid():
                 form.save()
@@ -665,7 +665,7 @@ def set_draft_order(request,league_name,subleague_name):
 def add_conference_and_division_names(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_=subleague.league
-    leaguesettings=league_settings.objects.get(league_name=league_)
+    leaguesettings=seasonsetting.objects.get(subleague=subleague)
     currentconferences = conference_name.objects.all().filter(subleague=subleague)
     currentdivisions = division_name.objects.all().filter(subleague=subleague)
     totalconferences=leaguesettings.number_of_conferences

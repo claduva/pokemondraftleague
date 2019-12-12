@@ -16,9 +16,6 @@ class league(models.Model):
 
 class league_settings(models.Model):
     league_name = models.OneToOneField(league, on_delete=models.CASCADE,related_name="settings")
-    number_of_teams = models.IntegerField(default=16)
-    number_of_conferences = models.IntegerField(default=2)
-    number_of_divisions = models.IntegerField(default=2)
     is_recruiting = models.BooleanField(default=True)
     allows_teams = models.BooleanField(default=False)
     teambased = models.BooleanField(default=False)
@@ -30,9 +27,6 @@ class league_settings(models.Model):
 class league_configuration(models.Model):
     league = models.OneToOneField(league, on_delete=models.CASCADE,related_name="configuration")
     number_of_subleagues = models.IntegerField(default=1)
-    number_of_teams_per_league = models.IntegerField(default=16)
-    number_of_conferences_per_league = models.IntegerField(default=2)
-    number_of_divisions_per_league = models.IntegerField(default=2)
     allows_teams = models.BooleanField(default=False)
     teambased = models.BooleanField(default=False)
 
