@@ -311,14 +311,23 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
-    """
     ap=all_pokemon.objects.all()
+    spritecats=[
+        ['swsh','ani','standard','ani','gif'],
+        ['swsh','png','standard','dex','png'],
+        ['swsh','ani','shiny','ani-shiny','gif'],
+        ['swsh','png','shiny','dex-shiny','png'],
+        ['bw','png','standard','gen5','png'],
+        ['bw','png','shiny','gen5-shiny','png'],
+        ['afd','png','standard','afd','png'],
+        ['afd','png','shiny','afd-shiny','png'],
+    ]
     for item in ap:
-        spritename=item.pokemon.lower().replace(" ","").replace(".","").replace("%","").replace(":","").replace("mega-","mega").replace("nidoran-m","nidoran").replace("o-o","oo").replace("dusk-mane","duskmane").replace("dawn-wings","dawnwings")
-        url=f"https://play.pokemonshowdown.com/sprites/ani-shiny/{spritename}.gif"
-        resp = requests.get(url)
-        if resp.ok:
-            resp=resp.content
-            open(f'sprites/sumo/ani/shiny/{item.pokemon}.gif'.replace(":",""), 'wb').write(resp)
-            """
+        for cat in spritecats:
+            spritename=item.pokemon.lower().replace(" ","").replace(".","").replace("%","").replace(":","").replace("mega-","mega").replace("nidoran-m","nidoran").replace("o-o","oo").replace("dusk-mane","duskmane").replace("dawn-wings","dawnwings")
+            url=f"https://play.pokemonshowdown.com/sprites/{cat[3]}/{spritename}.{cat[4]}"
+            resp = requests.get(url)
+            if resp.ok:
+                resp=resp.content
+                open(f'sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'wb').write(resp)
     return redirect('home')

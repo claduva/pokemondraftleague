@@ -1044,20 +1044,17 @@ def createroundrobinschedule(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    leaguesettings=league_settings.objects.get(league_name=subleague.league)
+    leaguesettings=seasonsetting.objects.get(subleague=subleague)
     needednumberofcoaches=leaguesettings.number_of_teams
     currentcoaches=coachdata.objects.filter(league_name=subleague.league)
     currentcoachescount=len(currentcoaches)
-    if needednumberofcoaches != currentcoachescount: 
-        messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
-        return redirect('individual_league_settings',league_name=league_name)
-    existingmatches=schedule.objects.all().filter(season=seasonsettings).exclude(replay='Link')
+    existingmatches=schedule.objects.all().filter(season=leaguesettings).exclude(replay='Link')
     if existingmatches.count()>0:
         messages.error(request,'Matches already exist!',extra_tags='danger')
         return redirect('manage_seasons',league_name=league_name,subleague_name=subleague_name)
-    schedule.objects.all().filter(season=seasonsettings).delete()
+    schedule.objects.all().filter(season=leaguesettings).delete()
     #get conferences
-    conferences=conference_name.objects.all().filter(league=subleague.league)
+    conferences=conference_name.objects.all().filter(subleague=subleague)
     conference_rosters=[]
     for c in conferences:
         coachs=coachdata.objects.all().filter(conference=c)
@@ -1074,7 +1071,7 @@ def createroundrobinschedule(request,league_name,subleague_name):
         for week in range(sets):
             for i in range(int(count/2)):
                 if conference[i]!=None and conference[count-i-1]!=None:
-                    schedule.objects.create(season=seasonsettings,week=str(week+1),team1=conference[i],team2=conference[count-i-1])
+                    schedule.objects.create(season=leaguesettings,week=str(week+1),team1=conference[i],team2=conference[count-i-1])
                 elif conference[i]==None:
                     interconf.append(conference[count-i-1])
                 elif conference[count-i-1]==None:
@@ -1082,7 +1079,7 @@ def createroundrobinschedule(request,league_name,subleague_name):
             conference.insert(1, conference.pop())
         interconfteams.append(interconf)
     for i in range(len(interconfteams[0])):
-        schedule.objects.create(season=seasonsettings,week=str(i+1),team1=interconfteams[0][i],team2=interconfteams[1][i])
+        schedule.objects.create(season=leaguesettings,week=str(i+1),team1=interconfteams[0][i],team2=interconfteams[1][i])
     return redirect('manage_seasons',league_name=league_name,subleague_name=subleague_name)
 
 @login_required
@@ -1094,9 +1091,7 @@ def create_match(request,league_name,subleague_name):
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     seasonsettings=subleague.seasonsetting
     leaguesettings=league_settings.objects.get(league_name=subleague.league)
-    needednumberofcoaches=leaguesettings.number_of_teams
     currentcoaches=coachdata.objects.filter(league_name=subleague.league)
-    currentcoachescount=len(currentcoaches)
     form = CreateMatchForm(seasonsettings,subleague,initial={'season':seasonsettings})
     settingheading='Create New Match'
     edit=False

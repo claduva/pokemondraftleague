@@ -10,12 +10,14 @@
 {% endblock %}
 {% block body %}
 <div class="row content-section align-items-center">
-    <div class="col-md-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}"
+            class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-4">
         <h3 class="d-flex justify-content-center">Tiers</h3>
     </div>
-    <div class="col-md-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-md-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}"
+            class="rounded-circle mediumlogo">
     </div>
     <div class="col-12 d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center justify-content-start">
@@ -55,70 +57,92 @@
                     <option value="bst-inc">BST (lowest first)</option>
                 </select>
             </div>
+            <input type="checkbox" id="tiertoggle" class="checkbox"/>  
+            <label for="tiertoggle" class="switch"></label><span>Table View</span>
         </div>
     </div>
 </div>
 <div class="row bg-darkgrey rounded p-2">
+    <div id="tiertable" style="height: 500px;" class="table-responsive text-nowrap overflow-auto">
+        <table class="table text-dark bg-lightgrey text-center">
+            <tr>
+                {% for item in tierchoices %}
+                <th data-tier="{{item.id}}" class="px-2">{{ item.tiername }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for item in tierchoices %}
+                <td class="wt">
+                    {% for item_ in item.pokemon_tier_set.all %}
+                    <div data-tierid="{{item_.id}}" data-pokemonid="{{item_.pokemon.id}}">{{item_.pokemon.pokemon}}
+                    </div>
+                    {% endfor %}
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
     <div id="tierlist" class="col-12">
         {% for item, item2 in tiers %}
         <div class="tieritem" data-tier="{{item.tier.tierpoints}}" data-bst="{{item.pokemon.bst}}"
             data-pokemon="{{item.pokemon.pokemon}}" data-available="{{item2}}">
             <a href="">
-            {% if item2 == "FREE" %}
+                {% if item2 == "FREE" %}
                 <div class="row bg-green text-dark rounded mb-1">
-            {% else %}
-                <div class="row bg-red text-dark rounded mb-1">
-            {% endif %}
-                    <div class="col-2 justify-content-center d-flex align-items-center">
-                        <div>{{item2}}</div>
-                    </div>
-                    <div class="col-2 text-center align-middle">
-                        <div>{{item.tier.tiername}}</div>
-                        <div>({{item.tier.tierpoints}} pts)</div>
-                    </div>
-                    <div class="col-2 d-flex justify-content-center align-items-center"><img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        {{item.pokemon.pokemon}}</div>
-                    <div class="col-2 d-flex justify-content-center align-items-center">
-                        <div>
-                            {% for type in item.pokemon.types.all %}
-                            <div><img src="https://play.pokemonshowdown.com/sprites/types/{{type.typing|cut:' '}}.png">
+                    {% else %}
+                    <div class="row bg-red text-dark rounded mb-1">
+                        {% endif %}
+                        <div class="col-2 justify-content-center d-flex align-items-center">
+                            <div>{{item2}}</div>
+                        </div>
+                        <div class="col-2 text-center align-middle">
+                            <div>{{item.tier.tiername}}</div>
+                            <div>({{item.tier.tierpoints}} pts)</div>
+                        </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center"><img class="smallsprite"
+                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                            {{item.pokemon.pokemon}}</div>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <div>
+                                {% for type in item.pokemon.types.all %}
+                                <div><img
+                                        src="https://play.pokemonshowdown.com/sprites/types/{{type.typing|cut:' '}}.png">
+                                </div>
+                                <div class="{{type.typing}}" hidden>{{type.typing}}</div>
+                                {% endfor %}
                             </div>
-                            <div class="{{type.typing}}" hidden>{{type.typing}}</div>
-                            {% endfor %}
+                        </div>
+                        <div class="col-4 d-flex justify-content-center">
+                            <div class="px-1">
+                                <div><small>HP</small></div>
+                                <div><small>{{item.pokemon.hp}}</small></div>
+                            </div>
+                            <div class="px-1">
+                                <div><small>Atk</small></div>
+                                <div><small>{{item.pokemon.attack}}</small></div>
+                            </div>
+                            <div class="px-1">
+                                <div><small>Def</small></div>
+                                <div><small>{{item.pokemon.defense}}</small></div>
+                            </div>
+                            <div class="px-1">
+                                <div><small>SpA</small></div>
+                                <div><small>{{item.pokemon.s_attack}}</small></div>
+                            </div>
+                            <div class="px-1">
+                                <div><small>SpD</small></div>
+                                <div><small>{{item.pokemon.s_defense}}</small></div>
+                            </div>
+                            <div class="px-1">
+                                <div><small>Spe</small></div>
+                                <div><small>{{item.pokemon.speed}}</small></div>
+                            </div>
+                            <div class="px-1">
+                                <div><small>BST</small></div>
+                                <div><small>{{item.pokemon.bst}}</small></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-4 d-flex justify-content-center">
-                        <div class="px-1">
-                            <div><small>HP</small></div>
-                            <div><small>{{item.pokemon.hp}}</small></div>
-                        </div>
-                        <div class="px-1">
-                            <div><small>Atk</small></div>
-                            <div><small>{{item.pokemon.attack}}</small></div>
-                        </div>
-                        <div class="px-1">
-                            <div><small>Def</small></div>
-                            <div><small>{{item.pokemon.defense}}</small></div>
-                        </div>
-                        <div class="px-1">
-                            <div><small>SpA</small></div>
-                            <div><small>{{item.pokemon.s_attack}}</small></div>
-                        </div>
-                        <div class="px-1">
-                            <div><small>SpD</small></div>
-                            <div><small>{{item.pokemon.s_defense}}</small></div>
-                        </div>
-                        <div class="px-1">
-                            <div><small>Spe</small></div>
-                            <div><small>{{item.pokemon.speed}}</small></div>
-                        </div>
-                        <div class="px-1">
-                            <div><small>BST</small></div>
-                            <div><small>{{item.pokemon.bst}}</small></div>
-                        </div>
-                    </div>
-                </div>
             </a>
         </div>
         {% endfor %}

@@ -95,6 +95,19 @@ $(document).ready(function() {
         })
     }
   });
+
+  $("#tiertable").hide()
+  $("#tiertoggle").change(function() {
+    if (this.checked) {
+        $("#tiertable").show()
+        $("#tierlist").hide()
+    } else {
+        $("#tiertable").hide()
+        $("#tierlist").show()
+    }
+})
+
+
 });
 
 function sortMeBy(arg, sel, elem, order) {
