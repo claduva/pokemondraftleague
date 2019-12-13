@@ -767,7 +767,7 @@ def edit_league_rules(request,league_name,subleague_name):
 def league_tiers(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    tierlist_=pokemon_tier.objects.all().filter(subleague=subleague).exclude(tier__tiername="Banned").order_by('-tier__tierpoints','pokemon__pokemon')[0:50]
+    tierlist_=pokemon_tier.objects.all().filter(subleague=subleague).exclude(tier__tiername="Banned").order_by('-tier__tierpoints','pokemon__pokemon')
     tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
     rosterlist=roster.objects.all().filter(season__subleague=subleague)
     rosterlist_=list(rosterlist.values_list('pokemon',flat=True))
