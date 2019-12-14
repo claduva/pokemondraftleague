@@ -101,7 +101,7 @@
                     <td>
                         {% if draftpick.pokemon.pokemon %}
                         <div class="d-flex justify-content-center">
-                            <div class="small-logo"><img class="img-fluid px-1 rounded-circle" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ draftpick.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
+                            <div class="small-logo"><img class="img-fluid px-1 rounded-circle" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:draftpick.pokemon.pokemon %}"></div>
                             <div>{{draftpick.pokemon.pokemon}}</div>
                         </div>
                         {% else %}

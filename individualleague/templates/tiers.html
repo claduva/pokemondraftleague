@@ -80,7 +80,7 @@
                     <div class="bg-red">
                     {% endif  %}
                         {{team}}
-                        <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item_.pokemon.pokemon %}">
+                        <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item_.pokemon.pokemon|cut:':' %}">
                         {{item_.pokemon.pokemon}}
                     </div>
                     {% endfor %}
@@ -106,7 +106,7 @@
                             <div>{{item.tier.tiername}}</div>
                             <div>({{item.tier.tierpoints}} pts)</div>
                         </div>
-                        <div class="col-2 d-flex justify-content-center align-items-center"><img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon %}">
+                        <div class="col-2 d-flex justify-content-center align-items-center"><img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
                             {{item.pokemon.pokemon}}</div>
                         <div class="col-2 d-flex justify-content-center align-items-center">
                             <div>

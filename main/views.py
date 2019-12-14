@@ -324,7 +324,7 @@ def runscript(request):
     ]
     for item in ap:
         for cat in spritecats:
-            spritename=item.pokemon.lower().replace(" ","").replace(".","").replace("%","").replace(":","").replace("mega-","mega").replace("nidoran-m","nidoran").replace("o-o","oo").replace("dusk-mane","duskmane").replace("dawn-wings","dawnwings")
+            spritename=item.pokemon.lower().replace(" ","").replace(".","").replace("%","").replace(":","").replace("-","").replace("mega-","mega").replace("nidoran-m","nidoran").replace("o-o","oo").replace("dusk-mane","duskmane").replace("dawn-wings","dawnwings")
             url=f"https://play.pokemonshowdown.com/sprites/{cat[3]}/{spritename}.{cat[4]}"
             resp = requests.get(url)
             if resp.ok:
