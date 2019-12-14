@@ -101,9 +101,11 @@ $(document).ready(function() {
     if (this.checked) {
         $("#tiertable").show()
         $("#tierlist").hide()
+        $(".filter").hide()
     } else {
         $("#tiertable").hide()
         $("#tierlist").show()
+        $(".filter").show()
     }
 })
 

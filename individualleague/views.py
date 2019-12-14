@@ -772,12 +772,17 @@ def league_tiers(request,league_name,subleague_name):
     rosterlist=roster.objects.all().filter(season__subleague=subleague)
     rosterlist_=list(rosterlist.values_list('pokemon',flat=True))
     tierlist=[]
+    tierdict={}
+    for item in tierchoices:
+        tierdict[item.tiername]=[]
     for item in tierlist_:
         if item.pokemon.id in rosterlist_:
             owner=rosterlist.get(pokemon__id=item.pokemon.id)
             tierlist.append((item,f"Signed by {owner.team.teamabbreviation}"))
+            tierdict[item.tier.tiername].append([item,owner.team.teamabbreviation])
         else:
             tierlist.append((item,"FREE"))
+            tierdict[item.tier.tiername].append([item,"FREE"])
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     context = {
         'subleague': subleague,
@@ -787,6 +792,7 @@ def league_tiers(request,league_name,subleague_name):
         'tiers': tierlist,
         'types':types,
         'tierchoices':tierchoices,
+        'tierdict':tierdict,
     }
     return render(request, 'tiers.html',context)
 
