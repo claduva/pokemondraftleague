@@ -80,7 +80,7 @@
                     <div class="bg-red">
                     {% endif  %}
                         {{team}}
-                        <img class="smallsprite" src="{% static 'pokemondatabase/sprites/bw/png/standard/'|add:item_.pokemon.pokemon|add:'.png' %}">
+                        <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item_.pokemon.pokemon %}">
                         {{item_.pokemon.pokemon}}
                     </div>
                     {% endfor %}
@@ -106,8 +106,7 @@
                             <div>{{item.tier.tiername}}</div>
                             <div>({{item.tier.tierpoints}} pts)</div>
                         </div>
-                        <div class="col-2 d-flex justify-content-center align-items-center"><img class="smallsprite"
-                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                        <div class="col-2 d-flex justify-content-center align-items-center"><img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon %}">
                             {{item.pokemon.pokemon}}</div>
                         <div class="col-2 d-flex justify-content-center align-items-center">
                             <div>

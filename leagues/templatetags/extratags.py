@@ -9,6 +9,10 @@ def replace(string, arg):
     replacement=arg.split(",")[1]
     return string.replace(search, replacement)
 
+@register.filter(name='pkmnreplace')
+def pkmnreplace(string, arg):
+    return string.replace('PKMN', arg)
+
 @register.filter(name='split')
 def split(string, arg):
     return string.split(".")[arg]

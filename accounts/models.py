@@ -36,16 +36,16 @@ class showdownalts(models.Model):
 class sitesettings(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     sprite = models.CharField(max_length=30,choices=(
-        ("swsh/ani/standard/.gif","Current Animated"),
-        ("swsh/ani/shiny/.gif","Current Shiny Animated"),
-        ("swsh/png/standard/.png","Current"),
-        ("swsh/png/shiny/.png","Current Shiny"),
-        ("bw/png/standard/.png","BW"),
-        ("bw/png/shiny/.png","BW Shiny"),
-        ("afd/png/standard/.png","April Fools Day"),
-        ("afd/png/shiny/.png","April Fools Day Shiny"),
+        ("swsh/ani/standard/PKMN.gif","Current Animated"),
+        ("swsh/ani/shiny/PKMN.gif","Current Shiny Animated"),
+        ("swsh/png/standard/PKMN.png","Current"),
+        ("swsh/png/shiny/PKMN.png","Current Shiny"),
+        ("bw/png/standard/PKMN.png","BW"),
+        ("bw/png/shiny/PKMN.png","BW Shiny"),
+        ("afd/png/standard/PKMN.png","April Fools Day"),
+        ("afd/png/shiny/PKMN.png","April Fools Day Shiny"),
         ),
-        default="swsh/ani/standard/.gif")
+        default="swsh/ani/standard/PKMN.gif")
     
     def __str__(self):
         return f'Site settings for {self.user.username}'
