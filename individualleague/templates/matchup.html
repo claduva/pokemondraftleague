@@ -44,7 +44,7 @@
                             <div>
                                 <div class="d-flex justify-content-center">
                                     <img class="card-img-top smallsprite"
-                                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ x.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                        src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:x.pokemon.pokemon|cut:':' %}">
 
                                 </div>
                                 <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
@@ -90,7 +90,7 @@
                         <div>
                             <div class="d-flex justify-content-center">
                                 <img class="card-img-top smallsprite"
-                                    src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ x.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                    src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:x.pokemon.pokemon|cut:':' %}">
                             </div>
                             <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
                         </div>
@@ -107,7 +107,7 @@
                     <td>
                         <div>
                             {% for item in y %}
-                            <div><img src="https://play.pokemonshowdown.com/sprites/types/{{item.typing|cut:' '}}.png">
+                            <div><img src="{% static 'pokemondatabase/sprites/types/'|add:item.typing|cut:' '|add:'.png' %}">
                             </div>
                             {% endfor %}
                         </div>
@@ -166,7 +166,7 @@
                             {% for item in y %}
                             <div class="col-md-4">
                                 <div class="d-flex justify-content-center"><img class="card-img-top smallsprite"
-                                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                        src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
                                 </div>
                                 <div class="d-flex justify-content-center">{{ item.pokemon.pokemon }}</div>
                             </div>
@@ -207,7 +207,7 @@
                             <div>
                                 <div class="d-flex justify-content-center">
                                     <img class="card-img-top smallsprite"
-                                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ x.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                        src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:x.pokemon.pokemon|cut:':' %}">
                                 </div>
                                 <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
                             </div>
@@ -252,7 +252,7 @@
                         <div>
                             <div class="d-flex justify-content-center">
                                 <img class="card-img-top smallsprite"
-                                    src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ x.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                    src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:x.pokemon.pokemon|cut:':' %}">
                             </div>
                             <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
                         </div>
@@ -269,7 +269,7 @@
                     <td>
                         <div>
                             {% for item in y %}
-                            <div><img src="https://play.pokemonshowdown.com/sprites/types/{{item.typing|cut:' '}}.png">
+                            <div><img src="{% static 'pokemondatabase/sprites/types/'|add:item.typing|cut:' '|add:'.png' %}">
                             </div>
                             {% endfor %}
                         </div>
@@ -328,7 +328,7 @@
                             {% for item in y %}
                             <div class="col-md-4">
                                 <div class="d-flex justify-content-center"><img class="card-img-top smallsprite"
-                                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                        src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
                                 </div>
                                 <div class="d-flex justify-content-center">{{ item.pokemon.pokemon }}</div>
                             </div>

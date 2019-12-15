@@ -60,7 +60,7 @@
                         {% if item.pokemon.pokemon %}
                         <div class="d-flex justify-content-center">
                             <img class="smallsprite"
-                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
                             <p>{{ item.pokemon.pokemon }}</p>
                             {% if item.zuser == 'OS' %}
                                 <div><img class="smallsprite" src="{% static 'main/images/z-crystal.png' %}">(Offensive & Status)</div>

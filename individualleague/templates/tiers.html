@@ -112,7 +112,7 @@
                             <div>
                                 {% for type in item.pokemon.types.all %}
                                 <div><img
-                                        src="https://play.pokemonshowdown.com/sprites/types/{{type.typing|cut:' '}}.png">
+                                    src="{% static 'pokemondatabase/sprites/types/'|add:type.typing|cut:' '|add:'.png' %}">
                                 </div>
                                 <div class="{{type.typing}}" hidden>{{type.typing}}</div>
                                 {% endfor %}
