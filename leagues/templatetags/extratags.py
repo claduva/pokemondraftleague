@@ -71,3 +71,9 @@ def speed(value,arg):
     elif multiplier==2:
         resp=math.floor(neutral*2)  
     return resp
+
+@register.filter(name='movefilter')
+def movefilter(query):
+    moves=['Stealth Rock','Spikes','Toxic Spikes','Sticky Web','Defog','Rapid Spin','Heal Bell','Aromatherapy','Wish']
+    resp=query.filter(moveinfo__name__in=moves)
+    return resp
