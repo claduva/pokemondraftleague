@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% load extratags %}
 
-{% block title %}{{league_name}}: Matchup{% endblock %}
+{% block title %}{{subleague.league.name}}: Matchup{% endblock %}
 {% block head%}
 <link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/matchup.css' %}">
 {% endblock %}

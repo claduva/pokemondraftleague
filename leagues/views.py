@@ -359,7 +359,7 @@ def manage_seasons(request,league_name,subleague_name):
         manageseason=False
     if request.method == 'POST':
         try:
-            
+            seasonsettings=seasonsetting.objects.get(subleague=subleague)
             form = EditSeasonSettingsForm(request.POST,instance=seasonsettings)
             if form.is_valid():
                 form.save()
@@ -371,12 +371,14 @@ def manage_seasons(request,league_name,subleague_name):
             print('here') 
             if form.is_valid():
                 thisseason=form.save()
+                """
                 picksperteam=form.cleaned_data['picksperteam']
                 rosterid=roster.objects.all().order_by('id').last().id
                 for coach in currentcoaches:
                     for i in range(picksperteam):
                         rosterid+=1
                         roster.objects.create(id=rosterid,season=thisseason,team=coach)
+                        """
                 rule.objects.create(season=thisseason)
                 messages.success(request,'Your season has been created!')
         return redirect('manage_seasons',league_name=league_name,subleague_name=subleague_name)
