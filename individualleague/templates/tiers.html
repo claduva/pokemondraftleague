@@ -55,6 +55,16 @@
                     <option value="za">Z->A</option>
                     <option value="bst-dec">BST (highest first)</option>
                     <option value="bst-inc">BST (lowest first)</option>
+                    <option value="hp-dec">HP (highest first)</option>
+                    <option value="hp-inc">HP (lowest first)</option>
+                    <option value="atk-dec">Atatck (highest first)</option>
+                    <option value="atk-inc">Attack (lowest first)</option>
+                    <option value="def-dec">Defense (highest first)</option>
+                    <option value="def-inc">Defense (lowest first)</option>
+                    <option value="spa-dec">Special Attack (highest first)</option>
+                    <option value="spa-inc">Special Attack (lowest first)</option>
+                    <option value="spd-dec">Special Defense (highest first)</option>
+                    <option value="spd-inc">Special Defense (lowest first)</option>
                     <option value="speed-dec">Speed (highest first)</option>
                     <option value="speed-inc">Speed (lowest first)</option>
                 </select>
@@ -93,7 +103,7 @@
     </div>
     <div id="tierlist" class="col-12">
         {% for item, item2 in tiers %}
-        <div class="tieritem" data-tier="{{item.tier.tierpoints}}" data-bst="{{item.pokemon.bst}}" data-speed="{{item.pokemon.speed}}"
+        <div class="tieritem" data-tier="{{item.tier.tierpoints}}" data-bst="{{item.pokemon.bst}}" data-hp="{{item.pokemon.hp}}" data-speed="{{item.pokemon.speed}}" data-atk="{{item.pokemon.attack}}" data-def="{{item.pokemon.defense}}" data-spa="{{item.pokemon.s_attack}}" data-spd="{{item.pokemon.s_defense}}"
             data-pokemon="{{item.pokemon.pokemon}}" data-available="{{item2}}">
             <a href="">
                 {% if item2 == "FREE" %}

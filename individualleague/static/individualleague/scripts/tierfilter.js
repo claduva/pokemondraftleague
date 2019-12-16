@@ -13,6 +13,30 @@ $(document).ready(function() {
         else if (sortingby=="speed-inc"){
             sortMeBy("data-speed", $(".tieritem"), $("#tierlist"), "asc");
         }
+        else if (sortingby=="atk-dec"){
+            sortMeBy("data-atk", $(".tieritem"), $("#tierlist"), "desc");
+        }
+        else if (sortingby=="atk-inc"){
+            sortMeBy("data-atk", $(".tieritem"), $("#tierlist"), "asc");
+        }
+        else if (sortingby=="spa-dec"){
+            sortMeBy("data-spa", $(".tieritem"), $("#tierlist"), "desc");
+        }
+        else if (sortingby=="spa-inc"){
+            sortMeBy("data-spa", $(".tieritem"), $("#tierlist"), "asc");
+        }
+        else if (sortingby=="def-dec"){
+            sortMeBy("data-def", $(".tieritem"), $("#tierlist"), "desc");
+        }
+        else if (sortingby=="def-inc"){
+            sortMeBy("data-def", $(".tieritem"), $("#tierlist"), "asc");
+        }
+        else if (sortingby=="spd-dec"){
+            sortMeBy("data-spd", $(".tieritem"), $("#tierlist"), "desc");
+        }
+        else if (sortingby=="spd-inc"){
+            sortMeBy("data-spd", $(".tieritem"), $("#tierlist"), "asc");
+        }
         else if (sortingby=="tier-dec"){
             sortMeBy("data-tier", $(".tieritem"), $("#tierlist"), "desc");
         }
