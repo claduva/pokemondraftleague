@@ -304,6 +304,31 @@
                     </table>
                 </div>
             </div>
+            <div class="col-md-6">
+                    <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                        <table class="table table-sm table-bordered table-striped p-0 m-0">
+                            <tr class="bg-dark text-light sort th">
+                                <th>Move</th>
+                                <th>Pokemon</th>
+                            </tr>
+                            {% for move in moves %}
+                            <tr>
+                                <td>{{move}}</td>
+                                <td>
+                                    {% for item in team2roster %}
+                                    {% for item_ in item.pokemon.moves.all|movefilter %}
+                                    {% if item_.moveinfo.name == move %}
+                                    <img class="smallsprite"
+                                    src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
     </div>
 {% endblock %}
 {% block footer %}

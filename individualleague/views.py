@@ -734,12 +734,12 @@ def league_matchup(request,league_name,subleague_name,matchid):
     team1roster=roster.objects.filter(season=season,team=match.team1,pokemon__isnull=False).order_by('pokemon__pokemon')
     team2roster=roster.objects.filter(season=season,team=match.team2,pokemon__isnull=False).order_by('pokemon__pokemon')
     moves=['Stealth Rock','Spikes','Toxic Spikes','Sticky Web','Defog','Rapid Spin','Heal Bell','Aromatherapy','Wish']
-    
     context = {
-       'match':match,
-       'team1roster':team1roster,
-       'team2roster':team2roster,
-       'moves':moves,
+        'subleague':subleague,
+        'match':match,
+        'team1roster':team1roster,
+        'team2roster':team2roster,
+        'moves':moves,
     }
     return render(request, 'matchup.html',context)
 
