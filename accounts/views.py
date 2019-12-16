@@ -10,6 +10,8 @@ from django.urls import reverse
 from django.contrib import messages
 from django.db.models import Q
 
+from collections import Counter
+
 from .forms import *
 
 from pokemonadmin.models import *
@@ -25,17 +27,34 @@ def user_profile(request,username):
     try:
         userofinterest=User.objects.get(username=username)
         userprofile=userofinterest.profile
-        try:
-            winpercent=f'{round(userprofile.wins/(userprofile.wins+userprofile.losses)*100)}%'
-        except:
-            winpercent='N/A'
     except:
         messages.error(request,'User does not exist!',extra_tags='danger')
         return redirect('home')
+    try:
+        winpercent=f'{round(userprofile.wins/(userprofile.wins+userprofile.losses)*100)}%'
+    except:
+        winpercent='N/A'
+    #favorite pokemon
+    alldraft=list(draft.objects.all().exclude(pokemon__isnull=True).filter(Q(team__coach=userofinterest)|Q(team__teammate=userofinterest)).values_list('pokemon',flat=True))
+    allhistoricdraft=list(historical_draft.objects.all().filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('pokemon',flat=True))
+    allfreeagency=list(free_agency.objects.all().filter(Q(coach__coach=userofinterest)|Q(coach__teammate=userofinterest)).values_list('addedpokemon',flat=True))
+    allhistoricfreeagency=list(historical_freeagency.objects.all().filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('addedpokemon',flat=True))
+    alltrading=list(trading.objects.all().filter(Q(coach__coach=userofinterest)|Q(coach__teammate=userofinterest)).values_list('addedpokemon',flat=True))
+    allhistorictrading=list(historical_trading.objects.all().filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('addedpokemon',flat=True))
+    monlist_=alldraft+allhistoricdraft+allfreeagency+allhistoricfreeagency+alltrading+allhistorictrading
+    monlist=[]
+    allmons=all_pokemon.objects.all()
+    for item in monlist_:
+        monlist.append(allmons.get(id=item).pokemon)
+    mostacquired=dict(Counter(monlist))
+    mostacquired={k:v for (k,v) in mostacquired.items() if v>1}
+    mostacquired = dict(sorted(mostacquired.items() ,reverse=True,  key=lambda x: x[1]))
+    print(mostacquired)
     context = {
         "title": f"{username}'s Profile",
         'userofinterest':userofinterest,
         'winpercent':winpercent,
+        'mostacquired':mostacquired,
     }
     return render(request, 'userprofile.html',context)
 

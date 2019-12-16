@@ -1,0 +1,115 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{userofinterest}}{% endblock %}
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}">
+{% endblock %}
+{% block body %}
+<div class="bg-darkgrey rounded text-light">
+    <div class="row align-items-start">
+        <div class="col-md-4">
+            <div class="m-3 bg-lightgrey text-dark rounded">
+            <div class="d-flex justify-content-center"><img src="{{ userofinterest.profile.pfp.url }}"
+                    class="rounded-circle mediumlogo m-2"></div>
+            <h3 class="d-flex justify-content-center">{{ userofinterest.username }}</h3>
+            <div class="col-md-12 d-flex justify-content-center">
+                <h5>Career Stats</h5>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center">
+                <table class="table table-sm text-center">
+                    <tr>
+                        <td colspan="2">Seasons Played: {{ userofinterest.profile.seasonsplayed }}</td>
+                    </tr>
+                    <tr>
+                        <td>Wins: {{ userofinterest.profile.wins }}</td>
+                        <td>Losses: {{ userofinterest.profile.losses }}</td>
+                    </tr>
+                    <tr>
+                        <td>+/-: {{ userofinterest.profile.differential }}</td>
+                        <td>Win%: {{winpercent}}</td>
+                    </tr>
+                </table>
+            </div>
+            {% if userofinterest.coaching.all or userofinterest.teammate.all or userofinterest.alternate.all %}
+            <h5 class="col-md-12 text-center">Current Leagues Coaching In</h5>
+            <div class="col-md-12">
+                {% for item in userofinterest.coaching.all %}
+                <a href="{% url 'league_detail' league_name=item.league_name.name %}" class="text-dark">
+                    <div>
+                        <img class="smallsprite" src="{{ item.league_name.logo.url }}">{{ item.league_name.name }}
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="col-md-12 d-flex justify-content-center text-center">
+                    <h5>Showdown Alts</h5>
+                </div>
+                {% for item in userofinterest.showdownalts.all %}
+                <div class="text-center">-{{item.showdownalt}}</div>
+                {% endfor %}
+            </div>
+            {% if userofinterest.awards.all %}
+            <div bg-lightgrey rounded>
+            <div class="col-md-12 d-flex justify-content-center">
+                <h5>Trophy Case</h5>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center">
+
+            </div>
+            <div class="row align-items-center justify-content-center mx-2">
+                {% for item in userofinterest.awards.all %}
+                <div class="col-3">
+                    <div>
+                        <img src="{{ item.award.image.url }}" class="mediumsprite" title="{{ item.award.awardname }}: {{ item.text }}" alt="{{ item.text }}"/>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+            {% endif %}
+           
+        </div>
+        <div class="col-md-8">
+            <div class="m-3">
+            {% if userofinterest.historical_team_coach1.all or userofinterest.historical_team_coach2.all %}
+            <div class="row align-items-center">
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h3>Previous Season Teams</h3>
+                </div>
+            </div>
+            <div class="row justify-content-around">
+                {% for item in userofinterest.historical_team_coach1.all %}
+                <div class="col-md-3 text-center m-0 mb-2 p-0">
+                    <div class="card h-100 bg-lightgrey rounded mx-1 text-dark">
+                        <a href="{% url 'seasonteamdetail' league_name=item.league.name seasonofinterest=item.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}" class="text-dark">
+                            <img src="{{ item.logo.url }}" class="img-fluid">
+                            <div class="d-flex justify-content-center">{{ item.teamname }}</div>
+                            <div class="d-flex justify-content-center">{{ item.league.name }}</div>
+                            <div class="d-flex justify-content-center">{{ item.seasonname }}</div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% for item in userofinterest.historical_team_coach2.all %}
+                <div class="card h-100 col-md-3 text-center m-0 mb-2 p-0">
+                        <div class="bg-lightgrey rounded mx-1 text-dark">
+                    <a href="{% url 'seasonteamdetail' league_name=item.league.name seasonofinterest=item.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}" class="text-dark">
+                        <img src="{{ item.logo.url }}" class="img-fluid">
+                        <div class="d-flex justify-content-center">{{ item.teamname }}</div>
+                        <div class="d-flex justify-content-center">{{ item.league.name }}</div>
+                        <div class="d-flex justify-content-center">{{ item.seasonname }}</div>
+                    </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
