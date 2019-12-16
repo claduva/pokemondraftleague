@@ -311,6 +311,7 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
+    """
     ap=all_pokemon.objects.all()
     spritecats=[
         ['swsh','ani','standard','ani','gif'],
@@ -330,4 +331,5 @@ def runscript(request):
             if resp.ok:
                 resp=resp.content
                 open(f'sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'wb').write(resp)
+                """
     return redirect('home')
