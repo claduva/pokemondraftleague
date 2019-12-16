@@ -25,22 +25,54 @@
         <button class="btn btn-primary matchup-menu">Useful Moves</button>
     </div>
 </div>
-<div id="pokemondata" class="row bg-darkgrey rounded text-light section">
+<div id="pokemondata" class="row bg-darkgrey rounded text-light section mb-2 pb-2">
     <h3 class="col-12 text-center">Pokemon Data</h3>
     <div class="col-md-6">
-        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
-            <table class="table table-sm table-bordered table-striped p-0 m-0">
-                <tr class="bg-dark text-light sort">
-
-                </tr>
-                {% for item in team1roster %}
-                <tr>
-
-                </tr>
-                {% endfor %}
-            </table>
+            <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                <table class="table table-sm table-bordered table-striped p-0 m-0">
+                        <tr class="bg-dark text-light th">
+                                <th colspan="3"></th>
+                                <th colspan="6">Base Stats</th>
+                            </tr>
+                    <tr class="bg-dark text-light sort th">
+                        <th>Pokemon</th>
+                        <th>Typing</th>
+                        <th>Abilities</th>
+                        <th>HP</th>
+                        <th>Atk</th>
+                        <th>Def</th>
+                        <th>Sp. Atk</th>
+                        <th>Sp. Def</th>
+                        <th>Speed</th>
+                    </tr>
+                    {% for item in team1roster %}
+                    <tr>
+                        <td>
+                            <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                                    {{item.pokemon.pokemon}}
+                        </td>
+                        <td>
+                            {% for item_ in item.pokemon.types.all %}
+                            <div><img src="{% static 'pokemondatabase/sprites/types/'|add:item_.typing|cut:' '|add:'.png' %}">
+                            </div>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for item_ in item.pokemon.abilities.all %}
+                                <div>{{item_.ability}}</div>
+                            {% endfor %}
+                        </td>
+                        <td>{{item.pokemon.hp}}</td>
+                        <td>{{item.pokemon.attack}}</td>
+                        <td>{{item.pokemon.defense}}</td>
+                        <td>{{item.pokemon.s_attack}}</td>
+                        <td>{{item.pokemon.s_defense}}</td>
+                        <td>{{item.pokemon.speed}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
-    </div>
     <div class="col-md-6">
         <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
             <table class="table table-sm table-bordered table-striped p-0 m-0">
@@ -65,8 +97,17 @@
                         <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
                                 {{item.pokemon.pokemon}}
                     </td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        {% for item_ in item.pokemon.types.all %}
+                        <div><img src="{% static 'pokemondatabase/sprites/types/'|add:item_.typing|cut:' '|add:'.png' %}">
+                        </div>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for item_ in item.pokemon.abilities.all %}
+                            <div>{{item_.ability}}</div>
+                        {% endfor %}
+                    </td>
                     <td>{{item.pokemon.hp}}</td>
                     <td>{{item.pokemon.attack}}</td>
                     <td>{{item.pokemon.defense}}</td>
@@ -79,38 +120,64 @@
         </div>
     </div>
 </div>
-<div id="seasonstatistics" class="row bg-darkgrey rounded text-light section">
+<div id="seasonstatistics" class="row bg-darkgrey rounded text-light section mb-2 pb-2">
         <h3 class="col-12 text-center">Season Statistics</h3>
         <div class="col-md-6">
-            <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
-                <table class="table table-sm table-bordered table-striped p-0 m-0">
-                    <tr class="bg-dark text-light sort">
-    
-                    </tr>
-                    {% for item in team1roster %}
-                    <tr>
-    
-                    </tr>
-                    {% endfor %}
-                </table>
+                <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0">
+                        <tr class="bg-dark text-light sort th">
+                            <th>Pokemon</th>
+                            <th>K</th>
+                            <th>D</th>
+                            <th>+/-</th>
+                            <th>GP</th>
+                            <th>GW</th>
+                        </tr>
+                        {% for item in team1roster %}
+                        <tr>
+                            <td>
+                                <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                                        {{item.pokemon.pokemon}}
+                            </td>
+                            <td>{{item.kills}}</td>
+                            <td>{{item.deaths}}</td>
+                            <td>{{item.differential}}</td>
+                            <td>{{item.gp}}</td>
+                            <td>{{item.gw}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
-                <table class="table table-sm table-bordered table-striped p-0 m-0">
-                    <tr class="bg-dark text-light sort">
-    
-                    </tr>
-                    {% for item in team2roster %}
-                    <tr>
-    
-                    </tr>
-                    {% endfor %}
-                </table>
-            </div>
-        </div>
+            <div class="col-md-6">
+                    <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                        <table class="table table-sm table-bordered table-striped p-0 m-0">
+                            <tr class="bg-dark text-light sort th">
+                                <th>Pokemon</th>
+                                <th>K</th>
+                                <th>D</th>
+                                <th>+/-</th>
+                                <th>GP</th>
+                                <th>GW</th>
+                            </tr>
+                            {% for item in team2roster %}
+                            <tr>
+                                <td>
+                                    <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                                            {{item.pokemon.pokemon}}
+                                </td>
+                                <td>{{item.kills}}</td>
+                                <td>{{item.deaths}}</td>
+                                <td>{{item.differential}}</td>
+                                <td>{{item.gp}}</td>
+                                <td>{{item.gw}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
     </div>
-<div id="speedtiers" class="row bg-darkgrey rounded text-light section">
+<div id="speedtiers" class="row bg-darkgrey rounded text-light section mb-2 pb-2">
     <h3 class="col-12 text-center">Speed Tiers</h3>
     <div class="col-12 d-flex align-items-center justify-content-center">
         <span class="px-2">Level 50</span>
@@ -210,7 +277,7 @@
         </div>
     </div>
 </div>
-<div id="usefulmoves" class="row bg-darkgrey rounded text-light section">
+<div id="usefulmoves" class="row bg-darkgrey rounded text-light section mb-2 pb-2">
         <h3 class="col-12 text-center">Useful Moves</h3>
         <div class="col-md-6">
             <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
