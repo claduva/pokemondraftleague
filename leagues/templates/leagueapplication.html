@@ -19,7 +19,7 @@
         <div class="col-md-12">
             <h3>Coach Application for {{league.name}}</h3>
             <div class="d-flex">
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" class="w-100">
                     {% csrf_token %}
                     {% for form in forms %}
                         {{ form|crispy }}
