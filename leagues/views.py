@@ -622,7 +622,7 @@ def set_draft_order(request,league_name,subleague_name):
                         for item in flippedorder:
                             id_+=1
                             draft.objects.create(season=seasonsettings,team=item)
-                            roster.objects.create(id=id_,season=seasonsettings,team=item)
+                            roster.objects.create(id=id_,season=seasonsettings,team=item)            
         elif formpurpose=='Randomize':
             currentdraft=draft.objects.all().filter(season=seasonsettings).delete()
             currentroster=roster.objects.all().filter(season=seasonsettings).delete()
@@ -1138,3 +1138,30 @@ def create_match(request,league_name,subleague_name):
         'existingmatches':existingmatches,
     }
     return render(request, 'creatematch.html',context)
+
+
+@login_required
+@check_if_subleague
+@check_if_season
+@check_if_host
+def set_match_due_dates(request,league_name,subleague_name):
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    season=subleague.seasonsetting
+    matchs=season.schedule.all().order_by('week').distinct('week')
+    if request.method == 'POST':  
+        matchid=request.POST['matchid']
+        duedate=request.POST['duedate']
+        moi=schedule.objects.get(id=matchid)
+        relatedmatches=schedule.objects.all().filter(week=moi.week,season=moi.season)
+        for match in relatedmatches:
+            match.duedate=duedate
+            match.save()
+    context = {
+        'subleague':subleague,
+        'league_name': league_name,
+        'leagueshostedsettings': True,
+        'league_teams': league_teams,
+        'matchs':matchs,
+    }
+    return render(request, 'matchduedate.html',context)

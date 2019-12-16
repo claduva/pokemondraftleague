@@ -86,6 +86,10 @@
                             <li class="border">Create
                                 Round Robin</li>
                         </a>
+                        <a class="text-dark"
+                            href="{% url 'matchduedates' league_name=league_name subleague_name=subleague.subleague %}">
+                            <li class="border">Set Match Due Dates</li>
+                        </a>
                         <a class="text-dark" href="{% url 'archive_season' league_name=league_name %}">
                             <li class="border">Archive Season</li>
                         </a>

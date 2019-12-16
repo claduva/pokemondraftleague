@@ -28,6 +28,7 @@ urlpatterns = [
     path("settings/league/<str:league_name>/<str:subleague_name>/manageseason/", views.manage_seasons, name="manage_seasons"),
     path("settings/league/<str:league_name>/<str:subleague_name>/manageseason/creatematch/", views.create_match, name="create_match"),
     path("settings/league/<str:league_name>/<str:subleague_name>/manageseason/createroundrobinschedule/", views.createroundrobinschedule, name="createroundrobinschedule"),
+    path("settings/league/<str:league_name>/<str:subleague_name>/manageseason/matchduedates/", views.set_match_due_dates, name="matchduedates"),
     path("settings/league/<str:league_name>/<str:subleague_name>/manageseason/setdraftorder", views.set_draft_order, name="set_draft_order"),
     path("settings/league/<str:league_name>/<str:subleague_name>/conferenceanddivisionnames", views.add_conference_and_division_names, name="add_conference_and_division_names"),
     path("settings/league/<str:league_name>/<str:subleague_name>/conferenceanddivisionnames/deleteconference", views.delete_conference, name="delete_conference"),
