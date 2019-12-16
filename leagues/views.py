@@ -342,13 +342,21 @@ def individual_league_coaching_settings(request,league_name):
 @login_required
 def manage_seasons(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    seasonsettings=seasonsetting.objects.get(subleague=subleague)
-    needednumberofcoaches=seasonsettings.number_of_teams
-    currentcoaches=coachdata.objects.filter(league_name=subleague.league)
-    currentcoachescount=len(currentcoaches)
-    #if needednumberofcoaches != currentcoachescount: 
-    #    messages.error(request,'You can only utilize season settings if you have designated the same number of coaches as available spots',extra_tags='danger')
-    #    return redirect('individual_league_settings',league_name=league_name)
+    #needednumberofcoaches=seasonsettings.number_of_teams
+    #currentcoaches=coachdata.objects.filter(league_name=subleague.league)
+    #currentcoachescount=len(currentcoaches)
+    try:
+        seasonsettings=seasonsetting.objects.get(subleague=subleague)
+        form = EditSeasonSettingsForm(instance=seasonsettings)
+        settingheading='Update Season Settings'
+        create=False
+        manageseason=True
+    except:
+        seasonsettings=None
+        form = CreateSeasonSettingsForm(initial={'league': subleague.league,'subleague':subleague})
+        settingheading='Create New Season'
+        create=True
+        manageseason=False
     if request.method == 'POST':
         try:
             
@@ -372,19 +380,6 @@ def manage_seasons(request,league_name,subleague_name):
                 rule.objects.create(season=thisseason)
                 messages.success(request,'Your season has been created!')
         return redirect('manage_seasons',league_name=league_name,subleague_name=subleague_name)
-    else:
-        try:
-            seasonsettings=seasonsetting.objects.get(subleague=subleague)
-            form = EditSeasonSettingsForm(instance=seasonsettings)
-            settingheading='Update Season Settings'
-            create=False
-            manageseason=True
-        except:
-            seasonsettings=None
-            form = CreateSeasonSettingsForm(initial={'league': subleague.league,'subleague':subleague})
-            settingheading='Create New Season'
-            create=True
-            manageseason=False
     context = {
         'subleague':subleague,
         'league_name': league_name,

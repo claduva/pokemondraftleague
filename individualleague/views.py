@@ -608,6 +608,7 @@ def league_schedule(request,league_name,subleague_name):
             return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
     return render(request, 'schedule.html',context)
 
+"""
 @check_if_subleague
 @check_if_season
 def league_matchup(request,league_name,subleague_name,matchid):
@@ -715,6 +716,27 @@ def league_matchup(request,league_name,subleague_name,matchid):
         'team2roster': team2roster,
         'team1moves': team1moves,
         'team2moves': team2moves,
+    }
+    return render(request, 'matchup.html',context)
+"""
+
+@check_if_subleague
+@check_if_season
+def league_matchup(request,league_name,subleague_name,matchid):
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    season=subleague.seasonsetting
+    league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    try:
+        match=schedule.objects.get(id=matchid)
+    except:
+        messages.error(request,'Match does not exist!',extra_tags='danger')
+        return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
+    team1roster=roster.objects.filter(season=season,team=match.team1,pokemon__isnull=False).order_by('pokemon__pokemon')
+    team2roster=roster.objects.filter(season=season,team=match.team2,pokemon__isnull=False).order_by('pokemon__pokemon')
+    context = {
+       'match':match,
+       'team1roster':team1roster,
+       'team2roster':team2roster,
     }
     return render(request, 'matchup.html',context)
 

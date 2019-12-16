@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/matchup.css' %}">
 {% endblock %}
 {% block body %}
-<div class="row content-section align-items-center">
+<div class="row bg-darkgrey rounded text-light mb-2 align-items-center">
     <div class="col-md-4 d-flex justify-content-start"><img src="{{match.team1.logo.url}}"
             class="rounded-circle mediumlogo"></div>
     <div class="col-md-4">
@@ -17,331 +17,233 @@
     <div class="col-md-4 d-flex justify-content-end"><img src="{{match.team2.logo.url}}"
             class="rounded-circle mediumlogo"></div>
 </div>
-<div class="row content-section align-items-start">
-    <div class='col-md-6'>
-        <table class="table table-sm bg-lightgrey text-dark">
-            <thead>
-                <tr>
-                    <th colspan="6">{{ match.team1.teamname }}</th>
-                </tr>
-                <tr>
-                    <th colspan="6">Season Statistics</th>
-                </tr>
-                <tr>
-                    <th>Pokemon</th>
-                    <th>K</th>
-                    <th>D</th>
-                    <th>+/-</th>
-                    <th>GP</th>
-                    <th>GW</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for x,y,z,speed in team1roster %}
-                <tr>
-                    <td>
-                        <div class="d-flex justify-content-center">
-                            <div>
-                                <div class="d-flex justify-content-center">
-                                    <img class="card-img-top smallsprite"
-                                        src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:x.pokemon.pokemon|cut:':' %}">
-
-                                </div>
-                                <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
-                            </div>
-                            {% if x.zuser == 'OS' %}
-                            <div><img class="smallsprite"
-                                    src="{% static 'main/images/z-crystal.png' %}">(Offensive
-                                & Status)</div>
-                            {% elif x.zuser == 'O' %}
-                            <div><img class="smallsprite"
-                                    src="{% static 'main/images/z-crystal.png' %}">(Offensive)
-                            </div>
-                            {% endif %}
-                        </div>
-                    </td>
-                    <td>{{ x.kills }}</td>
-                    <td>{{ x.deaths }}</td>
-                    <td>{{ x.differential }}</td>
-                    <td>{{ x.gp }}</td>
-                    <td>{{ x.gw }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <table class="table table-sm bg-lightgrey text-dark">
-            <thead>
-                <tr>
-                    <th colspan="7">Pokemon Data</th>
-                </tr>
-                <tr>
-                    <th>Pokemon</th>
-                    <th>Abilities</th>
-                    <th>Typing</th>
-                    <th colspan="2">Base Stats</th>
-                    <th>Max Speeds at Lv. 50</th>
-                    <th>Max Speeds at Lv. 100</th>
-                <tr>
-            </thead>
-            <tbody>
-                {% for x,y,z,speed in team1roster %}
-                <tr>
-                    <td>
-                        <div>
-                            <div class="d-flex justify-content-center">
-                                <img class="card-img-top smallsprite"
-                                    src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:x.pokemon.pokemon|cut:':' %}">
-                            </div>
-                            <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div>
-                                {% for item in z %}
-                                <div>{{item.ability}}</div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            {% for item in y %}
-                            <div><img src="{% static 'pokemondatabase/sprites/types/'|add:item.typing|cut:' '|add:'.png' %}">
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div>HP: {{ x.pokemon.hp }}</div>
-                            <div>Atk: {{ x.pokemon.attack }}</div>
-                            <div>Def: {{ x.pokemon.defense }}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div>SpA: {{ x.pokemon.s_attack }}</div>
-                            <div>SpD: {{ x.pokemon.s_defense }}</div>
-                            <div>Spe: {{ x.pokemon.speed }}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div class="d-flex justify-content-center">-1: {{ speed.0 }}</div>
-                            <div class="d-flex justify-content-center">Neutral: {{ speed.1 }}</div>
-                            <div class="d-flex justify-content-center">+1: {{ speed.2 }}</div>
-                            <div class="d-flex justify-content-center">+2: {{ speed.3 }}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div class="d-flex justify-content-center">-1: {{ speed.4 }}</div>
-                            <div class="d-flex justify-content-center">Neutral: {{ speed.5 }}</div>
-                            <div class="d-flex justify-content-center">+1: {{ speed.6 }}</div>
-                            <div class="d-flex justify-content-center">+2: {{ speed.7 }}</div>
-                        </div>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <table class="table table-sm bg-lightgrey text-dark">
-            <thead>
-                <tr>
-                    <th colspan="2">Important Moves</th>
-                </tr>
-                <tr>
-                    <th>Move</th>
-                    <th>Pokemon</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for x,y in team1moves %}
-                <tr>
-                    <td>{{ x }}</td>
-                    <td>
-                        <div class="row align-items-center justify-content-around">
-                            {% if y %}
-                            {% for item in y %}
-                            <div class="col-md-4">
-                                <div class="d-flex justify-content-center"><img class="card-img-top smallsprite"
-                                        src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
-                                </div>
-                                <div class="d-flex justify-content-center">{{ item.pokemon.pokemon }}</div>
-                            </div>
-                            {% endfor %}
-                            {% else %}
-                            <div>None</div>
-                            {% endif %}
-                        </div>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <div class='col-md-6'>
-        <table class="table table-sm bg-lightgrey text-dark">
-            <thead>
-                <tr>
-                    <th colspan="6">{{ match.team2.teamname }}</th>
-                </tr>
-                <tr>
-                    <th colspan="6">Season Statistics</th>
-                </tr>
-                <tr>
-                    <th>Pokemon</th>
-                    <th>K</th>
-                    <th>D</th>
-                    <th>+/-</th>
-                    <th>GP</th>
-                    <th>GW</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for x,y,z,speed in team2roster %}
-                <tr>
-                    <td>
-                        <div class="d-flex justify-content-center">
-                            <div>
-                                <div class="d-flex justify-content-center">
-                                    <img class="card-img-top smallsprite"
-                                        src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:x.pokemon.pokemon|cut:':' %}">
-                                </div>
-                                <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
-                            </div>
-                            {% if x.zuser == 'OS' %}
-                            <div><img class="smallsprite"
-                                    src="{% static 'main/images/z-crystal.png' %}">(Offensive
-                                & Status)</div>
-                            {% elif x.zuser == 'O' %}
-                            <div><img class="smallsprite"
-                                    src="{% static 'main/images/z-crystal.png' %}">(Offensive)
-                            </div>
-                            {% endif %}
-                        </div>
-                    </td>
-                    <td>{{ x.kills }}</td>
-                    <td>{{ x.deaths }}</td>
-                    <td>{{ x.differential }}</td>
-                    <td>{{ x.gp }}</td>
-                    <td>{{ x.gw }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <table class="table table-sm bg-lightgrey text-dark">
-            <thead>
-                <tr>
-                    <th colspan="8">Pokemon Data</th>
-                </tr>
-                <tr>
-                    <th>Pokemon</th>
-                    <th>Abilities</th>
-                    <th>Typing</th>
-                    <th colspan="2">Base Stats</th>
-                    <th>Max Speeds at Lv. 50</th>
-                    <th>Max Speeds at Lv. 100</th>
-                <tr>
-            </thead>
-            <tbody>
-                {% for x,y,z,speed in team2roster %}
-                <tr>
-                    <td>
-                        <div>
-                            <div class="d-flex justify-content-center">
-                                <img class="card-img-top smallsprite"
-                                    src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:x.pokemon.pokemon|cut:':' %}">
-                            </div>
-                            <div class="d-flex justify-content-center">{{ x.pokemon.pokemon }}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div>
-                                {% for item in z %}
-                                <div>{{item.ability}}</div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            {% for item in y %}
-                            <div><img src="{% static 'pokemondatabase/sprites/types/'|add:item.typing|cut:' '|add:'.png' %}">
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div>HP: {{ x.pokemon.hp }}</div>
-                            <div>Atk: {{ x.pokemon.attack }}</div>
-                            <div>Def: {{ x.pokemon.defense }}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div>SpA: {{ x.pokemon.s_attack }}</div>
-                            <div>SpD: {{ x.pokemon.s_defense }}</div>
-                            <div>Spe: {{ x.pokemon.speed }}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div class="d-flex justify-content-center">-1: {{ speed.0 }}</div>
-                            <div class="d-flex justify-content-center">Neutral: {{ speed.1 }}</div>
-                            <div class="d-flex justify-content-center">+1: {{ speed.2 }}</div>
-                            <div class="d-flex justify-content-center">+2: {{ speed.3 }}</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <div class="d-flex justify-content-center">-1: {{ speed.4 }}</div>
-                            <div class="d-flex justify-content-center">Neutral: {{ speed.5 }}</div>
-                            <div class="d-flex justify-content-center">+1: {{ speed.6 }}</div>
-                            <div class="d-flex justify-content-center">+2: {{ speed.7 }}</div>
-                        </div>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <table class="table table-sm bg-lightgrey text-dark">
-            <thead>
-                <tr>
-                    <th colspan="2">Important Moves</th>
-                </tr>
-                <tr>
-                    <th>Move</th>
-                    <th>Pokemon</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for x,y in team2moves %}
-                <tr>
-                    <td>{{ x }}</td>
-                    <td>
-                        <div class="row align-items-center justify-content-around">
-                            {% if y %}
-                            {% for item in y %}
-                            <div class="col-md-4">
-                                <div class="d-flex justify-content-center"><img class="card-img-top smallsprite"
-                                        src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
-                                </div>
-                                <div class="d-flex justify-content-center">{{ item.pokemon.pokemon }}</div>
-                            </div>
-                            {% endfor %}
-                            {% else %}
-                            <div>None</div>
-                            {% endif %}
-                        </div>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+<div class="row bg-darkgrey rounded text-light mb-2">
+    <div class="col-12 d-flex justify-content-around py-1">
+        <button class="btn btn-primary matchup-menu">Pokemon Data</button>
+        <button class="btn btn-primary matchup-menu">Season Statistics</button>
+        <button class="btn btn-primary matchup-menu">Speed Tiers</button>
+        <button class="btn btn-primary matchup-menu">Useful Moves</button>
     </div>
 </div>
+<div id="pokemondata" class="row bg-darkgrey rounded text-light section">
+    <h3 class="col-12 text-center">Pokemon Data</h3>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                <tr class="bg-dark text-light sort">
+
+                </tr>
+                {% for item in team1roster %}
+                <tr>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                    <tr class="bg-dark text-light th">
+                            <th colspan="3"></th>
+                            <th colspan="6">Base Stats</th>
+                        </tr>
+                <tr class="bg-dark text-light sort th">
+                    <th>Pokemon</th>
+                    <th>Typing</th>
+                    <th>Abilities</th>
+                    <th>HP</th>
+                    <th>Atk</th>
+                    <th>Def</th>
+                    <th>Sp. Atk</th>
+                    <th>Sp. Def</th>
+                    <th>Speed</th>
+                </tr>
+                {% for item in team2roster %}
+                <tr>
+                    <td>
+                        <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                                {{item.pokemon.pokemon}}
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>{{item.pokemon.hp}}</td>
+                    <td>{{item.pokemon.attack}}</td>
+                    <td>{{item.pokemon.defense}}</td>
+                    <td>{{item.pokemon.s_attack}}</td>
+                    <td>{{item.pokemon.s_defense}}</td>
+                    <td>{{item.pokemon.speed}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+<div id="seasonstatistics" class="row bg-darkgrey rounded text-light section">
+        <h3 class="col-12 text-center">Season Statistics</h3>
+        <div class="col-md-6">
+            <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                <table class="table table-sm table-bordered table-striped p-0 m-0">
+                    <tr class="bg-dark text-light sort">
+    
+                    </tr>
+                    {% for item in team1roster %}
+                    <tr>
+    
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                <table class="table table-sm table-bordered table-striped p-0 m-0">
+                    <tr class="bg-dark text-light sort">
+    
+                    </tr>
+                    {% for item in team2roster %}
+                    <tr>
+    
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+<div id="speedtiers" class="row bg-darkgrey rounded text-light section">
+    <h3 class="col-12 text-center">Speed Tiers</h3>
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <span class="px-2">Level 50</span>
+        <input type="checkbox" id="lvltoggle" class="checkbox" checked />
+        <label for="lvltoggle" class="switch"></label><span class="px-2">Level 100</span>
+    </div>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                <tr class="bg-dark text-light th">
+                    <th colspan="2">
+                    </th>
+                    <th colspan="5" class="lvl50">Max Speeds</th>
+                    <th colspan="5" class="lvl100">Max Speeds</th>
+                </tr>
+                <tr class="bg-dark text-light sort th">
+                    <th>Pokemon</th>
+                    <th>Base Speed</th>
+                    <th class="lvl50">-2</th>
+                    <th class="lvl50">-1</th>
+                    <th class="lvl50">Neutral</th>
+                    <th class="lvl50">+1</th>
+                    <th class="lvl50">+2</th>
+                    <th class="lvl100">-2</th>
+                    <th class="lvl100">-1</th>
+                    <th class="lvl100">Neutral</th>
+                    <th class="lvl100">+1</th>
+                    <th class="lvl100">+2</th>
+                </tr>
+                {% for item in team1roster %}
+                <tr>
+                    <td>
+                        <img class="smallsprite"
+                            src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                        {{item.pokemon.pokemon}}
+                    </td>
+                    <td>{{item.pokemon.speed}}</td>
+                    <td class="lvl50">{{item.pokemon.speed|speed:"-2,50"}}</td>
+                    <td class="lvl50">{{item.pokemon.speed|speed:"-1,50"}}</td>
+                    <td class="lvl50">{{item.pokemon.speed|speed:"0,50"}}</td>
+                    <td class="lvl50">{{item.pokemon.speed|speed:"1,50"}}</td>
+                    <td class="lvl50">{{item.pokemon.speed|speed:"2,50"}}</td>
+                    <td class="lvl100">{{item.pokemon.speed|speed:"-2,100"}}</td>
+                    <td class="lvl100">{{item.pokemon.speed|speed:"-1,100"}}</td>
+                    <td class="lvl100">{{item.pokemon.speed|speed:"0,100"}}</td>
+                    <td class="lvl100">{{item.pokemon.speed|speed:"1,100"}}</td>
+                    <td class="lvl100">{{item.pokemon.speed|speed:"2,100"}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                <tr class="bg-dark text-light th">
+                    <th colspan="2">
+                    </th>
+                    <th colspan="5" class="lvl50">Max Speeds</th>
+                    <th colspan="5" class="lvl100">Max Speeds</th>
+                </tr>
+                <tr class="bg-dark text-light sort th">
+                    <th>Pokemon</th>
+                    <th>Base Speed</th>
+                    <th class="lvl50">-2</th>
+                    <th class="lvl50">-1</th>
+                    <th class="lvl50">Neutral</th>
+                    <th class="lvl50">+1</th>
+                    <th class="lvl50">+2</th>
+                    <th class="lvl100">-2</th>
+                    <th class="lvl100">-1</th>
+                    <th class="lvl100">Neutral</th>
+                    <th class="lvl100">+1</th>
+                    <th class="lvl100">+2</th>
+                </tr>
+                {% for item in team2roster %}
+                <tr>
+                    <td>
+                        <img class="smallsprite"
+                            src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                        {{item.pokemon.pokemon}}
+                        </th>
+                    <td>{{item.pokemon.speed}}</td>
+                    <td class="lvl50">{{item.pokemon.speed|speed:"-2,50"}}</td>
+                    <td class="lvl50">{{item.pokemon.speed|speed:"-1,50"}}</td>
+                    <td class="lvl50">{{item.pokemon.speed|speed:"0,50"}}</td>
+                    <td class="lvl50">{{item.pokemon.speed|speed:"1,50"}}</td>
+                    <td class="lvl50">{{item.pokemon.speed|speed:"2,50"}}</td>
+                    <td class="lvl100">{{item.pokemon.speed|speed:"-2,100"}}</td>
+                    <td class="lvl100">{{item.pokemon.speed|speed:"-1,100"}}</td>
+                    <td class="lvl100">{{item.pokemon.speed|speed:"0,100"}}</td>
+                    <td class="lvl100">{{item.pokemon.speed|speed:"1,100"}}</td>
+                    <td class="lvl100">{{item.pokemon.speed|speed:"2,100"}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+<div id="usefulmoves" class="row bg-darkgrey rounded text-light section">
+        <h3 class="col-12 text-center">Useful Moves</h3>
+        <div class="col-md-6">
+            <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                <table class="table table-sm table-bordered table-striped p-0 m-0">
+                    <tr class="bg-dark text-light sort">
+    
+                    </tr>
+                    {% for item in team1roster %}
+                    <tr>
+    
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                <table class="table table-sm table-bordered table-striped p-0 m-0">
+                    <tr class="bg-dark text-light sort">
+    
+                    </tr>
+                    {% for item in team2roster %}
+                    <tr>
+    
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+<!-- select code -->
+<script src="{% static 'individualleague/scripts/matchup.js' %}"></script>
+<script src="{% static 'individualleague/scripts/tablesorter.js' %}"></script>
 {% endblock %}
