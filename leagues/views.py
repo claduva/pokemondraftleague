@@ -1148,7 +1148,7 @@ def set_match_due_dates(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     season=subleague.seasonsetting
-    matchs=season.schedule.all().order_by('week').distinct('week')
+    matchs=season.schedule.all().order_by('week','duedate').distinct('week')
     if request.method == 'POST':  
         matchid=request.POST['matchid']
         duedate=request.POST['duedate']

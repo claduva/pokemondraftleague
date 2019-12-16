@@ -55,6 +55,8 @@
                     <option value="za">Z->A</option>
                     <option value="bst-dec">BST (highest first)</option>
                     <option value="bst-inc">BST (lowest first)</option>
+                    <option value="speed-dec">Speed (highest first)</option>
+                    <option value="speed-inc">Speed (lowest first)</option>
                 </select>
             </div>
             <input type="checkbox" id="tiertoggle" class="checkbox"/>  
@@ -91,7 +93,7 @@
     </div>
     <div id="tierlist" class="col-12">
         {% for item, item2 in tiers %}
-        <div class="tieritem" data-tier="{{item.tier.tierpoints}}" data-bst="{{item.pokemon.bst}}"
+        <div class="tieritem" data-tier="{{item.tier.tierpoints}}" data-bst="{{item.pokemon.bst}}" data-speed="{{item.pokemon.speed}}"
             data-pokemon="{{item.pokemon.pokemon}}" data-available="{{item2}}">
             <a href="">
                 {% if item2 == "FREE" %}

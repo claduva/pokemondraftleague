@@ -7,6 +7,12 @@ $(document).ready(function() {
         else if (sortingby=="bst-inc"){
             sortMeBy("data-bst", $(".tieritem"), $("#tierlist"), "asc");
         }
+        else if (sortingby=="speed-dec"){
+            sortMeBy("data-speed", $(".tieritem"), $("#tierlist"), "desc");
+        }
+        else if (sortingby=="speed-inc"){
+            sortMeBy("data-speed", $(".tieritem"), $("#tierlist"), "asc");
+        }
         else if (sortingby=="tier-dec"){
             sortMeBy("data-tier", $(".tieritem"), $("#tierlist"), "desc");
         }
