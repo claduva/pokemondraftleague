@@ -49,7 +49,6 @@ def user_profile(request,username):
     mostacquired=dict(Counter(monlist))
     mostacquired={k:v for (k,v) in mostacquired.items() if v>1}
     mostacquired = dict(sorted(mostacquired.items() ,reverse=True,  key=lambda x: x[1]))
-    print(mostacquired)
     context = {
         "title": f"{username}'s Profile",
         'userofinterest':userofinterest,

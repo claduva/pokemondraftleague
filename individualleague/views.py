@@ -806,6 +806,7 @@ def league_tiers(request,league_name,subleague_name):
             tierlist.append((item,f"Signed by {owner.team.teamabbreviation}"))
             tierdict[item.tier.tiername].append([item,owner.team.teamabbreviation])
         else:
+            print(item)
             tierlist.append((item,"FREE"))
             tierdict[item.tier.tiername].append([item,"FREE"])
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)

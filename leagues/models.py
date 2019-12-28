@@ -146,12 +146,15 @@ class coachaward(models.Model):
 
 class leaguetiers(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE,related_name='leaguetiers')
-    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True,related_name='subleaguetiers')
+    subleague = models.ForeignKey(league_subleague,on_delete=models.CASCADE, null=True,related_name='subleaguetiers')
     tiername = models.CharField(max_length=20, default="Not Specified")
     tierpoints = models.IntegerField(default=0)
 
+    class Meta:
+        ordering = ['league']
+
     def __str__(self):
-        return f'Tier for {self.league.name}, Tiername: {self.tiername}'
+        return f'Tier for {self.league.name}-{self.subleague}, Tiername: {self.tiername}'
 
 class leaguetiertemplate(models.Model):
     template = models.CharField(max_length=50, default="Standard Draft League")

@@ -52,7 +52,7 @@ def newreplayparse(replay):
     for line in logfile:
         if line.find("|")>-1:
             #remove unneeded lines
-            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("Florges-White","Florges").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","").replace("-Douse","").replace("-Burn","").replace("-Chill","").replace("-Shock","").replace("Type: ","Type:").replace("Mr. ","Mr.").replace("-Sensu","").replace("-Pom-Pom","").replace("-Pa'u","").replace("Farfetch'd","Farfetchd").replace("-Totem","").replace("-Resolute","").replace("-Meteor","").replace("Meowstic-F","Meowstic").replace("-East","")
+            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("Florges-White","Florges").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","").replace("-Douse","").replace("-Burn","").replace("-Chill","").replace("-Shock","").replace("Type: ","Type:").replace("Mr. ","Mr.").replace("-Sensu","").replace("-Pom-Pom","").replace("-Pa'u","").replace("Farfetch'd","Farfetchd").replace("-Totem","").replace("-Resolute","").replace("-Meteor","").replace("Meowstic-F","Meowstic").replace("-East","").replace("Sirfetch'd","Sirfetchd")
             linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
             badlines=["","|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost","|-nothing"]
             linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
@@ -190,7 +190,7 @@ def damage_function(line,parsedlogfile,results):
             damager=cause.split("|[of] ")[1].split(": ",1)[1]
             team=cause.split("|[of] ")[1].split(": ",1)[0]
             damager=roster_search(team,damager,results)
-        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1 or cause.find("move: Fire Spin")>-1:
+        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1 or cause.find("move: Fire Spin")>-1 or cause.find("ability: Disguise|[of]")>-1:
             if team=="p1a":
                 damager=results['team2']['activemon']
                 damager=roster_search("p2a",damager,results)
@@ -236,6 +236,8 @@ def damage_function(line,parsedlogfile,results):
             activeopponent['luck']+=100
     else:
         #search for damager
+        print(line)
+        print('here')
         damager,move=damager_search(parsedlogfile,line,team,pokemon,results,damagedone)
     #update fainted
     if healthremaining==0:
@@ -396,8 +398,8 @@ def move_function(line,parsedlogfile,results):
         #check for secondary effect
         results=secondary_check(attacker,target,move,line,results,parsedlogfile)
     #check if weather
-    if move in ['Sandstorm','Hail','Z-Sandstorm','Z-Hail']:
-        move=move.replace("Z-","")
+    if move in ['Sandstorm','Hail','Z-Sandstorm','Z-Hail','Max Rockfall','Max Hailstorm']:
+        move=move.replace("Z-","").replace("Max Rockfall","Sandstorm").replace("Max Hailstorm","Hail")
         results['team1']['Sandstorm']=None
         results['team1']['Hail']=None
         results['team2']['Sandstorm']=None
@@ -413,11 +415,11 @@ def move_function(line,parsedlogfile,results):
         elif attackingteam=="p2a":
             results['team1'][move]=attacker['nickname']
     #check belly drum:
-    if move.replace("Z-","")=="Belly Drum":
+    if move.replace("Z-","") in ["Belly Drum","Clangorous Soul"]:
         turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0], parsedlogfile))
         active=False
         for line_ in turndata:
-            if line_[2]=="setboost" and line_[3].find("[from] move: Belly Drum")>-1:
+            if (line_[2]=="setboost" and line_[3].find("[from] move: Belly Drum")>-1) or (line_[2]=="boost" and line_[3].find("|def|1")>-1):
                 active=True
         for line_ in turndata:
             if line_[2]=="damage" and line_[3].find(attacker['nickname'])>-1 and active==True:
@@ -849,9 +851,9 @@ def alternativereplayparse(replay):
     for line in logfile:
         if line.find("|")>-1:
             #remove unneeded lines
-            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("-White","").replace("-Yellow","")
+            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("Florges-White","Florges").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","").replace("-Douse","").replace("-Burn","").replace("-Chill","").replace("-Shock","").replace("Type: ","Type:").replace("Mr. ","Mr.").replace("-Sensu","").replace("-Pom-Pom","").replace("-Pa'u","").replace("Farfetch'd","Farfetchd").replace("-Totem","").replace("-Resolute","").replace("-Meteor","").replace("Meowstic-F","Meowstic").replace("-East","").replace("Sirfetch'd","Sirfetchd")
             linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
-            badlines=["|start","|player|p1","|player|p2","|-notarget","|-clearallboost"]
+            badlines=["","|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost","|-nothing"]
             linepurposestoremove=["j","c","l","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
             linepurpose=line.split("|",2)[1].replace("-","")
             #iterate turn number
