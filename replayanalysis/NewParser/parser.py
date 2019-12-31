@@ -64,6 +64,12 @@ def newreplayparse(replay):
             #add turn data
             elif line not in linestoremove and linepurpose not in linepurposestoremove and line not in badlines:
                 lineremainder=line.split("|",2)[2]
+                if lineremainder.find("/")>-1:
+                    numerator=lineremainder.split("/")[0].split("|")[-1]
+                    denomenator=lineremainder.split("/")[1].split("|")[0]
+                    newnumerator=int(int(numerator)/int(denomenator)*100)
+                    lineremainder=lineremainder.replace(f"/{denomenator}","/100").replace(f"{numerator}/",f"{newnumerator}/")
+                    print(lineremainder)
                 parsedlogfile.append([line_number,turn_number,linepurpose,lineremainder])
                 line_number+=1
     #iterate through parsed logfile
@@ -236,8 +242,6 @@ def damage_function(line,parsedlogfile,results):
             activeopponent['luck']+=100
     else:
         #search for damager
-        print(line)
-        print('here')
         damager,move=damager_search(parsedlogfile,line,team,pokemon,results,damagedone)
     #update fainted
     if healthremaining==0:
