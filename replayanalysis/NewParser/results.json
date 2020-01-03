@@ -1,61 +1,19 @@
 {
   "team1": {
-    "coach": "bkendrick678932",
+    "coach": "Yankster96",
     "roster": [
       {
-        "pokemon": "Slowbro",
-        "startform": "Slowbro",
-        "nickname": "Slowbro",
-        "kills": 4,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 261,
-        "hphealed": 146,
-        "luck": 1.06,
-        "remaininghealth": 72,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Excadrill",
-        "startform": "Excadrill",
-        "nickname": "Excadrill",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 50,
-        "hphealed": 0,
-        "luck": -0.14,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Charizard-Mega-X",
-        "startform": "Charizard",
-        "nickname": "Charizard",
+        "pokemon": "Landorus-Therian",
+        "startform": "Landorus-Therian",
+        "nickname": "Terra",
         "kills": 1,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 44,
+        "damagedone": 123,
         "hphealed": 0,
-        "luck": -0.04,
-        "remaininghealth": 100,
+        "luck": -0.12,
+        "remaininghealth": 80,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -66,41 +24,83 @@
         "Curse": null
       },
       {
-        "pokemon": "Comfey",
-        "startform": "Comfey",
-        "nickname": "Comfey",
-        "kills": 0,
+        "pokemon": "Cinccino",
+        "startform": "Cinccino",
+        "nickname": "Minnie Mouse",
+        "kills": 1,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 56,
-        "hphealed": 32,
-        "luck": 0.77,
-        "remaininghealth": 81,
+        "damagedone": 90,
+        "hphealed": 0,
+        "luck": 1.98,
+        "remaininghealth": 67,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
-        "par": "Snipperclips",
+        "par": null,
         "frz": null,
         "tox": null,
         "Curse": null
       },
       {
-        "pokemon": "Tornadus-Therian",
-        "startform": "Tornadus",
-        "nickname": "Tornadus",
+        "pokemon": "Zoroark",
+        "startform": "Zoroark",
+        "nickname": "Misdirection",
+        "kills": 3,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 306,
+        "hphealed": 0,
+        "luck": -2.58,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": "Thiccithicci",
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Silvally",
+        "startform": "Silvally",
+        "nickname": "Talos",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 3,
+        "damagedone": 40,
+        "hphealed": 0,
+        "luck": 0.02,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Kyurem",
+        "startform": "Kyurem",
+        "nickname": "Mr.Freeze jr.",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 100,
-        "hphealed": 165,
-        "luck": 0.55,
+        "damagedone": 179,
+        "hphealed": 41,
+        "luck": -2.04,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
-        "psn": null,
+        "psn": "LSD",
         "brn": null,
         "par": null,
         "frz": null,
@@ -108,22 +108,22 @@
         "Curse": null
       },
       {
-        "pokemon": "Ferrothorn",
-        "startform": "Ferrothorn",
-        "nickname": "Ferrothorn",
+        "pokemon": "Nihilego",
+        "startform": "Nihilego",
+        "nickname": "Lillie",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 2,
-        "damagedone": 171,
+        "support": 1,
+        "damagedone": 37,
         "hphealed": 0,
-        "luck": -1.28,
+        "luck": 0.24,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
-        "par": "Snipperclips",
+        "par": null,
         "frz": null,
         "tox": null,
         "Curse": null
@@ -131,63 +131,42 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 3,
-    "megaevolved": true,
+    "score": 2,
+    "megaevolved": false,
     "usedzmove": true,
-    "timesswitched": 24,
+    "timesswitched": 9,
     "selfdeaths": 0,
-    "remaininghealth": 253,
+    "remaininghealth": 147,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 3,
-    "luck": 0.92,
-    "damagedone": 682,
-    "hphealed": 343,
+    "deaths": 4,
+    "luck": -2.5,
+    "damagedone": 775,
+    "hphealed": 41,
     "support": 4,
-    "activemon": "Slowbro",
+    "activemon": "Terra",
     "Toxic Spikes": null,
     "Spike": null,
-    "Stealth Rock": "Lucy",
+    "Stealth Rock": null,
     "Future Sight": null,
     "Sandstorm": null,
     "Hail": null,
     "Leech Seed": null
   },
   "team2": {
-    "coach": "BChezza",
+    "coach": "Atlanta Azelfs",
     "roster": [
       {
-        "pokemon": "Hippowdon",
-        "startform": "Hippowdon",
-        "nickname": "Gloria",
+        "pokemon": "Medicham-Mega",
+        "startform": "Medicham",
+        "nickname": "AAAAAAAAAAAAAAAAAA",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 2,
-        "damagedone": 54,
-        "hphealed": 32,
-        "luck": 0.34,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Excadrill",
-        "Curse": null
-      },
-      {
-        "pokemon": "Rotom-Mow",
-        "startform": "Rotom-Mow",
-        "nickname": "Snipperclips",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 3,
-        "damagedone": 49,
-        "hphealed": 50,
-        "luck": 0.78,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.04,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -199,84 +178,105 @@
         "Curse": null
       },
       {
-        "pokemon": "Hydreigon",
-        "startform": "Hydreigon",
-        "nickname": "Scylla",
+        "pokemon": "Ribombee",
+        "startform": "Ribombee",
+        "nickname": "Jerry Seinfeld",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 22,
+        "hphealed": 0,
+        "luck": 0.14,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": "Talos",
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Rotom-Wash",
+        "startform": "Rotom-Wash",
+        "nickname": "\ud83d\udc4c",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 78,
+        "hphealed": 19,
+        "luck": 0.38,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Blacephalon",
+        "startform": "Blacephalon",
+        "nickname": "Mascot",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 169,
+        "damagedone": 7,
         "hphealed": 0,
-        "luck": 0.07,
+        "luck": 0.04,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
-        "brn": "Slowbro",
+        "brn": null,
         "par": null,
         "frz": null,
         "tox": null,
         "Curse": null
       },
       {
-        "pokemon": "Metagross",
-        "startform": "Metagross",
-        "nickname": "Hot Cross Gun",
+        "pokemon": "Lickilicky",
+        "startform": "Lickilicky",
+        "nickname": "Thiccithicci",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 93,
+        "hphealed": 6,
+        "luck": 0.8,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Muk-Alola",
+        "startform": "Muk-Alola",
+        "nickname": "LSD",
         "kills": 2,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 188,
-        "hphealed": 0,
-        "luck": -0.66,
+        "damagedone": 294,
+        "hphealed": 150,
+        "luck": 1.1,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Victini",
-        "startform": "Victini",
-        "nickname": "Churchill",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 176,
-        "hphealed": 0,
-        "luck": -0.83,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Diancie",
-        "startform": "Diancie",
-        "nickname": "Lucy",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 54,
-        "hphealed": 0,
-        "luck": -0.62,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": "Slowbro",
         "par": null,
         "frz": null,
         "tox": null,
@@ -286,135 +286,115 @@
     "wins": 0,
     "forfeit": 0,
     "score": 0,
-    "megaevolved": false,
+    "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 22,
+    "timesswitched": 13,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 3,
+    "kills": 4,
     "deaths": 6,
-    "luck": -0.92,
-    "damagedone": 690,
-    "hphealed": 82,
-    "support": 6,
-    "activemon": "Gloria",
+    "luck": 2.5,
+    "damagedone": 494,
+    "hphealed": 175,
+    "support": 2,
+    "activemon": "LSD",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Ferrothorn",
+    "Stealth Rock": "Lillie",
     "Future Sight": null,
     "Sandstorm": null,
     "Hail": null,
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 40,
+  "numberofturns": 32,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen7ou-1039924057",
+  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-1039955263",
   "significantevents": [
     [
-      4,
-      "Rotom-Mow provided support by using Thunder Wave"
+      2,
+      "Silvally provided support by using Parting Shot"
     ],
     [
-      11,
-      "Ferrothorn provided support by using Stealth Rock"
+      6,
+      "Ribombee provided support by using Sticky Web"
+    ],
+    [
+      6,
+      "Silvally provided support by using Thunder Wave"
+    ],
+    [
+      7,
+      "Silvally provided support by using Defog"
+    ],
+    [
+      7,
+      "Ribombee killed Silvally with U-turn"
+    ],
+    [
+      8,
+      "Zoroark killed Medicham-Mega with Black Hole Eclipse"
+    ],
+    [
+      9,
+      "Ribombee provided support by using Sticky Web"
+    ],
+    [
+      10,
+      "Zoroark killed Ribombee with Flamethrower"
+    ],
+    [
+      12,
+      "LUCK: Zoroark was paralyzed by Lickilicky with Body Slam"
     ],
     [
       13,
-      "Rotom-Mow provided support by using Defog"
+      "Zoroark killed Lickilicky with Dark Pulse"
     ],
     [
       15,
-      "Hippowdon provided support by using Toxic"
+      "Muk-Alola killed Zoroark with Knock Off"
     ],
     [
-      16,
-      "Excadrill provided support by using Toxic"
+      18,
+      "LUCK: Muk-Alola landed a crit on Kyurem with Knock Off"
     ],
     [
-      16,
-      "Hippowdon provided support by using Whirlwind"
-    ],
-    [
-      17,
-      "LUCK: Tornadus-Therian landed a crit on Metagross with Supersonic Skystrike"
+      19,
+      "LUCK: Kyurem was poisoned by Muk-Alola with Poison Jab"
     ],
     [
       21,
-      "LUCK: Diancie was burned by Slowbro with Scald"
+      "Kyurem killed Rotom-Wash with Ice Beam"
     ],
     [
-      22,
-      "Diancie provided support by using Stealth Rock"
-    ],
-    [
-      22,
-      "Slowbro killed Diancie with Scald"
+      23,
+      "Blacephalon killed Kyurem with Flamethrower"
     ],
     [
       24,
-      "Ferrothorn provided support by using Stealth Rock"
+      "Cinccino killed Blacephalon with Bullet Seed"
+    ],
+    [
+      25,
+      "LUCK: Cinccino landed a crit on Muk-Alola with Bullet Seed"
     ],
     [
       26,
-      "LUCK: Comfey landed a crit on Metagross with U-turn"
-    ],
-    [
-      26,
-      "LUCK: Metagross landed a crit on Ferrothorn with Hammer Arm"
-    ],
-    [
-      27,
-      "Metagross killed Ferrothorn with Hammer Arm"
-    ],
-    [
-      28,
-      "Excadrill provided support by using Rapid Spin"
-    ],
-    [
-      28,
-      "Metagross killed Excadrill with Hammer Arm"
+      "LUCK: Cinccino landed a crit on Muk-Alola with Bullet Seed"
     ],
     [
       29,
-      "Tornadus-Therian killed Metagross with U-turn"
-    ],
-    [
-      30,
-      "Rotom-Mow provided support by using Thunder Wave"
+      "Nihilego provided support by using Stealth Rock"
     ],
     [
       31,
-      "Charizard-Mega-X killed Rotom-Mow with Dragon Claw"
+      "Muk-Alola killed Nihilego with Ice Punch"
     ],
     [
-      33,
-      "LUCK: Hydreigon was burned by Slowbro with Scald"
-    ],
-    [
-      38,
-      "LUCK: Hydreigon landed a crit on Tornadus-Therian with Dark Pulse"
-    ],
-    [
-      38,
-      "Hydreigon killed Tornadus-Therian with Dark Pulse"
-    ],
-    [
-      38,
-      "Slowbro killed Hydreigon via brn"
-    ],
-    [
-      39,
-      "LUCK: Victini missed Bolt Strike against Slowbro"
-    ],
-    [
-      39,
-      "Slowbro killed Victini with Scald"
-    ],
-    [
-      40,
-      "Slowbro killed Hippowdon with Scald"
+      32,
+      "Landorus-Therian killed Muk-Alola with Earthquake"
     ]
   ],
   "errormessage": []
