@@ -55,7 +55,7 @@ def newreplayparse(replay):
             line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("Florges-White","Florges").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","").replace("-Douse","").replace("-Burn","").replace("-Chill","").replace("-Shock","").replace("Type: ","Type:").replace("Mr. ","Mr.").replace("-Sensu","").replace("-Pom-Pom","").replace("-Pa'u","").replace("Farfetch'd","Farfetchd").replace("-Totem","").replace("-Resolute","").replace("-Meteor","").replace("Meowstic-F","Meowstic").replace("-East","").replace("Sirfetch'd","Sirfetchd")
             linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
             badlines=["","|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost","|-nothing"]
-            linepurposestoremove=["j","c","l","html","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
+            linepurposestoremove=["j","c","l","html","raw","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
             linepurpose=line.split("|",2)[1].replace("-","")
             #iterate turn number
             if linepurpose=="turn":
@@ -67,7 +67,7 @@ def newreplayparse(replay):
                 if lineremainder.find("/")>-1:
                     numerator=lineremainder.split("/")[0].split("|")[-1]
                     denomenator=lineremainder.split("/")[1].split("|")[0].split(" ")[0]
-                    print(lineremainder)
+                    #print(lineremainder)
                     newnumerator=int(int(numerator)/int(denomenator)*100)
                     lineremainder=lineremainder.replace(f"/{denomenator}","/100").replace(f"{numerator}/",f"{newnumerator}/")
                 parsedlogfile.append([line_number,turn_number,linepurpose,lineremainder])
