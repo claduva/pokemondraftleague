@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 
 import json
 from datetime import datetime
@@ -474,62 +475,44 @@ def upload_league_replay_manual(request,league_name,subleague_name,matchid):
 
 @check_if_clad
 def check_analyzer(request):
-    allmatches=historical_match.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
-    totalmatches=allmatches.count()
-    print(allmatches.count())
-    failedhistoric=[]
-    i=1
-    """
-    for match in allmatches:
-        try:
-            results = newreplayparse(match.replay)
-            if len(results['errormessage'])!=0:
-                failedhistoric.append(match)
-            else:
-                try:
-                    em=match.historical_match_replay
-                    em.data=results
-                    em.save()
-                except: 
-                    historical_match_replay.objects.create(match=match,data=results)
-        except Exception as e:
-            failedhistoric.append(match)
-        if i%25==0: print(i)
-        i+=1
-    for match in failedhistoric:
-        print(match.replay)
-    allmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
-    totalmatches+=allmatches.count()
-    print(allmatches.count())
-    """
-    failedschedule=[]
-    """
-    i=1
-    for match in allmatches:
-        try:
-            results = newreplayparse(match.replay)
-            if len(results['errormessage'])!=0:
-                failedschedule.append(match)
-            else:
-                try:
-                    em=match.match_replay
-                    em.data=results
-                    em.save()
-                except: 
-                    match_replay.objects.create(match=match,data=results)
-        except Exception as e:
-            failedschedule.append(match)
-            raise(e)
-        if i%25==0: print(i)
-        i+=1
-    for match in failedschedule:
-        print(match.replay)
-    """
-    passedmatches=totalmatches-len(failedhistoric)-len(failedschedule)
+    currentmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
+    histmatches=historical_match.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
     context={
-        "totalmatches": totalmatches,
-        "passedmatches": passedmatches,
-        "failedschedule":failedschedule,
-        "failedhistoric":failedhistoric,
+        'currentmatches':currentmatches,
+        'histmatches':histmatches,
     }
-    return  render(request,"analyzercheck.html",context)
+    return render(request,"analyzercheck.html",context)
+
+@csrf_exempt
+def check_current_match(request):
+    moi=schedule.objects.get(id=request.POST['matchid'])
+    url=moi.replay
+    try:
+        results = newreplayparse(url)
+        success=True
+        if len(results['errormessage'])!=0:
+            success=False
+    except:
+        success=False
+    data={
+        'replay': url,
+        'success': success,
+        }
+    return JsonResponse(data)
+
+@csrf_exempt
+def check_hist_match(request):
+    moi=historical_match.objects.get(id=request.POST['matchid'])
+    url=moi.replay
+    try:
+        results = newreplayparse(url)
+        success=True
+        if len(results['errormessage'])!=0:
+            success=False
+    except:
+        success=False
+    data={
+        'replay': url,
+        'success': success,
+        }
+    return JsonResponse(data)

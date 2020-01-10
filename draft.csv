@@ -1,0 +1,458 @@
+Season,Team ID,Pick Number,Team,Pokemon
+3,416,61,New England Primarinas,Kommo-o
+3,415,62,Minnesota Hyperfangs,Milotic
+3,414,63,Southern Shaymins,Reuniclus
+3,413,64,St. John's Sharpedoes,Goodra
+3,413,65,St. John's Sharpedoes,Metagross
+3,414,66,Southern Shaymins,Greninja
+3,415,67,Minnesota Hyperfangs,Dhelmise
+3,416,68,New England Primarinas,Darmanitan
+3,417,69,Richmond Reuniclus,Hitmontop
+3,418,70,Gallifreyan Gallades,Necrozma
+3,419,71,Delaware Kyurem-Black Foxes,Registeel
+3,420,72,Charming Sylveon,Blastoise-Mega
+3,421,73,Utah Weez,Staraptor
+3,422,74,Empoleon Emperors,Cresselia
+3,423,75,Ottawa Nidokings,Chesnaught
+3,424,76,Manchester Marowaks,Decidueye
+3,425,77,Puerto Rico Stuffuls,Forretress
+3,426,78,Mega Audino and Her Good Boys,Virizion
+3,427,79,Cape Town Krookodiles,Bronzong
+3,428,80,Niagara Gengars,Nidoking
+3,428,81,Niagara Gengars,Jolteon
+3,427,82,Cape Town Krookodiles,Aromatisse
+3,426,83,Mega Audino and Her Good Boys,Terrakion
+3,425,84,Puerto Rico Stuffuls,Mamoswine
+3,424,85,Manchester Marowaks,Raikou
+3,423,86,Ottawa Nidokings,Crobat
+3,422,87,Empoleon Emperors,Volcarona
+3,421,88,Utah Weez,Donphan
+3,420,89,Charming Sylveon,Tsareena
+3,419,90,Delaware Kyurem-Black Foxes,Nihilego
+3,418,91,Gallifreyan Gallades,Sandslash-Alola
+3,417,92,Richmond Reuniclus,Beedrill-Mega
+3,416,93,New England Primarinas,Ninetales-Alola
+3,415,94,Minnesota Hyperfangs,Gigalith
+3,414,95,Southern Shaymins,Nidoqueen
+3,413,96,St. John's Sharpedoes,Swampert
+3,413,97,St. John's Sharpedoes,Chandelure
+3,414,98,Southern Shaymins,Blaziken
+3,415,99,Minnesota Hyperfangs,Accelgor
+3,416,100,New England Primarinas,Galvantula
+3,417,101,Richmond Reuniclus,Cofagrigus
+3,418,102,Gallifreyan Gallades,Rhyperior
+3,419,103,Delaware Kyurem-Black Foxes,Alomomola
+3,420,104,Charming Sylveon,Raichu-Alola
+3,421,105,Utah Weez,Hitmonlee
+3,422,106,Empoleon Emperors,Mienshao
+3,423,107,Ottawa Nidokings,Mudsdale
+3,424,108,Manchester Marowaks,Sneasel
+3,425,109,Puerto Rico Stuffuls,Drapion
+3,426,110,Mega Audino and Her Good Boys,Mew
+3,427,111,Cape Town Krookodiles,Lickilicky
+3,428,112,Niagara Gengars,Lycanroc-Dusk
+3,428,113,Niagara Gengars,Gourgeist
+3,427,114,Cape Town Krookodiles,Cryogonal
+3,426,115,Mega Audino and Her Good Boys,Type:Null
+3,425,116,Puerto Rico Stuffuls,Mesprit
+3,424,117,Manchester Marowaks,Moltres
+3,423,118,Ottawa Nidokings,Scizor
+3,422,119,Empoleon Emperors,Roserade
+3,421,120,Utah Weez,Escavalier
+3,420,121,Charming Sylveon,Ribombee
+3,419,122,Delaware Kyurem-Black Foxes,Whimsicott
+3,418,123,Gallifreyan Gallades,Abomasnow-Mega
+3,417,124,Richmond Reuniclus,Heliolisk
+3,416,125,New England Primarinas,Weezing
+3,415,126,Minnesota Hyperfangs,Pangoro
+3,414,127,Southern Shaymins,Kartana
+3,413,128,St. John's Sharpedoes,Venusaur
+3,413,129,St. John's Sharpedoes,Miltank
+3,414,130,Southern Shaymins,Rhydon
+3,415,131,Minnesota Hyperfangs,Tornadus
+3,416,132,New England Primarinas,Stakataka
+3,417,133,Richmond Reuniclus,Pyroar
+3,418,134,Gallifreyan Gallades,Komala
+3,419,135,Delaware Kyurem-Black Foxes,Linoone
+3,420,136,Charming Sylveon,Muk
+3,421,137,Utah Weez,Regirock
+3,422,138,Empoleon Emperors,Skuntank
+3,423,139,Ottawa Nidokings,Mantine
+3,424,140,Manchester Marowaks,Scolipede
+3,425,141,Puerto Rico Stuffuls,Salamence
+3,426,142,Mega Audino and Her Good Boys,Luxray
+3,427,143,Cape Town Krookodiles,Meloetta
+3,428,144,Niagara Gengars,Sigilyph
+3,428,145,Niagara Gengars,Weavile
+3,427,146,Cape Town Krookodiles,Dragonite
+3,426,147,Mega Audino and Her Good Boys,Audino-Mega
+3,425,148,Puerto Rico Stuffuls,Rotom-Fan
+3,424,149,Manchester Marowaks,Seismitoad
+3,423,150,Ottawa Nidokings,Tauros
+3,422,151,Empoleon Emperors,Golem
+3,421,152,Utah Weez,Alakazam
+3,420,153,Charming Sylveon,Porygon2
+3,419,154,Delaware Kyurem-Black Foxes,Zoroark
+3,418,155,Gallifreyan Gallades,Rotom-Frost
+3,417,156,Richmond Reuniclus,Quagsire
+3,416,157,New England Primarinas,Vileplume
+3,415,158,Minnesota Hyperfangs,Uxie
+3,414,159,Southern Shaymins,Vivillon
+3,413,160,St. John's Sharpedoes,Spiritomb
+3,413,161,St. John's Sharpedoes,Primeape
+3,414,162,Southern Shaymins,Ampharos-Mega
+3,415,163,Minnesota Hyperfangs,Vigoroth
+3,416,164,New England Primarinas,Absol-Mega
+3,417,165,Richmond Reuniclus,Breloom
+3,418,166,Gallifreyan Gallades,Hawlucha
+3,419,167,Delaware Kyurem-Black Foxes,Piloswine
+3,420,168,Charming Sylveon,Lycanroc
+3,421,169,Utah Weez,Rotom
+3,422,170,Empoleon Emperors,Zangoose
+3,423,171,Ottawa Nidokings,Houndoom-Mega
+3,424,172,Manchester Marowaks,Cradily
+3,425,173,Puerto Rico Stuffuls,Musharna
+3,426,174,Mega Audino and Her Good Boys,Silvally
+3,427,175,Cape Town Krookodiles,Thundurus-Therian
+3,428,176,Niagara Gengars,Braviary
+4,460,1,Kajaani Sceptiles,Tapu Fini
+4,448,2,Seattle Shocks,Manaphy
+4,449,3,St. John Sharpedoes,Landorus-Therian
+4,456,4,Atlanta Azelfs,Kartana
+4,458,5,Sundsvall Seels,Diggersby
+4,453,6,Manchester Marowaks,Zygarde
+4,450,7,Oregon Golducks,Heatran
+4,455,8,Rainbow Pheonix,Excadrill
+4,447,9,Bye Week 3,Jirachi
+4,445,10,Little Rock Roggenrollers,Celesteela
+4,454,11,Bye Week 4,Scizor-Mega
+4,451,12,Bye Week,Keldeo
+4,452,13,Singapore Sableyes,Garchomp
+4,457,14,Bye Week 2,Hawlucha
+4,446,15,Milan Mimes Memes,Mew
+4,459,16,Hardhead Jangmo-o,Zeraora
+4,459,17,Hardhead Jangmo-o,Tapu Bulu
+4,446,18,Milan Mimes Memes,Rotom-Wash
+4,457,19,Bye Week 2,Latios
+4,452,20,Singapore Sableyes,Azumarill
+4,451,21,Bye Week,Volcanion
+4,454,22,Bye Week 4,Kyurem-Black
+4,445,23,Little Rock Roggenrollers,Toxapex
+4,447,24,Bye Week 3,Lopunny-Mega
+4,455,25,Rainbow Pheonix,Zapdos
+4,450,26,Oregon Golducks,Diancie-Mega
+4,453,27,Manchester Marowaks,Victini
+4,458,28,Sundsvall Seels,Venusaur-Mega
+4,456,29,Atlanta Azelfs,Medicham-Mega
+4,449,30,St. John Sharpedoes,Infernape
+4,448,31,Seattle Shocks,Mamoswine
+4,460,32,Kajaani Sceptiles,Manectric-Mega
+4,460,33,Kajaani Sceptiles,Latias
+4,448,34,Seattle Shocks,Breloom
+4,449,35,St. John Sharpedoes,Celebi
+4,456,36,Atlanta Azelfs,Gliscor
+4,458,37,Sundsvall Seels,Ninetales-Alola
+4,453,38,Manchester Marowaks,Serperior
+4,450,39,Oregon Golducks,Tangrowth
+4,455,40,Rainbow Pheonix,Primarina
+4,447,41,Bye Week 3,Hydreigon
+4,445,42,Little Rock Roggenrollers,Clefable
+4,454,43,Bye Week 4,Sylveon
+4,451,44,Bye Week,Starmie
+4,452,45,Singapore Sableyes,Ferrothorn
+4,457,46,Bye Week 2,Suicune
+4,446,47,Milan Mimes Memes,Charizard-Mega-X
+4,459,48,Hardhead Jangmo-o,Cresselia
+4,459,49,Hardhead Jangmo-o,Aggron-Mega
+4,446,50,Milan Mimes Memes,Scizor
+4,457,51,Bye Week 2,Raikou
+4,452,52,Singapore Sableyes,Crobat
+4,451,53,Bye Week,Pelipper
+4,454,54,Bye Week 4,Incineroar
+4,445,55,Little Rock Roggenrollers,Sableye-Mega
+4,447,56,Bye Week 3,Gourgeist
+4,455,57,Rainbow Pheonix,Alakazam
+4,450,58,Oregon Golducks,Dragonite
+4,453,59,Manchester Marowaks,Conkeldurr
+4,458,60,Sundsvall Seels,Empoleon
+4,456,61,Atlanta Azelfs,Gastrodon
+4,449,62,St. John Sharpedoes,Nihilego
+4,448,63,Seattle Shocks,Darmanitan
+4,460,64,Kajaani Sceptiles,Lucario
+4,460,65,Kajaani Sceptiles,Rotom-Heat
+4,448,66,Seattle Shocks,Galvantula
+4,449,67,St. John Sharpedoes,Vaporeon
+4,456,68,Atlanta Azelfs,Ribombee
+4,458,69,Sundsvall Seels,Jolteon
+4,453,70,Manchester Marowaks,Feraligatr
+4,450,71,Oregon Golducks,Forretress
+4,455,72,Rainbow Pheonix,Entei
+4,447,73,Bye Week 3,Krookodile
+4,445,74,Little Rock Roggenrollers,Chansey
+4,454,75,Bye Week 4,Seismitoad
+4,451,76,Bye Week,Swampert-Mega
+4,452,77,Singapore Sableyes,Greninja
+4,457,78,Bye Week 2,Dhelmise
+4,446,79,Milan Mimes Memes,Persian-Alola
+4,459,80,Hardhead Jangmo-o,Tentacruel
+4,459,81,Hardhead Jangmo-o,Kyurem
+4,446,82,Milan Mimes Memes,Floette-Eternal
+4,457,83,Bye Week 2,Snorlax
+4,452,84,Singapore Sableyes,Silvally
+4,451,85,Bye Week,Milotic
+4,454,86,Bye Week 4,Uxie
+4,445,87,Little Rock Roggenrollers,Regirock
+4,447,88,Bye Week 3,Miltank
+4,455,89,Rainbow Pheonix,Beedrill-Mega
+4,450,90,Oregon Golducks,Umbreon
+4,453,91,Manchester Marowaks,Aerodactyl-Mega
+4,458,92,Sundsvall Seels,Salamence
+4,456,93,Atlanta Azelfs,Amoonguss
+4,449,94,St. John Sharpedoes,Klefki
+4,448,95,Seattle Shocks,Bronzong
+4,460,96,Kajaani Sceptiles,Tyranitar
+4,460,97,Kajaani Sceptiles,Porygon2
+4,448,98,Seattle Shocks,Necrozma
+4,449,99,St. John Sharpedoes,Heliolisk
+4,456,100,Atlanta Azelfs,Azelf
+4,458,101,Sundsvall Seels,Volcarona
+4,453,102,Manchester Marowaks,Muk-Alola
+4,450,103,Oregon Golducks,Blastoise
+4,455,104,Rainbow Pheonix,Medicham
+4,447,105,Bye Week 3,Alomomola
+4,445,106,Little Rock Roggenrollers,Whimsicott
+4,454,107,Bye Week 4,Weezing
+4,451,108,Bye Week,Kingdra
+4,452,109,Singapore Sableyes,Gardevoir-Mega
+4,457,110,Bye Week 2,Registeel
+4,446,111,Milan Mimes Memes,Shaymin
+4,459,112,Hardhead Jangmo-o,Slurpuff
+4,459,113,Hardhead Jangmo-o,Gurdurr
+4,446,114,Milan Mimes Memes,Hitmontop
+4,457,115,Bye Week 2,Blaziken
+4,452,116,Singapore Sableyes,Arcanine
+4,451,117,Bye Week,Crawdaunt
+4,454,118,Bye Week 4,Emboar
+4,445,119,Little Rock Roggenrollers,Quagsire
+4,447,120,Bye Week 3,Raichu-Alola
+4,455,121,Rainbow Pheonix,Cofagrigus
+4,450,122,Oregon Golducks,Piloswine
+4,453,123,Manchester Marowaks,Froslass
+4,458,124,Sundsvall Seels,Mienshao
+4,456,125,Atlanta Azelfs,Ditto
+4,449,126,St. John Sharpedoes,Absol-Mega
+4,448,127,Seattle Shocks,Guzzlord
+4,460,128,Kajaani Sceptiles,Sandslash
+4,460,129,Kajaani Sceptiles,Vileplume
+4,448,130,Seattle Shocks,Granbull
+4,449,131,St. John Sharpedoes,Noivern
+4,456,132,Atlanta Azelfs,Rotom-Frost
+4,458,133,Sundsvall Seels,Mesprit
+4,453,134,Manchester Marowaks,Aromatisse
+4,450,135,Oregon Golducks,Ambipom
+4,455,136,Rainbow Pheonix,Exeggutor-Alola
+4,447,137,Bye Week 3,Cryogonal
+4,445,138,Little Rock Roggenrollers,Flygon
+4,454,139,Bye Week 4,Roserade
+4,451,140,Bye Week,Omastar
+4,452,141,Singapore Sableyes,Venomoth
+4,457,142,Bye Week 2,Gyarados-Mega
+4,446,143,Milan Mimes Memes,Gligar
+4,459,144,Hardhead Jangmo-o,Gengar
+4,459,145,Hardhead Jangmo-o,Zoroark
+4,446,146,Milan Mimes Memes,Qwilfish
+4,457,147,Bye Week 2,Garbodor
+4,452,148,Singapore Sableyes,Pangoro
+4,451,149,Bye Week,Lanturn
+4,454,150,Bye Week 4,Tauros
+4,445,151,Little Rock Roggenrollers,Regice
+4,447,152,Bye Week 3,Aerodactyl
+4,455,153,Rainbow Pheonix,Shuckle
+4,450,154,Oregon Golducks,Hitmonlee
+4,453,155,Manchester Marowaks,Raichu
+4,458,156,Sundsvall Seels,Oricorio
+4,456,157,Atlanta Azelfs,Chandelure
+4,449,158,St. John Sharpedoes,Dusknoir
+4,448,159,Seattle Shocks,Lickilicky
+4,460,160,Kajaani Sceptiles,Diancie
+4,460,161,Kajaani Sceptiles,Kecleon
+4,448,162,Seattle Shocks,Heracross-Mega
+4,449,163,St. John Sharpedoes,Avalugg
+4,456,164,Atlanta Azelfs,Klinklang
+4,458,165,Sundsvall Seels,Sandslash-Alola
+4,453,166,Manchester Marowaks,Durant
+4,450,167,Oregon Golducks,Slowking
+4,455,168,Rainbow Pheonix,Liepard
+4,447,169,Bye Week 3,Tapu Koko
+4,445,170,Little Rock Roggenrollers,Throh
+4,454,171,Bye Week 4,Thundurus
+4,451,172,Bye Week,Mantine
+4,452,173,Singapore Sableyes,Magneton
+4,457,174,Bye Week 2,Claydol
+4,446,175,Milan Mimes Memes,Misdreavus
+4,459,176,Hardhead Jangmo-o,Rhyperior
+4,440,1,Colorado Mamoswine,Tapu Koko
+4,431,2,Cape Town Krookodiles,Celesteela
+4,442,3,Charming Sylveon,Latias
+4,438,4,Columbus Tornadus,Garchomp
+4,435,5,Galveston Gourgeist,Heatran
+4,437,6,New York Gallades,Victini
+4,441,7,Richmond Reuniclus,Zygarde
+4,430,8,Avalon Articunos,Zeraora
+4,433,9,Memphis Metagross,Scizor-Mega
+4,443,10,Evergarden Eevees,Scizor
+4,444,11,Blank Team 2,Kyurem-Black
+4,429,12,Simley Shelmets,Thundurus
+4,432,13,Infamous Rayquazas,Sableye-Mega
+4,439,14,Toronto Fire Chickens,Moltres
+4,434,15,New England Primarinas,Manaphy
+4,434,16,New England Primarinas,Raikou
+4,439,17,Toronto Fire Chickens,Zoroark
+4,432,18,Infamous Rayquazas,Blacephalon
+4,429,19,Simley Shelmets,Weavile
+4,444,20,Blank Team 2,Cresselia
+4,443,21,Evergarden Eevees,Tapu Fini
+4,433,22,Memphis Metagross,Latios
+4,430,23,Avalon Articunos,Togekiss
+4,441,24,Richmond Reuniclus,Mew
+4,437,25,New York Gallades,Lopunny-Mega
+4,435,26,Galveston Gourgeist,Azelf
+4,438,27,Columbus Tornadus,Volcanion
+4,442,28,Charming Sylveon,Sylveon
+4,431,29,Cape Town Krookodiles,Necrozma
+4,440,30,Colorado Mamoswine,Infernape
+4,440,31,Colorado Mamoswine,Tyranitar
+4,431,32,Cape Town Krookodiles,Florges
+4,442,33,Charming Sylveon,Empoleon
+4,438,34,Columbus Tornadus,Floette-Eternal
+4,435,35,Galveston Gourgeist,Milotic
+4,437,36,New York Gallades,Primarina
+4,441,37,Richmond Reuniclus,Ferrothorn
+4,430,38,Avalon Articunos,Stakataka
+4,433,39,Memphis Metagross,Mimikyu
+4,443,40,Evergarden Eevees,Hydreigon
+4,444,41,Blank Team 2,Crobat
+4,429,42,Simley Shelmets,Starmie
+4,432,43,Infamous Rayquazas,Kyurem
+4,439,44,Toronto Fire Chickens,Slowking
+4,434,45,New England Primarinas,Nihilego
+4,434,46,New England Primarinas,Ribombee
+4,439,47,Toronto Fire Chickens,Sceptile-Mega
+4,432,48,Infamous Rayquazas,Klefki
+4,429,49,Simley Shelmets,Shaymin
+4,444,50,Blank Team 2,Whimsicott
+4,443,51,Evergarden Eevees,Tsareena
+4,433,52,Memphis Metagross,Rotom-Wash
+4,430,53,Avalon Articunos,Serperior
+4,441,54,Richmond Reuniclus,Vaporeon
+4,437,55,New York Gallades,Goodra
+4,435,56,Galveston Gourgeist,Comfey
+4,438,57,Columbus Tornadus,Cobalion
+4,442,58,Charming Sylveon,Terrakion
+4,431,59,Cape Town Krookodiles,Mamoswine
+4,440,60,Colorado Mamoswine,Tentacruel
+4,440,61,Colorado Mamoswine,Raichu-Alola
+4,431,62,Cape Town Krookodiles,Torkoal
+4,442,63,Charming Sylveon,Beedrill-Mega
+4,438,64,Columbus Tornadus,Silvally
+4,435,65,Galveston Gourgeist,Mienshao
+4,437,66,New York Gallades,Kartana
+4,441,67,Richmond Reuniclus,Manectric-Mega
+4,430,68,Avalon Articunos,Volcarona
+4,433,69,Memphis Metagross,Donphan
+4,443,70,Evergarden Eevees,Arcanine
+4,444,71,Blank Team 2,Porygon2
+4,429,72,Simley Shelmets,Heracross-Mega
+4,432,73,Infamous Rayquazas,Zapdos
+4,439,74,Toronto Fire Chickens,Lanturn
+4,434,75,New England Primarinas,Virizion
+4,434,76,New England Primarinas,Bronzong
+4,439,77,Toronto Fire Chickens,Tornadus
+4,432,78,Infamous Rayquazas,Conkeldurr
+4,429,79,Simley Shelmets,Darmanitan
+4,444,80,Blank Team 2,Magnezone
+4,443,81,Evergarden Eevees,Garchomp-Mega
+4,433,82,Memphis Metagross,Hitmonlee
+4,430,83,Avalon Articunos,Lucario
+4,441,84,Richmond Reuniclus,Krookodile
+4,437,85,New York Gallades,Umbreon
+4,435,86,Galveston Gourgeist,Rotom-Mow
+4,438,87,Columbus Tornadus,Venusaur-Mega
+4,442,88,Charming Sylveon,Muk-Alola
+4,431,89,Cape Town Krookodiles,Haxorus
+4,440,90,Colorado Mamoswine,Lickilicky
+4,440,91,Colorado Mamoswine,Landorus
+4,431,92,Cape Town Krookodiles,Roserade
+4,442,93,Charming Sylveon,Chandelure
+4,438,94,Columbus Tornadus,Galvantula
+4,435,95,Galveston Gourgeist,Tyrantrum
+4,437,96,New York Gallades,Gligar
+4,441,97,Richmond Reuniclus,Gengar
+4,430,98,Avalon Articunos,Sharpedo-Mega
+4,433,99,Memphis Metagross,Incineroar
+4,443,100,Evergarden Eevees,Espeon
+4,444,101,Blank Team 2,Seismitoad
+4,429,102,Simley Shelmets,Doublade
+4,432,103,Infamous Rayquazas,Venusaur
+4,439,104,Toronto Fire Chickens,Hippowdon
+4,434,105,New England Primarinas,Kingdra
+4,434,106,New England Primarinas,Houndoom-Mega
+4,439,107,Toronto Fire Chickens,Excadrill
+4,432,108,Infamous Rayquazas,Tauros
+4,429,109,Simley Shelmets,Aromatisse
+4,444,110,Blank Team 2,Emboar
+4,443,111,Evergarden Eevees,Weezing
+4,433,112,Memphis Metagross,Sceptile
+4,430,113,Avalon Articunos,Uxie
+4,441,114,Richmond Reuniclus,Hitmontop
+4,437,115,New York Gallades,Eelektross
+4,435,116,Galveston Gourgeist,Gourgeist
+4,438,117,Columbus Tornadus,Mandibuzz
+4,442,118,Charming Sylveon,Tangela
+4,431,119,Cape Town Krookodiles,Accelgor
+4,440,120,Colorado Mamoswine,Druddigon
+4,440,121,Colorado Mamoswine,Steelix-Mega
+4,431,122,Cape Town Krookodiles,Pidgeot-Mega
+4,442,123,Charming Sylveon,Swellow
+4,438,124,Columbus Tornadus,Cofagrigus
+4,435,125,Galveston Gourgeist,Miltank
+4,437,126,New York Gallades,Nidoqueen
+4,441,127,Richmond Reuniclus,Masquerain
+4,430,128,Avalon Articunos,Piloswine
+4,433,129,Memphis Metagross,Poipole
+4,443,130,Evergarden Eevees,Togedemaru
+4,444,131,Blank Team 2,Cradily
+4,429,132,Simley Shelmets,Noivern
+4,432,133,Infamous Rayquazas,Swampert
+4,439,134,Toronto Fire Chickens,Gliscor
+4,434,135,New England Primarinas,Mesprit
+4,434,136,New England Primarinas,Beartic
+4,439,137,Toronto Fire Chickens,Jirachi
+4,432,138,Infamous Rayquazas,Claydol
+4,429,139,Simley Shelmets,Rotom-Heat
+4,444,140,Blank Team 2,Absol-Mega
+4,443,141,Evergarden Eevees,Archeops
+4,433,142,Memphis Metagross,Musharna
+4,430,143,Avalon Articunos,Dragalge
+4,441,144,Richmond Reuniclus,Lycanroc-Dusk
+4,437,145,New York Gallades,Shuckle
+4,435,146,Galveston Gourgeist,Glalie-Mega
+4,438,147,Columbus Tornadus,Armaldo
+4,442,148,Charming Sylveon,Heliolisk
+4,431,149,Cape Town Krookodiles,Gurdurr
+4,440,150,Colorado Mamoswine,Exeggutor-Alola
+4,440,151,Colorado Mamoswine,Stoutland
+4,431,152,Cape Town Krookodiles,Raichu
+4,442,153,Charming Sylveon,Aerodactyl
+4,438,154,Columbus Tornadus,Kecleon
+4,435,155,Galveston Gourgeist,Tornadus-Therian
+4,437,156,New York Gallades,Haunter
+4,441,157,Richmond Reuniclus,Zangoose
+4,430,158,Avalon Articunos,Hitmonchan
+4,433,159,Memphis Metagross,Rampardos
+4,443,160,Evergarden Eevees,Machamp
+4,444,161,Blank Team 2,Dusknoir
+4,429,162,Simley Shelmets,Golem
+4,432,163,Infamous Rayquazas,Regirock
+4,439,164,Toronto Fire Chickens,Heracross
+4,434,165,New England Primarinas,Landorus-Therian

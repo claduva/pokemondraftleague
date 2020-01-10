@@ -18,24 +18,25 @@
             class="rounded-circle mediumlogo"></div>
 </div>
 <div class="row content-section align-items-center">
-    <div id="checkbody" class="col-12">
-        <h4>Matches to Analyze: {{totalmatches}}</h4>
-        <div>Progress: 0%</div>
-     <!--    
-        <h3>Matches Passed: {{passedmatches}}/{{totalmatches}} ({{totalmatches|percentage:passedmatches}}%)</h3>
-        {% if failedschedule %}
-            <h5>Failed Active Matches</h5>
-            {% for match in failedschedule %}
-                <div>{{match.replay}}</div>
-            {% endfor %}
-        {% endif %}
-        {% if failedhistoric %}
-            <h5>Failed Historic Matches</h5>
-            {% for match in failedhistoric %}
-                <div>{{match.replay}}</div>
-            {% endfor %}
-        {% endif %}
-         -->
+    <div class="col-12">
+        <h5>Current Match Analysis Progress: <span id="currentprogress">0</span>/{{currentmatches|length}}</h5>
+        <div>
+            {% for item in currentmatches %}
+            <div class="currentmatchid" hidden>{{item.id}}</div>
+            {%  endfor %}
+        </div>
+        <div>Match Analyzing: <span id="currentreplaybox"></span></div>
+        <h5>Historic Match Analysis Progress: <span id="histprogress">0</span>/{{histmatches|length}}</h5>
+        <div>
+            {% for item in histmatches %}
+            <div class="historicalmatchid" hidden>{{item.id}}</div>
+            {%  endfor %}
+        </div>
+        <div>Match Analyzing: <span id="histreplaybox"></span></div>
+        <h5>Failed Replays (Total: <span id="failcount">0</span>)</h5>
+        <div id="failedreplays">
+
+        </div>
     </div>
 </div>
 {% endblock %}

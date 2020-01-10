@@ -65,11 +65,19 @@ def newreplayparse(replay):
             elif line not in linestoremove and linepurpose not in linepurposestoremove and line not in badlines:
                 lineremainder=line.split("|",2)[2]
                 if lineremainder.find("/")>-1:
-                    numerator=lineremainder.split("/")[0].split("|")[-1]
-                    denomenator=lineremainder.split("/")[1].split("|")[0].split(" ")[0]
-                    #print(lineremainder)
-                    newnumerator=int(int(numerator)/int(denomenator)*100)
-                    lineremainder=lineremainder.replace(f"/{denomenator}","/100").replace(f"{numerator}/",f"{newnumerator}/")
+                    lineremainder_=""
+                    for segment in lineremainder.split("|"):
+                        if segment.find("/")>-1:
+                            try:
+                                numerator=segment.split("/")[0]
+                                denomenator=segment.split("/")[1].split("|")[0].split(" ")[0]
+                                newnumerator=int(int(numerator)/int(denomenator)*100)
+                                if newnumerator==0: newnumerator=1
+                                segment=segment.replace(f"/{denomenator}","/100").replace(f"{numerator}/",f"{newnumerator}/")
+                            except:
+                                pass
+                        lineremainder_=lineremainder_+"|"+segment    
+                    lineremainder=lineremainder_[1:]
                 parsedlogfile.append([line_number,turn_number,linepurpose,lineremainder])
                 line_number+=1
     #iterate through parsed logfile
@@ -108,8 +116,8 @@ def newreplayparse(replay):
     if damagedonetest!=damagedone: results['errormessage'].append("This replay's Team 2 damage numbers do not add up. Please contact claduva and do not submit the replay.")
     if scoretest!=score: results['errormessage'].append("This replay's Team 2 score numbers do not add up. Please contact claduva and do not submit the replay.")
     if score!=0 and results['team1']['wins']==1: results['errormessage'].append("The losing team's score should be 0. Please contact claduva and do not submit the replay.")
-    if len(results['errormessage'])>0:
-        results=alternativereplayparse(replay)
+    #if len(results['errormessage'])>0:
+    #    results=alternativereplayparse(replay)
     return results
 
 def activate_function(line,parsedlogfile,results):
