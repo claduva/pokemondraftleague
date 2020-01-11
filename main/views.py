@@ -315,7 +315,7 @@ def runscript(request):
     #for item in hr:
     #    print(item.replay)
     moi=schedule.objects.get(id=575)
-    print(moi.replay)
+    print(moi)
     #moi.replay="https://pokemondraftleague.online/static/logfiles/Season_2_ASPL_collin_vs_young.txt"
     #moi.save()
     return redirect('home')

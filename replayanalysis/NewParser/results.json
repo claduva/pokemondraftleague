@@ -1,18 +1,18 @@
 {
   "team1": {
-    "coach": "CoolMeDownB",
+    "coach": "Le'Salle",
     "roster": [
       {
-        "pokemon": "Marshadow",
-        "startform": "Marshadow",
-        "nickname": "ban",
-        "kills": 4,
+        "pokemon": "Kyurem-White",
+        "startform": "Kyurem-White",
+        "nickname": "Virus",
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 305,
-        "hphealed": 0,
-        "luck": 0.91,
+        "damagedone": 70,
+        "hphealed": 50,
+        "luck": 0.4,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -24,16 +24,16 @@
         "Curse": null
       },
       {
-        "pokemon": "Darkrai",
-        "startform": "Darkrai",
-        "nickname": "also ban",
+        "pokemon": "Genesect",
+        "startform": "Genesect",
+        "nickname": "Zion",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 26,
+        "damagedone": 44,
         "hphealed": 0,
-        "luck": -0.1,
+        "luck": 0.1,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -45,35 +45,35 @@
         "Curse": null
       },
       {
-        "pokemon": "Scizor-Mega",
-        "startform": "Scizor",
-        "nickname": "ChainsawJoey",
+        "pokemon": "Floette-Eternal",
+        "startform": "Floette-Eternal",
+        "nickname": "Amelie",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 56,
-        "hphealed": 0,
-        "luck": 1.06,
+        "support": 3,
+        "damagedone": 72,
+        "hphealed": 167,
+        "luck": -2.4,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
-        "brn": null,
+        "brn": "Kyojuro",
         "par": null,
         "frz": null,
         "tox": null,
         "Curse": null
       },
       {
-        "pokemon": "Wobbuffet",
-        "startform": "Wobbuffet",
-        "nickname": "no",
+        "pokemon": "Venusaur-Mega",
+        "startform": "Venusaur",
+        "nickname": "Thomas",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 2,
-        "damagedone": 0,
+        "support": 3,
+        "damagedone": 28,
         "hphealed": 0,
         "luck": 0.18,
         "remaininghealth": 0,
@@ -87,16 +87,16 @@
         "Curse": null
       },
       {
-        "pokemon": "Lombre",
-        "startform": "Lombre",
-        "nickname": "Sheepy sucks",
+        "pokemon": "Raikou",
+        "startform": "Raikou",
+        "nickname": "Extreme",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
         "damagedone": 69,
-        "hphealed": 12,
-        "luck": 0.0,
+        "hphealed": 0,
+        "luck": -0.3,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -108,16 +108,16 @@
         "Curse": null
       },
       {
-        "pokemon": "Shaymin",
-        "startform": "Shaymin",
-        "nickname": "Kyun",
+        "pokemon": "Forretress",
+        "startform": "Forretress",
+        "nickname": "Castle",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
+        "support": 1,
+        "damagedone": 35,
         "hphealed": 0,
-        "luck": -0.82,
+        "luck": 0.28,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -134,20 +134,20 @@
     "score": 0,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 14,
+    "timesswitched": 16,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 4,
+    "kills": 1,
     "deaths": 6,
-    "luck": 1.23,
-    "damagedone": 456,
-    "hphealed": 12,
-    "support": 2,
-    "activemon": "also ban",
+    "luck": -1.74,
+    "damagedone": 318,
+    "hphealed": 217,
+    "support": 7,
+    "activemon": "Zion",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Nihilego",
+    "Stealth Rock": "Gyomei",
     "Future Sight": null,
     "Doom Desire": null,
     "Sandstorm": null,
@@ -155,20 +155,20 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "ECE young",
+    "coach": "Accidental",
     "roster": [
       {
-        "pokemon": "Zeraora",
-        "startform": "Zeraora",
-        "nickname": "Zeraora",
+        "pokemon": "Metagross-Mega",
+        "startform": "Metagross",
+        "nickname": "Inosuke",
         "kills": 0,
-        "deaths": 1,
+        "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 59,
+        "damagedone": 17,
         "hphealed": 0,
-        "luck": -0.01,
-        "remaininghealth": 0,
+        "luck": 0.29,
+        "remaininghealth": 30,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -176,41 +176,21 @@
         "par": null,
         "frz": null,
         "tox": null,
-        "Curse": null
+        "Curse": null,
+        "slp": "Thomas"
       },
       {
-        "pokemon": "Lucario-Mega",
-        "startform": "Lucario",
-        "nickname": "Lucario",
+        "pokemon": "Clefable",
+        "startform": "Clefable",
+        "nickname": "Mitsuri",
         "kills": 3,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 181,
-        "hphealed": 0,
-        "luck": -0.12,
-        "remaininghealth": 74,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Mandibuzz",
-        "startform": "Mandibuzz",
-        "nickname": "Mandibuzz",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 21,
+        "damagedone": 166,
         "hphealed": 12,
-        "luck": -0.97,
-        "remaininghealth": 0,
+        "luck": -0.98,
+        "remaininghealth": 1,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -221,9 +201,9 @@
         "Curse": null
       },
       {
-        "pokemon": "Manaphy",
-        "startform": "Manaphy",
-        "nickname": "Manaphy",
+        "pokemon": "Tapu Koko",
+        "startform": "Tapu Koko",
+        "nickname": "Tapu Koko",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
@@ -242,16 +222,37 @@
         "Curse": null
       },
       {
-        "pokemon": "Nihilego",
-        "startform": "Nihilego",
-        "nickname": "Nihilego",
-        "kills": 3,
+        "pokemon": "Hippowdon",
+        "startform": "Hippowdon",
+        "nickname": "Gyomei",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 199,
+        "hphealed": -14,
+        "luck": 0.0,
+        "remaininghealth": 100,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Hydreigon",
+        "startform": "Hydreigon",
+        "nickname": "Michael Jackson",
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 3,
-        "damagedone": 324,
-        "hphealed": 0,
-        "luck": 0.61,
+        "support": 2,
+        "damagedone": 53,
+        "hphealed": 26,
+        "luck": 1.01,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -263,17 +264,17 @@
         "Curse": null
       },
       {
-        "pokemon": "Zygarde",
-        "startform": "Zygarde",
-        "nickname": "Zygarde",
-        "kills": 0,
-        "deaths": 1,
+        "pokemon": "Chandelure",
+        "startform": "Chandelure",
+        "nickname": "Kyojuro",
+        "kills": 2,
+        "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 27,
-        "hphealed": 18,
-        "luck": -0.74,
-        "remaininghealth": 0,
+        "damagedone": 382,
+        "hphealed": 2,
+        "luck": 1.42,
+        "remaininghealth": 77,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -286,23 +287,23 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 2,
+    "score": 5,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 14,
+    "timesswitched": 13,
     "selfdeaths": 0,
-    "remaininghealth": 174,
+    "remaininghealth": 308,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 4,
-    "luck": -1.23,
-    "damagedone": 612,
-    "hphealed": 30,
+    "deaths": 1,
+    "luck": 1.74,
+    "damagedone": 817,
+    "hphealed": 26,
     "support": 3,
-    "activemon": "Lucario",
+    "activemon": "Mitsuri",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": null,
+    "Stealth Rock": "Castle",
     "Future Sight": null,
     "Doom Desire": null,
     "Sandstorm": null,
@@ -310,81 +311,85 @@
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 29,
+  "numberofturns": 36,
   "turns": [],
-  "replay": "https://pokemondraftleague.online/static/logfiles/Season_2_ASPL_collin_vs_young.txt",
+  "replay": "http://127.0.0.1:8000/static/logfiles/Season_2_ASPL_nate_vs_accidental.txt",
   "significantevents": [
     [
-      2,
-      "LUCK: Scizor-Mega landed a crit on Zygarde with U-turn"
-    ],
-    [
-      4,
-      "Nihilego provided support by using Stealth Rock"
+      1,
+      "Hydreigon provided support by using Taunt"
     ],
     [
       5,
-      "Nihilego provided support by using Stealth Rock"
-    ],
-    [
-      5,
-      "Wobbuffet provided support by using Encore"
+      "Hippowdon provided support by using Stealth Rock"
     ],
     [
       6,
-      "Nihilego provided support by using Stealth Rock"
+      "Venusaur-Mega provided support by using Sleep Powder"
     ],
     [
-      10,
-      "Nihilego killed Scizor-Mega with Hidden Power"
+      6,
+      "LUCK: Venusaur-Mega missed Sleep Powder against Hydreigon"
     ],
     [
-      13,
-      "LUCK: Nihilego landed a crit on Shaymin with Sludge Wave"
+      7,
+      "Hydreigon provided support by using Taunt"
     ],
     [
-      13,
-      "Nihilego killed Shaymin with Sludge Wave"
-    ],
-    [
-      14,
-      "LUCK: Marshadow landed a crit on Mandibuzz with Close Combat"
+      12,
+      "Hydreigon killed Raikou with U-turn"
     ],
     [
       15,
-      "Marshadow killed Mandibuzz with Rock Tomb"
+      "Forretress provided support by using Stealth Rock"
+    ],
+    [
+      17,
+      "LUCK: Floette-Eternal was burned by Chandelure with Flamethrower"
     ],
     [
       18,
-      "Nihilego killed Lombre with Sludge Wave"
+      "Floette-Eternal provided support by using Wish"
     ],
     [
-      19,
-      "Marshadow killed Nihilego with Rock Tomb"
-    ],
-    [
-      22,
-      "Marshadow killed Zygarde with Close Combat"
+      20,
+      "Floette-Eternal provided support by using Wish"
     ],
     [
       24,
-      "Wobbuffet provided support by using Encore"
+      "Floette-Eternal provided support by using Wish"
+    ],
+    [
+      25,
+      "Chandelure killed Floette-Eternal with Flamethrower"
     ],
     [
       26,
-      "Marshadow killed Zeraora with Close Combat"
-    ],
-    [
-      27,
-      "Lucario-Mega killed Marshadow with Bullet Punch"
-    ],
-    [
-      28,
-      "Lucario-Mega killed Wobbuffet with Meteor Mash"
+      "Chandelure killed Forretress with Flamethrower"
     ],
     [
       29,
-      "Lucario-Mega killed Darkrai with Close Combat"
+      "Kyurem-White killed Hydreigon with Ice Beam"
+    ],
+    [
+      32,
+      "Venusaur-Mega provided support by using Sleep Powder"
+    ],
+    [
+      33,
+      "Venusaur-Mega provided support by using Leech Seed"
+    ],
+    [
+      34,
+      "Clefable killed Venusaur-Mega with Flamethrower"
+    ],
+    [
+      35,
+      "Clefable killed Kyurem-White with Moonblast"
+    ],
+    [
+      36,
+      "Clefable killed Genesect with Flamethrower"
     ]
   ],
   "errormessage": []
