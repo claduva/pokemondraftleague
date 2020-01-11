@@ -1,0 +1,620 @@
+|j|☆Le'Salle
+|j|☆Accidental
+
+
+|player|p1|Le'Salle|1
+
+
+|player|p2|Accidental|256
+|teamsize|p1|6
+|teamsize|p2|6
+|gametype|singles
+|gen|7
+|tier|[Gen 7] Draft League Tier
+|seed|
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|Species Clause: Limit one of each Pokémon
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Moody Clause: Moody is banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|clearpoke
+|poke|p1|Kyurem-White|item
+|poke|p1|Genesect-*|item
+|poke|p1|Floette-Eternal, F|item
+|poke|p1|Venusaur, M|item
+|poke|p1|Raikou|item
+|poke|p1|Forretress, M|item
+|poke|p2|Metagross|item
+|poke|p2|Clefable, M|item
+|poke|p2|Tapu Koko|item
+|poke|p2|Hippowdon, M|item
+|poke|p2|Hydreigon, F|item
+|poke|p2|Chandelure, M|item
+|teampreview
+
+
+|c|☆Accidental|glhf
+
+
+|c|☆Le'Salle|u2
+
+
+|j| BrunoYT
+
+
+|j| The Old Hag
+
+
+|j| Eastonn8
+
+
+|
+|start
+|switch|p1a: Castle|Forretress, M|100\/100
+|switch|p2a: Michael Jackson|Hydreigon, F|388\/388
+|turn|1
+
+
+|c| BrunoYT|Michael Jackson xD
+
+
+|c|☆Accidental|lol
+
+
+|j| CoolMeDownB
+
+
+|
+|switch|p1a: Amelie|Floette-Eternal, F|100\/100
+|move|p2a: Michael Jackson|Taunt|p1a: Amelie
+|-start|p1a: Amelie|move: Taunt
+|
+|upkeep
+|turn|2
+
+
+|j| A Mere Noob
+
+
+|c| BrunoYT|i wanna see more Acci
+
+
+|
+|move|p2a: Michael Jackson|U-turn|p1a: Amelie
+|-resisted|p1a: Amelie
+|-damage|p1a: Amelie|90\/100
+
+
+|c| The Old Hag|Have fun <3
+
+
+|j| BChezza
+
+
+|
+|switch|p2a: Inosuke|Metagross|323\/323
+|move|p1a: Amelie|Moonblast|p2a: Inosuke
+|-resisted|p2a: Inosuke
+|-damage|p2a: Inosuke|250\/323
+|
+|-heal|p1a: Amelie|96\/100|[from] item: Leftovers
+|upkeep
+|turn|3
+
+
+|c| BChezza|Let's go pecs
+
+
+|
+|switch|p2a: Michael Jackson|Hydreigon, F|388\/388
+|switch|p1a: Castle|Forretress, M|100\/100
+|
+|upkeep
+|turn|4
+
+
+|
+|switch|p1a: Extreme|Raikou, shiny|100\/100
+|-ability|p1a: Extreme|Pressure
+|move|p2a: Michael Jackson|U-turn|p1a: Extreme
+|-damage|p1a: Extreme|80\/100
+
+
+|
+|switch|p2a: Gyomei|Hippowdon, M|420\/420
+|-weather|Sandstorm|[from] ability: Sand Stream|[of] p2a: Gyomei
+|
+|-weather|Sandstorm|[upkeep]
+|-damage|p1a: Extreme|73\/100|[from] Sandstorm
+|upkeep
+|turn|5
+
+
+|
+|switch|p1a: Thomas|Venusaur, M|100\/100
+|move|p2a: Gyomei|Stealth Rock|p1a: Thomas
+|-sidestart|p1: Le'Salle|move: Stealth Rock
+|
+|-weather|Sandstorm|[upkeep]
+|-damage|p1a: Thomas|94\/100|[from] Sandstorm
+|upkeep
+|turn|6
+
+
+|
+|switch|p2a: Michael Jackson|Hydreigon, F|388\/388
+|-mega|p1a: Thomas|Venusaur|Venusaurite
+|detailschange|p1a: Thomas|Venusaur-Mega, M
+|move|p1a: Thomas|Sleep Powder|p2a: Michael Jackson|[miss]
+|-miss|p1a: Thomas|p2a: Michael Jackson
+|
+|-weather|Sandstorm|[upkeep]
+|-damage|p2a: Michael Jackson|364\/388|[from] Sandstorm
+|-damage|p1a: Thomas|88\/100|[from] Sandstorm
+|-heal|p2a: Michael Jackson|388\/388|[from] item: Leftovers
+|upkeep
+|turn|7
+
+
+|
+|switch|p1a: Amelie|Floette-Eternal, F|96\/100
+|-damage|p1a: Amelie|83\/100|[from] Stealth Rock
+|move|p2a: Michael Jackson|Taunt|p1a: Amelie
+|-start|p1a: Amelie|move: Taunt
+|
+|-weather|Sandstorm|[upkeep]
+|-damage|p2a: Michael Jackson|364\/388|[from] Sandstorm
+|-damage|p1a: Amelie|77\/100|[from] Sandstorm
+|-heal|p2a: Michael Jackson|388\/388|[from] item: Leftovers
+|-heal|p1a: Amelie|83\/100|[from] item: Leftovers
+|upkeep
+|turn|8
+
+
+|c|☆Le'Salle|;-;
+
+
+|
+|move|p2a: Michael Jackson|U-turn|p1a: Amelie
+|-resisted|p1a: Amelie
+|-damage|p1a: Amelie|74\/100
+
+
+|
+|switch|p2a: Kyojuro|Chandelure, M|301\/301
+|move|p1a: Amelie|Moonblast|p2a: Kyojuro
+|-resisted|p2a: Kyojuro
+|-damage|p2a: Kyojuro|226\/301
+|
+|-weather|none
+|-heal|p1a: Amelie|80\/100|[from] item: Leftovers
+|-heal|p2a: Kyojuro|244\/301|[from] item: Leftovers
+|upkeep
+|turn|9
+
+
+|
+|switch|p1a: Extreme|Raikou, shiny|73\/100
+|-damage|p1a: Extreme|61\/100|[from] Stealth Rock
+|-ability|p1a: Extreme|Pressure
+|move|p2a: Kyojuro|Substitute|p2a: Kyojuro
+|-start|p2a: Kyojuro|Substitute
+|-damage|p2a: Kyojuro|169\/301
+|
+|-heal|p2a: Kyojuro|187\/301|[from] item: Leftovers
+|upkeep
+|turn|10
+
+
+|
+|move|p1a: Extreme|Shadow Ball|p2a: Kyojuro
+|-supereffective|p2a: Kyojuro
+|-end|p2a: Kyojuro|Substitute
+|move|p2a: Kyojuro|Flamethrower|p1a: Extreme
+|-damage|p1a: Extreme|14\/100
+|
+|-heal|p2a: Kyojuro|205\/301|[from] item: Leftovers
+|upkeep
+|turn|11
+
+
+|
+|switch|p2a: Michael Jackson|Hydreigon, F|388\/388
+|move|p1a: Extreme|Shadow Ball|p2a: Michael Jackson
+|-resisted|p2a: Michael Jackson
+|-damage|p2a: Michael Jackson|339\/388
+|
+|-heal|p2a: Michael Jackson|363\/388|[from] item: Leftovers
+|upkeep
+|turn|12
+
+
+|
+|move|p1a: Extreme|Aura Sphere|p2a: Michael Jackson
+|-supereffective|p2a: Michael Jackson
+|-damage|p2a: Michael Jackson|147\/388
+|move|p2a: Michael Jackson|U-turn|p1a: Extreme
+|-damage|p1a: Extreme|0 fnt
+|faint|p1a: Extreme
+
+
+|
+|switch|p2a: Kyojuro|Chandelure, M|205\/301
+|
+|-heal|p2a: Kyojuro|223\/301|[from] item: Leftovers
+|upkeep
+
+
+|
+|switch|p1a: Amelie|Floette-Eternal, F|80\/100
+|-damage|p1a: Amelie|67\/100|[from] Stealth Rock
+|turn|13
+
+
+|
+|switch|p2a: Inosuke|Metagross|250\/323
+|move|p1a: Amelie|Moonblast|p2a: Inosuke
+|-resisted|p2a: Inosuke
+|-damage|p2a: Inosuke|172\/323
+|
+|-heal|p1a: Amelie|74\/100|[from] item: Leftovers
+|upkeep
+|turn|14
+
+
+|
+|switch|p1a: Castle|Forretress, M|100\/100
+|-damage|p1a: Castle|88\/100|[from] Stealth Rock
+|-mega|p2a: Inosuke|Metagross|Metagrossite
+|detailschange|p2a: Inosuke|Metagross-Mega
+|move|p2a: Inosuke|Meteor Mash|p1a: Castle
+|-resisted|p1a: Castle
+|-damage|p1a: Castle|71\/100
+|-damage|p2a: Inosuke|119\/323|[from] item: Rocky Helmet|[of] p1a: Castle
+|
+|upkeep
+|turn|15
+
+
+|
+|switch|p2a: Kyojuro|Chandelure, M|223\/301
+|move|p1a: Castle|Stealth Rock|p2a: Kyojuro
+|-sidestart|p2: Accidental|move: Stealth Rock
+|
+|-heal|p2a: Kyojuro|241\/301|[from] item: Leftovers
+|upkeep
+|turn|16
+
+
+|
+|switch|p1a: Amelie|Floette-Eternal, F|74\/100
+|-damage|p1a: Amelie|61\/100|[from] Stealth Rock
+|move|p2a: Kyojuro|Substitute|p2a: Kyojuro
+|-start|p2a: Kyojuro|Substitute
+|-damage|p2a: Kyojuro|166\/301
+|
+|-heal|p1a: Amelie|67\/100|[from] item: Leftovers
+|-heal|p2a: Kyojuro|184\/301|[from] item: Leftovers
+|upkeep
+|turn|17
+
+
+|
+|move|p1a: Amelie|Moonblast|p2a: Kyojuro
+|-resisted|p2a: Kyojuro
+|-activate|p2a: Kyojuro|move: Substitute|[damage]
+|move|p2a: Kyojuro|Flamethrower|p1a: Amelie
+|-damage|p1a: Amelie|36\/100
+|-status|p1a: Amelie|brn
+|
+|-heal|p1a: Amelie|43\/100 brn|[from] item: Leftovers
+|-heal|p2a: Kyojuro|202\/301|[from] item: Leftovers
+|-damage|p1a: Amelie|36\/100 brn|[from] brn
+|upkeep
+|turn|18
+
+
+|
+|move|p1a: Amelie|Wish|p1a: Amelie
+|move|p2a: Kyojuro|Substitute|p2a: Kyojuro
+|-fail|p2a: Kyojuro|move: Substitute
+|
+|-heal|p1a: Amelie|43\/100 brn|[from] item: Leftovers
+|-heal|p2a: Kyojuro|220\/301|[from] item: Leftovers
+|-damage|p1a: Amelie|36\/100 brn|[from] brn
+|upkeep
+|turn|19
+
+
+|
+|move|p1a: Amelie|Moonblast|p2a: Kyojuro
+|-resisted|p2a: Kyojuro
+|-end|p2a: Kyojuro|Substitute
+|move|p2a: Kyojuro|Flamethrower|p1a: Amelie
+|-damage|p1a: Amelie|3\/100 brn
+|
+|-heal|p1a: Amelie|53\/100 brn|[from] move: Wish|[wisher] Amelie
+|-heal|p1a: Amelie|59\/100 brn|[from] item: Leftovers
+|-heal|p2a: Kyojuro|238\/301|[from] item: Leftovers
+|-damage|p1a: Amelie|53\/100 brn|[from] brn
+|upkeep
+|turn|20
+
+
+|
+|move|p1a: Amelie|Wish|p1a: Amelie
+|move|p2a: Kyojuro|Substitute|p2a: Kyojuro
+|-start|p2a: Kyojuro|Substitute
+|-damage|p2a: Kyojuro|163\/301
+|
+|-heal|p1a: Amelie|59\/100 brn|[from] item: Leftovers
+|-heal|p2a: Kyojuro|181\/301|[from] item: Leftovers
+|-damage|p1a: Amelie|53\/100 brn|[from] brn
+|upkeep
+|turn|21
+
+
+|
+|switch|p1a: Thomas|Venusaur-Mega, M|88\/100
+|-damage|p1a: Thomas|76\/100|[from] Stealth Rock
+|move|p2a: Kyojuro|Shadow Ball|p1a: Thomas
+|-damage|p1a: Thomas|38\/100
+|
+|-heal|p1a: Thomas|86\/100|[from] move: Wish|[wisher] Amelie
+|-heal|p2a: Kyojuro|199\/301|[from] item: Leftovers
+|upkeep
+|turn|22
+
+
+|j| Yankster96
+
+
+|l| BChezza
+
+
+|
+|move|p2a: Kyojuro|Flamethrower|p1a: Thomas
+|-supereffective|p1a: Thomas
+|-damage|p1a: Thomas|40\/100
+|move|p1a: Thomas|Earthquake|p2a: Kyojuro
+|-supereffective|p2a: Kyojuro
+|-end|p2a: Kyojuro|Substitute
+|
+|-heal|p2a: Kyojuro|217\/301|[from] item: Leftovers
+|upkeep
+|turn|23
+
+
+|
+|switch|p1a: Amelie|Floette-Eternal, F|53\/100 brn
+|-damage|p1a: Amelie|41\/100 brn|[from] Stealth Rock
+|move|p2a: Kyojuro|Flamethrower|p1a: Amelie
+|-damage|p1a: Amelie|10\/100 brn
+|
+|-heal|p1a: Amelie|16\/100 brn|[from] item: Leftovers
+|-heal|p2a: Kyojuro|235\/301|[from] item: Leftovers
+|-damage|p1a: Amelie|10\/100 brn|[from] brn
+|upkeep
+|turn|24
+
+
+|
+|move|p1a: Amelie|Wish|p1a: Amelie
+|move|p2a: Kyojuro|Substitute|p2a: Kyojuro
+|-start|p2a: Kyojuro|Substitute
+|-damage|p2a: Kyojuro|160\/301
+|
+|-heal|p1a: Amelie|16\/100 brn|[from] item: Leftovers
+|-heal|p2a: Kyojuro|178\/301|[from] item: Leftovers
+|-damage|p1a: Amelie|10\/100 brn|[from] brn
+|upkeep
+|turn|25
+
+
+|
+|move|p1a: Amelie|Moonblast|p2a: Kyojuro
+|-resisted|p2a: Kyojuro
+|-activate|p2a: Kyojuro|move: Substitute|[damage]
+|move|p2a: Kyojuro|Flamethrower|p1a: Amelie
+|-damage|p1a: Amelie|0 fnt
+|faint|p1a: Amelie
+|
+|-heal|p2a: Kyojuro|196\/301|[from] item: Leftovers
+|upkeep
+
+
+|
+|switch|p1a: Castle|Forretress, M|71\/100
+|-damage|p1a: Castle|59\/100|[from] Stealth Rock
+|turn|26
+
+
+|
+|move|p2a: Kyojuro|Flamethrower|p1a: Castle
+|-supereffective|p1a: Castle
+|-damage|p1a: Castle|0 fnt
+|faint|p1a: Castle
+|
+|-heal|p2a: Kyojuro|214\/301|[from] item: Leftovers
+|upkeep
+
+
+|
+|switch|p1a: Virus|Kyurem-White|100\/100
+|-damage|p1a: Virus|75\/100|[from] Stealth Rock
+|-ability|p1a: Virus|Turboblaze
+|turn|27
+
+
+|
+|move|p1a: Virus|Earth Power|p2a: Kyojuro
+|-supereffective|p2a: Kyojuro
+|-end|p2a: Kyojuro|Substitute
+|move|p2a: Kyojuro|Flamethrower|p1a: Virus
+|-damage|p1a: Virus|26\/100
+|
+|-heal|p1a: Virus|32\/100|[from] item: Leftovers
+|-heal|p2a: Kyojuro|232\/301|[from] item: Leftovers
+|upkeep
+|turn|28
+
+
+|
+|switch|p2a: Michael Jackson|Hydreigon, F|147\/388
+|-damage|p2a: Michael Jackson|99\/388|[from] Stealth Rock
+|move|p1a: Virus|Substitute|p1a: Virus
+|-start|p1a: Virus|Substitute
+|-damage|p1a: Virus|7\/100
+|
+|-heal|p1a: Virus|14\/100|[from] item: Leftovers
+|-heal|p2a: Michael Jackson|123\/388|[from] item: Leftovers
+|upkeep
+|turn|29
+
+
+|
+|move|p1a: Virus|Ice Beam|p2a: Michael Jackson
+|-supereffective|p2a: Michael Jackson
+|-damage|p2a: Michael Jackson|0 fnt
+|faint|p2a: Michael Jackson
+|
+|-heal|p1a: Virus|20\/100|[from] item: Leftovers
+|upkeep
+
+
+|
+|switch|p2a: Mitsuri|Clefable, M|394\/394
+|turn|30
+
+
+|
+|move|p1a: Virus|Roost|p1a: Virus
+|-heal|p1a: Virus|70\/100
+|move|p2a: Mitsuri|Moonblast|p1a: Virus
+|-supereffective|p1a: Virus
+|-end|p1a: Virus|Substitute
+|
+|-heal|p1a: Virus|76\/100|[from] item: Leftovers
+|upkeep
+|turn|31
+
+
+|
+|switch|p1a: Thomas|Venusaur-Mega, M|40\/100
+|-damage|p1a: Thomas|27\/100|[from] Stealth Rock
+|move|p2a: Mitsuri|Flamethrower|p1a: Thomas
+|-supereffective|p1a: Thomas
+|-damage|p1a: Thomas|12\/100
+|
+|upkeep
+|turn|32
+
+
+|
+|switch|p2a: Inosuke|Metagross-Mega|119\/323
+|-damage|p2a: Inosuke|99\/323|[from] Stealth Rock
+|move|p1a: Thomas|Sleep Powder|p2a: Inosuke
+|-status|p2a: Inosuke|slp
+|
+|upkeep
+|turn|33
+
+
+|
+|switch|p2a: Mitsuri|Clefable, M|394\/394
+|move|p1a: Thomas|Leech Seed|p2a: Mitsuri
+|-start|p2a: Mitsuri|move: Leech Seed
+|
+|upkeep
+|turn|34
+
+
+|
+|move|p1a: Thomas|Earthquake|p2a: Mitsuri
+|-damage|p2a: Mitsuri|286\/394
+|move|p2a: Mitsuri|Flamethrower|p1a: Thomas
+|-supereffective|p1a: Thomas
+|-damage|p1a: Thomas|0 fnt
+|faint|p1a: Thomas
+|
+|-heal|p2a: Mitsuri|310\/394|[from] item: Leftovers
+|upkeep
+
+
+|
+|switch|p1a: Virus|Kyurem-White|76\/100
+|-damage|p1a: Virus|51\/100|[from] Stealth Rock
+|-ability|p1a: Virus|Turboblaze
+|turn|35
+
+
+|
+|move|p1a: Virus|Ice Beam|p2a: Mitsuri
+|-damage|p2a: Mitsuri|157\/394
+|move|p2a: Mitsuri|Moonblast|p1a: Virus
+|-supereffective|p1a: Virus
+|-damage|p1a: Virus|0 fnt
+|faint|p1a: Virus
+|
+|-heal|p2a: Mitsuri|181\/394|[from] item: Leftovers
+|upkeep
+
+
+|
+|switch|p1a: Zion|Genesect-Douse, shiny|100\/100
+|-damage|p1a: Zion|88\/100|[from] Stealth Rock
+|-ability|p1a: Zion|Download|boost
+|-boost|p1a: Zion|atk|1
+|turn|36
+
+
+|
+|move|p1a: Zion|Extreme Speed|p2a: Mitsuri
+|-damage|p2a: Mitsuri|2\/394
+|move|p2a: Mitsuri|Flamethrower|p1a: Zion
+|-supereffective|p1a: Zion
+|-damage|p1a: Zion|0 fnt
+|faint|p1a: Zion
+|
+|win|Accidental
+
+
+|c|☆Le'Salle|oof
+
+
+|c|☆Accidental|gg
+
+
+|c|☆Le'Salle|gg
+
+
+|l| Eastonn8
+
+
+|l| BrunoYT
+
+
+|l| Yankster96
+
+
+|c|☆Le'Salle|ended up going scissor > iron head
+
+
+|c|☆Le'Salle|unfort
+
+
+|c|☆Accidental|ouch
+
+
+|j| Joey_RiverAPP
+
+
+|l| Joey_RiverAPP
+
+
+|c|☆Accidental|can you grab the replay? for some reason i can't grab it
+
+
+|c|☆Le'Salle|felt a lot closer than it looks lol
