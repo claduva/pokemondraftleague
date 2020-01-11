@@ -494,6 +494,11 @@ def check_current_match(request):
             success=False
     except:
         success=False
+    if success:
+        try:
+            mr=moi.match_replay
+        except:
+            match_replay.objects.create(match=moi,data=results)
     data={
         'replay': url,
         'success': success,
@@ -511,6 +516,11 @@ def check_hist_match(request):
             success=False
     except:
         success=False
+    if success:
+        try:
+            mr=moi.historical_match_replay
+        except:
+            historical_match_replay.objects.create(match=moi,data=results)
     data={
         'replay': url,
         'success': success,
