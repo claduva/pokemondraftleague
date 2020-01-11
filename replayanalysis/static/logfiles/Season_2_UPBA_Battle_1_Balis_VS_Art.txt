@@ -44,8 +44,8 @@
 |debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
 |
 |start
-|switch|p1a: Diana|Diancie|241\/241
-|switch|p2a: Dyson|Rotom-Wash|303\/303
+|switch|p1a: Diana|Diancie|241/241
+|switch|p2a: Dyson|Rotom-Wash|303/303
 |turn|1
 
 
@@ -54,14 +54,14 @@
 
 |choice|switch 6|
 |
-|switch|p1a: Eusaine|Suicune|404\/404
+|switch|p1a: Eusaine|Suicune|404/404
 |-ability|p1a: Eusaine|Pressure
 |move|p2a: Dyson|Hydro Pump|p1a: Eusaine
 |-resisted|p1a: Eusaine
 |-crit|p1a: Eusaine
-|-damage|p1a: Eusaine|314\/404
+|-damage|p1a: Eusaine|314/404
 |
-|-heal|p1a: Eusaine|339\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|339/404|[from] item: Leftovers
 |upkeep
 |turn|2
 
@@ -73,7 +73,7 @@
 |move|p2a: Dyson|Toxic|p1a: Eusaine
 |-activate|p1a: Eusaine|move: Protect
 |
-|-heal|p1a: Eusaine|364\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|364/404|[from] item: Leftovers
 |upkeep
 |turn|3
 
@@ -82,17 +82,17 @@
 |
 |move|p2a: Dyson|Volt Switch|p1a: Eusaine
 |-supereffective|p1a: Eusaine
-|-damage|p1a: Eusaine|214\/404
+|-damage|p1a: Eusaine|214/404
 
 
 |choice||
 |
-|switch|p2a: Robin|Decidueye, M, shiny|327\/327
+|switch|p2a: Robin|Decidueye, M, shiny|327/327
 |move|p1a: Eusaine|Substitute|p1a: Eusaine
 |-start|p1a: Eusaine|Substitute
-|-damage|p1a: Eusaine|113\/404
+|-damage|p1a: Eusaine|113/404
 |
-|-heal|p1a: Eusaine|138\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|138/404|[from] item: Leftovers
 |upkeep
 |turn|4
 
@@ -107,7 +107,7 @@
 |move|p2a: Robin|Leaf Blade|p1a: Eusaine
 |-activate|p1a: Eusaine|move: Protect
 |
-|-heal|p1a: Eusaine|163\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|163/404|[from] item: Leftovers
 |upkeep
 |turn|5
 
@@ -119,9 +119,9 @@
 |-end|p1a: Eusaine|Substitute
 |move|p1a: Eusaine|Scald|p2a: Robin
 |-resisted|p2a: Robin
-|-damage|p2a: Robin|288\/327
+|-damage|p2a: Robin|288/327
 |
-|-heal|p1a: Eusaine|188\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|188/404|[from] item: Leftovers
 |upkeep
 |turn|6
 
@@ -133,49 +133,49 @@
 |move|p2a: Robin|Leaf Blade|p1a: Eusaine
 |-activate|p1a: Eusaine|move: Protect
 |
-|-heal|p1a: Eusaine|213\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|213/404|[from] item: Leftovers
 |upkeep
 |turn|7
 
 
 |choice|switch 5|
 |
-|switch|p1a: Snoop|Torkoal, M|344\/344
+|switch|p1a: Snoop|Torkoal, M|344/344
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Snoop
 |move|p2a: Robin|Leaf Blade|p1a: Snoop
 |-resisted|p1a: Snoop
-|-damage|p1a: Snoop|286\/344
+|-damage|p1a: Snoop|286/344
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p1a: Snoop|307\/344|[from] item: Leftovers
+|-heal|p1a: Snoop|307/344|[from] item: Leftovers
 |upkeep
 |turn|8
 
 
 |choice|move toxic|
 |
-|switch|p2a: Dyson|Rotom-Wash|303\/303
+|switch|p2a: Dyson|Rotom-Wash|303/303
 |move|p1a: Snoop|Toxic|p2a: Dyson
 |-status|p2a: Dyson|tox
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p1a: Snoop|328\/344|[from] item: Leftovers
-|-damage|p2a: Dyson|285\/303 tox|[from] psn
+|-heal|p1a: Snoop|328/344|[from] item: Leftovers
+|-damage|p2a: Dyson|285/303 tox|[from] psn
 |upkeep
 |turn|9
 
 
 |choice|switch 3|
 |
-|switch|p1a: Tripod|Magneton|241\/241
+|switch|p1a: Tripod|Magneton|241/241
 |move|p2a: Dyson|Volt Switch|p1a: Tripod
 |-resisted|p1a: Tripod
-|-damage|p1a: Tripod|188\/241
+|-damage|p1a: Tripod|188/241
 
 
 |choice||
 |
-|switch|p2a: Ottawa ;)|Nidoking, M|313\/313
+|switch|p2a: Ottawa ;)|Nidoking, M|313/313
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
@@ -187,13 +187,13 @@
 
 |choice|switch 3|
 |
-|switch|p1a: Snoop|Torkoal, M|328\/344
+|switch|p1a: Snoop|Torkoal, M|328/344
 |move|p2a: Ottawa ;)|Ice Beam|p1a: Snoop
 |-resisted|p1a: Snoop
-|-damage|p1a: Snoop|281\/344
+|-damage|p1a: Snoop|281/344
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p1a: Snoop|302\/344|[from] item: Leftovers
+|-heal|p1a: Snoop|302/344|[from] item: Leftovers
 |upkeep
 |turn|11
 
@@ -212,16 +212,16 @@
 
 |choice|move fireblast|
 |
-|switch|p2a: Dyson|Rotom-Wash|285\/303 tox
+|switch|p2a: Dyson|Rotom-Wash|285/303 tox
 |move|p1a: Snoop|Fire Blast|p2a: Dyson
 |debug|Sunny Day fire boost
 |-resisted|p2a: Dyson
-|-damage|p2a: Dyson|219\/303 tox
+|-damage|p2a: Dyson|219/303 tox
 |
 |-weather|none
-|-heal|p2a: Dyson|237\/303 tox|[from] item: Leftovers
-|-heal|p1a: Snoop|323\/344|[from] item: Leftovers
-|-damage|p2a: Dyson|219\/303 tox|[from] psn
+|-heal|p2a: Dyson|237/303 tox|[from] item: Leftovers
+|-heal|p1a: Snoop|323/344|[from] item: Leftovers
+|-damage|p2a: Dyson|219/303 tox|[from] psn
 |upkeep
 |turn|12
 
@@ -234,24 +234,24 @@
 
 |choice|switch 2|
 |
-|switch|p1a: Overdrive|Kyurem-Black|391\/391
+|switch|p1a: Overdrive|Kyurem-Black|391/391
 |-ability|p1a: Overdrive|Teravolt
 |move|p2a: Dyson|Hydro Pump|p1a: Overdrive|[miss]
 |-miss|p2a: Dyson|p1a: Overdrive
 |
-|-heal|p2a: Dyson|237\/303 tox|[from] item: Leftovers
-|-damage|p2a: Dyson|201\/303 tox|[from] psn
+|-heal|p2a: Dyson|237/303 tox|[from] item: Leftovers
+|-damage|p2a: Dyson|201/303 tox|[from] psn
 |upkeep
 |turn|13
 
 
 |choice|move fusionbolt|
 |
-|switch|p2a: Robin|Decidueye, M, shiny|288\/327
+|switch|p2a: Robin|Decidueye, M, shiny|288/327
 |move|p1a: Overdrive|Fusion Bolt|p2a: Robin
 |-resisted|p2a: Robin
 |-crit|p2a: Robin
-|-damage|p2a: Robin|128\/327
+|-damage|p2a: Robin|128/327
 |
 |upkeep
 |turn|14
@@ -259,13 +259,13 @@
 
 |choice|move steelwing zmove|
 |
-|switch|p2a: GS Ball|Forretress, F, shiny|353\/353
+|switch|p2a: GS Ball|Forretress, F, shiny|353/353
 |-zpower|p1a: Overdrive
 |move|p1a: Overdrive|Corkscrew Crash|p2a: GS Ball|[zeffect]
 |debug|TryHit handler suppressed by Mold Breaker
 |-resisted|p2a: GS Ball
 |debug|Damage handler suppressed by Mold Breaker
-|-damage|p2a: GS Ball|287\/353
+|-damage|p2a: GS Ball|287/353
 |
 |upkeep
 |turn|15
@@ -276,13 +276,13 @@
 
 |choice|switch 2|
 |
-|switch|p1a: Snoop|Torkoal, M|323\/344
+|switch|p1a: Snoop|Torkoal, M|323/344
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Snoop
 |move|p2a: GS Ball|Stealth Rock|p1a: Snoop
 |-sidestart|p1: JustBalis|move: Stealth Rock
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p1a: Snoop|344\/344|[from] item: Leftovers
+|-heal|p1a: Snoop|344/344|[from] item: Leftovers
 |upkeep
 |turn|16
 
@@ -292,7 +292,7 @@
 
 |choice|move fireblast|
 |
-|switch|p2a: Robin|Decidueye, M, shiny|128\/327
+|switch|p2a: Robin|Decidueye, M, shiny|128/327
 |move|p1a: Snoop|Fire Blast|p2a: Robin
 |debug|Sunny Day fire boost
 |-supereffective|p2a: Robin
@@ -308,7 +308,7 @@
 
 |choice||
 |
-|switch|p2a: Ottawa ;)|Nidoking, M|313\/313
+|switch|p2a: Ottawa ;)|Nidoking, M|313/313
 |turn|17
 
 
@@ -318,27 +318,27 @@
 |choice|move rapidspin|
 |
 |move|p2a: Ottawa ;)|Sludge Wave|p1a: Snoop
-|-damage|p1a: Snoop|191\/344
+|-damage|p1a: Snoop|191/344
 |move|p1a: Snoop|Rapid Spin|p2a: Ottawa ;)
-|-damage|p2a: Ottawa ;)|300\/313
+|-damage|p2a: Ottawa ;)|300/313
 |-sideend|p1: JustBalis|Stealth Rock|[from] move: Rapid Spin|[of] p1a: Snoop
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p1a: Snoop|212\/344|[from] item: Leftovers
+|-heal|p1a: Snoop|212/344|[from] item: Leftovers
 |upkeep
 |turn|18
 
 
 |choice|switch 4|
 |
-|switch|p2a: Dyson|Rotom-Wash|201\/303 tox
-|switch|p1a: Leone|Landorus-Therian, M|319\/319
+|switch|p2a: Dyson|Rotom-Wash|201/303 tox
+|switch|p1a: Leone|Landorus-Therian, M|319/319
 |-ability|p1a: Leone|Intimidate|boost
 |-unboost|p2a: Dyson|atk|1
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p2a: Dyson|219\/303 tox|[from] item: Leftovers
-|-damage|p2a: Dyson|201\/303 tox|[from] psn
+|-heal|p2a: Dyson|219/303 tox|[from] item: Leftovers
+|-damage|p2a: Dyson|201/303 tox|[from] psn
 |upkeep
 |turn|19
 
@@ -346,44 +346,44 @@
 |choice|move uturn|
 |
 |move|p1a: Leone|U-turn|p2a: Dyson
-|-damage|p2a: Dyson|113\/303 tox
+|-damage|p2a: Dyson|113/303 tox
 
 
 |choice|switch 2|
 |
-|switch|p1a: Overdrive|Kyurem-Black|391\/391
+|switch|p1a: Overdrive|Kyurem-Black|391/391
 |-ability|p1a: Overdrive|Teravolt
 |move|p2a: Dyson|Toxic|p1a: Overdrive
 |-status|p1a: Overdrive|tox
 |
 |-weather|none
-|-heal|p2a: Dyson|131\/303 tox|[from] item: Leftovers
-|-damage|p1a: Overdrive|367\/391 tox|[from] psn
-|-damage|p2a: Dyson|95\/303 tox|[from] psn
+|-heal|p2a: Dyson|131/303 tox|[from] item: Leftovers
+|-damage|p1a: Overdrive|367/391 tox|[from] psn
+|-damage|p2a: Dyson|95/303 tox|[from] psn
 |upkeep
 |turn|20
 
 
 |choice|move fusionbolt|
 |
-|switch|p2a: GS Ball|Forretress, F, shiny|287\/353
+|switch|p2a: GS Ball|Forretress, F, shiny|287/353
 |move|p1a: Overdrive|Fusion Bolt|p2a: GS Ball
 |debug|TryHit handler suppressed by Mold Breaker
 |debug|Damage handler suppressed by Mold Breaker
-|-damage|p2a: GS Ball|195\/353
+|-damage|p2a: GS Ball|195/353
 |
-|-damage|p1a: Overdrive|319\/391 tox|[from] psn
+|-damage|p1a: Overdrive|319/391 tox|[from] psn
 |upkeep
 |turn|21
 
 
 |choice|switch 3|
 |
-|switch|p1a: Tripod|Magneton|188\/241
+|switch|p1a: Tripod|Magneton|188/241
 |move|p2a: GS Ball|Gyro Ball|p1a: Tripod
 |debug|86 bp
 |-resisted|p1a: Tripod
-|-damage|p1a: Tripod|166\/241
+|-damage|p1a: Tripod|166/241
 |
 |upkeep
 |turn|22
@@ -400,9 +400,9 @@
 
 |choice|move hiddenpower|
 |
-|switch|p2a: Balis' Bestie ;)|Mew, shiny|403\/403
+|switch|p2a: Balis' Bestie ;)|Mew, shiny|403/403
 |move|p1a: Tripod|Hidden Power|p2a: Balis' Bestie ;)
-|-damage|p2a: Balis' Bestie ;)|313\/403
+|-damage|p2a: Balis' Bestie ;)|313/403
 |
 |upkeep
 |turn|23
@@ -440,11 +440,11 @@
 
 |choice|switch 3|
 |
-|switch|p2a: Arzztt|Mienshao, F|271\/271
-|switch|p1a: Overdrive|Kyurem-Black|319\/391 tox
+|switch|p2a: Arzztt|Mienshao, F|271/271
+|switch|p1a: Overdrive|Kyurem-Black|319/391 tox
 |-ability|p1a: Overdrive|Teravolt
 |
-|-damage|p1a: Overdrive|295\/391 tox|[from] psn
+|-damage|p1a: Overdrive|295/391 tox|[from] psn
 |upkeep
 |turn|24
 
@@ -454,14 +454,14 @@
 
 |choice|switch 4|
 |
-|switch|p1a: Snoop|Torkoal, M|212\/344
+|switch|p1a: Snoop|Torkoal, M|212/344
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Snoop
 |move|p2a: Arzztt|Hidden Power|p1a: Snoop
 |-resisted|p1a: Snoop
-|-damage|p1a: Snoop|188\/344
+|-damage|p1a: Snoop|188/344
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p1a: Snoop|209\/344|[from] item: Leftovers
+|-heal|p1a: Snoop|209/344|[from] item: Leftovers
 |upkeep
 |turn|25
 
@@ -483,29 +483,29 @@
 
 |choice|move toxic|
 |
-|switch|p2a: Dyson|Rotom-Wash|95\/303 tox
+|switch|p2a: Dyson|Rotom-Wash|95/303 tox
 |move|p1a: Snoop|Toxic|p2a: Dyson
 |-fail|p2a: Dyson|tox
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p2a: Dyson|113\/303 tox|[from] item: Leftovers
-|-heal|p1a: Snoop|230\/344|[from] item: Leftovers
-|-damage|p2a: Dyson|95\/303 tox|[from] psn
+|-heal|p2a: Dyson|113/303 tox|[from] item: Leftovers
+|-heal|p1a: Snoop|230/344|[from] item: Leftovers
+|-damage|p2a: Dyson|95/303 tox|[from] psn
 |upkeep
 |turn|26
 
 
 |choice|switch 4|
 |
-|switch|p1a: Overdrive|Kyurem-Black|295\/391 tox
+|switch|p1a: Overdrive|Kyurem-Black|295/391 tox
 |-ability|p1a: Overdrive|Teravolt
 |move|p2a: Dyson|Pain Split|p1a: Overdrive
-|-sethp|p1a: Overdrive|195\/391 tox|p2a: Dyson|195\/303 tox|[from] move: Pain Split
+|-sethp|p1a: Overdrive|195/391 tox|p2a: Dyson|195/303 tox|[from] move: Pain Split
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p2a: Dyson|213\/303 tox|[from] item: Leftovers
-|-damage|p1a: Overdrive|171\/391 tox|[from] psn
-|-damage|p2a: Dyson|177\/303 tox|[from] psn
+|-heal|p2a: Dyson|213/303 tox|[from] item: Leftovers
+|-damage|p1a: Overdrive|171/391 tox|[from] psn
+|-damage|p2a: Dyson|177/303 tox|[from] psn
 |upkeep
 |turn|27
 
@@ -515,38 +515,38 @@
 
 |choice|move fusionbolt|
 |
-|switch|p2a: Ottawa ;)|Nidoking, M|300\/313
+|switch|p2a: Ottawa ;)|Nidoking, M|300/313
 |move|p1a: Overdrive|Fusion Bolt|p2a: Ottawa ;)
 |-immune|p2a: Ottawa ;)|[msg]
 |
 |-weather|SunnyDay|[upkeep]
-|-damage|p1a: Overdrive|123\/391 tox|[from] psn
+|-damage|p1a: Overdrive|123/391 tox|[from] psn
 |upkeep
 |turn|28
 
 
 |choice|switch 5|
 |
-|switch|p1a: Eusaine|Suicune|213\/404
+|switch|p1a: Eusaine|Suicune|213/404
 |-ability|p1a: Eusaine|Pressure
 |move|p2a: Ottawa ;)|Earth Power|p1a: Eusaine
-|-damage|p1a: Eusaine|99\/404
+|-damage|p1a: Eusaine|99/404
 |
 |-weather|none
-|-heal|p1a: Eusaine|124\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|124/404|[from] item: Leftovers
 |upkeep
 |turn|29
 
 
 |choice|switch 2|
 |
-|switch|p2a: Dyson|Rotom-Wash|177\/303 tox
-|switch|p1a: Leone|Landorus-Therian, M|319\/319
+|switch|p2a: Dyson|Rotom-Wash|177/303 tox
+|switch|p1a: Leone|Landorus-Therian, M|319/319
 |-ability|p1a: Leone|Intimidate|boost
 |-unboost|p2a: Dyson|atk|1
 |
-|-heal|p2a: Dyson|195\/303 tox|[from] item: Leftovers
-|-damage|p2a: Dyson|177\/303 tox|[from] psn
+|-heal|p2a: Dyson|195/303 tox|[from] item: Leftovers
+|-damage|p2a: Dyson|177/303 tox|[from] psn
 |upkeep
 |turn|30
 
@@ -554,19 +554,19 @@
 |choice|move uturn|
 |
 |move|p1a: Leone|U-turn|p2a: Dyson
-|-damage|p2a: Dyson|102\/303 tox
+|-damage|p2a: Dyson|102/303 tox
 
 
 |choice|switch 2|
 |
-|switch|p1a: Eusaine|Suicune|124\/404
+|switch|p1a: Eusaine|Suicune|124/404
 |-ability|p1a: Eusaine|Pressure
 |move|p2a: Dyson|Hydro Pump|p1a: Eusaine|[miss]
 |-miss|p2a: Dyson|p1a: Eusaine
 |
-|-heal|p2a: Dyson|120\/303 tox|[from] item: Leftovers
-|-heal|p1a: Eusaine|149\/404|[from] item: Leftovers
-|-damage|p2a: Dyson|84\/303 tox|[from] psn
+|-heal|p2a: Dyson|120/303 tox|[from] item: Leftovers
+|-heal|p1a: Eusaine|149/404|[from] item: Leftovers
+|-damage|p2a: Dyson|84/303 tox|[from] psn
 |upkeep
 |turn|31
 
@@ -578,9 +578,9 @@
 |move|p2a: Dyson|Volt Switch|p1a: Eusaine
 |-activate|p1a: Eusaine|move: Protect
 |
-|-heal|p2a: Dyson|102\/303 tox|[from] item: Leftovers
-|-heal|p1a: Eusaine|174\/404|[from] item: Leftovers
-|-damage|p2a: Dyson|48\/303 tox|[from] psn
+|-heal|p2a: Dyson|102/303 tox|[from] item: Leftovers
+|-heal|p1a: Eusaine|174/404|[from] item: Leftovers
+|-damage|p2a: Dyson|48/303 tox|[from] psn
 |upkeep
 |turn|32
 
@@ -588,14 +588,14 @@
 |choice|move calmmind|
 |
 |move|p2a: Dyson|Pain Split|p1a: Eusaine
-|-sethp|p1a: Eusaine|111\/404|p2a: Dyson|111\/303 tox|[from] move: Pain Split
+|-sethp|p1a: Eusaine|111/404|p2a: Dyson|111/303 tox|[from] move: Pain Split
 |move|p1a: Eusaine|Calm Mind|p1a: Eusaine
 |-boost|p1a: Eusaine|spa|1
 |-boost|p1a: Eusaine|spd|1
 |
-|-heal|p2a: Dyson|129\/303 tox|[from] item: Leftovers
-|-heal|p1a: Eusaine|136\/404|[from] item: Leftovers
-|-damage|p2a: Dyson|57\/303 tox|[from] psn
+|-heal|p2a: Dyson|129/303 tox|[from] item: Leftovers
+|-heal|p1a: Eusaine|136/404|[from] item: Leftovers
+|-damage|p2a: Dyson|57/303 tox|[from] psn
 |upkeep
 |turn|33
 
@@ -610,8 +610,8 @@
 |move|p2a: Dyson|Volt Switch|p1a: Eusaine
 |-activate|p1a: Eusaine|move: Protect
 |
-|-heal|p2a: Dyson|75\/303 tox|[from] item: Leftovers
-|-heal|p1a: Eusaine|161\/404|[from] item: Leftovers
+|-heal|p2a: Dyson|75/303 tox|[from] item: Leftovers
+|-heal|p1a: Eusaine|161/404|[from] item: Leftovers
 |-damage|p2a: Dyson|0 fnt|[from] psn
 |upkeep
 |faint|p2a: Dyson
@@ -625,7 +625,7 @@
 
 |choice||
 |
-|switch|p2a: Arzztt|Mienshao, F|271\/271
+|switch|p2a: Arzztt|Mienshao, F|271/271
 |turn|34
 
 
@@ -633,14 +633,14 @@
 |
 |move|p2a: Arzztt|High Jump Kick|p1a: Eusaine|[miss]
 |-miss|p2a: Arzztt|p1a: Eusaine
-|-damage|p2a: Arzztt|136\/271|[from] highjumpkick
+|-damage|p2a: Arzztt|136/271|[from] highjumpkick
 |move|p1a: Eusaine|Scald|p2a: Arzztt
 |-damage|p2a: Arzztt|0 fnt
 |debug|move failed because it did nothing
 |faint|p2a: Arzztt
 |
 |debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
-|-heal|p1a: Eusaine|186\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|186/404|[from] item: Leftovers
 |upkeep
 
 
@@ -654,7 +654,7 @@
 |choice||
 |debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
 |
-|switch|p2a: Balis' Bestie ;)|Mew, shiny|313\/403
+|switch|p2a: Balis' Bestie ;)|Mew, shiny|313/403
 |turn|35
 
 
@@ -673,9 +673,9 @@
 |-boost|p2a: Balis' Bestie ;)|spa|1
 |-boost|p2a: Balis' Bestie ;)|spd|1
 |move|p1a: Eusaine|Scald|p2a: Balis' Bestie ;)
-|-damage|p2a: Balis' Bestie ;)|232\/403
+|-damage|p2a: Balis' Bestie ;)|232/403
 |
-|-heal|p1a: Eusaine|211\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|211/404|[from] item: Leftovers
 |upkeep
 |turn|36
 
@@ -685,7 +685,7 @@
 
 |choice|switch 2|
 |
-|switch|p1a: Leone|Landorus-Therian, M|319\/319
+|switch|p1a: Leone|Landorus-Therian, M|319/319
 |-ability|p1a: Leone|Intimidate|boost
 |-unboost|p2a: Balis' Bestie ;)|atk|1
 |move|p2a: Balis' Bestie ;)|Calm Mind|p2a: Balis' Bestie ;)
@@ -700,9 +700,9 @@
 |
 |move|p1a: Leone|Knock Off|p2a: Balis' Bestie ;)
 |-supereffective|p2a: Balis' Bestie ;)
-|-damage|p2a: Balis' Bestie ;)|76\/403
+|-damage|p2a: Balis' Bestie ;)|76/403
 |move|p2a: Balis' Bestie ;)|Soft-Boiled|p2a: Balis' Bestie ;)
-|-heal|p2a: Balis' Bestie ;)|278\/403
+|-heal|p2a: Balis' Bestie ;)|278/403
 |
 |upkeep
 |turn|38
@@ -713,13 +713,13 @@
 
 |choice|switch 4|
 |
-|switch|p1a: Snoop|Torkoal, M|230\/344
+|switch|p1a: Snoop|Torkoal, M|230/344
 |-weather|SunnyDay|[from] ability: Drought|[of] p1a: Snoop
 |move|p2a: Balis' Bestie ;)|Psychic|p1a: Snoop
-|-damage|p1a: Snoop|25\/344
+|-damage|p1a: Snoop|25/344
 |
 |-weather|SunnyDay|[upkeep]
-|-heal|p1a: Snoop|46\/344|[from] item: Leftovers
+|-heal|p1a: Snoop|46/344|[from] item: Leftovers
 |upkeep
 |turn|39
 
@@ -736,7 +736,7 @@
 
 |choice|switch 5|
 |
-|switch|p1a: Overdrive|Kyurem-Black|123\/391 tox
+|switch|p1a: Overdrive|Kyurem-Black|123/391 tox
 |-ability|p1a: Overdrive|Teravolt
 |turn|40
 
@@ -754,7 +754,7 @@
 
 |choice|switch 4|
 |
-|switch|p1a: Leone|Landorus-Therian, M|319\/319
+|switch|p1a: Leone|Landorus-Therian, M|319/319
 |-ability|p1a: Leone|Intimidate|boost
 |-unboost|p2a: Balis' Bestie ;)|atk|1
 |turn|41
@@ -763,9 +763,9 @@
 |choice|move earthquake|
 |
 |move|p1a: Leone|Earthquake|p2a: Balis' Bestie ;)
-|-damage|p2a: Balis' Bestie ;)|73\/403
+|-damage|p2a: Balis' Bestie ;)|73/403
 |move|p2a: Balis' Bestie ;)|Psychic|p1a: Leone
-|-damage|p1a: Leone|63\/319
+|-damage|p1a: Leone|63/319
 |
 |-weather|SunnyDay|[upkeep]
 |upkeep
@@ -796,7 +796,7 @@
 
 |choice||
 |
-|switch|p2a: GS Ball|Forretress, F, shiny|195\/353
+|switch|p2a: GS Ball|Forretress, F, shiny|195/353
 |turn|43
 
 
@@ -808,11 +808,11 @@
 
 |choice|switch 3|
 |
-|switch|p1a: Tripod|Magneton|166\/241
+|switch|p1a: Tripod|Magneton|166/241
 |move|p2a: GS Ball|Gyro Ball|p1a: Tripod
 |debug|86 bp
 |-resisted|p1a: Tripod
-|-damage|p1a: Tripod|141\/241
+|-damage|p1a: Tripod|141/241
 |
 |upkeep
 |turn|44
@@ -820,9 +820,9 @@
 
 |choice|move hiddenpower|
 |
-|switch|p2a: Ottawa ;)|Nidoking, M|300\/313
+|switch|p2a: Ottawa ;)|Nidoking, M|300/313
 |move|p1a: Tripod|Hidden Power|p2a: Ottawa ;)
-|-damage|p2a: Ottawa ;)|180\/313
+|-damage|p2a: Ottawa ;)|180/313
 |
 |upkeep
 |turn|45
@@ -830,23 +830,23 @@
 
 |choice|switch 2|
 |
-|switch|p1a: Eusaine|Suicune|211\/404
+|switch|p1a: Eusaine|Suicune|211/404
 |-ability|p1a: Eusaine|Pressure
 |move|p2a: Ottawa ;)|Earth Power|p1a: Eusaine
-|-damage|p1a: Eusaine|97\/404
+|-damage|p1a: Eusaine|97/404
 |
-|-heal|p1a: Eusaine|122\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|122/404|[from] item: Leftovers
 |upkeep
 |turn|46
 
 
 |choice|move protect|
 |
-|switch|p2a: GS Ball|Forretress, F, shiny|195\/353
+|switch|p2a: GS Ball|Forretress, F, shiny|195/353
 |move|p1a: Eusaine|Protect|p1a: Eusaine
 |-fail|p1a: Eusaine
 |
-|-heal|p1a: Eusaine|147\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|147/404|[from] item: Leftovers
 |upkeep
 |turn|47
 
@@ -854,15 +854,15 @@
 |choice|move scald|
 |
 |move|p1a: Eusaine|Scald|p2a: GS Ball
-|-damage|p2a: GS Ball|74\/353
+|-damage|p2a: GS Ball|74/353
 |-status|p2a: GS Ball|brn
 |move|p2a: GS Ball|Gyro Ball|p1a: Eusaine
 |debug|67 bp
 |-resisted|p1a: Eusaine
-|-damage|p1a: Eusaine|135\/404
+|-damage|p1a: Eusaine|135/404
 |
-|-heal|p1a: Eusaine|160\/404|[from] item: Leftovers
-|-damage|p2a: GS Ball|52\/353 brn|[from] brn
+|-heal|p1a: Eusaine|160/404|[from] item: Leftovers
+|-damage|p2a: GS Ball|52/353 brn|[from] brn
 |upkeep
 |turn|48
 
@@ -897,13 +897,13 @@
 |-damage|p2a: GS Ball|0 fnt
 |faint|p2a: GS Ball
 |
-|-heal|p1a: Eusaine|185\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|185/404|[from] item: Leftovers
 |upkeep
 
 
 |choice||
 |
-|switch|p2a: Ottawa ;)|Nidoking, M|180\/313
+|switch|p2a: Ottawa ;)|Nidoking, M|180/313
 |turn|49
 
 
@@ -917,7 +917,7 @@
 |move|p2a: Ottawa ;)|Sludge Wave|p1a: Eusaine
 |-activate|p1a: Eusaine|move: Protect
 |
-|-heal|p1a: Eusaine|210\/404|[from] item: Leftovers
+|-heal|p1a: Eusaine|210/404|[from] item: Leftovers
 |upkeep
 |turn|50
 
@@ -925,7 +925,7 @@
 |choice|move scald|
 |
 |move|p2a: Ottawa ;)|Sludge Wave|p1a: Eusaine
-|-damage|p1a: Eusaine|66\/404
+|-damage|p1a: Eusaine|66/404
 |move|p1a: Eusaine|Scald|p2a: Ottawa ;)
 |-supereffective|p2a: Ottawa ;)
 |-damage|p2a: Ottawa ;)|0 fnt

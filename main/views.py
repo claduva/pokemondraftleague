@@ -311,7 +311,9 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
-    hr=historical_match.objects.all().exclude(replay__contains="pokemonshowdown").exclude(replay__contains="Forfeit")
-    for item in hr:
-        print(item.replay)
+    #hr=historical_match.objects.all().exclude(replay__contains="pokemonshowdown").exclude(replay__contains="Forfeit")
+    #for item in hr:
+    #    print(item.replay)
+    moi=schedule.objects.get(id=820)
+    print(moi)
     return redirect('home')

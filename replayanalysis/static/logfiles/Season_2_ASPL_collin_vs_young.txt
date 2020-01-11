@@ -68,8 +68,8 @@
 |c|☆CoolMeDownB|I mean
 
 
-|raw|<div class="broadcast-blue"><strong>This room is no longer invite only!<\/strong><br \/>Anyone may now join.<\/div>
-|c|☆CoolMeDownB|\/log CoolMeDownB turned off modjoin.
+|raw|<div class="broadcast-blue"><strong>This room is no longer invite only!</strong><br />Anyone may now join.</div>
+|c|☆CoolMeDownB|/log CoolMeDownB turned off modjoin.
 
 
 |c|☆CoolMeDownB|lkol
@@ -110,8 +110,8 @@
 
 |
 |start
-|switch|p1a: ChainsawJoey|Scizor, F|100\/100
-|switch|p2a: Zygarde|Zygarde|419\/419
+|switch|p1a: ChainsawJoey|Scizor, F|100/100
+|switch|p2a: Zygarde|Zygarde|419/419
 |-ability|p2a: Zygarde|Aura Break
 |turn|1
 
@@ -131,19 +131,19 @@
 |
 |move|p1a: ChainsawJoey|U-turn|p2a: Zygarde
 |-crit|p2a: Zygarde
-|-damage|p2a: Zygarde|284\/419
+|-damage|p2a: Zygarde|284/419
 
 
 |c| Accidental|cRiT mAtTeReD
 
 
 |
-|switch|p1a: Sheepy sucks|Lombre, M|100\/100
+|switch|p1a: Sheepy sucks|Lombre, M|100/100
 |move|p2a: Zygarde|Dragon Tail|p1a: Sheepy sucks
-|-damage|p1a: Sheepy sucks|73\/100
-|drag|p1a: also ban|Darkrai|100\/100
+|-damage|p1a: Sheepy sucks|73/100
+|drag|p1a: also ban|Darkrai|100/100
 |
-|-heal|p2a: Zygarde|310\/419|[from] item: Leftovers
+|-heal|p2a: Zygarde|310/419|[from] item: Leftovers
 |upkeep
 |turn|3
 
@@ -152,8 +152,8 @@
 
 
 |
-|switch|p1a: no|Wobbuffet, F, shiny|100\/100
-|switch|p2a: Nihilego|Nihilego|359\/359
+|switch|p1a: no|Wobbuffet, F, shiny|100/100
+|switch|p2a: Nihilego|Nihilego|359/359
 |
 |upkeep
 |turn|4
@@ -180,8 +180,8 @@
 
 
 |
-|switch|p1a: ChainsawJoey|Scizor-Mega, F|100\/100
-|-damage|p1a: ChainsawJoey|88\/100|[from] Stealth Rock
+|switch|p1a: ChainsawJoey|Scizor-Mega, F|100/100
+|-damage|p1a: ChainsawJoey|88/100|[from] Stealth Rock
 |move|p2a: Nihilego|Stealth Rock|p1a: ChainsawJoey
 |-fail|p2a: Nihilego
 |
@@ -190,34 +190,34 @@
 
 
 |
-|switch|p2a: Zygarde|Zygarde|310\/419
+|switch|p2a: Zygarde|Zygarde|310/419
 |-ability|p2a: Zygarde|Aura Break
 |move|p1a: ChainsawJoey|U-turn|p2a: Zygarde
-|-damage|p2a: Zygarde|211\/419
+|-damage|p2a: Zygarde|211/419
 
 
 |
-|switch|p1a: Sheepy sucks|Lombre, M|73\/100
-|-damage|p1a: Sheepy sucks|61\/100|[from] Stealth Rock
+|switch|p1a: Sheepy sucks|Lombre, M|73/100
+|-damage|p1a: Sheepy sucks|61/100|[from] Stealth Rock
 |
-|-heal|p2a: Zygarde|237\/419|[from] item: Leftovers
+|-heal|p2a: Zygarde|237/419|[from] item: Leftovers
 |upkeep
 |turn|8
 
 
 |
-|switch|p2a: Nihilego|Nihilego|359\/359
+|switch|p2a: Nihilego|Nihilego|359/359
 |move|p1a: Sheepy sucks|Surf|p2a: Nihilego
 |-supereffective|p2a: Nihilego
-|-damage|p2a: Nihilego|185\/359
+|-damage|p2a: Nihilego|185/359
 |
 |upkeep
 |turn|9
 
 
 |
-|switch|p1a: ChainsawJoey|Scizor-Mega, F|88\/100
-|-damage|p1a: ChainsawJoey|76\/100|[from] Stealth Rock
+|switch|p1a: ChainsawJoey|Scizor-Mega, F|88/100
+|-damage|p1a: ChainsawJoey|76/100|[from] Stealth Rock
 |move|p2a: Nihilego|Sludge Wave|p1a: ChainsawJoey
 |-immune|p1a: ChainsawJoey|[msg]
 |
@@ -237,33 +237,33 @@
 
 
 |
-|switch|p1a: ban|Marshadow|100\/100
-|-damage|p1a: ban|94\/100|[from] Stealth Rock
+|switch|p1a: ban|Marshadow|100/100
+|-damage|p1a: ban|94/100|[from] Stealth Rock
 |turn|11
 
 
 |
-|switch|p2a: Mandibuzz|Mandibuzz, F|423\/423
+|switch|p2a: Mandibuzz|Mandibuzz, F|423/423
 |move|p1a: ban|Close Combat|p2a: Mandibuzz
-|-damage|p2a: Mandibuzz|281\/423
+|-damage|p2a: Mandibuzz|281/423
 |-unboost|p1a: ban|def|1
 |-unboost|p1a: ban|spd|1
 |
-|-heal|p2a: Mandibuzz|307\/423|[from] item: Leftovers
+|-heal|p2a: Mandibuzz|307/423|[from] item: Leftovers
 |upkeep
 |turn|12
 
 
 |
-|switch|p1a: Kyun|Shaymin|100\/100
-|-damage|p1a: Kyun|88\/100|[from] Stealth Rock
+|switch|p1a: Kyun|Shaymin|100/100
+|-damage|p1a: Kyun|88/100|[from] Stealth Rock
 |move|p2a: Mandibuzz|U-turn|p1a: Kyun
 |-supereffective|p1a: Kyun
-|-damage|p1a: Kyun|67\/100
+|-damage|p1a: Kyun|67/100
 
 
 |
-|switch|p2a: Nihilego|Nihilego|185\/359
+|switch|p2a: Nihilego|Nihilego|185/359
 |
 |upkeep
 |turn|13
@@ -303,20 +303,20 @@
 
 
 |
-|switch|p1a: ban|Marshadow|94\/100
-|-damage|p1a: ban|88\/100|[from] Stealth Rock
+|switch|p1a: ban|Marshadow|94/100
+|-damage|p1a: ban|88/100|[from] Stealth Rock
 |turn|14
 
 
 |
-|switch|p2a: Mandibuzz|Mandibuzz, F|307\/423
+|switch|p2a: Mandibuzz|Mandibuzz, F|307/423
 |move|p1a: ban|Close Combat|p2a: Mandibuzz
 |-crit|p2a: Mandibuzz
-|-damage|p2a: Mandibuzz|87\/423
+|-damage|p2a: Mandibuzz|87/423
 |-unboost|p1a: ban|def|1
 |-unboost|p1a: ban|spd|1
 |
-|-heal|p2a: Mandibuzz|113\/423|[from] item: Leftovers
+|-heal|p2a: Mandibuzz|113/423|[from] item: Leftovers
 |upkeep
 |turn|15
 
@@ -367,24 +367,24 @@
 
 
 |
-|switch|p2a: Zeraora|Zeraora|317\/317
+|switch|p2a: Zeraora|Zeraora|317/317
 |turn|16
 
 
 |
-|switch|p2a: Manaphy|Manaphy|373\/373
-|switch|p1a: Sheepy sucks|Lombre, M|61\/100
-|-damage|p1a: Sheepy sucks|48\/100|[from] Stealth Rock
+|switch|p2a: Manaphy|Manaphy|373/373
+|switch|p1a: Sheepy sucks|Lombre, M|61/100
+|-damage|p1a: Sheepy sucks|48/100|[from] Stealth Rock
 |
 |upkeep
 |turn|17
 
 
 |
-|switch|p2a: Nihilego|Nihilego|185\/359
+|switch|p2a: Nihilego|Nihilego|185/359
 |move|p1a: Sheepy sucks|Giga Drain|p2a: Nihilego
-|-damage|p2a: Nihilego|113\/359
-|-heal|p1a: Sheepy sucks|60\/100|[from] drain|[of] p2a: Nihilego
+|-damage|p2a: Nihilego|113/359
+|-heal|p1a: Sheepy sucks|60/100|[from] drain|[of] p2a: Nihilego
 |
 |upkeep
 |turn|18
@@ -402,8 +402,8 @@
 
 
 |
-|switch|p1a: ban|Marshadow|88\/100
-|-damage|p1a: ban|82\/100|[from] Stealth Rock
+|switch|p1a: ban|Marshadow|88/100
+|-damage|p1a: ban|82/100|[from] Stealth Rock
 |turn|19
 
 
@@ -434,16 +434,16 @@
 
 
 |
-|switch|p2a: Zeraora|Zeraora|317\/317
+|switch|p2a: Zeraora|Zeraora|317/317
 |turn|20
 
 
 |
 |move|p2a: Zeraora|Plasma Fists|p1a: ban
-|-damage|p1a: ban|23\/100
+|-damage|p1a: ban|23/100
 |-fieldactivate|move: Ion Deluge
 |move|p1a: ban|Rock Tomb|p2a: Zeraora
-|-damage|p2a: Zeraora|183\/317
+|-damage|p2a: Zeraora|183/317
 |-unboost|p2a: Zeraora|spe|1
 |
 |upkeep
@@ -451,14 +451,14 @@
 
 
 |
-|switch|p2a: Zygarde|Zygarde|237\/419
+|switch|p2a: Zygarde|Zygarde|237/419
 |-ability|p2a: Zygarde|Aura Break
 |move|p1a: ban|Close Combat|p2a: Zygarde
-|-damage|p2a: Zygarde|56\/419
+|-damage|p2a: Zygarde|56/419
 |-unboost|p1a: ban|def|1
 |-unboost|p1a: ban|spd|1
 |
-|-heal|p2a: Zygarde|82\/419|[from] item: Leftovers
+|-heal|p2a: Zygarde|82/419|[from] item: Leftovers
 |upkeep
 |turn|22
 
@@ -474,17 +474,17 @@
 
 
 |
-|switch|p2a: Lucario|Lucario, M|281\/281
+|switch|p2a: Lucario|Lucario, M|281/281
 |turn|23
 
 
 |
-|switch|p1a: no|Wobbuffet, F, shiny|100\/100
-|-damage|p1a: no|88\/100|[from] Stealth Rock
+|switch|p1a: no|Wobbuffet, F, shiny|100/100
+|-damage|p1a: no|88/100|[from] Stealth Rock
 |-mega|p2a: Lucario|Lucario|Lucarionite
 |detailschange|p2a: Lucario|Lucario-Mega, M
 |move|p2a: Lucario|Bullet Punch|p1a: no
-|-damage|p1a: no|60\/100
+|-damage|p1a: no|60/100
 |
 |upkeep
 |turn|24
@@ -504,8 +504,8 @@
 
 
 |
-|switch|p1a: ban|Marshadow|23\/100
-|-damage|p1a: ban|17\/100|[from] Stealth Rock
+|switch|p1a: ban|Marshadow|23/100
+|-damage|p1a: ban|17/100|[from] Stealth Rock
 |move|p2a: Lucario|Swords Dance|p2a: Lucario
 |-boost|p2a: Lucario|atk|2
 |
@@ -514,7 +514,7 @@
 
 
 |
-|switch|p2a: Zeraora|Zeraora|183\/317
+|switch|p2a: Zeraora|Zeraora|183/317
 |move|p1a: ban|Close Combat|p2a: Zeraora
 |-damage|p2a: Zeraora|0 fnt
 |-unboost|p1a: ban|def|1
@@ -525,7 +525,7 @@
 
 
 |
-|switch|p2a: Lucario|Lucario-Mega, M|281\/281
+|switch|p2a: Lucario|Lucario-Mega, M|281/281
 |turn|27
 
 
@@ -538,8 +538,8 @@
 
 
 |
-|switch|p1a: no|Wobbuffet, F, shiny|60\/100
-|-damage|p1a: no|48\/100|[from] Stealth Rock
+|switch|p1a: no|Wobbuffet, F, shiny|60/100
+|-damage|p1a: no|48/100|[from] Stealth Rock
 |turn|28
 
 
@@ -552,8 +552,8 @@
 
 
 |
-|switch|p1a: also ban|Darkrai|100\/100
-|-damage|p1a: also ban|88\/100|[from] Stealth Rock
+|switch|p1a: also ban|Darkrai|100/100
+|-damage|p1a: also ban|88/100|[from] Stealth Rock
 |turn|29
 
 
@@ -566,7 +566,7 @@
 |
 |move|p1a: also ban|Ice Beam|p2a: Lucario
 |-resisted|p2a: Lucario
-|-damage|p2a: Lucario|209\/281
+|-damage|p2a: Lucario|209/281
 |move|p2a: Lucario|Close Combat|p1a: also ban
 |-supereffective|p1a: also ban
 |-damage|p1a: also ban|0 fnt

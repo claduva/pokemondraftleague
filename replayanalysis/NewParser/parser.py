@@ -34,12 +34,8 @@ def replay_parse_switch(argument,parsedlogfile,results):
 
 def newreplayparse(replay):
     #initialize variables
-    if replay=="logfile" or replay.find("cdn.discordapp.com/attachments")>-1:
-        replay=None
-        logfile=[]
-        with open('replayanalysis/NewParser/logfile.txt', 'r') as f:
-            for line in f:
-                logfile.append(line.replace("\n","").replace("\\",""))
+    if replay.find("logfiles")>-1 and replay.find(".txt")>-1:
+        logfile = requests.get(replay).text.splitlines()
     else:
         logfile = requests.get(replay+".log").text.splitlines()   
     parsedlogfile=[]
