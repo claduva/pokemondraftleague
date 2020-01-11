@@ -314,7 +314,8 @@ def runscript(request):
     #hr=historical_match.objects.all().exclude(replay__contains="pokemonshowdown").exclude(replay__contains="Forfeit")
     #for item in hr:
     #    print(item.replay)
-    moi=schedule.objects.get(id=820)
-    moi.replay="https://pokemondraftleague.online/static/logfiles/Season_2_ASPL_collin_vs_young.txt"
-    moi.save()
+    moi=schedule.objects.get(id=575)
+    print(moi.replay)
+    #moi.replay="https://pokemondraftleague.online/static/logfiles/Season_2_ASPL_collin_vs_young.txt"
+    #moi.save()
     return redirect('home')
