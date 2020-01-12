@@ -1,19 +1,19 @@
 {
   "team1": {
-    "coach": "Accidental",
+    "coach": "TheNerf",
     "roster": [
       {
-        "pokemon": "Ditto",
-        "startform": "Ditto",
-        "nickname": "Cyanide Truth",
+        "pokemon": "Zygarde",
+        "startform": "Zygarde",
+        "nickname": "Dendar",
         "kills": 1,
         "deaths": 0,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 112,
-        "hphealed": 18,
-        "luck": 0.77,
-        "remaininghealth": 69,
+        "support": 2,
+        "damagedone": 54,
+        "hphealed": -7,
+        "luck": 0.32,
+        "remaininghealth": 76,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -24,17 +24,17 @@
         "Curse": null
       },
       {
-        "pokemon": "Lucario-Mega",
-        "startform": "Lucario",
-        "nickname": "Death's Door",
-        "kills": 1,
+        "pokemon": "Blastoise",
+        "startform": "Blastoise",
+        "nickname": "Crush",
+        "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 64,
+        "damagedone": 0,
         "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 27,
+        "luck": 0.04,
+        "remaininghealth": 71,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -45,62 +45,20 @@
         "Curse": null
       },
       {
-        "pokemon": "Mewtwo",
-        "startform": "Mewtwo",
-        "nickname": "Human Right",
-        "kills": 3,
-        "deaths": 1,
+        "pokemon": "Cofagrigus",
+        "startform": "Cofagrigus",
+        "nickname": "Szass Tam",
+        "kills": 5,
+        "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 332,
-        "hphealed": 78,
-        "luck": 0.37,
-        "remaininghealth": 0,
+        "damagedone": 500,
+        "hphealed": 199,
+        "luck": 0.35,
+        "remaininghealth": 56,
         "lines": [],
         "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Toxapex",
-        "startform": "Toxapex",
-        "nickname": "Eye for an Eye",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 3,
-        "damagedone": 67,
-        "hphealed": 165,
-        "luck": -0.7,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": "Steam Chav",
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Goodra",
-        "startform": "Goodra",
-        "nickname": "Faint of Heart",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 108,
-        "hphealed": 94,
-        "luck": -0.76,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": "Steam Chav",
-        "psn": null,
+        "psn": "BABY DOLL EYES",
         "brn": null,
         "par": null,
         "frz": null,
@@ -109,17 +67,59 @@
         "slp": null
       },
       {
-        "pokemon": "Greninja",
-        "startform": "Greninja",
-        "nickname": "I Fall Hard",
-        "kills": 1,
-        "deaths": 1,
+        "pokemon": "Umbreon",
+        "startform": "Umbreon",
+        "nickname": "Ruby",
+        "kills": 0,
+        "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 86,
+        "damagedone": 31,
+        "hphealed": 18,
+        "luck": -0.2,
+        "remaininghealth": 92,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Shaymin",
+        "startform": "Shaymin",
+        "nickname": "Thumper",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 22,
+        "hphealed": 42,
+        "luck": 0.71,
+        "remaininghealth": 77,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Delphox",
+        "startform": "Delphox",
+        "nickname": "Mozilla",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 51,
         "hphealed": 0,
-        "luck": -0.4,
-        "remaininghealth": 0,
+        "luck": 0.05,
+        "remaininghealth": 73,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -132,22 +132,22 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 2,
-    "megaevolved": true,
+    "score": 6,
+    "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 17,
+    "timesswitched": 8,
     "selfdeaths": 0,
-    "remaininghealth": 96,
+    "remaininghealth": 445,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 4,
-    "luck": -0.72,
-    "damagedone": 769,
-    "hphealed": 355,
-    "support": 4,
-    "activemon": "Death's Door",
+    "deaths": 0,
+    "luck": 1.27,
+    "damagedone": 658,
+    "hphealed": 252,
+    "support": 2,
+    "activemon": "Szass Tam",
     "Toxic Spikes": null,
-    "Spikes": null,
+    "Spikes": "THEGAMER7777",
     "Stealth Rock": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -156,19 +156,19 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "Bloody YT",
+    "coach": "AmirAlexander\u00bf",
     "roster": [
       {
-        "pokemon": "Kyogre",
-        "startform": "Kyogre",
-        "nickname": "Poseidoom",
-        "kills": 1,
+        "pokemon": "Diancie-Mega",
+        "startform": "Diancie",
+        "nickname": "NERF ME",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 204,
-        "hphealed": 0,
-        "luck": 0.29,
+        "damagedone": 65,
+        "hphealed": -24,
+        "luck": -0.11,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -180,16 +180,37 @@
         "Curse": null
       },
       {
-        "pokemon": "Lopunny-Mega",
-        "startform": "Lopunny",
-        "nickname": "Chun Lee",
-        "kills": 2,
+        "pokemon": "Gliscor",
+        "startform": "Gliscor",
+        "nickname": "CLEGGA\u00b4S STAR",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 211,
+        "damagedone": 19,
         "hphealed": 0,
-        "luck": 1.38,
+        "luck": 0.44,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "CLEGGA\u00b4S STAR",
+        "Curse": null
+      },
+      {
+        "pokemon": "Scizor",
+        "startform": "Scizor",
+        "nickname": "KETCHUPBUG",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 125,
+        "hphealed": 50,
+        "luck": 0.61,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -201,16 +222,37 @@
         "Curse": null
       },
       {
-        "pokemon": "Runerigus",
-        "startform": "Runerigus",
-        "nickname": "Enigma",
+        "pokemon": "Rotom-Wash",
+        "startform": "Rotom-Wash",
+        "nickname": "SOCKS EATER",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 111,
+        "hphealed": 0,
+        "luck": -2.73,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Tangela",
+        "startform": "Tangela",
+        "nickname": "BABY DOLL EYES",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 2,
-        "damagedone": 92,
-        "hphealed": 13,
-        "luck": -1.3,
+        "damagedone": 51,
+        "hphealed": 32,
+        "luck": 0.14,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -218,67 +260,25 @@
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": null,
+        "tox": "Dendar",
         "Curse": null
       },
       {
-        "pokemon": "Umbreon",
-        "startform": "Umbreon",
-        "nickname": "Luna",
+        "pokemon": "Qwilfish",
+        "startform": "Qwilfish",
+        "nickname": "THEGAMER7777",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 39,
-        "hphealed": 25,
-        "luck": -0.12,
+        "support": 4,
+        "damagedone": 36,
+        "hphealed": 0,
+        "luck": 0.38,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Weezing-Galar",
-        "startform": "Weezing-Galar",
-        "nickname": "Steam Chav",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 47,
-        "hphealed": 42,
-        "luck": 0.23,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": "Faint of Heart",
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Necrozma-Dusk-Mane",
-        "startform": "Necrozma-Dusk-Mane",
-        "nickname": "Shadow Star",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 266,
-        "hphealed": 89,
-        "luck": 0.24,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": "Eye for an Eye",
         "par": null,
         "frz": null,
         "tox": null,
@@ -290,138 +290,118 @@
     "score": 0,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 16,
+    "timesswitched": 22,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 4,
+    "kills": 0,
     "deaths": 6,
-    "luck": 0.72,
-    "damagedone": 859,
-    "hphealed": 169,
-    "support": 3,
-    "activemon": "Poseidoom",
-    "Toxic Spikes": "Eye for an Eye",
+    "luck": -1.27,
+    "damagedone": 407,
+    "hphealed": 58,
+    "support": 6,
+    "activemon": "BABY DOLL EYES",
+    "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Cyanide Truth",
-    "Future Sight": null,
+    "Stealth Rock": null,
+    "Future Sight": "Mozilla",
     "Doom Desire": null,
     "Sandstorm": null,
     "Hail": null,
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 50,
+  "numberofturns": 44,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexlegacy-21812",
+  "replay": "http://replay.pokemonshowdown.com/gen7anythinggoes-747944711",
   "significantevents": [
     [
-      1,
-      "Ditto provided support by using Stealth Rock"
-    ],
-    [
-      1,
-      "Runerigus provided support by using Will-O-Wisp"
-    ],
-    [
-      1,
-      "LUCK: Runerigus missed Will-O-Wisp against Ditto"
-    ],
-    [
-      2,
-      "Runerigus provided support by using Will-O-Wisp"
-    ],
-    [
-      2,
-      "LUCK: Runerigus missed Will-O-Wisp against Mewtwo"
-    ],
-    [
-      9,
-      "Toxapex provided support by using Haze"
-    ],
-    [
       11,
-      "Greninja killed Runerigus with Dark Pulse"
+      "Zygarde provided support by using Toxic"
     ],
     [
-      13,
-      "Toxapex provided support by using Toxic Spikes"
+      12,
+      "Qwilfish provided support by using Spikes"
     ],
     [
       14,
-      "Weezing-Galar provided support by using Defog"
+      "Zygarde provided support by using Toxic"
     ],
     [
       20,
-      "LUCK: Goodra was confused by Weezing-Galar with Strange Steam"
+      "LUCK: Scizor suffered a stat drop via secondary effect by Shaymin with Seed Flare"
     ],
     [
       21,
-      "LUCK: Weezing-Galar was paralyzed by Goodra with Thunder"
-    ],
-    [
-      22,
-      "LUCK: Toxapex was confused by Weezing-Galar with Strange Steam"
-    ],
-    [
-      23,
-      "LUCK: Toxapex hit itself in confusion caused by Steam Chav."
+      "LUCK: Scizor landed a crit on Cofagrigus with U-turn"
     ],
     [
       24,
-      "LUCK: Necrozma-Dusk-Mane was burned by Toxapex with Scald"
+      "Qwilfish provided support by using Spikes"
     ],
     [
       25,
-      "Toxapex provided support by using Haze"
+      "Qwilfish provided support by using Taunt"
     ],
     [
-      29,
-      "Mewtwo killed Umbreon with Aura Sphere"
+      26,
+      "Qwilfish provided support by using Spikes"
     ],
     [
-      34,
-      "Lopunny-Mega killed Toxapex with Frustration"
+      26,
+      "Cofagrigus killed Qwilfish with Shadow Ball"
     ],
     [
-      36,
-      "Mewtwo killed Weezing-Galar with Psystrike"
+      27,
+      "Tangela provided support by using Sleep Powder"
+    ],
+    [
+      31,
+      "Cofagrigus killed Gliscor with Shadow Ball"
+    ],
+    [
+      33,
+      "Tangela provided support by using Sleep Powder"
+    ],
+    [
+      35,
+      "LUCK: Rotom-Wash missed Charge Beam against Cofagrigus"
     ],
     [
       37,
-      "LUCK: Kyogre missed Origin Pulse against Goodra"
+      "LUCK: Rotom-Wash received a stat boost as a secondary effect from Charge Beam"
     ],
     [
       38,
-      "LUCK: Kyogre landed a crit on Goodra with Origin Pulse"
+      "LUCK: Rotom-Wash missed Charge Beam against Cofagrigus"
     ],
     [
-      42,
-      "LUCK: Lopunny-Mega landed a crit on Goodra with Frustration"
+      38,
+      "LUCK: Rotom-Wash suffered a stat drop via secondary effect by Cofagrigus with Shadow Ball"
     ],
     [
-      42,
-      "Lopunny-Mega killed Goodra with Frustration"
+      39,
+      "Cofagrigus killed Rotom-Wash with Shadow Ball"
+    ],
+    [
+      41,
+      "Cofagrigus killed Diancie-Mega with Shadow Ball"
     ],
     [
       43,
-      "Ditto killed Lopunny-Mega with Drain Punch"
+      "Cofagrigus killed Scizor with Shadow Ball"
     ],
     [
-      47,
-      "Necrozma-Dusk-Mane killed Greninja with X-Scissor"
+      44,
+      "LUCK: Cofagrigus was poisoned by Tangela with Sludge Bomb"
     ],
     [
-      48,
-      "Mewtwo killed Necrozma-Dusk-Mane with Shadow Ball"
+      44,
+      "LUCK: Tangela suffered a stat drop via secondary effect by Cofagrigus with Shadow Ball"
     ],
     [
-      49,
-      "Kyogre killed Mewtwo with Thunder"
-    ],
-    [
-      50,
-      "Lucario-Mega killed Kyogre with Close Combat"
+      44,
+      "Zygarde killed Tangela via tox"
     ]
   ],
   "errormessage": []

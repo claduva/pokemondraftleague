@@ -504,6 +504,8 @@ def check_current_match(request):
     if success:
         try:
             mr=match.match_replay
+            mr.data=results
+            mr.save()
         except:
             mr=match_replay.objects.create(match=moi,data=results)
         data=mr.data
@@ -582,6 +584,8 @@ def check_hist_match(request):
     if success:
         try:
             mr=match.historical_match_replay
+            mr.data=results
+            mr.save()
         except:
             mr=historical_match_replay.objects.create(match=moi,data=results)
         data=mr.data
