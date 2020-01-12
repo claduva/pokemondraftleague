@@ -475,8 +475,15 @@ def upload_league_replay_manual(request,league_name,subleague_name,matchid):
 
 @check_if_clad
 def check_analyzer(request):
-    currentmatches=schedule.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
-    histmatches=historical_match.objects.all().filter(replay__contains="replay.pokemonshowdown.com")
+    ##zero rosters  
+    roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    historical_roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    all_pokemon.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    ##zero coachs
+    coachdata.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    historical_team.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    currentmatches=schedule.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
+    histmatches=historical_match.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
     context={
         'currentmatches':currentmatches,
         'histmatches':histmatches,
@@ -485,8 +492,8 @@ def check_analyzer(request):
 
 @csrf_exempt
 def check_current_match(request):
-    moi=schedule.objects.get(id=request.POST['matchid'])
-    url=moi.replay
+    match=schedule.objects.get(id=request.POST['matchid'])
+    url=match.replay
     try:
         results = newreplayparse(url)
         success=True
@@ -496,9 +503,65 @@ def check_current_match(request):
         success=False
     if success:
         try:
-            mr=moi.match_replay
+            mr=match.match_replay
         except:
-            match_replay.objects.create(match=moi,data=results)
+            mr=match_replay.objects.create(match=moi,data=results)
+        data=mr.data
+        #align coachs
+        winner=match.winner
+        team1=match.team1
+        team2=match.team2
+        if (team1==winner and data['team2']['wins']>0) or (team2==winner and data['team1']['wins']>0):
+            team1=match.team2
+            team2=match.team1
+        #update teams
+        team1.wins+=data['team1']['wins']; team1.losses+=abs(data['team1']['wins']-1); team1.differential+=data['team1']['kills']-data['team1']['deaths']; team1.forfeit=data['team1']['forfeit']
+        team2.wins+=data['team2']['wins']; team2.losses+=abs(data['team2']['wins']-1); team2.differential+=data['team2']['kills']-data['team2']['deaths']; team2.forfeit=data['team2']['forfeit']
+        ##
+        for mon in data['team1']['roster']:
+            searchmon=mon['pokemon']
+            #search for mon
+            try:
+                foundmon=roster.objects.all().filter(season__subleague=team1.subleague,team=team1).get(pokemon__pokemon=searchmon)
+            except:
+                try:
+                    foundmon=roster.objects.all().filter(season__subleague=team1.subleague,team=team1).get(pokemon__pokemon__contains=searchmon)
+                except:
+                    try:
+                        foundmon=roster.objects.all().filter(season__subleague=team1.subleague).get(pokemon__pokemon=searchmon)
+                    except:
+                        try:
+                            foundmon=roster.objects.all().filter(season__subleague=team1.subleague).get(pokemon__pokemon__contains=searchmon)
+                        except:
+                            foundmon=all_pokemon.objects.all().get(pokemon=searchmon)
+            #update foundmon
+            foundmon.kills+=mon['kills']; foundmon.deaths+=mon['deaths']; foundmon.differential+=mon['kills']-mon['deaths']; foundmon.gp+=1; foundmon.gw+=data['team1']['wins']; foundmon.support+=mon['support']; foundmon.damagedone+=mon['damagedone']; foundmon.hphealed+=mon['hphealed']; foundmon.luck+=mon['luck']; foundmon.remaininghealth+=mon['remaininghealth']
+            #update team
+            team1.support+=mon['support']; team1.damagedone+=mon['damagedone']; team1.hphealed+=mon['hphealed']; team1.luck+=mon['luck']; team1.remaininghealth+=mon['remaininghealth']
+            foundmon.save()
+        for mon in data['team2']['roster']:
+            searchmon=mon['pokemon']
+            #search for mon
+            try:
+                foundmon=roster.objects.all().filter(season__subleague=team2.subleague,team=team2).get(pokemon__pokemon=searchmon)
+            except:
+                try:
+                    foundmon=roster.objects.all().filter(season__subleague=team2.subleague,team=team2).get(pokemon__pokemon__contains=searchmon)
+                except:
+                    try:
+                        foundmon=roster.objects.all().filter(season__subleague=team2.subleague).get(pokemon__pokemon=searchmon)
+                    except:
+                        try:
+                            foundmon=roster.objects.all().filter(season__subleague=team2.subleague).get(pokemon__pokemon__contains=searchmon)
+                        except:
+                            foundmon=all_pokemon.objects.all().get(pokemon=searchmon)
+            #update foundmon
+            foundmon.kills+=mon['kills']; foundmon.deaths+=mon['deaths']; foundmon.differential+=mon['kills']-mon['deaths']; foundmon.gp+=1; foundmon.gw+=data['team2']['wins']; foundmon.support+=mon['support']; foundmon.damagedone+=mon['damagedone']; foundmon.hphealed+=mon['hphealed']; foundmon.luck+=mon['luck']; foundmon.remaininghealth+=mon['remaininghealth']
+            #update team
+            team2.support+=mon['support']; team2.damagedone+=mon['damagedone']; team2.hphealed+=mon['hphealed']; team2.luck+=mon['luck']; team2.remaininghealth+=mon['remaininghealth']
+            foundmon.save()
+        team1.save()
+        team2.save()
     data={
         'replay': url,
         'success': success,
@@ -507,8 +570,8 @@ def check_current_match(request):
 
 @csrf_exempt
 def check_hist_match(request):
-    moi=historical_match.objects.get(id=request.POST['matchid'])
-    url=moi.replay
+    match=historical_match.objects.get(id=request.POST['matchid'])
+    url=match.replay
     try:
         results = newreplayparse(url)
         success=True
@@ -518,9 +581,65 @@ def check_hist_match(request):
         success=False
     if success:
         try:
-            mr=moi.historical_match_replay
+            mr=match.historical_match_replay
         except:
-            historical_match_replay.objects.create(match=moi,data=results)
+            mr=historical_match_replay.objects.create(match=moi,data=results)
+        data=mr.data
+        #align coachs
+        winner=match.winner
+        team1=match.team1
+        team2=match.team2
+        if (team1==winner and data['team2']['wins']>0) or (team2==winner and data['team1']['wins']>0):
+            team1=match.team2
+            team2=match.team1
+        #update teams
+        team1.wins+=data['team1']['wins']; team1.losses+=abs(data['team1']['wins']-1); team1.differential+=data['team1']['kills']-data['team1']['deaths']; team1.forfeit=data['team1']['forfeit']
+        team2.wins+=data['team2']['wins']; team2.losses+=abs(data['team2']['wins']-1); team2.differential+=data['team2']['kills']-data['team2']['deaths']; team2.forfeit=data['team2']['forfeit']
+        ##
+        for mon in data['team1']['roster']:
+            searchmon=mon['pokemon']
+            #search for mon
+            try: 
+                foundmon=historical_roster.objects.all().filter(team=team1).get(pokemon__pokemon=searchmon)
+            except:
+                try:
+                    foundmon=historical_roster.objects.all().filter(team=team1).get(pokemon__pokemon__contains=searchmon)
+                except:
+                    try:
+                        foundmon=historical_roster.objects.all().filter(team__seasonname=team1.seasonname,team__subseason=team1.subseason).get(pokemon__pokemon=searchmon)
+                    except:
+                        try:
+                            foundmon=historical_roster.objects.all().filter(team__seasonname=team1.seasonname,team__subseason=team1.subseason).get(pokemon__pokemon__contains=searchmon)
+                        except:
+                            foundmon=all_pokemon.objects.all().get(pokemon=searchmon)
+            #update foundmon
+            foundmon.kills+=mon['kills']; foundmon.deaths+= mon['deaths']; foundmon.differential+=mon['kills']-mon['deaths']; foundmon.gp+=1; foundmon.gw+=data['team1']['wins']; foundmon.support+=mon['support']; foundmon.damagedone+=mon['damagedone']; foundmon.hphealed+=mon['hphealed']; foundmon.luck+=mon['luck']; foundmon.remaininghealth+=mon['remaininghealth']
+            #update team
+            team1.support+=mon['support']; team1.damagedone+=mon['damagedone']; team1.hphealed+=mon['hphealed']; team1.luck+=mon['luck']; team1.remaininghealth+=mon['remaininghealth']
+            foundmon.save()
+        for mon in data['team2']['roster']:
+            searchmon=mon['pokemon']
+            #search for mon
+            try:
+                foundmon=historical_roster.objects.all().filter(team=team2).get(pokemon__pokemon=searchmon)
+            except:
+                try:
+                    foundmon=historical_roster.objects.all().filter(team=team2).get(pokemon__pokemon__contains=searchmon)
+                except:
+                    try:
+                        foundmon=historical_roster.objects.all().filter(team__seasonname=team2.seasonname,team__subseason=team2.subseason).get(pokemon__pokemon=searchmon)
+                    except:
+                        try:
+                            foundmon=historical_roster.objects.all().filter(team__seasonname=team2.seasonname,team__subseason=team2.subseason).get(pokemon__pokemon__contains=searchmon)
+                        except:
+                            foundmon=all_pokemon.objects.all().get(pokemon=searchmon)
+            #update foundmon
+            foundmon.kills+=mon['kills']; foundmon.deaths+= mon['deaths']; foundmon.differential+=mon['kills']-mon['deaths']; foundmon.gp+=1; foundmon.gw+=data['team2']['wins']; foundmon.support+=mon['support']; foundmon.damagedone+=mon['damagedone']; foundmon.hphealed+=mon['hphealed']; foundmon.luck+=mon['luck']; foundmon.remaininghealth+=mon['remaininghealth']
+            #update team
+            team2.support+=mon['support']; team2.damagedone+=mon['damagedone']; team2.hphealed+=mon['hphealed']; team2.luck+=mon['luck']; team2.remaininghealth+=mon['remaininghealth']
+            foundmon.save()
+        team1.save()
+        team2.save()
     data={
         'replay': url,
         'success': success,

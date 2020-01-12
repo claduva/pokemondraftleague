@@ -111,28 +111,13 @@ def pickemleaderboard(request):
 
 @check_if_clad
 def zerorosters(request):
-##zero rosters
-    items=roster.objects.all()
-    for item in items:
-        item.kills=0; item.deaths=0; item.differential=0; item.gp=0; item.gw=0; item.support=0; item.damagedone=0; item.hphealed=0; item.luck=0; item.remaininghealth=0
-        item.save()
-    items=historical_roster.objects.all()
-    for item in items:
-        item.kills=0; item.deaths=0; item.differential=0; item.gp=0; item.gw=0; item.support=0; item.damagedone=0; item.hphealed=0; item.luck=0; item.remaininghealth=0
-        item.save()
-    items=all_pokemon.objects.all()
-    for item in items:
-        item.kills=0; item.deaths=0; item.differential=0; item.gp=0; item.gw=0; item.support=0; item.damagedone=0; item.hphealed=0; item.luck=0; item.remaininghealth=0
-        item.save()
+    ##zero rosters  
+    roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    historical_roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    all_pokemon.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
     ##zero coachs
-    items=coachdata.objects.all()
-    for item in items:
-        item.wins=0; item.losses=0; item.differential=0; item.forfeit=0; item.support=0; item.damagedone=0; item.hphealed=0; item.luck=0; item.remaininghealth=0
-        item.save()
-    items=historical_team.objects.all()
-    for item in items:
-        item.wins=0; item.losses=0; item.differential=0; item.forfeit=0; item.support=0; item.damagedone=0; item.hphealed=0; item.luck=0; item.remaininghealth=0
-        item.save()
+    coachdata.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    historical_team.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
     return redirect('home')
 
 @check_if_clad
@@ -311,11 +296,4 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
-    #hr=historical_match.objects.all().exclude(replay__contains="pokemonshowdown").exclude(replay__contains="Forfeit")
-    #for item in hr:
-    #    print(item.replay)
-    moi=schedule.objects.get(id=575)
-    print(moi)
-    #moi.replay="https://pokemondraftleague.online/static/logfiles/Season_2_ASPL_collin_vs_young.txt"
-    #moi.save()
     return redirect('home')

@@ -103,6 +103,7 @@ def secondary_check(attacker,target,move,line,results,parsedlogfile):
     ['Double Iron Bash', ['cant', 'flinch',target['nickname'], .3,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]], 
     ['Waterfall', ['cant', 'flinch',target['nickname'], .2,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]], 
     ['Psybeam', ['start', 'confusion',target['nickname'], .1,f"{target['pokemon']} was confused by {attacker['pokemon']} with {move}"]], 
+    ['Strange Steam', ['start', 'confusion',target['nickname'], .2,f"{target['pokemon']} was confused by {attacker['pokemon']} with {move}"]], 
     ['Octazooka', ['unboost', 'accuracy|1',target['nickname'], .5,f"{target['pokemon']} suffered a stat drop via secondary effect by {attacker['pokemon']} with {move}"]], 
     ['Spark', ['status', 'par',target['nickname'], .3,f"{target['pokemon']} was paralyzed by {attacker['pokemon']} with {move}"]], 
     ['Needle Arm', ['cant', 'flinch',target['nickname'], .3,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]], 
