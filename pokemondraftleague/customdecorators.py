@@ -100,5 +100,5 @@ def check_if_match(view):
                 associated_view=str(request),
                 error_message=str(e)
             )
-            return redirect('league_schedule',league_name=kwargs['league_name'])
+            return redirect('league_schedule',league_name=kwargs['league_name'],subleague_name=kwargs['subleague_name'])
     return wrap

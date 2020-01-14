@@ -152,8 +152,11 @@ def subleague_detail(request,league_name,subleague_name):
         season=None
         timercurrentweek=None
         seasonstart=None
-    sch=schedule.objects.all().filter(season__subleague=subleague).filter(duedate__gte=datetime.now()).order_by('duedate')
-    currentweek=sch.filter(week=sch.first().week)
+    try:
+        sch=schedule.objects.all().filter(season__subleague=subleague).filter(duedate__gte=datetime.now()).order_by('duedate')
+        currentweek=sch.filter(week=sch.first().week)
+    except:
+        currentweek=None
     context = {
         'subleague': subleague,
         'apply': apply,
