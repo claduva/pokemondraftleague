@@ -18,6 +18,7 @@ class LeagueReplayForm(forms.ModelForm):
         model = schedule
         fields = ['replay']
 
+"""
 class ManualLeagueReplayForm(forms.ModelForm):
     replay=forms.CharField(max_length=200,label="Replay")
     t1megaevolved=forms.BooleanField(label='Team 1 Mega Evolved',required=False)
@@ -185,3 +186,4 @@ class ManualLeagueReplayForm(forms.ModelForm):
             'replay',
             Submit('submit', 'Submit')
         )
+        """

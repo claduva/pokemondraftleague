@@ -10,6 +10,7 @@ from enum import Enum
 from leagues.models import *
 from individualleague.models import *
 
+"""
 class manual_replay(models.Model):
     match=models.OneToOneField(schedule,on_delete=models.CASCADE)
     replay=models.CharField(max_length=200,default="None")
@@ -57,6 +58,7 @@ class manual_replay(models.Model):
     winner=models.ForeignKey(coachdata,on_delete=models.CASCADE)
     t1forfeit=models.BooleanField(default="False")
     t2forfeit=models.BooleanField(default="False")
+"""
 
 class match_replay(models.Model):
     match=models.OneToOneField(schedule,on_delete=models.CASCADE)

@@ -121,6 +121,47 @@
             {% endfor %}
         </div>
     </div>
+    <div class="col-md-12">
+        <div class="row align-items-center">
+            <div class="col-md-12 d-flex justify-content-center">
+                <h3>Current Week Schedule</h3>
+            </div>
+        </div>
+        <div class="row align-items-start d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+                <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                    <tr class="bg-dark text-light">
+                        <th>Week</th>
+                        <th colspan="3">Matchup</th>
+                    </tr>
+                {% for item in currentweek %}
+                <tr>
+                    <td>{{item.week}}</td>
+                    <td>
+                        <a class="d-flex text-dark justify-content-center" href="{% url 'team_page' league_name=subleague.league.name subleague_name=subleague.subleague team_abbreviation=item.team1.teamabbreviation %}">
+                        <div class="small-logo"><img class="img-fluid rounded-sprite" src="{{ item.team1.logo.url }}"></div>
+                        <div> {{ item.team1.teamname }}</div>
+                    </a>
+                    </td>
+                    {% if item.replay == "Link" %}
+                    <td><a class="text-dark" href="{% url 'league_matchup' league_name=subleague.league.name subleague_name=subleague.subleague matchid=item.id %}">View Matchup</a></td>
+                    {% else %}
+                    <td><a class="text-dark" href="{% url 'league_match_results' league_name=subleague.league.name subleague_name=subleague.subleague matchid=item.id %}">{{item.team1score}}-{{item.team2score}}</a></td>
+                    {%endif%}
+                    <td>
+                        <a class="d-flex text-dark justify-content-center" href="{% url 'team_page' league_name=subleague.league.name subleague_name=subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">
+                        <div class="small-logo"><img class="img-fluid rounded-sprite" src="{{ item.team2.logo.url }}"></div>
+                        <div> {{ item.team2.teamname }}</div>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 {% block footer %}
