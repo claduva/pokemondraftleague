@@ -1,39 +1,18 @@
 {
   "team1": {
-    "coach": "TheNerf",
+    "coach": "Yankster96",
     "roster": [
       {
-        "pokemon": "Lugia",
-        "startform": "Lugia",
-        "nickname": "Lugia",
-        "kills": 0,
+        "pokemon": "Kyurem",
+        "startform": "Kyurem",
+        "nickname": "Mr.Freeze jr.",
+        "kills": 3,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 35,
-        "hphealed": 6,
-        "luck": -0.06,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Dugtrio",
-        "startform": "Dugtrio",
-        "nickname": "Dugtrio",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 51,
+        "damagedone": 324,
         "hphealed": 0,
-        "luck": 0.0,
+        "luck": 3.9,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -45,41 +24,20 @@
         "Curse": null
       },
       {
-        "pokemon": "Florges",
-        "startform": "Florges",
-        "nickname": "Florges",
+        "pokemon": "Manectric-Mega",
+        "startform": "Manectric",
+        "nickname": "Bolt",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
         "damagedone": 0,
-        "hphealed": 6,
-        "luck": -0.06,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Steelix-Mega",
-        "startform": "Steelix",
-        "nickname": "Steelix",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 93,
         "hphealed": 0,
-        "luck": -0.01,
+        "luck": -0.94,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
-        "psn": null,
+        "psn": "Nidoqueen",
         "brn": null,
         "par": null,
         "frz": null,
@@ -87,16 +45,16 @@
         "Curse": null
       },
       {
-        "pokemon": "Tentacruel",
-        "startform": "Tentacruel",
-        "nickname": "Tentacruel",
+        "pokemon": "Landorus-Therian",
+        "startform": "Landorus-Therian",
+        "nickname": "Terra",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 2,
-        "damagedone": 83,
-        "hphealed": 66,
-        "luck": 0.72,
+        "damagedone": 107,
+        "hphealed": 50,
+        "luck": -0.05,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -108,16 +66,58 @@
         "Curse": null
       },
       {
-        "pokemon": "Xurkitree",
-        "startform": "Xurkitree",
-        "nickname": "Xurkitree",
-        "kills": 0,
+        "pokemon": "Slowking",
+        "startform": "Slowking",
+        "nickname": "Einstein",
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.0,
+        "damagedone": 276,
+        "hphealed": 66,
+        "luck": -0.68,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": "Nidoqueen",
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Steelix",
+        "startform": "Steelix",
+        "nickname": "Metallica",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 79,
+        "hphealed": 12,
+        "luck": 0.18,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Sylveon",
+        "startform": "Sylveon",
+        "nickname": "Navi",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 88,
+        "hphealed": 6,
+        "luck": 0.14,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -134,20 +134,20 @@
     "score": 0,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 7,
+    "timesswitched": 16,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 2,
+    "kills": 5,
     "deaths": 6,
-    "luck": 0.59,
-    "damagedone": 262,
-    "hphealed": 78,
-    "support": 2,
-    "activemon": "Xurkitree",
-    "Toxic Spikes": null,
+    "luck": 2.55,
+    "damagedone": 874,
+    "hphealed": 134,
+    "support": 4,
+    "activemon": "Metallica",
+    "Toxic Spikes": "Nidoqueen",
     "Spikes": null,
-    "Stealth Rock": null,
+    "Stealth Rock": "Bronzong",
     "Future Sight": null,
     "Doom Desire": null,
     "Sandstorm": null,
@@ -155,19 +155,61 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "jerrytheboss",
+    "coach": "claduva",
     "roster": [
       {
-        "pokemon": "Kartana",
-        "startform": "Kartana",
-        "nickname": "Kartana",
-        "kills": 3,
+        "pokemon": "Bronzong",
+        "startform": "Bronzong",
+        "nickname": "Bronzong",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 317,
-        "hphealed": 0,
-        "luck": 0.07,
+        "support": 3,
+        "damagedone": 135,
+        "hphealed": 61,
+        "luck": -0.34,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": "Mr.Freeze jr.",
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Venusaur-Mega",
+        "startform": "Venusaur",
+        "nickname": "Venusaur",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 3,
+        "damagedone": 70,
+        "hphealed": 184,
+        "luck": -2.92,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": "Mr.Freeze jr.",
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Nidoqueen",
+        "startform": "Nidoqueen",
+        "nickname": "Nidoqueen",
+        "kills": 2,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 257,
+        "hphealed": 6,
+        "luck": 0.56,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -179,38 +221,17 @@
         "Curse": null
       },
       {
-        "pokemon": "Rotom-Wash",
-        "startform": "Rotom",
-        "nickname": "Rotom",
+        "pokemon": "Tapu Koko",
+        "startform": "Tapu Koko",
+        "nickname": "Tapu Koko",
         "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 80,
-        "hphealed": 0,
-        "luck": -0.82,
-        "remaininghealth": 64,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Togekiss",
-        "startform": "Togekiss",
-        "nickname": "hAxOr",
-        "kills": 0,
-        "deaths": 0,
+        "deaths": 1,
         "causeofdeath": null,
         "support": 0,
         "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 100,
+        "hphealed": 51,
+        "luck": 0.27,
+        "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -221,59 +242,38 @@
         "Curse": null
       },
       {
-        "pokemon": "Greninja",
-        "startform": "Greninja",
-        "nickname": "Greninja",
+        "pokemon": "Gyarados",
+        "startform": "Gyarados",
+        "nickname": "Gyarados",
+        "kills": 3,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 133,
+        "hphealed": 0,
+        "luck": -0.18,
+        "remaininghealth": 28,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Hawlucha",
+        "startform": "Hawlucha",
+        "nickname": "Hawlucha",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 147,
-        "hphealed": -49,
-        "luck": 0.2,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Lopunny-Mega",
-        "startform": "Lopunny",
-        "nickname": "Lopunny",
-        "kills": 2,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 134,
-        "hphealed": 1,
-        "luck": -0.04,
-        "remaininghealth": 26,
-        "lines": [],
-        "confusion": null,
-        "psn": "Tentacruel",
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Palossand",
-        "startform": "Palossand",
-        "nickname": "Palossand",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
+        "damagedone": 139,
         "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 100,
+        "luck": 0.06,
+        "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -286,23 +286,23 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 4,
+    "score": 1,
     "megaevolved": true,
-    "usedzmove": true,
-    "timesswitched": 5,
+    "usedzmove": false,
+    "timesswitched": 17,
     "selfdeaths": 0,
-    "remaininghealth": 290,
+    "remaininghealth": 28,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 2,
-    "luck": -0.59,
-    "damagedone": 678,
-    "hphealed": -48,
-    "support": 2,
-    "activemon": "Lopunny",
-    "Toxic Spikes": "Tentacruel",
+    "deaths": 5,
+    "luck": -2.55,
+    "damagedone": 734,
+    "hphealed": 302,
+    "support": 7,
+    "activemon": "Gyarados",
+    "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": null,
+    "Stealth Rock": "Metallica",
     "Future Sight": null,
     "Doom Desire": null,
     "Sandstorm": null,
@@ -310,61 +310,129 @@
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 25,
+  "numberofturns": 42,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-1020063009",
+  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-1020970796",
   "significantevents": [
     [
-      7,
-      "Greninja killed Florges with Gunk Shot"
+      2,
+      "Nidoqueen provided support by using Toxic Spikes"
     ],
     [
-      8,
-      "Dugtrio killed Greninja with Earthquake"
+      6,
+      "LUCK: Manectric-Mega missed Overheat against Nidoqueen"
     ],
     [
-      11,
-      "Tentacruel provided support by using Toxic Spikes"
+      9,
+      "Bronzong provided support by using Stealth Rock"
     ],
     [
-      11,
-      "LUCK: Rotom-Wash missed Hydro Pump against Tentacruel"
-    ],
-    [
-      12,
-      "Rotom-Wash provided support by using Defog"
+      10,
+      "Landorus-Therian provided support by using Defog"
     ],
     [
       13,
-      "Rotom-Wash provided support by using Defog"
-    ],
-    [
-      15,
-      "Tentacruel provided support by using Toxic Spikes"
+      "Bronzong provided support by using Stealth Rock"
     ],
     [
       17,
-      "Kartana killed Tentacruel with Leaf Blade"
+      "Landorus-Therian provided support by using Defog"
     ],
     [
       18,
-      "Kartana killed Dugtrio with Leaf Blade"
+      "Bronzong provided support by using Stealth Rock"
+    ],
+    [
+      19,
+      "Steelix provided support by using Stealth Rock"
     ],
     [
       20,
-      "Kartana killed Lugia with Night Slash"
+      "Venusaur-Mega provided support by using Leech Seed"
     ],
     [
-      21,
-      "Steelix killed Kartana with Fire Fang"
+      22,
+      "Venusaur-Mega provided support by using Leech Seed"
+    ],
+    [
+      22,
+      "Steelix provided support by using Roar"
     ],
     [
       23,
-      "Lopunny-Mega killed Steelix-Mega with Drain Punch"
+      "Nidoqueen killed Landorus-Therian with Ice Beam"
     ],
     [
-      25,
-      "Lopunny-Mega killed Xurkitree with Return"
+      24,
+      "LUCK: Bronzong was frozen by Kyurem with Ice Beam"
+    ],
+    [
+      26,
+      "Kyurem killed Bronzong with Ice Beam"
+    ],
+    [
+      27,
+      "Venusaur-Mega provided support by using Leech Seed"
+    ],
+    [
+      27,
+      "LUCK: Venusaur-Mega missed Leech Seed against Kyurem"
+    ],
+    [
+      28,
+      "LUCK: Venusaur-Mega was frozen by Kyurem with Ice Beam"
+    ],
+    [
+      29,
+      "LUCK: Kyurem landed a crit on Venusaur-Mega with Ice Beam"
+    ],
+    [
+      31,
+      "LUCK: Venusaur-Mega was frozen by Kyurem with Ice Beam"
+    ],
+    [
+      33,
+      "Kyurem killed Venusaur-Mega with Ice Beam"
+    ],
+    [
+      34,
+      "Kyurem killed Tapu Koko with Ice Beam"
+    ],
+    [
+      35,
+      "Hawlucha killed Kyurem with High Jump Kick"
+    ],
+    [
+      36,
+      "Sylveon killed Hawlucha with Hyper Voice"
+    ],
+    [
+      37,
+      "Nidoqueen killed Sylveon with Sludge Wave"
+    ],
+    [
+      38,
+      "Slowking killed Nidoqueen with Psychic"
+    ],
+    [
+      39,
+      "LUCK: Gyarados suffered a stat drop via secondary effect by Slowking with Psychic"
+    ],
+    [
+      40,
+      "LUCK: Gyarados landed a crit on Slowking with Earthquake"
+    ],
+    [
+      40,
+      "Gyarados killed Slowking with Earthquake"
+    ],
+    [
+      41,
+      "Gyarados killed Manectric-Mega with Earthquake"
+    ],
+    [
+      42,
+      "Gyarados killed Steelix with Waterfall"
     ]
   ],
   "errormessage": []
