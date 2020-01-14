@@ -10,25 +10,25 @@
 {% endblock %}
 {% block body %}
 <div class="row content-section align-items-center">
-    <div class="col-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}"
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}"
             class="rounded-circle mediumlogo">
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
         <h3 class="d-flex justify-content-center">Tiers</h3>
     </div>
-    <div class="col-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}"
+    <div class="col-md-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}"
             class="rounded-circle mediumlogo">
     </div>
     <div class="col-12 d-flex align-items-center justify-content-between">
-        <div class="row d-flex align-items-center justify-content-start filter">
-            <div class="col-12 col-md-1 px-1 filter text-center">Filters:</div>
-            <div class="col-12 col-md-2 px-1 filter">
+        <div class="d-flex align-items-center justify-content-start filter">
+            <div class="px-1 filter">Filters:</div>
+            <div class="px-1 filter">
                 <select id="available" class="form-control">
                     <option value="allpokemon">Show All Pokemon</option>
-                    <option value="available">Show Available Pokemon</option>
+                    <option value="available">Show Only Available Pokemon</option>
                 </select>
             </div>
-            <div class="col-12 col-md-2 px-1 filter">
+            <div class="px-1 filter">
                 <select id="tierchoice" class="form-control">
                     <option value="none">Show All Tiers</option>
                     {% for t in tierchoices %}
@@ -36,7 +36,7 @@
                     {% endfor %}
                 </select>
             </div>
-            <div class="col-12 col-md-2 px-1 filter">
+            <div class="px-1 filter">
                 <select id="typing" class="form-control">
                     <option value="none">Show All Types</option>
                     {% for type in types %}
@@ -44,8 +44,10 @@
                     {% endfor %}
                 </select>
             </div>
-            <div class="col-12 col-md-1 px-1 filter text-center">Sort By:</div>
-            <div class="col-12 col-md-2 filter">
+        </div>
+        <div class="d-flex align-items-center justify-content-end">
+            <div class="px-1 filter">Sort By:</div>
+            <div class="filter">
                 <select id="sortby" class="form-control">
                     <option value="tier-dec">Tier (highest first)</option>
                     <option value="tier-inc">Tier (lowest first)</option>
@@ -67,19 +69,18 @@
                     <option value="speed-inc">Speed (lowest first)</option>
                 </select>
             </div>
-            <div class="col-12 col-md-2 d-flex justify-content-center">
             <input type="checkbox" id="tiertoggle" class="checkbox"/>  
             <label for="tiertoggle" class="switch"></label><span>Table View</span>
-            </div>
         </div>
     </div>
 </div>
 <div class="row bg-darkgrey rounded p-2">
+    <!-- 
     <div id="tiertable" style="height: 1000px;" class="table-responsive text-nowrap overflow-auto">
         <table class="table text-dark bg-lightgrey text-center">
             <tr>
                 {% for key, values in tierdict.items %}
-                <th class="bg-dark text-light" data-tier="{{item.id}}">{{ key }}</th>
+                <th data-tier="{{item.id}}">{{ key }}</th>
                 {% endfor %}
             </tr>
             <tr>
@@ -87,12 +88,12 @@
                 <td class="p-0 m-0">
                     {% for item_,team in values %}
                     {%  if team == "FREE" %}
-                    <div class="bg-green border border-dark">
+                    <div class="bg-green">
                     {% else %}
-                    <div class="bg-red border border-dark">
+                    <div class="bg-red">
                     {% endif  %}
                         {{team}}
-                        <img class="smallsprite" src="{{item_.pokemon.pokemon|sprite:site_settings.sprite}}">
+                        <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item_.pokemon.pokemon|cut:':' %}">
                         {{item_.pokemon.pokemon}}
                     </div>
                     {% endfor %}
@@ -100,27 +101,28 @@
                 {% endfor %}
             </tr>
         </table>
-    </div>
+    </div> 
+    -->
     <div id="tierlist" class="col-12">
-        {% for item, item2 in tiers %}
+        {% for item in tierlist %}
         <div class="tieritem" data-tier="{{item.tier.tierpoints}}" data-bst="{{item.pokemon.bst}}" data-hp="{{item.pokemon.hp}}" data-speed="{{item.pokemon.speed}}" data-atk="{{item.pokemon.attack}}" data-def="{{item.pokemon.defense}}" data-spa="{{item.pokemon.s_attack}}" data-spd="{{item.pokemon.s_defense}}"
-            data-pokemon="{{item.pokemon.pokemon}}" data-available="{{item2}}">
+            data-pokemon="{{item.pokemon.pokemon}}" data-available="{{item.rosterspot}}">
             <a href="">
-                {% if item2 == "FREE" %}
+                {% if item.rosterspot == "FREE" %}
                 <div class="row bg-green text-dark rounded mb-1">
                     {% else %}
                     <div class="row bg-red text-dark rounded mb-1">
                         {% endif %}
-                        <div class="col-3 col-md-2 justify-content-center d-flex align-items-center">
-                            <div class="text-center">{{item2}}</div>
+                        <div class="col-2 justify-content-center d-flex align-items-center">
+                            <div>{{item.rosterspot}}</div>
                         </div>
-                        <div class="col-3 col-md-2 text-center align-middle">
+                        <div class="col-2 text-center align-middle">
                             <div>{{item.tier.tiername}}</div>
                             <div>({{item.tier.tierpoints}} pts)</div>
                         </div>
-                        <div class="col-3 col-md-2 d-flex justify-content-center align-items-center"><img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">
+                        <div class="col-2 d-flex justify-content-center align-items-center"><img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
                             {{item.pokemon.pokemon}}</div>
-                        <div class="col-3 col-md-2 d-flex justify-content-center align-items-center">
+                        <div class="col-2 d-flex justify-content-center align-items-center">
                             <div>
                                 {% for type in item.pokemon.types.all %}
                                 <div><img
@@ -130,7 +132,7 @@
                                 {% endfor %}
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 d-flex justify-content-center">
+                        <div class="col-4 d-flex justify-content-center">
                             <div class="px-1">
                                 <div><small>HP</small></div>
                                 <div><small>{{item.pokemon.hp}}</small></div>

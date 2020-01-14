@@ -91,6 +91,7 @@ class pokemon_tier(models.Model):
     league = models.ForeignKey(league,on_delete=models.CASCADE,related_name='leaguepokemontiers')
     subleague = models.ForeignKey(league_subleague,on_delete=models.CASCADE,related_name='subleaguepokemontiers',null=True)
     tier = models.ForeignKey(leaguetiers,on_delete=models.SET_NULL,null=True)
+    rosterspot = models.ForeignKey('leagues.roster',on_delete=models.SET_NULL,null=True)
 
     class Meta:
         ordering = ['pokemon__pokemon']

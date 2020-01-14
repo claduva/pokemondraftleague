@@ -77,3 +77,10 @@ def movefilter(query):
     moves=['Stealth Rock','Spikes','Toxic Spikes','Sticky Web','Defog','Rapid Spin','Heal Bell','Aromatherapy','Wish']
     resp=query.filter(moveinfo__name__in=moves)
     return resp
+
+@register.filter(name='sprite')
+def sprite(value,arg):
+    value_=value.replace(":","")
+    string="/static/pokemondatabase/sprites/"+arg
+    string=string.replace("PKMN",value_)
+    return string

@@ -195,7 +195,6 @@ def league_apply(request,league_name):
                         messages.success(request,'You have successfully applied to '+league_name+"!")
                         return redirect('league_detail',league_name=league_name)
                 else:
-                    print('here')
                     form=None
                     form = LeagueApplicationForm(league_,initial={
                         'applicant': request.user,
@@ -806,7 +805,6 @@ def league_tiers(request,league_name,subleague_name):
             tierlist.append((item,f"Signed by {owner.team.teamabbreviation}"))
             tierdict[item.tier.tiername].append([item,owner.team.teamabbreviation])
         else:
-            print(item)
             tierlist.append((item,"FREE"))
             tierdict[item.tier.tiername].append([item,"FREE"])
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
@@ -1103,7 +1101,6 @@ def change_match_attribution(request,league_name,subleague_name,matchid):
     if request.method=="POST":
         form=ChangeMatchAttributionForm(request.POST,instance=match)
         if form.is_valid():
-            print(form.cleaned_data)
             form.save()
             messages.success(request,f'Match was updated!')
         return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
