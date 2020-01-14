@@ -4,37 +4,40 @@
 
 {% block title %}Leagues{% endblock %}
 {% block head%}
-<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}"> 
+<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}">
 {% endblock %}
 {% block body %}
 <div class="row">
     <div class="col-md-12 bg-darkgrey rounded p-3">
-        <div class="d-flex justify-content-between">
-            <h1 class="text-light">{{ leagueheading }}</h1>
-        </div>
-        <div class="row align-items-stretch justify-content-around">
-                {% if allleagues %}
-                    {% for item in allleagues %}
-                    <div class="col-md-2 mb-2">
-                        <div class="card h-100 bg-lightgrey text-center">
-                            <a class="text-dark" href="{{ item.name }}">
-                                <img src="{{ item.logo.url }}" class="img-fluid">
-                                <div class="d-flex justify-content-center">{{ item.name }}</div>
-                            </a>
-                            <div class="d-flex justify-content-center">Hosted By:</div>
-                            <div class="d-flex justify-content-center text-center">{% for h in item.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
-                            {% if item.settings.is_recruiting %}
-                                <div class="d-flex justify-content-center"><a href="{% url 'league_application' league_name=item.name  %}"><button class="btn btn-sm btn-success">Apply</button></a></div>
-                            {% endif %}
-                            {% if item.subleague.first.discord_settings.discordurl != "Not Provided" and item.subleague.first.discord_settings %}
-                                <div class="d-flex justify-content-center"><a href="{{ item.subleague.first.discord_settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a></div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                {% else %}
-                    <div>None</div>
-                {% endif %}   
+        <h3 class="text-light">All Leagues</h3>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th>League</th>
+                    <th class="d-none d-md-table-cell" style="width: 20%">Hosts</th>
+                    <th>Links</th>
+                </tr>
+                {% for item in allleagues %}
+                <tr>
+                    <td class="align-middle">
+                        <a class="text-dark" href="{{ item.name }}">
+                            <img src="{{ item.logo.url }}" class="small-logo img-fluid">
+                            <div>{{ item.name }}</div>
+                        </a>
+                    </td>
+                    <td class="d-none d-md-table-cell align-middle">{% for h in item.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and
+                        {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</td>
+                    <td class="align-middle">
+                        {% if item.settings.is_recruiting %}
+                        <div><a class="text-dark" href="{% url 'league_application' league_name=item.name  %}">Apply</a></div>
+                        {% endif %}
+                        {% if item.subleague.first.discord_settings.discordurl != "Not Provided" and item.subleague.first.discord_settings %}
+                        <div><a class="text-dark" href="{{ item.subleague.first.discord_settings.discordurl }}">Join the Discord</a></div>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
 </div>

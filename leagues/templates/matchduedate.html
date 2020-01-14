@@ -34,7 +34,7 @@
             {% for item in matchs %}
             <form method="post">{% csrf_token %}
                 <span>Week: {{ item.week }}</span>
-                <input name="matchid" type="text" value="{{item.id}}">
+                <input name="matchid" type="text" value="{{item.id}}" hidden>
                 <input name="duedate" type="text" value="{{item.duedate}}">
                 <input type="submit" class="btn btn-primary">
             </form>
