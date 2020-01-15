@@ -223,8 +223,8 @@ def team_page(request,league_name,subleague_name,team_abbreviation):
     team=league_teams.get(teamabbreviation=team_abbreviation)
     teamroster=team.teamroster.all().order_by('id')
     matchs=schedule.objects.all().filter(season=season).filter(Q(team1=team)|Q(team2=team))
-    results=matchs.exclude(replay="Link").order_by('-id')
-    upcoming=matchs.filter(replay="Link").order_by('id')[0:4]
+    results=matchs.exclude(replay="Link").order_by('-timestamp')
+    upcoming=matchs.filter(replay="Link").order_by('duedate','week')[0:4]
     context = {
         'subleague':subleague,
         'leaguepage': True,
