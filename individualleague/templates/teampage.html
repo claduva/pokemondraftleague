@@ -8,43 +8,54 @@
 {% endblock %}
 {% block body %}
 
-<div class="row content-section align-items-center">
-    <div class="col-md-4 d-flex justify-content-start"><img src="{{team.logo.url}}" class="rounded-circle mediumlogo">
+<div class="row text-light bg-darkgrey rounded align-items-center mb-2">
+    <div class="col-4 d-flex justify-content-start"><img src="{{team.logo.url}}" class="rounded-circle mediumlogo">
     </div>
-    <div class="col-md-4">
-        <h3 class="d-flex justify-content-center">{{ team.teamname }}</h3>
-        <div class="d-flex justify-content-center">Coached by {{ team.coach }}
-            {% if team.teammate %}
-            and {{team.teammate}}
-            {% endif %}
-        </div>
+    <div class="col-4">
+        <h3 class="text-center">{{ team.teamname }}</h3>
     </div>
-    <div class="col-md-4 d-flex justify-content-end">
-        <div>
-            {% if team.conference %}
-            <div class="d-flex justify-content-center">Conference: {{ team.conference }}</div>
-            {% endif %}
-            {% if team.division %}
-            <div class="d-flex justify-content-center">Division: {{ team.division }}</div>
-            {% endif %}
-            <div>Record: {{ team.wins }}-{{ team.losses }}</div>
-            <div>Differential: {{ team.differential }}</div>
-            <div>Streak:
-                {% if team.streak > -1 %}
-                Win-{{ team.streak }}
-                {% else %}
-                Lose{{ team.streak }}
+    <div class="col-4 d-flex justify-content-end"><img src="{{team.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-12">
+    <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+        <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+            <tr class="bg-dark text-light">
+                <th>Coach</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <th>Differential</th>
+                <th>Streak</th>
+                {% if team.conference %}
+                <th>Conference</th>
                 {% endif %}
-            </div>
+                {% if team.division %}
+                <th>Division</th>
+                {% endif %}
+            </tr>
+            <tr >
+                <th>{{ team.coach }}{% if team.teammate %} and {{team.teammate}}{% endif %}</th>
+                <th>{{ team.wins }}</th>
+                <th>{{ team.losses }}</th>
+                <th>{% if team.differential > 0 %}+{{ team.differential }}{% else %}{{ team.differential }}{% endif %}</th>
+                <th>{% if team.streak > -1 %}Win-{{ team.streak }}{% else %}Lose{{ team.streak }}{% endif %}</th>
+                {% if team.conference %}
+                <th>{{ team.conference }}</th>
+                {% endif %}
+                {% if team.division %}
+                <th>{{ team.division }}</th>
+                {% endif %}
+            </tr>
+        </table>
         </div>
     </div>
 </div>
-<div class="row content-section align-items-center">
+<div class="row text-light bg-darkgrey rounded align-items-center mb-2">
     <div class="col-md-12">
         <h4>Roster</h4>
-        <table class="table table-sm" table-striped table-hover">
-            <thead class="thead-dark">
-                <tr class="text-center">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+            <thead>
+                <tr class="text-center bg-dark text-light">
                     <th class="p-0 m-0">Pokemon</th>
                     <th class="p-0 m-0">K</th>
                     <th class="p-0 m-0">D</th>
@@ -84,66 +95,96 @@
                 {% endfor %}
             </tbody>
         </table>
-    </div>
-</div>
-<div class="row content-section align-items-center d-flex justify-content-around">
-    <h4 class="col-12">Results</h4>
-        <div class="card-group">
-        {% for item in results %}
-        <div class="col">
-            <div class="card text-dark text-center justify-content-center">
-                <h5 class="card-header p-0">Week {{ item.week }}</h5>
-                {% if item.team1 == team %}
-                <div><img class="card-img-top mediumlogo rounded-circle m-1" src="{{ item.team2.logo.url }}"></div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item p-0">Opponent: {{ item.team2.teamname }}</li>
-                    {% if item.winner == team %}
-                    <li class="list-group-item p-0">WIN ({{ item.team1score }}-{{ item.team2score }})</li>
-                    {% else %}
-                    <li class="list-group-item p-0">LOSE ({{ item.team1score }}-{{ item.team2score }})</li>
-                    {% endif %}
-                    <li class="list-group-item p-0"><a href="{{item.replay}}"><button
-                                class="btn btn-dark">Replay</button></a></li>
-                </ul>
-                {% elif item.team2 == team %}
-                <div><img class="card-img-top mediumlogo rounded-circle m-1" src="{{ item.team1.logo.url }}"></div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item p-0">Opponent: {{ item.team1.teamname }}</li>
-                    {% if item.winner == team %}
-                    <li class="list-group-item p-0">WIN ({{ item.team2score }}-{{ item.team1score }})</li>
-                    {% else %}
-                    <li class="list-group-item p-0">LOSE ({{ item.team2score }}-{{ item.team1score }})</li>
-                    {% endif %}
-                    <li class="list-group-item p-0"><a href="{{item.replay}}"><button
-                                class="btn btn-dark">Replay</button></a></li>
-                </ul>
-                {% endif %}
-            </div>
         </div>
-        {% endfor %}
     </div>
 </div>
-<div class="row content-section align-items-center d-flex justify-content-around">
-    <h4 class="col-12">Upcoming Matches</h4>
-    <div class="card-group">
-        {% for item in upcoming %}
-        <div class="col">
-            <div class="card text-dark text-center justify-content-center h-100">
-                <h5 class="card-header p-0">Week {{ item.week }}</h5>
-                {% if item.team1 == team %}
-                <div><img class="card-img-top mediumlogo rounded-circle m-1" src="{{ item.team2.logo.url }}"></div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item p-0">Opponent: {{ item.team2.teamname }}</li>
-                </ul>
-                {% elif item.team2 == team %}
-                <div><img class="card-img-top mediumlogo rounded-circle m-1" src="{{ item.team1.logo.url }}"></div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item p-0">Opponent: {{ item.team1.teamname }}</li>
-                </ul>
-                {% endif %}
-            </div>
+{% if upcoming %}
+<div class="row bg-darkgrey text-light rounded p-2 mb-2">
+    <div class="col-md-12">
+        <h3>Upcoming Matches</h3>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th>Week</th>
+                    <th>Opponent</th>
+                    <th>Due Date (UTC)</th>
+                    <th>Links</th>
+                </tr>
+                {% for item in upcoming %}
+                <tr>
+                    <td class="align-middle">{{item.week}}</td>
+                    <td>
+                        {% if item.team1 == team %}
+                        <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">
+                        <div><img class="small-logo rounded-circle" src="{{ item.team2.logo.url }}"></div>
+                        <div>{{item.team2.teamname}}</div>
+                        </a>
+                        {% elif item.team2 == team %}
+                        <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team1.teamabbreviation %}">
+                        <div><img class="small-logo rounded-circle" src="{{ item.team1.logo.url }}"></div>
+                        <div>{{item.team1.teamname}}</div>
+                        </a>
+                        {% endif %}
+                    </td>
+                    <td>{{item.duedate}}</td>
+                    <td class="align-middle">
+                        <a class="text-dark"
+                            href="{% url 'league_matchup' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague matchid=item.id %}">
+                            <h6 class="text-center">View Matchup</h6>
+                        </a>
+                        <a class="text-dark"
+                            href="{% url 'upload_league_replay' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague matchid=item.id %}">
+                            <h6 class="text-center">Upload Replay</h6>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
-        {% endfor %}
     </div>
 </div>
+{% endif %}
+{% if results %}
+<div class="row bg-darkgrey text-light rounded p-2 mb-2">
+    <div class="col-md-12">
+        <h3>Recent Results</h3>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th>Week</th>
+                    <th>Opponent</th>
+                    <th>Result</th>
+                </tr>
+                {% for item in results %}
+                <tr>
+                    <td class="align-middle">{{item.week}}</td>
+                    <td>
+                        {% if item.team1 == team %}
+                        <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">
+                        <div><img class="small-logo rounded-circle" src="{{ item.team2.logo.url }}"></div>
+                        <div>{{item.team2.teamname}}</div>
+                        </a>
+                        {% elif item.team2 == team %}
+                        <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team1.teamabbreviation %}">
+                        <div><img class="small-logo rounded-circle" src="{{ item.team1.logo.url }}"></div>
+                        <div>{{item.team1.teamname}}</div>
+                        </a>
+                        {% endif %}
+                    </td>
+                    <td class="align-middle">
+                        <a class="text-dark" href="{% url 'league_match_results' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague matchid=item.id %}">
+                            {% if item.winner == team or item.winner == team  %}
+                        <div>WIN ({{item.team1score}}-{{item.team2score}})</div>
+                        {% else %}
+                        <div>LOSE ({{item.team1score}}-{{item.team2score}})</div>
+                        {% endif %}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}
 {% endblock %}

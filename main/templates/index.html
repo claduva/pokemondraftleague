@@ -26,11 +26,6 @@
     <div class="col-md-4">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center">
-                <a href="{% url 'league_list' %}"><button class="btn btn-info">Join A League</button></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center">
                 <a href="{% url 'create_league' %}"><button class="btn btn-info">Create A League</button></a>
             </div>
         </div>
@@ -54,34 +49,35 @@
 </div>
 <div class="row ">
     <div class="col-md-12 bg-darkgrey rounded">
-        <h1 class="text-light">Leagues</h1>
-        <div class="row justify-content-around">
-            {% if allleagues %}
-            {% for item in allleagues %}
-            <div class="col-md-2 mb-2 p-0">
-                <div class="m-1 card h-100">
-                        <a class="text-dark" href="leagues/{{ item.name }}">
-                            <div class="d-flex justify-content-center">
-                                <img src="{{ item.logo.url }}" class="img-fluid rounded-circle mediumlogo m-1">
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <h6 class="text-center">{{ item.name }}</h6>
-                            </div>
+        <h3 class="text-light">All Leagues</h3>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th>League</th>
+                    <th class="d-none d-md-table-cell" style="width: 20%">Hosts</th>
+                    <th>Links</th>
+                </tr>
+                {% for item in allleagues %}
+                <tr>
+                    <td class="align-middle">
+                        <a class="text-dark" href="{{ item.name }}">
+                            <img src="{{ item.logo.url }}" class="small-logo img-fluid">
+                            <div>{{ item.name }}</div>
                         </a>
-                        <div class="d-flex justify-content-center">Hosted By:</div>
-                        <div class="d-flex justify-content-center text-center">Hosted by {% for h in item.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
+                    </td>
+                    <td class="d-none d-md-table-cell align-middle">{% for h in item.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and
+                        {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</td>
+                    <td class="align-middle">
                         {% if item.settings.is_recruiting %}
-                        <div class="d-flex justify-content-center"><a href="{% url 'league_application' league_name=item.name  %}"><button class="btn btn-sm btn-success">Apply</button></a></div>
+                        <div><a class="text-dark" href="{% url 'league_application' league_name=item.name  %}">Apply</a></div>
                         {% endif %}
                         {% if item.subleague.first.discord_settings.discordurl != "Not Provided" and item.subleague.first.discord_settings %}
-                            <div class="d-flex justify-content-center"><a href="{{ item.subleague.first.discord_settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a></div>
+                        <div><a class="text-dark" href="{{ item.subleague.first.discord_settings.discordurl }}">Join the Discord</a></div>
                         {% endif %}
-                    </div>
-            </div>
-            {% endfor %}
-            {% else %}
-            <div>None</div>
-            {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
 </div>
