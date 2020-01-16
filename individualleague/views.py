@@ -811,8 +811,14 @@ def league_tiers(request,league_name,subleague_name):
             tierlist.append((item,f"Signed by {owner.team.teamabbreviation}"))
             tierdict[item.tier.tiername].append([item,owner.team.teamabbreviation])
         else:
-            tierlist.append((item,"FREE"))
-            tierdict[item.tier.tiername].append([item,"FREE"])
+            try:
+                tierlist.append((item,"FREE"))
+                tierdict[item.tier.tiername].append([item,"FREE"])
+            except:
+                print
+                banned=leaguetiers.objects.all().filter(subleague=subleague).get(tiername="Banned")
+                item.tier=banned
+                item.save()
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     context = {
         'subleague': subleague,
