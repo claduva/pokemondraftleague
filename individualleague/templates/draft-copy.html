@@ -1,0 +1,61 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{subleague.league.name}}-{{subleague.subleague}}: Draft{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row bg-darkgrey rounded pt-2">
+    <div class="d-none d-md-block col-md-3">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th colspan="3">Draft ({{ draftprogress }}% Complete)</th>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>Pick</th>
+                    <th>Team</th>
+                    <th>Pokemon</th>
+                </tr>
+                {% for item in draftlist %}
+                <tr>
+                    <td>{{item.picknumber}}</td>
+                    <td>{{item.team.teamabbreviation}}</td>
+                    <td><img class="smallsprite"
+                            src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-12 col-md-9">
+        <div class="row d-flex justify-content-around">
+            {% for team,teamdraft,pointsused,pointsremaining in draftbyteam %}
+            <div class="col-md-4">
+                <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                        <tr class="bg-dark text-light"><th colspan="3"><img class="smallsprite" src="{{team.logo.url}}">{{team.teamname}} ({{team.teamabbreviation}})</th></tr>
+                        <tr class="bg-dark text-light">
+                            <th>Pick</th>
+                            <th>Pokemon</th>
+                            <th>Points</th>
+                        </tr>
+                        {% for picknumber,pokemon,points in teamdraft %}
+                        <tr>
+                            <td>{{picknumber}}</td>
+                            <td><img class="smallsprite" src="{{pokemon|sprite:site_settings.sprite}}">{{pokemon}}</td>
+                            <td>{{points}}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr class="bg-dark text-light"><td colspan="2">Points Used:</td><td>{{ pointsused }}</td></tr>
+                        <tr class="bg-dark text-light"><td colspan="2">Points Remaining:</td><td>{{ pointsremaining }}</td></tr>
+                    </table>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

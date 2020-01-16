@@ -240,6 +240,44 @@ def team_page(request,league_name,subleague_name,team_abbreviation):
 @check_if_subleague
 @check_if_season
 def league_draft(request,league_name,subleague_name):
+    """
+    ##basic config
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    coachcount=league_teams.count()
+    season=subleague.seasonsetting
+    ##existing draftdata
+    draftlist=draft.objects.all().filter(season=season)
+    draftbyteam=[]
+    subleaguetiers=pokemon_tier.objects.filter(subleague=subleague)
+    for item in league_teams:
+        pointsused=0
+        pointsremaining=season.draftbudget
+        teamdraft_=item.draftpicks.all()
+        teamdraft=[]
+        for item_ in teamdraft_:
+            try:
+                pkmn=item_.pokemon.pokemon
+                points=subleaguetiers.get(pokemon=item_.pokemon).tier.tierpoints
+                pointsremaining+=-points
+                pointsused+=points
+            except:
+                pkmn="-"
+                points="-"
+            teamdraft.append([item_.picknumber,pkmn,points])
+        draftbyteam.append([item,teamdraft,pointsused,pointsremaining])
+    try:
+        draftprogress=round(draftlist.exclude(pokemon__isnull=True).count()/draftlist.count()*100,1)
+    except:
+        draftprogress="N/A"
+    context={
+        'subleague':subleague,
+        'league_teams':league_teams,
+        'draftlist': draftlist,
+        'draftbyteam':draftbyteam,
+        'draftprogress':draftprogress,
+    }
+    """
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     coachcount=league_teams.count()
@@ -815,7 +853,6 @@ def league_tiers(request,league_name,subleague_name):
                 tierlist.append((item,"FREE"))
                 tierdict[item.tier.tiername].append([item,"FREE"])
             except:
-                print
                 banned=leaguetiers.objects.all().filter(subleague=subleague).get(tiername="Banned")
                 item.tier=banned
                 item.save()

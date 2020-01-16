@@ -169,13 +169,12 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
-    rosters=roster.objects.all().exclude(pokemon__isnull=True)
-    pokemon_tier.objects.all().update(rosterspot=None)
-    i=1
-    for item in rosters:
-        toi=pokemon_tier.objects.all().filter(subleague=item.season.subleague).get(pokemon=item.pokemon)
-        toi.rosterspot=item
-        toi.save()
-        print(i)
-        i+=1
+    subleagues=league_subleague.objects.all()
+    for item in subleagues:
+        drafts=draft.objects.all().filter(season__subleague=item).order_by('id')
+        i=1
+        for item_ in drafts:
+            item_.picknumber=i
+            item_.save()
+            i+=1
     return redirect('home')
