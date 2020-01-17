@@ -617,14 +617,14 @@ def set_draft_order(request,league_name,subleague_name):
                     if i%2 == 0:
                         for item in order:
                             id_+=1
-                            draft.objects.create(season=seasonsettings,team=item)
-                            roster.objects.create(id=id_,season=seasonsettings,team=item,picknumber=j)
+                            draft.objects.create(season=seasonsettings,team=item,picknumber=j)
+                            roster.objects.create(id=id_,season=seasonsettings,team=item)
                             j+=1
                     else:    
                         for item in flippedorder:
                             id_+=1
-                            draft.objects.create(season=seasonsettings,team=item)
-                            roster.objects.create(id=id_,season=seasonsettings,team=item,picknumber=j)   
+                            draft.objects.create(season=seasonsettings,team=item,picknumber=j)
+                            roster.objects.create(id=id_,season=seasonsettings,team=item)   
                             j+=1         
         elif formpurpose=='Randomize':
             currentdraft=draft.objects.all().filter(season=seasonsettings).delete()
