@@ -283,13 +283,14 @@ def league_draft(request,league_name,subleague_name):
         currentleftpicks=left_pick.objects.all().filter(season=season,coach=currentpick.team).order_by('id')
     except:
         currentleftpicks=left_pick.objects.none()
+    print(currentleftpicks)
     if currentleftpicks.count()>0:
         for item in currentleftpicks:
             if item.pick.id not in takenpokemon:
                 currentpick.pokemon=item.pick
                 rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
                 rosterspot.pokemon=item.pick
-                senddraftpicktobot(currentpick,item.pick,subleague)
+                senddraftpicktobot(currentpick,item.pick,subleague,draftlist)
                 rosterspot.save()
                 currentpick.save()
                 item.delete()
@@ -298,7 +299,7 @@ def league_draft(request,league_name,subleague_name):
                 currentpick.pokemon=item.backup
                 rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
                 rosterspot.pokemon=item.backup
-                senddraftpicktobot(currentpick,item.backup,subleague)
+                senddraftpicktobot(currentpick,item.backup,subleague,draftlist)
                 rosterspot.save()
                 currentpick.save()
                 item.delete()
@@ -324,7 +325,7 @@ def league_draft(request,league_name,subleague_name):
             rosterspot.pokemon=draftpick
             rosterspot.save()
             currentpick.save()
-            senddraftpicktobot(currentpick,draftpick,subleague)
+            senddraftpicktobot(currentpick,draftpick,subleague,draftlist)
             messages.success(request,'Your draft pick has been saved!')
         elif formpurpose=="Skip":
             currentpick.skipped=True
@@ -374,7 +375,7 @@ def league_draft(request,league_name,subleague_name):
     }
     return render(request, 'draft.html',context)
 
-def senddraftpicktobot(currentpick,pokemon,subleague):
+def senddraftpicktobot(currentpick,pokemon,subleague,draftlist):
     #send to bot
     text=f'The {currentpick.team.teamname} have drafted {pokemon.pokemon}'
     draftchannel=subleague.discord_settings.draftchannel
