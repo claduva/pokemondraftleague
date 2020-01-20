@@ -240,16 +240,21 @@ def team_page(request,league_name,subleague_name,team_abbreviation):
 @check_if_subleague
 @check_if_season
 def league_draft(request,league_name,subleague_name):
-    """
     ##basic config
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     coachcount=league_teams.count()
     season=subleague.seasonsetting
-    ##existing draftdata
+    takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
+    availablepokemon=pokemon_tier.objects.all().exclude(tier__tiername="Banned").exclude(pokemon__id__in=takenpokemon).filter(subleague=subleague).order_by("-tier__tierpoints",'pokemon__pokemon')
+    tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
+    types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     draftlist=draft.objects.all().filter(season=season)
-    draftbyteam=[]
+    currentpick=draftlist.filter(pokemon__isnull=True,skipped=False).first()
     subleaguetiers=pokemon_tier.objects.filter(subleague=subleague)
+    ##existing draftdata
+    draftbyteam=[]
+    iscoach=False
     for item in league_teams:
         pointsused=0
         pointsremaining=season.draftbudget
@@ -266,16 +271,106 @@ def league_draft(request,league_name,subleague_name):
                 points="-"
             teamdraft.append([item_.picknumber,pkmn,points])
         draftbyteam.append([item,teamdraft,pointsused,pointsremaining])
+        try:
+            if item==currentpick.team: currentpoints=pointsremaining
+        except:
+            currentpoints=None
+        if request.user==item.coach: 
+            iscoach=True
+            usercoach=item
+    #check for current leftpicks
+    try:
+        currentleftpicks=left_pick.objects.all().filter(season=season,coach=currentpick.team).order_by('id')
+    except:
+        currentleftpicks=left_pick.objects.none()
+    if currentleftpicks.count()>0:
+        for item in currentleftpicks:
+            if item.pick.id in availablepokemon:
+                currentpick.pokemon=item.pick
+                rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
+                rosterspot.pokemon=item.pick
+                senddraftpicktobot(currentpick,item.pick,subleague)
+                rosterspot.save()
+                currentpick.save()
+                item.delete()
+                return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)  
+            elif item.backup.id in availablepokemon:
+                currentpick.pokemon=item.backup
+                rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
+                rosterspot.pokemon=item.backup
+                senddraftpicktobot(currentpick,item.backup,subleague)
+                rosterspot.save()
+                currentpick.save()
+                item.delete()
+                return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)  
+            else:
+                item.delete()
+        return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)    
+    ##form handling
+    if request.method=="POST":
+        formpurpose=request.POST['formpurpose']
+        if formpurpose=="Submit":
+            draftpick=request.POST['draftpick']
+            try:
+                draftpick=all_pokemon.objects.get(pokemon=draftpick)
+            except:
+                messages.error(request,f'{draftpick} is not a pokemon!',extra_tags='danger')
+                return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
+            if draftpick.id not in availablepokemon:
+                messages.error(request,f'{draftpick.pokemon} has already been drafted!',extra_tags='danger')
+                return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
+            currentpick.pokemon=draftpick
+            rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
+            rosterspot.pokemon=draftpick
+            rosterspot.save()
+            currentpick.save()
+            senddraftpicktobot(currentpick,draftpick,subleague)
+            messages.success(request,'Your draft pick has been saved!')
+        elif formpurpose=="Skip":
+            currentpick.skipped=True
+            currentpick.save()
+        elif formpurpose=="Skip Remaining Picks":
+            currentpick.coach.draftpicks.all().filter(skipped=False,pokemon__isnull=True).update(skipped=True)
+        #adding leftpick
+        elif formpurpose=="Add":
+            pick=request.POST['pick']
+            backup=request.POST['backup']
+            try: 
+                pick=all_pokemon.objects.get(pokemon=pick)
+            except:
+                messages.error(request,f'{pick} is not a pokemon!',extra_tags='danger')
+                return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
+            if backup=="":
+                backup=pick
+            else:
+                try: 
+                    backup=all_pokemon.objects.get(pokemon=backup)
+                except:
+                    messages.error(request,f'{backup} is not a pokemon!',extra_tags='danger')
+                    return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
+            left_pick.objects.create(coach=usercoach,season=season,pick=pick,backup=backup)
+        elif formpurpose=="Delete":
+            leftpickid=request.POST['leftpickid']
+            left_pick.objects.get(id=leftpickid).delete()
+        return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
     try:
         draftprogress=round(draftlist.exclude(pokemon__isnull=True).count()/draftlist.count()*100,1)
     except:
         draftprogress="N/A"
+    leftpicks=left_pick.objects.all().filter(season=season,coach__coach=request.user)
     context={
         'subleague':subleague,
         'league_teams':league_teams,
         'draftlist': draftlist,
         'draftbyteam':draftbyteam,
         'draftprogress':draftprogress,
+        'currentpick':currentpick,
+        'currentpoints':currentpoints,
+        'leftpicks':leftpicks,
+        'iscoach':iscoach,
+        'availablepokemon':availablepokemon,
+        'tierchoices':tierchoices,
+        'types':types,
     }
     """
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
@@ -495,7 +590,20 @@ def league_draft(request,league_name,subleague_name):
         'leftpicks': leftpicks,
         'canskippick':canskippick,
     }
+    """
     return render(request, 'draft.html',context)
+
+def senddraftpicktobot(currentpick,pokemon,subleague):
+    #send to bot
+    text=f'The {currentpick.team.teamname} have drafted {pokemon.pokemon}'
+    draftchannel=subleague.discord_settings.draftchannel
+    try:
+        upnext=draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.username
+        upnextid=str(draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.profile.discordid)
+    except:
+        upnext="The draft has concluded"
+        draft_announcements.objects.create(league=subleague.discord_settings.discordserver,league_name=subleague.league.name.replace(' ','%20'),text=text,upnext=upnext,draftchannel=draftchannel,upnextid=upnextid)
+    return
 
 @check_if_subleague
 @check_if_season

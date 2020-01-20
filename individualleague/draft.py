@@ -48,14 +48,7 @@ def league_draft(request,league_name,subleague_name):
                         upnextid=str(draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.profile.discordid)
                     except:
                         upnext="The draft has concluded"
-                    draft_announcements.objects.create(
-                        league=subleague.discord_settings.discordserver,
-                        league_name=subleague.league.name.replace(' ','%20'),
-                        text=text,
-                        upnext=upnext,
-                        draftchannel=draftchannel,
-                        upnextid=upnextid
-                    )
+                    draft_announcements.objects.create(league=subleague.discord_settings.discordserver,league_name=subleague.league.name.replace(' ','%20'),text=text,upnext=upnext,draftchannel=draftchannel,upnextid=upnextid)
                     return redirect('league_draft',league_name=league_name,subleague_name=subleague_name)
                 else:
                     searchroster=roster.objects.filter(season=season,pokemon=item.backup).first()     

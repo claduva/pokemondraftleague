@@ -3,177 +3,186 @@
 {% load crispy_forms_tags %}
 {% load extratags %}
 
-{% block title %}{{league_name}}: Draft{% endblock %}
+{% block title %}{{subleague.league.name}}-{{subleague.subleague}}: Draft{% endblock %}
 {% block head%}
 {% endblock %}
 {% block body %}
-<div class="row content-section">
-    <div id="draftprogress" class="container">
-        <h5>Draft Progress</h5>
-        <div class="progress">
-            <div class="progress-bar bg-success style-width-{{ draftprogress }}" role="progressbar"
-                aria-valuenow="{{ draftprogress }}" aria-valuemin="0" aria-valuemax="100">
-                <span>{{ draftprogress }}% Complete</span>
-            </div>
-        </div>
-    </div>
-    {% if draftactive %}
-    <div id="draftform" class="col-md-4 d-flex justify-content-start">
-        <div id="draftform2">
-            <h5>Current drafting team: {{ currentpick.team.teamname }}</h5>
-            <div class="d-flex justify-content-between">
-            {% if candraft or request.user in currentpick.season.league.host.all %}
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <datalist id="availablepokemons">
-                    {% for item in availablepokemon %}
-                    <option value="{{ item.pokemon }}">
-                        {% endfor %}
-                </datalist>
-                <input list="availablepokemons" name="draftpick">
-                <input name="purpose" type="submit" class="btn btn-primary" value="Submit">
-            </form>
-            {% endif %}
-            {% if request.user in currentpick.season.league.host.all or canskippick %}
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <input name="purpose" type="submit" class="btn btn-danger" value="Skip">
-            </form>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <input name="purpose" type="submit" class="btn btn-danger" value="Mark Draft as Done">
-            </form>
-            {% endif %}
-            </div>
-        </div>
-    </div>
-    <div id="draftpoints" class="col-md-4">
-        <div class="d-flex justify-content-center">Points Remaining: {{ availablepoints }}</div>
-    </div>
-    <div id="timer" class="col-md-4 d-flex justify-content-end"></div>
-    <div class="col-md-8">
-        <h5>Leave a Pick</h5>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{form|crispy}}
-                <input name="purpose" type="submit" class="btn btn-primary" value="Leave">
-            </form>
-    </div>
-    <div class="col-md-4">
-        <h5>Left Picks</h5>
-        {% if leftpicks %}
-        {% for item in leftpicks %}
-        <div class="d-flex">
-            <div>-{{item.pick.pokemon}} (Backup:{{item.backup.pokemon}})</div>
-            <form method="POST">
-                {% csrf_token %}
-                <input name="pickid" value="{{item.id}}" hidden>
-                <input name="purpose" type="submit" class="btn btn-danger" value="Delete">
-            </form>
-        </div>
+{% if currentpick %}
+<div class="row bg-darkgrey rounded pt-2 mb-2">
+    <datalist id="availablepokemon">
+        {% for item in availablepokemon %}
+        <option value={{ item.pokemon.pokemon }}>{{ item.pokemon.pokemon }}</option>
         {% endfor %}
-        {% else %}
-        <div>-None</div>
-        {% endif %}
+        <option></option>
+    </datalist>
+    <div class="col-md">
+        <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light"><th>Current Drafting Team</th><th >Points Remaining</th></tr>
+                <tr><th><img class="smallsprite" src="{{currentpick.team.logo.url}}">{{currentpick.team.teamname}} ({{currentpick.team.teamabbreviation}})</th><th>{{ currentpoints }}</th></tr>
+                <tr>
+                    <td class="bg-dark text-light" colspan="2">Current Roster</td>
+                </tr>
+                <tr>
+                    <td colspan=2>
+                        <div class="row d-flex justify-content-center">
+                        {% for item in currentpick.team.draftpicks.all %}
+                        {% if item.pokemon.pokemon %}
+                        <div class="col-6"><img class="smallsprite"
+                            src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}}</div>
+                        {% endif %}
+                        {% endfor %}
+                        </div>
+                    </td>
+                </tr>
+                {% if request.user == currentpick.team.coach or request.user in subleague.league.host.all %}
+                <tr class="bg-dark text-light"><th colspan="2">Pick</th></tr>
+                <tr>
+                    <form method="post">{% csrf_token %}
+                        <td><input name="draftpick" class="form-control form-control-sm" type="text" list="availablepokemon"></td>
+                        <td><input name="formpurpose" class="form-control form-control-sm btn btn-sm btn-primary" type="submit" value="Submit"></td>
+                    </form>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <form method="post">{% csrf_token %}
+                            <input name="formpurpose" class="form-control form-control-sm btn btn-sm btn-warning" type="submit" value="Skip">
+                        <form method="post">{% csrf_token %}
+                            <input name="formpurpose" class="form-control form-control-sm btn btn-sm btn-danger" type="submit" value="Skip Remaining Picks">
+                        </form>
+                    </td>
+                </tr>
+                {% endif %}
+            </table>
+        </div>
     </div>
-    {% endif %}
-</div>
-<div class="row content-section align-items-center">
-        {% for item,budget,pointsused,team in draftorder %}
-        <div class="col-md-4">
-            <table class="table table-sm text-center bg-lightgrey text-dark">
-                <tr>
-                    <th colspan="3">
-                        <div class="d-flex justify-content-center">
-                            <div class="small-logo"><img class="img-fluid px-1 rounded-circle" src="{{item.team.logo.url}}"></div>
-                            <div>{{item.team.teamname}}</div>
-                        </div>
-                    </th>
+    <div class="col-md">
+        <div class="d-flex justify-content-around bg-dark border rounded">
+            <select id="tierchoice">
+                <option value="none">All Tiers</option>
+                {% for t in tierchoices %}
+                    <option value="{{t.tierpoints}}">{{t.tiername}}</option>
+                {% endfor %}
+            </select>
+            <select id="typing">
+                <option value="none">All Types</option>
+                {% for type in types %}
+                    <option value="{{type}}">{{type}} Types</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="text-center bg-dark text-light border rounded">Available Pokemon</div>
+        <div class="card bg-lightgrey text-dark text-center table-responsive overflow-auto mb-3 overflow-auto" style="height: 400px;">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center ">
+                {% for item in availablepokemon %}
+                <tr class="tieritem" data-tier="{{item.tier.tierpoints}}">
+                    <td><img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}} ({{item.tier.tiername}}: {{item.tier.tierpoints}} pts)
+                        {% for type in item.pokemon.types.all %}
+                        <div class="{{type.typing}}" hidden>{{type.typing}}</div>
+                        {% endfor %}
+                    </td>
                 </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% if iscoach %}
+    <div class="col-md">
+        <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light"><th colspan="3">Left Picks</th></tr>
+                <tr class="bg-dark text-light"><th>Pokemon</th><th>Backup (Optional)</th><th>Action</th></tr>
+                {% for item in leftpicks %}
                 <tr>
-                    <th>#</th>
-                    <th>Pick</th>
-                    <th>Points</th>
-                </tr>
-                {% for draftpick,cost in team %}
-                <tr>
-                    <td>{{draftpick.id|add:draftstartid }}</td>
+                    <td><img class="smallsprite"
+                        src="{{item.pick.pokemon|sprite:site_settings.sprite}}">{{ item.pick.pokemon }}</td>
                     <td>
-                        {% if draftpick.pokemon.pokemon %}
-                        <div class="d-flex justify-content-center">
-                            <div class="small-logo"><img class="img-fluid px-1 rounded-circle" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:draftpick.pokemon.pokemon|cut:':' %}"></div>
-                            <div>{{draftpick.pokemon.pokemon}}</div>
-                        </div>
+                        {% if item.pick != item.backup %}
+                        <img class="smallsprite" src="{{item.backup.pokemon|sprite:site_settings.sprite}}">{{ item.backup.pokemon }}
                         {% else %}
-                        <div>-</div>
+                        -
                         {% endif %}
                     </td>
-                    <td>{{ cost }}</td>
+                    <td><form method="post">{% csrf_token %}<input name="leftpickid" type="text" value="{{item.id}}" hidden><input name="formpurpose" class="form-control form-control-sm btn btn-sm btn-danger" type="submit" value="Delete"></form></td>
                 </tr>
                 {% endfor %}
                 <tr>
-                        <td class= "text-right" colspan="2">Points Used:</td>
-                        <td>{{pointsused}}</td>
-                    </tr>
-                <tr>
-                    <td class= "text-right" colspan="2">Points Remaining:</td>
-                    <td >{{budget}}</td>
+                    <form method="post">{% csrf_token %}
+                        <td><input name="pick" class="form-control form-control-sm" type="text" list="availablepokemon"></td>
+                        <td><input name="backup" class="form-control form-control-sm" type="text" list="availablepokemon"></td>
+                        <td><input name="formpurpose" class="form-control form-control-sm btn btn-sm btn-primary" type="submit" value="Add"></td>
+                    </form>
                 </tr>
             </table>
         </div>
-        {% endfor %}
-    
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+<div class="row bg-darkgrey rounded pt-2">
+    <div class="d-none d-md-block col-md-3">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th colspan="3">Draft ({{ draftprogress }}% Complete)</th>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>Pick</th>
+                    <th>Team</th>
+                    <th>Pokemon</th>
+                </tr>
+                {% for item in draftlist %}
+                <tr>
+                    <td>{{item.picknumber}}</td>
+                    <td>{{item.team.teamabbreviation}}</td>
+                    <td>{% if item.pokemon.pokemon %}<img class="smallsprite"
+                            src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}}{% else %}-{% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-12 col-md-9">
+        <div class="row d-flex justify-content-around">
+            {% for team,teamdraft,pointsused,pointsremaining in draftbyteam %}
+            <div class="col-md-4">
+                <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                        <tr class="bg-dark text-light">
+                            <th colspan="3"><img class="smallsprite" src="{{team.logo.url}}">{{team.teamname}}
+                                ({{team.teamabbreviation}})</th>
+                        </tr>
+                        <tr class="bg-dark text-light">
+                            <th>Pick</th>
+                            <th>Pokemon</th>
+                            <th>Points</th>
+                        </tr>
+                        {% for picknumber,pokemon,points in teamdraft %}
+                        <tr>
+                            <td>{{picknumber}}</td>
+                            <td>{% if pokemon != "-" %}<img class="smallsprite"
+                                    src="{{pokemon|sprite:site_settings.sprite}}">{% endif %}{{pokemon}}</td>
+                            <td>{{points}}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr class="bg-dark text-light">
+                            <td colspan="2">Points Used:</td>
+                            <td>{{ pointsused }}</td>
+                        </tr>
+                        <tr class="bg-dark text-light">
+                            <td colspan="2">Points Remaining:</td>
+                            <td>{{ pointsremaining }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
 {% block footer %}
-{% if form %}
-    {{ form.media }}
-{% endif %}
-<script>
-    // Set the date we're counting down to
-    var startDate = new Date('{{draftstart}}');
-    var pickEnd = new Date('{{pickend}}');
-    var now = new Date();
-    
-    var x = setInterval(function () {
-
-        // Get today's date and time
-        var now = new Date().getTime();
-        var timetostart=startDate.getTime()-now
-        if (timetostart>0){
-             // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(timetostart / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((timetostart % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((timetostart % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((timetostart % (1000 * 60)) / 1000);
-            document.getElementById("draftprogress").style.display='none';
-            document.getElementById("draftpoints").style.display='none';
-            document.getElementById("draftform").style.display='none';
-            document.getElementById("draftform2").style.display='none';
-            document.getElementById("timer").classList.remove("col-md-4","justify-content-end")
-            document.getElementById("timer").classList.add("col-md-12","justify-content-center")
-            document.getElementById("timer").innerHTML="Draft Will Begin In "+days + "d " + hours + "h "
-            + minutes + "m " + seconds + "s ";
-        }
-        else{
-            var pickExpire = new Date(pickEnd);
-            timeremaining=pickExpire.getTime()-now
-            var days = Math.floor(timeremaining / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((timeremaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((timeremaining % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((timeremaining % (1000 * 60)) / 1000);
-            document.getElementById("draftprogress").style.display='block';
-            document.getElementById("draftpoints").style.display='block';
-            document.getElementById("draftform").style.display='block';
-            document.getElementById("draftform2").style.display='block';
-            document.getElementById("timer").classList.remove("col-md-12","justify-content-center")
-            document.getElementById("timer").classList.add("col-md-4","justify-content-end")
-            document.getElementById("timer").innerHTML="Time Remaining: "+days + "d " + hours + "h "
-            + minutes + "m " + seconds + "s ";
-        }
-       
-    }, 1000);
-
-
-</script>
+<!-- select code -->
+<script src="{% static 'individualleague/scripts/draftfilter.js' %}"></script>
 {% endblock %}

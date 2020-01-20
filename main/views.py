@@ -169,12 +169,5 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
-    subleagues=league_subleague.objects.all()
-    for item in subleagues:
-        drafts=draft.objects.all().filter(season__subleague=item).order_by('id')
-        i=1
-        for item_ in drafts:
-            item_.picknumber=i
-            item_.save()
-            i+=1
+
     return redirect('home')
