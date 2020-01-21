@@ -544,118 +544,6 @@ def league_schedule(request,league_name,subleague_name):
             return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
     return render(request, 'schedule.html',context)
 
-"""
-@check_if_subleague
-@check_if_season
-def league_matchup(request,league_name,subleague_name,matchid):
-    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    season=subleague.seasonsetting
-    league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    try:
-        match=schedule.objects.get(id=matchid)
-    except:
-        messages.error(request,'Match does not exist!',extra_tags='danger')
-        return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
-    team1roster_=roster.objects.filter(season=season,team=match.team1,pokemon__isnull=False).order_by('pokemon__pokemon')
-    team1roster=[]
-    defog=[]
-    rapidspin=[]
-    sr=[]
-    spikes=[]
-    tspikes=[]
-    stickyweb=[]
-    healbell=[]
-    wish=[]
-    for item in team1roster_:
-        typing=pokemon_type.objects.all().filter(pokemon=item.pokemon)
-        abilities=pokemon_ability.objects.all().filter(pokemon=item.pokemon)
-        basespeed=item.pokemon.speed
-        base50=math.floor((((2*basespeed+31+252/4)*50)/100+5)*1.1)
-        base100=math.floor((((2*basespeed+31+252/4)*100)/100+5)*1.1)
-        speeds=[math.floor(base50*2/3),base50,math.floor(base50*3/2),math.floor(base50*2),math.floor(base100*2/3),base100,math.floor(base100*3/2),math.floor(base100*2)]
-        team1roster.append([item,typing,abilities,speeds])
-        moveset=pokemon_moveset.objects.all().filter(pokemon=item.pokemon)
-        healaroma=True
-        for move in moveset:
-            if move.moveinfo.name=="Defog":
-                defog.append(item)
-            if move.moveinfo.name=="Rapid Spin":
-                rapidspin.append(item)
-            if move.moveinfo.name=="Stealth Rock":
-                sr.append(item)
-            if move.moveinfo.name=="Spikes":
-                spikes.append(item)
-            if move.moveinfo.name=="Toxic Spikes":
-                tspikes.append(item)
-            if move.moveinfo.name=="Sticky Web":
-                stickyweb.append(item)
-            if move.moveinfo.name=="Aromatherapy" and healaroma:
-                healbell.append(item)
-                healaroma=False
-            if move.moveinfo.name=="Heal Bell" and healaroma:
-                healbell.append(item)
-                healaroma=False
-            if move.moveinfo.name=="Wish":
-                wish.append(item)
-    team1moves=[['Stealth Rock',sr],['Spikes',spikes],['Toxic Spikes',tspikes],['Sticky Web',stickyweb],['Defog',defog],['Rapid Spin',rapidspin],['Heal Bell/Aromatherapy',healbell],['Wish',wish]]
-
-    team2roster_=roster.objects.filter(season=season,team=match.team2,pokemon__isnull=False).order_by('pokemon__pokemon')
-    team2roster=[]
-    defog=[]
-    rapidspin=[]
-    sr=[]
-    spikes=[]
-    tspikes=[]
-    stickyweb=[]
-    healbell=[]
-    wish=[]
-    for item in team2roster_:
-        typing=pokemon_type.objects.all().filter(pokemon=item.pokemon)
-        abilities=pokemon_ability.objects.all().filter(pokemon=item.pokemon)
-        basespeed=item.pokemon.speed
-        base50=math.floor((((2*basespeed+31+252/4)*50)/100+5)*1.1)
-        base100=math.floor((((2*basespeed+31+252/4)*100)/100+5)*1.1)
-        speeds=[math.floor(base50*2/3),base50,math.floor(base50*3/2),math.floor(base50*2),math.floor(base100*2/3),base100,math.floor(base100*3/2),math.floor(base100*2)]
-        team2roster.append([item,typing,abilities,speeds])
-        moveset=pokemon_moveset.objects.all().filter(pokemon=item.pokemon)
-        healaroma=True
-        for move in moveset:
-            if move.moveinfo.name=="Defog":
-                defog.append(item)
-            if move.moveinfo.name=="Rapid Spin":
-                rapidspin.append(item)
-            if move.moveinfo.name=="Stealth Rock":
-                sr.append(item)
-            if move.moveinfo.name=="Spikes":
-                spikes.append(item)
-            if move.moveinfo.name=="Toxic Spikes":
-                tspikes.append(item)
-            if move.moveinfo.name=="Sticky Web":
-                stickyweb.append(item)
-            if move.moveinfo.name=="Aromatherapy" and healaroma:
-                healbell.append(item)
-                healaroma=False
-            if move.moveinfo.name=="Heal Bell" and healaroma:
-                healbell.append(item)
-                healaroma=False
-            if move.moveinfo.name=="Wish":
-                wish.append(item)
-    team2moves=[['Stealth Rock',sr],['Spikes',spikes],['Toxic Spikes',tspikes],['Sticky Web',stickyweb],['Defog',defog],['Rapid Spin',rapidspin],['Heal Bell/Aromatherapy',healbell],['Wish',wish]]
-
-    context = {
-        'subleague': subleague,
-        'leaguepage': True,
-        'league_teams': league_teams,
-        'league_name': league_name,
-        'match': match,
-        'team1roster': team1roster,
-        'team2roster': team2roster,
-        'team1moves': team1moves,
-        'team2moves': team2moves,
-    }
-    return render(request, 'matchup.html',context)
-"""
-
 @check_if_subleague
 @check_if_season
 def league_matchup(request,league_name,subleague_name,matchid):
@@ -766,52 +654,67 @@ def league_tiers(request,league_name,subleague_name):
 @check_if_subleague
 @check_if_season
 def freeagency(request,league_name,subleague_name):
+    ##basic config
     league_name=league_name.replace('%20',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    coach=coachdata.objects.all().filter(league_name=subleague.league).filter(Q(coach=request.user)|Q(teammate=request.user)).first()
-    coachrosterids=coach.teamroster.all().order_by('pokemon__pokemon').exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
-    coachroster=all_pokemon.objects.all().order_by('pokemon').filter(id__in=coachrosterids)
-    bannedpokemon=pokemon_tier.objects.all().filter(subleague=subleague).filter(tier__tiername='Banned').values_list('pokemon',flat=True)
+    season=subleague.seasonsetting
     takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
-    availablepokemon=all_pokemon.objects.all().order_by('pokemon').exclude(id__in=takenpokemon).exclude(id__in=bannedpokemon)
+    availablepokemon=pokemon_tier.objects.all().exclude(tier__tiername="Banned").exclude(pokemon__id__in=takenpokemon).filter(subleague=subleague).order_by("-tier__tierpoints",'pokemon__pokemon')
+    tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
+    types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
+    userroster=roster.objects.all().filter(season=season,team__coach=request.user)
+    pointsremaining=season.draftbudget
+    for item in userroster:
+        pointsremaining+=-pokemon_tier.objects.filter(subleague=subleague).get(pokemon=item.pokemon).tier.tierpoints
     if request.method=="POST":
-        form=FreeAgencyForm(coachroster,availablepokemon,request.POST)
-        if form.is_valid(): 
-            fadata=form.save()
-            messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
+        formpurpose=request.POST['formpurpose']
+        if formpurpose=="Submit":
+            droppedpokemon=userroster.get(id=request.POST['droppedpokemon'])
+            addedpokemon=request.POST['addedpokemon']
+            try:
+                addedpokemon=all_pokemon.objects.get(pokemon=addedpokemon)
+            except: 
+                messages.error(request,f'{addedpokemon} is not a pokemon!',extra_tags='danger')
+                return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
+            if addedpokemon.id in takenpokemon:
+                messages.error(request,f'{addedpokemon} is already taken!',extra_tags='danger')
+                return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
             discordserver=subleague.discord_settings.discordserver
             discordchannel=subleague.discord_settings.freeagencychannel
-            request_league=season
-            league_start=request_league.seasonstart
-            elapsed=fadata.timeadded-league_start
+            league_start=season.seasonstart
+            elapsed=datetime.now()-league_start.replace(tzinfo=None)
             weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)
             if weekrequested>0:
                 weekeffective=weekrequested+1
             else:
                 weekeffective=1
-            title=f"The {fadata.coach.teamname} have used a free agency to drop {fadata.droppedpokemon.pokemon} for {fadata.addedpokemon.pokemon}. Effective Week {weekeffective}."
-            freeagency_announcements.objects.create(
-                league = discordserver,
-                league_name = subleague.league.name,
-                text = title,
-                freeagencychannel = discordchannel
-            )
+            title=f"The {droppedpokemon.team.teamname} have used a free agency to drop {droppedpokemon.pokemon.pokemon} for {addedpokemon.pokemon}. Effective Week {weekeffective}."
+            free_agency.objects.create(coach=droppedpokemon.team,season=season,droppedpokemon=droppedpokemon.pokemon,addedpokemon=addedpokemon)
+            messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
+            freeagency_announcements.objects.create(league = discordserver,league_name = subleague.league.name,text = title,freeagencychannel = discordchannel)
             return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
-    form=FreeAgencyForm(coachroster,availablepokemon,initial={'coach':coach,'season':season})
-    fa_remaining=season.freeagenciesallowed-free_agency.objects.all().filter(season=season,coach=coach).count()
-    if fa_remaining < 1:
-        form=None
+        elif formpurpose=="Undo":
+            free_agency.objects.get(id=request.POST['freeagencyid']).delete()
+            return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
+    fa_remaining=season.freeagenciesallowed-free_agency.objects.all().filter(season=season,coach__coach=request.user).count()
     pendingfreeagency=free_agency.objects.all().filter(executed=False,season=season)
+    completedfreeagency=free_agency.objects.all().filter(executed=True,season=season)
+    personalfreeagency=free_agency.objects.all().filter(season=season,coach__coach=request.user)
     context = {
+        'availablepokemon':availablepokemon,
+        'tierchoices':tierchoices,
+        'types':types,
         'subleague': subleague,
         'leaguepage': True,
         'league_teams': league_teams,
         'league_name': league_name,
-        'form':form,
         'fa_remaining':fa_remaining,
         'pendingfreeagency':pendingfreeagency,
+        'completedfreeagency':completedfreeagency,
+        'personalfreeagency':personalfreeagency,
+        'userroster':userroster,
+        'pointsremaining':pointsremaining,
     }
     return render(request, 'freeagency.html',context)
 

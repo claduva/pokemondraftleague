@@ -7,13 +7,12 @@
 {% block head%}
 {% endblock %}
 {% block body %}
-{% if currentpick %}
+
 <div class="row bg-darkgrey rounded pt-2 mb-2">
     <datalist id="availablepokemon">
         {% for item in availablepokemon %}
         <option value={{ item.pokemon.pokemon }}>{{ item.pokemon.pokemon }}</option>
         {% endfor %}
-        <option></option>
     </datalist>
     <div class="col-md">
         <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
@@ -118,7 +117,6 @@
     </div>
     {% endif %}
 </div>
-{% endif %}
 <div class="row bg-darkgrey rounded pt-2">
     <div class="d-none d-md-block col-md-3">
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
@@ -183,6 +181,5 @@
 </div>
 {% endblock %}
 {% block footer %}
-<!-- select code -->
 <script src="{% static 'individualleague/scripts/draftfilter.js' %}"></script>
 {% endblock %}
