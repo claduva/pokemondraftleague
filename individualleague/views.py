@@ -278,12 +278,12 @@ def league_draft(request,league_name,subleague_name):
         if request.user==item.coach: 
             iscoach=True
             usercoach=item
+    draftbyteam=sorted(draftbyteam, key=lambda x: x[1][0][0])
     #check for current leftpicks
     try:
         currentleftpicks=left_pick.objects.all().filter(season=season,coach=currentpick.team).order_by('id')
     except:
         currentleftpicks=left_pick.objects.none()
-    print(currentleftpicks)
     if currentleftpicks.count()>0:
         for item in currentleftpicks:
             if item.pick.id not in takenpokemon:
@@ -361,6 +361,7 @@ def league_draft(request,league_name,subleague_name):
     leftpicks=left_pick.objects.all().filter(season=season,coach__coach=request.user)
     context={
         'subleague':subleague,
+        'league_name':league_name,
         'league_teams':league_teams,
         'draftlist': draftlist,
         'draftbyteam':draftbyteam,
@@ -372,6 +373,7 @@ def league_draft(request,league_name,subleague_name):
         'availablepokemon':availablepokemon,
         'tierchoices':tierchoices,
         'types':types,
+        'leaguepage': True,
     }
     return render(request, 'draft.html',context)
 
