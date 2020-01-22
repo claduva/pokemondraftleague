@@ -36,15 +36,16 @@ def user_profile(request,username):
         winpercent='N/A'
     #favorite pokemon
     alldraft=list(draft.objects.all().exclude(pokemon__isnull=True).filter(Q(team__coach=userofinterest)|Q(team__teammate=userofinterest)).values_list('pokemon',flat=True))
-    allhistoricdraft=list(historical_draft.objects.all().filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('pokemon',flat=True))
-    allfreeagency=list(free_agency.objects.all().filter(Q(coach__coach=userofinterest)|Q(coach__teammate=userofinterest)).values_list('addedpokemon',flat=True))
-    allhistoricfreeagency=list(historical_freeagency.objects.all().filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('addedpokemon',flat=True))
-    alltrading=list(trading.objects.all().filter(Q(coach__coach=userofinterest)|Q(coach__teammate=userofinterest)).values_list('addedpokemon',flat=True))
-    allhistorictrading=list(historical_trading.objects.all().filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('addedpokemon',flat=True))
+    allhistoricdraft=list(historical_draft.objects.all().exclude(pokemon__isnull=True).filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('pokemon',flat=True))
+    allfreeagency=list(free_agency.objects.all().exclude(addedpokemon__isnull=True).filter(Q(coach__coach=userofinterest)|Q(coach__teammate=userofinterest)).values_list('addedpokemon',flat=True))
+    allhistoricfreeagency=list(historical_freeagency.objects.all().exclude(addedpokemon__isnull=True).filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('addedpokemon',flat=True))
+    alltrading=list(trading.objects.all().exclude(addedpokemon__isnull=True).filter(Q(coach__coach=userofinterest)|Q(coach__teammate=userofinterest)).values_list('addedpokemon',flat=True))
+    allhistorictrading=list(historical_trading.objects.all().exclude(addedpokemon__isnull=True).filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('addedpokemon',flat=True))
     monlist_=alldraft+allhistoricdraft+allfreeagency+allhistoricfreeagency+alltrading+allhistorictrading
     monlist=[]
     allmons=all_pokemon.objects.all()
     for item in monlist_:
+        print(item)
         monlist.append(allmons.get(id=item).pokemon)
     mostacquired=dict(Counter(monlist))
     mostacquired={k:v for (k,v) in mostacquired.items() if v>1}
