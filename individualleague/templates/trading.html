@@ -5,27 +5,133 @@
 
 {% block title %}{{league_name}}: Trading{% endblock %}
 {% block head%}
-<link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/tiers.css' %}">
 {% endblock %}
 {% block body %}
-
-<div class="row content-section align-items-center">
-    <div class="col-md-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo"></div>
-    <div class="col-md-4">
-        <h3 class="d-flex justify-content-center">Trading (Remaining={{ trade_remaining }})</h3>
-    </div>
-    <div class="col-md-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo"></div>
-</div>
-<div class="row content-section align-items-center">
-        <div class="col-12">
-            <h5>Points Available: 0</h5>
-            {% if trade_remaining > 0 %}
-            <form method="post">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <input type='submit' class="btn btn-primary" value='Submit'>
-            </form>
-            {% endif %}
+<div class="row bg-darkgrey rounded pt-2 mb-2">
+    <datalist id="availablepokemon">
+        {% for item in availablepokemon %}
+        <option value={{ item.pokemon.pokemon }}>{{ item.pokemon.pokemon }}</option>
+        {% endfor %}
+    </datalist>
+    <div class="col-md">
+        <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light"><th>Free Agency Transactions Remaining</th><th colspan="2">Points Remaining</th></tr>
+                <tr><th>{{ fa_remaining }}</th><th colspan="2">{{ pointsremaining }}</th></tr>
+                {% if personalfreeagency %}
+                <tr>
+                    <td class="bg-dark text-light" colspan="3">Prior Free Agency Transactions</td>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>Dropped Pokemon</th>
+                    <th>Added Pokemon</th>
+                    <th>Action</th>
+                </tr>
+                {% for item in personalfreeagency %}
+                <tr>
+                    <td><img class="smallsprite"
+                    src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
+                    <td><img class="smallsprite"
+                        src="{{item.addedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.addedpokemon.pokemon}}</td>
+                    <td>{% if not item.executed %}<form method="post">{% csrf_token %}<input name="formpurpose" type="Submit" class="btn btn-sm btn-danger form-control form-control-sm" value="Undo"><input name="freeagencyid" type="text" value="{{item.id}}" hidden></form>{% endif %}</td>                
+                </tr>
+                {% endfor %}
+                {% endif %}
+                {% if fa_remaining > 0 %}
+                <tr class="bg-dark text-light"><th colspan="3">Submit New Free Agency</th></tr>
+                <form method="post">{% csrf_token %}
+                    <tr>
+                        <th class="bg-dark text-light">Dropped Pokemon</th>
+                        <td colspan="2">
+                            <select name="droppedpokemon" class="form-control form-control-sm">
+                                {% for item in userroster %}
+                                <option value="{{ item.id }}">{{item.pokemon.pokemon}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="bg-dark text-light">Added Pokemon</th>
+                        <td colspan="2"><input name="addedpokemon" class="form-control form-control-sm" type="text" list="availablepokemon"></td>
+                    </tr>
+                    <tr><td colspan="3"><input name="formpurpose" class="btn btn-sm btn-primary form-control form-control-sm" type="submit"></td></tr>
+                </form>
+                {% endif %}
+            </table>
         </div>
+    </div>
+    <div class="col-md">
+        <div class="d-flex justify-content-around bg-dark border rounded">
+            <select id="tierchoice">
+                <option value="none">All Tiers</option>
+                {% for t in tierchoices %}
+                    <option value="{{t.tierpoints}}">{{t.tiername}}</option>
+                {% endfor %}
+            </select>
+            <select id="typing">
+                <option value="none">All Types</option>
+                {% for type in types %}
+                    <option value="{{type}}">{{type}} Types</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="text-center bg-dark text-light border rounded">Available Pokemon</div>
+        <div class="card bg-lightgrey text-dark text-center table-responsive overflow-auto mb-3 overflow-auto" style="height: 400px;">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center ">
+                {% for item in availablepokemon %}
+                <tr class="tieritem" data-tier="{{item.tier.tierpoints}}">
+                    <td><img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}} ({{item.tier.tiername}}: {{item.tier.tierpoints}} pts)
+                        {% for type in item.pokemon.types.all %}
+                        <div class="{{type.typing}}" hidden>{{type.typing}}</div>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 </div>
+<div class="row bg-darkgrey rounded pt-2 mb-2">
+    {% if pendingfreeagency %}
+    <div class="col-md">
+        <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light"><th colspan="3">Pending Free Agent Transactions</th></tr>
+                <tr class="bg-dark text-light"><th>Team</th><th>Dropped Pokemon</th><th>Added Pokemon</th></tr>
+                {% for item in pendingfreeagency %}
+                <tr>
+                    <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                    <td><img class="smallsprite"
+                        src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
+                    <td><img class="smallsprite"
+                        src="{{item.addedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.addedpokemon.pokemon}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endif %}
+    {% if completedfreeagency %}
+    <div class="col-md">
+        <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light"><th colspan="3">Completed Free Agent Transactions</th></tr>
+                <tr class="bg-dark text-light"><th>Team</th><th>Dropped Pokemon</th><th>Added Pokemon</th></tr>
+                {% for item in completedfreeagency %}
+                <tr>
+                    <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                    <td><img class="smallsprite"
+                        src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
+                    <td><img class="smallsprite"
+                        src="{{item.addedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.addedpokemon.pokemon}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+{% block footer %}
+<script src="{% static 'individualleague/scripts/draftfilter.js' %}"></script>
 {% endblock %}

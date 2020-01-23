@@ -19,8 +19,11 @@ def split(string, arg):
     return string.split(".")[arg]
 
 @register.filter(name='subtract')
-def subtract(int, arg):
-    return int-arg
+def subtract(num, arg):
+    try:
+        return num-arg
+    except:
+        return 0
 
 @register.filter(name='divide')
 def divide(int, arg):

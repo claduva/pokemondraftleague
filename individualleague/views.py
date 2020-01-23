@@ -209,7 +209,7 @@ def league_apply(request,league_name):
                     
                 context = {
                     'league': league_,
-                    'forms': [form],
+                    'form': form,
                 }
                 return render(request, 'leagueapplication.html',context)
 
@@ -739,6 +739,7 @@ def league_leaders(request,league_name,subleague_name):
 @check_if_subleague
 @check_if_season
 def trading_view(request,league_name,subleague_name):
+    """
     league_name=league_name.replace('%20',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     season=subleague.seasonsetting
@@ -766,6 +767,69 @@ def trading_view(request,league_name,subleague_name):
         'league_name': league_name,
         'form':form,
         'trade_remaining':trade_remaining,
+    }
+    """
+    ##basic config
+    league_name=league_name.replace('%20',' ')
+    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
+    league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    season=subleague.seasonsetting
+    takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
+    availablepokemon=pokemon_tier.objects.all().exclude(tier__tiername="Banned").filter(pokemon__id__in=takenpokemon).filter(subleague=subleague).order_by("-tier__tierpoints",'pokemon__pokemon')
+    tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
+    types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
+    userroster=roster.objects.all().filter(season=season,team__coach=request.user)
+    pointsremaining=season.draftbudget
+    for item in userroster:
+        pointsremaining+=-pokemon_tier.objects.filter(subleague=subleague).get(pokemon=item.pokemon).tier.tierpoints
+    if request.method=="POST":
+        formpurpose=request.POST['formpurpose']
+        if formpurpose=="Submit":
+            droppedpokemon=userroster.get(id=request.POST['droppedpokemon'])
+            addedpokemon=request.POST['addedpokemon']
+            try:
+                addedpokemon=all_pokemon.objects.get(pokemon=addedpokemon)
+            except: 
+                messages.error(request,f'{addedpokemon} is not a pokemon!',extra_tags='danger')
+                return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
+            if addedpokemon.id in takenpokemon:
+                messages.error(request,f'{addedpokemon} is already taken!',extra_tags='danger')
+                return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
+            discordserver=subleague.discord_settings.discordserver
+            discordchannel=subleague.discord_settings.freeagencychannel
+            league_start=season.seasonstart
+            elapsed=datetime.now()-league_start.replace(tzinfo=None)
+            weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)
+            if weekrequested>0:
+                weekeffective=weekrequested+1
+            else:
+                weekeffective=1
+            title=f"The {droppedpokemon.team.teamname} have used a free agency to drop {droppedpokemon.pokemon.pokemon} for {addedpokemon.pokemon}. Effective Week {weekeffective}."
+            free_agency.objects.create(coach=droppedpokemon.team,season=season,droppedpokemon=droppedpokemon.pokemon,addedpokemon=addedpokemon)
+            messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
+            freeagency_announcements.objects.create(league = discordserver,league_name = subleague.league.name,text = title,freeagencychannel = discordchannel)
+            return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
+        elif formpurpose=="Undo":
+            free_agency.objects.get(id=request.POST['freeagencyid']).delete()
+            return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
+    fa_remaining=season.freeagenciesallowed-free_agency.objects.all().filter(season=season,coach__coach=request.user).count()
+    pendingfreeagency=free_agency.objects.all().filter(executed=False,season=season)
+    completedfreeagency=free_agency.objects.all().filter(executed=True,season=season)
+    personalfreeagency=free_agency.objects.all().filter(season=season,coach__coach=request.user)
+    context = {
+        'availablepokemon':availablepokemon[1:5],
+        'tierchoices':tierchoices,
+        'types':types,
+        'subleague': subleague,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'fa_remaining':fa_remaining,
+        'pendingfreeagency':pendingfreeagency,
+        'completedfreeagency':completedfreeagency,
+        'personalfreeagency':personalfreeagency,
+        'userroster':userroster,
+        'pointsremaining':pointsremaining,
     }
     return render(request, 'trading.html',context)
 

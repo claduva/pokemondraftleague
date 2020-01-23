@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms.widgets import FileInput
 from django.contrib.admin.widgets import FilteredSelectMultiple
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit, Row, Column
 
 from dal import autocomplete
 
@@ -99,14 +101,42 @@ class LeagueApplicationForm(forms.ModelForm):
     
     class Meta:
         model = league_application
-        fields = ['applicant','league_name','discord_name','teamabbreviation','teamname','draft_league_resume','tier_preference']
+        fields = ['applicant','league_name','discord_name','teamabbreviation','teamname','draft_league_resume','tier_preference','willingtobealternate']
         
         widgets = {
             'applicant': forms.HiddenInput(),
             'league_name': forms.HiddenInput(),
+            'tier_preference': forms.CheckboxSelectMultiple()
             }
     
     def __init__(self,league, *args, **kwargs):
         super(LeagueApplicationForm, self).__init__(*args, **kwargs)
-        self.fields["tier_preference"].widget = FilteredSelectMultiple("league_subleague", False, attrs={'rows':'2'})
+        #self.fields["tier_preference"].widget = FilteredSelectMultiple("league_subleague", False, attrs={'rows':'2'})
         self.fields["tier_preference"].queryset = league_subleague.objects.all().filter(league=league)
+        self.fields["willingtobealternate"].label="Check If Willing to Serve as Alternate"
+        self.fields["teamabbreviation"].label="Team Abbreviation"
+        self.fields["teamname"].label="Team Name"
+        self.fields["discord_name"].label="Discord Username"
+        self.fields["tier_preference"].label="Which subleagues are you interested in? (Select All That Apply)"
+
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Apply'))
+        self.helper.layout = Layout(
+            Row(
+                Column('applicant', css_class='form-group col-md-6 mb-0'),
+                Column('league_name', css_class='form-group col-md-6 mb-0'),
+                css_class='form-row'),
+            Row(
+                Column('discord_name', css_class='form-group col-md-3 mb-0'),
+                Column('teamabbreviation', css_class='form-group col-md-3 mb-0'),
+                Column('teamname', css_class='form-group col-md-4 mb-0'),
+                Column('willingtobealternate', css_class='form-group col-md-2 mb-0'),
+                css_class='form-row align-items-center'),
+            Row(
+                Column('draft_league_resume', css_class='form-group col-md-12 mb-0'),
+                css_class='form-row'),
+            Row(
+                Column('tier_preference', css_class='form-group col-md-12 mb-0'),
+                css_class='form-row'),
+        )

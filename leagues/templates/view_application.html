@@ -46,6 +46,12 @@
                 {% for item in appofinterest.tier_preference.all %}
                 <div>{{item.subleague}}</div>
                 {% endfor %}
+                <h5>Willing to be alternate?</h5>
+                {% if appofinterest.willingtobealternate %}
+                <div>Yes</div>
+                {% else %}
+                <div>No</div>
+                {% endif %}
             </div>
         </div>
     </div>

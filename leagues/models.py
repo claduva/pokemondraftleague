@@ -78,6 +78,7 @@ class league_application(models.Model):
     teamname = models.CharField(max_length=100, default="To Be Determined")
     draft_league_resume = models.TextField(default="None")
     tier_preference = models.ManyToManyField(league_subleague,related_name='apptiers')
+    willingtobealternate = models.BooleanField(default=True)
 
     def __str__(self):
         return f'{self.applicant.username}\'s application for {self.league_name.name}'
