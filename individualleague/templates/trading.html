@@ -9,39 +9,86 @@
 {% block body %}
 <div class="row bg-darkgrey rounded pt-2 mb-2">
     <datalist id="availablepokemon">
-        {% for item in availablepokemon %}
+        {% for item,rosterspot in availablepokemon %}
         <option value={{ item.pokemon.pokemon }}>{{ item.pokemon.pokemon }}</option>
         {% endfor %}
     </datalist>
     <div class="col-md">
         <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
-                <tr class="bg-dark text-light"><th>Free Agency Transactions Remaining</th><th colspan="2">Points Remaining</th></tr>
-                <tr><th>{{ fa_remaining }}</th><th colspan="2">{{ pointsremaining }}</th></tr>
-                {% if personalfreeagency %}
+                <tr class="bg-dark text-light"><th colspan="2">Trades Remaining</th><th colspan="2">Points Remaining</th></tr>
+                <tr><th colspan="2">{{ trades_remaining }}</th><th colspan="2">{{ pointsremaining }}</th></tr>
+                {% if personaltrades %}
                 <tr>
-                    <td class="bg-dark text-light" colspan="3">Prior Free Agency Transactions</td>
+                    <td class="bg-dark text-light" colspan="4">Prior Trades</td>
                 </tr>
                 <tr class="bg-dark text-light">
+                    <th>Trade Partner</th>
                     <th>Dropped Pokemon</th>
                     <th>Added Pokemon</th>
                     <th>Action</th>
                 </tr>
-                {% for item in personalfreeagency %}
+                {% for item, tradepartner in personaltrades %}
                 <tr>
+                    <td><img class="smallsprite" src="{{tradepartner.coach.logo.url}}">{{tradepartner.coach.teamabbreviation}}</td>
                     <td><img class="smallsprite"
                     src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
                     <td><img class="smallsprite"
                         src="{{item.addedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.addedpokemon.pokemon}}</td>
-                    <td>{% if not item.executed %}<form method="post">{% csrf_token %}<input name="formpurpose" type="Submit" class="btn btn-sm btn-danger form-control form-control-sm" value="Undo"><input name="freeagencyid" type="text" value="{{item.id}}" hidden></form>{% endif %}</td>                
+                    <td>
+                        {% if not item.executed %}
+                        <form method="post">{% csrf_token %}
+                            <input name="tradeid" value="{{item.id}}" hidden>
+                            <input name="formpurpose" class="btn btn-sm btn-danger form-control form-control-sm" type="submit" value="Undo">
+                        </form>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
                 {% endif %}
-                {% if fa_remaining > 0 %}
-                <tr class="bg-dark text-light"><th colspan="3">Submit New Free Agency</th></tr>
+                {% if receivedtrades %}
+                <tr class="bg-dark text-light"><th colspan="4">Received Trade Proposals</th></tr>
+                <tr class="bg-dark text-light"><th>Team</th><th>Offered Pokemon</th><th>Requested Pokemon</th><th>Action</th></tr>
+                {% for item in receivedtrades %}
+                <tr>
+                    <td><img class="smallsprite" src="{{item.offeredpokemon.team.logo.url}}">{{item.offeredpokemon.team.teamabbreviation}}</td>
+                    <td><img class="smallsprite" src="{{item.offeredpokemon.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.offeredpokemon.pokemon.pokemon}}</td>
+                    <td><img class="smallsprite" src="{{item.requestedpokemon.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.requestedpokemon.pokemon.pokemon}}</td>
+                    <td class="d-flex justify-content-around">
+                        <form method="post">{% csrf_token %}
+                            <input name="tradeid" value="{{item.id}}" hidden>
+                            <input name="formpurpose" class="btn btn-sm btn-success form-control form-control-sm" type="submit" value="Accept">
+                        </form>
+                        <form method="post">{% csrf_token %}
+                            <input name="tradeid" value="{{item.id}}" hidden>
+                            <input name="formpurpose" class="btn btn-sm btn-danger form-control form-control-sm" type="submit" value="Reject">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+                {% if proposedtrades %}
+                <tr class="bg-dark text-light"><th colspan="4">Sent Trade Proposals</th></tr>
+                <tr class="bg-dark text-light"><th>Team</th><th>Requested Pokemon</th><th>Offered Pokemon</th><th>Action</th></tr>
+                {% for item in proposedtrades %}
+                <tr>
+                    <td><img class="smallsprite" src="{{item.requestedpokemon.team.logo.url}}">{{item.requestedpokemon.team.teamabbreviation}}</td>
+                    <td><img class="smallsprite" src="{{item.requestedpokemon.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.requestedpokemon.pokemon.pokemon}}</td>
+                    <td><img class="smallsprite" src="{{item.offeredpokemon.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.offeredpokemon.pokemon.pokemon}}</td>
+                    <td>
+                        <form method="post">{% csrf_token %}
+                            <input name="tradeid" value="{{item.id}}" hidden>
+                            <input name="formpurpose" class="btn btn-sm btn-danger form-control form-control-sm" type="submit" value="Rescind">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+                {% if trades_remaining > 0 %}
+                <tr class="bg-dark text-light"><th colspan="4">Propose New Trade</th></tr>
                 <form method="post">{% csrf_token %}
                     <tr>
-                        <th class="bg-dark text-light">Dropped Pokemon</th>
+                        <th colspan="2" class="bg-dark text-light">Dropped Pokemon</th>
                         <td colspan="2">
                             <select name="droppedpokemon" class="form-control form-control-sm">
                                 {% for item in userroster %}
@@ -51,10 +98,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <th class="bg-dark text-light">Added Pokemon</th>
+                        <th colspan="2" class="bg-dark text-light">Added Pokemon</th>
                         <td colspan="2"><input name="addedpokemon" class="form-control form-control-sm" type="text" list="availablepokemon"></td>
                     </tr>
-                    <tr><td colspan="3"><input name="formpurpose" class="btn btn-sm btn-primary form-control form-control-sm" type="submit"></td></tr>
+                    <tr><td colspan="4"><input name="formpurpose" class="btn btn-sm btn-primary form-control form-control-sm" type="submit" value="Submit"></td></tr>
                 </form>
                 {% endif %}
             </table>
@@ -75,12 +122,12 @@
                 {% endfor %}
             </select>
         </div>
-        <div class="text-center bg-dark text-light border rounded">Available Pokemon</div>
+        <div class="text-center bg-dark text-light border rounded">Pokemon On Rosters</div>
         <div class="card bg-lightgrey text-dark text-center table-responsive overflow-auto mb-3 overflow-auto" style="height: 400px;">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center ">
-                {% for item in availablepokemon %}
+                {% for item,rosterspot in availablepokemon %}
                 <tr class="tieritem" data-tier="{{item.tier.tierpoints}}">
-                    <td><img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}} ({{item.tier.tiername}}: {{item.tier.tierpoints}} pts)
+                    <td><img class="smallsprite" src="{{rosterspot.team.logo.url}}">{{rosterspot.team.teamabbreviation}} | <img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}} ({{item.tier.tiername}}: {{item.tier.tierpoints}} pts)
                         {% for type in item.pokemon.types.all %}
                         <div class="{{type.typing}}" hidden>{{type.typing}}</div>
                         {% endfor %}
@@ -91,46 +138,56 @@
         </div>
     </div>
 </div>
+{% if pendingtrades or completedtrades %}
 <div class="row bg-darkgrey rounded pt-2 mb-2">
-    {% if pendingfreeagency %}
+    {% if pendingtrades %}
     <div class="col-md">
         <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
-                <tr class="bg-dark text-light"><th colspan="3">Pending Free Agent Transactions</th></tr>
-                <tr class="bg-dark text-light"><th>Team</th><th>Dropped Pokemon</th><th>Added Pokemon</th></tr>
-                {% for item in pendingfreeagency %}
+                <tr class="bg-dark text-light"><th colspan="4">Pending Trades</th></tr>
+                <tr class="bg-dark text-light"><th>Traded Pokemon</th><th>From</th><th>To</th><th>For</th></tr>
+                {% for item in pendingtrades %}
+                {% if forloop.counter0|divisibleby:"2" %}
                 <tr>
-                    <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
                     <td><img class="smallsprite"
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
-                    <td><img class="smallsprite"
-                        src="{{item.addedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.addedpokemon.pokemon}}</td>
+                        <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                {% else %}        
+                        <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                        <td><img class="smallsprite"
+                        src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
                 </tr>
+                {% endif %}
                 {% endfor %}
             </table>
         </div>
     </div>
     {% endif %}
-    {% if completedfreeagency %}
+    {% if completedtrades %}
     <div class="col-md">
         <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
-                <tr class="bg-dark text-light"><th colspan="3">Completed Free Agent Transactions</th></tr>
-                <tr class="bg-dark text-light"><th>Team</th><th>Dropped Pokemon</th><th>Added Pokemon</th></tr>
-                {% for item in completedfreeagency %}
+                <tr class="bg-dark text-light"><th colspan="4">Completed Trades</th></tr>
+                <tr class="bg-dark text-light"><th>Traded Pokemon</th><th>From</th><th>To</th><th>For</th></tr>
+                {% for item in completedtrades %}
+                {% if forloop.counter0|divisibleby:"2" %}
                 <tr>
-                    <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
                     <td><img class="smallsprite"
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
-                    <td><img class="smallsprite"
-                        src="{{item.addedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.addedpokemon.pokemon}}</td>
+                        <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                {% else %}        
+                        <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                        <td><img class="smallsprite"
+                        src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
                 </tr>
+                {% endif %}
                 {% endfor %}
             </table>
         </div>
     </div>
     {% endif %}
 </div>
+{% endif %}
 {% endblock %}
 {% block footer %}
 <script src="{% static 'individualleague/scripts/draftfilter.js' %}"></script>

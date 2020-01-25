@@ -7,7 +7,7 @@
 {% block head%}
 {% endblock %}
 {% block body %}
-
+{% if currentpick %}
 <div class="row bg-darkgrey rounded pt-2 mb-2">
     <datalist id="availablepokemon">
         {% for item in availablepokemon %}
@@ -117,6 +117,7 @@
     </div>
     {% endif %}
 </div>
+{% endif %}
 <div class="row bg-darkgrey rounded pt-2">
     <div class="d-none d-md-block col-md-3">
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
