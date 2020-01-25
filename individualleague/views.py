@@ -744,6 +744,11 @@ def trading_view(request,league_name,subleague_name):
     league_name=league_name.replace('%20',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    try:
+        league_teams.get(coach=request.user)
+        iscoach=True
+    except:
+        iscoach=False
     season=subleague.seasonsetting
     takenpokemon_=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).exclude(team__coach=request.user)
     takenpokemon=takenpokemon_.values_list('pokemon',flat=True)
@@ -882,6 +887,7 @@ def trading_view(request,league_name,subleague_name):
         'pointsremaining':pointsremaining,
         'receivedtrades':receivedtrades,
         'proposedtrades':proposedtrades,
+        'iscoach':iscoach,
     }
     return render(request, 'trading.html',context)
 
