@@ -112,8 +112,8 @@ def newreplayparse(replay):
     if damagedonetest!=damagedone: results['errormessage'].append("This replay's Team 2 damage numbers do not add up. Please contact claduva and do not submit the replay.")
     if scoretest!=score: results['errormessage'].append("This replay's Team 2 score numbers do not add up. Please contact claduva and do not submit the replay.")
     if score!=0 and results['team1']['wins']==1: results['errormessage'].append("The losing team's score should be 0. Please contact claduva and do not submit the replay.")
-    if len(results['errormessage'])>0:
-        results=alternativereplayparse(replay)
+    #if len(results['errormessage'])>0:
+    #    results=alternativereplayparse(replay)
     return results
 
 def activate_function(line,parsedlogfile,results):
@@ -236,6 +236,11 @@ def damage_function(line,parsedlogfile,results):
             else:
                 if cause in ['psn','tox'] and pokemon[cause]==None:
                     pokemon[cause]=results[thisteam]['Toxic Spikes']
+                if pokemon[cause]==None and pokemon['pokemon'] in ['Zoroark','Zorua']: 
+                    for mon in results[thisteam]['roster']:
+                        if mon[cause]!=None:
+                            pokemon[cause]=mon[cause]
+                            break
                 damager=roster_search(otherteam,pokemon[cause],results)
         if damager:
             damager['damagedone']+=damagedone 

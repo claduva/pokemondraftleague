@@ -1,258 +1,61 @@
 {
   "team1": {
-    "coach": "Yankster96",
+    "coach": "dididid",
     "roster": [
       {
-        "pokemon": "Kyurem",
-        "startform": "Kyurem",
-        "nickname": "Mr.Freeze jr.",
-        "kills": 3,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 324,
-        "hphealed": 0,
-        "luck": 3.9,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Manectric-Mega",
-        "startform": "Manectric",
-        "nickname": "Bolt",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.94,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": "Nidoqueen",
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Landorus-Therian",
-        "startform": "Landorus-Therian",
-        "nickname": "Terra",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 107,
-        "hphealed": 50,
-        "luck": -0.05,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Slowking",
-        "startform": "Slowking",
-        "nickname": "Einstein",
+        "pokemon": "Floette-Eternal",
+        "startform": "Floette",
+        "nickname": "Floette",
         "kills": 1,
-        "deaths": 1,
+        "deaths": 0,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 276,
-        "hphealed": 66,
-        "luck": -0.68,
-        "remaininghealth": 0,
+        "support": 10,
+        "damagedone": 147,
+        "hphealed": 388,
+        "luck": -3.05,
+        "remaininghealth": 83,
         "lines": [],
         "confusion": null,
-        "psn": "Nidoqueen",
+        "psn": null,
         "brn": null,
-        "par": null,
+        "par": "Dragapult",
         "frz": null,
         "tox": null,
         "Curse": null
       },
       {
-        "pokemon": "Steelix",
-        "startform": "Steelix",
-        "nickname": "Metallica",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 79,
-        "hphealed": 12,
-        "luck": 0.18,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Sylveon",
-        "startform": "Sylveon",
-        "nickname": "Navi",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 88,
-        "hphealed": 6,
-        "luck": 0.14,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      }
-    ],
-    "wins": 0,
-    "forfeit": 0,
-    "score": 0,
-    "megaevolved": true,
-    "usedzmove": false,
-    "timesswitched": 16,
-    "selfdeaths": 0,
-    "remaininghealth": 0,
-    "totalhealth": 600,
-    "kills": 5,
-    "deaths": 6,
-    "luck": 2.55,
-    "damagedone": 874,
-    "hphealed": 134,
-    "support": 4,
-    "activemon": "Metallica",
-    "Toxic Spikes": "Nidoqueen",
-    "Spikes": null,
-    "Stealth Rock": "Bronzong",
-    "Future Sight": null,
-    "Doom Desire": null,
-    "Sandstorm": null,
-    "Hail": null,
-    "Leech Seed": null
-  },
-  "team2": {
-    "coach": "claduva",
-    "roster": [
-      {
-        "pokemon": "Bronzong",
-        "startform": "Bronzong",
-        "nickname": "Bronzong",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 3,
-        "damagedone": 135,
-        "hphealed": 61,
-        "luck": -0.34,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": "Mr.Freeze jr.",
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Venusaur-Mega",
-        "startform": "Venusaur",
-        "nickname": "Venusaur",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 3,
-        "damagedone": 70,
-        "hphealed": 184,
-        "luck": -2.92,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": "Mr.Freeze jr.",
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Nidoqueen",
-        "startform": "Nidoqueen",
-        "nickname": "Nidoqueen",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 257,
-        "hphealed": 6,
-        "luck": 0.56,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Tapu Koko",
-        "startform": "Tapu Koko",
-        "nickname": "Tapu Koko",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 51,
-        "luck": 0.27,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Gyarados",
-        "startform": "Gyarados",
-        "nickname": "Gyarados",
+        "pokemon": "Sableye-Mega",
+        "startform": "Sableye",
+        "nickname": "Sableye",
         "kills": 3,
         "deaths": 0,
         "causeofdeath": null,
+        "support": 5,
+        "damagedone": 671,
+        "hphealed": 346,
+        "luck": 1.35,
+        "remaininghealth": 88,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Starmie",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Haxorus",
+        "startform": "Haxorus",
+        "nickname": "Haxorus",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
         "support": 0,
-        "damagedone": 133,
-        "hphealed": 0,
-        "luck": -0.18,
-        "remaininghealth": 28,
+        "damagedone": 71,
+        "hphealed": -30,
+        "luck": 0.16,
+        "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -263,17 +66,59 @@
         "Curse": null
       },
       {
-        "pokemon": "Hawlucha",
-        "startform": "Hawlucha",
-        "nickname": "Hawlucha",
+        "pokemon": "Registeel",
+        "startform": "Registeel",
+        "nickname": "Registeel",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 139,
-        "hphealed": 0,
-        "luck": 0.06,
+        "support": 4,
+        "damagedone": 86,
+        "hphealed": 31,
+        "luck": -1.2,
         "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Starmie",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Hitmontop",
+        "startform": "Hitmontop",
+        "nickname": "Hitmontop",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 53,
+        "hphealed": 0,
+        "luck": 0.38,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Volcarona",
+        "startform": "Volcarona",
+        "nickname": "Volcarona",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 79,
+        "hphealed": -25,
+        "luck": -0.26,
+        "remaininghealth": 32,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -286,23 +131,178 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 1,
+    "score": 3,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 17,
+    "timesswitched": 27,
     "selfdeaths": 0,
-    "remaininghealth": 28,
+    "remaininghealth": 203,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 5,
-    "luck": -2.55,
-    "damagedone": 734,
-    "hphealed": 302,
-    "support": 7,
-    "activemon": "Gyarados",
+    "deaths": 3,
+    "luck": -2.62,
+    "damagedone": 1107,
+    "hphealed": 710,
+    "support": 20,
+    "activemon": "Sableye",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Metallica",
+    "Stealth Rock": "Metagross",
+    "Future Sight": null,
+    "Doom Desire": null,
+    "Sandstorm": null,
+    "Hail": null,
+    "Leech Seed": null
+  },
+  "team2": {
+    "coach": "RandoGuy24",
+    "roster": [
+      {
+        "pokemon": "Dragapult",
+        "startform": "Dragapult",
+        "nickname": "Dragapult",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 313,
+        "hphealed": 50,
+        "luck": 4.17,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Floette",
+        "Curse": null
+      },
+      {
+        "pokemon": "Archeops",
+        "startform": "Archeops",
+        "nickname": "Archeops",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 37,
+        "hphealed": 0,
+        "luck": -2.23,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Sableye",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Buzzwole",
+        "startform": "Buzzwole",
+        "nickname": "Buzzwole",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 32,
+        "hphealed": 322,
+        "luck": -0.76,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Sableye",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Zoroark",
+        "startform": "Zoroark",
+        "nickname": "Zoroark",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 75,
+        "hphealed": -59,
+        "luck": 0.76,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Registeel",
+        "Curse": null
+      },
+      {
+        "pokemon": "Metagross",
+        "startform": "Metagross",
+        "nickname": "Metagross",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 4,
+        "damagedone": 287,
+        "hphealed": 97,
+        "luck": -0.7,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Volcarona",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Starmie",
+        "startform": "Starmie",
+        "nickname": "Starmie",
+        "kills": 2,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 363,
+        "hphealed": 97,
+        "luck": 1.38,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Registeel",
+        "Curse": null
+      }
+    ],
+    "wins": 0,
+    "forfeit": 0,
+    "score": 0,
+    "megaevolved": false,
+    "usedzmove": false,
+    "timesswitched": 37,
+    "selfdeaths": 0,
+    "remaininghealth": 0,
+    "totalhealth": 600,
+    "kills": 3,
+    "deaths": 6,
+    "luck": 2.62,
+    "damagedone": 1107,
+    "hphealed": 507,
+    "support": 7,
+    "activemon": "Metagross",
+    "Toxic Spikes": null,
+    "Spikes": null,
+    "Stealth Rock": "Sableye",
     "Future Sight": null,
     "Doom Desire": null,
     "Sandstorm": null,
@@ -310,129 +310,197 @@
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 42,
+  "numberofturns": 85,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-1020970796",
+  "replay": "https://replay.pokemonshowdown.com/sports-gen8customgame-25933",
   "significantevents": [
     [
-      2,
-      "Nidoqueen provided support by using Toxic Spikes"
+      1,
+      "Sableye-Mega provided support by using Will-O-Wisp"
     ],
     [
-      6,
-      "LUCK: Manectric-Mega missed Overheat against Nidoqueen"
+      7,
+      "Floette-Eternal provided support by using Wish"
+    ],
+    [
+      8,
+      "Metagross provided support by using Stealth Rock"
     ],
     [
       9,
-      "Bronzong provided support by using Stealth Rock"
+      "Registeel provided support by using Stealth Rock"
     ],
     [
       10,
-      "Landorus-Therian provided support by using Defog"
+      "Registeel provided support by using Toxic"
     ],
     [
-      13,
-      "Bronzong provided support by using Stealth Rock"
+      12,
+      "Floette-Eternal provided support by using Wish"
+    ],
+    [
+      15,
+      "Hitmontop provided support by using Rapid Spin"
     ],
     [
       17,
-      "Landorus-Therian provided support by using Defog"
+      "Starmie provided support by using Rapid Spin"
     ],
     [
       18,
-      "Bronzong provided support by using Stealth Rock"
+      "Floette-Eternal provided support by using Wish"
     ],
     [
-      19,
-      "Steelix provided support by using Stealth Rock"
-    ],
-    [
-      20,
-      "Venusaur-Mega provided support by using Leech Seed"
+      21,
+      "LUCK: Sableye-Mega was flinched by Zoroark with Dark Pulse"
     ],
     [
       22,
-      "Venusaur-Mega provided support by using Leech Seed"
-    ],
-    [
-      22,
-      "Steelix provided support by using Roar"
+      "Registeel killed Zoroark via tox"
     ],
     [
       23,
-      "Nidoqueen killed Landorus-Therian with Ice Beam"
-    ],
-    [
-      24,
-      "LUCK: Bronzong was frozen by Kyurem with Ice Beam"
+      "Dragapult provided support by using Thunder Wave"
     ],
     [
       26,
-      "Kyurem killed Bronzong with Ice Beam"
-    ],
-    [
-      27,
-      "Venusaur-Mega provided support by using Leech Seed"
-    ],
-    [
-      27,
-      "LUCK: Venusaur-Mega missed Leech Seed against Kyurem"
-    ],
-    [
-      28,
-      "LUCK: Venusaur-Mega was frozen by Kyurem with Ice Beam"
-    ],
-    [
-      29,
-      "LUCK: Kyurem landed a crit on Venusaur-Mega with Ice Beam"
+      "Metagross killed Hitmontop with Meteor Mash"
     ],
     [
       31,
-      "LUCK: Venusaur-Mega was frozen by Kyurem with Ice Beam"
+      "LUCK: Sableye-Mega landed a crit on Buzzwole with Shadow Ball"
     ],
     [
       33,
-      "Kyurem killed Venusaur-Mega with Ice Beam"
-    ],
-    [
-      34,
-      "Kyurem killed Tapu Koko with Ice Beam"
-    ],
-    [
-      35,
-      "Hawlucha killed Kyurem with High Jump Kick"
-    ],
-    [
-      36,
-      "Sylveon killed Hawlucha with Hyper Voice"
+      "Floette-Eternal provided support by using Wish"
     ],
     [
       37,
-      "Nidoqueen killed Sylveon with Sludge Wave"
-    ],
-    [
-      38,
-      "Slowking killed Nidoqueen with Psychic"
+      "Sableye-Mega provided support by using Will-O-Wisp"
     ],
     [
       39,
-      "LUCK: Gyarados suffered a stat drop via secondary effect by Slowking with Psychic"
+      "LUCK: Sableye-Mega landed a crit on Archeops with Shadow Ball"
     ],
     [
       40,
-      "LUCK: Gyarados landed a crit on Slowking with Earthquake"
-    ],
-    [
-      40,
-      "Gyarados killed Slowking with Earthquake"
+      "LUCK: Archeops missed Rock Slide against Sableye-Mega"
     ],
     [
       41,
-      "Gyarados killed Manectric-Mega with Earthquake"
+      "Sableye-Mega killed Archeops via brn"
     ],
     [
-      42,
-      "Gyarados killed Steelix with Waterfall"
+      44,
+      "Floette-Eternal provided support by using Wish"
+    ],
+    [
+      47,
+      "LUCK: Dragapult landed a crit on Volcarona with Dragon Darts"
+    ],
+    [
+      53,
+      "Sableye-Mega provided support by using Taunt"
+    ],
+    [
+      56,
+      "Floette-Eternal provided support by using Wish"
+    ],
+    [
+      59,
+      "Floette-Eternal provided support by using Wish"
+    ],
+    [
+      61,
+      "Sableye-Mega provided support by using Taunt"
+    ],
+    [
+      62,
+      "LUCK: Buzzwole suffered a stat drop via secondary effect by Sableye-Mega with Shadow Ball"
+    ],
+    [
+      65,
+      "LUCK: Floette-Eternal missed Moonblast against Dragapult"
+    ],
+    [
+      66,
+      "LUCK: Dragapult landed a crit on Floette-Eternal with Phantom Force"
+    ],
+    [
+      66,
+      "Floette-Eternal provided support by using Toxic"
+    ],
+    [
+      69,
+      "Registeel provided support by using Stealth Rock"
+    ],
+    [
+      70,
+      "LUCK: Registeel was burned by Starmie with Scald"
+    ],
+    [
+      71,
+      "Starmie provided support by using Rapid Spin"
+    ],
+    [
+      71,
+      "Registeel provided support by using Toxic"
+    ],
+    [
+      71,
+      "LUCK: Registeel missed Toxic against Starmie"
+    ],
+    [
+      72,
+      "Starmie killed Registeel with Scald"
+    ],
+    [
+      73,
+      "Floette-Eternal provided support by using Wish"
+    ],
+    [
+      75,
+      "Floette-Eternal provided support by using Wish"
+    ],
+    [
+      76,
+      "Floette-Eternal killed Dragapult with Moonblast"
+    ],
+    [
+      79,
+      "Haxorus killed Buzzwole with Outrage"
+    ],
+    [
+      80,
+      "Starmie killed Haxorus with Ice Beam"
+    ],
+    [
+      81,
+      "LUCK: Sableye-Mega was burned by Starmie with Scald"
+    ],
+    [
+      82,
+      "Sableye-Mega killed Starmie with Shadow Ball"
+    ],
+    [
+      83,
+      "Metagross provided support by using Stealth Rock"
+    ],
+    [
+      83,
+      "Sableye-Mega provided support by using Stealth Rock"
+    ],
+    [
+      84,
+      "Metagross provided support by using Stealth Rock"
+    ],
+    [
+      85,
+      "Metagross provided support by using Stealth Rock"
+    ],
+    [
+      85,
+      "Sableye-Mega killed Metagross with Shadow Ball"
     ]
   ],
   "errormessage": []
