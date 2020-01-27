@@ -17,8 +17,6 @@ class league(models.Model):
 class league_settings(models.Model):
     league_name = models.OneToOneField(league, on_delete=models.CASCADE,related_name="settings")
     is_recruiting = models.BooleanField(default=True)
-    allows_teams = models.BooleanField(default=False)
-    teambased = models.BooleanField(default=False)
     is_public = models.BooleanField(default=True)
 
     def __str__(self):

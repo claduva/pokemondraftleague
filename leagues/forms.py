@@ -29,13 +29,13 @@ class UpdateLeagueSettingsForm(forms.ModelForm):
 
     class Meta:
         model = league_settings
-        fields = ['is_recruiting','teambased','allows_teams','is_public']
+        fields = ['is_recruiting','is_public']
 
 class LeagueConfigurationForm(forms.ModelForm):
 
     class Meta:
         model = league_configuration
-        exclude=[]
+        exclude=['allows_teams']
         widgets = {
             'league': forms.HiddenInput(),
             }
