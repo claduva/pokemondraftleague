@@ -79,7 +79,7 @@ def individual_league_settings(request,league_name):
     else:
         l_form = UpdateLeagueForm(instance=league_instance)
         ls_form = UpdateLeagueSettingsForm(instance=league_settings_instance)
-    addleagueteam=league_settings_instance.teambased
+    addleagueteam=league_instance.configuration.teambased
     context = {
         'settingheading': league_name,
         'forms': [l_form,ls_form],
@@ -273,8 +273,8 @@ def individual_league_coaching_settings(request,league_name):
         league_instance=league.objects.get(name=league_name)
         coachinstance=coachdata.objects.filter(league_name=league_instance).filter(Q(coach=request.user)|Q(teammate=request.user)).first()
         settings=league_settings.objects.get(league_name=league_instance)
-        allowsteams=settings.allows_teams
-        teambased=settings.teambased
+        allowsteams=league_instance.configuration.allows_teams
+        teambased=league_instance.configuration.teambased
     except:
         messages.error(request,'League does not exist!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
