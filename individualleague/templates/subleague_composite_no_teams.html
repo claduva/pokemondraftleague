@@ -6,8 +6,7 @@
 {% block head%}
 {% endblock %}
 {% block body %}
-
-<div class="row content-section align-items-center">
+<div class="row bg-darkgrey rounded text-light p-2 align-items-center mb-2">
     <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-4">
@@ -22,6 +21,24 @@
         <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
         </div>
     </div>
+</div>
+<div class="row bg-darkgrey rounded text-light p-2 align-items-center mb-2">
+    <div class="col-12"><h2 class="text-center">Standings</h2></div>
+    {% for subleague in league.subleague.all %}
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light"><th>{{subleague.subleague}}</th></tr>
+                {% for conference in subleague.subleague_conferences.all %}
+                <tr class="bg-dark text-light"><th>{{conference.name}} Conference</th></tr>
+                {% for division in conference.divisions.all %}
+                <tr class="bg-dark text-light"><th>{{division.name}} Conference</th></tr>
+                {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}
 {% block footer %}

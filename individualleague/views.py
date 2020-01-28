@@ -93,6 +93,8 @@ def league_detail(request,league_name):
             context = {
                 'league': league_,
                 'league_name': league_name,
+                'leaguecomposite':True,
+                'subleagues':subleagues,
             }
             return render(request, 'subleague_composite_no_teams.html',context)
 

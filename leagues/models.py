@@ -53,7 +53,7 @@ class discord_settings(models.Model):
 
 class conference_name(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE,related_name="conferences")
-    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
+    subleague = models.ForeignKey(league_subleague,on_delete=models.CASCADE, related_name="subleague_conferences")
     name = models.CharField(max_length=20)
 
     def __str__(self):
@@ -61,7 +61,7 @@ class conference_name(models.Model):
 
 class division_name(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE)
-    subleague = models.ForeignKey(league_subleague,on_delete=models.SET_NULL, null=True)
+    subleague = models.ForeignKey(league_subleague,on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     associatedconference = models.ForeignKey(conference_name, on_delete=models.CASCADE,related_name='divisions')
 

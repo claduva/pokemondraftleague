@@ -499,12 +499,12 @@ def move_function(line,parsedlogfile,results):
         results['Perish Song']=attacker['nickname']
     #check for court change
     if move=="Court Change":
-        if results['team1']['Toxic Spikes']!=None:results['team1']['Toxic Spikes']=attacker['nickname']
-        if results['team2']['Toxic Spikes']!=None:results['team2']['Toxic Spikes']=attacker['nickname']
-        if results['team1']['Spikes']!=None:results['team1']['Spikes']=attacker['nickname']
-        if results['team2']['Spikes']!=None:results['team2']['Spikes']=attacker['nickname']
-        if results['team1']['Stealth Rock']!=None:results['team1']['Stealth Rock']=attacker['nickname']
-        if results['team2']['Stealth Rock']!=None:results['team2']['Stealth Rock']=attacker['nickname'] 
+        if results['team1']['Toxic Spikes']!=None:results['team2']['Toxic Spikes']=attacker['nickname']
+        if results['team2']['Toxic Spikes']!=None:results['team1']['Toxic Spikes']=attacker['nickname']
+        if results['team1']['Spikes']!=None:results['team2']['Spikes']=attacker['nickname']
+        if results['team2']['Spikes']!=None:results['team1']['Spikes']=attacker['nickname']
+        if results['team1']['Stealth Rock']!=None:results['team2']['Stealth Rock']=attacker['nickname']
+        if results['team2']['Stealth Rock']!=None:results['team1']['Stealth Rock']=attacker['nickname'] 
     return line,parsedlogfile,results
 
 def player_function(line,parsedlogfile,results):
