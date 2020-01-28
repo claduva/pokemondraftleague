@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load extratags %}
 
 {% block title %}{{league_name}}{% endblock %}
 {% block head%}
@@ -28,12 +29,47 @@
     <div class="col-md-6">
         <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
-                <tr class="bg-dark text-light"><th>{{subleague.subleague}}</th></tr>
+                <tr class="bg-dark text-light"><th colspan="5"><h3>{{subleague.subleague}}</h3></th></tr>
                 {% for conference in subleague.subleague_conferences.all %}
-                <tr class="bg-dark text-light"><th>{{conference.name}} Conference</th></tr>
+                <tr class="bg-dark text-light"><th colspan="5">{{conference.name}} Conference</th></tr>
+                {% if conference.divisions.all %}
                 {% for division in conference.divisions.all %}
-                <tr class="bg-dark text-light"><th>{{division.name}} Conference</th></tr>
+                <tr class="bg-dark text-light"><th colspan="5">{{division.name}} Division</th></tr>
+                <tr class="bg-dark text-light">
+                    <td>Team</td>
+                    <td>W</td>
+                    <td>L</td>
+                    <td>+/-</td>
+                    <td>Streak</td>
+                </tr>
+                {% for item in division.divisionteams.all|standings %}
+                <tr>
+                    <td><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</td>
+                    <td>{{item.wins}}</td>
+                    <td>{{item.losses}}</td>
+                    <td>{{item.differential}}</td>
+                    <td>{{item.streak}}</td>
+                </tr>
                 {% endfor %}
+                {% endfor %}
+                {% else %}
+                <tr class="bg-dark text-light">
+                    <td>Team</td>
+                    <td>W</td>
+                    <td>L</td>
+                    <td>+/-</td>
+                    <td>Streak</td>
+                </tr>
+                {% for item in conference.conferenceteams.all|standings %}
+                <tr>
+                    <td><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</td>
+                    <td>{{item.wins}}</td>
+                    <td>{{item.losses}}</td>
+                    <td>{{item.differential}}</td>
+                    <td>{{item.streak}}</td>
+                </tr>
+                {% endfor %}
+                {% endif %}
                 {% endfor %}
             </table>
         </div>

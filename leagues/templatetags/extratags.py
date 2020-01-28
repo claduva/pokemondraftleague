@@ -87,3 +87,8 @@ def sprite(value,arg):
     string="/static/pokemondatabase/sprites/"+arg
     string=string.replace("PKMN",value_)
     return string
+
+@register.filter(name='standings')
+def standings(query):
+    resp=query.order_by('-wins','losses','-differential','teamname')
+    return resp
