@@ -200,7 +200,7 @@ def damage_function(line,parsedlogfile,results):
             damager=cause.split("|[of] ")[1].split(": ",1)[1]
             team=cause.split("|[of] ")[1].split(": ",1)[0]
             damager=roster_search(team,damager,results)
-        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1 or cause.find("move: Fire Spin")>-1 or cause.find("move: Sand Tomb")>-1 or cause.find("ability: Disguise|[of]")>-1:
+        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1 or cause.find("move: Fire Spin")>-1 or cause.find("move: Sand Tomb")>-1 or cause.find("ability: Disguise|[of]")>-1 or cause.find("mimikyubusted")>-1:
             if team=="p1a":
                 damager=results['team2']['activemon']
                 damager=roster_search("p2a",damager,results)
