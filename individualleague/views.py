@@ -719,7 +719,7 @@ def freeagency(request,league_name,subleague_name):
     completedfreeagency=free_agency.objects.all().filter(executed=True,season=season)
     personalfreeagency=free_agency.objects.all().filter(season=season,coach__coach=request.user)
     context = {
-        'availablepokemon':availablepokemon[1:5],
+        'availablepokemon':availablepokemon,
         'tierchoices':tierchoices,
         'types':types,
         'subleague': subleague,
