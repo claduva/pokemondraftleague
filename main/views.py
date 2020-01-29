@@ -170,21 +170,7 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
-    allfa=trading.objects.all()
-    for item in allfa:
-        timeadded=item.timeadded
-        seasonstart=item.season.seasonstart
-        if timeadded<seasonstart:
-            weekeffective=1
-        else:
-            try:
-                associatedschedule=item.season.schedule.all().filter(duedate__isnull=False)
-                weekeffective=associatedschedule.filter(duedate__gt=timeadded).first()
-                weekeffective=associatedschedule.filter(duedate__gt=weekeffective.duedate).first().week
-            except:
-                elapsed=timeadded-seasonstart
-                weekeffective=math.ceil(elapsed.days/7)
-        print(item.season.subleague.subleague)
-        item.weekeffective=weekeffective
-        item.save()
+    pendingfreeagency=free_agency.objects.all().filter(executed=False)
+    for item in pendingfreeagency:
+        print(item)
     return redirect('home')

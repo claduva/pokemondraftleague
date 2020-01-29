@@ -9,6 +9,7 @@ import math
 from datetime import datetime, timezone, timedelta
 import pytz
 from dal import autocomplete
+from itertools import chain
 
 from .models import *
 from leagues.models import *
@@ -669,7 +670,16 @@ def freeagency(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     season=subleague.seasonsetting
-    takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
+    takenpokemon=list(roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True))
+    pendingfreeagency=free_agency.objects.all().filter(executed=False,season=season)
+    pendingdrops=list(pendingfreeagency.values_list('droppedpokemon',flat=True))
+    pendingadds=list(pendingfreeagency.values_list('addedpokemon',flat=True))
+    takenpokemon=takenpokemon+pendingadds
+    for item in pendingdrops:
+        try:
+            takenpokemon.remove(item)
+        except:
+            pass
     availablepokemon=pokemon_tier.objects.all().exclude(tier__tiername="Banned").exclude(pokemon__id__in=takenpokemon).filter(subleague=subleague).order_by("-tier__tierpoints",'pokemon__pokemon')
     tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
@@ -712,10 +722,11 @@ def freeagency(request,league_name,subleague_name):
             freeagency_announcements.objects.create(league = discordserver,league_name = subleague.league.name,text = title,freeagencychannel = discordchannel)
             return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
         elif formpurpose=="Undo":
-            free_agency.objects.get(id=request.POST['freeagencyid']).delete()
+            ooi=free_agency.objects.get(id=request.POST['freeagencyid'])
+            free_agency.objects.filter(season=season,addedpokemon=ooi.droppedpokemon).delete()
+            ooi.delete()
             return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
     fa_remaining=season.freeagenciesallowed-free_agency.objects.all().filter(season=season,coach__coach=request.user).count()
-    pendingfreeagency=free_agency.objects.all().filter(executed=False,season=season)
     completedfreeagency=free_agency.objects.all().filter(executed=True,season=season)
     personalfreeagency=free_agency.objects.all().filter(season=season,coach__coach=request.user)
     context = {
