@@ -810,21 +810,28 @@ def trading_view(request,league_name,subleague_name):
             requested.save()
             offeredteam=offered.team
             requestedteam=requested.team
-            trading.objects.create(coach=offeredteam,season=offered.season,droppedpokemon=offered.pokemon,addedpokemon=requested.pokemon)
+            toi=trading.objects.create(coach=offeredteam,season=offered.season,droppedpokemon=offered.pokemon,addedpokemon=requested.pokemon)
             trading.objects.create(coach=requestedteam,season=requested.season,droppedpokemon=requested.pokemon,addedpokemon=offered.pokemon)
             recipient=traderequest.offeredpokemon.team.coach
             sender=traderequest.requestedpokemon.team.coach
             messagebody=f"Hello, I'm happy to accept your trade request in the {subleague.subleague} subleague of {subleague.league.name}. Thank you!"
-            inbox.objects.create(sender=sender,recipient=recipient,messagesubject="Trade Request Rejected",messagebody=messagebody)
+            inbox.objects.create(sender=sender,recipient=recipient,messagesubject="Trade Request Accepted",messagebody=messagebody)
             discordserver=subleague.discord_settings.discordserver
             discordchannel=subleague.discord_settings.tradechannel
-            league_start=season.seasonstart
-            elapsed=datetime.now()-league_start.replace(tzinfo=None)
-            weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)
-            if weekrequested>0:
-                weekeffective=weekrequested+1
-            else:
+            timeadded=toi.timeadded
+            seasonstart=season.seasonstart
+            if timeadded<seasonstart:
                 weekeffective=1
+            else:
+                try:
+                    associatedschedule=season.schedule.all().filter(duedate__isnull=False)
+                    weekeffective=associatedschedule.filter(duedate__gt=timeadded).first()
+                    weekeffective=associatedschedule.filter(duedate__gt=weekeffective.duedate).first().week
+                except:
+                    elapsed=timeadded-seasonstart
+                    weekeffective=math.ceil(elapsed.days/7)
+            toi.weekeffective=weekeffective
+            toi.save()
             title=f"The {offeredteam.teamname} have agreed to trade their {offered.pokemon.pokemon} to the {requestedteam.teamname} for their {requested.pokemon.pokemon}. Effective Week {weekeffective}."
             trading_announcements.objects.create(
                 league = discordserver,
