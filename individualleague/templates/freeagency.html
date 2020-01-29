@@ -96,8 +96,8 @@
     <div class="col-md">
         <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
-                <tr class="bg-dark text-light"><th colspan="3">Pending Free Agent Transactions</th></tr>
-                <tr class="bg-dark text-light"><th>Team</th><th>Dropped Pokemon</th><th>Added Pokemon</th></tr>
+                <tr class="bg-dark text-light"><th colspan="4">Pending Free Agent Transactions</th></tr>
+                <tr class="bg-dark text-light"><th>Team</th><th>Dropped Pokemon</th><th>Added Pokemon</th><th>Effective Week</th></tr>
                 {% for item in pendingfreeagency %}
                 <tr>
                     <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
@@ -105,6 +105,7 @@
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
                     <td><img class="smallsprite"
                         src="{{item.addedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.addedpokemon.pokemon}}</td>
+                    <td>{{item.weekeffective}}</td>
                 </tr>
                 {% endfor %}
             </table>
@@ -115,8 +116,8 @@
     <div class="col-md">
         <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
-                <tr class="bg-dark text-light"><th colspan="3">Completed Free Agent Transactions</th></tr>
-                <tr class="bg-dark text-light"><th>Team</th><th>Dropped Pokemon</th><th>Added Pokemon</th></tr>
+                <tr class="bg-dark text-light"><th colspan="4">Completed Free Agent Transactions</th></tr>
+                <tr class="bg-dark text-light"><th>Team</th><th>Dropped Pokemon</th><th>Added Pokemon</th><th>Effective Week</th></tr>
                 {% for item in completedfreeagency %}
                 <tr>
                     <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
@@ -124,6 +125,7 @@
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
                     <td><img class="smallsprite"
                         src="{{item.addedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.addedpokemon.pokemon}}</td>
+                    <td>{{item.weekeffective}}</td>
                 </tr>
                 {% endfor %}
             </table>

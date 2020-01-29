@@ -62,6 +62,7 @@ class free_agency(models.Model):
     droppedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="dropped")
     addedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="added")
     timeadded=models.DateTimeField(auto_now_add=True)
+    weekeffective=models.IntegerField(default="1")
     executed=models.BooleanField(default=False)
 
     def __str__(self):
@@ -77,6 +78,7 @@ class trading(models.Model):
     droppedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="tradedropped")
     addedpokemon=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="tradeadded")
     timeadded=models.DateTimeField(auto_now_add=True)
+    weekeffective=models.IntegerField(default="1")
     executed=models.BooleanField(default=False)
 
 class hall_of_fame_entry(models.Model):

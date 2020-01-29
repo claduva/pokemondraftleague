@@ -146,8 +146,8 @@
     <div class="col-md">
         <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
-                <tr class="bg-dark text-light"><th colspan="4">Pending Trades</th></tr>
-                <tr class="bg-dark text-light"><th>Traded Pokemon</th><th>From</th><th>To</th><th>For</th></tr>
+                <tr class="bg-dark text-light"><th colspan="5">Pending Trades</th></tr>
+                <tr class="bg-dark text-light"><th>Traded Pokemon</th><th>From</th><th>To</th><th>For</th><th>Effective Week</th></tr>
                 {% for item in pendingtrades %}
                 {% if forloop.counter0|divisibleby:"2" %}
                 <tr>
@@ -158,6 +158,7 @@
                         <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
                         <td><img class="smallsprite"
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
+                        <td>{{item.weekeffective}}</td>
                 </tr>
                 {% endif %}
                 {% endfor %}
@@ -169,8 +170,8 @@
     <div class="col-md">
         <div class="card bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
-                <tr class="bg-dark text-light"><th colspan="4">Completed Trades</th></tr>
-                <tr class="bg-dark text-light"><th>Traded Pokemon</th><th>From</th><th>To</th><th>For</th></tr>
+                <tr class="bg-dark text-light"><th colspan="5">Completed Trades</th></tr>
+                <tr class="bg-dark text-light"><th>Traded Pokemon</th><th>From</th><th>To</th><th>For</th><th>Effective Week</th></tr>
                 {% for item in completedtrades %}
                 {% if forloop.counter0|divisibleby:"2" %}
                 <tr>
@@ -181,6 +182,7 @@
                         <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
                         <td><img class="smallsprite"
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
+                        <td>{{item.weekeffective}}</td>
                 </tr>
                 {% endif %}
                 {% endfor %}

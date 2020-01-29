@@ -690,17 +690,24 @@ def freeagency(request,league_name,subleague_name):
             if addedpokemon.id in takenpokemon:
                 messages.error(request,f'{addedpokemon} is already taken!',extra_tags='danger')
                 return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
+            faoi=free_agency.objects.create(coach=droppedpokemon.team,season=season,droppedpokemon=droppedpokemon.pokemon,addedpokemon=addedpokemon)
+            timeadded=faoi.timeadded
+            seasonstart=season.seasonstart
+            if timeadded<seasonstart:
+                weekeffective=1
+            else:
+                try:
+                    associatedschedule=season.schedule.all().filter(duedate__isnull=False)
+                    weekeffective=associatedschedule.filter(duedate__gt=timeadded).first()
+                    weekeffective=associatedschedule.filter(duedate__gt=weekeffective.duedate).first().week
+                except:
+                    elapsed=timeadded-seasonstart
+                    weekeffective=math.ceil(elapsed.days/7)
+            faoi.weekeffective=weekeffective
+            faoi.save()
             discordserver=subleague.discord_settings.discordserver
             discordchannel=subleague.discord_settings.freeagencychannel
-            league_start=season.seasonstart
-            elapsed=datetime.now()-league_start.replace(tzinfo=None)
-            weekrequested=math.ceil(elapsed.total_seconds()/60/60/24/7)
-            if weekrequested>0:
-                weekeffective=weekrequested+1
-            else:
-                weekeffective=1
             title=f"The {droppedpokemon.team.teamname} have used a free agency to drop {droppedpokemon.pokemon.pokemon} for {addedpokemon.pokemon}. Effective Week {weekeffective}."
-            free_agency.objects.create(coach=droppedpokemon.team,season=season,droppedpokemon=droppedpokemon.pokemon,addedpokemon=addedpokemon)
             messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
             freeagency_announcements.objects.create(league = discordserver,league_name = subleague.league.name,text = title,freeagencychannel = discordchannel)
             return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
@@ -712,7 +719,7 @@ def freeagency(request,league_name,subleague_name):
     completedfreeagency=free_agency.objects.all().filter(executed=True,season=season)
     personalfreeagency=free_agency.objects.all().filter(season=season,coach__coach=request.user)
     context = {
-        'availablepokemon':availablepokemon,
+        'availablepokemon':availablepokemon[1:5],
         'tierchoices':tierchoices,
         'types':types,
         'subleague': subleague,
