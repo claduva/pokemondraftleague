@@ -34,7 +34,7 @@ def run_pickems():
 @shared_task(name = "execute_fa_and_trades")
 def execute_free_agency_and_trades():
   #free agencies
-  unexecutedfa=free_agency.objects.all().filter(executed=False)
+  unexecutedfa=free_agency.objects.all().filter(executed=False).order_by('id')
   #check if completed matches
   for item in unexecutedfa:
     request_league=seasonsetting.objects.get(subleague=item.season.subleague)
@@ -79,7 +79,7 @@ def execute_free_agency_and_trades():
       droppedpokemon.save() 
       montoupdate.save()
   #trades
-  unexecutedtrades=trading.objects.all().filter(executed=False)
+  unexecutedtrades=trading.objects.all().filter(executed=False).order_by('id')
   print(unexecutedtrades)
   #check if completed matches
   for item in unexecutedtrades:
