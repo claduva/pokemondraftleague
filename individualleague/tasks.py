@@ -35,16 +35,13 @@ def run_pickems():
 def execute_free_agency_and_trades():
   #free agencies
   unexecutedfa=free_agency.objects.all().filter(executed=False)
-  print(unexecutedfa)
   #check if completed matches
   for item in unexecutedfa:
     request_league=seasonsetting.objects.get(subleague=item.season.subleague)
-    league_start=request_league.seasonstart
-    elapsed=item.timeadded-league_start
-    requestedweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
+    requestedweek=item.weekeffective
     completedmatches=True
-    if requestedweek >=0:
-      for i in range(1,requestedweek+1):
+    if requestedweek >=2:
+      for i in range(1,requestedweek):
         try:
           matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
           if matchofinterest.replay=="Link":
@@ -54,9 +51,6 @@ def execute_free_agency_and_trades():
     if completedmatches:
       #execute free agencies
       montoupdate=item.droppedpokemon
-      print(f'Season: {item.season}')
-      print(f'Team: {item.coach}')
-      print(f'Drop: {item.droppedpokemon}')
       droppedpokemon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
       montoupdate.kills=droppedpokemon.kills
       droppedpokemon.kills=0
@@ -90,12 +84,10 @@ def execute_free_agency_and_trades():
   #check if completed matches
   for item in unexecutedtrades:
     request_league=seasonsetting.objects.get(subleague=item.season.subleague)
-    league_start=request_league.seasonstart
-    elapsed=item.timeadded-league_start
-    requestedweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
+    requestedweek=item.weekeffective
     completedmatches=True
-    if requestedweek >= 0:
-      for i in range(1,requestedweek+1):
+    if requestedweek >= 2:
+      for i in range(1,requestedweek):
         try:
           matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
           if matchofinterest.replay=="Link":
