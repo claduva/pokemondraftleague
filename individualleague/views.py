@@ -723,7 +723,7 @@ def freeagency(request,league_name,subleague_name):
             return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
         elif formpurpose=="Undo":
             ooi=free_agency.objects.get(id=request.POST['freeagencyid'])
-            free_agency.objects.filter(season=season,addedpokemon=ooi.droppedpokemon).delete()
+            free_agency.objects.filter(season=season,addedpokemon=ooi.droppedpokemon,executed=False).delete()
             ooi.delete()
             return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
     fa_remaining=season.freeagenciesallowed-free_agency.objects.all().filter(season=season,coach__coach=request.user).count()
