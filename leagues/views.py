@@ -559,7 +559,8 @@ def default_tiers(request,league_name,subleague_name):
             leagueofinteresttiers=leagueofinterest.subleaguetiers.all().exclude(tiername="Banned")
             for item in leagueofinteresttiers:
                 leaguetiers.objects.create(league=league_,subleague=subleague,tiername=item.tiername,tierpoints=item.tierpoints)
-            leagueofinteresttiering=leagueofinterest.subleaguepokemontiers.all().exclude(tier__tiername="Banned")
+            ##update pokemon
+            leagueofinteresttiering=leagueofinterest.subleaguepokemontiers.all()
             existingpokemontiers=pokemon_tier.objects.all().filter(league=league_,subleague=subleague)
             thisleaguetiers=leaguetiers.objects.all().filter(subleague=subleague)
             for item in leagueofinteresttiering:
@@ -568,12 +569,11 @@ def default_tiers(request,league_name,subleague_name):
                 mtu.tier=tiertouse
                 mtu.save()
         return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
-    else:
-        pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
-        pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
-        leaguestiers=leaguetiers.objects.filter(subleague=subleague).all().order_by('tiername')
-        availabletemplates=leaguetiertemplate.objects.all().distinct('template')
-        form = CreateTierForm(initial={'league': league_,'subleague': subleague})
+    pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
+    pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
+    leaguestiers=leaguetiers.objects.filter(subleague=subleague).all().order_by('tiername')
+    availabletemplates=leaguetiertemplate.objects.all().distinct('template')
+    form = CreateTierForm(initial={'league': league_,'subleague': subleague})
     context = {
         'league_name': league_name,
         'leagueshostedsettings': True,
