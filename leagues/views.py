@@ -219,9 +219,10 @@ def manage_coachs(request,league_name):
 def applicants_summary(request,league_name):
     league_=league.objects.get(name=league_name)
     applicants=league_application.objects.filter(league_name=league_)
+    leagueshostedsettings=True
     context = {
         'league_name': league_name,
-        'leagueshostedsettings': True,
+        'leagueshostedsettings': leagueshostedsettings,
         'applicants': applicants,
     }
     return render(request, 'applicants_summary.html',context)
