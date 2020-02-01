@@ -120,6 +120,7 @@
                 </div>
                 {% if leaguetiers %}
                 {% for item in leaguetiers%}
+                {% if item.tiername != "Banned" %}
                 <div class="row d-flex align-items-center justify-content-between">
                     <h5>{{ item.tiername }} ({{ item.tierpoints }} points)</h5>
                     <div class="d-flex">
@@ -132,6 +133,7 @@
                         </form>
                     </div>
                 </div>
+                {% endif %}
                 {% endfor %}
                 {% else %}
                 <div>Your league does not currently have any tier definitions.</div>

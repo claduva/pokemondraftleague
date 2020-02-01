@@ -170,7 +170,5 @@ def updatematches(request):
     return redirect('home')
 
 def runscript(request): 
-    pendingfreeagency=free_agency.objects.all().filter(executed=False)
-    for item in pendingfreeagency:
-        print(item)
+
     return redirect('home')

@@ -24,7 +24,7 @@
         <table class="table table-sm bg-lightgrey text-dark text-center">
             <tr>
                 <th>
-                    <object class="mediumlogo" data="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ pokemon_data.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}" type="image/png">
+                    <object class="mediumlogo" data="{{pokemon_data.pokemon|sprite:site_settings.sprite}}" type="image/png">
                     <img src="http://play.pokemonshowdown.com/sprites/ani/unown-question.gif"
                         class="mediumlogo">
                     </object>
