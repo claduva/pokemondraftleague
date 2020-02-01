@@ -932,14 +932,22 @@ def league_hall_of_fame(request,league_name,subleague_name):
 @check_if_subleague
 @check_if_season
 def league_playoffs(request,league_name,subleague_name):
-    league_name=league_name.replace('%20',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
+    season=subleague.seasonsetting
+    seasonschedule=schedule.objects.all().filter(season=season).filter(week__contains="Playoff").order_by('week')
+    context = {
+        'subleague': subleague,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'seasonschedule':seasonschedule,
+    }
+    """
     leagueschedule=[]
-    playoffweeks=schedule.objects.all().filter(season=season,week__icontains='Playoffs').distinct('week')
-    for item_ in playoffweeks:
-        matches_=schedule.objects.all().filter(season=season,week=item_.week)
+    numberofweeks=season.seasonlength
+    for i in range(numberofweeks):
+        matches_=schedule.objects.all().filter(week=str(i+1),season=season).order_by('id')
         matches=[]
         for item in matches_:
             pickemlist=pickems.objects.all().filter(match=item)
@@ -955,32 +963,24 @@ def league_playoffs(request,league_name,subleague_name):
                 'userpickem':userpickem,
             }
             matches.append([item,pickem])
-        leagueschedule.append([item_.week,matches])
-    ishost=(request.user in subleague.league.host.all())
+        leagueschedule.append([str(i+1),matches])
+    ishost=(request.user==subleague.league.host)
+    timezone = pytz.timezone('UTC')
+    elapsed=timezone.localize(datetime.now())-season.seasonstart
+    currentweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
+    context = {
+        'subleague': subleague,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'leagueschedule': leagueschedule,
+        'ishost': ishost,
+        'numberofweeks': range(numberofweeks),
+        'currentweek': currentweek,
+    }
+    """
     if request.method=="POST":
-        if request.POST['purpose']=="Go":
-            weekselect=request.POST['weekselect']
-            if weekselect=="All":
-                donothing=True
-            else:
-                matches_=schedule.objects.all().filter(week=weekselect,season=season).order_by('id')
-                matches=[]
-                for item in matches_:
-                    pickemlist=pickems.objects.all().filter(match=item)
-                    try:
-                        userpickem=pickemlist.get(user=request.user)
-                    except:
-                        userpickem=None
-                    team1count=pickemlist.filter(pick=item.team1).count()
-                    team2count=pickemlist.filter(pick=item.team2).count()
-                    pickem={
-                        'team1count':team1count,
-                        'team2count':team2count,
-                        'userpickem':userpickem,
-                    }
-                    matches.append([item,pickem])
-                leagueschedule=[[weekselect,matches]]
-        elif request.POST['purpose']=="t1pickem":
+        if request.POST['purpose']=="t1pickem":
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             try:
                 pickemtoupdate=pickems.objects.all().filter(match=matchtoupdate).get(user=request.user)
@@ -991,7 +991,7 @@ def league_playoffs(request,league_name,subleague_name):
                     pickemtoupdate.save()
             except:
                 pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team1)
-            return redirect('league_playoffs',league_name=league_name,subleague_name=subleague_name)
+            return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
         elif request.POST['purpose']=="t2pickem":
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             try:
@@ -1003,13 +1003,14 @@ def league_playoffs(request,league_name,subleague_name):
                     pickemtoupdate.save()
             except:
                 pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team2)
-            return redirect('league_playoffs',league_name=league_name,subleague_name=subleague_name)
+            return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
         else:
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             team1=matchtoupdate.team1
             team2=matchtoupdate.team2
             if request.POST['purpose']=="t1ff":
-                matchtoupdate.replay='Forfeit'
+                matchtoupdate.replay=f'Team 1 Forfeits'
+                matchtoupdate.winner=team2
                 team1.losses+=1; team2.wins+=1
                 team1.differential+=(-6); team2.differential+=3
                 team1.forfeit+=1
@@ -1022,8 +1023,9 @@ def league_playoffs(request,league_name,subleague_name):
                 else:
                     team2.streak=1
                 messages.success(request,'Match has been forfeited by Team 1!')
-            if request.POST['purpose']=="t2ff":
-                matchtoupdate.replay='Forfeit'
+            elif request.POST['purpose']=="t2ff":
+                matchtoupdate.replay=f'Team 2 Forfeits'
+                matchtoupdate.winner=team1
                 team1.wins+=1; team2.losses+=1
                 team1.differential+=3; team2.differential+=(-6)
                 team2.forfeit+=1
@@ -1037,7 +1039,7 @@ def league_playoffs(request,league_name,subleague_name):
                     team2.streak+=(-1)
                 messages.success(request,'Match has been forfeited by Team 2!')
             elif request.POST['purpose']=="bothff":
-                matchtoupdate.replay='Forfeit'
+                matchtoupdate.replay='Both Teams Forfeit'
                 team1.losses+=1; team2.losses+=1
                 team1.differential+=(-6); team2.differential+=(-6)
                 team1.forfeit+=1; team2.forfeit+=1
@@ -1053,17 +1055,17 @@ def league_playoffs(request,league_name,subleague_name):
             team1.save()
             team2.save()
             matchtoupdate.save()
-            return redirect('league_playoffs',league_name=league_name,subleague_name=subleague_name)
-    context = {
-        'subleague': subleague,
-        'leaguepage': True,
-        'league_teams': league_teams,
-        'league_name': league_name,
-        'leagueschedule': leagueschedule,
-        'ishost': ishost,
-        'playoffs': True,
-        'playoffweeks':playoffweeks,
-    }
+            league_=matchtoupdate.season.league
+            discordserver=subleague.discord_settings.discordserver
+            discordchannel=subleague.discord_settings.replaychannel
+            title=f"Week: {matchtoupdate.week}. {matchtoupdate.team1.teamname} vs {matchtoupdate.team2.teamname}: {matchtoupdate.replay}."
+            replay_announcements.objects.create(
+                league = discordserver,
+                league_name = league_.name,
+                text = title,
+                replaychannel = discordchannel
+            )
+            return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
     return render(request, 'schedule.html',context)
 
 @check_if_subleague
