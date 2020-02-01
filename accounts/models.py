@@ -57,4 +57,3 @@ class inbox(models.Model):
     messagebody=models.TextField()
     senttime=models.DateTimeField(auto_now_add=True)
     read=models.BooleanField(default=False)
-    traderequest=models.ForeignKey(trade_request,on_delete=models.CASCADE,null=True)

@@ -21,7 +21,7 @@
     <div class="col-md-8">
         <div class="row bg-darkgrey rounded text-light p-3">
             <div class="col-md-6">
-                <h4>Applicants (Total: {{totalapplicants}})</h4>
+                <h4>Applicants (Total: {{totalapplicants}})<a href="{% url 'applicants_summary' league_name=league_name %}" class="btn btn-primary btn-sm">View Summary</a></h4>
                 {% if spotsremaining %}
                 {% for item in applicants %}
                 <form action="{% url 'view_application' league_name=league_name %}" method="POST">

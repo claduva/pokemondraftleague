@@ -14,6 +14,7 @@ urlpatterns = [
     path("settings/league/<str:league_name>/leagueconfiguration/", views.league_configuration_, name="league_configuration"),
     path("settings/league/<str:league_name>/managecoachs/", views.manage_coachs, name="manage_coachs"),
     path("settings/league/<str:league_name>/managecoachs/viewapplication/", views.view_application, name="view_application"),
+    path("settings/league/<str:league_name>/managecoachs/applicants_summary/", views.applicants_summary, name="applicants_summary"),
     path("settings/league/<str:league_name>/managecoachs/removecoach/", views.remove_coach, name="removecoach"),
     path("settings/league/<str:league_name>/managecoach/<str:coachofinterest>/", views.manage_coach, name="manage_coach"),
     path("settings/league/<str:league_name>/addteamofcoachs", views.add_team_of_coachs, name="add_team_of_coachs"),

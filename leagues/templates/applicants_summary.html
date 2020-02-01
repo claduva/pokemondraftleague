@@ -1,0 +1,43 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{league_name}} Applicants{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+<div class="row bg-darkgrey rounded p-2 text-light">
+    <div class="col-12">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="text-light bg-dark">
+                    <th class="align-middle" colspan="2">Applicant</th>
+                    <th class="align-middle">Discord Name</th>
+                    <th class="align-middle">Resume</th>
+                    <th class="align-middle">Tier Preference</th>
+                    <th class="align-middle">Willing To Be Alternate?</th>
+                </tr>
+                {% for item in applicants %}
+                <tr>
+                    <td class="align-middle">{{forloop.counter}}</td>
+                    <td class="align-middle">{{item.applicant.username}}</td>
+                    <td class="align-middle">{{item.discord_name}}</td>
+                    <td class="align-middle">{{item.draft_league_resume}}</td>
+                    <td class="align-middle">
+                        {% for tier in item.tier_preference.all %}
+                        <div>{{tier.subleague}}</div>
+                        {% endfor %}
+                    <td class="align-middle">
+                        {% if item.willingtobealternate %}
+                        Yes
+                        {% else %}
+                        No
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
