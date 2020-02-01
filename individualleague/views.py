@@ -407,7 +407,7 @@ def league_schedule(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     season=subleague.seasonsetting
-    seasonschedule=schedule.objects.all().filter(season=season).order_by('week')
+    seasonschedule=schedule.objects.all().filter(season=season).exclude(week__contains="Playoff").order_by('week')
     context = {
         'subleague': subleague,
         'leaguepage': True,
