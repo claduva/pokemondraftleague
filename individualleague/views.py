@@ -406,8 +406,16 @@ def senddraftpicktobot(currentpick,pokemon,subleague,draftlist):
 def league_schedule(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    coachcount=league_teams.count()
     season=subleague.seasonsetting
+    seasonschedule=schedule.objects.all().filter(season=season).order_by('week')
+    context = {
+        'subleague': subleague,
+        'leaguepage': True,
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'seasonschedule':seasonschedule,
+    }
+    """
     leagueschedule=[]
     numberofweeks=season.seasonlength
     for i in range(numberofweeks):
@@ -442,32 +450,9 @@ def league_schedule(request,league_name,subleague_name):
         'numberofweeks': range(numberofweeks),
         'currentweek': currentweek,
     }
+    """
     if request.method=="POST":
-        if request.POST['purpose']=="Go":
-            weekselect=request.POST['weekselect']
-            if weekselect=="All":
-                donothing=True
-            else:
-                matches_=schedule.objects.all().filter(week=weekselect,season=season).order_by('id')
-                matches=[]
-                for item in matches_:
-                    pickemlist=pickems.objects.all().filter(match=item)
-                    try:
-                        userpickem=pickemlist.get(user=request.user)
-                    except:
-                        userpickem=None
-                    team1count=pickemlist.filter(pick=item.team1).count()
-                    team2count=pickemlist.filter(pick=item.team2).count()
-                    pickem={
-                        'team1count':team1count,
-                        'team2count':team2count,
-                        'userpickem':userpickem,
-                    }
-                    matches.append([item,pickem])
-                leagueschedule=[[weekselect,matches]]
-                context.update({'leagueschedule':leagueschedule})
-                return render(request, 'schedule.html',context)
-        elif request.POST['purpose']=="t1pickem":
+        if request.POST['purpose']=="t1pickem":
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
             try:
                 pickemtoupdate=pickems.objects.all().filter(match=matchtoupdate).get(user=request.user)

@@ -1,0 +1,173 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{league_name}}:{% if playoffs %}Playoffs {% endif %} Schedule{% endblock %}
+{% block head%}
+{% endblock %}
+{% block body %}
+
+<div class="row content-section align-items-center">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">{% if playoffs %}Playoffs {% endif %}Schedule</h3>
+        <div class="d-flex justify-content-center">
+            <form method="post">{% csrf_token %}
+                <select name="weekselect">
+                    <option value="All">All</option>
+                    {% if playoffs %}
+                    {% for item in playoffweeks %}
+                    <option value="{{item.week}}">{{item.week}}</option>
+                    {% endfor %}
+                    {% else %}
+                    {% for i in numberofweeks %}
+                    <option value="{{i|add:1}}">Week {{i|add:1}}</option>
+                    {% endfor %}
+                    {% endif %}
+                </select>
+                <input name="purpose" type="submit" class="btn btn-sm btn-primary btn-sm" value="Go">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo">
+    </div>
+</div>
+<div class="row content-section align-items-start justify-content-around">
+    {% for week,item in leagueschedule %}{% if item|length > 0 %}
+    <div class="col-md-4">
+        {% if playoffs %}
+        <h5 class="text-center">{{week}}</h5>
+        {% else %}
+        <h5 class="text-center">Week {{week}}</h5>
+        {% endif %}
+        <table class="table table-sm">
+            {% for match,pickem in item %}
+            <tr class="bg-lightgrey text-dark">
+                <td>
+                    <div>
+                        <div class="d-flex justify-content-center"><img class="rounded-sprite mediumsprite"
+                                src="{{ match.team1.logo.url }}"></div>
+                        <div class="d-flex justify-content-center">{{ match.team1.teamabbreviation }}</div>
+                    </div>
+                <td>
+                <td>
+                    <div class="d-flex justify-content-center">
+                        <h5>vs.</h5>
+                    </div>
+                <td>
+                    <div>
+                        <div class="d-flex justify-content-center"><img class="rounded-sprite mediumsprite"
+                                src="{{ match.team2.logo.url }}"></div>
+                        <div class="d-flex justify-content-center">{{ match.team2.teamabbreviation }}</div>
+                        <div>
+                </td>
+            </tr>
+            {% if match.replay == 'Link' %}
+            <tr class="bg-lightgrey text-dark">
+                <td colspan="4">
+                    <div class="d-flex justify-content-center">
+                        <a href="{% url 'league_matchup' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}"><button
+                                class="btn btn-sm btn-dark">View Matchup</button></a></div>
+                </td>
+            </tr>
+            {% endif %}
+            {% if match.replay == 'Link' and request.user.is_authenticated and match.week|integer > currentweek %}
+            <tr class="bg-lightgrey text-dark text-center">
+                <td colspan="4">
+                    <div><strong>Who Will Win?</strong></div>
+                    <div class="d-flex justify-content-center">
+                        <div>
+                            <form method="post">{% csrf_token %}
+                                <input name="purpose" value="t1pickem" hidden>
+                                <input name="matchid" value='{{match.id}}' hidden>
+                                {% if pickem.userpickem.pick == match.team1 %}
+                                <button class="btn btn-sm btn-info">
+                                    {% else %}
+                                    <button class="btn btn-sm btn-dark">
+                                        {% endif %}
+                                        <div>{{match.team1.teamabbreviation}}</div>
+                                        <div>{{pickem.team1count}}</div>
+                                    </button>
+                            </form>
+                        </div>
+                        <div>
+                            <form method="post">{% csrf_token %}
+                                <input name="purpose" value="t2pickem" hidden>
+                                <input name="matchid" value='{{match.id}}' hidden>
+                                {% if pickem.userpickem.pick == match.team2 %}
+                                <button class="btn btn-sm btn-info">
+                                    {% else %}
+                                    <button class="btn btn-sm btn-dark">
+                                        {% endif %}
+                                        <div>{{match.team2.teamabbreviation}}</div>
+                                        <div>{{pickem.team2count}}</div>
+                                    </button>
+                            </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+            <tr class="bg-lightgrey text-dark rounded-bottom">
+                {% if match.replay == 'Link' %}
+                {% if request.user in match.season.subleague.league.host.all or request.user == match.team1.coach or request.user == match.team1.teammate or request.user == match.team2.coach or request.user == match.team3.teammate %}
+                <td colspan="4">
+                    <div class="d-flex justify-content-center"><a
+                            href="{% url 'upload_league_replay' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}"><button
+                                class="btn btn-sm btn-dark">Upload Replay</button></a></div>
+                </td>
+                {% endif %}
+                {% else %}
+                <td colspan="4">
+                    <div class="d-flex justify-content-center"><a
+                            href="{% url 'league_match_results' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}"><button
+                                class="btn btn-sm btn-dark">Replay</button></a></div>
+                </td>
+                {% endif %}
+            </tr>
+            {% if request.user in match.season.subleague.league.host.all and match.replay == 'Link' %}
+            <tr class="bg-lightgrey text-dark rounded-bottom">
+                <td colspan="4">
+                    <div class="d-flex justify-content-center">
+                        <form method='post'>{% csrf_token %}
+                            <input name="purpose" value='t1ff' hidden>
+                            <input name="matchid" value='{{match.id}}' hidden>
+                            <button class="btn btn-sm btn-dark">{{match.team1.teamabbreviation}} Forfeit</button>
+                        </form>
+                        <form method='post'>{% csrf_token %}
+                            <input name="purpose" value='t2ff' hidden>
+                            <input name="matchid" value='{{match.id}}' hidden>
+                            <button class="btn btn-sm btn-dark">{{match.team2.teamabbreviation}} Forfeit</button>
+                        </form>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <form method='post'>{% csrf_token %}
+                            <input name="purpose" value='bothff' hidden>
+                            <input name="matchid" value='{{match.id}}' hidden>
+                            <button class="btn btn-sm btn-dark">Both Forfeit</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+            {% if request.user.is_staff and match.replay != 'Link' %}
+            <tr class="bg-lightgrey text-dark rounded-bottom">
+                <td colspan="4">
+                    <div class="d-flex justify-content-center">
+                        <a href="{% url 'change_match_attribution' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}"><button class="btn btn-sm btn-dark">Change Attribution of Match to Different User</button></a>
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+            <tr class="spacer">
+                <td colspan="4"></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
