@@ -215,7 +215,6 @@ def manage_coachs(request,league_name):
     }
     return render(request, 'managecoachs.html',context)
 
-@check_if_host
 @login_required
 def applicants_summary(request,league_name):
     league_=league.objects.get(name=league_name)
