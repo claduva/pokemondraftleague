@@ -619,16 +619,16 @@ def league_tiers(request,league_name,subleague_name):
     tierlist=[]
     tierdict={}
     for item in tierchoices:
-        tierdict[item.tiername]=[]
+        tierdict[f'{item.tiername} ({item.tierpoints} pts)']=[]
     for item in tierlist_:
         if item.pokemon.id in rosterlist_:
             owner=rosterlist.get(pokemon__id=item.pokemon.id)
             tierlist.append((item,f"Signed by {owner.team.teamabbreviation}"))
-            tierdict[item.tier.tiername].append([item,owner.team.teamabbreviation])
+            tierdict[f'{item.tier.tiername} ({item.tier.tierpoints} pts)'].append([item,owner.team.teamabbreviation])
         else:
             try:
                 tierlist.append((item,"FREE"))
-                tierdict[item.tier.tiername].append([item,"FREE"])
+                tierdict[f'{item.tier.tiername} ({item.tier.tierpoints} pts)'].append([item,"FREE"])
             except:
                 banned=leaguetiers.objects.all().filter(subleague=subleague).get(tiername="Banned")
                 item.tier=banned
