@@ -147,16 +147,7 @@ def inbox_item_delete(request,messageid):
         return redirect('inbox')
     if request.user != messageofinterest.recipient:
         messages.error(request,"You do not have permission to delete this message!",extra_tags="danger")
-        return redirect('inbox')
-    if messageofinterest.traderequest:
-        sender=messageofinterest.traderequest.requestedpokemon.team.coach
-        recipient=messageofinterest.traderequest.offeredpokemon.team.coach
-        messagebody=f"Hello,\nI regret to inform you that I am rejecting your trade offer of your {messageofinterest.traderequest.offeredpokemon.pokemon.pokemon} for my {messageofinterest.traderequest.requestedpokemon.pokemon.pokemon}. Thank you anyway."
-        inbox.objects.create(sender=sender,recipient=recipient,messagesubject="Trade Request Rejected",messagebody=messagebody)
-        messageofinterest.traderequest.delete()   
-        messages.success(request,'Trade request denied!')
-        messageofinterest.delete()
-        return redirect('inbox')      
+        return redirect('inbox')    
     messageofinterest.delete()
     messages.success(request,'Message deleted!')
     return redirect('inbox') 
