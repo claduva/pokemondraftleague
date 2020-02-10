@@ -25,18 +25,18 @@
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
                     <th>#</th>
-                    <th>Pokemon</th>
-                    <th>Team</th>
-                    <th>K</th>
-                    <th>D</th>
-                    <th>+/-</th>
-                    <th>GP</th>
-                    <th>GW</th>
-                    <th>Damage Done</th>
-                    <th>HP Healed</th>
-                    <th>Luck</th>
-                    <th>Support Provided</th>
-                    <th>Remaining Health</th>
+                    <th class="sort">Pokemon</th>
+                    <th class="sort">Team</th>
+                    <th class="sort">K</th>
+                    <th class="sort">D</th>
+                    <th class="sort">+/-</th>
+                    <th class="sort">GP</th>
+                    <th class="sort">GW</th>
+                    <th class="sort">Damage Done</th>
+                    <th class="sort">HP Healed</th>
+                    <th class="sort">Luck</th>
+                    <th class="sort">Support Provided</th>
+                    <th class="sort">Remaining Health</th>
                 </tr>
                 {% for item in leagueleaders %}
                 <tr>
@@ -76,5 +76,5 @@
 </div>
 {% endblock %}
 {% block footer %}
-<script src="{% static 'individualleague/scripts/tablesorter.js' %}"></script>
+<script src="{% static 'individualleague/scripts/leaderboardsorter.js' %}"></script>
 {% endblock %}
