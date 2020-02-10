@@ -577,9 +577,12 @@ def default_tiers(request,league_name,subleague_name):
             thisleaguetiers=leaguetiers.objects.all().filter(subleague=subleague)
             for item in leagueofinteresttiering:
                 tiertouse=thisleaguetiers.get(tiername=item.tier.tiername)
-                mtu=existingpokemontiers.get(pokemon=item.pokemon)
-                mtu.tier=tiertouse
-                mtu.save()
+                try:
+                    mtu=existingpokemontiers.get(pokemon=item.pokemon)
+                    mtu.tier=tiertouse
+                    mtu.save()
+                except:
+                    pokemon_tier.objects.create(pokemon=item.pokemon,league=subleague.league,subleague=subleague,tier=tiertouse)
         return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
     pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
     pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
