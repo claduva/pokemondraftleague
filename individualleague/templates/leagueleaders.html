@@ -5,6 +5,7 @@
 
 {% block title %}{{league_name}} {% if otherseason %}{{season.seasonname}}{% endif %}: League Leaders{% endblock %}
 {% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/tablesorter.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/leagueleaders.css' %}">
 {% endblock %}
 {% block body %}
@@ -22,25 +23,28 @@
 <div class="row bg-darkgrey rounded text-light p-2">
     <div class="col-12">
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
-            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+            <table id="leadertable" class="table table-sm table-bordered table-striped p-0 m-0 text-center tablesorter">
+                <thead>
                 <tr class="bg-dark text-light">
                     <th>#</th>
-                    <th class="sort">Pokemon</th>
-                    <th class="sort">Team</th>
-                    <th class="sort">K</th>
-                    <th class="sort">D</th>
-                    <th class="sort">+/-</th>
-                    <th class="sort">GP</th>
-                    <th class="sort">GW</th>
-                    <th class="sort">Damage Done</th>
-                    <th class="sort">HP Healed</th>
-                    <th class="sort">Luck</th>
-                    <th class="sort">Support Provided</th>
-                    <th class="sort">Remaining Health</th>
+                    <th>Pokemon</th>
+                    <th >Team</th>
+                    <th >K</th>
+                    <th >D</th>
+                    <th >+/-</th>
+                    <th >GP</th>
+                    <th >GW</th>
+                    <th >Damage Done</th>
+                    <th >HP Healed</th>
+                    <th >Luck</th>
+                    <th >Support Provided</th>
+                    <th >Remaining Health</th>
                 </tr>
+                </thead>
+                <tbody>
                 {% for item in leagueleaders %}
                 <tr>
-                    <td>{{forloop.counter}}</td>
+                    <td class="rownum">{{forloop.counter}}</td>
                     <td>
                         <div class="d-flex">
                             <div>
@@ -70,11 +74,14 @@
                     <td>{{ item.remaininghealth }}</td>
                 </tr>
                 {% endfor %}
+            </tbody>
             </table>
         </div>
     </div>
 </div>
 {% endblock %}
 {% block footer %}
+<script src="{% static 'individualleague/scripts/tablesorter2.js' %}"></script>
+<script src="{% static 'individualleague/scripts/tablesorterwidgets.js' %}"></script>
 <script src="{% static 'individualleague/scripts/leaderboardsorter.js' %}"></script>
 {% endblock %}
