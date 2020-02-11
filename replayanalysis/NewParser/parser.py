@@ -209,7 +209,7 @@ def damage_function(line,parsedlogfile,results):
                 damager=roster_search("p1a",damager,results)
         elif cause.find("ability: Solar Power")>-1 or cause.find("ability: Dry Skin")>-1:
             pokemon['hphealed']+=-damagedone
-        elif cause in ['Recoil','item: Life Orb','highjumpkick','recoil','High Jump Kick','Mind Blown','steelbeam'] or cause.find("Recoil|[of] ")>-1 or cause.find("recoil|[of] ")>-1:
+        elif cause in ['Recoil','item: Life Orb','highjumpkick','recoil','High Jump Kick','Mind Blown','steelbeam','mindblown','Steel Beam'] or cause.find("Recoil|[of] ")>-1 or cause.find("recoil|[of] ")>-1:
             pokemon['hphealed']+=-damagedone
         elif cause in ["item: Black Sludge","item: Sticky Barb"]:
             matchdata=list(filter(lambda x: x[0] < line[0], parsedlogfile))[::-1]
