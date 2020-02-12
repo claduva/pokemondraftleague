@@ -477,3 +477,20 @@ ap=all_pokemon.objects.all()
             sprites.dexshiny.save(f'{item.pokemon}.{cat[4]}'.replace(":",""), ContentFile(data))
         except:
             failed.append([item.pokemon,cat[3],cat[1]])
+
+    fs=pokemon_sprites.objects.all().filter(dex='sprites/sprite_placeholder.gif')
+    for item in fs:
+        print(item.pokemon)
+        url=f"https://play.pokemonshowdown.com/sprites/dex/{item.pokemon.pokemon.lower().replace('.','')}.png"
+        resp = requests.get(url)
+        if resp.ok:
+            try:
+                resp=resp.content
+                open(f'sprites/{item.pokemon.pokemon.replace(".","")}.png', 'wb').write(resp)
+                with open(f'sprites/{item.pokemon.pokemon.replace(".","")}.png', 'rb') as img:
+                    data=img.read()
+                item.dex.save(f'{item.pokemon.pokemon.replace(".","")}.png', ContentFile(data))
+            except:
+                print(item.pokemon)
+        else:
+            print(item.pokemon)
