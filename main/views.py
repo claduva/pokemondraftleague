@@ -172,5 +172,5 @@ def updatematches(request):
 from django.core.files.base import ContentFile
 
 def runscript(request): 
-
+    
     return redirect('home')

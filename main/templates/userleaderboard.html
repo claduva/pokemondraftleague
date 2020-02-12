@@ -8,45 +8,51 @@
 <link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/leagueleaders.css' %}">
 {% endblock %}
 {% block body %}
-<div class="row content-section align-items-center">
-        <div class="col-md-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}" class="rounded-circle mediumlogo">
-        </div>
-        <div class="col-md-4">
-            <h3 class="d-flex justify-content-center">User Leaderboard</h3>
-        </div>
-        <div class="col-md-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}" class="rounded-circle mediumlogo">
-        </div>
+<div class="row bg-darkgrey rounded text-light p-2 align-items-center mb-2">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="mediumlogo">
     </div>
-<div class="row content-section">
+    <div class="col-md-4">
+        <h3 class="d-flex justify-content-center">User Leaderboard</h3>
+    </div>
+    <div class="col-md-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="mediumlogo">
+    </div>
+</div>
+<div class="row bg-darkgrey rounded text-light p-2">
     <div class="col-12">
-        <table class="table table-sm sortable">
-            <thead class="thead-dark">
-                <tr>
-                    <th>User</th>
-                    <th>Wins</th>
-                    <th>Losses</th>
-                    <th>+/-</th>
-                    <th>Seasons Played</th>
-                    <th>Damage Done</th>
-                    <th>HP Healed</th>
-                    <th>Luck</th>
-                    <th>Support Provided</th>
-                    <th>Remaining Health</th>
-                </tr>
-            </thead>
-            <tbody class="bg-lightgrey text-dark">
-                {% for item in leaderboard %}
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table id="leadertable"
+                class="table table-sm table-bordered table-striped p-0 m-0 text-center text-nowrap tablesorter">
+                <thead>
+                    <tr class="bg-dark text-light">
+                        <th>#</th>
+                        <th>User</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>+/-</th>
+                        <th>Seasons Played</th>
+                        <th>Damage Done</th>
+                        <th>HP Healed</th>
+                        <th>Luck</th>
+                        <th>Support Provided</th>
+                        <th>Remaining Health</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-lightgrey text-dark">
+                    {% for item in leaderboard %}
                     <tr>
+                        <td class="rownum">{{forloop.counter}}</td>
                         <td>
                             <a class="text-dark" href="{% url 'user_profile' username=item.user.username %}">
-                            <div class="d-flex">
-                                <div>
-                                    <img class="smallsprite" src="{{item.pfp.url}}">
-                                </div>
-                                <div>
-                                    {{ item.user.username }}
-                                </div>
+                        <div class="d-flex">
+                            <div>
+                                <img class="smallsprite" src="{{item.pfp.url}}">
                             </div>
+                            <div>
+                                {{ item.user.username }}
+                            </div>
+                        </div>
                         </a>
                         </td>
                         <td>{{ item.wins }}</td>
@@ -59,12 +65,15 @@
                         <td>{{ item.support }}</td>
                         <td>{{ item.remaininghealth }}</td>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}
 {% block footer %}
-<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+<script src="{% static 'individualleague/scripts/tablesorter2.js' %}"></script>
+<script src="{% static 'individualleague/scripts/tablesorterwidgets.js' %}"></script>
+<script src="{% static 'individualleague/scripts/leaderboardsorter.js' %}"></script>
 {% endblock %}
