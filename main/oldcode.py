@@ -415,3 +415,65 @@ with open("swsh.txt") as fp:
                 resp=resp.content
                 open(f'sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'wb').write(resp)
                 """
+
+ap=all_pokemon.objects.all()
+    for item in ap:
+        sprites=item.sprite
+        print(item.pokemon)
+        failed=[]
+        cat=['afd','png','standard','afd','png']
+        try:
+            with open(f'pokemondatabase/static/pokemondatabase/sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'rb') as img:
+                data=img.read()
+            sprites.afd.save(f'{item.pokemon}.{cat[4]}'.replace(":",""), ContentFile(data))
+        except:
+            failed.append([item.pokemon,cat[3],cat[1]])
+        cat=['afd','png','shiny','afd-shiny','png']
+        try:
+            with open(f'pokemondatabase/static/pokemondatabase/sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'rb') as img:
+                data=img.read()
+            sprites.afdshiny.save(f'{item.pokemon}.{cat[4]}'.replace(":",""), ContentFile(data))
+        except:
+            failed.append([item.pokemon,cat[3],cat[1]])
+        cat=['bw','png','standard','gen5','png']
+        try:
+            with open(f'pokemondatabase/static/pokemondatabase/sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'rb') as img:
+                data=img.read()
+            sprites.bw.save(f'{item.pokemon}.{cat[4]}'.replace(":",""), ContentFile(data))
+        except:
+            failed.append([item.pokemon,cat[3],cat[1]])
+        cat=['bw','png','shiny','gen5-shiny','png']
+        try:
+            with open(f'pokemondatabase/static/pokemondatabase/sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'rb') as img:
+                data=img.read()
+            sprites.bwshiny.save(f'{item.pokemon}.{cat[4]}'.replace(":",""), ContentFile(data))
+        except:
+            failed.append([item.pokemon,cat[3],cat[1]])
+        cat=['swsh','ani','standard','ani','gif']
+        try:
+            with open(f'pokemondatabase/static/pokemondatabase/sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'rb') as img:
+                data=img.read()
+            sprites.dexani.save(f'{item.pokemon}.{cat[4]}'.replace(":",""), ContentFile(data))
+        except:
+            failed.append([item.pokemon,cat[3],cat[1]])
+        cat=['swsh','png','standard','dex','png']
+        try:
+            with open(f'pokemondatabase/static/pokemondatabase/sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'rb') as img:
+                data=img.read()
+            sprites.dex.save(f'{item.pokemon}.{cat[4]}'.replace(":",""), ContentFile(data))
+        except:
+            failed.append([item.pokemon,cat[3],cat[1]])
+        cat=['swsh','ani','shiny','ani-shiny','gif']
+        try:
+            with open(f'pokemondatabase/static/pokemondatabase/sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'rb') as img:
+                data=img.read()
+            sprites.dexanishiny.save(f'{item.pokemon}.{cat[4]}'.replace(":",""), ContentFile(data))
+        except:
+            failed.append([item.pokemon,cat[3],cat[1]])
+        cat=['swsh','png','shiny','dex-shiny','png']
+        try:
+            with open(f'pokemondatabase/static/pokemondatabase/sprites/{cat[0]}/{cat[1]}/{cat[2]}/{item.pokemon}.{cat[4]}'.replace(":",""), 'rb') as img:
+                data=img.read()
+            sprites.dexshiny.save(f'{item.pokemon}.{cat[4]}'.replace(":",""), ContentFile(data))
+        except:
+            failed.append([item.pokemon,cat[3],cat[1]])
