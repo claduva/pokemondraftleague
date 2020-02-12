@@ -48,7 +48,7 @@
                     {% for item in team1roster %}
                     <tr>
                         <td>
-                            <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                            <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                                     {{item.pokemon.pokemon}}
                         </td>
                         <td>
@@ -94,7 +94,7 @@
                 {% for item in team2roster %}
                 <tr>
                     <td>
-                        <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                        <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                                 {{item.pokemon.pokemon}}
                     </td>
                     <td>
@@ -136,7 +136,7 @@
                         {% for item in team1roster %}
                         <tr>
                             <td>
-                                <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                                <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                                         {{item.pokemon.pokemon}}
                             </td>
                             <td>{{item.kills}}</td>
@@ -163,7 +163,7 @@
                             {% for item in team2roster %}
                             <tr>
                                 <td>
-                                    <img class="smallsprite" src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                                    <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                                             {{item.pokemon.pokemon}}
                                 </td>
                                 <td>{{item.kills}}</td>
@@ -211,7 +211,7 @@
                 <tr>
                     <td>
                         <img class="smallsprite"
-                            src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                            src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                         {{item.pokemon.pokemon}}
                     </td>
                     <td>{{item.pokemon.speed}}</td>
@@ -257,7 +257,7 @@
                 <tr>
                     <td>
                         <img class="smallsprite"
-                            src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                            src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                         {{item.pokemon.pokemon}}
                         </th>
                     <td>{{item.pokemon.speed}}</td>
@@ -294,7 +294,7 @@
                                 {% for item_ in item.pokemon.moves.all|movefilter %}
                                 {% if item_.moveinfo.name == move %}
                                 <img class="smallsprite"
-                                src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                                src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                                 {% endif %}
                                 {% endfor %}
                                 {% endfor %}
@@ -319,7 +319,7 @@
                                     {% for item_ in item.pokemon.moves.all|movefilter %}
                                     {% if item_.moveinfo.name == move %}
                                     <img class="smallsprite"
-                                    src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                                    src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                                     {% endif %}
                                     {% endfor %}
                                     {% endfor %}

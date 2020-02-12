@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.core import serializers
 from django.db.models import Q
+from django.core.files.base import ContentFile
 
 import json
 from datetime import datetime
@@ -168,8 +169,6 @@ def updatematches(request):
         team2.save()
         """
     return redirect('home')
-
-from django.core.files.base import ContentFile
 
 def runscript(request): 
     
