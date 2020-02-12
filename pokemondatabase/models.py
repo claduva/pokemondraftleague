@@ -35,6 +35,17 @@ class all_pokemon(models.Model):
     def __str__(self):
         return f'{self.pokemon}'
 
+class pokemon_sprites(models.Model):
+    pokemon = models.OneToOneField(all_pokemon,on_delete=models.CASCADE,related_name="sprite")
+    afd = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/afd/png/standard')
+    bw = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/bw/png/standard')
+    dex = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/dex/png/standard')
+    afdshiny = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/afd/png/shiny')
+    bwshiny = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/bw/png/shiny')
+    dexshiny = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/dex/png/shiny')
+    dexani = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/dex/ani/standard')
+    dexanishiny = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/dex/ani/shiny')
+
 class pokemon_leaderboard(models.Model):
     pokemon = models.OneToOneField(all_pokemon,on_delete=models.CASCADE)
     kills = models.IntegerField(default=0)
