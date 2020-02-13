@@ -173,7 +173,7 @@ class seasonsetting(models.Model):
     draftstart=models.DateTimeField(null=True)
     drafttimer=models.IntegerField(default=12)
     draftbudget = models.IntegerField(default=1080)
-    picksperteam = models.IntegerField(default=12)
+    picksperteam = models.IntegerField(default=11)
     drafttype = models.CharField(max_length=25, choices=(
         ("Snake","Snake"),
         ),

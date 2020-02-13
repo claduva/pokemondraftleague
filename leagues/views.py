@@ -354,11 +354,9 @@ def individual_league_coaching_settings(request,league_name):
 @login_required
 def manage_seasons(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    #needednumberofcoaches=seasonsettings.number_of_teams
-    #currentcoaches=coachdata.objects.filter(league_name=subleague.league)
-    #currentcoachescount=len(currentcoaches)
     try:
         seasonsettings=seasonsetting.objects.get(subleague=subleague)
+        originalpicksperteam=seasonsettings.picksperteam
         form = EditSeasonSettingsForm(instance=seasonsettings)
         settingheading='Update Season Settings'
         create=False
@@ -374,6 +372,31 @@ def manage_seasons(request,league_name,subleague_name):
             seasonsettings=seasonsetting.objects.get(subleague=subleague)
             form = EditSeasonSettingsForm(request.POST,instance=seasonsettings)
             if form.is_valid():
+                newpicksperteam=form.cleaned_data['picksperteam']
+                leaguecoaches=coachdata.objects.all().filter(subleague=subleague)
+                if originalpicksperteam<newpicksperteam:
+                    coachdraft=draft.objects.all().filter(season=seasonsettings).order_by('-picknumber')[0:leaguecoaches.count()]
+                    pn=coachdraft.first().picknumber+1
+                    did=draft.objects.all().order_by('-id').first().id+1
+                    rid=roster.objects.all().order_by('-id').first().id+1
+                    for i in range(newpicksperteam-originalpicksperteam):
+                        if i%2==0:
+                            for item in coachdraft:
+                                draft.objects.create(id=did,season=item.season,picknumber=pn,team=item.team)
+                                roster.objects.create(id=did,season=item.season,team=item.team)
+                                pn+=1;did+=1;rid+=1
+                        else:
+                            for item in coachdraft[::-1]:
+                                draft.objects.create(id=did,season=item.season,picknumber=pn,team=item.team)
+                                roster.objects.create(id=did,season=item.season,team=item.team)
+                                pn+=1;did+=1;rid+=1
+                elif originalpicksperteam>newpicksperteam:
+                    for item in leaguecoaches:
+                        coachdraft=item.draftpicks.all().order_by('picknumber')
+                        coachroster=item.teamroster.all().order_by('id')
+                        for i in range(originalpicksperteam-newpicksperteam):
+                            coachdraft.last().delete()
+                            coachroster.last().delete()
                 form.save()
                 messages.success(request,'Season settings have been updated!')
             else:
