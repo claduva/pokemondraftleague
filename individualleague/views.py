@@ -260,7 +260,7 @@ def league_draft(request,league_name,subleague_name):
     tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     draftlist=draft.objects.all().filter(season=season)
-    currentpick=draftlist.filter(pokemon__isnull=True,skipped=False).first()
+    currentpick=draftlist.filter(pokemon__isnull=True,skipped=False).order_by('picknumber').first()
     subleaguetiers=pokemon_tier.objects.filter(subleague=subleague)
     ##existing draftdata
     draftbyteam=[]
@@ -288,7 +288,6 @@ def league_draft(request,league_name,subleague_name):
         if request.user==item.coach: 
             iscoach=True
             usercoach=item
-    
     draftbyteam=sorted(draftbyteam, key=lambda x: x[1][0][0])
     #check for current leftpicks
     try:
