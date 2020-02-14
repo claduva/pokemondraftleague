@@ -786,7 +786,7 @@ def manage_coach(request,league_name,coachofinterest):
             if form.is_valid():
                 form.save()
                 messages.success(request,f'{coachofinterest.coach.username} has been updated!')
-                return redirect('manage_coachs', league_name=league_name)
+                return redirect('manage_coach', league_name=league_name,coachofinterest=coachofinterest.coach.username)
         elif formtype=="Adjust Draft":
             context.update({
                 'coachtoupdate':coachtoupdate,
@@ -809,7 +809,7 @@ def manage_coach(request,league_name,coachofinterest):
             except Exception as e:
                 print(e)
                 messages.error(request,"Pokemon doesn't exist",extra_tags="danger")
-            return redirect('manage_coachs', league_name=league_name)
+            return redirect('manage_coach', league_name=league_name,coachofinterest=coachofinterest.coach.username)
         elif formtype=="Update Roster":
             pokemontoupdate=roster.objects.get(id=request.POST['pokemontoupdate'])
             try:
@@ -820,7 +820,7 @@ def manage_coach(request,league_name,coachofinterest):
             except Exception as e:
                 print(e)
                 messages.error(request,"Pokemon doesn't exist",extra_tags="danger")
-            return redirect('manage_coachs', league_name=league_name)
+            return redirect('manage_coach', league_name=league_name,coachofinterest=coachofinterest.coach.username)
         elif formtype=="Adjust Record":
             context.update({
                 'form': UpdateCoachRecordForm(instance=coachtoupdate),
@@ -834,7 +834,7 @@ def manage_coach(request,league_name,coachofinterest):
                 form.save()
                 messages.success(request,f'{coachtoupdate.coach.username} has been updated!')
                 return redirect('manage_coachs', league_name=league_name)
-            return redirect('manage_coachs', league_name=league_name)
+            return redirect('manage_coach', league_name=league_name,coachofinterest=coachofinterest.coach.username)
         elif formtype=="Add Showdown Alt":
             alts=showdownalts.objects.all().filter(user=coachtoupdate.coach)
             context.update({
@@ -846,7 +846,7 @@ def manage_coach(request,league_name,coachofinterest):
         elif formtype=="addalt":
             showdownalts.objects.create(user=coachtoupdate.coach,showdownalt=request.POST['givenalt'])
             messages.success(request,f'{coachtoupdate.coach} has been updated!')
-            return redirect('manage_coachs', league_name=league_name)     
+            return redirect('manage_coach', league_name=league_name,coachofinterest=coachofinterest.coach.username)     
     context.update({
         'form':form,
         'coachform':True,
