@@ -63,7 +63,7 @@
                 </form>
                 {% elif adjustdraft %}
                 <h5>Draft</h5>
-                {% for item in coachtoupdate.draftpicks.all %}
+                {% for item in coachtoupdate.draftpicks.all|dictsort:"picknumber" %}
                     <form method="post">{% csrf_token %}
                         <input name="pokemontoupdate" value={{item.id}} hidden>
                         <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
@@ -73,7 +73,7 @@
                 {% endfor %}
                 {% elif adjustroster %}
                 <h5>Roster</h5>
-                {% for item in coachtoupdate.teamroster.all %}
+                {% for item in coachtoupdate.teamroster.all|dictsort:"id" %}
                     <form method="post">{% csrf_token %}
                         <input name="pokemontoupdate" value={{item.id}} hidden>
                         <input type="text" value="{{ coachofinterest.id }}" name="coachtoupdate" hidden>
