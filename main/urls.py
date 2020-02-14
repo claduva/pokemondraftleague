@@ -10,6 +10,4 @@ urlpatterns = [
     path("userleaderboard/", views.userleaderboard, name="userleaderboard"),
     path("pickemleaderboard/", views.pickemleaderboard, name="pickemleaderboard"),
     path("runscript/", views.runscript, name="runscript"),
-    path("updatematches/", views.updatematches, name="updatematches"),
-    path("zerorosters/", views.zerorosters, name="zerorosters"),
 ]

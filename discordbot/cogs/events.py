@@ -15,10 +15,10 @@ class Events(commands.Cog):
             return
         user=message.author.name
         msg=message.content
-        print(f'{user} said {msg}')
-        if msg.lower().replace("-","").replace(" ","").replace(".","").find("lombre")>-1 or msg.lower().replace("-","").replace(" ","").replace(".","").find("mbre")>-1:
-            await message.delete()
-            await message.channel.send("For the love of Arceus shut up about Lombre!")
+        #print(f'{user} said {msg}')
+        #if msg.lower().replace("-","").replace(" ","").replace(".","").find("lombre")>-1 or msg.lower().replace("-","").replace(" ","").replace(".","").find("mbre")>-1:
+        #    await message.delete()
+        #    await message.channel.send("For the love of Arceus shut up about Lombre!")
 
     @commands.Cog.listener()
     async def on_command_error(self,ctx,error):

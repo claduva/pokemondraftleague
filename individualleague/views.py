@@ -414,42 +414,6 @@ def league_schedule(request,league_name,subleague_name):
         'league_name': league_name,
         'seasonschedule':seasonschedule,
     }
-    """
-    leagueschedule=[]
-    numberofweeks=season.seasonlength
-    for i in range(numberofweeks):
-        matches_=schedule.objects.all().filter(week=str(i+1),season=season).order_by('id')
-        matches=[]
-        for item in matches_:
-            pickemlist=pickems.objects.all().filter(match=item)
-            try:
-                userpickem=pickemlist.get(user=request.user)
-            except:
-                userpickem=None
-            team1count=pickemlist.filter(pick=item.team1).count()
-            team2count=pickemlist.filter(pick=item.team2).count()
-            pickem={
-                'team1count':team1count,
-                'team2count':team2count,
-                'userpickem':userpickem,
-            }
-            matches.append([item,pickem])
-        leagueschedule.append([str(i+1),matches])
-    ishost=(request.user==subleague.league.host)
-    timezone = pytz.timezone('UTC')
-    elapsed=timezone.localize(datetime.now())-season.seasonstart
-    currentweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
-    context = {
-        'subleague': subleague,
-        'leaguepage': True,
-        'league_teams': league_teams,
-        'league_name': league_name,
-        'leagueschedule': leagueschedule,
-        'ishost': ishost,
-        'numberofweeks': range(numberofweeks),
-        'currentweek': currentweek,
-    }
-    """
     if request.method=="POST":
         if request.POST['purpose']=="t1pickem":
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
@@ -482,6 +446,7 @@ def league_schedule(request,league_name,subleague_name):
             if request.POST['purpose']=="t1ff":
                 matchtoupdate.replay=f'Team 1 Forfeits'
                 matchtoupdate.winner=team2
+                matchtoupdate.team2score=3
                 team1.losses+=1; team2.wins+=1
                 team1.differential+=(-6); team2.differential+=3
                 team1.forfeit+=1
@@ -497,6 +462,7 @@ def league_schedule(request,league_name,subleague_name):
             elif request.POST['purpose']=="t2ff":
                 matchtoupdate.replay=f'Team 2 Forfeits'
                 matchtoupdate.winner=team1
+                matchtoupdate.team1score=3
                 team1.wins+=1; team2.losses+=1
                 team1.differential+=3; team2.differential+=(-6)
                 team2.forfeit+=1
@@ -942,42 +908,6 @@ def league_playoffs(request,league_name,subleague_name):
         'league_name': league_name,
         'seasonschedule':seasonschedule,
     }
-    """
-    leagueschedule=[]
-    numberofweeks=season.seasonlength
-    for i in range(numberofweeks):
-        matches_=schedule.objects.all().filter(week=str(i+1),season=season).order_by('id')
-        matches=[]
-        for item in matches_:
-            pickemlist=pickems.objects.all().filter(match=item)
-            try:
-                userpickem=pickemlist.get(user=request.user)
-            except:
-                userpickem=None
-            team1count=pickemlist.filter(pick=item.team1).count()
-            team2count=pickemlist.filter(pick=item.team2).count()
-            pickem={
-                'team1count':team1count,
-                'team2count':team2count,
-                'userpickem':userpickem,
-            }
-            matches.append([item,pickem])
-        leagueschedule.append([str(i+1),matches])
-    ishost=(request.user==subleague.league.host)
-    timezone = pytz.timezone('UTC')
-    elapsed=timezone.localize(datetime.now())-season.seasonstart
-    currentweek=math.ceil(elapsed.total_seconds()/60/60/24/7)
-    context = {
-        'subleague': subleague,
-        'leaguepage': True,
-        'league_teams': league_teams,
-        'league_name': league_name,
-        'leagueschedule': leagueschedule,
-        'ishost': ishost,
-        'numberofweeks': range(numberofweeks),
-        'currentweek': currentweek,
-    }
-    """
     if request.method=="POST":
         if request.POST['purpose']=="t1pickem":
             matchtoupdate=schedule.objects.get(id=request.POST['matchid'])

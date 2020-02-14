@@ -111,65 +111,6 @@ def pickemleaderboard(request):
     }
     return  render(request,"pickemleaderboard.html",context)
 
-@check_if_clad
-def zerorosters(request):
-    ##zero rosters  
-    roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
-    historical_roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
-    all_pokemon.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
-    ##zero coachs
-    coachdata.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
-    historical_team.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
-    return redirect('home')
-
-@check_if_clad
-def updatematches(request):
-    """
-    ffmatches=schedule.objects.all().exclude(replay="Link").exclude(replay__contains="replay.pokemonshowdown.com").exclude(replay__contains="cdn.discordapp.com")
-    for item in ffmatches:
-        team1=item.team1
-        team2=item.team2
-        if item.replay=="Both Teams Forfeit":
-            team1.differential+=-6
-            team2.differential+=-6
-            team1.losses+=1
-            team2.losses+=1
-        elif item.replay=="Team 1 Forfeits":
-            team1.differential+=-6
-            team2.differential+=3
-            team1.losses+=1
-            team2.wins+=1
-        elif item.replay=="Team 2 Forfeits":
-            team2.differential+=-6
-            team1.differential+=3
-            team2.losses+=1
-            team1.wins+=1
-        team1.save()
-        team2.save()
-    ffmatches=historical_match.objects.all().exclude(replay="Link").exclude(replay__contains="replay.pokemonshowdown.com").exclude(replay__contains="cdn.discordapp.com").exclude(replay="N/A")
-    for item in ffmatches:
-        team1=item.team1
-        team2=item.team2
-        if item.replay=="Both Teams Forfeit":
-            team1.differential+=-6
-            team2.differential+=-6
-            team1.losses+=1
-            team2.losses+=1
-        elif item.replay=="Team 1 Forfeits":
-            team1.differential+=-6
-            team2.differential+=3
-            team1.losses+=1
-            team2.wins+=1
-        elif item.replay=="Team 2 Forfeits":
-            team2.differential+=-6
-            team1.differential+=3
-            team2.losses+=1
-            team1.wins+=1
-        team1.save()
-        team2.save()
-        """
-    return redirect('home')
-
 def runscript(request): 
 
     return redirect('home')
