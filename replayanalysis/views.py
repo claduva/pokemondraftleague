@@ -317,9 +317,13 @@ def check_analyzer(request):
     historical_team.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
     currentmatches=schedule.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
     histmatches=historical_match.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
+    histffmatches=historical_match.objects.all().filter(replay__contains="Forfeit").order_by('id')
+    ffmatches=schedule.objects.all().filter(replay__contains="Forfeit").order_by('id')
+    unavailable=historical_match.objects.all().filter(replay="Unavailable")
+    total=currentmatches.count()+histmatches.count()+histffmatches.count()+ffmatches.count()+unavailable.count()
+    i=1
     #forfeits
-    histffmatches=historical_match.objects.all().filter(replay__contains="Forfeit")
-    ffmatches=schedule.objects.all().filter(replay__contains="Forfeit")
+    print('Forfeit')
     for item in ffmatches:
         team1=item.team1
         team2=item.team2
@@ -344,6 +348,8 @@ def check_analyzer(request):
             team2.forfeit+=1
         team1.save()
         team2.save()
+        print(f'{i}/{total}')
+        i+=1
     for item in histffmatches:
         team1=item.team1
         team2=item.team2
@@ -368,8 +374,10 @@ def check_analyzer(request):
             team2.forfeit+=1
         team1.save()
         team2.save()
+        print(f'{i}/{total}')
+        i+=1
     #unavailable
-    unavailable=historical_match.objects.all().filter(replay="Unavailable")
+    print('Unavailable')
     for item in unavailable:
         team1=item.team1
         team2=item.team2
@@ -381,16 +389,39 @@ def check_analyzer(request):
         elif item.winner==item.team2:
             team2.wins+=1
             team1.losses+=1
-    print('here')
+        print(f'{i}/{total}')
+        i+=1
+    failed=[]
+    print('Current')
+    for item in currentmatches:
+        try:
+            check_current_match(item)
+        except:
+            failed.append(item)
+        print(f'{i}/{total}')
+        i+=1
+    print('Historic')
+    for item in histmatches:
+        try:
+            check_hist_match(item)
+        except:
+            failed.append(item)
+        print(f'{i}/{total}')
+        i+=1
+    print('Failed')
+    for item in failed:
+        print(f'{item.id}: {item.replay}')
     context={
         'currentmatches':currentmatches,
         'histmatches':histmatches,
     }
-    return render(request,"analyzercheck.html",context)
+    return redirect('home')
+    #return render(request,"analyzercheck.html",context)
 
 @csrf_exempt
-def check_current_match(request):
-    match=schedule.objects.get(id=request.POST['matchid'])
+#def check_current_match(request):
+def check_current_match(match):
+    #match=schedule.objects.get(id=request.POST['matchid'])
     url=match.replay
     try:
         results = newreplayparse(url)
@@ -411,11 +442,13 @@ def check_current_match(request):
         'replay': url,
         'success': success,
         }
-    return JsonResponse(data)
+    #return JsonResponse(data)
+    return
 
 @csrf_exempt
-def check_hist_match(request):
-    match=historical_match.objects.get(id=request.POST['matchid'])
+#def check_hist_match(request):
+def check_hist_match(match):    
+    #match=historical_match.objects.get(id=request.POST['matchid'])
     url=match.replay
     try:
         results = newreplayparse(url)
@@ -467,7 +500,8 @@ def check_hist_match(request):
         'replay': url,
         'success': success,
         }
-    return JsonResponse(data)
+    #return JsonResponse(data)
+    return
 
 def update_current_match(mr):
     match=mr.match
@@ -522,6 +556,7 @@ def current_searchmon(toi,searchmon):
     return foundmon
 
 def historic_searchmon(toi,searchmon):
+    print(searchmon)
     try:
         foundmon=historical_roster.objects.all().filter(team=toi).get(pokemon__pokemon=searchmon)
     except:

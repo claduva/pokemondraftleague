@@ -1,18 +1,18 @@
 {
   "team1": {
-    "coach": "Schlokian",
+    "coach": "SalTheSixth",
     "roster": [
       {
-        "pokemon": "Bronzong",
-        "startform": "Bronzong",
-        "nickname": "Metalida",
+        "pokemon": "Mimikyu",
+        "startform": "Mimikyu",
+        "nickname": "Mimikyu",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 1,
-        "damagedone": 191,
+        "damagedone": 130,
         "hphealed": 0,
-        "luck": -1.14,
+        "luck": 0.0,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -24,171 +24,16 @@
         "Curse": null
       },
       {
-        "pokemon": "Vaporeon",
-        "startform": "Vaporeon",
-        "nickname": "Nomiya",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 11,
-        "hphealed": 69,
-        "luck": -1.33,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Galvantula",
-        "startform": "Galvantula",
-        "nickname": "Buggsy Mogues",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.08,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Mamoswine",
-        "startform": "Mamoswine",
-        "nickname": "Mama Mamo",
-        "kills": 5,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 333,
-        "hphealed": -19,
-        "luck": -0.44,
-        "remaininghealth": 34,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Victini",
-        "startform": "Victini",
-        "nickname": "Nova",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 65,
-        "hphealed": 0,
-        "luck": 0.19,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Crobat",
-        "startform": "Crobat",
-        "nickname": "Brobat",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 40,
-        "hphealed": 37,
-        "luck": -0.51,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": "Garuda",
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      }
-    ],
-    "wins": 1,
-    "forfeit": 0,
-    "score": 1,
-    "megaevolved": false,
-    "usedzmove": false,
-    "timesswitched": 18,
-    "selfdeaths": 0,
-    "remaininghealth": 34,
-    "totalhealth": 600,
-    "kills": 6,
-    "deaths": 5,
-    "luck": -3.15,
-    "damagedone": 640,
-    "hphealed": 87,
-    "support": 5,
-    "activemon": "Mama Mamo",
-    "Toxic Spikes": null,
-    "Spikes": null,
-    "Stealth Rock": "Sylph",
-    "Future Sight": null,
-    "Doom Desire": null,
-    "Sandstorm": null,
-    "Hail": null,
-    "Leech Seed": null
-  },
-  "team2": {
-    "coach": "pbakikuro",
-    "roster": [
-      {
-        "pokemon": "Heatran",
-        "startform": "Heatran",
-        "nickname": "Ifrit",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 27,
-        "hphealed": 0,
-        "luck": 0.25,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Tornadus-Therian",
-        "startform": "Tornadus-Therian",
-        "nickname": "Garuda",
+        "pokemon": "Kartana",
+        "startform": "Kartana",
+        "nickname": "Kartana",
         "kills": 2,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 252,
-        "hphealed": 67,
-        "luck": 1.55,
+        "support": 0,
+        "damagedone": 161,
+        "hphealed": 0,
+        "luck": 2.92,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -200,16 +45,16 @@
         "Curse": null
       },
       {
-        "pokemon": "Heliolisk",
-        "startform": "Heliolisk",
-        "nickname": "Ramuh",
-        "kills": 1,
+        "pokemon": "Ampharos-Mega",
+        "startform": "Ampharos",
+        "nickname": "Ampharos",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 123,
-        "hphealed": -38,
-        "luck": -0.26,
+        "damagedone": 20,
+        "hphealed": 0,
+        "luck": 0.29,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -221,16 +66,37 @@
         "Curse": null
       },
       {
-        "pokemon": "Gligar",
-        "startform": "Gligar",
-        "nickname": "Sylph",
+        "pokemon": "Nidoqueen",
+        "startform": "Nidoqueen",
+        "nickname": "Nidoqueen",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 6,
+        "luck": 0.18,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Vivillon",
+        "startform": "Vivillon",
+        "nickname": "Vivillon",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 2,
-        "damagedone": 157,
+        "damagedone": 1,
         "hphealed": 0,
-        "luck": 0.24,
+        "luck": 0.44,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -242,37 +108,16 @@
         "Curse": null
       },
       {
-        "pokemon": "Venusaur-Mega",
-        "startform": "Venusaur",
-        "nickname": "Titan",
+        "pokemon": "Reuniclus",
+        "startform": "Reuniclus",
+        "nickname": "Reuniclus",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 13,
-        "hphealed": 11,
-        "luck": 0.52,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Gardevoir",
-        "startform": "Gardevoir",
-        "nickname": "Karfunkel",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 81,
+        "support": 2,
+        "damagedone": 232,
         "hphealed": 0,
-        "luck": 0.85,
+        "luck": -0.28,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -289,20 +134,176 @@
     "score": 0,
     "megaevolved": true,
     "usedzmove": true,
-    "timesswitched": 17,
+    "timesswitched": 10,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 5,
+    "kills": 3,
     "deaths": 6,
-    "luck": 3.15,
-    "damagedone": 653,
-    "hphealed": 40,
-    "support": 4,
-    "activemon": "Garuda",
+    "luck": 3.55,
+    "damagedone": 544,
+    "hphealed": 6,
+    "support": 5,
+    "activemon": "Nidoqueen",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Metalida",
+    "Stealth Rock": null,
+    "Future Sight": null,
+    "Doom Desire": null,
+    "Sandstorm": null,
+    "Hail": null,
+    "Leech Seed": null
+  },
+  "team2": {
+    "coach": "claduva",
+    "roster": [
+      {
+        "pokemon": "Type:Null",
+        "startform": "Type:Null",
+        "nickname": "Loss: Null",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 199,
+        "hphealed": 0,
+        "luck": 0.06,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Terrakion",
+        "startform": "Terrakion",
+        "nickname": "Rocky",
+        "kills": 2,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 41,
+        "hphealed": 0,
+        "luck": -0.08,
+        "remaininghealth": 100,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Arcanine",
+        "startform": "Arcanine",
+        "nickname": "Mort",
+        "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 152,
+        "hphealed": -32,
+        "luck": -0.49,
+        "remaininghealth": 49,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "slp": "Vivillon"
+      },
+      {
+        "pokemon": "Mew",
+        "startform": "Mew",
+        "nickname": "Woof",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 150,
+        "luck": -0.64,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Virizion",
+        "startform": "Virizion",
+        "nickname": "Meadow",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 14,
+        "hphealed": 0,
+        "luck": -2.32,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Zygarde-10%",
+        "startform": "Zygarde-10%",
+        "nickname": "Quakey",
+        "kills": 2,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 200,
+        "hphealed": -25,
+        "luck": -0.08,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": "Quakey",
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      }
+    ],
+    "wins": 1,
+    "forfeit": 0,
+    "score": 2,
+    "megaevolved": false,
+    "usedzmove": false,
+    "timesswitched": 12,
+    "selfdeaths": 1,
+    "remaininghealth": 149,
+    "totalhealth": 600,
+    "kills": 6,
+    "deaths": 4,
+    "luck": -3.55,
+    "damagedone": 606,
+    "hphealed": 93,
+    "support": 0,
+    "activemon": "Rocky",
+    "Toxic Spikes": null,
+    "Spikes": null,
+    "Stealth Rock": null,
     "Future Sight": null,
     "Doom Desire": null,
     "Sandstorm": null,
@@ -310,101 +311,85 @@
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 36,
+  "numberofturns": 35,
   "turns": [],
-  "replay": "http://replay.pokemonshowdown.com/gen7anythinggoes-908371795",
+  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-727659448",
   "significantevents": [
     [
       1,
-      "Crobat provided support by using Taunt"
-    ],
-    [
-      5,
-      "Venusaur-Mega provided support by using Leech Seed"
+      "Vivillon provided support by using Sleep Powder"
     ],
     [
       7,
-      "Galvantula provided support by using Sticky Web"
+      "Arcanine killed Ampharos-Mega with Natural Gift"
     ],
     [
-      7,
-      "Gligar provided support by using Stealth Rock"
+      8,
+      "Vivillon provided support by using Sleep Powder"
     ],
     [
-      9,
-      "Crobat provided support by using Defog"
+      12,
+      "Mimikyu provided support by using Destiny Bond"
     ],
     [
-      10,
-      "Tornadus-Therian provided support by using Tailwind"
-    ],
-    [
-      11,
-      "LUCK: Crobat was confused by Tornadus-Therian with Hurricane"
-    ],
-    [
-      15,
-      "Vaporeon provided support by using Wish"
+      16,
+      "Type:Null killed Mimikyu with Shadow Claw"
     ],
     [
       17,
-      "Bronzong provided support by using Stealth Rock"
+      "Vivillon killed Type:Null with Bug Buzz"
     ],
     [
       18,
-      "Gligar provided support by using Stealth Rock"
+      "Terrakion killed Vivillon with Close Combat"
     ],
     [
-      20,
-      "Mamoswine killed Venusaur-Mega with Earthquake"
+      19,
+      "Reuniclus provided support by using Trick Room"
     ],
     [
-      23,
-      "Tornadus-Therian killed Galvantula with Hurricane"
+      21,
+      "LUCK: Mew suffered a stat drop via secondary effect by Reuniclus with Shadow Ball"
     ],
     [
-      25,
-      "Gligar killed Crobat via Stealth Rock"
-    ],
-    [
-      26,
-      "LUCK: Tornadus-Therian landed a crit on Vaporeon with Knock Off"
-    ],
-    [
-      26,
-      "Tornadus-Therian killed Vaporeon with Knock Off"
+      24,
+      "Reuniclus provided support by using Trick Room"
     ],
     [
       29,
-      "LUCK: Gardevoir landed a crit on Bronzong with Shadow Ball"
-    ],
-    [
-      29,
-      "Gardevoir killed Bronzong with Shadow Ball"
-    ],
-    [
-      30,
-      "Victini killed Gardevoir with Bolt Strike"
+      "Zygarde-10% killed Reuniclus with Outrage"
     ],
     [
       31,
-      "Heliolisk killed Victini with Surf"
+      "LUCK: Kartana landed a crit on Mew with Leaf Blade"
+    ],
+    [
+      31,
+      "Kartana killed Mew with Leaf Blade"
     ],
     [
       32,
-      "Mamoswine killed Heliolisk with Ice Shard"
+      "LUCK: Kartana landed a crit on Virizion with Leaf Blade"
+    ],
+    [
+      33,
+      "LUCK: Kartana landed a crit on Virizion with Aerial Ace"
+    ],
+    [
+      33,
+      "Kartana killed Virizion with Aerial Ace"
     ],
     [
       34,
-      "Mamoswine killed Gligar with Icicle Crash"
+      "Zygarde-10% killed Kartana with Hidden Power"
+    ],
+    [
+      34,
+      "Zygarde-10% fainted via item: Life Orb"
     ],
     [
       35,
-      "Mamoswine killed Heatran with Earthquake"
-    ],
-    [
-      36,
-      "Mamoswine killed Tornadus-Therian with Ice Shard"
+      "Terrakion killed Nidoqueen with Retaliate"
     ]
   ],
   "errormessage": []
