@@ -62,6 +62,7 @@ def leagues_hosted_settings(request):
 @check_if_host
 @login_required
 def individual_league_settings(request,league_name):
+    print('here')
     league_instance=league.objects.get(name=league_name)
     league_settings_instance=league_settings.objects.get(league_name=league_instance)
     if request.method == 'POST':
@@ -79,7 +80,10 @@ def individual_league_settings(request,league_name):
     else:
         l_form = UpdateLeagueForm(instance=league_instance)
         ls_form = UpdateLeagueSettingsForm(instance=league_settings_instance)
-    addleagueteam=league_instance.configuration.teambased
+    try:
+        addleagueteam=league_instance.configuration.teambased
+    except:
+        addleagueteam=False
     context = {
         'settingheading': league_name,
         'forms': [l_form,ls_form],

@@ -112,5 +112,5 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request): 
-    coachdata.objects.all().filter(subleague__isnull=True).delete()
+  
     return redirect('home')
