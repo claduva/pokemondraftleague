@@ -49,7 +49,7 @@
                         <div class="d-flex">
                             <div>
                                 <img class="smallsprite"
-                                    src="{% static 'pokemondatabase/sprites/'|add:site_settings.sprite|pkmnreplace:item.pokemon.pokemon|cut:':' %}">
+                                    src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                             </div>
                             <div>
                                 {{ item.pokemon.pokemon }}
