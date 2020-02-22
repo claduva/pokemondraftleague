@@ -556,7 +556,6 @@ def current_searchmon(toi,searchmon):
     return foundmon
 
 def historic_searchmon(toi,searchmon):
-    print(searchmon)
     try:
         foundmon=historical_roster.objects.all().filter(team=toi).get(pokemon__pokemon=searchmon)
     except:
