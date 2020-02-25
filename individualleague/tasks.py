@@ -16,6 +16,8 @@ def print_message_test():
 
 @shared_task(name = "run_pickems")
 def run_pickems():
+  pass
+  """
   leaderboard=pickem_leaderboard.objects.all()
   for item in leaderboard:
       item.submitted=0
@@ -30,6 +32,7 @@ def run_pickems():
               if p.pick==p.match.winner:
                   item.numbercorrect+=1
       item.save()
+  """
 
 @shared_task(name = "execute_fa_and_trades")
 def execute_free_agency_and_trades():

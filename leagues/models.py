@@ -123,6 +123,9 @@ class coachdata(models.Model):
         else:
             teammate=''
         return f'{self.league_name.name}: {self.coach.username}{teammate}'
+    
+    class Meta:
+        ordering = ['league_name','subleague','coach']
 
 class award(models.Model):
     awardname = models.CharField(max_length=50, default="None",unique=True)
@@ -188,7 +191,10 @@ class seasonsetting(models.Model):
     playoffteamsperconference= models.IntegerField(default=4)
 
     def __str__(self):
-        return f'League: {self.league.name}, Season: {self.seasonname}'
+        return f'League: {self.league.name}, Subeague: {self.subleague.subleague}, Season: {self.seasonname}'
+
+    class Meta:
+        ordering = ['league']
 
 from pokemondatabase.models import all_pokemon
 

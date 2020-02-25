@@ -112,5 +112,6 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request): 
-  
+    for item in roster.objects.all().filter(season__league__name="JFPML"):
+        print(item)
     return redirect('home')

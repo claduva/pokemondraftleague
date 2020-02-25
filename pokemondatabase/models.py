@@ -35,6 +35,9 @@ class all_pokemon(models.Model):
     def __str__(self):
         return f'{self.pokemon}'
 
+    class Meta:
+        ordering = ['pokemon']
+
 class pokemon_sprites(models.Model):
     pokemon = models.OneToOneField(all_pokemon,on_delete=models.CASCADE,related_name="sprite")
     afd = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/afd/png/standard')

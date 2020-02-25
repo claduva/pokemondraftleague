@@ -188,7 +188,7 @@ def damage_function(line,parsedlogfile,results):
         damager=None ;move=None
         if cause=="psn" and pokemon[cause]==None:
             cause="tox"
-        if cause in ['Stealth Rock','Spikes']:
+        if cause in ['Stealth Rock','Spikes','G-Max Steelsurge']:
             damager=roster_search(otherteam,results[thisteam][cause],results)
         elif cause.title() in ['Sandstorm','Hail']:
             if results[thisteam][cause.title()]!=None:
@@ -404,7 +404,7 @@ def move_function(line,parsedlogfile,results):
         attacker['support']+=1
         results['significantevents'].append([line[1],f"{attacker['pokemon']} provided support by using {move}"])
     #check for hazards
-    hazardmoves=["Stealth Rock","Spikes","Toxic Spikes"]
+    hazardmoves=["Stealth Rock","Spikes","Toxic Spikes","G-Max Steelsurge"]
     if move in hazardmoves:
         if attackingteam=="p1a":
             results['team2'][move]=attacker['nickname']
@@ -505,6 +505,8 @@ def move_function(line,parsedlogfile,results):
         if results['team2']['Spikes']!=None:results['team1']['Spikes']=attacker['nickname']
         if results['team1']['Stealth Rock']!=None:results['team2']['Stealth Rock']=attacker['nickname']
         if results['team2']['Stealth Rock']!=None:results['team1']['Stealth Rock']=attacker['nickname'] 
+        if results['team1']['G-Max Steelsurge']!=None:results['team2']['G-Max Steelsurge']=attacker['nickname']
+        if results['team2']['G-Max Steelsurge']!=None:results['team1']['G-Max Steelsurge']=attacker['nickname'] 
     return line,parsedlogfile,results
 
 def player_function(line,parsedlogfile,results):
@@ -850,6 +852,8 @@ def initializeoutput():
     results['team2']['Spikes']=None
     results['team1']['Stealth Rock']=None
     results['team2']['Stealth Rock']=None
+    results['team1']['G-Max Steelsurge']=None
+    results['team2']['G-Max Steelsurge']=None
     results['team1']['Future Sight']=None
     results['team2']['Future Sight']=None
     results['team1']['Doom Desire']=None
