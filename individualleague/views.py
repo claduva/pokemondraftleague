@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 import math
+import json
 from datetime import datetime, timezone, timedelta
 import pytz
 from dal import autocomplete
@@ -581,24 +582,35 @@ def league_tiers(request,league_name,subleague_name):
     tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
     rosterlist=roster.objects.all().filter(season__subleague=subleague)
     rosterlist_=list(rosterlist.values_list('pokemon',flat=True))
+    try:  
+        site_settings = request.user.sitesettings
+    except:
+        user=User.objects.get(username="defaultuser")
+        site_settings = user.sitesettings
     tierlist=[]
+    tiersjson=[]
     tierdict={}
     for item in tierchoices:
         tierdict[f'{item.tiername} ({item.tierpoints} pts)']=[]
     for item in tierlist_:
+        poi=item.pokemon
+        types=[]
+        for item2 in poi.types.all():
+            types.append(item2.typing)
         if item.pokemon.id in rosterlist_:
             owner=rosterlist.get(pokemon__id=item.pokemon.id)
-            tierlist.append((item,f"Signed by {owner.team.teamabbreviation}"))
+            tiersjson.append([poi.pokemon,f"Signed by {owner.team.teamabbreviation}",item.tier.tiername,item.tier.tierpoints,get_sprite_url(poi,site_settings.sprite),types,poi.hp,poi.attack,poi.defense,poi.s_attack,poi.s_defense,poi.speed,poi.bst])
             tierdict[f'{item.tier.tiername} ({item.tier.tierpoints} pts)'].append([item,owner.team.teamabbreviation])
         else:
             try:
-                tierlist.append((item,"FREE"))
                 tierdict[f'{item.tier.tiername} ({item.tier.tierpoints} pts)'].append([item,"FREE"])
+                tiersjson.append([poi.pokemon,f"FREE",item.tier.tiername,item.tier.tierpoints,get_sprite_url(poi,site_settings.sprite),types,poi.hp,poi.attack,poi.defense,poi.s_attack,poi.s_defense,poi.speed,poi.bst])
             except:
                 banned=leaguetiers.objects.all().filter(subleague=subleague).get(tiername="Banned")
                 item.tier=banned
                 item.save()
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
+    json.dumps(tiersjson)
     context = {
         'subleague': subleague,
         'leaguepage': True,
@@ -608,8 +620,28 @@ def league_tiers(request,league_name,subleague_name):
         'types':types,
         'tierchoices':tierchoices,
         'tierdict':tierdict,
+        'tiersjson':tiersjson,
     }
     return render(request, 'tiers.html',context)
+
+def get_sprite_url(poi,arg):
+    if arg=="swsh/ani/standard/PKMN.gif":
+        string=poi.sprite.dexani.url
+    elif arg=="swsh/ani/shiny/PKMN.gif":
+        string=poi.sprite.dexanishiny.url
+    elif arg=="swsh/png/standard/PKMN.png":
+        string=poi.sprite.dex.url
+    elif arg=="swsh/png/shiny/PKMN.png":
+        string=poi.sprite.dexshiny.url
+    elif arg=="bw/png/standard/PKMN.png":
+        string=poi.sprite.bw.url
+    elif arg=="bw/png/shiny/PKMN.png":
+        string=poi.sprite.bwshiny.url
+    elif arg=="afd/png/standard/PKMN.png":
+        string=poi.sprite.afd.url
+    elif arg=="afd/png/shiny/PKMN.png":
+        string=poi.sprite.afdshiny.url
+    return string
 
 @login_required
 @check_if_subleague

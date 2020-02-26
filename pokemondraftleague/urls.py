@@ -34,5 +34,13 @@ urlpatterns = [
     path('',include("pokemondatabase.urls")),
 ]
 
+"""
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
+"""
+
 handler404 = 'main.views.custom404'
 handler500 = 'main.views.custom500'

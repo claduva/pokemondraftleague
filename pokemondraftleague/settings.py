@@ -74,6 +74,8 @@ INSTALLED_APPS = [
     #third party apps
     'crispy_forms',
     'django_celery_beat',
+    'debug_toolbar',
+    'template_timings_panel',
     'storages',
 ]
 
@@ -88,9 +90,22 @@ MIDDLEWARE = [
 
     #third-party middleware
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'pokemondraftleague.urls'
+
+"""
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+"""
+
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.timer.TimerPanel',
+    'template_timings_panel.panels.TemplateTimings.TemplateTimings',
+    'debug_toolbar.panels.sql.SQLPanel',
+]
 
 TEMPLATES = [
     {
