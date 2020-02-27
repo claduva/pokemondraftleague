@@ -618,7 +618,6 @@ def league_tiers(request,league_name,subleague_name):
         'league_name': league_name,
         'types':types,
         'tierchoices':tierchoices,
-        'tierdict':tierdict,
         'tiersjson':tiersjson,
         'tierdictjson':tierdictjson,
     }
