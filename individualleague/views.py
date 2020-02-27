@@ -588,10 +588,8 @@ def league_tiers(request,league_name,subleague_name):
         user=User.objects.get(username="defaultuser")
         site_settings = user.sitesettings
     tiersjson=[]
-    tierdict={}
     tierdictjson={}
     for item in tierchoices:
-        tierdict[f'{item.tiername} ({item.tierpoints} pts)']=[]
         tierdictjson[f'{item.tiername} ({item.tierpoints} pts)']=[]
     for item in tierlist_:
         poi=item.pokemon
@@ -601,11 +599,9 @@ def league_tiers(request,league_name,subleague_name):
         if item.pokemon.id in rosterlist_:
             owner=rosterlist.get(pokemon__id=item.pokemon.id)
             tiersjson.append([poi.pokemon,f"Signed by {owner.team.teamabbreviation}",item.tier.tiername,item.tier.tierpoints,get_sprite_url(poi,site_settings.sprite),types,poi.hp,poi.attack,poi.defense,poi.s_attack,poi.s_defense,poi.speed,poi.bst])
-            tierdict[f'{item.tier.tiername} ({item.tier.tierpoints} pts)'].append([item,owner.team.teamabbreviation])
             tierdictjson[f'{item.tier.tiername} ({item.tier.tierpoints} pts)'].append([poi.pokemon,get_sprite_url(poi,site_settings.sprite),owner.team.teamabbreviation])
         else:
             try:
-                tierdict[f'{item.tier.tiername} ({item.tier.tierpoints} pts)'].append([item,"FREE"])
                 tiersjson.append([poi.pokemon,f"FREE",item.tier.tiername,item.tier.tierpoints,get_sprite_url(poi,site_settings.sprite),types,poi.hp,poi.attack,poi.defense,poi.s_attack,poi.s_defense,poi.speed,poi.bst])
                 tierdictjson[f'{item.tier.tiername} ({item.tier.tierpoints} pts)'].append([poi.pokemon,get_sprite_url(poi,site_settings.sprite),'FREE'])
             except:
