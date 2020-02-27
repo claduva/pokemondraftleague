@@ -1,4 +1,24 @@
 $(document).ready(function() {
+    // insert table
+    tableheads=$("#tableheads")
+    tablebody=$("#tablebody")
+    for (x in tierdict){
+        tableheads.append('<th class="bg-dark text-light">'+x+'</th>')
+        ita1=$('<td class="p-0 m-0"></td>')
+        for (y in tierdict[x]){
+            if (tierdict[x][y][2]=="FREE"){
+                ita2=$('<div style="height:30px;" class="bg-green border border-dark"></div>')
+            }
+            else{
+                ita2=$('<div style="height:30px;" class="bg-red border border-dark"></div>')
+            }
+            ita2.append(tierdict[x][y][2]+'<img class="smallsprite" src="'+tierdict[x][y][1]+'">'+tierdict[x][y][0])
+            ita1.append(ita2)
+        }
+        tablebody.append(ita1)
+    }
+
+    // insert tierlist
     tl=$("#tierlist")
     for (x in tierlist) {
         eta1=$("<div class='tieritem'></div>")

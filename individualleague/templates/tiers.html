@@ -75,12 +75,19 @@
     </div>
 </div>
 <div class="row bg-darkgrey rounded p-2">
+    <div id="tiertable" style="height: 1000px;" class="table-responsive text-nowrap overflow-auto">
+        <table class="table text-dark bg-lightgrey text-center">
+            <tr id="tableheads"></tr>
+            <tr id="tablebody"></tr>
+        </table>
+    </div>
     <div id="tierlist" class="col-12"></div>
 </div>
 {% endblock %}
 {% block footer %}
 <script type='text/javascript'>
     var tierlist = {{ tiersjson|safe }};
+    var tierdict = {{ tierdictjson|safe }};
 </script>
 <script src="{% static 'individualleague/scripts/tiers.js' %}"></script>
 <script src="{% static 'individualleague/scripts/tierfilter.js' %}"></script>
