@@ -176,13 +176,9 @@ def seasonschedule(request,league_name,seasonofinterest):
     season=season_teams.first()
     if season==None:
         messages.error(request,'Season does not exist',extra_tags='danger')
-        return redirect('home')
-    leagueschedule=[]
-    numberofweeks=historical_match.objects.all().distinct('week').exclude(week__contains="Playoffs").count()
-    for i in range(numberofweeks):
-        matches=historical_match.objects.all().filter(week=str(i+1),team1__league=league_,team1__seasonname=season.seasonname).order_by('id')
-        leagueschedule.append([str(i+1),matches])
+        return redirect('home')    
     otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname').exclude(seasonname=seasonofinterest)
+    seasonschedule=historical_match.objects.all().filter(team1__league=league_,team1__seasonname=season.seasonname).exclude(week__contains="Playoff").order_by('week')
     context = {
         'league': league_,
         'otherseason':True,
@@ -190,18 +186,9 @@ def seasonschedule(request,league_name,seasonofinterest):
         'league_name':league_name,
         'otherseasons':otherseasons,
         'season_teams':season_teams,
-        'leagueschedule': leagueschedule,
-        'numberofweeks': range(numberofweeks),
+        'seasonschedule':seasonschedule,
+        'season_teams':season_teams,
     }
-    if request.method=="POST":
-        if request.POST['purpose']=="Go":
-            weekselect=request.POST['weekselect']
-            if weekselect=="All":
-                donothing=True
-            else:
-                matches=historical_match.objects.all().filter(week=weekselect,team1__league=league_,team1__seasonname=season.seasonname).order_by('id')
-                leagueschedule=[[weekselect,matches]]
-                context.update({'leagueschedule':leagueschedule})
     return render(request, 'otherseasonschedule.html',context)
 
 def seasonplayoffs(request,league_name,seasonofinterest):
@@ -217,16 +204,8 @@ def seasonplayoffs(request,league_name,seasonofinterest):
     if season==None:
         messages.error(request,'Season does not exist',extra_tags='danger')
         return redirect('home')
-    leagueschedule=[]
-    playoffweeks=historical_match.objects.all().filter(week__contains="Playoffs").order_by('id')
-    priorweeks=[]
-    for item in playoffweeks:
-        matches=historical_match.objects.all().filter(week=item.week,team1__league=league_,team1__seasonname=season.seasonname).order_by('id')
-        if item.week not in priorweeks:    
-            leagueschedule.append([item.week,matches])
-            priorweeks.append(item.week)
-       
     otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname').exclude(seasonname=seasonofinterest)
+    seasonschedule=historical_match.objects.all().filter(team1__league=league_,team1__seasonname=season.seasonname).filter(week__contains="Playoff").order_by('week')
     context = {
         'league': league_,
         'otherseason':True,
@@ -234,19 +213,10 @@ def seasonplayoffs(request,league_name,seasonofinterest):
         'league_name':league_name,
         'otherseasons':otherseasons,
         'season_teams':season_teams,
-        'leagueschedule': leagueschedule,
-        'numberofweeks': range(playoffweeks.count()),
+        'seasonschedule':seasonschedule,
+        'season_teams':season_teams,
         'playoffs':True,
     }
-    if request.method=="POST":
-        if request.POST['purpose']=="Go":
-            weekselect=request.POST['weekselect']
-            if weekselect=="All":
-                donothing=True
-            else:
-                matches=historical_match.objects.all().filter(week=weekselect,team1__league=league_,team1__seasonname=season.seasonname).order_by('id')
-                leagueschedule=[[weekselect,matches]]
-                context.update({'leagueschedule':leagueschedule})
     return render(request, 'otherseasonschedule.html',context)
 
 def seasonreplay(request,league_name,seasonofinterest,matchid):

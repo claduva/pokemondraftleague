@@ -3,81 +3,62 @@
 {% load crispy_forms_tags %}
 {% load extratags %}
 
-{% block title %}{{league.name}}:{% if playoffs %}Playoffs {% endif %} Schedule{% endblock %}
+{% block title %}{{league_name}}:{% if playoffs %}Playoffs {% endif %} Schedule{% endblock %}
 {% block head%}
 {% endblock %}
 {% block body %}
-
-<div class="row content-section align-items-center">
-    <div class="col-md-2 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+{% regroup seasonschedule by week as seasonschedule_ %}
+<div class="row bg-darkgrey text-light rounded align-items-center p-2 mb-2">
+    <div class="col-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}"
+            class="rounded-circle mediumlogo">
     </div>
-    <div class="col-md-8">
-        <h3 class="d-flex justify-content-center text-center">{{season.seasonname}} {% if playoffs %}Playoffs {% endif %}Schedule</h3>
+    <div class="col-4">
+        <h3 class="d-flex justify-content-center">{% if playoffs %}Playoffs {% endif %}Schedule</h3>
         <div class="d-flex justify-content-center">
-        <form method="post">{% csrf_token %}
-            <select name="weekselect">
+            <select id="weekselect">
                 <option value="All">All</option>
-                {% if playoffs %}
-                {% for item in playoffweeks %}
-                <option value="{{item.week}}">{{item.week}}</option>
+                {% for week in seasonschedule_ %}
+                <option value="{{week.grouper}}">Week {{week.grouper}}</option>
                 {% endfor %}
-                {% else %}
-                {% for i in numberofweeks %}
-                <option value="{{i|add:1}}">Week {{i|add:1}}</option>
-                {% endfor %}
-                {% endif %}
             </select>
-            <input name="purpose" type="submit" class="btn btn-sm btn-primary btn-sm" value="Go">
-        </form>
         </div>
     </div>
-    <div class="col-md-2 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}"
+            class="rounded-circle mediumlogo">
     </div>
 </div>
-<div class="row content-section align-items-start justify-content-around">
-    {% for week,item in leagueschedule %}{% if item|length > 0 %}
-    <div class="col-md-4">
-        {% if playoffs %}
-        <h5 class="text-center">{{week}}</h5>
-        {% else %}
-        <h5 class="text-center">Week {{week}}</h5>
-        {% endif %}
-        <table class="table table-sm">
-            {% for match in item %}
-            <tr class="bg-lightgrey text-dark">
-                <td>
-                    <div>
-                        <div class="d-flex justify-content-center"><img class="rounded-sprite mediumsprite"
-                                src="{{ match.team1.logo.url }}"></div>
-                        <div class="d-flex justify-content-center text-center">{{ match.team1.teamname }}</div>
-                    </div>
-                <td>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <h5>vs.</h5>
-                    </div>
-                <td>
-                    <div>
-                        <div class="d-flex justify-content-center"><img class="rounded-sprite mediumsprite"
-                                src="{{ match.team2.logo.url }}"></div>
-                        <div class="d-flex justify-content-center text-center">{{ match.team2.teamname }}</div>
-                        <div>
-                </td>
-            </tr>
-            {% if match.replay != "" %}
-            <tr class="bg-lightgrey text-dark rounded-bottom">
-                <td colspan="4">
-                    <div class="d-flex justify-content-center"><a
-                            href="{% url 'seasonreplay' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' matchid=match.id %}"><button
-                                class="btn btn-sm btn-dark">Replay</button></a></div>
-                </td>
-            </tr>
-            {% endif %}
-            <tr class="spacer"><td colspan="4"></td></tr>
-            {% endfor %}
-        </table>
+<div class="row bg-darkgrey text-light rounded align-items-center d-flex justify-content-center pt-3 mb-2">
+    {% regroup seasonschedule by week as seasonschedule_ %}
+    {% for week in seasonschedule_ %}
+    <div id="week-{{week.grouper}}" class="col-12 scheduleweek">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                {% with m=week.list|first %}
+                <tr class="bg-dark text-light">
+                    <th colspan="100%">Week {{week.grouper}}</th>
+                </tr>
+                {% endwith %}
+                {% for match in week.list %}
+                <tr>
+                    <td class="align-middle"><img class="smallsprite"
+                            src="{{ match.team1.logo.url }}">{{match.team1.teamname}} vs <img class="smallsprite"
+                            src="{{ match.team2.logo.url }}">{{match.team2.teamname}}</td>
+                    {% if request.user.username == "claduva" %}
+                    <td class="align-middle"><a class="btn btn-sm btn-dark text-light"
+                            href="">Change
+                            Attribution</a></td>
+                    {% endif %}
+                    <td colspan="100%" class="align-middle"><a class="btn btn-sm btn-dark text-light"
+                            href="{% url 'seasonreplay' league_name=league_name|replace:' ,_' seasonofinterest=season.seasonname|replace:' ,_' matchid=match.id %}">Replay</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
-    {% endif %}
     {% endfor %}
 </div>
+{% endblock %}
+{% block footer %}
+<script src="{% static 'individualleague/scripts/schedule.js' %}"></script>
 {% endblock %}
