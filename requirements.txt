@@ -2,8 +2,8 @@ asyncio
 asyncpg
 boto3==1.9.124
 celery
-discord.py
-Django==2.1.7
+discord.py==1.3.2
+Django==2.2.10
 django-autocomplete-light
 django-celery-beat
 django-crispy-forms
