@@ -89,6 +89,7 @@ def savedraft(request):
     if len(savelist)>0:
         if existingdraft=='':
             drafttoedit=planned_draft.objects.create(
+                id=planned_draft.objects.all().order_by('-id').first().id+1,
                 user = request.user,
                 associatedleague = associatedleague,
                 draftname = draftname

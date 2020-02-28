@@ -112,6 +112,4 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def runscript(request): 
-    for item in free_agency.objects.all().filter(executed=False):
-        print(item)
     return redirect('home')
