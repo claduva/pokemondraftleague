@@ -8,40 +8,57 @@
 {% endblock %}
 {% block body %}
 <div class="row bg-darkgrey rounded text-center mb-2 text-light">
-        <div class="col-md-2"></div>
-        <div class="col-md-8"> <h3>{{league_name}} {{season.seasonname}} Draft</h3></div>
-        <div class="col-md-2"></div>
+    <div class="col-md-12">
+        <h3>{{league_name}} {{season.seasonname}} Draft</h3>
     </div>
-<div class="row content-section align-items-center">
-        {% for item in season_teams %}
-        <div class="col-md-4">
-            <table class="table table-sm text-center bg-lightgrey text-dark">
-                <tr>
-                    <th colspan="3">
-                        <div class="d-flex justify-content-center">
-                            <div class="small-logo"><img class="img-fluid px-1 rounded-circle" src="{{item.logo.url}}"></div>
-                            <div>{{item.teamname}}</div>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th>#</th>
+</div>
+<div class="row bg-darkgrey rounded pt-2">
+    <div class="d-none d-md-block col-md-4">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
                     <th>Pick</th>
+                    <th>Team</th>
+                    <th>Pokemon</th>
                 </tr>
-                {% for draftpick in item.historical_draft.all %}
+                {% for item in draftlist %}
                 <tr>
-                    <td>{{draftpick.picknumber}}</td>
-                    <td>
-                        <div class="d-flex justify-content-center">
-                            <div class="small-logo"><img class="img-fluid px-1 rounded-circle" src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ draftpick.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}"></div>
-                            <div>{{draftpick.pokemon.pokemon}}</div>
-                        </div>
+                    <td>{{item.picknumber}}</td>
+                    <td>{{item.team.teamname}}</td>
+                    <td>{% if item.pokemon.pokemon %}<img class="smallsprite"
+                            src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}}{% else %}-{% endif %}
                     </td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
-        {% endfor %}  
+    </div>
+    <div class="col-12 col-md-8">
+        <div class="row d-flex justify-content-around">
+            {% for team in season_teams %}
+            <div class="col-md-4">
+                <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                        <tr class="bg-dark text-light">
+                            <th colspan="3"><img class="smallsprite" src="{{team.logo.url}}">{{team.teamname}}</th>
+                        </tr>
+                        <tr class="bg-dark text-light">
+                            <th>Pick</th>
+                            <th>Pokemon</th>
+                        </tr>
+                        {% for pick in team.historical_draft.all %}
+                        <tr>
+                            <td>{{pick.picknumber}}</td>
+                            <td><img class="smallsprite"
+                                    src="{{pick.pokemon.pokemon|sprite:site_settings.sprite}}">{{pick.pokemon.pokemon}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
 {% block footer %}

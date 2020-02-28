@@ -29,8 +29,9 @@
 <div class="row content-section align-items-center">
         <div class="col-md-3">
                 <h4>Draft</h4>
-                <table class="table table-sm" table-striped table-hover">
-                    <thead class="thead-dark">
+                <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                    <thead class="bg-dark text-light">
                         <tr class="text-center">
                             <th class="p-0 m-0">Pick #</th>
                             <th class="p-0 m-0">Pokemon</th>
@@ -44,25 +45,24 @@
                                 {% if item.pokemon.pokemon %}
                                 <div class="d-flex justify-content-center">
                                     <img class="smallsprite"
-                                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                        src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">
                                     <p>{{ item.pokemon.pokemon }}</p>
                                 </div>
                                 {% else %}
-                                <div>
-                                    <img class="smallsprite justify-content-center"
-                                        src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/unown-question.{{ site_settings.sprite|split:1 }}">
-                                </div>
+                                <div>-</div>
                                 {% endif %}
                             </td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
+                </div>
             </div>
     <div class="col-md-9">
         <h4>Roster</h4>
-        <table class="table table-sm" table-striped table-hover">
-            <thead class="thead-dark">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+            <thead class="bg-dark text-light">
                 <tr class="text-center">
                     <th class="p-0 m-0">Pokemon</th>
                     <th class="p-0 m-0">K</th>
@@ -76,18 +76,11 @@
                 {% for item in roster %}
                 <tr class="bg-lightgrey text-dark text-center">
                     <td class="p-0 m-0">
-                        {% if item.pokemon.pokemon %}
                         <div class="d-flex justify-content-center">
                             <img class="smallsprite"
-                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                            src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">
                             <p>{{ item.pokemon.pokemon }}</p>
                         </div>
-                        {% else %}
-                        <div>
-                            <img class="smallsprite justify-content-center"
-                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/unown-question.{{ site_settings.sprite|split:1 }}">
-                        </div>
-                        {% endif %}
                     </td>
                     <td class="p-0 m-0">{{ item.kills }}</td>
                     <td class="p-0 m-0">{{ item.deaths }}</td>
@@ -98,6 +91,7 @@
                 {% endfor %}
             </tbody>
         </table>
+        </div>
     </div>
 </div>
 {% endblock %}

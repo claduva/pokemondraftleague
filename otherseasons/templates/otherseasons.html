@@ -22,42 +22,47 @@
 <div class="row bg-darkgrey text-light rounded align-items-center">
     {%  if otherseasons and not season_teams %}
     <div class="col-md-12 text-center p-2">
-        <h3>Season List</h3>
+        <h3>Historic Season List</h3>
         {% for item in otherseasons %}
-            <div class="p-1"><a href="{% url 'seasondetail' league_name=league_name seasonofinterest=item.seasonname|replace:' ,_' %}" class="text-light">{{item.seasonname}}</a></div>
+        <div class="p-1"><a
+                href="{% url 'seasondetail' league_name=league_name seasonofinterest=item.seasonname|replace:' ,_' %}"
+                class="text-light">{{item.seasonname}}</a></div>
         {% endfor %}
     </div>
     {% elif season_teams %}
     <div class="col-md-12 text-center p-2">
-    <h3>Records</h3>
-    <div class="bg-lightgrey rounded">
-    <table class="table text-dark table-sm">
-        <tr>
-            <th>Team</th>
-            <th>W</th>
-            <th>L</th>
-            <th>+/-</th>
-        </tr>
-        {% for item in season_teams %}
-        <tr>
-            <td>
-                <a class="text-dark" href="{% url 'seasonteamdetail' league_name=league_name seasonofinterest=season.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}">
-                    <div class="d-flex justify-content-center">
-                    <div class="smallsprite mx-1"><img class="img-fluid" src="{{item.logo.url}}"></div>
-                {% if item.coach2 %}{{item.coach1username}} and {{item.coach2username}}'s
-                {% else %}{{item.coach1username}}'s
-                {% endif %}
-                {{item.teamname}} 
-                </div>
-            </a>
-            </td>
-            <td>{{item.wins}}</td>
-            <td>{{item.losses}}</td>
-            <td>{{item.differential}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th colspan="4">Standings</th>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>Team</th>
+                    <th>W</th>
+                    <th>L</th>
+                    <th>+/-</th>
+                </tr>
+                {% for item in season_teams|standings %}
+                <tr>
+                    <td>
+                        <a class="text-dark"
+                            href="{% url 'seasonteamdetail' league_name=league_name seasonofinterest=season.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}">
+                            <div class="d-flex justify-content-center">
+                                <div class="smallsprite mx-1"><img class="img-fluid" src="{{item.logo.url}}"></div>
+                                {% if item.coach2 %}{{item.coach1username}} and {{item.coach2username}}'s
+                                {% else %}{{item.coach1username}}'s
+                                {% endif %}
+                                {{item.teamname}}
+                            </div>
+                        </a>
+                    </td>
+                    <td>{{item.wins}}</td>
+                    <td>{{item.losses}}</td>
+                    <td>{{item.differential}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            </div>
     </div>
     {% endif %}
 </div>

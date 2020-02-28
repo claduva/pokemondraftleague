@@ -25,7 +25,7 @@
                     {% for item in champion.historical_roster.all|halve|first %}
                     <div class="col-sm-4 d-flex align-items-center justify-content-center">
                         <div class="mediumlogo d-flex justify-content-center"><img class="img-fluid"
-                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                            src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">
                         </div>
                     </div>
                     {% endfor %}
@@ -48,7 +48,7 @@
                     {% for item in champion.historical_roster.all|halve|last %}
                     <div class="col-sm-4 d-flex align-items-center justify-content-center">
                         <div class="mediumlogo d-flex justify-content-center"><img class="img-fluid"
-                                src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                            src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">
                         </div>
                     </div>
                     {% endfor %}
@@ -66,7 +66,7 @@
                         {% for item in runnerup.historical_roster.all|halve|first %}
                         <div class="col-sm-4 d-flex align-items-center justify-content-center">
                             <div class="mediumlogo d-flex justify-content-center"><img class="img-fluid"
-                                    src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">
                             </div>
                         </div>
                         {% endfor %}
@@ -89,7 +89,7 @@
                         {% for item in runnerup.historical_roster.all|halve|last %}
                         <div class="col-sm-4 d-flex align-items-center justify-content-center">
                             <div class="mediumlogo d-flex justify-content-center"><img class="img-fluid"
-                                    src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ item.pokemon.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
+                                src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">
                             </div>
                         </div>
                         {% endfor %}

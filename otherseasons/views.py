@@ -111,6 +111,7 @@ def seasondraft(request,league_name,seasonofinterest):
         return redirect('home')
     season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest)    
     season=season_teams.first()
+    draftlist=historical_draft.objects.all().filter(team__seasonname=seasonofinterest)
     if season==None:
         messages.error(request,'Season does not exist',extra_tags='danger')
         return redirect('home')
@@ -122,6 +123,7 @@ def seasondraft(request,league_name,seasonofinterest):
         'league_name':league_name,
         'otherseasons':otherseasons,
         'season_teams':season_teams,
+        'draftlist':draftlist,
     }
     return render(request, 'otherseasondraft.html',context)
 

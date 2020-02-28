@@ -111,5 +111,11 @@ def pickemleaderboard(request):
     }
     return  render(request,"pickemleaderboard.html",context)
 
+def replay_database(request):
+    context = {
+
+    }
+    return render(request,"replay_database.html",context)
+
 def runscript(request): 
     return redirect('home')
