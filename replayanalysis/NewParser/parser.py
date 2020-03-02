@@ -241,6 +241,8 @@ def damage_function(line,parsedlogfile,results):
                         if mon[cause]!=None:
                             pokemon[cause]=mon[cause]
                             break
+                print(cause)
+                print(line)
                 damager=roster_search(otherteam,pokemon[cause],results)
         if damager:
             damager['damagedone']+=damagedone 
@@ -640,9 +642,9 @@ def status_function(line,parsedlogfile,results):
     else:
         movesthatcausestatus=dict([
             ['tox',['Toxic','Fling','Psycho Shift']],
-            ['psn',['Toxic Thread','Poison Powder','Poison Gas','Baneful Bunker','Fling','Psycho Shift']],
+            ['psn',['Toxic Thread','Poison Powder','Poison Gas','Baneful Bunker','Fling','Psycho Shift','G-Max Stun Shock']],
             ['brn',['Beak Blast','Will-O-Wisp','Fling','Psycho Shift']],
-            ['par',['Thunder Wave','Nuzzle','Glare','Stoked Sparksurfer','Stun Spore','Zap Cannon','Fling','Psycho Shift']],
+            ['par',['Thunder Wave','Nuzzle','Glare','Stoked Sparksurfer','Stun Spore','Zap Cannon','Fling','Psycho Shift','G-Max Stun Shock']],
             ['slp',['Spore','Sleep Powder','Dark Void','Grass Whistle','Hypnosis','Lovely Kiss','Sing','Psycho Shift']],
             ['frz',[]]
             ])

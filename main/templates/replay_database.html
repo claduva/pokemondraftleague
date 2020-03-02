@@ -19,8 +19,87 @@
             class="mediumlogo">
     </div>
 </div>
+<div class="row bg-darkgrey rounded text-light p-2 align-items-center mb-2">
+    <div class="col-md-12">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table id="leadertable"
+                class="table table-sm table-bordered table-striped p-0 m-0 text-center text-nowrap tablesorter">
+                <tr class="bg-dark text-light">
+                    <th>Coach 1</th>
+                    <th>Coach 2</th>
+                    <th>Winner</th>
+                    <th>Replay User 1</th>
+                    <th>Replay User 2</th>
+                    <th>Replay</th>
+                </tr>
+                <!-- 
+                {% for match in current %} 
+                <tr>
+                    <td>{{match.team1.coach.username}}</td>
+                    <td>{{match.team2.coach.username}}</td>
+                    <td>{{match.winner.coach.username}}</td>
+                    <td>
+                        {% if "Forfeit" not in match.replay %}
+                        {{match.match_replay.data.team1.coach}}
+                        {% else %}
+                        N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if "Forfeit" not in match.replay %}
+                        {{match.match_replay.data.team2.coach}}
+                        {% else %}
+                        N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if "Forfeit" not in match.replay %}
+                        <a href="{{match.replay}}">Replay</a>
+                        {% else %}
+                        {{match.replay}}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                {% for match in prior %} 
+                <tr>
+                    <td>{{match.team1.coach1.username}}</td>
+                    <td>{{match.team2.coach1.username}}</td>
+                    <td>{{match.winner.coach1.username}}</td>
+                    <td>
+                        {% if "Forfeit" not in match.replay %}
+                        {{match.historical_match_replay.data.team1.coach}}
+                        {% else %}
+                        N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if "Forfeit" not in match.replay %}
+                        {{match.historical_match_replay.data.team2.coach}}
+                        {% else %}
+                        N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if "Forfeit" not in match.replay %}
+                        <a href="{{match.replay}}">Replay</a>
+                        {% else %}
+                        {{match.replay}}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %} 
+            -->
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}
 {% block footer %}
+<script>
+    var current={{current|safe}}
+    var prior={{prior|safe}}
+</script>
 <script src="{% static 'individualleague/scripts/tablesorter2.js' %}"></script>
 <script src="{% static 'individualleague/scripts/tablesorterwidgets.js' %}"></script>
 <script src="{% static 'individualleague/scripts/leaderboardsorter.js' %}"></script>

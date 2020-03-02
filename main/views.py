@@ -112,8 +112,48 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def replay_database(request):
+    current_=schedule.objects.all().exclude(replay="Link")
+    prior_=historical_match.objects.all()
+    current=[]
+    prior=[]
+    i=1
+    for match in current_:
+        a=match.team1.coach.username
+        b=match.team2.coach.username
+        try:
+            c=match.winner.coach.username
+        except:
+            c="None"
+        if match.replay.find("Forfeit")>-1:
+            d='N/A'
+            e='N/A'
+        else:
+            d=match.match_replay.data['team1']['coach']
+            e=match.match_replay.data['team2']['coach']
+        f=match.replay
+        current.append([a,b,c,d,e,f])
+        print(i)
+        i+=1
+    for match in prior_:
+        a=match.team1.coach1.username
+        b=match.team2.coach1.username
+        try:
+            c=match.winner.coach1.username
+        except:
+            c="None"
+        try:
+            d=match.match_replay.data['team1']['coach']
+            e=match.match_replay.data['team2']['coach']
+        except:
+            d='N/A'
+            e='N/A'
+        f=match.replay
+        prior.append([a,b,c,d,e,f])
+        print(i)
+        i+=1
     context = {
-
+        'current':current,
+        'prior':prior,
     }
     return render(request,"replay_database.html",context)
 
