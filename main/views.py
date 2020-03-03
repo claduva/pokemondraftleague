@@ -113,6 +113,7 @@ def pickemleaderboard(request):
 
 def replay_database(request):
     database=replaydatabase.objects.all()
+    print(database.count())
     context = {
         'database':database,
     }
