@@ -207,8 +207,8 @@ def runscript(request):
                 e=None
                 f=None
         try:
-            g=historical_match.match_replay.data['team1']['coach']
-            h=historical_match.match_replay.data['team2']['coach']
+            g=match.historical_match_replay.data['team1']['coach']
+            h=match.historical_match_replay.data['team2']['coach']
         except:
             g="N/A"
             h="N/A"
