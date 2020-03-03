@@ -9,6 +9,7 @@ import os
 from enum import Enum
 
 from leagues.models import *
+from individualleague.models import schedule
 
 class historical_team(models.Model):
     league = models.ForeignKey(league, on_delete=models.CASCADE)
@@ -99,3 +100,16 @@ class historical_match_replay(models.Model):
 class error_message(models.Model):
     associated_view=models.CharField(max_length=200)
     error_message=models.CharField(max_length=200)
+
+class replaydatabase(models.Model):
+    associatedmatch=models.OneToOneField(schedule,on_delete=models.CASCADE,null=True)
+    associatedhistoricmatch=models.OneToOneField(historical_match,on_delete=models.CASCADE,null=True)
+    team1coach1=models.ForeignKey(User,on_delete=models.CASCADE,related_name="team1coach1")
+    team1coach2=models.ForeignKey(User,on_delete=models.CASCADE,related_name="team1coach2",null=True)
+    team2coach1=models.ForeignKey(User,on_delete=models.CASCADE,related_name="team2coach1")
+    team2coach2=models.ForeignKey(User,on_delete=models.CASCADE,related_name="team2coach2",null=True)
+    winnercoach1=models.ForeignKey(User,on_delete=models.CASCADE,related_name="winnercoach1",null=True)
+    winnercoach2=models.ForeignKey(User,on_delete=models.CASCADE,related_name="winnercoach2",null=True)
+    replayuser1=models.CharField(max_length=200)
+    replayuser2=models.CharField(max_length=200)
+    replay=models.CharField(max_length=500)

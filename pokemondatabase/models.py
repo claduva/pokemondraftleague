@@ -144,3 +144,6 @@ class pokemon_effectiveness(models.Model):
     rock=models.IntegerField(default=0)
     steel=models.IntegerField(default=0)
     water=models.IntegerField(default=0)
+
+
+    
