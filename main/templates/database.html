@@ -1,0 +1,21 @@
+ <!--    
+                {% for match in database %} 
+                <tr>
+                    <td>{{match.team1coach1.username}}</td>
+                    <td>{{match.team1coach2.username}}</td>
+                    <td>{{match.team2coach1.username}}</td>
+                    <td>{{match.team2coach2.username}}</td>
+                    <td>{{match.winnercoach1.username}}</td>
+                    <td>{{match.winnercoach2.username}}</td>
+                    <td>{{match.replayuser1}}</td>
+                    <td>{{match.replayuser2}}</td>
+                    <td>
+                        {% if "Forfeit" not in match.replay and "Unavailable" not in match.replay %}
+                        <a href="{{match.replay}}">Replay</a>
+                        {% else %}
+                        {{match.replay}}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                 -->
