@@ -1028,38 +1028,28 @@ def league_playoffs(request,league_name,subleague_name):
             return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
     return render(request, 'schedule.html',context)
 
-@check_if_subleague
-@check_if_season
 @login_required
-def change_match_attribution(request,league_name,subleague_name,matchid):
-    league_name=league_name.replace('%20',' ')
-    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    season=subleague.seasonsetting
-    league_teams=subleague.subleague_coachs.all().order_by('teamname')
+def change_match_attribution(request,matchid):
     try:
         match=schedule.objects.get(pk=matchid)
         if match.replay == "Link":
             messages.error(request,f'A replay for that match does not exist!',extra_tags="danger")
-            return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
+            return redirect('home')
     except:
-        return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
+        return redirect('home')
     if request.user.is_staff==False:
         messages.error(request,f'Only staff may use this function',extra_tags="danger")
-        return redirect('league_schedule',league_name=league_name)
+        return redirect('home')
     if request.method=="POST":
         form=ChangeMatchAttributionForm(request.POST,instance=match)
         if form.is_valid():
             form.save()
             messages.success(request,f'Match was updated!')
-        return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
+        return redirect('home')
     form=ChangeMatchAttributionForm(instance=match)
     context={
         'form':form,
-        'league_name':league_name,
         'matchid':matchid,
-        'subleague': subleague,
-        'leaguepage': True,
-        'league_teams': league_teams,
         }
     return render(request,"matchattribution.html",context)
 

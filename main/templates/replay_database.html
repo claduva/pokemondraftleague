@@ -21,20 +21,23 @@
 </div>
 <div class="row bg-darkgrey rounded text-light p-2 align-items-center mb-2">
     <div class="col-md-12">
-        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
-            <table id="leadertable"
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table id="replaytable"
                 class="table table-sm table-bordered table-striped p-0 m-0 text-center text-nowrap tablesorter">
+                <thead>
                 <tr class="bg-dark text-light">
-                    <th>Team 1 Coach 1</th>
-                    <th>Team 1 Coach 2</th>
-                    <th>Team 2 Coach 1</th>
-                    <th>Team 2 Coach 2</th>
-                    <th>Winner Coach 1</th>
-                    <th>Winner Coach 2</th>
+                    <th>Team 1 Coachs</th>
+                    <th>Team 2 Coachs</th>
+                    <th>Winning Coachs</th>
                     <th>Replay User 1</th>
                     <th>Replay User 2</th>
                     <th>Replay</th>
+                    {% if user %}
+                    <th>Change Attribution</th>
+                    {% endif %}
                 </tr>
+                </thead>
+                <tbody id="databasetable" style="font-size: 13px;"></tbody>
             </table>
         </div>
     </div>
@@ -42,8 +45,15 @@
 {% endblock %}
 {% block footer %}
 <script>
-
+    var replaydatabase = {{database|safe}};
+    var user=false;
 </script>
+{% if user %}
+<script>
+    var user=true;
+</script>
+{% endif %}
+<script src="{% static 'main/scripts/replaydatabase.js' %}"></script>
 <script src="{% static 'individualleague/scripts/tablesorter2.js' %}"></script>
 <script src="{% static 'individualleague/scripts/tablesorterwidgets.js' %}"></script>
 <script src="{% static 'individualleague/scripts/leaderboardsorter.js' %}"></script>

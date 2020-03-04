@@ -46,7 +46,7 @@
                     {% if match.replay != "Link" %}
                     {% if request.user.username == "claduva" %}
                     <td class="align-middle"><a class="btn btn-sm btn-dark text-light"
-                            href="{% url 'change_match_attribution' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}">Change
+                            href="{% url 'change_match_attribution' matchid=match.id %}">Change
                             Attribution</a></td>
                     {% endif %}
                     <td colspan="100%" class="align-middle"><a class="btn btn-sm btn-dark text-light"
