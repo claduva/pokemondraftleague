@@ -30,7 +30,7 @@ $(document).ready(function() {
         }
         if (user){
         if (replaydatabase[x]['associatedmatch']!=""){
-            row.append("<td><a href='/leagues/changeattribution/"+replaydatabase[x]['associatedmatch']+"'>Current ("+replaydatabase[x]['associatedmatch']+")</a></td>")
+            row.append("<td><a href='/changeattribution/"+replaydatabase[x]['associatedmatch']+"'>Current ("+replaydatabase[x]['associatedmatch']+")</a></td>")
         }
         else{
             row.append("<td> Historic ("+replaydatabase[x]['associatedhistoricmatch']+")</td>")
