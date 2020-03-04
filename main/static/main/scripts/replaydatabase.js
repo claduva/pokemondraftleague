@@ -15,7 +15,7 @@ $(document).ready(function() {
             row.append("<td>"+replaydatabase[x]['team2coach1__username']+" & "+replaydatabase[x]['team2coach2__username']+"</td>")
         }
         if (replaydatabase[x]['winnercoach2__username']==""){
-            row.append("<td>"+replaydatabase[x]['team1coach1__username']+"</td>")
+            row.append("<td>"+replaydatabase[x]['winnercoach1__username']+"</td>")
             }
         else{
             row.append("<td>"+replaydatabase[x]['winnercoach1__username']+" & "+replaydatabase[x]['winnercoach2__username']+"</td>")
