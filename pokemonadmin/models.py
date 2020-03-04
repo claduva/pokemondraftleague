@@ -112,4 +112,5 @@ class replaydatabase(models.Model):
     winnercoach2=models.ForeignKey(User,on_delete=models.CASCADE,related_name="winnercoach2",null=True)
     replayuser1=models.CharField(max_length=200)
     replayuser2=models.CharField(max_length=200)
+    winneruser=models.CharField(max_length=200,default="")
     replay=models.CharField(max_length=500)

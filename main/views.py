@@ -112,7 +112,7 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def replay_database(request):
-    database=replaydatabase.objects.all().order_by('team1coach1__username').values('team1coach1__username','team1coach2__username','team2coach1__username','team2coach2__username','winnercoach1__username','winnercoach2__username','replayuser1','replayuser2','replay','associatedmatch','associatedhistoricmatch')
+    database=replaydatabase.objects.all().order_by('team1coach1__username').values('team1coach1__username','team1coach2__username','team2coach1__username','team2coach2__username','winnercoach1__username','winnercoach2__username','replayuser1','replayuser2','winneruser','replay','associatedmatch','associatedhistoricmatch')
     print(database.count())
     database=list(database)
     r=json.dumps(database).replace('null', '""')

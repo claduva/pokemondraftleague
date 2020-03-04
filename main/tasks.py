@@ -41,6 +41,12 @@ def run_replay_database():
     try:
       g=match.match_replay.data['team1']['coach']
       h=match.match_replay.data['team2']['coach']
+      if match.match_replay.data['team1']['wins']==1:
+        j=match.match_replay.data['team1']['coach']
+      elif match.match_replay.data['team2']['wins']==1:
+        j=match.match_replay.data['team2']['coach']
+      else:
+        j="N/A"
     except:
       g="N/A"
       h="N/A"
@@ -56,6 +62,7 @@ def run_replay_database():
       databaseitem.winnercoach2=f
       databaseitem.replayuser1=g
       databaseitem.replayuser2=h
+      databaseitem.winneruser=j
       databaseitem.replay=i
       databaseitem.save()
     except:
@@ -69,6 +76,7 @@ def run_replay_database():
         winnercoach2=f,
         replayuser1=g,
         replayuser2=h,
+        winneruser=j,
         replay=i,
       )
     print(f'{counter}/{total}')
@@ -99,6 +107,12 @@ def run_replay_database():
     try:
       g=match.historical_match_replay.data['team1']['coach']
       h=match.historical_match_replay.data['team2']['coach']
+      if match.historical_match_replay.data['team1']['wins']==1:
+        j=match.historical_match_replay.data['team1']['coach']
+      elif match.historical_match_replay.data['team2']['wins']==1:
+        j=match.historical_match_replay.data['team2']['coach']
+      else:
+        j="N/A"
     except:
       g="N/A"
       h="N/A"
@@ -114,6 +128,7 @@ def run_replay_database():
       databaseitem.winnercoach2=f
       databaseitem.replayuser1=g
       databaseitem.replayuser2=h
+      databaseitem.winneruser=j
       databaseitem.replay=i
       databaseitem.save()
     except:
@@ -127,6 +142,7 @@ def run_replay_database():
         winnercoach2=f,
         replayuser1=g,
         replayuser2=h,
+        winneruser=j,
         replay=i,
       )
     print(f'{counter}/{total}')

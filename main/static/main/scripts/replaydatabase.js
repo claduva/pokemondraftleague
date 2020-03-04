@@ -22,6 +22,7 @@ $(document).ready(function() {
         }
         row.append("<td>"+replaydatabase[x]['replayuser1']+"</td>")
         row.append("<td>"+replaydatabase[x]['replayuser2']+"</td>")
+        row.append("<td>"+replaydatabase[x]['winneruser']+"</td>")
         if (replaydatabase[x]['replay'].includes("Forfeit")||replaydatabase[x]['replay'].includes("Unavailable")){
             row.append("<td>"+replaydatabase[x]['replay']+"</td>")
         }
