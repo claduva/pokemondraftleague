@@ -36,7 +36,7 @@ class historical_team(models.Model):
         ordering = ['-seasonname','teamname']
 
     def __str__(self):
-        return f'{self.seasonname} {self.teamname}'
+        return f'{self.league.name} ({self.subseason}): {self.seasonname} {self.teamname}'
 
 class historical_draft(models.Model):
     team = models.ForeignKey(historical_team, on_delete=models.CASCADE,related_name="historical_draft")

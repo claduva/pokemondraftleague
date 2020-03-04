@@ -124,5 +124,7 @@ def replay_database(request):
     return render(request,"replay_database.html",context)
 
 def runscript(request): 
-    
+    m=historical_match.objects.get(id=1308)
+    m.winner=m.team1
+    m.save()
     return redirect('home')
