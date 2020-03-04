@@ -50,6 +50,7 @@ def run_replay_database():
     except:
       g="N/A"
       h="N/A"
+      j="N/A"
     i=match.replay
     #
     try:
@@ -116,6 +117,7 @@ def run_replay_database():
     except:
       g="N/A"
       h="N/A"
+      j="N/A"
     i=match.replay
     #
     try:
