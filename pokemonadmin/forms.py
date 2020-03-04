@@ -32,3 +32,19 @@ class SiteMessageForm(forms.ModelForm):
     class Meta:
         model = inbox
         fields = ['messagesubject','messagebody']
+
+class ChangeHistoricMatchAttributionForm(forms.ModelForm):
+    
+    class Meta:
+        model = historical_match
+        fields = ['team1','team1alternateattribution','team2','team2alternateattribution','team1score','team2score','winner','winneralternateattribution']
+
+    def __init__(self, *args, **kwargs):
+        super(ChangeHistoricMatchAttributionForm, self).__init__(*args, **kwargs)
+        self.fields['team1alternateattribution'].required=False
+        self.fields['team1alternateattribution'].queryset=User.objects.all().order_by('username')
+        self.fields['team2alternateattribution'].required=False
+        self.fields['team2alternateattribution'].queryset=User.objects.all().order_by('username')
+        self.fields['winner'].required=False
+        self.fields['winneralternateattribution'].required=False
+        self.fields['winneralternateattribution'].queryset=User.objects.all().order_by('username')

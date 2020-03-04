@@ -102,3 +102,24 @@ def pokemonadminhome(request):
                     )
                 messages.success(request,f'Message Sent')
     return  render(request,"adminsettings.html",context)
+
+def change_historic_match_attribution(request,matchid):
+    try:
+        match=historical_match.objects.get(pk=matchid)
+    except:
+        return redirect('home')
+    if request.user.is_staff==False:
+        messages.error(request,f'Only staff may use this function',extra_tags="danger")
+        return redirect('home')
+    if request.method=="POST":
+        form=ChangeHistoricMatchAttributionForm(request.POST,instance=match)
+        if form.is_valid():
+            form.save()
+            messages.success(request,f'Match was updated!')
+        return redirect('home')
+    form=ChangeHistoricMatchAttributionForm(instance=match)
+    context={
+        'form':form,
+        'matchid':matchid,
+        }
+    return render(request,"matchattribution.html",context)

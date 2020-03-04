@@ -33,7 +33,7 @@ $(document).ready(function() {
             row.append("<td><a href='/changeattribution/"+replaydatabase[x]['associatedmatch']+"'>Current ("+replaydatabase[x]['associatedmatch']+")</a></td>")
         }
         else{
-            row.append("<td> Historic ("+replaydatabase[x]['associatedhistoricmatch']+")</td>")
+            row.append("<td><a href='/changehistoricattribution/"+replaydatabase[x]['associatedhistoricmatch']+"'>Historic ("+replaydatabase[x]['associatedhistoricmatch']+")</a></td>")
         }
         }
         table.append(row)
