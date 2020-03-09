@@ -241,8 +241,6 @@ def damage_function(line,parsedlogfile,results):
                         if mon[cause]!=None:
                             pokemon[cause]=mon[cause]
                             break
-                print(cause)
-                print(line)
                 damager=roster_search(otherteam,pokemon[cause],results)
         if damager:
             damager['damagedone']+=damagedone 

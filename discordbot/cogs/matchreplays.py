@@ -29,11 +29,14 @@ class Matchreplays(commands.Cog):
                                     #try:
                                     #    embed=discord.Embed(title=record[3],url=f"{record[3].split(': ')[2].split('.')[0]}",colour=discord.Colour.blue())
                                     #except:
-                                    embed=discord.Embed(title=record[3],colour=discord.Colour.blue())
-                                    embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
-                                    await channel.send(embed=embed)
-                                    ps_cursor.execute("DELETE from individualleague_replay_announcements WHERE id = %s",(record[0],))
-                                    ps_connection.commit()
+                                    try:
+                                        embed=discord.Embed(title=record[3],colour=discord.Colour.blue())
+                                        embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
+                                        await channel.send(embed=embed)
+                                        ps_cursor.execute("DELETE from individualleague_replay_announcements WHERE id = %s",(record[0],))
+                                        ps_connection.commit()
+                                    except:
+                                        pass
                 ps_cursor.close()
                 #Use this method to release the connection object and send back to connection pool
                 self.bot.pg_con.putconn(ps_connection)
