@@ -1,18 +1,81 @@
 {
   "team1": {
-    "coach": "INNohV8",
+    "coach": "claduva",
     "roster": [
       {
-        "pokemon": "Landorus-Therian",
-        "startform": "Landorus-Therian",
-        "nickname": "daddy",
+        "pokemon": "Vaporeon",
+        "startform": "Vaporeon",
+        "nickname": "Squish",
+        "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 5,
+        "damagedone": 107,
+        "hphealed": 326,
+        "luck": 0.01,
+        "remaininghealth": 89,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Sigurd",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Kyurem-Black",
+        "startform": "Kyurem-Black",
+        "nickname": "Cure Em",
+        "kills": 4,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 301,
+        "hphealed": -25,
+        "luck": -0.41,
+        "remaininghealth": 38,
+        "lines": [],
+        "confusion": "Cure Em",
+        "psn": null,
+        "brn": "Sigurd",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Decidueye",
+        "startform": "Decidueye",
+        "nickname": "I<3HOOTERS",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 5,
+        "hphealed": 102,
+        "luck": 0.22,
+        "remaininghealth": 23,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Gliscor",
+        "startform": "Gliscor",
+        "nickname": "Jafar",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 50,
+        "damagedone": 0,
         "hphealed": 0,
-        "luck": -1.54,
+        "luck": -0.48,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -20,20 +83,20 @@
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": "Venusaur",
+        "tox": null,
         "Curse": null
       },
       {
-        "pokemon": "Manectric-Mega",
-        "startform": "Manectric",
-        "nickname": "McQueen",
+        "pokemon": "Hitmonchan",
+        "startform": "Hitmonchan",
+        "nickname": "Jackie",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 60,
-        "hphealed": 0,
-        "luck": -0.86,
+        "damagedone": 52,
+        "hphealed": 24,
+        "luck": 0.08,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -45,79 +108,16 @@
         "Curse": null
       },
       {
-        "pokemon": "Cobalion",
-        "startform": "Cobalion",
-        "nickname": "alaka\u2019i",
-        "kills": 1,
+        "pokemon": "Ferrothorn",
+        "startform": "Ferrothorn",
+        "nickname": "WorldsWorstSofa",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 178,
-        "hphealed": 0,
-        "luck": -1.64,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": "Thundurus",
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Tangrowth",
-        "startform": "Tangrowth",
-        "nickname": "Sketti",
-        "kills": 2,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 165,
-        "hphealed": 318,
-        "luck": 0.24,
-        "remaininghealth": 36,
-        "lines": [],
-        "confusion": null,
-        "psn": "Blaziken",
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Reuniclus",
-        "startform": "Reuniclus",
-        "nickname": "Haribo",
-        "kills": 2,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 196,
-        "hphealed": 172,
-        "luck": -1.28,
-        "remaininghealth": 4,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Greninja",
-        "startform": "Greninja",
-        "nickname": "Widow-Maker",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 54,
-        "hphealed": 0,
-        "luck": -1.66,
+        "support": 4,
+        "damagedone": 173,
+        "hphealed": 24,
+        "luck": -0.24,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -131,20 +131,20 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 2,
-    "megaevolved": true,
+    "score": 3,
+    "megaevolved": false,
     "usedzmove": true,
-    "timesswitched": 34,
+    "timesswitched": 19,
     "selfdeaths": 0,
-    "remaininghealth": 40,
+    "remaininghealth": 150,
     "totalhealth": 600,
-    "kills": 6,
-    "deaths": 4,
-    "luck": -6.74,
-    "damagedone": 703,
-    "hphealed": 490,
-    "support": 1,
-    "activemon": "Haribo",
+    "kills": 5,
+    "deaths": 3,
+    "luck": -0.82,
+    "damagedone": 638,
+    "hphealed": 451,
+    "support": 9,
+    "activemon": "Cure Em",
     "Toxic Spikes": null,
     "Spikes": null,
     "Stealth Rock": null,
@@ -156,82 +156,19 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "knalley11",
+    "coach": "Forseti Force",
     "roster": [
       {
-        "pokemon": "Blaziken",
-        "startform": "Blaziken",
-        "nickname": "Blaziken",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 286,
-        "hphealed": 0,
-        "luck": 0.96,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Araquanid",
-        "startform": "Araquanid",
-        "nickname": "Araquanid",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 98,
-        "hphealed": 0,
-        "luck": -0.32,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Venusaur-Mega",
-        "startform": "Venusaur",
-        "nickname": "Venusaur",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 5,
-        "damagedone": 76,
-        "hphealed": 0,
-        "luck": 0.42,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Jirachi",
-        "startform": "Jirachi",
-        "nickname": "Jirachi",
+        "pokemon": "Skarmory",
+        "startform": "Skarmory",
+        "nickname": "Eldigan",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 351,
-        "hphealed": 0,
-        "luck": 4.36,
+        "damagedone": 115,
+        "hphealed": 70,
+        "luck": 0.04,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -243,16 +180,16 @@
         "Curse": null
       },
       {
-        "pokemon": "Thundurus",
-        "startform": "Thundurus",
-        "nickname": "Thundurus",
+        "pokemon": "Chandelure",
+        "startform": "Chandelure",
+        "nickname": "Sigurd",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 108,
+        "support": 3,
+        "damagedone": 207,
         "hphealed": 0,
-        "luck": 1.22,
+        "luck": 0.92,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -266,14 +203,77 @@
       {
         "pokemon": "Florges",
         "startform": "Florges",
-        "nickname": "Florges",
+        "nickname": "Aideen",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 95,
+        "hphealed": 0,
+        "luck": 0.52,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Jolteon",
+        "startform": "Jolteon",
+        "nickname": "Tailtiu",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 125,
+        "hphealed": -50,
+        "luck": -0.04,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Quagsire",
+        "startform": "Quagsire",
+        "nickname": "Lex is Sex",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 2,
-        "damagedone": 131,
-        "hphealed": 103,
-        "luck": 0.1,
+        "support": 1,
+        "damagedone": 194,
+        "hphealed": 18,
+        "luck": -0.4,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Zygarde",
+        "startform": "Zygarde",
+        "nickname": "Loptyr",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 165,
+        "hphealed": 0,
+        "luck": -0.22,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -288,22 +288,22 @@
     "wins": 0,
     "forfeit": 0,
     "score": 0,
-    "megaevolved": true,
-    "usedzmove": false,
-    "timesswitched": 25,
-    "selfdeaths": 0,
+    "megaevolved": false,
+    "usedzmove": true,
+    "timesswitched": 16,
+    "selfdeaths": 1,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 4,
+    "kills": 3,
     "deaths": 6,
-    "luck": 6.74,
-    "damagedone": 1050,
-    "hphealed": 103,
-    "support": 8,
-    "activemon": "Florges",
+    "luck": 0.82,
+    "damagedone": 901,
+    "hphealed": 38,
+    "support": 4,
+    "activemon": "Lex is Sex",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "alaka\u2019i",
+    "Stealth Rock": "WorldsWorstSofa",
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -312,145 +312,105 @@
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 67,
+  "numberofturns": 49,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen7ubers-1014766336",
+  "replay": "http://replay.pokemonshowdown.com/gen7anythinggoes-802863866",
   "significantevents": [
     [
-      2,
-      "LUCK: Landorus-Therian missed Stone Edge against Jirachi"
+      1,
+      "Chandelure provided support by using Will-O-Wisp"
     ],
     [
-      4,
-      "Venusaur-Mega provided support by using Leech Seed"
-    ],
-    [
-      4,
-      "LUCK: Venusaur-Mega missed Leech Seed against Reuniclus"
-    ],
-    [
-      7,
-      "Araquanid provided support by using Sticky Web"
+      6,
+      "Ferrothorn provided support by using Leech Seed"
     ],
     [
       10,
-      "Florges provided support by using Wish"
+      "Ferrothorn provided support by using Leech Seed"
     ],
     [
-      12,
-      "LUCK: Reuniclus was flinched by Jirachi with Iron Head"
+      10,
+      "LUCK: Ferrothorn missed Leech Seed against Florges"
     ],
     [
-      13,
-      "LUCK: Reuniclus was flinched by Jirachi with Iron Head"
-    ],
-    [
-      15,
-      "Tangrowth killed Araquanid with Knock Off"
+      16,
+      "Vaporeon provided support by using Wish"
     ],
     [
       17,
-      "LUCK: Tangrowth was poisoned by Blaziken with Poison Jab"
+      "Quagsire provided support by using Toxic"
     ],
     [
       19,
-      "LUCK: Manectric-Mega missed Overheat against Thundurus"
+      "Vaporeon provided support by using Wish"
     ],
     [
-      23,
-      "Thundurus killed Manectric-Mega with Thunder Punch"
+      21,
+      "Vaporeon provided support by using Heal Bell"
+    ],
+    [
+      22,
+      "Vaporeon provided support by using Wish"
+    ],
+    [
+      24,
+      "Ferrothorn provided support by using Stealth Rock"
     ],
     [
       26,
-      "LUCK: Cobalion missed Stone Edge against Jirachi"
+      "LUCK: Chandelure landed a crit on Gliscor with Shadow Ball"
+    ],
+    [
+      26,
+      "Chandelure killed Gliscor with Shadow Ball"
     ],
     [
       27,
-      "Cobalion provided support by using Stealth Rock"
+      "Ferrothorn provided support by using Leech Seed"
     ],
     [
-      30,
-      "LUCK: Landorus-Therian missed Stone Edge against Venusaur-Mega"
+      29,
+      "Zygarde killed Ferrothorn with Tectonic Rage"
     ],
     [
-      30,
-      "Venusaur-Mega provided support by using Toxic"
+      31,
+      "Vaporeon provided support by using Wish"
     ],
     [
-      30,
-      "Venusaur-Mega killed Landorus-Therian via tox"
+      32,
+      "Vaporeon killed Zygarde via Leech Seed|[of] p1a: Squish"
     ],
     [
       35,
-      "Venusaur-Mega provided support by using Leech Seed"
+      "Jolteon fainted via item: Life Orb"
     ],
     [
       36,
-      "Venusaur-Mega provided support by using Leech Seed"
+      "Chandelure provided support by using Will-O-Wisp"
     ],
     [
-      37,
-      "Venusaur-Mega provided support by using Leech Seed"
+      38,
+      "Kyurem-Black killed Florges with Subzero Slammer"
     ],
     [
-      43,
-      "LUCK: Cobalion was flinched by Jirachi with Iron Head"
+      39,
+      "Chandelure provided support by using Will-O-Wisp"
     ],
     [
-      45,
-      "LUCK: Greninja was flinched by Jirachi with Iron Head"
+      39,
+      "Kyurem-Black killed Chandelure with Fusion Bolt"
     ],
     [
-      46,
-      "LUCK: Greninja was flinched by Jirachi with Iron Head"
+      42,
+      "Quagsire killed Hitmonchan with Earthquake"
+    ],
+    [
+      48,
+      "Kyurem-Black killed Skarmory with Outrage"
     ],
     [
       49,
-      "LUCK: Cobalion was flinched by Jirachi with Iron Head"
-    ],
-    [
-      53,
-      "LUCK: Cobalion was paralyzed by Thundurus with Thunder Punch"
-    ],
-    [
-      53,
-      "Cobalion killed Thundurus with Stone Edge"
-    ],
-    [
-      55,
-      "Florges provided support by using Wish"
-    ],
-    [
-      59,
-      "Tangrowth killed Venusaur-Mega with Earthquake"
-    ],
-    [
-      61,
-      "Blaziken killed Cobalion with Thunder Punch"
-    ],
-    [
-      62,
-      "Greninja killed Blaziken with Scald"
-    ],
-    [
-      63,
-      "Florges killed Greninja with Moonblast"
-    ],
-    [
-      65,
-      "LUCK: Jirachi landed a crit on Reuniclus with Iron Head"
-    ],
-    [
-      65,
-      "Reuniclus killed Jirachi with Focus Blast"
-    ],
-    [
-      66,
-      "LUCK: Reuniclus suffered a stat drop via secondary effect by Florges with Moonblast"
-    ],
-    [
-      67,
-      "Reuniclus killed Florges with Psychic"
+      "Kyurem-Black killed Quagsire with Outrage"
     ]
   ],
   "errormessage": []
