@@ -18,7 +18,7 @@ class Draft(commands.Cog):
             if(ps_connection):
                 #print("successfully recived connection from connection pool ")
                 ps_cursor = ps_connection.cursor()
-                ps_cursor.execute("select * from leagues_draft_announcements")
+                ps_cursor.execute("select * from leagues_draft_announcements order_by id asc")
                 draft_records = ps_cursor.fetchall()
                 for record in draft_records:
                     #get server
