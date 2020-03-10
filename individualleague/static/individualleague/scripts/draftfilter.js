@@ -1,5 +1,24 @@
 $(document).ready(function() {
-  $("#tierchoice").change(function() {
+    availabletable=$("#availabletable")
+    for (x in availablejson){
+        name=availablejson[x][0]
+        tier=availablejson[x][1]
+        points=availablejson[x][2]
+        url=availablejson[x][3]
+        a=$('<tr class="tieritem"></tr>')
+        a.attr('data-tier',points)
+        b=$('<td></td>')
+        c=$('<img class="smallsprite" src="'+url+'"><span>'+name+' ('+tier+': '+points+' pts)</span>')
+        b.append(c)
+        for (y in availablejson[x][4]){
+            typing=availablejson[x][4][y]['typing']
+            b.append('<div class="'+typing+'" hidden>'+typing+'</div>')
+        }
+        a.append(b)
+        availabletable.append(a)
+    }
+
+    $("#tierchoice").change(function() {
     availablechoice=$("#available").val()
     tierchoice=$("#tierchoice").val()
     typingchoice=$("#typing").val()

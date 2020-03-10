@@ -256,8 +256,17 @@ def league_draft(request,league_name,subleague_name):
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     coachcount=league_teams.count()
     season=subleague.seasonsetting
+    try:  
+        site_settings = request.user.sitesettings
+    except:
+        user=User.objects.get(username="defaultuser")
+        site_settings = user.sitesettings
     takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
     availablepokemon=pokemon_tier.objects.all().exclude(tier__tiername="Banned").exclude(pokemon__id__in=takenpokemon).filter(subleague=subleague).order_by("-tier__tierpoints",'pokemon__pokemon')
+    availablepokemonjson=[]
+    for item in availablepokemon:
+        availablepokemonjson.append([item.pokemon.pokemon,item.tier.tiername,item.tier.tierpoints,get_sprite_url(item.pokemon,site_settings.sprite),list(item.pokemon.types.all().values('typing'))])
+    json.dumps(availablepokemonjson)
     tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     draftlist=draft.objects.all().filter(season=season)
@@ -289,7 +298,10 @@ def league_draft(request,league_name,subleague_name):
         if request.user==item.coach: 
             iscoach=True
             usercoach=item
-    draftbyteam=sorted(draftbyteam, key=lambda x: x[1][0][0])
+    try:
+        draftbyteam=sorted(draftbyteam, key=lambda x: x[1][0][0])
+    except:
+        pass
     #check for current leftpicks
     try:
         currentleftpicks=left_pick.objects.all().filter(season=season,coach=currentpick.team).order_by('id')
@@ -382,6 +394,7 @@ def league_draft(request,league_name,subleague_name):
         'leftpicks':leftpicks,
         'iscoach':iscoach,
         'availablepokemon':availablepokemon,
+        'availablepokemonjson':availablepokemonjson,
         'tierchoices':tierchoices,
         'types':types,
         'leaguepage': True,
