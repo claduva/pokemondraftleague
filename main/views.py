@@ -124,9 +124,5 @@ def replay_database(request):
     return render(request,"replay_database.html",context)
 
 def runscript(request):     
-    for item in league.objects.all():
-        diff=abs((item.created.replace(tzinfo=None)-datetime.now()).days)
-        if diff<7:
-            numhist=historical_team.objects.all().filter(league=item).count()
-            print(numhist)
+   
     return redirect('home')

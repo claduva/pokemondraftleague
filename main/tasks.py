@@ -5,14 +5,22 @@ import math
 from django.db.models import Q
 
 from pokemondraftleague.celery import app
-from leagues.models import seasonsetting
+from leagues.models import seasonsetting, league, league_configuration
 from individualleague.models import *
 from pokemonadmin.models import *
 
 
 @shared_task(name = "delete_unused_models")
 def delete_unused_models():
-  pass
+  for item in league.objects.all():  
+    diff=abs((item.created.replace(tzinfo=None)-datetime.now()).days)
+    if diff>7:
+      numhist=historical_team.objects.all().filter(league=item).count()
+      if numhist==0:
+        try: 
+          conf=item.configuration
+        except:
+          item.delete()
 
 @shared_task(name = "run_replay_database")
 def run_replay_database():
