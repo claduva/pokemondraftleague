@@ -10,6 +10,7 @@ class league(models.Model):
     name = models.CharField(max_length=30, unique=True)
     host = models.ManyToManyField(User,related_name='hosting')
     logo = models.ImageField(default='league_logos/defaultleaguelogo.png',upload_to='league_logos',null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.name}'

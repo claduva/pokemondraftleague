@@ -1,18 +1,174 @@
 {
   "team1": {
+    "coach": "Maniac X",
+    "roster": [
+      {
+        "pokemon": "Crobat",
+        "startform": "Crobat",
+        "nickname": "Hirako",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 44,
+        "hphealed": 26,
+        "luck": 1.52,
+        "remaininghealth": 99,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Altaria-Mega",
+        "startform": "Altaria",
+        "nickname": "Nimbus",
+        "kills": 3,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 254,
+        "hphealed": 0,
+        "luck": 1.26,
+        "remaininghealth": 18,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Alomomola",
+        "Curse": null
+      },
+      {
+        "pokemon": "Mamoswine",
+        "startform": "Mamoswine",
+        "nickname": "Kiba",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 527,
+        "hphealed": 0,
+        "luck": 0.14,
+        "remaininghealth": 44,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Milotic",
+        "startform": "Milotic",
+        "nickname": "Sakura",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 3,
+        "damagedone": 56,
+        "hphealed": -3,
+        "luck": 1.88,
+        "remaininghealth": 87,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Sakura",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Tsareena",
+        "startform": "Tsareena",
+        "nickname": "Lady Legasus",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 5,
+        "damagedone": 20,
+        "hphealed": 0,
+        "luck": -0.22,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": "Blissey",
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Vikavolt",
+        "startform": "Vikavolt",
+        "nickname": "H! VLTG3",
+        "kills": 3,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 253,
+        "hphealed": 38,
+        "luck": 1.56,
+        "remaininghealth": 43,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      }
+    ],
+    "wins": 1,
+    "forfeit": 0,
+    "score": 5,
+    "megaevolved": true,
+    "usedzmove": false,
+    "timesswitched": 26,
+    "selfdeaths": 0,
+    "remaininghealth": 291,
+    "totalhealth": 600,
+    "kills": 6,
+    "deaths": 1,
+    "luck": 6.14,
+    "damagedone": 1154,
+    "hphealed": 61,
+    "support": 9,
+    "activemon": "Nimbus",
+    "Toxic Spikes": null,
+    "Spikes": null,
+    "Stealth Rock": "Blissey",
+    "G-Max Steelsurge": null,
+    "Future Sight": null,
+    "Doom Desire": null,
+    "Sandstorm": null,
+    "Hail": null,
+    "Leech Seed": null
+  },
+  "team2": {
     "coach": "PT_Bruno",
     "roster": [
       {
-        "pokemon": "Blissey",
-        "startform": "Blissey",
-        "nickname": "Blissey",
+        "pokemon": "Mienshao",
+        "startform": "Mienshao",
+        "nickname": "Mienshao",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 2,
-        "damagedone": 230,
-        "hphealed": 200,
-        "luck": 1.43,
+        "support": 0,
+        "damagedone": 150,
+        "hphealed": -13,
+        "luck": -0.38,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -27,13 +183,13 @@
         "pokemon": "Alomomola",
         "startform": "Alomomola",
         "nickname": "Alomomola",
-        "kills": 3,
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 7,
-        "damagedone": 185,
-        "hphealed": 303,
-        "luck": -0.74,
+        "support": 4,
+        "damagedone": 85,
+        "hphealed": 301,
+        "luck": -2.3,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -52,15 +208,36 @@
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 65,
-        "hphealed": 34,
-        "luck": -0.2,
+        "damagedone": 59,
+        "hphealed": 79,
+        "luck": -2.08,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
         "par": null,
+        "frz": "Nimbus",
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Blissey",
+        "startform": "Blissey",
+        "nickname": "Blissey",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 5,
+        "damagedone": 13,
+        "hphealed": 197,
+        "luck": -1.46,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": "H! VLTG3",
         "frz": null,
         "tox": null,
         "Curse": null
@@ -74,50 +251,29 @@
         "causeofdeath": null,
         "support": 0,
         "damagedone": 0,
-        "hphealed": -24,
-        "luck": 0.32,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Mienshao",
-        "startform": "Mienshao",
-        "nickname": "Mienshao",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 117,
-        "hphealed": 28,
-        "luck": -0.14,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Beedrill-Mega",
-        "startform": "Beedrill",
-        "nickname": "Beedrill",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 68,
         "hphealed": 0,
-        "luck": 0.02,
+        "luck": 0.18,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Sneasel",
+        "startform": "Sneasel",
+        "nickname": "Sneasel",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 63,
+        "hphealed": -10,
+        "luck": -0.1,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -132,178 +288,22 @@
     "wins": 0,
     "forfeit": 0,
     "score": 0,
-    "megaevolved": true,
+    "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 22,
+    "timesswitched": 30,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 4,
+    "kills": 1,
     "deaths": 6,
-    "luck": 0.69,
-    "damagedone": 665,
-    "hphealed": 541,
+    "luck": -6.14,
+    "damagedone": 370,
+    "hphealed": 554,
     "support": 9,
     "activemon": "Alomomola",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Diego",
-    "G-Max Steelsurge": null,
-    "Future Sight": null,
-    "Doom Desire": null,
-    "Sandstorm": null,
-    "Hail": null,
-    "Leech Seed": null
-  },
-  "team2": {
-    "coach": "JustBalis",
-    "roster": [
-      {
-        "pokemon": "Celebi",
-        "startform": "Celebi",
-        "nickname": "Spinach",
-        "kills": 4,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 537,
-        "hphealed": 251,
-        "luck": -1.1,
-        "remaininghealth": 100,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Alomomola",
-        "Curse": null
-      },
-      {
-        "pokemon": "Ambipom",
-        "startform": "Ambipom",
-        "nickname": "Zabumafu",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 69,
-        "hphealed": -20,
-        "luck": -0.18,
-        "remaininghealth": 80,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Diancie-Mega",
-        "startform": "Diancie",
-        "nickname": "Diana",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 86,
-        "hphealed": 0,
-        "luck": -0.61,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Kyurem-Black",
-        "startform": "Kyurem-Black",
-        "nickname": "Overdrive",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 89,
-        "hphealed": 0,
-        "luck": -0.18,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": "Overdrive",
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Alomomola",
-        "Curse": null
-      },
-      {
-        "pokemon": "Suicune",
-        "startform": "Suicune",
-        "nickname": "Eusaine",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 4,
-        "damagedone": 36,
-        "hphealed": 13,
-        "luck": 0.28,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Alomomola",
-        "Curse": null
-      },
-      {
-        "pokemon": "Landorus-Therian",
-        "startform": "Landorus-Therian",
-        "nickname": "Diego",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 324,
-        "hphealed": 1,
-        "luck": 1.1,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      }
-    ],
-    "wins": 1,
-    "forfeit": 0,
-    "score": 2,
-    "megaevolved": true,
-    "usedzmove": false,
-    "timesswitched": 20,
-    "selfdeaths": 0,
-    "remaininghealth": 180,
-    "totalhealth": 600,
-    "kills": 6,
-    "deaths": 4,
-    "luck": -0.69,
-    "damagedone": 1141,
-    "hphealed": 245,
-    "support": 6,
-    "activemon": "Spinach",
-    "Toxic Spikes": null,
-    "Spikes": null,
-    "Stealth Rock": null,
+    "Stealth Rock": "Kiba",
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -314,111 +314,127 @@
   "Perish Song": null,
   "numberofturns": 56,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen7customgame-674612969",
+  "replay": "http://replay.pokemonshowdown.com/gen7ou-671709764",
   "significantevents": [
     [
-      7,
-      "Landorus-Therian provided support by using Stealth Rock"
+      1,
+      "Mamoswine provided support by using Stealth Rock"
+    ],
+    [
+      2,
+      "Alomomola provided support by using Toxic"
+    ],
+    [
+      2,
+      "LUCK: Alomomola missed Toxic against Milotic"
+    ],
+    [
+      3,
+      "Milotic provided support by using Toxic"
+    ],
+    [
+      4,
+      "Blissey provided support by using Stealth Rock"
+    ],
+    [
+      6,
+      "Alomomola provided support by using Wish"
+    ],
+    [
+      8,
+      "Tsareena provided support by using Rapid Spin"
     ],
     [
       9,
-      "Suicune provided support by using Toxic"
-    ],
-    [
-      10,
-      "Blissey provided support by using Thunder Wave"
-    ],
-    [
-      10,
-      "Diancie-Mega provided support by using Thunder Wave"
-    ],
-    [
-      11,
-      "Blissey killed Diancie-Mega with Counter"
-    ],
-    [
-      14,
-      "Alomomola provided support by using Toxic"
+      "Tsareena provided support by using Rapid Spin"
     ],
     [
       15,
-      "Suicune provided support by using Tailwind"
+      "Milotic provided support by using Toxic"
     ],
     [
       16,
-      "Alomomola provided support by using Wish"
+      "Blissey provided support by using Stealth Rock"
     ],
     [
       17,
-      "Alomomola provided support by using Toxic"
+      "Tsareena provided support by using Rapid Spin"
     ],
     [
-      21,
-      "Celebi killed Tangrowth with Signal Beam"
-    ],
-    [
-      23,
+      22,
       "Alomomola provided support by using Wish"
     ],
     [
-      25,
+      26,
+      "LUCK: Blissey was paralyzed by Vikavolt with Thunderbolt"
+    ],
+    [
+      28,
+      "Vikavolt killed Zygarde with Hidden Power"
+    ],
+    [
+      30,
+      "Blissey provided support by using Stealth Rock"
+    ],
+    [
+      31,
+      "Tsareena provided support by using Rapid Spin"
+    ],
+    [
+      31,
       "Blissey provided support by using Thunder Wave"
     ],
     [
       34,
-      "LUCK: Celebi landed a crit on Blissey with Psychic"
+      "LUCK: Crobat landed a crit on Alomomola with U-turn"
     ],
     [
-      34,
-      "Celebi killed Blissey with Psychic"
+      36,
+      "Milotic provided support by using Toxic"
     ],
     [
       37,
-      "Suicune provided support by using Tailwind"
+      "Blissey provided support by using Stealth Rock"
     ],
     [
-      39,
-      "Alomomola killed Landorus-Therian with Scald"
-    ],
-    [
-      40,
-      "Landorus-Therian killed Beedrill-Mega via Stealth Rock"
-    ],
-    [
-      42,
-      "Suicune provided support by using Tailwind"
-    ],
-    [
-      43,
-      "Alomomola killed Suicune via tox"
+      38,
+      "Tsareena provided support by using Rapid Spin"
     ],
     [
       45,
-      "Ambipom killed Zygarde with Ice Punch"
+      "LUCK: Blissey was paralyzed by Vikavolt with Thunderbolt"
+    ],
+    [
+      46,
+      "Vikavolt killed Blissey with Bug Buzz"
+    ],
+    [
+      47,
+      "Vikavolt killed Sneasel with Bug Buzz"
+    ],
+    [
+      49,
+      "Mienshao killed Tsareena with Drain Punch"
+    ],
+    [
+      50,
+      "Altaria-Mega killed Mienshao with Hyper Voice"
     ],
     [
       51,
-      "Alomomola provided support by using Wish"
-    ],
-    [
-      52,
-      "Alomomola killed Kyurem-Black via tox"
+      "LUCK: Tangrowth was frozen by Altaria-Mega with Ice Beam"
     ],
     [
       53,
-      "Alomomola provided support by using Toxic"
+      "Altaria-Mega killed Tangrowth with Hyper Voice"
     ],
     [
       54,
-      "Celebi killed Mienshao with Psychic"
-    ],
-    [
-      55,
-      "Alomomola provided support by using Wish"
+      "Alomomola provided support by using Toxic"
     ],
     [
       56,
-      "Celebi killed Alomomola with Giga Drain"
+      "Altaria-Mega killed Alomomola with Hyper Voice"
     ]
   ],
   "errormessage": []

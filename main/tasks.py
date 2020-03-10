@@ -9,6 +9,11 @@ from leagues.models import seasonsetting
 from individualleague.models import *
 from pokemonadmin.models import *
 
+
+@shared_task(name = "delete_unused_models")
+def delete_unused_models():
+  pass
+
 @shared_task(name = "run_replay_database")
 def run_replay_database():
   current=schedule.objects.all().exclude(replay="Link")
