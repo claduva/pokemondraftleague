@@ -10,7 +10,7 @@ import os
 import random
 from itertools import cycle
 
-bot=commands.Bot(command_prefix="!")
+bot=commands.Bot(command_prefix="pdl!")
 try:
     from bottoken import *
     TOKEN=BOTTOKEN
@@ -62,7 +62,7 @@ async def reload(ctx,cog):
 
 async def chnge_pr():
     await bot.wait_until_ready()
-    statuslist=["!help","http://pokemondraftleague.online/"]
+    statuslist=["pdl!help","http://pokemondraftleague.online/"]
     statuslist=cycle(statuslist)
     while not bot.is_closed():
         status=next(statuslist)
