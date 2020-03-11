@@ -85,6 +85,7 @@ def movefilter(query):
 
 @register.filter(name='sprite')
 def sprite(value,arg):
+    print(value)
     poi=all_pokemon.objects.get(pokemon=value)
     if arg=="swsh/ani/standard/PKMN.gif":
         string=poi.sprite.dexani.url

@@ -86,8 +86,8 @@ def seasonteamdetail(request,league_name,seasonofinterest,teamofinterest):
         messages.error(request,'Team does not exist',extra_tags='danger')
         return redirect('home')
     otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname').exclude(seasonname=seasonofinterest)
-    roster=teamofinterest_.historical_roster.all()
-    draft=teamofinterest_.historical_draft.all()
+    roster=teamofinterest_.historical_roster.all().exclude(pokemon__isnull=True)
+    draft=teamofinterest_.historical_draft.all().exclude(pokemon__isnull=True)
     context = {
         'league': league_,
         'otherseason':True,
