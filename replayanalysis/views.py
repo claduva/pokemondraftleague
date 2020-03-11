@@ -121,6 +121,7 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
         pass
     #iterate through team 1
     team1roster=team1.teamroster.all()
+    print(team1roster)
     objectstosave=[form]
     erroritems=[]
     for mon in results['team1']['roster']:
@@ -244,7 +245,6 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
     return
 
 def pokemonsearch(pokemon,rosterofinterest,errormons):
-    print(pokemon)
     try:
         mon=rosterofinterest.get(pokemon__pokemon=pokemon)
     except:

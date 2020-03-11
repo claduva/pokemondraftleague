@@ -55,7 +55,7 @@ def seasondetail(request,league_name,seasonofinterest):
     if season==None:
         messages.error(request,'Season does not exist',extra_tags='danger')
         return redirect('home')
-    otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname').exclude(seasonname=seasonofinterest)
+    otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname')
     context = {
         'league': league_,
         'otherseason':True,
