@@ -86,23 +86,26 @@ def movefilter(query):
 @register.filter(name='sprite')
 def sprite(value,arg):
     print(value)
-    poi=all_pokemon.objects.get(pokemon=value)
-    if arg=="swsh/ani/standard/PKMN.gif":
-        string=poi.sprite.dexani.url
-    elif arg=="swsh/ani/shiny/PKMN.gif":
-        string=poi.sprite.dexanishiny.url
-    elif arg=="swsh/png/standard/PKMN.png":
-        string=poi.sprite.dex.url
-    elif arg=="swsh/png/shiny/PKMN.png":
-        string=poi.sprite.dexshiny.url
-    elif arg=="bw/png/standard/PKMN.png":
-        string=poi.sprite.bw.url
-    elif arg=="bw/png/shiny/PKMN.png":
-        string=poi.sprite.bwshiny.url
-    elif arg=="afd/png/standard/PKMN.png":
-        string=poi.sprite.afd.url
-    elif arg=="afd/png/shiny/PKMN.png":
-        string=poi.sprite.afdshiny.url
+    try:
+        poi=all_pokemon.objects.get(pokemon=value)
+        if arg=="swsh/ani/standard/PKMN.gif":
+            string=poi.sprite.dexani.url
+        elif arg=="swsh/ani/shiny/PKMN.gif":
+            string=poi.sprite.dexanishiny.url
+        elif arg=="swsh/png/standard/PKMN.png":
+            string=poi.sprite.dex.url
+        elif arg=="swsh/png/shiny/PKMN.png":
+            string=poi.sprite.dexshiny.url
+        elif arg=="bw/png/standard/PKMN.png":
+            string=poi.sprite.bw.url
+        elif arg=="bw/png/shiny/PKMN.png":
+            string=poi.sprite.bwshiny.url
+        elif arg=="afd/png/standard/PKMN.png":
+            string=poi.sprite.afd.url
+        elif arg=="afd/png/shiny/PKMN.png":
+            string=poi.sprite.afdshiny.url
+    except:
+        string=""
     return string
 
 @register.filter(name='standings')
