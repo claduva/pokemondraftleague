@@ -27,7 +27,6 @@ from replayanalysis.NewParser.parser import *
 from replayanalysis.helperfunctions import *
 
 def otherseasonslist(request,league_name):
-    print('here')
     league_name=league_name.replace('_',' ')
     try:
         league_=league.objects.get(name=league_name)
@@ -111,7 +110,7 @@ def seasondraft(request,league_name,seasonofinterest):
         return redirect('home')
     season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest)    
     season=season_teams.first()
-    draftlist=historical_draft.objects.all().filter(team__seasonname=seasonofinterest)
+    draftlist=historical_draft.objects.all().filter(team__seasonname=seasonofinterest,team__league=league_)
     if season==None:
         messages.error(request,'Season does not exist',extra_tags='danger')
         return redirect('home')
