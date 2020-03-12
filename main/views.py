@@ -21,6 +21,7 @@ from leagues.models import *
 from individualleague.models import *
 from pokemonadmin.models import *
 from pokemondatabase.models import *
+from .forms import HelpForm
 
 from replayanalysis.NewParser.parser import *
 from replayanalysis.models import *
@@ -122,6 +123,20 @@ def replay_database(request):
         'user': request.user.username=="claduva"
     }
     return render(request,"replay_database.html",context)
+
+@login_required
+def help(request):
+    form=HelpForm(initial={'sender':request.user,'recipient':User.objects.get(username='claduva')})
+    if request.method == 'POST':
+        form = HelpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Your message has been sent! We will get back to you as soon as possible.')
+            return redirect('help')
+    context = {
+        'form': form,
+    }
+    return render(request,"help.html",context)
 
 def runscript(request):     
    
