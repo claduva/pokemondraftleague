@@ -10,7 +10,7 @@
 {% block body %}
 <div class="row">
     <div class="col-12 bg-darkgrey rounded text-light p-2">
-        <h5>Please check out the FAQs and Known Bugs to see if they can help you. If not, you may send the site owner a message below and they will get back to you as soon as possible. Please include your Discord tag in the subject or message and add claduva as a friend (claduva#3705) if you would like a reply on Discord. The more specific you are, the more help can be provided.</h5>
+        <div class="bg-lightgrey text-dark p-1 rounded"><span>Please check out the FAQs and Known Bugs to see if they can help you. If not, you may send the site owner a message below and they will get back to you as soon as possible. Please include your Discord tag in the subject or message and add claduva as a friend (claduva#3705) if you would like a reply on Discord. The more specific you are, the more help can be provided.</span></div>
         <form method="POST">{% csrf_token %}
             {{form|crispy}}
             <input type="submit" class="btn btn-sm btn-primary">
