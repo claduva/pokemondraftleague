@@ -46,7 +46,7 @@ def league_detail(request,league_name):
                         #weekly record
                         wins=0
                         losses=0
-                        weeksmatches=schedule.objects.all().filter(Q(team1__parent_team=item)|Q(team2__parent_team=item)).filter(week=match.week).exclude(replay="Link")
+                        weeksmatches=schedule.objects.all().filter(Q(team1__parent_team=item)|Q(team2__parent_team=item)).filter(week=match.week).exclude(replay="Link").exclude(winner__isnull=True)
                         for m in weeksmatches:
                             if m.winner and m.winner.parent_team==item:
                                 wins+=1 
