@@ -39,3 +39,35 @@ class ShowdowAltAddForm(forms.ModelForm):
         model = showdownalts
         fields = ['showdownalt']
         widgets = {'user': forms.HiddenInput()}
+
+class ComposeMessageForm(forms.ModelForm):
+
+    messagesubject=forms.CharField(max_length=100,label='Subject')
+
+    def __init__(self, *args, **kwargs):
+        super(ComposeMessageForm, self).__init__(*args, **kwargs)
+        self.fields['recipient'].queryset = User.objects.all().order_by('username')
+
+    class Meta:
+        model = inbox
+        exclude = ['read']
+        widgets = {
+            'sender': forms.HiddenInput(),
+            }
+        labels = {
+            'messagebody': 'Message',
+            }
+
+class ReplyMessageForm(forms.ModelForm):
+
+    class Meta:
+        model = inbox
+        exclude = ['read']
+        widgets = {
+            'sender': forms.HiddenInput(),
+            'recipient': forms.HiddenInput(),
+            'messagesubject': forms.HiddenInput(),
+            }
+        labels = {
+            'messagebody': 'Reply',
+            }

@@ -139,6 +139,51 @@ def inbox_item_view(request,messageid):
     return render(request, 'inbox.html',context)
 
 @login_required
+def reply_message(request,messageid):
+    try:
+        messageofinterest=inbox.objects.get(pk=messageid)
+    except:
+        messages.error(request,"Message doesnt exist",extra_tags="danger")
+        return redirect('inbox')
+    if request.user != messageofinterest.recipient:
+        messages.error(request,"You do not have permission to view this message!",extra_tags="danger")
+        return redirect('inbox')
+    messageofinterest.read=True
+    messageofinterest.save()
+    form=ReplyMessageForm(initial={
+        'sender':request.user,
+        'recipient': messageofinterest.sender,
+        'messagesubject': messageofinterest.messagesubject,
+        })
+    if request.method == 'POST':
+        form = ReplyMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Your reply has been sent!')
+            return redirect('inbox_item',messageid=messageid)
+    context = {
+        'messageofinterest': messageofinterest,
+        'form':form,
+        'reply':True,
+    }
+    return render(request, 'inbox.html',context)
+
+@login_required
+def compose_message(request):
+    form=ComposeMessageForm(initial={'sender':request.user})
+    if request.method == 'POST':
+        form = ComposeMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Your message has been sent!')
+            return redirect('inbox')
+    context = {
+        'form': form,
+        'compose':True,
+    }
+    return render(request,"inbox.html",context)
+
+@login_required
 def inbox_item_delete(request,messageid):
     try:
         messageofinterest=inbox.objects.get(pk=messageid)
@@ -150,4 +195,16 @@ def inbox_item_delete(request,messageid):
         return redirect('inbox')    
     messageofinterest.delete()
     messages.success(request,'Message deleted!')
+    return redirect('inbox') 
+
+@login_required
+def delete_inbox(request):   
+    inbox.objects.all().filter(recipient=request.user).delete()
+    messages.success(request,'Your inbox has been emptied!')
+    return redirect('inbox') 
+
+@login_required
+def read_inbox(request):   
+    inbox.objects.all().filter(recipient=request.user).update(read=True)
+    messages.success(request,'Success!')
     return redirect('inbox') 

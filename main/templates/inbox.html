@@ -4,81 +4,107 @@
 
 {% block title %}Inbox{% endblock %}
 {% block head%}
-<link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}">
 {% endblock %}
 {% block body %}
-<div class="content-section">
-    <div class="row align-items-start">
-        <div class="col-md-12 rounded">
-            <h2>Inbox</h2>
-        </div>
+<div class="row">
+    <div class="col-12 d-flex bg-darkgrey text-light rounded p-2 mb-2 align-items-center">
+        <h3 class="mx-1 m-0">Inbox</h4>
+            <a href="{% url 'compose' %}" class="btn btn-primary mx-1">Compose New</a>
     </div>
 </div>
-<div class="content-section">
-    <div class="row align-items-start">
-        <div class="col-md-3 rounded">
-            <div class="row bg-dark text-light border">
-                <h4 class="col-12 p-1 m-0">Messages</h4>
-                {% if numberofmessages > 0 %}
-                {% for item in messagelist %}
-                <div class="col-12 bg-lightgrey text-dark m-0 p-0 border">
-                    <a href="{% url 'inbox_item' messageid=item.id %}">
-                        <div class="d-flex align-items-center m-0 p-0">
-                            <div class="smallsprite mx-2"><img class="img-fluid"
-                                    src="{{ item.sender.profile.pfp.url }}"></div>
-                            <div>
-                                <div><strong>{{ item.messagesubject }}</strong></div>
-                                <div>{{ item.messagebody|truncatechars:25 }}</div>
-                                <div><small>From: {{ item.sender }}</small></div>
-                                <div><small>Sent: {{ item.senttime }}</small></div>
-                            </div>
-                        </div>
-                    </a>
+<div class="row align-items-start bg-darkgrey text-light rounded p-2">
+    <div class="col-md-3 rounded">
+        <div class="row bg-dark text-light border rounded">
+            {% if numberofmessages > 0 %}
+            <div class="d-flex col-12 p-1 justify-content-between align-items-center">
+                <h4 class="m-0 p-0">Messages</h4>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Options
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right text-center p-0">
+                        <a class="text-dark" href="{% url 'read_inbox' %}">
+                            <li class="border">Mark All As Read</li>
+                        </a>
+                        <a class="text-dark" href="{% url 'delete_inbox' %}">
+                            <li class="border">Delete All</li>
+                        </a>
+                    </ul>
                 </div>
-                {% endfor %}
-                {% else %}
-                <div class="col-12 bg-lightgrey text-dark">No Messages</div>
-                {% endif %}
             </div>
-        </div>
-        <div class="col-md-9">
-            <div class="row">
-                <div class="col-12">
-                    {% if startinbox %}
-                    <div class="bg-lightgrey text-dark">
-                        <div class="d-flex justify-content-center"><img src="{% static 'accounts/images/mail.png' %}">
-                        </div>
-                        <h3 class="d-flex justify-content-center">No Message Selected</h3>
-                    </div>
-                    {% else %}
-                    <div class="bg-dark text-light border">
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <div class="mediumsprite m-2">
-                                    <img class="img-fluid" src="{{ messageofinterest.sender.profile.pfp.url }}">
-                                </div>
-                                <div>
-                                    <h3 class="d-flex justify-content-center pb-1 m-0">
-                                        {{ messageofinterest.messagesubject }}</h3>
-                                    <div class="pb-1 m-0">From: {{ messageofinterest.sender }}</div>
-                                    <div class="pb-1 m-0"><small>Sent: {{ messageofinterest.senttime }}</small></div>
-                                </div>
-                            </div>
-                            <div><a href="{% url 'delete_inbox_item' messageid=messageofinterest.id %}"><button class="btn btn-danger">Delete</button></a></div>
-                        </div>
-                        <div class="bg-lightgrey text-dark">
-                            <div>{{ messageofinterest.messagebody }}</div>
-                            {% if messageofinterest.traderequest %}
-                            <div>
-                                <a href="{% url 'accept_trade' messageid=messageofinterest.id %}"><button class="btn btn-success">Accept</button></a>
-                                <a href="{% url 'delete_inbox_item' messageid=messageofinterest.id %}"><button class="btn btn-danger">Reject</button></a>
-                            </div>
+            {% for item in messagelist %}
+            <div class="col-12 bg-lightgrey text-dark m-0 p-0 border">
+                <a href="{% url 'inbox_item' messageid=item.id %}" class="text-dark">
+                    <div class="d-flex align-items-center m-0 p-0">
+                        <div class="smallsprite mx-2 badgeheader">
+                            <img class="img-fluid rounded-circle" src="{{ item.sender.profile.pfp.url }}">
+                            {% if not item.read %}
+                            <span class="badge text-danger">*</span>
                             {% endif %}
                         </div>
+                        <div>
+                            <div><strong>{{ item.messagesubject }}</strong></div>
+                            <div>{{ item.messagebody|truncatechars:25 }}</div>
+                            <div><small>From: {{ item.sender }}</small></div>
+                            <div><small>Sent: {{ item.senttime }}</small></div>
+                        </div>
                     </div>
-
-                    {% endif %}
+                </a>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h4 class="col-12 p-1 m-0">No Messages</h4>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-12">
+                {% if compose %}
+                <form method="post"> {% csrf_token %}
+                    {{form|crispy}}
+                    <input type="submit" class="btn btn-primary btn-sm">
+                </form>
+                {% elif startinbox %}
+                <div class="bg-lightgrey text-dark rounded">
+                    <div class="d-flex justify-content-center"><img src="{% static 'accounts/images/mail.png' %}">
+                    </div>
+                    <h3 class="d-flex justify-content-center">No Message Selected</h3>
                 </div>
+                {% else %}
+                <div class="bg-dark text-light border rounded">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="mediumsprite m-2">
+                                <img class="img-fluid rounded-circle"
+                                    src="{{ messageofinterest.sender.profile.pfp.url }}">
+                            </div>
+                            <div>
+                                <h3 class="d-flex m-0">
+                                    {{ messageofinterest.messagesubject }}</h3>
+                                <div class="m-0">From: {{ messageofinterest.sender }}</div>
+                                <div class="m-0"><small>Sent: {{ messageofinterest.senttime }}</small></div>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="{% url 'reply' messageid=messageofinterest.id %}"
+                                class="btn btn-primary btn-sm mr-2">Reply</a>
+                            <a href="{% url 'delete_inbox_item' messageid=messageofinterest.id %}"
+                                class="btn btn-danger btn-sm mr-2">Delete</a>
+                        </div>
+                    </div>
+                    <div class="bg-lightgrey text-dark p-2">
+                        <div>{{ messageofinterest.messagebody }}</div>
+                    </div>
+                </div>
+                {% if reply %}
+                <div>
+                    <form method="post">{% csrf_token %}
+                        {{form|crispy}}
+                        <input type="submit" class="btn btn-sm btn-primary" value="Reply">
+                    </form>
+                </div>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
