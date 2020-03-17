@@ -296,9 +296,12 @@ def historic_teams_settings(request):
 def individual_historic_team_settings(request,teamid):
     try:
         hti=historical_team.objects.get(id=teamid)
+        if request.user!=hti.coach1 and request.user!=hti.coach2:
+            messages.error(request,"Only a team's coach may edit it's data!",extra_tags='danger')
+            return redirect('historic_teams_settings')
     except:
-        messages.error(request,'League does not exist!',extra_tags='danger')
-        return redirect('leagues_hosted_settings')
+        messages.error(request,'Historic team does not exist!',extra_tags='danger')
+        return redirect('historic_teams_settings')
     if request.method == 'POST':
         form = UpdateHistoricTeamForm(request,request.POST,request.FILES,instance=hti)
         if form.is_valid():
@@ -308,7 +311,7 @@ def individual_historic_team_settings(request,teamid):
     form=UpdateHistoricTeamForm(request,instance=hti)
     forms=[form]
     context = {
-        'settingheading': 'Historic',
+        'settingheading': f'{hti.teamname}',
         'forms': forms,
         'historicteamsettings': True,
     }
