@@ -139,5 +139,4 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request):     
-   
     return redirect('home')
