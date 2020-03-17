@@ -12,7 +12,9 @@ display: none;
 .logoselect .select-list {   
 position: absolute;     
 top: 0;      
-left: 0;     
+left: 0;   
+max-height: 450px;
+overflow:auto;  
 z-index: 1;      
 padding: 0;         
 background-color: whitesmoke;      
