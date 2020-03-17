@@ -4,6 +4,7 @@ from django.forms.widgets import FileInput, CheckboxSelectMultiple, SelectMultip
 from django.contrib.admin.widgets import FilteredSelectMultiple
 from .models import *
 from individualleague.models import *
+from pokemonadmin.models import historical_team
 from django.forms import DateTimeInput
 from main.widgets import LogoUploadWidget
 
@@ -68,6 +69,16 @@ class UpdateCoachInfoForm(forms.ModelForm):
 
     def __init__(self,request, *args, **kwargs):
         super(UpdateCoachInfoForm, self).__init__(*args, **kwargs)
+        self.fields['logo'].widget=LogoUploadWidget(attrs={'user':request.user})
+
+class UpdateHistoricTeamForm(forms.ModelForm):
+
+    class Meta:
+        model = historical_team
+        fields = ['logo','teamname']
+
+    def __init__(self,request, *args, **kwargs):
+        super(UpdateHistoricTeamForm, self).__init__(*args, **kwargs)
         self.fields['logo'].widget=LogoUploadWidget(attrs={'user':request.user})
 
 class UpdateCoachRecordForm(forms.ModelForm):

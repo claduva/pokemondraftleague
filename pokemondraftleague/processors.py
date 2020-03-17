@@ -16,6 +16,7 @@ import math
 from leagues.models import *
 from accounts.models import *
 from pokemondatabase.models import *
+from pokemonadmin.models import *
 
 def processor(request):
     try:
@@ -28,6 +29,10 @@ def processor(request):
         leaguescoaching = coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).order_by('league_name')
     except:
         leaguescoaching = None
+    try:  
+        userhistoricteams = historical_team.objects.all().filter(Q(coach1=request.user)|Q(coach2=request.user)).order_by('league__name')
+    except:
+        userhistoricteams = None
     try:  
         coachawards = request.user.coachaward_set.all()
     except:
@@ -50,6 +55,7 @@ def processor(request):
         'leagueshosted': leagueshosted,
         'allleagues': allleagues,
         'leaguescoaching': leaguescoaching,
+        'userhistoricteams':userhistoricteams,
         'coachawards': coachawards,
         'site_settings': site_settings,
         'messagelist':messagelist,

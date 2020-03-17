@@ -7,10 +7,10 @@ from leagues.models import coachdata
 class LogoUploadWidget(MultiWidget):
     def __init__(self, attrs,*args, **kwargs):
         imagelist=[]
-        a=historical_team.objects.all().filter(coach1=attrs['user']).exclude(logo__contains="defaultleaguelogo").exclude(logo__contains="defaultteamlogo")
+        a=historical_team.objects.all().filter(coach1=attrs['user']).exclude(logo__contains="defaultleaguelogo").exclude(logo__contains="defaultteamlogo").order_by('logo').distinct('logo')
         for item in a:
             imagelist.append((f'h_{item.id}',item.logo.url))
-        a=coachdata.objects.all().filter(coach=attrs['user']).exclude(logo__contains="defaultleaguelogo").exclude(logo__contains="defaultteamlogo")
+        a=coachdata.objects.all().filter(coach=attrs['user']).exclude(logo__contains="defaultleaguelogo").exclude(logo__contains="defaultteamlogo").order_by('logo').distinct('logo')
         for item in a:
             imagelist.append((f'c_{item.id}',item.logo.url))
         widgets = [

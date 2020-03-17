@@ -39,6 +39,17 @@
     </a>
     {% endif %}
     {% endif %}
+    {% if userhistoricteams %}
+    {% if historicteamsettings %}
+    <a href="{% url 'historic_teams_settings' %}">
+        <li class="list-group-item list-group-item-light active">Historic Teams</li>
+    </a>
+    {% else %}
+    <a href="{% url 'historic_teams_settings' %}">
+        <li class="list-group-item list-group-item-light">Historic Teams</li>
+    </a>
+    {% endif %}
+    {% endif %}
     {% if request.user.is_staff %}
     {% if adminsettings %}
     <a href="{% url 'pokemonadmin' %}">

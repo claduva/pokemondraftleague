@@ -284,6 +284,37 @@ def leagues_coaching_settings(request):
     return render(request, 'leaguelist.html',context)
 
 @login_required
+def historic_teams_settings(request):
+    context = {
+        'settingheading': "Select League",
+        'historicteamsettingspage': True,
+        'historicteamsettings': True,
+    }
+    return render(request, 'leaguelist.html',context)
+
+@login_required
+def individual_historic_team_settings(request,teamid):
+    try:
+        hti=historical_team.objects.get(id=teamid)
+    except:
+        messages.error(request,'League does not exist!',extra_tags='danger')
+        return redirect('leagues_hosted_settings')
+    if request.method == 'POST':
+        form = UpdateHistoricTeamForm(request,request.POST,request.FILES,instance=hti)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Your historic team info has been updated!')
+            return redirect('historic_teams_settings')
+    form=UpdateHistoricTeamForm(request,instance=hti)
+    forms=[form]
+    context = {
+        'settingheading': 'Historic',
+        'forms': forms,
+        'historicteamsettings': True,
+    }
+    return render(request, 'settings.html',context)
+
+@login_required
 def individual_league_coaching_settings(request,league_name):
     try:
         league_instance=league.objects.get(name=league_name)
@@ -1150,14 +1181,26 @@ def create_match(request,league_name,subleague_name):
         if formpurpose=="Create":
             form = CreateMatchForm(seasonsettings,subleague,request.POST)
             if form.is_valid() :
-                form.save()
+                ioi=form.save()
+                try:
+                    moi=schedule.objects.filter(season=ioi.season,week=ioi.week,duedate__isnull=False).first()
+                    ioi.duedate=moi.duedate
+                    ioi.save()
+                except:
+                    pass
                 messages.success(request,'That match has been added!')
             return redirect('create_match',league_name=league_name,subleague_name=subleague_name)
         elif formpurpose=="Submit":
             matchofinterest=schedule.objects.get(id=request.POST['matchid'])
             form = CreateMatchForm(seasonsettings,subleague,request.POST,instance=matchofinterest)
             if form.is_valid() :
-                form.save()
+                ioi=form.save()
+                try:
+                    moi=schedule.objects.filter(season=ioi.season,week=ioi.week,duedate__isnull=False).first()
+                    ioi.duedate=moi.duedate
+                    ioi.save()
+                except:
+                    pass
                 messages.success(request,'That match has been added!')
             else:
                 print(form.errors)
