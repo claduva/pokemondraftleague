@@ -96,10 +96,14 @@ class league_team(models.Model):
     gw = models.IntegerField(default=0)
     differential = models.IntegerField(default=0)
 
+class teamlogo(models.Model):
+    logo = models.ImageField(default='team_logos/defaultteamlogo.png',upload_to='team_logos',null=True, blank=True)
+
 class coachdata(models.Model):
     coach = models.ForeignKey(User, on_delete=models.CASCADE,related_name='coaching')
     league_name = models.ForeignKey(league, on_delete=models.CASCADE,related_name="leagueteams")
     logo = models.ImageField(default='team_logos/defaultteamlogo.png',upload_to='team_logos',null=True, blank=True)
+    logo2=models.ForeignKey(teamlogo, on_delete=models.SET_NULL, null=True)
     teamabbreviation = models.CharField(max_length=3, default="TBD")
     teamname = models.CharField(max_length=100, default="To Be Determined")
     teammate = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,related_name='teammate')

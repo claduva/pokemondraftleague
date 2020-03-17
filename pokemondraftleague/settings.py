@@ -51,6 +51,7 @@ ALLOWED_HOSTS = ['0.0.0.0',"pokemondraftleague.herokuapp.com",'127.0.0.1',"pokem
 INSTALLED_APPS = [
     'dal',
     'dal_select2',
+    'django_select2',
     #included django apps
     'django.contrib.admin',
     'django.contrib.auth',

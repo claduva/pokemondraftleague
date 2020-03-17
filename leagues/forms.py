@@ -5,6 +5,7 @@ from django.contrib.admin.widgets import FilteredSelectMultiple
 from .models import *
 from individualleague.models import *
 from django.forms import DateTimeInput
+from main.widgets import LogoUploadWidget
 
 class CreateLeagueForm(forms.ModelForm):
 
@@ -60,11 +61,14 @@ class UpdateTierForm(forms.ModelForm):
             }
 
 class UpdateCoachInfoForm(forms.ModelForm):
-    logo=forms.FileField(widget=FileInput)
 
     class Meta:
         model = coachdata
         fields = ['logo','teamabbreviation','teamname']
+
+    def __init__(self,request, *args, **kwargs):
+        super(UpdateCoachInfoForm, self).__init__(*args, **kwargs)
+        self.fields['logo'].widget=LogoUploadWidget(attrs={'user':request.user})
 
 class UpdateCoachRecordForm(forms.ModelForm):
 

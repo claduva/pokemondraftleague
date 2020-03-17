@@ -32,6 +32,7 @@ urlpatterns = [
     path('',include("replayanalysis.urls")),
     path('',include("otherseasons.urls")),
     path('',include("pokemondatabase.urls")),
+    url(r'^select2/', include('django_select2.urls')),
 ]
 
 """

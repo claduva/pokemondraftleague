@@ -296,7 +296,7 @@ def individual_league_coaching_settings(request,league_name):
         return redirect('leagues_hosted_settings')
     if request.method == 'POST':
         if allowsteams:
-            form = UpdateCoachInfoForm(
+            form = UpdateCoachInfoForm(request,
                 request.POST,
                 request.FILES,
                 instance=coachinstance
@@ -317,7 +317,7 @@ def individual_league_coaching_settings(request,league_name):
                     messages.success(request,'Your coach info has been updated!')
                     return redirect('individual_league_coaching_settings',league_name=league_name)
         else:
-            form = UpdateCoachInfoForm(
+            form = UpdateCoachInfoForm(request,
                 request.POST,
                 request.FILES,
                 instance=coachinstance
@@ -328,14 +328,13 @@ def individual_league_coaching_settings(request,league_name):
                     form.save()
                     parent_team_form.save()
                     messages.success(request,'Your coach info has been updated!')
-                    return redirect('individual_league_coaching_settings',league_name=league_name)
             else:
                 if form.is_valid():
                     form.save()
                     messages.success(request,'Your coach info has been updated!')
-                    return redirect('individual_league_coaching_settings',league_name=league_name)
+            return redirect('individual_league_coaching_settings',league_name=league_name)
     else:
-        form = UpdateCoachInfoForm(instance=coachinstance)
+        form = UpdateCoachInfoForm(request,instance=coachinstance)
         forms=[]
         forms.append(form)
         if teambased:
@@ -344,7 +343,6 @@ def individual_league_coaching_settings(request,league_name):
         if allowsteams:
             tm_form=UpdateCoachTeammateForm(instance=coachinstance)
             forms.append(tm_form)
-
     context = {
         'settingheading': league_name,
         'forms': forms,

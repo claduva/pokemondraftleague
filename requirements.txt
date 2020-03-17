@@ -10,6 +10,7 @@ django-crispy-forms
 django-debug-toolbar
 django-debug-toolbar-template-timings
 django-redis-cache
+django-select2==7.2.2
 django-sendgrid-v5==0.8.0
 django-storages==1.7.1
 gunicorn
