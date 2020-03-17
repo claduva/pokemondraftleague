@@ -31,7 +31,7 @@ class UpdateLeagueSettingsForm(forms.ModelForm):
 
     class Meta:
         model = league_settings
-        fields = ['is_recruiting','is_public']
+        fields = ['platform','metagame','is_recruiting','is_public',]
 
 class LeagueConfigurationForm(forms.ModelForm):
 

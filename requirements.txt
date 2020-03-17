@@ -9,6 +9,7 @@ django-celery-beat
 django-crispy-forms
 django-debug-toolbar
 django-debug-toolbar-template-timings
+django-multiselectfield==0.1.12
 django-redis-cache
 django-select2==7.2.2
 django-sendgrid-v5==0.8.0

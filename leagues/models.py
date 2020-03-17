@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
 
 from enum import Enum
+from multiselectfield import MultiSelectField
 
 class league(models.Model):
     name = models.CharField(max_length=30, unique=True)
@@ -19,6 +20,20 @@ class league_settings(models.Model):
     league_name = models.OneToOneField(league, on_delete=models.CASCADE,related_name="settings")
     is_recruiting = models.BooleanField(default=True)
     is_public = models.BooleanField(default=True)
+    platform=MultiSelectField(choices=(
+        ('Youtube Showdown','Youtube Showdown'),
+        ('Youtube Wifi','Youtube Wifi'),
+        ('Showdown','Showdown'),
+        ('Wifi','Wifi'),
+    ),default="Showdown")
+    metagame=MultiSelectField(choices=(
+        ('Gen 8 National Dex','Gen 8 National Dex'),
+        ('Gen 8 Galar Dex','Gen 8 Galar Dex'),
+        ('Gen 8 Ubers','Gen 8 Ubers'),
+        ('Gen 8 T3 & Below','Gen 8 T3 & Below'),
+        ('Gen 8 LC','Gen 8 LC'),
+        ('Pre Gen 8','Pre Gen 8'),
+    ),default="Gen 8 National Dex")
 
     def __str__(self):
         return f'League settings for {self.league_name.name}'
