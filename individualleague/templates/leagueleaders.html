@@ -29,6 +29,9 @@
                     <th>#</th>
                     <th>Pokemon</th>
                     <th >Team</th>
+                    {% if includesubleague == True %}
+                    <th>Subleague</th>
+                    {% endif %}
                     <th >K</th>
                     <th >D</th>
                     <th >+/-</th>
@@ -62,6 +65,9 @@
                         {{ item.team.teamabbreviation }}
                         {% endif %}
                     </td>
+                    {% if includesubleague == True %}
+                    <td>{{ item.season.subleague.subleague|replace:"_, " }}</td>
+                    {% endif %}
                     <td>{{ item.kills }}</td>
                     <td>{{ item.deaths }}</td>
                     <td>{{ item.differential }}</td>

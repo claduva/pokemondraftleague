@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load extratags %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -55,7 +56,7 @@
                         </a>
                     </td>
                     <td>
-                        <a class="text-dark" href="{% url 'league_detail' league_name=item.league_name.name %}">
+                        <a class="text-dark" href="{% url 'league_detail' league_name=item.league_name.name|replace:' ,_' %}">
                             <div class="d-flex justify-content-center">
                                 <img src="{{ item.league_name.logo.url }}" class="img-fluid small-logo m-1">
                             </div>

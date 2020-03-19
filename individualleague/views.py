@@ -123,7 +123,7 @@ def teampage_detail(request,league_name,team_name):
 
 @check_if_subleague
 def subleague_detail(request,league_name,subleague_name):
-    league_name=league_name.replace('%20',' ').replace('_',' ')
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     settings=league_settings.objects.get(league_name=subleague.league)
@@ -185,7 +185,7 @@ def subleague_detail(request,league_name,subleague_name):
 @check_if_league
 @login_required
 def league_apply(request,league_name):
-    league_name=league_name.replace('%20',' ')
+    league_name=league_name.replace('_',' ')
     league_=league.objects.get(name=league_name)
     try:
         applications=league_application.objects.filter(league_name=league_).get(applicant=request.user)
@@ -228,6 +228,7 @@ def league_apply(request,league_name):
 @check_if_season
 @check_if_team
 def team_page(request,league_name,subleague_name,team_abbreviation):
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
@@ -251,6 +252,7 @@ def team_page(request,league_name,subleague_name,team_abbreviation):
 @check_if_subleague
 @check_if_season
 def league_draft(request,league_name,subleague_name):
+    league_name=league_name.replace('_',' ')
     ##basic config
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
@@ -417,6 +419,7 @@ def senddraftpicktobot(currentpick,pokemon,subleague,draftlist):
 @check_if_subleague
 @check_if_season
 def league_schedule(request,league_name,subleague_name):
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     season=subleague.seasonsetting
@@ -524,6 +527,112 @@ def total_league_schedule(request,league_name):
     league_name=league_name.replace("_"," ")
     league_=league.objects.get(name=league_name)
     seasonschedule=schedule.objects.all().filter(season__league__name=league_name).exclude(week__contains="Playoff").order_by('duedate','week')
+    subleagues=league_.subleague.all().order_by('subleague')
+    league_teams=league_.leagueteam.all().order_by('-points','-differential')
+    context = {
+        'league_name': league_name,
+        'seasonschedule':seasonschedule,
+        'includesubleague':True,
+        'leaguecomposite':True,
+        'subleagues':subleagues,
+        'league_teams':league_teams,
+    }
+    if request.method=="POST":
+        if request.POST['purpose']=="t1pickem":
+            matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+            try:
+                pickemtoupdate=pickems.objects.all().filter(match=matchtoupdate).get(user=request.user)
+                if pickemtoupdate.pick==matchtoupdate.team1:
+                    pickemtoupdate.delete()
+                else:
+                    pickemtoupdate.pick=matchtoupdate.team1
+                    pickemtoupdate.save()
+            except:
+                pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team1)
+            return redirect('total_league_schedule',league_name=league_name)
+        elif request.POST['purpose']=="t2pickem":
+            matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+            try:
+                pickemtoupdate=pickems.objects.all().filter(match=matchtoupdate).get(user=request.user)
+                if pickemtoupdate.pick==matchtoupdate.team2:
+                    pickemtoupdate.delete()
+                else:
+                    pickemtoupdate.pick=matchtoupdate.team2
+                    pickemtoupdate.save()
+            except:
+                pickem=pickems.objects.create(user=request.user,match=matchtoupdate,pick=matchtoupdate.team2)
+            return redirect('total_league_schedule',league_name=league_name)
+        else:
+            matchtoupdate=schedule.objects.get(id=request.POST['matchid'])
+            team1=matchtoupdate.team1
+            team2=matchtoupdate.team2
+            if request.POST['purpose']=="t1ff":
+                matchtoupdate.replay=f'Team 1 Forfeits'
+                matchtoupdate.winner=team2
+                matchtoupdate.team2score=3
+                team1.losses+=1; team2.wins+=1
+                team1.differential+=(-6); team2.differential+=3
+                team1.forfeit+=1
+                if team1.streak>-1:
+                    team1.streak=-1
+                else:
+                    team1.streak+=(-1)
+                if team2.streak>-1:
+                    team2.streak+=1
+                else:
+                    team2.streak=1
+                messages.success(request,'Match has been forfeited by Team 1!')
+            elif request.POST['purpose']=="t2ff":
+                matchtoupdate.replay=f'Team 2 Forfeits'
+                matchtoupdate.winner=team1
+                matchtoupdate.team1score=3
+                team1.wins+=1; team2.losses+=1
+                team1.differential+=3; team2.differential+=(-6)
+                team2.forfeit+=1
+                if team1.streak>-1:
+                    team1.streak+=1
+                else:
+                    team1.streak=1
+                if team2.streak>-1:
+                    team2.streak=-1
+                else:
+                    team2.streak+=(-1)
+                messages.success(request,'Match has been forfeited by Team 2!')
+            elif request.POST['purpose']=="bothff":
+                matchtoupdate.replay='Both Teams Forfeit'
+                team1.losses+=1; team2.losses+=1
+                team1.differential+=(-6); team2.differential+=(-6)
+                team1.forfeit+=1; team2.forfeit+=1
+                if team1.streak>-1:
+                    team1.streak=-1
+                else:
+                    team1.streak+=(-1)
+                if team2.streak>-1:
+                    team2.streak=-1
+                else:
+                    team2.streak+=(-1)
+                messages.success(request,'Match has been forfeited by both teams!')
+            team1.save()
+            team2.save()
+            matchtoupdate.save()
+            league_=matchtoupdate.season.league
+            discordserver=matchtoupdate.season.subleague.discord_settings.discordserver
+            discordchannel=matchtoupdate.season.subleague.discord_settings.replaychannel
+            title=f"Week: {matchtoupdate.week}. {matchtoupdate.team1.teamname} vs {matchtoupdate.team2.teamname}: {matchtoupdate.replay}."
+            replay_announcements.objects.create(
+                league = discordserver,
+                league_name = league_.name,
+                text = title,
+                replaychannel = discordchannel
+            )
+            return redirect('total_league_schedule',league_name=league_name)
+    return render(request, 'schedule.html',context)
+
+@check_if_league
+def total_league_playoffs(request,league_name):
+    league_name=league_name.replace("_"," ")
+    league_=league.objects.get(name=league_name)
+    seasonschedule=schedule.objects.all().filter(season__league__name=league_name).filter(week__contains="Playoff").order_by('duedate','week')
     subleagues=league_.subleague.all().order_by('subleague')
     league_teams=league_.leagueteam.all().order_by('-points','-differential')
     context = {
@@ -735,6 +844,7 @@ def composite_weekly_matchup(request,league_name,week,teamname):
 @check_if_subleague
 @check_if_season
 def league_matchup(request,league_name,subleague_name,matchid):
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
@@ -758,6 +868,7 @@ def league_matchup(request,league_name,subleague_name,matchid):
 @check_if_subleague
 @check_if_season
 def league_rules(request,league_name,subleague_name):
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
@@ -777,6 +888,7 @@ def league_rules(request,league_name,subleague_name):
 @check_if_season
 @check_if_host
 def edit_league_rules(request,league_name,subleague_name):
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
@@ -802,6 +914,7 @@ def edit_league_rules(request,league_name,subleague_name):
 
 @check_if_subleague
 def league_tiers(request,league_name,subleague_name):
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     tierlist_=pokemon_tier.objects.all().filter(subleague=subleague).exclude(tier__tiername="Banned").order_by('-tier__tierpoints','pokemon__pokemon')
@@ -873,7 +986,7 @@ def get_sprite_url(poi,arg):
 @check_if_season
 def freeagency(request,league_name,subleague_name):
     ##basic config
-    league_name=league_name.replace('%20',' ')
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     season=subleague.seasonsetting
@@ -956,7 +1069,7 @@ def freeagency(request,league_name,subleague_name):
 @check_if_subleague
 @check_if_season
 def league_leaders(request,league_name,subleague_name):
-    league_name=league_name.replace('%20',' ')
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     season=subleague.seasonsetting
@@ -970,12 +1083,30 @@ def league_leaders(request,league_name,subleague_name):
     }
     return render(request, 'leagueleaders.html',context)
 
+@check_if_league
+def composite_league_leaders(request,league_name):
+    league_name=league_name.replace('_',' ')
+    league_=league.objects.get(name=league_name)
+    leagueleaders=roster.objects.all().filter(season__league=league_,gp__gt=0).order_by('-kills','-differential')
+    subleagues=league_.subleague.all().order_by('subleague')
+    league_teams=league_.leagueteam.all().order_by('-points','-differential')
+    context = {
+        'league_teams': league_teams,
+        'league_name': league_name,
+        'leagueleaders': leagueleaders,
+        'includesubleague':True,
+        'leaguecomposite':True,
+        'subleagues':subleagues,
+        'league_teams':league_teams,
+    }
+    return render(request, 'leagueleaders.html',context)
+
 @login_required
 @check_if_subleague
 @check_if_season
 def trading_view(request,league_name,subleague_name):
     ##basic config
-    league_name=league_name.replace('%20',' ')
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     try:
@@ -1135,7 +1266,7 @@ def trading_view(request,league_name,subleague_name):
 @check_if_subleague
 @check_if_season
 def league_hall_of_fame(request,league_name,subleague_name):
-    league_name=league_name.replace('%20',' ')
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
@@ -1154,6 +1285,7 @@ def league_hall_of_fame(request,league_name,subleague_name):
 @check_if_subleague
 @check_if_season
 def league_playoffs(request,league_name,subleague_name):
+    league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     season=subleague.seasonsetting

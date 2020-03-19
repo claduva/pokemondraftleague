@@ -98,6 +98,12 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item"
             href="{% url 'total_league_schedule' league_name=league_name|replace:' ,_' %}">Schedule</a>
+          <a class="dropdown-item"
+            href="{% url 'total_league_playoffs' league_name=league_name|replace:' ,_' %}">Playoffs</a>
+          <a class="dropdown-item"
+            href="{% url 'composite_league_leaders' league_name=league_name|replace:' ,_' %}">League
+            Leaders</a>
+          <a class="dropdown-item" href="{% url 'otherseasonslist' league_name=league_name|replace:' ,_' %}">View Other Seasons</a>
         </div>
       </div>
       {% else %}
