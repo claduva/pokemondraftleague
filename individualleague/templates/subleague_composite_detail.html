@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load extratags %}
 
 {% block title %}{{league_name}}{% endblock %}
 {% block head%}
@@ -41,8 +42,8 @@
                         <td><a class="text-dark" href="{% url 'teampage_detail' league_name=league_name team_name=team.name %}"><div><img class="small-logo" src="{{team.logo.url }}">{{ team.name }}</div></a></td>
                         <td>{{ team.captain.username }}</td>
                         <td>{{team.wins}}-{{team.losses}}-{{team.ties}} ({{team.points}} pts) | {{team.differential}}</td>
-                        {% for week,wins,losses in schedule %}
-                        <td>{{wins}}-{{losses}} (vs {{week.shortname}})</td>
+                        {% for week,wins,losses,weeknum in schedule %}
+                        <td><a class="text-dark" href="{% url 'composite_weekly_matchup' league_name=league_name week=weeknum teamname=team.name|replace:' ,_' %}">{{wins}}-{{losses}} (vs {{week.shortname}})</a></td>
                         {% endfor %}
                     </tr>
                     {% endfor %}

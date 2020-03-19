@@ -43,6 +43,9 @@
                     <td class="align-middle"><img class="smallsprite"
                             src="{{ match.team1.logo.url }}">{{match.team1.teamname}} vs <img class="smallsprite"
                             src="{{ match.team2.logo.url }}">{{match.team2.teamname}}</td>
+                    {% if includesubleague == True %}
+                    <td>{{match.season.subleague.subleague|replace:'_, '}}</td>
+                    {% endif %}
                     {% if match.replay != "Link" %}
                     {% if request.user.username == "claduva" %}
                     <td class="align-middle"><a class="btn btn-sm btn-dark text-light"
@@ -50,15 +53,15 @@
                             Attribution</a></td>
                     {% endif %}
                     <td colspan="100%" class="align-middle"><a class="btn btn-sm btn-dark text-light"
-                            href="{% url 'league_match_results' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}">Replay</a>
+                            href="{% url 'league_match_results' league_name=league_name subleague_name=match.season.subleague.subleague matchid=match.id %}">Replay</a>
                     </td>
                     {% else %}
                     <td class="align-middle"><a class="btn btn-sm btn-dark text-light"
-                            href="{% url 'league_matchup' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}">Matchup</a>
+                            href="{% url 'league_matchup' league_name=league_name subleague_name=match.season.subleague.subleague matchid=match.id %}">Matchup</a>
                     </td>
                     {% if request.user == match.team1.coach or request.user == match.team2.coach or request.user in subleague.league.host.all %}
                     <td class="align-middle"><a class="btn btn-sm btn-dark text-light"
-                            href="{% url 'upload_league_replay' league_name=league_name subleague_name=subleague.subleague matchid=match.id %}">Upload
+                            href="{% url 'upload_league_replay' league_name=league_name subleague_name=match.season.subleague.subleague matchid=match.id %}">Upload
                             Replay</a></td>
                     {% endif %}
                     {% if request.user in subleague.league.host.all %}

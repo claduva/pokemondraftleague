@@ -92,6 +92,14 @@
           {% endfor %}
         </div>
       </div>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">League Resources</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item"
+            href="{% url 'total_league_schedule' league_name=league_name|replace:' ,_' %}">Schedule</a>
+        </div>
+      </div>
       {% else %}
       <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name %}">{{ league_name }} Home</a>
       <div class="nav-item dropdown">
