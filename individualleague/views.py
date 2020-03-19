@@ -35,7 +35,7 @@ def league_detail(request,league_name):
                 for item in league_teams:
                     item.wins=0; item.losses=0; item.ties=0; item.points=0; item.differential=0
                     teamschedule=[]
-                    teamschedule_=schedule.objects.all().filter(Q(team1=item.child_teams.first())|Q(team2=item.child_teams.first())).order_by('week')
+                    teamschedule_=schedule.objects.all().filter(Q(team1=item.child_teams.first())|Q(team2=item.child_teams.first())).order_by('duedate','week')
                     for match in teamschedule_:
                         #find opponent
                         opponent=None
@@ -420,7 +420,7 @@ def league_schedule(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     season=subleague.seasonsetting
-    seasonschedule=schedule.objects.all().filter(season=season).exclude(week__contains="Playoff").order_by('week')
+    seasonschedule=schedule.objects.all().filter(season=season).exclude(week__contains="Playoff").order_by('duedate','week')
     context = {
         'subleague': subleague,
         'leaguepage': True,
@@ -523,7 +523,7 @@ def league_schedule(request,league_name,subleague_name):
 def total_league_schedule(request,league_name):
     league_name=league_name.replace("_"," ")
     league_=league.objects.get(name=league_name)
-    seasonschedule=schedule.objects.all().filter(season__league__name=league_name).exclude(week__contains="Playoff").order_by('week')
+    seasonschedule=schedule.objects.all().filter(season__league__name=league_name).exclude(week__contains="Playoff").order_by('duedate','week')
     subleagues=league_.subleague.all().order_by('subleague')
     league_teams=league_.leagueteam.all().order_by('-points','-differential')
     context = {
@@ -630,7 +630,7 @@ def composite_weekly_matchup(request,league_name,week,teamname):
     league_name=league_name.replace("_"," ")
     teamname=teamname.replace("_"," ")
     league_=league.objects.get(name=league_name)
-    seasonschedule=schedule.objects.all().filter(season__league__name=league_name,week=week).filter(Q(team1__parent_team__name=teamname)|Q(team2__parent_team__name=teamname)).order_by('week')
+    seasonschedule=schedule.objects.all().filter(season__league__name=league_name,week=week).filter(Q(team1__parent_team__name=teamname)|Q(team2__parent_team__name=teamname)).order_by('duedate','week')
     subleagues=league_.subleague.all().order_by('subleague')
     league_teams=league_.leagueteam.all().order_by('-points','-differential')
     context = {
@@ -1157,7 +1157,7 @@ def league_playoffs(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     season=subleague.seasonsetting
-    seasonschedule=schedule.objects.all().filter(season=season).filter(week__contains="Playoff").order_by('week')
+    seasonschedule=schedule.objects.all().filter(season=season).filter(week__contains="Playoff").order_by('duedate','week')
     context = {
         'subleague': subleague,
         'leaguepage': True,
