@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load extratags %}
 
 {% block title %}{{team_of_interest.name}}{% endblock %}
 {% block head%}
@@ -8,36 +9,36 @@
 {% block body %}
 
 <div class="row content-section align-items-center">
-    <div class="col-md-4 d-flex justify-content-start"><img src="{{team_of_interest.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-4 d-flex justify-content-start"><img src="{{team_of_interest.logo.url}}"
+            class="rounded-circle mediumlogo">
     </div>
-    <div class="col-md-4">
+    <div class="col-4">
         <h3 class="d-flex justify-content-center">{{team_of_interest.name}}</h3>
     </div>
-    <div class="col-md-4 d-flex justify-content-end">
-        <div class="col-md-4 d-flex justify-content-start"><img src="{{team_of_interest.logo.url}}" class="rounded-circle mediumlogo">
-        </div>
+    <div class="col-4 d-flex justify-content-end"><img src="{{team_of_interest.logo.url}}"
+            class="rounded-circle mediumlogo">
     </div>
 </div>
 <div class="row content-section align-items-center">
     <div class="col-md-12">
         <div class="row align-items-center">
             <div class="col-md-12">
-                    <h3 class="text-center">Team</h3>
-                    <table class="table table-sm bg-lightgrey text-dark">
-                        <tr>
+                <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                        <tr class="bg-dark text-light">
                             <th>Captain</th>
                             <th>Standings</th>
-                            <th>Record</th>
-                            <th>Week 1</th>
-                            <th>Week 2</th>
-                            <th>Week 3</th>
-                            <th>Week 4</th>
-                            <th>Week 5</th>
+                            <th>Record (W-L-T [Pts] | Diff)</th>
+                            {% with m=leagueteam_teams|first  %}
+                            {% for item in m|last %}
+                            <th>Week {{item.week}}</th>
+                            {% endfor %}
+                            {% endwith %}
                         </tr>
                         <tr>
                             <td>{{team_of_interest.captain.username}}</td>
-                            <td>1st</td>
-                            <td></td>
+                            <td>{{standings|ordinal}}</td>
+                            <td>{{team_of_interest.wins}}-{{team_of_interest.losses}}-{{team_of_interest.ties}} ({{team_of_interest.points}} pts) | {{team_of_interest.differential}}</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -45,33 +46,63 @@
                             <td></td>
                         </tr>
                     </table>
+                </div>
                 <h3 class="text-center">Coachs</h3>
-                <table class="table table-sm bg-lightgrey text-dark">
-                    <tr>
-                        <th>Team</th>
-                        <th>Coach</th>
-                        <th>Subleague</th>
-                        <th>Record</th>
-                        <th>Week 1</th>
-                        <th>Week 2</th>
-                        <th>Week 3</th>
-                        <th>Week 4</th>
-                        <th>Week 5</th>
-                    </tr>
-                    {% for team in team_of_interest.child_teams.all %}
-                    <tr>
-                        <td><a class="text-dark" href="{% url 'team_page' league_name=team.league_name.name subleague_name=team.subleague.subleague team_abbreviation=team.teamabbreviation %}"><div><img class="small-logo" src="{{team.logo.url }}">{{ team.teamname }}</div></a></td>
-                        <td>{{ team.coach.username }}</td>
-                        <td><a class="text-dark" href="{% url 'subleague_detail' league_name=team.league_name.name subleague_name=team.subleague.subleague %}">{{team.subleague.subleague}}</a></td>
-                        <td>{{team.wins}}-{{team.losses}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    {% endfor %}
-                </table>
+                <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                        <tr class="bg-dark text-light">
+                            <th>Team</th>
+                            <th>Coach</th>
+                            <th>Subleague</th>
+                            <th>Record (W-L | Diff)</th>
+                            {% with m=leagueteam_teams|first  %}
+                            {% for item in m|last %}
+                            <th>Week {{item.week}}</th>
+                            {% endfor %}
+                            {% endwith %}
+                        </tr>
+                        {% for team,schedule in leagueteam_teams %}
+                        <tr>
+                            <td><a class="text-dark"
+                                    href="{% url 'team_page' league_name=team.league_name.name subleague_name=team.subleague.subleague team_abbreviation=team.teamabbreviation %}">
+                                    <div><img class="small-logo" src="{{team.logo.url }}">{{ team.teamname }}</div>
+                                </a></td>
+                            <td>{{ team.coach.username }}</td>
+                            <td><a class="text-dark"
+                                    href="{% url 'subleague_detail' league_name=team.league_name.name subleague_name=team.subleague.subleague %}">{{team.subleague.subleague|replace:"_, "}}</a>
+                            </td>
+                            <td>{{team.wins}}-{{team.losses}} | 
+                                {% if team.differential > -1 %}
+                                +{{team.differential}}
+                                {% else %}
+                                {{team.differential}}
+                                {% endif %}
+                            </td>
+                            {% for item in schedule %}
+                            <td>
+                                {% if team == item.winner %}
+                                    W 
+                                    {% if item.team1score > item.team2score %}
+                                    ({{item.team1score}}-{{item.team2score}})
+                                    {% else %}
+                                    ({{item.team2score}}-{{item.team1score}})
+                                    {% endif %}
+                                {% elif item.replay == "Link"  %}
+                                    Unplayed
+                                {% else %}
+                                    L 
+                                    {% if item.team1score > item.team2score %}
+                                    ({{item.team1score}}-{{item.team2score}})
+                                    {% else %}
+                                    ({{item.team2score}}-{{item.team1score}})
+                                    {% endif %}
+                                {% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
         </div>
     </div>

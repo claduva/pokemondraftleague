@@ -111,3 +111,15 @@ def sprite(value,arg):
 def standings(query):
     resp=query.order_by('-wins','losses','-differential','teamname')
     return resp
+
+@register.filter(name='ordinal')
+def ordinal(query):
+    if query==1:
+        resp="1st"
+    elif query==2:
+        resp="2nd"
+    elif query==3:
+        resp="3rd"
+    else:
+        resp=str(query)+"th"
+    return resp

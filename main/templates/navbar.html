@@ -71,7 +71,7 @@
         </div>
       </div>
       {% elif leaguecomposite %}
-      <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name %}">{{ league_name }} Home</a>
+      <a class="nav-item nav-link" href="{% url 'league_detail' league_name=league_name|replace:' ,_' %}">{{ league_name }} Home</a>
       <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">Teams</a>

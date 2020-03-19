@@ -106,9 +106,19 @@ def teampage_detail(request,league_name,team_name):
     team_name=team_name.replace("_"," ")
     league_=league.objects.get(name=league_name)
     subleagues=league_.subleague.all().order_by('subleague')
-    league_teams=league_.leagueteam.all()
+    league_teams=league_.leagueteam.all().order_by('-points','-differential')
     team_of_interest=league_teams.get(name=team_name)
-    leagueteam_teams=None
+    leagueteam_teams_=team_of_interest.child_teams.all().order_by('-wins','losses','-differential','teamname')
+    leagueteam_teams=[]
+    for item in leagueteam_teams_:
+        teamschedule=schedule.objects.filter(Q(team1=item)|Q(team2=item)).order_by('duedate','week')
+        leagueteam_teams.append([item,teamschedule])
+    standings=1
+    for item in league_teams:
+        if item == team_of_interest:
+            break
+        else:
+            standings+=1
     context = {
         'league': league_,
         'league_name': league_name,
@@ -118,6 +128,7 @@ def teampage_detail(request,league_name,team_name):
         'league_teams':league_teams,
         'team_of_interest':team_of_interest,
         'leagueteam_teams':leagueteam_teams,
+        'standings':standings
     }
     return render(request, 'leagueteam_detail.html',context)
 
