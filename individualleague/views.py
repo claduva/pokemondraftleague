@@ -1021,6 +1021,11 @@ def freeagency(request,league_name,subleague_name):
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     season=subleague.seasonsetting
+    try:  
+        site_settings = request.user.sitesettings
+    except:
+        user=User.objects.get(username="defaultuser")
+        site_settings = user.sitesettings
     takenpokemon=list(roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True))
     pendingfreeagency=free_agency.objects.all().filter(executed=False,season=season)
     pendingdrops=list(pendingfreeagency.values_list('droppedpokemon',flat=True))
@@ -1032,6 +1037,9 @@ def freeagency(request,league_name,subleague_name):
         except:
             pass
     availablepokemon=pokemon_tier.objects.all().exclude(tier__tiername="Banned").exclude(pokemon__id__in=takenpokemon).filter(subleague=subleague).order_by("-tier__tierpoints",'pokemon__pokemon')
+    availablepokemonjson=[]
+    for item in availablepokemon:
+        availablepokemonjson.append([item.pokemon.pokemon,item.tier.tiername,item.tier.tierpoints,get_sprite_url(item.pokemon,site_settings.sprite),list(item.pokemon.types.all().values('typing'))])
     tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     userroster=roster.objects.all().filter(season=season,team__coach=request.user)
@@ -1082,6 +1090,7 @@ def freeagency(request,league_name,subleague_name):
     personalfreeagency=free_agency.objects.all().filter(season=season,coach__coach=request.user)
     context = {
         'availablepokemon':availablepokemon,
+        'availablepokemonjson':availablepokemonjson,
         'tierchoices':tierchoices,
         'types':types,
         'subleague': subleague,

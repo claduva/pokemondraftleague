@@ -77,16 +77,8 @@
         </div>
         <div class="text-center bg-dark text-light border rounded">Available Pokemon</div>
         <div class="card bg-lightgrey text-dark text-center table-responsive overflow-auto mb-3 overflow-auto" style="height: 400px;">
-            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center ">
-                {% for item in availablepokemon %}
-                <tr class="tieritem" data-tier="{{item.tier.tierpoints}}">
-                    <td><img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}} ({{item.tier.tiername}}: {{item.tier.tierpoints}} pts)
-                        {% for type in item.pokemon.types.all %}
-                        <div class="{{type.typing}}" hidden>{{type.typing}}</div>
-                        {% endfor %}
-                    </td>
-                </tr>
-                {% endfor %}
+            <table id="availabletable" class="table table-sm table-bordered table-striped p-0 m-0 text-center ">
+                
             </table>
         </div>
     </div>
@@ -135,5 +127,8 @@
 </div>
 {% endblock %}
 {% block footer %}
+<script>
+    var availablejson = {{availablepokemonjson|safe}}
+</script>
 <script src="{% static 'individualleague/scripts/draftfilter.js' %}"></script>
 {% endblock %}

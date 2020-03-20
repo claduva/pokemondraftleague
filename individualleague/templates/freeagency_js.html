@@ -1,0 +1,18 @@
+{% for item in availablepokemon %}
+                <tr class="tieritem" data-tier="{{item.tier.tierpoints}}">
+                    <td><img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}} ({{item.tier.tiername}}: {{item.tier.tierpoints}} pts)
+                        {% for type in item.pokemon.types.all %}
+                        <div class="{{type.typing}}" hidden>{{type.typing}}</div>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+                {% for item,rosterspot in availablepokemon %}
+                <tr class="tieritem" data-tier="{{item.tier.tierpoints}}">
+                    <td><img class="smallsprite" src="{{rosterspot.team.logo.url}}">{{rosterspot.team.teamabbreviation}} | <img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}} ({{item.tier.tiername}}: {{item.tier.tierpoints}} pts)
+                        {% for type in item.pokemon.types.all %}
+                        <div class="{{type.typing}}" hidden>{{type.typing}}</div>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
