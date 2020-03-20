@@ -1090,7 +1090,7 @@ def freeagency(request,league_name,subleague_name):
                 faoi.save()
                 discordserver=subleague.discord_settings.discordserver
                 discordchannel=subleague.discord_settings.freeagencychannel
-                title=f"The {coi.teamname} have used a free agency to drop {droppedpokemon.pokemon} for {addedpokemon.pokemon}. Effective Week {weekeffective}."
+                title=f"The {coi.teamname} have used a free agency to drop {faoi.droppedpokemon.pokemon} for {faoi.addedpokemon.pokemon}. Effective Week {weekeffective}."
                 messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
                 freeagency_announcements.objects.create(league = discordserver,league_name = subleague.league.name,text = title,freeagencychannel = discordchannel)
             else:
