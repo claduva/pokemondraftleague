@@ -1057,6 +1057,7 @@ def freeagency(request,league_name,subleague_name):
         print(e)
         form=None
     if request.method=="POST":
+        print(f'formpurpose: {formpurpose}')
         formpurpose=request.POST['formpurpose']
         if formpurpose=="Submit":
             """
