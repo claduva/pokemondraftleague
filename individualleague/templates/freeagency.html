@@ -40,19 +40,18 @@
                 {% if fa_remaining > 0 %}
                 <tr class="bg-dark text-light"><th colspan="3">Submit New Free Agency</th></tr>
                 <form method="post">{% csrf_token %}
+                    <div hidden>
+                        {{form.coach}}
+                        {{form.season}}
+                        {{form.weekeffective}}
+                    </div>
                     <tr>
                         <th class="bg-dark text-light">Dropped Pokemon</th>
-                        <td colspan="2">
-                            <select name="droppedpokemon" class="form-control form-control-sm">
-                                {% for item in userroster %}
-                                <option value="{{ item.id }}">{{item.pokemon.pokemon}}</option>
-                                {% endfor %}
-                            </select>
-                        </td>
+                        <td colspan="2">{{form.droppedpokemon}}</td>
                     </tr>
                     <tr>
                         <th class="bg-dark text-light">Added Pokemon</th>
-                        <td colspan="2"><input name="addedpokemon" class="form-control form-control-sm" type="text" list="availablepokemon"></td>
+                        <td colspan="2">{{form.addedpokemon}}</td>
                     </tr>
                     <tr><td colspan="3"><input name="formpurpose" class="btn btn-sm btn-primary form-control form-control-sm" type="submit"></td></tr>
                 </form>

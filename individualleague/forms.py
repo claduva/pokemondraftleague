@@ -18,11 +18,10 @@ class FreeAgencyForm(forms.ModelForm):
         exclude = ['executed']
         widgets = {'season': forms.HiddenInput(),'coach':forms.HiddenInput(),'weekeffective':forms.HiddenInput()}
 
-    def __init__(self,coachroster,availablepokemon, *args, **kwargs):
+    def __init__(self,droppedpokemon,availablepokemon, *args, **kwargs):
         super(FreeAgencyForm, self).__init__(*args, **kwargs)
-        self.fields['droppedpokemon'].queryset = coachroster
-        self.fields['droppedpokemon'].label_from_instance = lambda obj: obj.pokemon
-        self.fields['addedpokemon'].queryset = availablepokemon
+        self.fields['droppedpokemon'].queryset = all_pokemon.objects.all().filter(id__in=droppedpokemon.values_list('pokemon',flat=True))
+        self.fields['addedpokemon'].queryset = all_pokemon.objects.all().filter(id__in=availablepokemon.values_list('pokemon',flat=True))
 
 class TradeRequestForm(forms.ModelForm):
     

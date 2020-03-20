@@ -1046,9 +1046,20 @@ def freeagency(request,league_name,subleague_name):
     pointsremaining=season.draftbudget
     for item in userroster:
         pointsremaining+=-pokemon_tier.objects.filter(subleague=subleague).get(pokemon=item.pokemon).tier.tierpoints
+    try:
+        coi=subleague.subleague_coachs.all().filter(Q(coach=request.user)|Q(teammate=request.user)).first()
+        droppedpokemon=coi.teamroster.all()
+        form=FreeAgencyForm(droppedpokemon,availablepokemon,initial={
+            'coach':coi,
+            'season':season,
+        })
+    except Exception as e:
+        print(e)
+        form=None
     if request.method=="POST":
         formpurpose=request.POST['formpurpose']
         if formpurpose=="Submit":
+            """
             droppedpokemon=userroster.get(id=request.POST['droppedpokemon'])
             addedpokemon=request.POST['addedpokemon']
             try:
@@ -1060,25 +1071,29 @@ def freeagency(request,league_name,subleague_name):
                 messages.error(request,f'{addedpokemon} is already taken!',extra_tags='danger')
                 return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
             faoi=free_agency.objects.create(coach=droppedpokemon.team,season=season,droppedpokemon=droppedpokemon.pokemon,addedpokemon=addedpokemon)
-            timeadded=faoi.timeadded
-            seasonstart=season.seasonstart
-            if timeadded<seasonstart:
-                weekeffective=1
+            """
+            form=FreeAgencyForm(droppedpokemon,availablepokemon,request.POST)
+            if form.is_valid():
+                faoi=form.save()
+                timeadded=faoi.timeadded
+                seasonstart=season.seasonstart
+                if timeadded>=seasonstart:
+                    try:
+                        associatedschedule=season.schedule.all().filter(duedate__isnull=False)
+                        weekeffective=associatedschedule.filter(duedate__gt=timeadded).first()
+                        weekeffective=associatedschedule.filter(duedate__gt=weekeffective.duedate).first().week
+                    except:
+                        elapsed=timeadded-seasonstart
+                        weekeffective=math.ceil(elapsed.days/7)
+                faoi.weekeffective=weekeffective
+                faoi.save()
+                discordserver=subleague.discord_settings.discordserver
+                discordchannel=subleague.discord_settings.freeagencychannel
+                title=f"The {coi.teamname} have used a free agency to drop {droppedpokemon.pokemon} for {addedpokemon.pokemon}. Effective Week {weekeffective}."
+                messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
+                freeagency_announcements.objects.create(league = discordserver,league_name = subleague.league.name,text = title,freeagencychannel = discordchannel)
             else:
-                try:
-                    associatedschedule=season.schedule.all().filter(duedate__isnull=False)
-                    weekeffective=associatedschedule.filter(duedate__gt=timeadded).first()
-                    weekeffective=associatedschedule.filter(duedate__gt=weekeffective.duedate).first().week
-                except:
-                    elapsed=timeadded-seasonstart
-                    weekeffective=math.ceil(elapsed.days/7)
-            faoi.weekeffective=weekeffective
-            faoi.save()
-            discordserver=subleague.discord_settings.discordserver
-            discordchannel=subleague.discord_settings.freeagencychannel
-            title=f"The {droppedpokemon.team.teamname} have used a free agency to drop {droppedpokemon.pokemon.pokemon} for {addedpokemon.pokemon}. Effective Week {weekeffective}."
-            messages.success(request,f'You free agency request has been added to the queue and will be implemented following completion of this week\'s match!')
-            freeagency_announcements.objects.create(league = discordserver,league_name = subleague.league.name,text = title,freeagencychannel = discordchannel)
+                print(form.errors)
             return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
         elif formpurpose=="Undo":
             ooi=free_agency.objects.get(id=request.POST['freeagencyid'])
@@ -1103,6 +1118,7 @@ def freeagency(request,league_name,subleague_name):
         'personalfreeagency':personalfreeagency,
         'userroster':userroster,
         'pointsremaining':pointsremaining,
+        'form':form,
     }
     return render(request, 'freeagency.html',context)
 
