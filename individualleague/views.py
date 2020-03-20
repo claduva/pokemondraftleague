@@ -119,6 +119,25 @@ def teampage_detail(request,league_name,team_name):
             break
         else:
             standings+=1
+    teamschedule=[]
+    teamschedule_=schedule.objects.all().filter(Q(team1=leagueteam_teams_.first())|Q(team2=leagueteam_teams_.first())).order_by('duedate','week')
+    for match in teamschedule_:
+        #find opponent
+        opponent=None
+        if team_of_interest==match.team1.parent_team:
+            opponent=match.team2.parent_team
+        elif team_of_interest==match.team2.parent_team:
+            opponent=match.team1.parent_team
+        #weekly record
+        wins=0
+        losses=0
+        weeksmatches=schedule.objects.all().filter(Q(team1__parent_team=team_of_interest)|Q(team2__parent_team=team_of_interest)).filter(week=match.week).exclude(replay="Link").exclude(winner__isnull=True)
+        for m in weeksmatches:
+            if m.winner and m.winner.parent_team==team_of_interest:
+                wins+=1 
+            else: 
+                losses+=1
+        teamschedule.append([opponent,wins,losses,match.week])
     context = {
         'league': league_,
         'league_name': league_name,
@@ -128,7 +147,8 @@ def teampage_detail(request,league_name,team_name):
         'league_teams':league_teams,
         'team_of_interest':team_of_interest,
         'leagueteam_teams':leagueteam_teams,
-        'standings':standings
+        'standings':standings,
+        'teamschedule':teamschedule,
     }
     return render(request, 'leagueteam_detail.html',context)
 

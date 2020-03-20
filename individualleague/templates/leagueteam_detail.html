@@ -39,15 +39,12 @@
                             <td>{{team_of_interest.captain.username}}</td>
                             <td>{{standings|ordinal}}</td>
                             <td>{{team_of_interest.wins}}-{{team_of_interest.losses}}-{{team_of_interest.ties}} ({{team_of_interest.points}} pts) | {{team_of_interest.differential}}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            {% for week,wins,losses,weeknum in teamschedule %}
+                            <td><a class="text-dark" href="{% url 'composite_weekly_matchup' league_name=league_name week=weeknum teamname=team_of_interest.name|replace:' ,_' %}">{{wins}}-{{losses}} (vs {{week.shortname}})</a></td>
+                            {% endfor %}
                         </tr>
                     </table>
                 </div>
-                <h3 class="text-center">Coachs</h3>
                 <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
                     <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                         <tr class="bg-dark text-light">
@@ -81,6 +78,7 @@
                             {% for item in schedule %}
                             <td>
                                 {% if team == item.winner %}
+                                <a class="text-dark" href="{% url 'league_match_results' league_name=item.season.league.name subleague_name=item.season.subleague.subleague matchid=item.id %}">
                                     W 
                                     {% if item.team1score > item.team2score %}
                                     ({{item.team1score}}-{{item.team2score}})
@@ -88,8 +86,10 @@
                                     ({{item.team2score}}-{{item.team1score}})
                                     {% endif %}
                                 {% elif item.replay == "Link"  %}
-                                    Unplayed
+                                <a class="text-dark" href="{% url 'league_matchup' league_name=item.season.league.name subleague_name=item.season.subleague.subleague matchid=item.id %}">
+                                    Matchup
                                 {% else %}
+                                <a class="text-dark" href="{% url 'league_match_results' league_name=item.season.league.name subleague_name=item.season.subleague.subleague matchid=item.id %}">
                                     L 
                                     {% if item.team1score > item.team2score %}
                                     ({{item.team1score}}-{{item.team2score}})
@@ -97,6 +97,7 @@
                                     ({{item.team2score}}-{{item.team1score}})
                                     {% endif %}
                                 {% endif %}
+                                </a>
                             </td>
                             {% endfor %}
                         </tr>
