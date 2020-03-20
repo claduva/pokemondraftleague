@@ -82,8 +82,6 @@ class LeavePickForm(forms.ModelForm):
         super(LeavePickForm, self).__init__(*args, **kwargs)
         self.fields['pick'].queryset = availablepokemon.order_by('pokemon')
         self.fields['backup'].queryset = availablepokemon.order_by('pokemon')
-        self.fields['pick'].widget.attrs['class'] = 'form-control'
-        self.fields['backup'].widget.attrs['class'] = 'form-control'
 
 class ChangeMatchAttributionForm(forms.ModelForm):
     

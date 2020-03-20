@@ -2,6 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% load extratags %}
+{% load widget_tweaks %}
 
 {% block title %}{{league_name}}: Free Agency{% endblock %}
 {% block head%}
@@ -47,11 +48,11 @@
                     </div>
                     <tr>
                         <th class="bg-dark text-light">Dropped Pokemon</th>
-                        <td colspan="2">{{form.droppedpokemon}}</td>
+                        <td colspan="2">{{form.droppedpokemon|add_class:"form-control"|add_class:"form-control-sm"}}</td>
                     </tr>
                     <tr>
                         <th class="bg-dark text-light">Added Pokemon</th>
-                        <td colspan="2">{{form.addedpokemon}}</td>
+                        <td colspan="2">{{form.addedpokemon|add_class:"form-control"|add_class:"form-control-sm"}}</td>
                     </tr>
                     <tr><td colspan="3"><input name="formpurpose" class="btn btn-sm btn-primary form-control form-control-sm" type="submit" value="Submit"></td></tr>
                 </form>

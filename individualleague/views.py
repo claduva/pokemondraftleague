@@ -1058,21 +1058,7 @@ def freeagency(request,league_name,subleague_name):
         form=None
     if request.method=="POST":
         formpurpose=request.POST['formpurpose']
-        print(f'formpurpose: {formpurpose}')
         if formpurpose=="Submit":
-            """
-            droppedpokemon=userroster.get(id=request.POST['droppedpokemon'])
-            addedpokemon=request.POST['addedpokemon']
-            try:
-                addedpokemon=all_pokemon.objects.get(pokemon=addedpokemon)
-            except: 
-                messages.error(request,f'{addedpokemon} is not a pokemon!',extra_tags='danger')
-                return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
-            if addedpokemon.id in takenpokemon:
-                messages.error(request,f'{addedpokemon} is already taken!',extra_tags='danger')
-                return redirect('free_agency',league_name=league_name,subleague_name=subleague_name)
-            faoi=free_agency.objects.create(coach=droppedpokemon.team,season=season,droppedpokemon=droppedpokemon.pokemon,addedpokemon=addedpokemon)
-            """
             form=FreeAgencyForm(droppedpokemon,availablepokemon,request.POST)
             if form.is_valid():
                 faoi=form.save()
