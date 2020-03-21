@@ -8,118 +8,124 @@
 {% endblock %}
 {% block body %}
 <div class="row content-section align-items-center">
-    <div class="col-md-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}"
-            class="rounded-circle mediumlogo">
+    <div class="col-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="mediumlogo">
     </div>
-    <div class="col-md-4">
+    <div class="col-4">
         <h3 class="d-flex justify-content-center">{{ title }}</h3>
     </div>
-    <div class="col-md-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}"
-            class="rounded-circle mediumlogo">
+    <div class="col-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}" class="mediumlogo">
     </div>
 </div>
 {% if pokedexitem %}
 <div class="row content-section">
     <div class="col-md-4">
-        <table class="table table-sm bg-lightgrey text-dark text-center">
-            <tr>
-                <th>
-                    <object class="mediumlogo" data="{{pokemon_data.pokemon|sprite:site_settings.sprite}}" type="image/png">
-                    <img src="http://play.pokemonshowdown.com/sprites/ani/unown-question.gif"
-                        class="mediumlogo">
-                    </object>
-                </th>
-            </tr>
-            <tr>
-                <th>{{ pokemon_data.pokemon }}</th>
-            </tr>
-            <tr>
-                <td class="d-flex justify-content-center">
-                    {% for item in pokemon_data.types.all %}
-                    <div class="mx-1"><img
-                            src="https://play.pokemonshowdown.com/sprites/types/{{item.typing|cut:' '}}.png"></div>
-                    {% endfor %}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div><strong>Abilities</strong></div>
-                    {% for item in pokemon_data.abilities.all %}
-                    <div>{{item.ability}}</div>
-                    {% endfor %}
-                </td>
-            </tr>
-            <tr>
-                <td>HP: {{ pokemon_data.hp }}</td>
-            </tr>
-            <tr>
-                <td>Attack: {{ pokemon_data.attack }}</td>
-            </tr>
-            <tr>
-                <td>Defense: {{ pokemon_data.defense }}</td>
-            </tr>
-            <tr>
-                <td>Special Attack: {{ pokemon_data.s_attack }}</td>
-            </tr>
-            <tr>
-                <td>Special Defense: {{ pokemon_data.s_defense }}</td>
-            </tr>
-            <tr>
-                <td>Speed: {{ pokemon_data.speed }}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div><strong>Useful Moves</strong></div>
-                    {% for item in pokemon_data.moves.all %}
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th>
+                        <object class="mediumlogo" data="{{pokemon_data.pokemon|sprite:site_settings.sprite}}"
+                            type="image/png">
+                            <img src="http://play.pokemonshowdown.com/sprites/ani/unown-question.gif"
+                                class="mediumlogo">
+                        </object>
+                    </th>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>{{ pokemon_data.pokemon }}</th>
+                </tr>
+                <tr>
+                    <td class="d-flex justify-content-center">
+                        {% for item in pokemon_data.types.all %}
+                        <div class="mx-1"><img
+                                src="https://play.pokemonshowdown.com/sprites/types/{{item.typing|cut:' '}}.png"></div>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div><strong>Abilities</strong></div>
+                        {% for item in pokemon_data.abilities.all %}
+                        <div>{{item.ability}}</div>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>HP: {{ pokemon_data.hp }}</td>
+                </tr>
+                <tr>
+                    <td>Attack: {{ pokemon_data.attack }}</td>
+                </tr>
+                <tr>
+                    <td>Defense: {{ pokemon_data.defense }}</td>
+                </tr>
+                <tr>
+                    <td>Special Attack: {{ pokemon_data.s_attack }}</td>
+                </tr>
+                <tr>
+                    <td>Special Defense: {{ pokemon_data.s_defense }}</td>
+                </tr>
+                <tr>
+                    <td>Speed: {{ pokemon_data.speed }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div><strong>Useful Moves</strong></div>
+                        {% for item in pokemon_data.moves.all %}
                         {% if item.moveinfo.name == "Stealth Rock" or item.moveinfo.name == "Spikes" or item.moveinfo.name == "Toxic Spikes" or item.moveinfo.name == "Sticky Web" or item.moveinfo.name == "Wish" or item.moveinfo.name == "Heal Bell" or item.moveinfo.name == "Aromatherapy" or item.moveinfo.name == "Rapid Spin" or item.moveinfo.name == "Defog" %}
-                            <div>{{item.moveinfo.name}}</div>
+                        <div>{{item.moveinfo.name}}</div>
                         {% endif %}
-                    {% endfor %}
-                </td>
-            </tr>
-        </table>
+                        {% endfor %}
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div class="col-md-4">
-        <table class="table table-sm bg-lightgrey text-dark text-center">
-            <tr>
-                <th>Statistics</th>
-            </tr>
-            <tr>
-                <td>Times Drafted: {{ pokemon_data.timesdrafted }}</td>
-            </tr>
-            <tr>
-                <td>Kills: {{ pokemon_data.kills }}</td>
-            </tr>
-            <tr>
-                <td>Deaths: {{ pokemon_data.deaths }}</td>
-            </tr>
-            <tr>
-                <td>+/-: {{ pokemon_data.differential }}</td>
-            </tr>
-            <tr>
-                <td>GP: {{ pokemon_data.gp }}</td>
-            </tr>
-            <tr>
-                <td>GW: {{ pokemon_data.gw }}</td>
-            </tr>
-        </table>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th>Statistics</th>
+                </tr>
+                <tr>
+                    <td>Times Drafted: {{ pokemon_data.timesdrafted }}</td>
+                </tr>
+                <tr>
+                    <td>Kills: {{ pokemon_data.kills }}</td>
+                </tr>
+                <tr>
+                    <td>Deaths: {{ pokemon_data.deaths }}</td>
+                </tr>
+                <tr>
+                    <td>+/-: {{ pokemon_data.differential }}</td>
+                </tr>
+                <tr>
+                    <td>GP: {{ pokemon_data.gp }}</td>
+                </tr>
+                <tr>
+                    <td>GW: {{ pokemon_data.gw }}</td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div class="col-md-4">
-        <table class="table table-sm bg-lightgrey text-dark text-center">
-            <tr>
-                <th>Tiering</th>
-            </tr>
-            {% for item in pokemon_data.pokemon_tiers.all %}
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <div class="small-logo mx-1"><img class="img-fluid" src="{{item.league.logo.url}}"></div>
-                        <div>{{item.league.name}}: {{item.tier.tiername}}</div>
-                    </div>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th>Tiering</th>
+                </tr>
+                {% for item in pokemon_data.pokemon_tiers.all %}
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <div class="small-logo mx-1"><img class="img-fluid" src="{{item.league.logo.url}}"></div>
+                            <div>{{item.league.name}}: {{item.tier.tiername}}</div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 </div>
 {% elif pokedex %}
@@ -139,6 +145,6 @@
 {% endblock %}
 {% block footer %}
 {% if form %}
-    {{ form.media }}
+{{ form.media }}
 {% endif %}
 {% endblock %}

@@ -9,13 +9,13 @@
 {% block body %}
 <div class="row bg-darkgrey rounded text-light mb-2 align-items-center">
     <div class="col-3">
-        <div class="bg-lightgrey text-dark text-center border my-2 rounded">
+        <div class="bg-dark text-light text-center border my-2 p-2 rounded">
             <strong>Current Draft Name</strong>
             <input id="draftname" type="text" value="{{defaultname}}">
         </div>
     </div>
     <div class="col-3">
-        <div class="bg-lightgrey text-dark text-center border my-2 rounded align-items-stretch">
+        <div class="bg-dark text-light text-center border my-2 p-2 rounded align-items-stretch">
             <strong>Associated League</strong>
                 <select id="associatedleague">
                     <option value="None">None Selected</option>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="col-3">
-        <div class="bg-lightgrey text-dark text-center border my-2 rounded">
+        <div class="bg-dark text-light text-center border my-2 p-2 rounded">
             <strong>Load Existing Draft</strong>
                 <select id="draftselect">
                     <option value="None">None Selected</option>
@@ -38,16 +38,8 @@
         </div>
     </div>
     <div class="col-3">
-        <div class="bg-lightgrey text-dark text-center border my-2 rounded">
-            <strong>Delete Current Draft</strong>
-            <button id="deletebutton" class="btn btn-danger btn-sm">Delete</button>
-        </div>
-    </div>
-</div>
-<div class="row bg-darkgrey rounded text-light mb-2 align-items-center">
-    <div class="col-12">
-        <div class="bg-lightgrey text-dark text-center border my-2 rounded">
-            <h2>Draft Score: <span id="draftscore">0</span>/100</strong>
+        <div class="bg-dark text-light text-center border my-2 p-2 rounded">
+            <button id="deletebutton" class="btn btn-danger btn-sm">Delete Current Draft</button>
         </div>
     </div>
 </div>
@@ -83,10 +75,18 @@
         </div>
     </div>
 </div>
+<div class="row bg-darkgrey rounded text-light mb-2 align-items-center">
+    <div class="col-12">
+        <div class="bg-lightgrey text-dark text-center border my-2 rounded">
+            <h2>Draft Score: <span id="draftscore">0</span>/100</strong>
+        </div>
+    </div>
+</div>
 <div class="row bg-darkgrey rounded text-light mb-2 justify-content align-items-center">
     <div class="col-sm-4 mt-2">
-        <table class="table table-sm rounded bg-lightgrey text-center text-dark">
-            <tr>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
                 <th colspan="2">Important Moves</th>
             </tr>
             <tr>
@@ -126,10 +126,12 @@
                 <td id="Priority">None</td>
             </tr>
         </table>
+        </div>
     </div>
     <div class="col-sm-4 mt-2">
-        <table class="table table-sm bg-lightgrey text-center text-dark rounded">
-            <tr>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
                 <th colspan="3">Cores</th>
             </tr>
             <tr>
@@ -180,10 +182,12 @@
                 <td id="Ghost" colspan="3">X</td>
             </tr>
         </table>
+        </div>
     </div>
     <div class="col-sm-4 mt-2">
-        <table class="table table-sm rounded bg-lightgrey text-center text-dark">
-            <tr>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
                 <th colspan="2">Speed Tiers</th>
             </tr>
             <tr>
@@ -215,10 +219,12 @@
                 <td id="largestspeedgap">N/A</td>
             </tr>
         </table>
+        </div>
     </div>
     <div class="col-sm-6">
-        <table class="table table-sm bg-lightgrey rounded text-dark text-center">
-            <tr>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
                 <th colspan="3">Weaknesses</td>
             </tr>
             <tr>
@@ -317,10 +323,12 @@
                 <td id="Water-2"></td>
             </tr>
         </table>
+        </div>
     </div>
     <div class="col-sm-6">
-        <table class="table table-sm bg-lightgrey rounded text-dark text-center">
-            <tr>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
                 <th colspan="4">Resistances</td>
             </tr>
             <tr>
@@ -438,6 +446,7 @@
                 <td id="Water1"></td>
             </tr>
         </table>
+        </div>
     </div>
 </div>
 {% endblock %}
