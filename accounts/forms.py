@@ -22,10 +22,10 @@ class ProfileUpdateForm(forms.ModelForm):
     pfp=forms.FileField(widget=FileInput,required=False)
     class Meta:
         model = profile
-        fields = ['pfp','discordid']
+        fields = ['pfp','coachdata','discordid']
         labels = {
-        "pfp": "Profile Picture"
-        
+        "pfp": "Profile Picture",
+        "coachdata": "Coach Biography"
     }
 
 class SiteSettingUpdateForm(forms.ModelForm):

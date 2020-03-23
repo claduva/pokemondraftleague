@@ -27,6 +27,12 @@
                         <td>+/-: {{ userofinterest.profile.differential }}</td>
                         <td>Win%: {{winpercent}}</td>
                     </tr>
+                    <tr class="bg-dark text-light">
+                        <th colspan="2">Coach Biography</th>
+                    </tr>
+                    <tr>
+                    <td colspan="2">{{ userofinterest.profile.coachdata }}</td>
+                </tr>
                 </table>
             </div>
             {% if userofinterest.coaching.all or userofinterest.teammate.all or userofinterest.alternate.all %}
