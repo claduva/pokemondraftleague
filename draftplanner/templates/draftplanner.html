@@ -17,24 +17,24 @@
     <div class="col-3">
         <div class="bg-dark text-light text-center border my-2 p-2 rounded align-items-stretch">
             <strong>Associated League</strong>
-                <select id="associatedleague">
-                    <option value="None">None Selected</option>
-                    {% for item in allleagues %}
-                    <option value={{item.id}}>{{item.name}}</option>
-                    {% endfor %}
-                </select>
+            <select id="associatedleague">
+                <option value="None">None Selected</option>
+                {% for item in allleagues %}
+                <option value={{item.id}}>{{item.name}}</option>
+                {% endfor %}
+            </select>
         </div>
     </div>
     <div class="col-3">
         <div class="bg-dark text-light text-center border my-2 p-2 rounded">
             <strong>Load Existing Draft</strong>
-                <select id="draftselect">
-                    <option value="None">None Selected</option>
-                    {% for item in usersdrafts %}
-                    <option value={{item.id}}>{{item.draftname}}</option>
-                    {% endfor %}
-                </select>
-                <button id="loadbutton" class="btn btn-primary btn-sm">Load</button>
+            <select id="draftselect">
+                <option value="None">None Selected</option>
+                {% for item in usersdrafts %}
+                <option value={{item.id}}>{{item.draftname}}</option>
+                {% endfor %}
+            </select>
+            <button id="loadbutton" class="btn btn-primary btn-sm">Load</button>
         </div>
     </div>
     <div class="col-3">
@@ -87,365 +87,365 @@
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
-                <th colspan="2">Important Moves</th>
-            </tr>
-            <tr>
-                <td>Stealth Rock</td>
-                <td id="StealthRock">None</td>
-            </tr>
-            <tr>
-                <td>Spikes</td>
-                <td id="Spikes">None</td>
-            </tr>
-            <tr>
-                <td>Toxic Spikes</td>
-                <td id="ToxicSpikes">None</td>
-            </tr>
-            <tr>
-                <td>Sticky Web</td>
-                <td id="StickyWeb">None</td>
-            </tr>
-            <tr>
-                <td>Defog</td>
-                <td id="Defog">None</td>
-            </tr>
-            <tr>
-                <td>Rapid Spin</td>
-                <td id="RapidSpin">None</td>
-            </tr>
-            <tr>
-                <td>Heal Bell/Aromatherapy</td>
-                <td id="Cleric">None</td>
-            </tr>
-            <tr>
-                <td>Wish</td>
-                <td id="Wish">None</td>
-            </tr>
-            <tr>
-                <td>Priority</td>
-                <td id="Priority">None</td>
-            </tr>
-        </table>
+                    <th colspan="2">Important Moves</th>
+                </tr>
+                <tr>
+                    <td>Stealth Rock</td>
+                    <td id="StealthRock">None</td>
+                </tr>
+                <tr>
+                    <td>Spikes</td>
+                    <td id="Spikes">None</td>
+                </tr>
+                <tr>
+                    <td>Toxic Spikes</td>
+                    <td id="ToxicSpikes">None</td>
+                </tr>
+                <tr>
+                    <td>Sticky Web</td>
+                    <td id="StickyWeb">None</td>
+                </tr>
+                <tr>
+                    <td>Defog</td>
+                    <td id="Defog">None</td>
+                </tr>
+                <tr>
+                    <td>Rapid Spin</td>
+                    <td id="RapidSpin">None</td>
+                </tr>
+                <tr>
+                    <td>Heal Bell/Aromatherapy</td>
+                    <td id="Cleric">None</td>
+                </tr>
+                <tr>
+                    <td>Wish</td>
+                    <td id="Wish">None</td>
+                </tr>
+                <tr>
+                    <td>Priority</td>
+                    <td id="Priority">None</td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="col-sm-4 mt-2">
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
-                <th colspan="3">Cores</th>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Grass.png"></td>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Fire.png"></td>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Water.png"></td>
-            </tr>
-            <tr>
-                <td id="Grass">X</td>
-                <td id="Fire">X</td>
-                <td id="Water">X</td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Dark.png"></td>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Fighting.png"></td>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Psychic.png"></td>
-            </tr>
-            <tr>
-                <td id="Dark">X</td>
-                <td id="Fighting">X</td>
-                <td id="Psychic">X</td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Dragon.png"></td>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Fairy.png"></td>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Steel.png"></td>
-            </tr>
-            <tr>
-                <td id="Dragon">X</td>
-                <td id="Fairy">X</td>
-                <td id="Steel">X</td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Electric.png"></td>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Ground.png"></td>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Poison.png"></td>
-            </tr>
-            <tr>
-                <td id="Electric">X</td>
-                <td id="Ground">X</td>
-                <td id="Poison">X</td>
-            </tr>
-            <tr>
-            <tr>
-                <td colspan="3"><img src="https://play.pokemonshowdown.com/sprites/types/Ghost.png"></td>
-            </tr>
-            <tr>
-                <td id="Ghost" colspan="3">X</td>
-            </tr>
-        </table>
+                    <th colspan="3">Cores</th>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Grass.png"></td>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fire.png"></td>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Water.png"></td>
+                </tr>
+                <tr>
+                    <td id="Grass">X</td>
+                    <td id="Fire">X</td>
+                    <td id="Water">X</td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Dark.png"></td>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fighting.png"></td>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Psychic.png"></td>
+                </tr>
+                <tr>
+                    <td id="Dark">X</td>
+                    <td id="Fighting">X</td>
+                    <td id="Psychic">X</td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Dragon.png"></td>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fairy.png"></td>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Steel.png"></td>
+                </tr>
+                <tr>
+                    <td id="Dragon">X</td>
+                    <td id="Fairy">X</td>
+                    <td id="Steel">X</td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Electric.png"></td>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ground.png"></td>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Poison.png"></td>
+                </tr>
+                <tr>
+                    <td id="Electric">X</td>
+                    <td id="Ground">X</td>
+                    <td id="Poison">X</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td colspan="3"><img src="https://play.pokemonshowdown.com/sprites/types/Ghost.png"></td>
+                </tr>
+                <tr>
+                    <td id="Ghost" colspan="3">X</td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="col-sm-4 mt-2">
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
-                <th colspan="2">Speed Tiers</th>
-            </tr>
-            <tr>
-                <td>&#60;=30</td>
-                <td id="speed_g1">None</td>
-            </tr>
-            <tr>
-                <td>31-50</td>
-                <td id="speed_g2">None</td>
-            </tr>
-            <tr>
-                <td>51-70</td>
-                <td id="speed_g3">None</td>
-            </tr>
-            <tr>
-                <td>71-90</td>
-                <td id="speed_g4">None</td>
-            </tr>
-            <tr>
-                <td>91-110</td>
-                <td id="speed_g5">None</td>
-            </tr>
-            <tr>
-                <td>&#62;110</td>
-                <td id="speed_g6">None</td>
-            </tr>
-            <tr>
-                <td>Largest Speed Gap</td>
-                <td id="largestspeedgap">N/A</td>
-            </tr>
-        </table>
+                    <th colspan="2">Speed Tiers</th>
+                </tr>
+                <tr>
+                    <td>&#60;=30</td>
+                    <td id="speed_g1">None</td>
+                </tr>
+                <tr>
+                    <td>31-50</td>
+                    <td id="speed_g2">None</td>
+                </tr>
+                <tr>
+                    <td>51-70</td>
+                    <td id="speed_g3">None</td>
+                </tr>
+                <tr>
+                    <td>71-90</td>
+                    <td id="speed_g4">None</td>
+                </tr>
+                <tr>
+                    <td>91-110</td>
+                    <td id="speed_g5">None</td>
+                </tr>
+                <tr>
+                    <td>&#62;110</td>
+                    <td id="speed_g6">None</td>
+                </tr>
+                <tr>
+                    <td>Largest Speed Gap</td>
+                    <td id="largestspeedgap">N/A</td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="col-sm-6">
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
-                <th colspan="3">Weaknesses</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <th>x2</th>
-                <th>x4</th>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Bug.png"></td>
-                <td id="Bug-1"></td>
-                <td id="Bug-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Dark.png"></td>
-                <td id="Dark-1"></td>
-                <td id="Dark-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Dragon.png"></td>
-                <td id="Dragon-1"></td>
-                <td id="Dragon-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Electric.png"></td>
-                <td id="Electric-1"></td>
-                <td id="Electric-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Fairy.png"></td>
-                <td id="Fairy-1"></td>
-                <td id="Fairy-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Fighting.png"></td>
-                <td id="Fighting-1"></td>
-                <td id="Fighting-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Fire.png"></td>
-                <td id="Fire-1"></td>
-                <td id="Fire-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Flying.png"></td>
-                <td id="Flying-1"></td>
-                <td id="Flying-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Ghost.png"></td>
-                <td id="Ghost-1"></td>
-                <td id="Ghost-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Grass.png"></td>
-                <td id="Grass-1"></td>
-                <td id="Grass-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Ground.png"></td>
-                <td id="Ground-1"></td>
-                <td id="Ground-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Ice.png"></td>
-                <td id="Ice-1"></td>
-                <td id="Ice-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Normal.png"></td>
-                <td id="Normal-1"></td>
-                <td id="Normal-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Poison.png"></td>
-                <td id="Poison-1"></td>
-                <td id="Poison-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Psychic.png"></td>
-                <td id="Psychic-1"></td>
-                <td id="Psychic-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Rock.png"></td>
-                <td id="Rock-1"></td>
-                <td id="Rock-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Steel.png"></td>
-                <td id="Steel-1"></td>
-                <td id="Steel-2"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Water.png"></td>
-                <td id="Water-1"></td>
-                <td id="Water-2"></td>
-            </tr>
-        </table>
+                    <th colspan="3">Weaknesses</th>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <th>x2</th>
+                    <th>x4</th>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Bug.png"></td>
+                    <td id="Bug-1"></td>
+                    <td id="Bug-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Dark.png"></td>
+                    <td id="Dark-1"></td>
+                    <td id="Dark-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Dragon.png"></td>
+                    <td id="Dragon-1"></td>
+                    <td id="Dragon-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Electric.png"></td>
+                    <td id="Electric-1"></td>
+                    <td id="Electric-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fairy.png"></td>
+                    <td id="Fairy-1"></td>
+                    <td id="Fairy-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fighting.png"></td>
+                    <td id="Fighting-1"></td>
+                    <td id="Fighting-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fire.png"></td>
+                    <td id="Fire-1"></td>
+                    <td id="Fire-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Flying.png"></td>
+                    <td id="Flying-1"></td>
+                    <td id="Flying-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ghost.png"></td>
+                    <td id="Ghost-1"></td>
+                    <td id="Ghost-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Grass.png"></td>
+                    <td id="Grass-1"></td>
+                    <td id="Grass-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ground.png"></td>
+                    <td id="Ground-1"></td>
+                    <td id="Ground-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ice.png"></td>
+                    <td id="Ice-1"></td>
+                    <td id="Ice-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Normal.png"></td>
+                    <td id="Normal-1"></td>
+                    <td id="Normal-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Poison.png"></td>
+                    <td id="Poison-1"></td>
+                    <td id="Poison-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Psychic.png"></td>
+                    <td id="Psychic-1"></td>
+                    <td id="Psychic-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Rock.png"></td>
+                    <td id="Rock-1"></td>
+                    <td id="Rock-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Steel.png"></td>
+                    <td id="Steel-1"></td>
+                    <td id="Steel-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Water.png"></td>
+                    <td id="Water-1"></td>
+                    <td id="Water-2"></td>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="col-sm-6">
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
-                <th colspan="4">Resistances</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <th>x0</th>
-                <th>x0.25</th>
-                <th>x0.5</th>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Bug.png"></td>
-                <td id="Bug3"></td>
-                <td id="Bug2"></td>
-                <td id="Bug1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Dark.png"></td>
-                <td id="Dark3"></td>
-                <td id="Dark2"></td>
-                <td id="Dark1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Dragon.png"></td>
-                <td id="Dragon3"></td>
-                <td id="Dragon2"></td>
-                <td id="Dragon1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Electric.png"></td>
-                <td id="Electric3"></td>
-                <td id="Electric2"></td>
-                <td id="Electric1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Fairy.png"></td>
-                <td id="Fairy3"></td>
-                <td id="Fairy2"></td>
-                <td id="Fairy1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Fighting.png"></td>
-                <td id="Fighting3"></td>
-                <td id="Fighting2"></td>
-                <td id="Fighting1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Fire.png"></td>
-                <td id="Fire3"></td>
-                <td id="Fire2"></td>
-                <td id="Fire1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Flying.png"></td>
-                <td id="Flying3"></td>
-                <td id="Flying2"></td>
-                <td id="Flying1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Ghost.png"></td>
-                <td id="Ghost3"></td>
-                <td id="Ghost2"></td>
-                <td id="Ghost1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Grass.png"></td>
-                <td id="Grass3"></td>
-                <td id="Grass2"></td>
-                <td id="Grass1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Ground.png"></td>
-                <td id="Ground3"></td>
-                <td id="Ground2"></td>
-                <td id="Ground1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Ice.png"></td>
-                <td id="Ice3"></td>
-                <td id="Ice2"></td>
-                <td id="Ice1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Normal.png"></td>
-                <td id="Normal3"></td>
-                <td id="Normal2"></td>
-                <td id="Normal1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Poison.png"></td>
-                <td id="Poison3"></td>
-                <td id="Poison2"></td>
-                <td id="Poison1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Psychic.png"></td>
-                <td id="Psychic3"></td>
-                <td id="Psychic2"></td>
-                <td id="Psychic1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Rock.png"></td>
-                <td id="Rock3"></td>
-                <td id="Rock2"></td>
-                <td id="Rock1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Steel.png"></td>
-                <td id="Steel3"></td>
-                <td id="Steel2"></td>
-                <td id="Steel1"></td>
-            </tr>
-            <tr>
-                <td><img src="https://play.pokemonshowdown.com/sprites/types/Water.png"></td>
-                <td id="Water3"></td>
-                <td id="Water2"></td>
-                <td id="Water1"></td>
-            </tr>
-        </table>
+                    <th colspan="4">Resistances</th>
+                </tr>
+                <tr>
+                    <th>Type</th>
+                    <th>x0</th>
+                    <th>x0.25</th>
+                    <th>x0.5</th>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Bug.png"></td>
+                    <td id="Bug3"></td>
+                    <td id="Bug2"></td>
+                    <td id="Bug1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Dark.png"></td>
+                    <td id="Dark3"></td>
+                    <td id="Dark2"></td>
+                    <td id="Dark1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Dragon.png"></td>
+                    <td id="Dragon3"></td>
+                    <td id="Dragon2"></td>
+                    <td id="Dragon1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Electric.png"></td>
+                    <td id="Electric3"></td>
+                    <td id="Electric2"></td>
+                    <td id="Electric1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fairy.png"></td>
+                    <td id="Fairy3"></td>
+                    <td id="Fairy2"></td>
+                    <td id="Fairy1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fighting.png"></td>
+                    <td id="Fighting3"></td>
+                    <td id="Fighting2"></td>
+                    <td id="Fighting1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fire.png"></td>
+                    <td id="Fire3"></td>
+                    <td id="Fire2"></td>
+                    <td id="Fire1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Flying.png"></td>
+                    <td id="Flying3"></td>
+                    <td id="Flying2"></td>
+                    <td id="Flying1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ghost.png"></td>
+                    <td id="Ghost3"></td>
+                    <td id="Ghost2"></td>
+                    <td id="Ghost1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Grass.png"></td>
+                    <td id="Grass3"></td>
+                    <td id="Grass2"></td>
+                    <td id="Grass1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ground.png"></td>
+                    <td id="Ground3"></td>
+                    <td id="Ground2"></td>
+                    <td id="Ground1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ice.png"></td>
+                    <td id="Ice3"></td>
+                    <td id="Ice2"></td>
+                    <td id="Ice1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Normal.png"></td>
+                    <td id="Normal3"></td>
+                    <td id="Normal2"></td>
+                    <td id="Normal1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Poison.png"></td>
+                    <td id="Poison3"></td>
+                    <td id="Poison2"></td>
+                    <td id="Poison1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Psychic.png"></td>
+                    <td id="Psychic3"></td>
+                    <td id="Psychic2"></td>
+                    <td id="Psychic1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Rock.png"></td>
+                    <td id="Rock3"></td>
+                    <td id="Rock2"></td>
+                    <td id="Rock1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Steel.png"></td>
+                    <td id="Steel3"></td>
+                    <td id="Steel2"></td>
+                    <td id="Steel1"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Water.png"></td>
+                    <td id="Water3"></td>
+                    <td id="Water2"></td>
+                    <td id="Water1"></td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

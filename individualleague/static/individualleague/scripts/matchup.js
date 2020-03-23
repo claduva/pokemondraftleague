@@ -3,7 +3,7 @@ $(document).ready(function() {
       $("div button.matchup-menu").removeClass('btn-dark').addClass('btn-primary')
       $(this).removeClass('btn-primary').addClass('btn-dark')
       $(".section").hide()
-      idoi=$(this).text().toLowerCase().replace(" ","")
+      idoi=$(this).text().toLowerCase().replace(/ /g,"")
       $("#"+idoi).show()
     });
   

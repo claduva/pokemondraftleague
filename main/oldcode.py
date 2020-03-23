@@ -173,12 +173,18 @@ def runscript(request):
                 print(line_count)
                 print(replay)
     ##effectiveness calc
-    ap=all_pokemon.objects.all()
+    ap=pokemon_effectiveness.objects.all()
+    ap.update(bug=0,dark=0,dragon=0,electric=0,fairy=0,fighting=0,fire=0,flying=0,ghost=0,grass=0,ground=0,ice=0,normal=0,poison=0,psychic=0,rock=0,steel=0,water=0,)
+    ap_=all_pokemon.objects.all()
+    for item in ap_:
+        try:
+            item.effectiveness
+        except:
+            pokemon_effectiveness.objects.create(pokemon=item)
     j=1
     for i in ap:
         print(j)
-        typing=i.types.all()
-        i=i.effectiveness
+        typing=i.pokemon.types.all()
         for t in typing:
             if t.typing=="Bug":
                 i.fighting+=1
@@ -258,11 +264,11 @@ def runscript(request):
                 i.grass+=-1
                 i.ice+=-1
             elif t.typing=="Ice":
-                i.fighting+=1
-                i.steel+=1
-                i.fire+=1
-                i.rock+=1
-                i.ice+=-1
+                i.fighting+=-1
+                i.steel+=-1
+                i.fire+=-1
+                i.rock+=-1
+                i.ice+=1
             elif t.typing=="Normal":
                 i.fighting+=-1
             elif t.typing=="Poison":
@@ -285,7 +291,7 @@ def runscript(request):
                 i.flying+=1
                 i.poison+=1
                 i.ground+=-1
-                i.steel+=1
+                i.steel+=-1
                 i.fire+=1
                 i.water+=-1
                 i.grass+=-1
@@ -308,13 +314,26 @@ def runscript(request):
                 i.fire+=1
                 i.water+=1
                 i.grass+=-1
-                i.electric=-1
+                i.electric+=-1
                 i.ice+=1
-            else:
-                print(t.typing)
+        for t in typing:
+            if t.typing=="Dark":
+                i.psychic=3
+            elif t.typing=="Fairy":
+                i.dragon=3
+            elif t.typing=="Flying":
+                i.ground=3
+            elif t.typing=="Ghost":
+                i.normal=3
+                i.fighting=3
+            elif t.typing=="Ground":
+                i.electric=3
+            elif t.typing=="Normal":
+                i.ghost=3
+            elif t.typing=="Steel":
+                i.poison=3
         i.save()
         j+=1
-    return redirect('home')
 
 with open("swsh.txt") as fp:
         count=0

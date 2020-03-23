@@ -23,63 +23,66 @@
         <button class="btn btn-primary matchup-menu">Season Statistics</button>
         <button class="btn btn-primary matchup-menu">Speed Tiers</button>
         <button class="btn btn-primary matchup-menu">Useful Moves</button>
+        <button class="btn btn-primary matchup-menu">Resistances and Weaknesses</button>
+        <button class="btn btn-primary matchup-menu">Export to Showdown</button>
     </div>
 </div>
 <div id="pokemondata" class="row bg-darkgrey rounded text-light section mb-2 pb-2">
     <h3 class="col-12 text-center">Pokemon Data</h3>
     <div class="col-md-6">
-            <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
-                <table class="table table-sm table-bordered table-striped p-0 m-0">
-                        <tr class="bg-dark text-light th">
-                                <th colspan="3"></th>
-                                <th colspan="6">Base Stats</th>
-                            </tr>
-                    <tr class="bg-dark text-light sort th">
-                        <th>Pokemon</th>
-                        <th>Typing</th>
-                        <th>Abilities</th>
-                        <th>HP</th>
-                        <th>Atk</th>
-                        <th>Def</th>
-                        <th>Sp. Atk</th>
-                        <th>Sp. Def</th>
-                        <th>Speed</th>
-                    </tr>
-                    {% for item in team1roster %}
-                    <tr>
-                        <td>
-                            <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
-                                    {{item.pokemon.pokemon}}
-                        </td>
-                        <td>
-                            {% for item_ in item.pokemon.types.all %}
-                            <div><img src="{% static 'pokemondatabase/sprites/types/'|add:item_.typing|cut:' '|add:'.png' %}">
-                            </div>
-                            {% endfor %}
-                        </td>
-                        <td>
-                            {% for item_ in item.pokemon.abilities.all %}
-                                <div>{{item_.ability}}</div>
-                            {% endfor %}
-                        </td>
-                        <td>{{item.pokemon.hp}}</td>
-                        <td>{{item.pokemon.attack}}</td>
-                        <td>{{item.pokemon.defense}}</td>
-                        <td>{{item.pokemon.s_attack}}</td>
-                        <td>{{item.pokemon.s_defense}}</td>
-                        <td>{{item.pokemon.speed}}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
-            </div>
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                <tr class="bg-dark text-light th">
+                    <th colspan="3"></th>
+                    <th colspan="6">Base Stats</th>
+                </tr>
+                <tr class="bg-dark text-light sort th">
+                    <th>Pokemon</th>
+                    <th>Typing</th>
+                    <th>Abilities</th>
+                    <th>HP</th>
+                    <th>Atk</th>
+                    <th>Def</th>
+                    <th>Sp. Atk</th>
+                    <th>Sp. Def</th>
+                    <th>Speed</th>
+                </tr>
+                {% for item in team1roster %}
+                <tr>
+                    <td>
+                        <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
+                        {{item.pokemon.pokemon}}
+                    </td>
+                    <td>
+                        {% for item_ in item.pokemon.types.all %}
+                        <div><img
+                                src="{% static 'pokemondatabase/sprites/types/'|add:item_.typing|cut:' '|add:'.png' %}">
+                        </div>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for item_ in item.pokemon.abilities.all %}
+                        <div>{{item_.ability}}</div>
+                        {% endfor %}
+                    </td>
+                    <td>{{item.pokemon.hp}}</td>
+                    <td>{{item.pokemon.attack}}</td>
+                    <td>{{item.pokemon.defense}}</td>
+                    <td>{{item.pokemon.s_attack}}</td>
+                    <td>{{item.pokemon.s_defense}}</td>
+                    <td>{{item.pokemon.speed}}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
+    </div>
     <div class="col-md-6">
         <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
             <table class="table table-sm table-bordered table-striped p-0 m-0">
-                    <tr class="bg-dark text-light th">
-                            <th colspan="3"></th>
-                            <th colspan="6">Base Stats</th>
-                        </tr>
+                <tr class="bg-dark text-light th">
+                    <th colspan="3"></th>
+                    <th colspan="6">Base Stats</th>
+                </tr>
                 <tr class="bg-dark text-light sort th">
                     <th>Pokemon</th>
                     <th>Typing</th>
@@ -95,17 +98,18 @@
                 <tr>
                     <td>
                         <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
-                                {{item.pokemon.pokemon}}
+                        {{item.pokemon.pokemon}}
                     </td>
                     <td>
                         {% for item_ in item.pokemon.types.all %}
-                        <div><img src="{% static 'pokemondatabase/sprites/types/'|add:item_.typing|cut:' '|add:'.png' %}">
+                        <div><img
+                                src="{% static 'pokemondatabase/sprites/types/'|add:item_.typing|cut:' '|add:'.png' %}">
                         </div>
                         {% endfor %}
                     </td>
                     <td>
                         {% for item_ in item.pokemon.abilities.all %}
-                            <div>{{item_.ability}}</div>
+                        <div>{{item_.ability}}</div>
                         {% endfor %}
                     </td>
                     <td>{{item.pokemon.hp}}</td>
@@ -121,62 +125,62 @@
     </div>
 </div>
 <div id="seasonstatistics" class="row bg-darkgrey rounded text-light section mb-2 pb-2">
-        <h3 class="col-12 text-center">Season Statistics</h3>
-        <div class="col-md-6">
-                <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
-                    <table class="table table-sm table-bordered table-striped p-0 m-0">
-                        <tr class="bg-dark text-light sort th">
-                            <th>Pokemon</th>
-                            <th>K</th>
-                            <th>D</th>
-                            <th>+/-</th>
-                            <th>GP</th>
-                            <th>GW</th>
-                        </tr>
-                        {% for item in team1roster %}
-                        <tr>
-                            <td>
-                                <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
-                                        {{item.pokemon.pokemon}}
-                            </td>
-                            <td>{{item.kills}}</td>
-                            <td>{{item.deaths}}</td>
-                            <td>{{item.differential}}</td>
-                            <td>{{item.gp}}</td>
-                            <td>{{item.gw}}</td>
-                        </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-            </div>
-            <div class="col-md-6">
-                    <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
-                        <table class="table table-sm table-bordered table-striped p-0 m-0">
-                            <tr class="bg-dark text-light sort th">
-                                <th>Pokemon</th>
-                                <th>K</th>
-                                <th>D</th>
-                                <th>+/-</th>
-                                <th>GP</th>
-                                <th>GW</th>
-                            </tr>
-                            {% for item in team2roster %}
-                            <tr>
-                                <td>
-                                    <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
-                                            {{item.pokemon.pokemon}}
-                                </td>
-                                <td>{{item.kills}}</td>
-                                <td>{{item.deaths}}</td>
-                                <td>{{item.differential}}</td>
-                                <td>{{item.gp}}</td>
-                                <td>{{item.gw}}</td>
-                            </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-                </div>
+    <h3 class="col-12 text-center">Season Statistics</h3>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                <tr class="bg-dark text-light sort th">
+                    <th>Pokemon</th>
+                    <th>K</th>
+                    <th>D</th>
+                    <th>+/-</th>
+                    <th>GP</th>
+                    <th>GW</th>
+                </tr>
+                {% for item in team1roster %}
+                <tr>
+                    <td>
+                        <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
+                        {{item.pokemon.pokemon}}
+                    </td>
+                    <td>{{item.kills}}</td>
+                    <td>{{item.deaths}}</td>
+                    <td>{{item.differential}}</td>
+                    <td>{{item.gp}}</td>
+                    <td>{{item.gw}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                <tr class="bg-dark text-light sort th">
+                    <th>Pokemon</th>
+                    <th>K</th>
+                    <th>D</th>
+                    <th>+/-</th>
+                    <th>GP</th>
+                    <th>GW</th>
+                </tr>
+                {% for item in team2roster %}
+                <tr>
+                    <td>
+                        <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
+                        {{item.pokemon.pokemon}}
+                    </td>
+                    <td>{{item.kills}}</td>
+                    <td>{{item.deaths}}</td>
+                    <td>{{item.differential}}</td>
+                    <td>{{item.gp}}</td>
+                    <td>{{item.gw}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
 <div id="speedtiers" class="row bg-darkgrey rounded text-light section mb-2 pb-2">
     <h3 class="col-12 text-center">Speed Tiers</h3>
     <div class="col-12 d-flex align-items-center justify-content-center">
@@ -210,8 +214,7 @@
                 {% for item in team1roster %}
                 <tr>
                     <td>
-                        <img class="smallsprite"
-                            src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
+                        <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                         {{item.pokemon.pokemon}}
                     </td>
                     <td>{{item.pokemon.speed}}</td>
@@ -256,8 +259,7 @@
                 {% for item in team2roster %}
                 <tr>
                     <td>
-                        <img class="smallsprite"
-                            src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
+                        <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                         {{item.pokemon.pokemon}}
                         </th>
                     <td>{{item.pokemon.speed}}</td>
@@ -278,58 +280,420 @@
     </div>
 </div>
 <div id="usefulmoves" class="row bg-darkgrey rounded text-light section mb-2 pb-2">
-        <h3 class="col-12 text-center">Useful Moves</h3>
-        <div class="col-md-6">
-                <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
-                    <table class="table table-sm table-bordered table-striped p-0 m-0">
-                        <tr class="bg-dark text-light sort th">
-                            <th>Move</th>
-                            <th>Pokemon</th>
-                        </tr>
-                        {% for move in moves %}
-                        <tr>
-                            <td>{{move}}</td>
-                            <td>
-                                {% for item in team1roster %}
-                                {% for item_ in item.pokemon.moves.all|movefilter %}
-                                {% if item_.moveinfo.name == move %}
-                                <img class="smallsprite"
-                                src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
-                                {% endif %}
-                                {% endfor %}
-                                {% endfor %}
-                            </td>
-                        </tr>
+    <h3 class="col-12 text-center">Useful Moves</h3>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                <tr class="bg-dark text-light sort th">
+                    <th>Move</th>
+                    <th>Pokemon</th>
+                </tr>
+                {% for move in moves %}
+                <tr>
+                    <td>{{move}}</td>
+                    <td>
+                        {% for item in team1roster %}
+                        {% for item_ in item.pokemon.moves.all|movefilter %}
+                        {% if item_.moveinfo.name == move %}
+                        <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
+                        {% endif %}
                         {% endfor %}
-                    </table>
-                </div>
-            </div>
-            <div class="col-md-6">
-                    <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
-                        <table class="table table-sm table-bordered table-striped p-0 m-0">
-                            <tr class="bg-dark text-light sort th">
-                                <th>Move</th>
-                                <th>Pokemon</th>
-                            </tr>
-                            {% for move in moves %}
-                            <tr>
-                                <td>{{move}}</td>
-                                <td>
-                                    {% for item in team2roster %}
-                                    {% for item_ in item.pokemon.moves.all|movefilter %}
-                                    {% if item_.moveinfo.name == move %}
-                                    <img class="smallsprite"
-                                    src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
-                                    {% endif %}
-                                    {% endfor %}
-                                    {% endfor %}
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-                </div>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                <tr class="bg-dark text-light sort th">
+                    <th>Move</th>
+                    <th>Pokemon</th>
+                </tr>
+                {% for move in moves %}
+                <tr>
+                    <td>{{move}}</td>
+                    <td>
+                        {% for item in team2roster %}
+                        {% for item_ in item.pokemon.moves.all|movefilter %}
+                        {% if item_.moveinfo.name == move %}
+                        <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+<div id="resistancesandweaknesses" class="row bg-darkgrey rounded text-light section mb-2 pb-2">
+    <h3 class="col-12 text-center">Resistances and Weaknesses</h3>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 team1">
+                <tr class="bg-dark text-light">
+                    <th></th>
+                    <th colspan="3">Resistances</th>
+                    <th colspan="2">Weaknesses</th>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>Type</th>
+                    <th>x0</th>
+                    <th>x0.25</th>
+                    <th>x0.5</th>
+                    <th>x2</th>
+                    <th>x4</th>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Bug.png"></td>
+                    <td class="Bug3"></td>
+                    <td class="Bug2"></td>
+                    <td class="Bug1"></td>
+                    <td class="Bug-1"></td>
+                    <td class="Bug-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Dark.png"></td>
+                    <td class="Dark3"></td>
+                    <td class="Dark2"></td>
+                    <td class="Dark1"></td>
+                    <td class="Dark-1"></td>
+                    <td class="Dark-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Dragon.png"></td>
+                    <td class="Dragon3"></td>
+                    <td class="Dragon2"></td>
+                    <td class="Dragon1"></td>
+                    <td class="Dragon-1"></td>
+                    <td class="Dragon-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Electric.png"></td>
+                    <td class="Electric3"></td>
+                    <td class="Electric2"></td>
+                    <td class="Electric1"></td>
+                    <td class="Electric-1"></td>
+                    <td class="Electric-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fairy.png"></td>
+                    <td class="Fairy3"></td>
+                    <td class="Fairy2"></td>
+                    <td class="Fairy1"></td>
+                    <td class="Fairy-1"></td>
+                    <td class="Fairy-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fighting.png"></td>
+                    <td class="Fighting3"></td>
+                    <td class="Fighting2"></td>
+                    <td class="Fighting1"></td>
+                    <td class="Fighting-1"></td>
+                    <td class="Fighting-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fire.png"></td>
+                    <td class="Fire3"></td>
+                    <td class="Fire2"></td>
+                    <td class="Fire1"></td>
+                    <td class="Fire-1"></td>
+                    <td class="Fire-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Flying.png"></td>
+                    <td class="Flying3"></td>
+                    <td class="Flying2"></td>
+                    <td class="Flying1"></td>
+                    <td class="Flying-1"></td>
+                    <td class="Flying-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ghost.png"></td>
+                    <td class="Ghost3"></td>
+                    <td class="Ghost2"></td>
+                    <td class="Ghost1"></td>
+                    <td class="Ghost-1"></td>
+                    <td class="Ghost-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Grass.png"></td>
+                    <td class="Grass3"></td>
+                    <td class="Grass2"></td>
+                    <td class="Grass1"></td>
+                    <td class="Grass-1"></td>
+                    <td class="Grass-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ground.png"></td>
+                    <td class="Ground3"></td>
+                    <td class="Ground2"></td>
+                    <td class="Ground1"></td>
+                    <td class="Ground-1"></td>
+                    <td class="Ground-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ice.png"></td>
+                    <td class="Ice3"></td>
+                    <td class="Ice2"></td>
+                    <td class="Ice1"></td>
+                    <td class="Ice-1"></td>
+                    <td class="Ice-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Normal.png"></td>
+                    <td class="Normal3"></td>
+                    <td class="Normal2"></td>
+                    <td class="Normal1"></td>
+                    <td class="Normal-1"></td>
+                    <td class="Normal-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Poison.png"></td>
+                    <td class="Poison3"></td>
+                    <td class="Poison2"></td>
+                    <td class="Poison1"></td>
+                    <td class="Poison-1"></td>
+                    <td class="Poison-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Psychic.png"></td>
+                    <td class="Psychic3"></td>
+                    <td class="Psychic2"></td>
+                    <td class="Psychic1"></td>
+                    <td class="Psychic-1"></td>
+                    <td class="Psychic-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Rock.png"></td>
+                    <td class="Rock3"></td>
+                    <td class="Rock2"></td>
+                    <td class="Rock1"></td>
+                    <td class="Rock-1"></td>
+                    <td class="Rock-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Steel.png"></td>
+                    <td class="Steel3"></td>
+                    <td class="Steel2"></td>
+                    <td class="Steel1"></td>
+                    <td class="Steel-1"></td>
+                    <td class="Steel-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Water.png"></td>
+                    <td class="Water3"></td>
+                    <td class="Water2"></td>
+                    <td class="Water1"></td>
+                    <td class="Water-1"></td>
+                    <td class="Water-2"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 team2">
+                <tr class="bg-dark text-light">
+                    <th></th>
+                    <th colspan="3">Resistances</th>
+                    <th colspan="2">Weaknesses</th>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>Type</th>
+                    <th>x0</th>
+                    <th>x0.25</th>
+                    <th>x0.5</th>
+                    <th>x2</th>
+                    <th>x4</th>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Bug.png"></td>
+                    <td class="Bug3"></td>
+                    <td class="Bug2"></td>
+                    <td class="Bug1"></td>
+                    <td class="Bug-1"></td>
+                    <td class="Bug-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Dark.png"></td>
+                    <td class="Dark3"></td>
+                    <td class="Dark2"></td>
+                    <td class="Dark1"></td>
+                    <td class="Dark-1"></td>
+                    <td class="Dark-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Dragon.png"></td>
+                    <td class="Dragon3"></td>
+                    <td class="Dragon2"></td>
+                    <td class="Dragon1"></td>
+                    <td class="Dragon-1"></td>
+                    <td class="Dragon-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Electric.png"></td>
+                    <td class="Electric3"></td>
+                    <td class="Electric2"></td>
+                    <td class="Electric1"></td>
+                    <td class="Electric-1"></td>
+                    <td class="Electric-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fairy.png"></td>
+                    <td class="Fairy3"></td>
+                    <td class="Fairy2"></td>
+                    <td class="Fairy1"></td>
+                    <td class="Fairy-1"></td>
+                    <td class="Fairy-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fighting.png"></td>
+                    <td class="Fighting3"></td>
+                    <td class="Fighting2"></td>
+                    <td class="Fighting1"></td>
+                    <td class="Fighting-1"></td>
+                    <td class="Fighting-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Fire.png"></td>
+                    <td class="Fire3"></td>
+                    <td class="Fire2"></td>
+                    <td class="Fire1"></td>
+                    <td class="Fire-1"></td>
+                    <td class="Fire-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Flying.png"></td>
+                    <td class="Flying3"></td>
+                    <td class="Flying2"></td>
+                    <td class="Flying1"></td>
+                    <td class="Flying-1"></td>
+                    <td class="Flying-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ghost.png"></td>
+                    <td class="Ghost3"></td>
+                    <td class="Ghost2"></td>
+                    <td class="Ghost1"></td>
+                    <td class="Ghost-1"></td>
+                    <td class="Ghost-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Grass.png"></td>
+                    <td class="Grass3"></td>
+                    <td class="Grass2"></td>
+                    <td class="Grass1"></td>
+                    <td class="Grass-1"></td>
+                    <td class="Grass-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ground.png"></td>
+                    <td class="Ground3"></td>
+                    <td class="Ground2"></td>
+                    <td class="Ground1"></td>
+                    <td class="Ground-1"></td>
+                    <td class="Ground-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Ice.png"></td>
+                    <td class="Ice3"></td>
+                    <td class="Ice2"></td>
+                    <td class="Ice1"></td>
+                    <td class="Ice-1"></td>
+                    <td class="Ice-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Normal.png"></td>
+                    <td class="Normal3"></td>
+                    <td class="Normal2"></td>
+                    <td class="Normal1"></td>
+                    <td class="Normal-1"></td>
+                    <td class="Normal-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Poison.png"></td>
+                    <td class="Poison3"></td>
+                    <td class="Poison2"></td>
+                    <td class="Poison1"></td>
+                    <td class="Poison-1"></td>
+                    <td class="Poison-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Psychic.png"></td>
+                    <td class="Psychic3"></td>
+                    <td class="Psychic2"></td>
+                    <td class="Psychic1"></td>
+                    <td class="Psychic-1"></td>
+                    <td class="Psychic-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Rock.png"></td>
+                    <td class="Rock3"></td>
+                    <td class="Rock2"></td>
+                    <td class="Rock1"></td>
+                    <td class="Rock-1"></td>
+                    <td class="Rock-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Steel.png"></td>
+                    <td class="Steel3"></td>
+                    <td class="Steel2"></td>
+                    <td class="Steel1"></td>
+                    <td class="Steel-1"></td>
+                    <td class="Steel-2"></td>
+                </tr>
+                <tr>
+                    <td><img src="https://play.pokemonshowdown.com/sprites/types/Water.png"></td>
+                    <td class="Water3"></td>
+                    <td class="Water2"></td>
+                    <td class="Water1"></td>
+                    <td class="Water-1"></td>
+                    <td class="Water-2"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="exporttoshowdown" class="row bg-darkgrey rounded text-light section mb-2 pb-2">
+    <h3 class="col-12 text-center">Export To Showdown</h3>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                <tr class="bg-dark text-light th">
+                    <th>Team</th>
+                </tr>
+                <tr>
+                    <th>
+                        {% for item in team1roster %}
+                        {{item.pokemon.pokemon}}<br><br>
+                        {% endfor %}
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <table class="table table-sm table-bordered table-striped p-0 m-0">
+                <tr class="bg-dark text-light th">
+                    <th>Team</th>
+                </tr>
+                <tr>
+                    <th>
+                        {% for item in team2roster %}
+                        {{item.pokemon.pokemon}}<br><br>
+                        {% endfor %}
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}
 {% block footer %}
 <!-- select code -->
