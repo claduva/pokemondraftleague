@@ -46,8 +46,8 @@
 
 |
 |start
-|switch|p1a: HelmetBro|Aggron, M|100\/100
-|switch|p2a: SWEET|Dugtrio-Alola, M|211\/211
+|switch|p1a: HelmetBro|Aggron, M|100/100
+|switch|p2a: SWEET|Dugtrio-Alola, M|211/211
 |turn|1
 
 
@@ -64,10 +64,10 @@
 
 
 |
-|switch|p2a: RENTAL|Avalugg, F|393\/393
+|switch|p2a: RENTAL|Avalugg, F|393/393
 |move|p1a: HelmetBro|Heavy Slam|p2a: RENTAL
 |-supereffective|p2a: RENTAL
-|-damage|p2a: RENTAL|307\/393
+|-damage|p2a: RENTAL|307/393
 |
 |upkeep
 |turn|3
@@ -80,23 +80,23 @@
 
 
 |
-|switch|p1a: Big Pumps|Blastoise, M|100\/100
-|-damage|p1a: Big Pumps|88\/100|[from] Stealth Rock
+|switch|p1a: Big Pumps|Blastoise, M|100/100
+|-damage|p1a: Big Pumps|88/100|[from] Stealth Rock
 |move|p2a: RENTAL|Recover|p2a: RENTAL
-|-heal|p2a: RENTAL|393\/393
+|-heal|p2a: RENTAL|393/393
 |
 |upkeep
 |turn|4
 
 
 |
-|switch|p1a: Zlicko|Zygarde|100\/100
-|-damage|p1a: Zlicko|94\/100|[from] Stealth Rock
+|switch|p1a: Zlicko|Zygarde|100/100
+|-damage|p1a: Zlicko|94/100|[from] Stealth Rock
 |-ability|p1a: Zlicko|Aura Break
-|switch|p2a: BOY BYE|Whimsicott, F, shiny|323\/323
-|-damage|p2a: BOY BYE|283\/323|[from] Stealth Rock
+|switch|p2a: BOY BYE|Whimsicott, F, shiny|323/323
+|-damage|p2a: BOY BYE|283/323|[from] Stealth Rock
 |
-|-heal|p2a: BOY BYE|303\/323|[from] item: Leftovers
+|-heal|p2a: BOY BYE|303/323|[from] item: Leftovers
 |upkeep
 |turn|5
 
@@ -106,33 +106,33 @@
 |-status|p1a: Zlicko|par
 |move|p1a: Zlicko|Sludge Wave|p2a: BOY BYE
 |-supereffective|p2a: BOY BYE
-|-damage|p2a: BOY BYE|119\/323
+|-damage|p2a: BOY BYE|119/323
 |
-|-heal|p2a: BOY BYE|139\/323|[from] item: Leftovers
+|-heal|p2a: BOY BYE|139/323|[from] item: Leftovers
 |upkeep
 |turn|6
 
 
 |
-|switch|p1a: HelmetBro|Aggron-Mega, M|100\/100
-|-damage|p1a: HelmetBro|94\/100|[from] Stealth Rock
+|switch|p1a: HelmetBro|Aggron-Mega, M|100/100
+|-damage|p1a: HelmetBro|94/100|[from] Stealth Rock
 |move|p2a: BOY BYE|U-turn|p1a: HelmetBro
 |-resisted|p1a: HelmetBro
-|-damage|p1a: HelmetBro|92\/100
+|-damage|p1a: HelmetBro|92/100
 
 
 |
-|switch|p2a: RENTAL|Avalugg, F|393\/393
+|switch|p2a: RENTAL|Avalugg, F|393/393
 |
 |upkeep
 |turn|7
 
 
 |
-|switch|p1a: Big Pumps|Blastoise, M|88\/100
-|-damage|p1a: Big Pumps|76\/100|[from] Stealth Rock
+|switch|p1a: Big Pumps|Blastoise, M|88/100
+|-damage|p1a: Big Pumps|76/100|[from] Stealth Rock
 |move|p2a: RENTAL|Rapid Spin|p1a: Big Pumps
-|-damage|p1a: Big Pumps|63\/100
+|-damage|p1a: Big Pumps|63/100
 |-boost|p2a: RENTAL|spe|1
 |-sideend|p2: christmas ballin|Stealth Rock|[from] move: Rapid Spin|[of] p2a: RENTAL
 |
@@ -144,24 +144,24 @@
 
 
 |
-|switch|p2a: BOY BYE|Whimsicott, F, shiny|139\/323
+|switch|p2a: BOY BYE|Whimsicott, F, shiny|139/323
 |move|p1a: Big Pumps|Surf|p2a: BOY BYE
 |-resisted|p2a: BOY BYE
-|-damage|p2a: BOY BYE|50\/323
+|-damage|p2a: BOY BYE|50/323
 |
-|-heal|p2a: BOY BYE|70\/323|[from] item: Leftovers
+|-heal|p2a: BOY BYE|70/323|[from] item: Leftovers
 |upkeep
 |turn|9
 
 
 |
-|switch|p1a: Zlicko|Zygarde|94\/100 par
-|-damage|p1a: Zlicko|88\/100 par|[from] Stealth Rock
+|switch|p1a: Zlicko|Zygarde|94/100 par
+|-damage|p1a: Zlicko|88/100 par|[from] Stealth Rock
 |-ability|p1a: Zlicko|Aura Break
 |move|p2a: BOY BYE|Stun Spore|p1a: Zlicko
 |-fail|p1a: Zlicko|par
 |
-|-heal|p2a: BOY BYE|90\/323|[from] item: Leftovers
+|-heal|p2a: BOY BYE|90/323|[from] item: Leftovers
 |upkeep
 |turn|10
 
@@ -170,36 +170,36 @@
 
 
 |
-|switch|p1a: BestHat|Nihilego|100\/100
-|-damage|p1a: BestHat|88\/100|[from] Stealth Rock
+|switch|p1a: BestHat|Nihilego|100/100
+|-damage|p1a: BestHat|88/100|[from] Stealth Rock
 |move|p2a: BOY BYE|U-turn|p1a: BestHat
 |-resisted|p1a: BestHat
-|-damage|p1a: BestHat|80\/100
+|-damage|p1a: BestHat|80/100
 
 
 |
-|switch|p2a: SWEET|Dugtrio-Alola, M|211\/211
+|switch|p2a: SWEET|Dugtrio-Alola, M|211/211
 |
 |upkeep
 |turn|11
 
 
 |
-|switch|p1a: Zlicko|Zygarde|88\/100 par
-|-damage|p1a: Zlicko|82\/100 par|[from] Stealth Rock
+|switch|p1a: Zlicko|Zygarde|88/100 par
+|-damage|p1a: Zlicko|82/100 par|[from] Stealth Rock
 |-ability|p1a: Zlicko|Aura Break
 |move|p2a: SWEET|Earthquake|p1a: Zlicko
-|-damage|p1a: Zlicko|42\/100 par
-|-damage|p2a: SWEET|190\/211|[from] item: Life Orb
+|-damage|p1a: Zlicko|42/100 par
+|-damage|p2a: SWEET|190/211|[from] item: Life Orb
 |
 |upkeep
 |turn|12
 
 
 |
-|switch|p2a: RENTAL|Avalugg, F|393\/393
+|switch|p2a: RENTAL|Avalugg, F|393/393
 |move|p1a: Zlicko|Thousand Arrows|p2a: RENTAL
-|-damage|p2a: RENTAL|317\/393
+|-damage|p2a: RENTAL|317/393
 |
 |upkeep
 |turn|13
@@ -208,7 +208,7 @@
 |
 |cant|p1a: Zlicko|par
 |move|p2a: RENTAL|Recover|p2a: RENTAL
-|-heal|p2a: RENTAL|393\/393
+|-heal|p2a: RENTAL|393/393
 |
 |upkeep
 |turn|14
@@ -216,7 +216,7 @@
 
 |
 |move|p1a: Zlicko|Thousand Arrows|p2a: RENTAL
-|-damage|p2a: RENTAL|311\/393
+|-damage|p2a: RENTAL|311/393
 |move|p2a: RENTAL|Avalanche|p1a: Zlicko
 |-supereffective|p1a: Zlicko
 |-damage|p1a: Zlicko|0 fnt
@@ -226,31 +226,31 @@
 
 
 |
-|switch|p1a: Big Pumps|Blastoise, M|63\/100
-|-damage|p1a: Big Pumps|51\/100|[from] Stealth Rock
+|switch|p1a: Big Pumps|Blastoise, M|63/100
+|-damage|p1a: Big Pumps|51/100|[from] Stealth Rock
 |turn|15
 
 
 |
-|switch|p2a: BOY BYE|Whimsicott, F, shiny|90\/323
+|switch|p2a: BOY BYE|Whimsicott, F, shiny|90/323
 |move|p1a: Big Pumps|Surf|p2a: BOY BYE
 |-resisted|p2a: BOY BYE
-|-damage|p2a: BOY BYE|7\/323
+|-damage|p2a: BOY BYE|7/323
 |
-|-heal|p2a: BOY BYE|27\/323|[from] item: Leftovers
+|-heal|p2a: BOY BYE|27/323|[from] item: Leftovers
 |upkeep
 |turn|16
 
 
 |
-|switch|p1a: HelmetBro|Aggron-Mega, M|92\/100
-|-damage|p1a: HelmetBro|85\/100|[from] Stealth Rock
+|switch|p1a: HelmetBro|Aggron-Mega, M|92/100
+|-damage|p1a: HelmetBro|85/100|[from] Stealth Rock
 |move|p2a: BOY BYE|Giga Drain|p1a: HelmetBro
 |-resisted|p1a: HelmetBro
-|-damage|p1a: HelmetBro|73\/100
-|-heal|p2a: BOY BYE|48\/323|[from] drain|[of] p1a: HelmetBro
+|-damage|p1a: HelmetBro|73/100
+|-heal|p2a: BOY BYE|48/323|[from] drain|[of] p1a: HelmetBro
 |
-|-heal|p2a: BOY BYE|68\/323|[from] item: Leftovers
+|-heal|p2a: BOY BYE|68/323|[from] item: Leftovers
 |upkeep
 |turn|17
 
@@ -258,7 +258,7 @@
 |
 |move|p2a: BOY BYE|U-turn|p1a: HelmetBro
 |-resisted|p1a: HelmetBro
-|-damage|p1a: HelmetBro|71\/100
+|-damage|p1a: HelmetBro|71/100
 
 
 |c| SuperEpicAmpharos|Nice chip
@@ -271,7 +271,7 @@
 
 
 |
-|switch|p2a: RENTAL|Avalugg, F|311\/393
+|switch|p2a: RENTAL|Avalugg, F|311/393
 |move|p1a: HelmetBro|Stealth Rock|p2a: RENTAL
 |-sidestart|p2: christmas ballin|move: Stealth Rock
 |
@@ -283,12 +283,12 @@
 
 
 |
-|switch|p1a: Fancypants|Scrafty, M|100\/100
-|-damage|p1a: Fancypants|94\/100|[from] Stealth Rock
+|switch|p1a: Fancypants|Scrafty, M|100/100
+|-damage|p1a: Fancypants|94/100|[from] Stealth Rock
 |-ability|p1a: Fancypants|Intimidate|boost
 |-unboost|p2a: RENTAL|atk|1
 |move|p2a: RENTAL|Rapid Spin|p1a: Fancypants
-|-damage|p1a: Fancypants|86\/100
+|-damage|p1a: Fancypants|86/100
 |-boost|p2a: RENTAL|spe|1
 |-sideend|p2: christmas ballin|Stealth Rock|[from] move: Rapid Spin|[of] p2a: RENTAL
 |
@@ -297,7 +297,7 @@
 
 
 |
-|switch|p2a: BOY BYE|Whimsicott, F, shiny|68\/323
+|switch|p2a: BOY BYE|Whimsicott, F, shiny|68/323
 |move|p1a: Fancypants|Knock Off|p2a: BOY BYE
 |-resisted|p2a: BOY BYE
 |-damage|p2a: BOY BYE|0 fnt
@@ -311,7 +311,7 @@
 
 
 |
-|switch|p2a: GUMMY|Gallade, M, shiny|277\/277
+|switch|p2a: GUMMY|Gallade, M, shiny|277/277
 |turn|20
 
 
@@ -329,37 +329,37 @@
 
 
 |
-|switch|p1a: HelmetBro|Aggron-Mega, M|71\/100
-|-damage|p1a: HelmetBro|64\/100|[from] Stealth Rock
+|switch|p1a: HelmetBro|Aggron-Mega, M|71/100
+|-damage|p1a: HelmetBro|64/100|[from] Stealth Rock
 |turn|21
 
 
 |
-|switch|p2a: RENTAL|Avalugg, F|311\/393
+|switch|p2a: RENTAL|Avalugg, F|311/393
 |move|p1a: HelmetBro|Heavy Slam|p2a: RENTAL
 |-supereffective|p2a: RENTAL
-|-damage|p2a: RENTAL|215\/393
+|-damage|p2a: RENTAL|215/393
 |
 |upkeep
 |turn|22
 
 
 |
-|switch|p1a: Hairdos|Zapdos|100\/100
-|-damage|p1a: Hairdos|76\/100|[from] Stealth Rock
+|switch|p1a: Hairdos|Zapdos|100/100
+|-damage|p1a: Hairdos|76/100|[from] Stealth Rock
 |-ability|p1a: Hairdos|Pressure
 |move|p2a: RENTAL|Recover|p2a: RENTAL
-|-heal|p2a: RENTAL|393\/393
+|-heal|p2a: RENTAL|393/393
 |
 |upkeep
 |turn|23
 
 
 |
-|switch|p2a: 1999 WILDFIRE|Blacephalon, shiny|255\/255
+|switch|p2a: 1999 WILDFIRE|Blacephalon, shiny|255/255
 |move|p1a: Hairdos|Heat Wave|p2a: 1999 WILDFIRE
 |-resisted|p2a: 1999 WILDFIRE
-|-damage|p2a: 1999 WILDFIRE|140\/255
+|-damage|p2a: 1999 WILDFIRE|140/255
 |
 |upkeep
 |turn|24
@@ -387,8 +387,8 @@
 
 
 |
-|switch|p1a: BestHat|Nihilego|80\/100
-|-damage|p1a: BestHat|67\/100|[from] Stealth Rock
+|switch|p1a: BestHat|Nihilego|80/100
+|-damage|p1a: BestHat|67/100|[from] Stealth Rock
 |move|p2a: 1999 WILDFIRE|Calm Mind|p2a: 1999 WILDFIRE
 |-boost|p2a: 1999 WILDFIRE|spa|1
 |-boost|p2a: 1999 WILDFIRE|spd|1
@@ -401,18 +401,18 @@
 
 
 |
-|switch|p2a: SWEET|Dugtrio-Alola, M|190\/211
+|switch|p2a: SWEET|Dugtrio-Alola, M|190/211
 |move|p1a: BestHat|Power Gem|p2a: SWEET
 |-resisted|p2a: SWEET
-|-damage|p2a: SWEET|140\/211
+|-damage|p2a: SWEET|140/211
 |
 |upkeep
 |turn|26
 
 
 |
-|switch|p1a: Hairdos|Zapdos|76\/100
-|-damage|p1a: Hairdos|51\/100|[from] Stealth Rock
+|switch|p1a: Hairdos|Zapdos|76/100
+|-damage|p1a: Hairdos|51/100|[from] Stealth Rock
 |-ability|p1a: Hairdos|Pressure
 |move|p2a: SWEET|Earthquake|p1a: Hairdos
 |-immune|p1a: Hairdos
@@ -435,7 +435,7 @@
 |c|☆The Old Hag|:(
 
 
-|c| SuperEpicAmpharos|Damn :\/
+|c| SuperEpicAmpharos|Damn :/
 
 
 |c| SuperEpicAmpharos|That’s pokemon
@@ -457,7 +457,7 @@
 
 
 |
-|switch|p2a: GUMMY|Gallade-Mega, M, shiny|277\/277
+|switch|p2a: GUMMY|Gallade-Mega, M, shiny|277/277
 |turn|28
 
 
@@ -546,8 +546,8 @@
 
 
 |
-|switch|p1a: HelmetBro|Aggron-Mega, M|64\/100
-|-damage|p1a: HelmetBro|58\/100|[from] Stealth Rock
+|switch|p1a: HelmetBro|Aggron-Mega, M|64/100
+|-damage|p1a: HelmetBro|58/100|[from] Stealth Rock
 |turn|29
 
 
@@ -564,7 +564,7 @@
 |move|p2a: GUMMY|Swords Dance|p2a: GUMMY
 |-boost|p2a: GUMMY|atk|2
 |move|p1a: HelmetBro|Heavy Slam|p2a: GUMMY
-|-damage|p2a: GUMMY|28\/277
+|-damage|p2a: GUMMY|28/277
 |
 |upkeep
 |turn|30
@@ -587,15 +587,15 @@
 |c| SuperEpicAmpharos|If I had a calc in front of me I could’ve determined that
 
 
-|c| SuperEpicAmpharos|i over\/underestimate frail mon bulk a lot
+|c| SuperEpicAmpharos|i over/underestimate frail mon bulk a lot
 
 
 |c| SuperEpicAmpharos|Like pult I assume dies to some stuff it only takes 80 from
 
 
 |
-|switch|p1a: Big Pumps|Blastoise, M|51\/100
-|-damage|p1a: Big Pumps|38\/100|[from] Stealth Rock
+|switch|p1a: Big Pumps|Blastoise, M|51/100
+|-damage|p1a: Big Pumps|38/100|[from] Stealth Rock
 |turn|31
 
 
@@ -614,14 +614,14 @@
 
 
 |
-|switch|p2a: BOOGIE|Greninja, M, shiny|299\/299
+|switch|p2a: BOOGIE|Greninja, M, shiny|299/299
 |turn|32
 
 
 |
 |move|p1a: Big Pumps|Aqua Jet|p2a: BOOGIE
 |-resisted|p2a: BOOGIE
-|-damage|p2a: BOOGIE|272\/299
+|-damage|p2a: BOOGIE|272/299
 |move|p2a: BOOGIE|Grass Knot|p1a: Big Pumps
 |-supereffective|p1a: Big Pumps
 |-damage|p1a: Big Pumps|0 fnt
@@ -631,8 +631,8 @@
 
 
 |
-|switch|p1a: BestHat|Nihilego|67\/100
-|-damage|p1a: BestHat|55\/100|[from] Stealth Rock
+|switch|p1a: BestHat|Nihilego|67/100
+|-damage|p1a: BestHat|55/100|[from] Stealth Rock
 |turn|33
 
 
@@ -688,7 +688,7 @@
 
 
 |
-|switch|p2a: RENTAL|Avalugg, F|393\/393
+|switch|p2a: RENTAL|Avalugg, F|393/393
 |turn|34
 
 
@@ -715,7 +715,7 @@
 
 |
 |move|p1a: BestHat|Thunderbolt|p2a: RENTAL
-|-damage|p2a: RENTAL|190\/393
+|-damage|p2a: RENTAL|190/393
 |move|p2a: RENTAL|Avalanche|p1a: BestHat
 |-damage|p1a: BestHat|0 fnt
 |faint|p1a: BestHat
