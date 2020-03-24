@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
 from django.contrib.postgres.fields import ArrayField
 from PIL import Image
+from django.contrib.postgres.fields import JSONField
 
 from leagues.models import league,league_subleague,leaguetiers,leaguetiertemplate
 
@@ -31,6 +32,7 @@ class all_pokemon(models.Model):
     timesdrafted = models.IntegerField(default=0)
     nicknames = ArrayField(models.CharField(max_length=10, blank=True))
     gen8 = models.BooleanField(default=False)
+    data=JSONField(null=True)
 
     def __str__(self):
         return f'{self.pokemon}'
@@ -79,6 +81,7 @@ class pokemon_ability(models.Model):
 
 class moveinfo(models.Model):
     name = models.CharField(max_length=50,unique=True)
+    altname = models.CharField(max_length=50,default="")
     move_typing = models.CharField(max_length=10)
     move_category = models.CharField(max_length=10)
     move_power = models.IntegerField()

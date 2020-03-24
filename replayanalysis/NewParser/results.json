@@ -1,19 +1,19 @@
 {
   "team1": {
-    "coach": "Maniac X",
+    "coach": "Gen8sFavouriteGirl",
     "roster": [
       {
-        "pokemon": "Crobat",
-        "startform": "Crobat",
-        "nickname": "Hirako",
+        "pokemon": "Ditto",
+        "startform": "Ditto",
+        "nickname": "Ditto",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 44,
-        "hphealed": 26,
-        "luck": 1.52,
-        "remaininghealth": 99,
+        "damagedone": 22,
+        "hphealed": 0,
+        "luck": 0.0,
+        "remaininghealth": 40,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -24,38 +24,17 @@
         "Curse": null
       },
       {
-        "pokemon": "Altaria-Mega",
-        "startform": "Altaria",
-        "nickname": "Nimbus",
-        "kills": 3,
+        "pokemon": "Darmanitan",
+        "startform": "Darmanitan",
+        "nickname": "Darmanitan",
+        "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 254,
+        "damagedone": 12,
         "hphealed": 0,
-        "luck": 1.26,
-        "remaininghealth": 18,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Alomomola",
-        "Curse": null
-      },
-      {
-        "pokemon": "Mamoswine",
-        "startform": "Mamoswine",
-        "nickname": "Kiba",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 527,
-        "hphealed": 0,
-        "luck": 0.14,
-        "remaininghealth": 44,
+        "luck": 0.0,
+        "remaininghealth": 81,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -66,59 +45,80 @@
         "Curse": null
       },
       {
-        "pokemon": "Milotic",
-        "startform": "Milotic",
-        "nickname": "Sakura",
-        "kills": 0,
+        "pokemon": "Rotom-Wash",
+        "startform": "Rotom",
+        "nickname": "Rotom",
+        "kills": 1,
         "deaths": 0,
         "causeofdeath": null,
-        "support": 3,
-        "damagedone": 56,
-        "hphealed": -3,
-        "luck": 1.88,
-        "remaininghealth": 87,
+        "support": 0,
+        "damagedone": 69,
+        "hphealed": 0,
+        "luck": -0.78,
+        "remaininghealth": 25,
         "lines": [],
         "confusion": null,
-        "psn": null,
-        "brn": "Sakura",
+        "psn": "Purple Thumb",
+        "brn": null,
         "par": null,
         "frz": null,
         "tox": null,
         "Curse": null
       },
       {
-        "pokemon": "Tsareena",
-        "startform": "Tsareena",
-        "nickname": "Lady Legasus",
-        "kills": 0,
+        "pokemon": "Ninetales-Alola",
+        "startform": "Ninetales",
+        "nickname": "Ninetales",
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 5,
-        "damagedone": 20,
-        "hphealed": 0,
-        "luck": -0.22,
+        "support": 1,
+        "damagedone": 276,
+        "hphealed": -81,
+        "luck": -0.6,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
-        "par": "Blissey",
+        "par": null,
         "frz": null,
         "tox": null,
         "Curse": null
       },
       {
-        "pokemon": "Vikavolt",
-        "startform": "Vikavolt",
-        "nickname": "H! VLTG3",
+        "pokemon": "Crustle",
+        "startform": "Crustle",
+        "nickname": "Crustle",
         "kills": 3,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 253,
-        "hphealed": 38,
-        "luck": 1.56,
-        "remaininghealth": 43,
+        "damagedone": 205,
+        "hphealed": 0,
+        "luck": -2.44,
+        "remaininghealth": 15,
+        "lines": [],
+        "confusion": null,
+        "psn": "Purple Thumb",
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Hatterene",
+        "startform": "Hatterene",
+        "nickname": "Hatterene",
+        "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 66,
+        "hphealed": 33,
+        "luck": 0.3,
+        "remaininghealth": 34,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -132,22 +132,22 @@
     "wins": 1,
     "forfeit": 0,
     "score": 5,
-    "megaevolved": true,
+    "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 26,
-    "selfdeaths": 0,
-    "remaininghealth": 291,
+    "timesswitched": 8,
+    "selfdeaths": 1,
+    "remaininghealth": 195,
     "totalhealth": 600,
     "kills": 6,
     "deaths": 1,
-    "luck": 6.14,
-    "damagedone": 1154,
-    "hphealed": 61,
-    "support": 9,
-    "activemon": "Nimbus",
+    "luck": -3.52,
+    "damagedone": 650,
+    "hphealed": -48,
+    "support": 1,
+    "activemon": "Crustle",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Blissey",
+    "Stealth Rock": null,
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -156,103 +156,40 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "PT_Bruno",
+    "coach": "ChrisChaosGamer",
     "roster": [
       {
-        "pokemon": "Mienshao",
-        "startform": "Mienshao",
-        "nickname": "Mienshao",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 150,
-        "hphealed": -13,
-        "luck": -0.38,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Alomomola",
-        "startform": "Alomomola",
-        "nickname": "Alomomola",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 4,
-        "damagedone": 85,
-        "hphealed": 301,
-        "luck": -2.3,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Tangrowth",
-        "startform": "Tangrowth",
-        "nickname": "Tangrowth",
+        "pokemon": "Blastoise",
+        "startform": "Blastoise",
+        "nickname": "Shell Shocker",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 59,
-        "hphealed": 79,
-        "luck": -2.08,
+        "damagedone": 99,
+        "hphealed": 12,
+        "luck": 0.04,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
         "par": null,
-        "frz": "Nimbus",
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Blissey",
-        "startform": "Blissey",
-        "nickname": "Blissey",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 5,
-        "damagedone": 13,
-        "hphealed": 197,
-        "luck": -1.46,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": "H! VLTG3",
         "frz": null,
         "tox": null,
         "Curse": null
       },
       {
-        "pokemon": "Zygarde",
-        "startform": "Zygarde",
-        "nickname": "Zygarde",
+        "pokemon": "Gallade",
+        "startform": "Gallade",
+        "nickname": "Galahad",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": 0.18,
+        "luck": 0.34,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -264,16 +201,79 @@
         "Curse": null
       },
       {
-        "pokemon": "Sneasel",
-        "startform": "Sneasel",
-        "nickname": "Sneasel",
+        "pokemon": "Cofagrigus",
+        "startform": "Cofagrigus",
+        "nickname": "TutTutTut",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 63,
-        "hphealed": -10,
-        "luck": -0.1,
+        "damagedone": 0,
+        "hphealed": 38,
+        "luck": 0.04,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Rillaboom",
+        "startform": "Rillaboom",
+        "nickname": "Bongo",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 107,
+        "hphealed": 0,
+        "luck": -0.04,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Toxicroak",
+        "startform": "Toxicroak",
+        "nickname": "Purple Thumb",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 151,
+        "hphealed": 0,
+        "luck": 3.1,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null
+      },
+      {
+        "pokemon": "Indeedee",
+        "startform": "Indeedee",
+        "nickname": "Alice",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.04,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -290,20 +290,20 @@
     "score": 0,
     "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 30,
+    "timesswitched": 13,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 1,
+    "kills": 0,
     "deaths": 6,
-    "luck": -6.14,
-    "damagedone": 370,
-    "hphealed": 554,
-    "support": 9,
-    "activemon": "Alomomola",
+    "luck": 3.52,
+    "damagedone": 357,
+    "hphealed": 50,
+    "support": 0,
+    "activemon": "Purple Thumb",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Kiba",
+    "Stealth Rock": null,
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -312,129 +312,53 @@
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 56,
+  "numberofturns": 24,
   "turns": [],
-  "replay": "http://replay.pokemonshowdown.com/gen7ou-671709764",
+  "replay": "https://replay.pokemonshowdown.com/sports-gen8galardexdraft-44016",
   "significantevents": [
     [
-      1,
-      "Mamoswine provided support by using Stealth Rock"
-    ],
-    [
-      2,
-      "Alomomola provided support by using Toxic"
-    ],
-    [
-      2,
-      "LUCK: Alomomola missed Toxic against Milotic"
-    ],
-    [
       3,
-      "Milotic provided support by using Toxic"
+      "LUCK: Rotom-Wash was poisoned by Toxicroak with Poison Jab"
     ],
     [
-      4,
-      "Blissey provided support by using Stealth Rock"
+      7,
+      "Ninetales-Alola provided support by using Aurora Veil"
     ],
     [
-      6,
-      "Alomomola provided support by using Wish"
+      10,
+      "Ninetales-Alola killed Gallade with Moonblast"
     ],
     [
-      8,
-      "Tsareena provided support by using Rapid Spin"
-    ],
-    [
-      9,
-      "Tsareena provided support by using Rapid Spin"
-    ],
-    [
-      15,
-      "Milotic provided support by using Toxic"
+      12,
+      "Ninetales-Alola fainted via item: Life Orb"
     ],
     [
       16,
-      "Blissey provided support by using Stealth Rock"
+      "Rotom-Wash killed Cofagrigus with Volt Switch"
     ],
     [
-      17,
-      "Tsareena provided support by using Rapid Spin"
+      18,
+      "Hatterene killed Blastoise with Psychic"
+    ],
+    [
+      19,
+      "LUCK: Crustle was poisoned by Toxicroak with Poison Jab"
+    ],
+    [
+      19,
+      "LUCK: Crustle was poisoned by Toxicroak with Poison Jab"
     ],
     [
       22,
-      "Alomomola provided support by using Wish"
+      "Crustle killed Rillaboom with Earthquake"
     ],
     [
-      26,
-      "LUCK: Blissey was paralyzed by Vikavolt with Thunderbolt"
+      23,
+      "Crustle killed Indeedee with X-Scissor"
     ],
     [
-      28,
-      "Vikavolt killed Zygarde with Hidden Power"
-    ],
-    [
-      30,
-      "Blissey provided support by using Stealth Rock"
-    ],
-    [
-      31,
-      "Tsareena provided support by using Rapid Spin"
-    ],
-    [
-      31,
-      "Blissey provided support by using Thunder Wave"
-    ],
-    [
-      34,
-      "LUCK: Crobat landed a crit on Alomomola with U-turn"
-    ],
-    [
-      36,
-      "Milotic provided support by using Toxic"
-    ],
-    [
-      37,
-      "Blissey provided support by using Stealth Rock"
-    ],
-    [
-      38,
-      "Tsareena provided support by using Rapid Spin"
-    ],
-    [
-      45,
-      "LUCK: Blissey was paralyzed by Vikavolt with Thunderbolt"
-    ],
-    [
-      46,
-      "Vikavolt killed Blissey with Bug Buzz"
-    ],
-    [
-      47,
-      "Vikavolt killed Sneasel with Bug Buzz"
-    ],
-    [
-      49,
-      "Mienshao killed Tsareena with Drain Punch"
-    ],
-    [
-      50,
-      "Altaria-Mega killed Mienshao with Hyper Voice"
-    ],
-    [
-      51,
-      "LUCK: Tangrowth was frozen by Altaria-Mega with Ice Beam"
-    ],
-    [
-      53,
-      "Altaria-Mega killed Tangrowth with Hyper Voice"
-    ],
-    [
-      54,
-      "Alomomola provided support by using Toxic"
-    ],
-    [
-      56,
-      "Altaria-Mega killed Alomomola with Hyper Voice"
+      24,
+      "Crustle killed Toxicroak with Earthquake"
     ]
   ],
   "errormessage": []
