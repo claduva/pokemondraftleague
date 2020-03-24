@@ -139,10 +139,8 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    """
     with open('learnsets.json') as json_file:
         data = json.load(json_file)
         for item in data:
-            print(item)
-    """
+            print(data[item]['learnset'])
     return redirect('home')
