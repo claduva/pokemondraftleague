@@ -47,8 +47,8 @@
     <div class="col-12">
         <div hidden><input id="draftloaded"></div>
         <div id="topmonlist" class="row mx-0 my-2 d-flex justify-content-center">
-            <div class='col-1 activemon text-dark text-center border nomonselected'>
-                <img class="mediumsprite" src='https://play.pokemonshowdown.com/sprites/xyani/unown-question.gif'>
+            <div class='col-1 activemon text-dark text-center border nomonselected topmon'>
+                <img class="mediumsprite" src='/static/pokemondatabase/sprites/question.png'>
             </div>
             <div id="addmon"
                 class="col-1 bg-lightgrey text-dark text-center border d-flex align-items-center justify-content-center">
@@ -57,22 +57,83 @@
         </div>
     </div>
 </div>
-<div class="row bg-darkgrey rounded text-light mb-2 align-items-center">
+<div class="row bg-darkgrey rounded pb-2 mb-2">
     <div class="col-12">
-        <div class="row mx-0 mt-2 bg-lightgrey text-dark border">
-            <div class="col-2 py-2">
-                <div id="selectedmon" class="d-flex justify-content-center"><img class="mediumsprite"
-                        src="https://play.pokemonshowdown.com/sprites/xyani/unown-question.gif"></div>
-                <small><strong>Pokemon</strong></small>
-                <form>
-                    <input id="moninput" type="text">
-                </form>
+        <div class="bg-lightgrey text-dark mt-2 border border-dark">
+            <div class="row d-flex align-items-center m-0 p-0">
+                <div class="col-2 p-1">
+                    <div class="text-center">
+                        <div id="selectedmon" class="d-flex justify-content-center"><img class="mediumsprite"
+                                src="/static/pokemondatabase/sprites/question.png"></div>
+                        <div>Pokemon</div>
+                        <input id="moninput" type="text">
+                    </div>
+                </div>
+                <div class="col-1 p-1">
+                    <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                        <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                            <tr class="bg-dark text-light">
+                                <th colspan="1">Typing</th>
+                            </tr>
+                            <tr>
+                                <td id="typingbox">-</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-3 p-1">
+                    <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                        <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                            <tr class="bg-dark text-light">
+                                <th colspan="1">Abilities</th>
+                            </tr>
+                            <tr>
+                                <td id="abilitybox">-</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-3 p-1">
+                    <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                        <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                            <tr class="bg-dark text-light">
+                                <td>HP</td>
+                                <td>Atk</td>
+                                <td>Def</td>
+                                <td>SpA</td>
+                                <td>SpD</td>
+                                <td>Spe</td>
+                                <td>BST</td>
+                            </tr>
+                            <tr id="statbox">
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-3 p-1">
+                    <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                        <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                            <tr class="bg-dark text-light">
+                                <th colspan="1">Useful Moves</th>
+                            </tr>
+                            <tr>
+                                <td id="movesbox">-</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="col-12">
-        <div id="monsearchlist" class="row mx-0 mb-2 bg-lightgrey text-dark scrolldiv">
-        </div>
+        <div id="monsearchlist" class="scrolldiv"></div>
     </div>
 </div>
 <div class="row bg-darkgrey rounded text-light mb-2 align-items-center">
@@ -106,12 +167,8 @@
                     <td id="StickyWeb">None</td>
                 </tr>
                 <tr>
-                    <td>Defog</td>
-                    <td id="Defog">None</td>
-                </tr>
-                <tr>
-                    <td>Rapid Spin</td>
-                    <td id="RapidSpin">None</td>
+                    <td>Hazard Control</td>
+                    <td id="HazardControl">None</td>
                 </tr>
                 <tr>
                     <td>Heal Bell/Aromatherapy</td>
@@ -451,5 +508,14 @@
 </div>
 {% endblock %}
 {% block footer %}
+<script>
+    var spriteurl = 'swsh/ani/standard/PKMN.gif'
+    var pokemondatabase = {{ pokemondatabase|safe}}
+    var pokemonlist = {{ pokemonlist|safe}}
+    var typelist = {{ typelist|safe}}
+    var abilitylist = {{ abilitylist|safe}}
+    var movelist = {{ movelist|safe}}
+</script>
 <script src="{% static 'draftplanner/scripts/draftplanner.js' %}"></script>
+
 {% endblock %}

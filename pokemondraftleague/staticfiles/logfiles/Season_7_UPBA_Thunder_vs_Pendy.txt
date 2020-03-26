@@ -1,0 +1,780 @@
+|j|☆The Old Hag
+|j|☆christmas ballin
+
+
+|player|p1|The Old Hag|medium|
+
+
+|player|p2|christmas ballin|linebacker|
+|teamsize|p1|6
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] National Dex AG
+|clearpoke
+|poke|p1|Zygarde|
+|poke|p1|Zapdos|
+|poke|p1|Blastoise, M|
+|poke|p1|Aggron, M|
+|poke|p1|Nihilego|
+|poke|p1|Scrafty, M|
+|poke|p2|Dugtrio-Alola, M|
+|poke|p2|Greninja, M|
+|poke|p2|Gallade, M|
+|poke|p2|Avalugg, F|
+|poke|p2|Blacephalon|
+|poke|p2|Whimsicott, F|
+|rule|HP Percentage Mod: HP is shown in percentages
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|teampreview
+
+
+|c|☆The Old Hag|Good luck have fun Thunder <3
+
+
+|c|☆christmas ballin|hf
+
+
+|j| SuperEpicAmpharos
+
+
+|c| SuperEpicAmpharos|:O
+
+
+|c| SuperEpicAmpharos|make it a good one boys
+
+
+|
+|start
+|switch|p1a: HelmetBro|Aggron, M|100/100
+|switch|p2a: SWEET|Dugtrio-Alola, M|211/211
+|turn|1
+
+
+|
+|detailschange|p1a: HelmetBro|Aggron-Mega, M
+|-mega|p1a: HelmetBro|Aggron|Aggronite
+|move|p2a: SWEET|Stealth Rock|p1a: HelmetBro
+|-sidestart|p1: The Old Hag|move: Stealth Rock
+|move|p1a: HelmetBro|Stealth Rock|p2a: SWEET
+|-sidestart|p2: christmas ballin|move: Stealth Rock
+|
+|upkeep
+|turn|2
+
+
+|
+|switch|p2a: RENTAL|Avalugg, F|393/393
+|move|p1a: HelmetBro|Heavy Slam|p2a: RENTAL
+|-supereffective|p2a: RENTAL
+|-damage|p2a: RENTAL|307/393
+|
+|upkeep
+|turn|3
+
+
+|c| SuperEpicAmpharos|My god
+
+
+|c| SuperEpicAmpharos|avalugg is so fat
+
+
+|
+|switch|p1a: Big Pumps|Blastoise, M|100/100
+|-damage|p1a: Big Pumps|88/100|[from] Stealth Rock
+|move|p2a: RENTAL|Recover|p2a: RENTAL
+|-heal|p2a: RENTAL|393/393
+|
+|upkeep
+|turn|4
+
+
+|
+|switch|p1a: Zlicko|Zygarde|100/100
+|-damage|p1a: Zlicko|94/100|[from] Stealth Rock
+|-ability|p1a: Zlicko|Aura Break
+|switch|p2a: BOY BYE|Whimsicott, F, shiny|323/323
+|-damage|p2a: BOY BYE|283/323|[from] Stealth Rock
+|
+|-heal|p2a: BOY BYE|303/323|[from] item: Leftovers
+|upkeep
+|turn|5
+
+
+|
+|move|p2a: BOY BYE|Stun Spore|p1a: Zlicko
+|-status|p1a: Zlicko|par
+|move|p1a: Zlicko|Sludge Wave|p2a: BOY BYE
+|-supereffective|p2a: BOY BYE
+|-damage|p2a: BOY BYE|119/323
+|
+|-heal|p2a: BOY BYE|139/323|[from] item: Leftovers
+|upkeep
+|turn|6
+
+
+|
+|switch|p1a: HelmetBro|Aggron-Mega, M|100/100
+|-damage|p1a: HelmetBro|94/100|[from] Stealth Rock
+|move|p2a: BOY BYE|U-turn|p1a: HelmetBro
+|-resisted|p1a: HelmetBro
+|-damage|p1a: HelmetBro|92/100
+
+
+|
+|switch|p2a: RENTAL|Avalugg, F|393/393
+|
+|upkeep
+|turn|7
+
+
+|
+|switch|p1a: Big Pumps|Blastoise, M|88/100
+|-damage|p1a: Big Pumps|76/100|[from] Stealth Rock
+|move|p2a: RENTAL|Rapid Spin|p1a: Big Pumps
+|-damage|p1a: Big Pumps|63/100
+|-boost|p2a: RENTAL|spe|1
+|-sideend|p2: christmas ballin|Stealth Rock|[from] move: Rapid Spin|[of] p2a: RENTAL
+|
+|upkeep
+|turn|8
+
+
+|j| RevezSurge
+
+
+|
+|switch|p2a: BOY BYE|Whimsicott, F, shiny|139/323
+|move|p1a: Big Pumps|Surf|p2a: BOY BYE
+|-resisted|p2a: BOY BYE
+|-damage|p2a: BOY BYE|50/323
+|
+|-heal|p2a: BOY BYE|70/323|[from] item: Leftovers
+|upkeep
+|turn|9
+
+
+|
+|switch|p1a: Zlicko|Zygarde|94/100 par
+|-damage|p1a: Zlicko|88/100 par|[from] Stealth Rock
+|-ability|p1a: Zlicko|Aura Break
+|move|p2a: BOY BYE|Stun Spore|p1a: Zlicko
+|-fail|p1a: Zlicko|par
+|
+|-heal|p2a: BOY BYE|90/323|[from] item: Leftovers
+|upkeep
+|turn|10
+
+
+|l| RevezSurge
+
+
+|
+|switch|p1a: BestHat|Nihilego|100/100
+|-damage|p1a: BestHat|88/100|[from] Stealth Rock
+|move|p2a: BOY BYE|U-turn|p1a: BestHat
+|-resisted|p1a: BestHat
+|-damage|p1a: BestHat|80/100
+
+
+|
+|switch|p2a: SWEET|Dugtrio-Alola, M|211/211
+|
+|upkeep
+|turn|11
+
+
+|
+|switch|p1a: Zlicko|Zygarde|88/100 par
+|-damage|p1a: Zlicko|82/100 par|[from] Stealth Rock
+|-ability|p1a: Zlicko|Aura Break
+|move|p2a: SWEET|Earthquake|p1a: Zlicko
+|-damage|p1a: Zlicko|42/100 par
+|-damage|p2a: SWEET|190/211|[from] item: Life Orb
+|
+|upkeep
+|turn|12
+
+
+|
+|switch|p2a: RENTAL|Avalugg, F|393/393
+|move|p1a: Zlicko|Thousand Arrows|p2a: RENTAL
+|-damage|p2a: RENTAL|317/393
+|
+|upkeep
+|turn|13
+
+
+|
+|cant|p1a: Zlicko|par
+|move|p2a: RENTAL|Recover|p2a: RENTAL
+|-heal|p2a: RENTAL|393/393
+|
+|upkeep
+|turn|14
+
+
+|
+|move|p1a: Zlicko|Thousand Arrows|p2a: RENTAL
+|-damage|p2a: RENTAL|311/393
+|move|p2a: RENTAL|Avalanche|p1a: Zlicko
+|-supereffective|p1a: Zlicko
+|-damage|p1a: Zlicko|0 fnt
+|faint|p1a: Zlicko
+|
+|upkeep
+
+
+|
+|switch|p1a: Big Pumps|Blastoise, M|63/100
+|-damage|p1a: Big Pumps|51/100|[from] Stealth Rock
+|turn|15
+
+
+|
+|switch|p2a: BOY BYE|Whimsicott, F, shiny|90/323
+|move|p1a: Big Pumps|Surf|p2a: BOY BYE
+|-resisted|p2a: BOY BYE
+|-damage|p2a: BOY BYE|7/323
+|
+|-heal|p2a: BOY BYE|27/323|[from] item: Leftovers
+|upkeep
+|turn|16
+
+
+|
+|switch|p1a: HelmetBro|Aggron-Mega, M|92/100
+|-damage|p1a: HelmetBro|85/100|[from] Stealth Rock
+|move|p2a: BOY BYE|Giga Drain|p1a: HelmetBro
+|-resisted|p1a: HelmetBro
+|-damage|p1a: HelmetBro|73/100
+|-heal|p2a: BOY BYE|48/323|[from] drain|[of] p1a: HelmetBro
+|
+|-heal|p2a: BOY BYE|68/323|[from] item: Leftovers
+|upkeep
+|turn|17
+
+
+|
+|move|p2a: BOY BYE|U-turn|p1a: HelmetBro
+|-resisted|p1a: HelmetBro
+|-damage|p1a: HelmetBro|71/100
+
+
+|c| SuperEpicAmpharos|Nice chip
+
+
+|c| SuperEpicAmpharos|2%
+
+
+|c|☆christmas ballin|whimsi busted
+
+
+|
+|switch|p2a: RENTAL|Avalugg, F|311/393
+|move|p1a: HelmetBro|Stealth Rock|p2a: RENTAL
+|-sidestart|p2: christmas ballin|move: Stealth Rock
+|
+|upkeep
+|turn|18
+
+
+|c| SuperEpicAmpharos|Those 2% starting to add up
+
+
+|
+|switch|p1a: Fancypants|Scrafty, M|100/100
+|-damage|p1a: Fancypants|94/100|[from] Stealth Rock
+|-ability|p1a: Fancypants|Intimidate|boost
+|-unboost|p2a: RENTAL|atk|1
+|move|p2a: RENTAL|Rapid Spin|p1a: Fancypants
+|-damage|p1a: Fancypants|86/100
+|-boost|p2a: RENTAL|spe|1
+|-sideend|p2: christmas ballin|Stealth Rock|[from] move: Rapid Spin|[of] p2a: RENTAL
+|
+|upkeep
+|turn|19
+
+
+|
+|switch|p2a: BOY BYE|Whimsicott, F, shiny|68/323
+|move|p1a: Fancypants|Knock Off|p2a: BOY BYE
+|-resisted|p2a: BOY BYE
+|-damage|p2a: BOY BYE|0 fnt
+|-enditem|p2a: BOY BYE|Leftovers|[from] move: Knock Off|[of] p1a: Fancypants
+|faint|p2a: BOY BYE
+|
+|upkeep
+
+
+|j| BrunoCTK
+
+
+|
+|switch|p2a: GUMMY|Gallade, M, shiny|277/277
+|turn|20
+
+
+|
+|detailschange|p2a: GUMMY|Gallade-Mega, M, shiny
+|-mega|p2a: GUMMY|Gallade|Galladite
+|move|p2a: GUMMY|Close Combat|p1a: Fancypants
+|-supereffective|p1a: Fancypants
+|-damage|p1a: Fancypants|0 fnt
+|-unboost|p2a: GUMMY|def|1
+|-unboost|p2a: GUMMY|spd|1
+|faint|p1a: Fancypants
+|
+|upkeep
+
+
+|
+|switch|p1a: HelmetBro|Aggron-Mega, M|71/100
+|-damage|p1a: HelmetBro|64/100|[from] Stealth Rock
+|turn|21
+
+
+|
+|switch|p2a: RENTAL|Avalugg, F|311/393
+|move|p1a: HelmetBro|Heavy Slam|p2a: RENTAL
+|-supereffective|p2a: RENTAL
+|-damage|p2a: RENTAL|215/393
+|
+|upkeep
+|turn|22
+
+
+|
+|switch|p1a: Hairdos|Zapdos|100/100
+|-damage|p1a: Hairdos|76/100|[from] Stealth Rock
+|-ability|p1a: Hairdos|Pressure
+|move|p2a: RENTAL|Recover|p2a: RENTAL
+|-heal|p2a: RENTAL|393/393
+|
+|upkeep
+|turn|23
+
+
+|
+|switch|p2a: 1999 WILDFIRE|Blacephalon, shiny|255/255
+|move|p1a: Hairdos|Heat Wave|p2a: 1999 WILDFIRE
+|-resisted|p2a: 1999 WILDFIRE
+|-damage|p2a: 1999 WILDFIRE|140/255
+|
+|upkeep
+|turn|24
+
+
+|c| SuperEpicAmpharos|What is this nickname
+
+
+|c| SuperEpicAmpharos|Is it a reference to something I don’t get
+
+
+|c|☆christmas ballin|which one
+
+
+|c| SuperEpicAmpharos|1999 WILDFIRE
+
+
+|c|☆christmas ballin|its a song name
+
+
+|c| SuperEpicAmpharos|I figured
+
+
+|c| BrunoCTK|i name my blacephalon "You'll float too"
+
+
+|
+|switch|p1a: BestHat|Nihilego|80/100
+|-damage|p1a: BestHat|67/100|[from] Stealth Rock
+|move|p2a: 1999 WILDFIRE|Calm Mind|p2a: 1999 WILDFIRE
+|-boost|p2a: 1999 WILDFIRE|spa|1
+|-boost|p2a: 1999 WILDFIRE|spd|1
+|
+|upkeep
+|turn|25
+
+
+|c| SuperEpicAmpharos|I don’t know that I’ve ever nicknamed a blacephalon
+
+
+|
+|switch|p2a: SWEET|Dugtrio-Alola, M|190/211
+|move|p1a: BestHat|Power Gem|p2a: SWEET
+|-resisted|p2a: SWEET
+|-damage|p2a: SWEET|140/211
+|
+|upkeep
+|turn|26
+
+
+|
+|switch|p1a: Hairdos|Zapdos|76/100
+|-damage|p1a: Hairdos|51/100|[from] Stealth Rock
+|-ability|p1a: Hairdos|Pressure
+|move|p2a: SWEET|Earthquake|p1a: Hairdos
+|-immune|p1a: Hairdos
+|
+|upkeep
+|turn|27
+
+
+|
+|move|p2a: SWEET|Stone Edge|p1a: Hairdos|[miss]
+|-miss|p2a: SWEET|p1a: Hairdos
+|move|p1a: Hairdos|Heat Wave|p2a: SWEET
+|-supereffective|p2a: SWEET
+|-damage|p2a: SWEET|0 fnt
+|faint|p2a: SWEET
+|
+|upkeep
+
+
+|c|☆The Old Hag|:(
+
+
+|c| SuperEpicAmpharos|Damn :/
+
+
+|c| SuperEpicAmpharos|That’s pokemon
+
+
+|c|☆The Old Hag|He deserves to hit it though, rood game :((
+
+
+|c| SuperEpicAmpharos|That means you should mix your next heat wave
+
+
+|c| BrunoCTK|well at least im not the only one being cursed this week
+
+
+|c| SuperEpicAmpharos|miss*
+
+
+|c| SuperEpicAmpharos|pokemon is a cruel game
+
+
+|
+|switch|p2a: GUMMY|Gallade-Mega, M, shiny|277/277
+|turn|28
+
+
+|c| SuperEpicAmpharos|sometimes the game just doesn’t let you win
+
+
+|c| BrunoCTK|indeed
+
+
+|c| BrunoCTK|this game has a dark soul
+
+
+|c|☆christmas ballin|that edge miss was REALLY bad actually
+
+
+|c| SuperEpicAmpharos|I think we all could see that
+
+
+|c| SuperEpicAmpharos|Still having duggy and killing zap (provided he isn’t charti) is pretty huge
+
+
+|c| BrunoCTK|its clearly not charti
+
+
+|
+|move|p2a: GUMMY|Ice Punch|p1a: Hairdos
+|-supereffective|p1a: Hairdos
+|-damage|p1a: Hairdos|0 fnt
+|faint|p1a: Hairdos
+|
+|upkeep
+
+
+|c| SuperEpicAmpharos|Oh shit it just died to ice at half
+
+
+|c| BrunoCTK|was that specs?
+
+
+|c| SuperEpicAmpharos|mega lade broken
+
+
+|c| BrunoCTK|zapdos...
+
+
+|c|☆christmas ballin|zap was 100% specs
+
+
+|c|☆The Old Hag|:]
+
+
+|c| BrunoCTK|im proud of myself
+
+
+|c| SuperEpicAmpharos|I couldn’t tell lol
+
+
+|c| SuperEpicAmpharos|Oh
+
+
+|c| SuperEpicAmpharos|now it makes sense
+
+
+|c| SuperEpicAmpharos|with the heat wave damage on blace
+
+
+|c| BrunoCTK|4:30am and i can still recognize a set xD
+
+
+|c|☆christmas ballin|yeah
+
+
+|c| SuperEpicAmpharos|I was just thinking after last game
+
+
+|c| SuperEpicAmpharos|when it took 95 or some shit from entei
+
+
+|c| SuperEpicAmpharos|that its bulk was just horrible
+
+
+|c|☆christmas ballin|its bulk it awful
+
+
+|c|☆christmas ballin|but like
+
+
+|
+|switch|p1a: HelmetBro|Aggron-Mega, M|64/100
+|-damage|p1a: HelmetBro|58/100|[from] Stealth Rock
+|turn|29
+
+
+|c| SuperEpicAmpharos|but not that awful
+
+
+|c| SuperEpicAmpharos|i see
+
+
+|c|☆christmas ballin|yeah
+
+
+|
+|move|p2a: GUMMY|Swords Dance|p2a: GUMMY
+|-boost|p2a: GUMMY|atk|2
+|move|p1a: HelmetBro|Heavy Slam|p2a: GUMMY
+|-damage|p2a: GUMMY|28/277
+|
+|upkeep
+|turn|30
+
+
+|c| BrunoCTK|i mean it was a non stab heat wave... and it did 45%
+
+
+|
+|move|p2a: GUMMY|Close Combat|p1a: HelmetBro
+|-supereffective|p1a: HelmetBro
+|-damage|p1a: HelmetBro|0 fnt
+|-unboost|p2a: GUMMY|def|1
+|-unboost|p2a: GUMMY|spd|1
+|faint|p1a: HelmetBro
+|
+|upkeep
+
+
+|c| SuperEpicAmpharos|If I had a calc in front of me I could’ve determined that
+
+
+|c| SuperEpicAmpharos|i over/underestimate frail mon bulk a lot
+
+
+|c| SuperEpicAmpharos|Like pult I assume dies to some stuff it only takes 80 from
+
+
+|
+|switch|p1a: Big Pumps|Blastoise, M|51/100
+|-damage|p1a: Big Pumps|38/100|[from] Stealth Rock
+|turn|31
+
+
+|
+|move|p1a: Big Pumps|Aqua Jet|p2a: GUMMY
+|-damage|p2a: GUMMY|0 fnt
+|faint|p2a: GUMMY
+|
+|upkeep
+
+
+|c| SuperEpicAmpharos|I knew it
+
+
+|c| BrunoCTK|i was about to say reveal aqua jet XD
+
+
+|
+|switch|p2a: BOOGIE|Greninja, M, shiny|299/299
+|turn|32
+
+
+|
+|move|p1a: Big Pumps|Aqua Jet|p2a: BOOGIE
+|-resisted|p2a: BOOGIE
+|-damage|p2a: BOOGIE|272/299
+|move|p2a: BOOGIE|Grass Knot|p1a: Big Pumps
+|-supereffective|p1a: Big Pumps
+|-damage|p1a: Big Pumps|0 fnt
+|faint|p1a: Big Pumps
+|
+|upkeep
+
+
+|
+|switch|p1a: BestHat|Nihilego|67/100
+|-damage|p1a: BestHat|55/100|[from] Stealth Rock
+|turn|33
+
+
+|c| SuperEpicAmpharos|scarf?
+
+
+|c| BrunoCTK|gg's
+
+
+|c| SuperEpicAmpharos|Not all of gren’s moves are 100% accurate
+
+
+|c| SuperEpicAmpharos|so pendy can still win
+
+
+|
+|move|p1a: BestHat|Thunderbolt|p2a: BOOGIE
+|-supereffective|p2a: BOOGIE
+|-crit|p2a: BOOGIE
+|-damage|p2a: BOOGIE|0 fnt
+|faint|p2a: BOOGIE
+|-ability|p1a: BestHat|Beast Boost|boost
+|-boost|p1a: BestHat|spa|1
+|
+|upkeep
+
+
+|c| SuperEpicAmpharos|Or he can crit
+
+
+|c|☆christmas ballin|pendy wins here
+
+
+|c| SuperEpicAmpharos|Lugg lives one
+
+
+|c|☆The Old Hag|Isn't avalugg sturdy?
+
+
+|c| BrunoCTK|exactly
+
+
+|c| BrunoCTK|avalugg wins
+
+
+|c|☆christmas ballin|lugg is ice body
+
+
+|c| SuperEpicAmpharos|Avalanche that bitch
+
+
+|c|☆christmas ballin|he has hail
+
+
+|
+|switch|p2a: RENTAL|Avalugg, F|393/393
+|turn|34
+
+
+|c| BrunoCTK|unless para happens
+
+
+|c|☆The Old Hag|Oh
+
+
+|c| SuperEpicAmpharos|You’re at full
+
+
+|c|☆christmas ballin|oh wait
+
+
+|c|☆The Old Hag|Still lives
+
+
+|c|☆christmas ballin|its tbolt
+
+
+|c| SuperEpicAmpharos|you prob eat one
+
+
+|
+|move|p1a: BestHat|Thunderbolt|p2a: RENTAL
+|-damage|p2a: RENTAL|190/393
+|move|p2a: RENTAL|Avalanche|p1a: BestHat
+|-damage|p1a: BestHat|0 fnt
+|faint|p1a: BestHat
+|
+|win|christmas ballin
+
+
+|c|☆christmas ballin|not gem
+
+
+|c|☆christmas ballin|im dumb
+
+
+|c| SuperEpicAmpharos|lol
+
+
+|c|☆The Old Hag|Ggs Thunder! : ]
+
+
+|c| BrunoCTK|told ya
+
+
+|c| BrunoCTK|gg's dudes
+
+
+|l| BrunoCTK
+
+
+|c|☆christmas ballin|i cannot upload
+
+
+|l| SuperEpicAmpharos
+
+
+|c|☆christmas ballin|the replay
+
+
+|c|☆The Old Hag|I guess Crit Power gem was the play, but I'd rather see you win this one
+
+
+|c|☆The Old Hag|You deserve  it
+
+
+|c|☆The Old Hag|Ggs!
+
+
+|c|☆The Old Hag|c;
+
+
+|c|☆christmas ballin|ggs
+
+
+|c|☆The Old Hag|o
+
+
+|j| BrunoCTK
+
+
+|l|☆The Old Hag
+
+
+|j|☆The Old Hag
