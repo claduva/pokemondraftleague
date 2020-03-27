@@ -140,7 +140,39 @@
 <div class="row bg-darkgrey rounded text-light mb-2 align-items-center">
     <div class="col-12">
         <div class="bg-lightgrey text-dark text-center border my-2 rounded">
-            <h2>Draft Score: <span id="draftscore">0</span>/100</strong>
+            <h2>Draft Score: <span id="draftscore">0</span>/100</h2>
+            <div><button id="showcriteria" class="btn btn-sm btn-primary">Show Criteria</button></div>
+            <div id="criteriatable" class="d-none">
+                <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                    <tr class="bg-dark text-light"><th colspan="2">Draft Scoring Criteria</th></tr>
+                    <tr class="bg-dark text-light"><th>Criteria</th><th>Points</th></tr>
+                    <tr class="bg-dark text-light"><th colspan="2">Type Cores</th></tr>
+                    <tr><td>Fire-Grass-Water Core</td><td>2 points per type+2 points for complete core</td></tr>
+                    <tr><td>Dark-Fighting-Psychic Core</td><td>2 points per type+2 points for complete core</td></tr>
+                    <tr><td>Dragon-Fairy-Steel Core</td><td>2 points per type+2 points for complete core</td></tr>
+                    <tr><td>Electric-Ground-Poison Core</td><td>2 points per type+1 point for complete core</td></tr>
+                    <tr><td>Ghost Type</td><td>2</td></tr>
+                    <tr class="bg-dark text-light"><th colspan="2">Speed Tiers</th></tr>
+                    <tr><td>>=1 Pokemon w/ Base Speed &lt;=30</td><td>2</td></tr>
+                    <tr><td>>=1 Pokemon w/ Base Speed 31-50</td><td>2</td></tr>
+                    <tr><td>>=1 Pokemon w/ Base Speed 51-70</td><td>2</td></tr>
+                    <tr><td>>=1 Pokemon w/ Base Speed 71-90</td><td>2</td></tr>
+                    <tr><td>>=1 Pokemon w/ Base Speed 91-110</td><td>2</td></tr>
+                    <tr><td>>=1 Pokemon w/ Base Speed >110</td><td>3</td></tr>
+                    <tr><td>Largest Speed Gap &lt;=20</td><td>3</td></tr>
+                    <tr class="bg-dark text-light"><th colspan="2">Important Moves</th></tr>
+                    <tr><td>>=1 Pokemon w/ Stealth Rocks</td><td>2 per Pokemon (4 points max) </td></tr>
+                    <tr><td>>=1 Pokemon w/ Spikes or Toxic Spikes or Sticky Web</td><td>2</td></tr>
+                    <tr><td>>=1 Pokemon w/ Hazard Control</td><td>2 per Pokemon (4 points max) </td></tr>
+                    <tr><td>>=1 Pokemon w/ Heal Bell or Aromatherapy</td><td>2</td></tr>
+                    <tr><td>>=1 Pokemon w/ Wish</td><td>2</td></tr>
+                    <tr><td>>=3 Pokemon w/ Priority</td><td>1</td></tr>
+                    <tr class="bg-dark text-light"><th colspan="2">Resistances</th></tr>
+                    <tr><td>>=2 Pokemon w/ Resistance to Attacking Type</td><td>1 point per type</td></tr>
+                    <tr class="bg-dark text-light"><th colspan="2">Resistances-Weaknesses</th></tr>
+                    <tr><td>(# of Pokemon w/ Resistance)-(# of Pokemon w/ Weakness) to Attacking Type>=0</td><td>1 point per type</td></tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>
