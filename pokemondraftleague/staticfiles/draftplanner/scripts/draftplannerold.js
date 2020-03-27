@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  
-    /* 
     //add mon
     $("#addmon").click(function() {
       $(".activemon")
@@ -179,7 +177,6 @@ $(document).ready(function() {
       );
       }
     }); 
-    */
   });
   
   function selectmonfromlist(name) {

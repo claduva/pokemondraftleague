@@ -35,7 +35,7 @@
         </div>
             <form method="post">{% csrf_token %}
                 {{ form|crispy }}
-                <input name="purpose" class="btn btn-primary" type="submit">
+                <input name="purpose" class="btn btn-primary" type="submit" value="Submit">
             </form>
             {% if showsubleagues %}
             <h4>Subleagues</h4>

@@ -129,12 +129,133 @@ $(document).ready(function() {
   })
 
   //loadteam
+  $("#deleteitembutton").click(deleteitem); 
+
+  //loadteam
   $("#loadbutton").click(loaddraft); 
 
   //deleteteam
   $("#deletebutton").click(deletedraft); 
 
 });
+
+function updatescore(){
+  score=0
+  //typing bonuses
+  if($("#Grass img").length>0){grass=2}else{grass=0}
+  if($("#Fire img").length>0){fire=2}else{fire=0}
+  if($("#Water img").length>0){water=2}else{water=0}
+  if(grass+fire+water==6){gfwbonus=2}else{gfwbonus=0}
+  score=score+grass+fire+water+gfwbonus
+  if($("#Psychic img").length>0){psychic=2}else{psychic=0}
+  if($("#Fighting img").length>0){fighting=2}else{fighting=0}
+  if($("#Dark img").length>0){dark=2}else{dark=0}
+  if(psychic+fighting+dark==6){pfdbonus=2}else{pfdbonus=0}
+  score=score+psychic+fighting+dark+pfdbonus
+  if($("#Dragon img").length>0){dragon=2}else{dragon=0}
+  if($("#Fairy img").length>0){fairy=2}else{fairy=0}
+  if($("#Steel img").length>0){steel=2}else{steel=0}
+  if(dragon+fairy+steel==6){dfsbonus=2}else{dfsbonus=0}
+  score=score+dragon+fairy+steel+dfsbonus
+  if($("#Electric img").length>0){electric=2}else{electric=0}
+  if($("#Ground img").length>0){ground=2}else{ground=0}
+  if($("#Poison img").length>0){poison=2}else{poison=0}
+  if(electric+ground+poison==6){egpbonus=1}else{egpbonus=0}
+  score=score+electric+ground+poison+egpbonus
+  if($("#Ghost img").length>0){ghost=2}else{ghost=0}
+  score=score+ghost
+  //speed tier bonus
+  if($("#speed_g1 img").length>0){sg1=2}else{sg1=0}
+  if($("#speed_g2 img").length>0){sg2=2}else{sg2=0}
+  if($("#speed_g3 img").length>0){sg3=2}else{sg3=0}
+  if($("#speed_g4 img").length>0){sg4=2}else{sg4=0}
+  if($("#speed_g5 img").length>0){sg5=2}else{sg5=0}
+  if($("#speed_g6 img").length>0){sg6=3}else{sg6=0}
+  if(parseInt($("#largestspeedgap").text())<21){speedgap=3}else{speedgap=0}
+  score=score+sg1+sg2+sg3+sg4+sg5+sg6+speedgap
+  //moves bonus
+  stealthrock=$("#StealthRock img").length*2
+  if($("#StealthRock img").length>2){stealthrock=4}
+  if(($("#Spikes img").length+$("#ToxicSpikes img").length+$("#StickyWeb img").length)>0){s_ts_sw=2}else{s_ts_sw=0}
+  removal=$("#HazardControl img").length*2
+  if($("#HazardControl img").length>2){removal=4}
+  if($("#Cleric img").length>0){cleric=2}else{cleric=0}
+  if($("#Wish img").length>0){wish=2}else{wish=0}
+  if($("#Priority img").length>2){priority=1}else{priority=0}
+  score=score+stealthrock+s_ts_sw+removal+cleric+wish+priority
+  //resists bonus
+  bug=0
+  dark=0
+  dragon=0
+  electric=0
+  fairy=0
+  fighting=0
+  fire=0
+  flying=0
+  ghost=0
+  grass=0
+  ground=0
+  ice=0
+  normal=0
+  poison=0
+  psychic=0
+  rock=0
+  steel=0
+  water=0
+  score=score+bug+dark+dragon+electric+fairy+fighting+fire+flying+ghost+grass+ground+ice+normal+poison+psychic+rock+steel+water
+  //weakness-resists bonus
+  bug=0
+  dark=0
+  dragon=0
+  electric=0
+  fairy=0
+  fighting=0
+  fire=0
+  flying=0
+  ghost=0
+  grass=0
+  ground=0
+  ice=0
+  normal=0
+  poison=0
+  psychic=0
+  rock=0
+  steel=0
+  water=0
+  score=score+bug+dark+dragon+electric+fairy+fighting+fire+flying+ghost+grass+ground+ice+normal+poison+psychic+rock+steel+water
+  $("#draftscore").text(score)
+  console.log(score)
+}
+
+function deleteitem(){
+  $(".activemon").remove()
+  $(".topmon").first().addClass("activemon")
+  am=$(".activemon")
+  if (am.hasClass('nomonselected')){
+    $("#selectedmon").empty().append("<img class='mediumsprite' src='/static/pokemondatabase/sprites/question.png'>");
+    $("#moninput").val("");
+    $("#typingbox").html("-")
+    $("#abilitybox").html("-")
+    $("#statbox").html("<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>")
+    $("#movesbox").html("-")
+  }
+  else{
+    selectedimgmd=am.find(".searchlistimg").clone()
+    selectedname=am.find(".topname").text()
+    selectedtyping=am.find(".searchlisttype").clone()
+    selectedability=am.find(".searchlistability").clone()
+    selectedstats=am.find(".topstats").html()
+    selectedmoves=am.find(".searchlistmoves").clone()
+    $("#selectedmon").html(selectedimgmd)
+    $("#moninput").val(selectedname)
+    $("#typingbox").html(selectedtyping)
+    $("#abilitybox").html(selectedability)
+    $("#statbox").html(selectedstats)
+    $("#movesbox").html(selectedmoves)
+  }
+  savedraft()
+  updatedata()
+}
 
 function savedraft() {
   draftname = $("#draftname").val();
@@ -171,6 +292,7 @@ function loaddraft() {
         $("#associatedleague").val(data.associatedleague);
         $("#draftloaded").val(data.draftloaded);
         $(".nomonselected").remove();
+        $(".topmon").remove();
         for (i = 0; i < data.lookupdraft.length; i++) {
           //alert('start')
           addMon()        
@@ -391,4 +513,5 @@ function updatedata(){
       $("#"+t+rw).append(spriteobject.clone())
     }
   })
+  updatescore()
 }
