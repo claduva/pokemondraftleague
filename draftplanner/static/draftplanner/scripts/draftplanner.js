@@ -184,44 +184,44 @@ function updatescore(){
   if($("#Priority img").length>2){priority=1}else{priority=0}
   score=score+stealthrock+s_ts_sw+removal+cleric+wish+priority
   //resists bonus
-  bug=0
-  dark=0
-  dragon=0
-  electric=0
-  fairy=0
-  fighting=0
-  fire=0
-  flying=0
-  ghost=0
-  grass=0
-  ground=0
-  ice=0
-  normal=0
-  poison=0
-  psychic=0
-  rock=0
-  steel=0
-  water=0
+  if(($("#Bug1 img").length+$("#Bug2 img").length+$("#Bug3 img").length)>1){bug=1}else{bug=0}
+  if(($("#Dark1 img").length+$("#Dark2 img").length+$("#Dark3 img").length)>1){dark=1}else{dark=0}
+  if(($("#Dragon1 img").length+$("#Dragon2 img").length+$("#Dragon3 img").length)>1){dragon=1}else{dragon=0}
+  if(($("#Electric1 img").length+$("#Electric2 img").length+$("#Electric3 img").length)>1){electric=1}else{electric=0}
+  if(($("#Fairy1 img").length+$("#Fairy2 img").length+$("#Fairy3 img").length)>1){fairy=1}else{fairy=0}
+  if(($("#Fighting1 img").length+$("#Fighting2 img").length+$("#Fighting3 img").length)>1){fighting=1}else{fighting=0}
+  if(($("#Fire1 img").length+$("#Fire2 img").length+$("#Fire3 img").length)>1){fire=1}else{fire=0}
+  if(($("#Flying1 img").length+$("#Flying2 img").length+$("#Flying3 img").length)>1){flying=1}else{flying=0}
+  if(($("#Ghost1 img").length+$("#Ghost2 img").length+$("#Ghost3 img").length)>1){ghost=1}else{ghost=0}
+  if(($("#Grass1 img").length+$("#Grass2 img").length+$("#Grass3 img").length)>1){grass=1}else{grass=0}
+  if(($("#Ground1 img").length+$("#Ground2 img").length+$("#Ground3 img").length)>1){ground=1}else{ground=0}
+  if(($("#Ice1 img").length+$("#Ice2 img").length+$("#Ice3 img").length)>1){ice=1}else{ice=0}
+  if(($("#Normal1 img").length+$("#Normal2 img").length+$("#Normal3 img").length)>1){normal=1}else{normal=0}
+  if(($("#Poison1 img").length+$("#Poison2 img").length+$("#Poison3 img").length)>1){poison=1}else{poison=0}
+  if(($("#Psychic1 img").length+$("#Psychic2 img").length+$("#Psychic3 img").length)>1){psychic=1}else{psychic=0}
+  if(($("#Rock1 img").length+$("#Rock2 img").length+$("#Rock3 img").length)>1){rock=1}else{rock=0}
+  if(($("#Steel1 img").length+$("#Steel2 img").length+$("#Steel3 img").length)>1){steel=1}else{steel=0}
+  if(($("#Water1 img").length+$("#Water2 img").length+$("#Water3 img").length)>1){water=1}else{water=0}
   score=score+bug+dark+dragon+electric+fairy+fighting+fire+flying+ghost+grass+ground+ice+normal+poison+psychic+rock+steel+water
-  //weakness-resists bonus
-  bug=0
-  dark=0
-  dragon=0
-  electric=0
-  fairy=0
-  fighting=0
-  fire=0
-  flying=0
-  ghost=0
-  grass=0
-  ground=0
-  ice=0
-  normal=0
-  poison=0
-  psychic=0
-  rock=0
-  steel=0
-  water=0
+  //resists-weak bonus
+  if(($("#Bug1 img").length+$("#Bug2 img").length+$("#Bug3 img").length-$("#Bug-1 img").length-$("#Bug-2 img").length)>0){bug=1}else{bug=0}
+  if(($("#Dark1 img").length+$("#Dark2 img").length+$("#Dark3 img").length-$("#Dark-1 img").length-$("#Dark-2 img").length)>0){dark=1}else{dark=0}
+  if(($("#Dragon1 img").length+$("#Dragon2 img").length+$("#Dragon3 img").length-$("#Dragon-1 img").length-$("#Dragon-2 img").length)>0){dragon=1}else{dragon=0}
+  if(($("#Electric1 img").length+$("#Electric2 img").length+$("#Electric3 img").length-$("#Electric-1 img").length-$("#Electric-2 img").length)>0){electric=1}else{electric=0}
+  if(($("#Fairy1 img").length+$("#Fairy2 img").length+$("#Fairy3 img").length-$("#Fairy-1 img").length-$("#Fairy-2 img").length)>0){fairy=1}else{fairy=0}
+  if(($("#Fighting1 img").length+$("#Fighting2 img").length+$("#Fighting3 img").length-$("#Fighting-1 img").length-$("#Fighting-2 img").length)>0){fighting=1}else{fighting=0}
+  if(($("#Fire1 img").length+$("#Fire2 img").length+$("#Fire3 img").length-$("#Fire-1 img").length-$("#Fire-2 img").length)>0){fire=1}else{fire=0}
+  if(($("#Flying1 img").length+$("#Flying2 img").length+$("#Flying3 img").length-$("#Flying-1 img").length-$("#Flying-2 img").length)>0){flying=1}else{flying=0}
+  if(($("#Ghost1 img").length+$("#Ghost2 img").length+$("#Ghost3 img").length-$("#Ghost-1 img").length-$("#Ghost-2 img").length)>0){ghost=1}else{ghost=0}
+  if(($("#Grass1 img").length+$("#Grass2 img").length+$("#Grass3 img").length-$("#Grass-1 img").length-$("#Grass-2 img").length)>0){grass=1}else{grass=0}
+  if(($("#Ground1 img").length+$("#Ground2 img").length+$("#Ground3 img").length-$("#Ground-1 img").length-$("#Ground-2 img").length)>0){ground=1}else{ground=0}
+  if(($("#Ice1 img").length+$("#Ice2 img").length+$("#Ice3 img").length-$("#Ice-1 img").length-$("#Ice-2 img").length)>0){ice=1}else{ice=0}
+  if(($("#Normal1 img").length+$("#Normal2 img").length+$("#Normal3 img").length-$("#Normal-1 img").length-$("#Normal-2 img").length)>0){normal=1}else{normal=0}
+  if(($("#Poison1 img").length+$("#Poison2 img").length+$("#Poison3 img").length-$("#Poison-1 img").length-$("#Poison-2 img").length)>0){poison=1}else{poison=0}
+  if(($("#Psychic1 img").length+$("#Psychic2 img").length+$("#Psychic3 img").length-$("#Psychic-1 img").length-$("#Psychic-2 img").length)>0){psychic=1}else{psychic=0}
+  if(($("#Rock1 img").length+$("#Rock2 img").length+$("#Rock3 img").length-$("#Rock-1 img").length-$("#Rock-2 img").length)>0){rock=1}else{rock=0}
+  if(($("#Steel1 img").length+$("#Steel2 img").length+$("#Steel3 img").length-$("#Steel-1 img").length-$("#Steel-2 img").length)>0){steel=1}else{steel=0}
+  if(($("#Water1 img").length+$("#Water2 img").length+$("#Water3 img").length-$("#Water-1 img").length-$("#Water-2 img").length)>0){water=1}else{water=0}
   score=score+bug+dark+dragon+electric+fairy+fighting+fire+flying+ghost+grass+ground+ice+normal+poison+psychic+rock+steel+water
   $("#draftscore").text(score)
   console.log(score)
