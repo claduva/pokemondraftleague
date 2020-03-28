@@ -60,10 +60,12 @@
 <div class="row bg-darkgrey rounded pb-2 mb-2">
     <div class="col-12">
         <div class="bg-lightgrey text-dark mt-2 border border-dark">
-            <div class="row d-flex align-items-center m-0 p-0">
+            <div class="row d-flex m-0 p-0">
+                <div class="col-12"><img id="deleteitembutton" class="smallsprite border border-secondary p-1 rounded mt-1 btn" src="{% static 'main/images/trash.png' %}">
+                    <span class="mt-1" id="filterarea"></span>
+                </div>
                 <div class="col-2 p-1">
                     <div class="text-center">
-                        <div class="text-left"><img id="deleteitembutton" class="smallsprite border border-secondary p-1 rounded ml-2 btn" src="{% static 'main/images/trash.png' %}"></div>
                         <div id="selectedmon" class="d-flex justify-content-center"><img class="mediumsprite"
                                 src="/static/pokemondatabase/sprites/question.png"></div>
                         <div>Pokemon</div>

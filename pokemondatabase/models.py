@@ -40,6 +40,10 @@ class all_pokemon(models.Model):
     class Meta:
         ordering = ['pokemon']
 
+class preevolution(models.Model):
+    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
+    preevo = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="prevos")
+
 class pokemon_sprites(models.Model):
     pokemon = models.OneToOneField(all_pokemon,on_delete=models.CASCADE,related_name="sprite")
     afd = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/afd/png/standard')

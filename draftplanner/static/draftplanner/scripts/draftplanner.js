@@ -9,10 +9,14 @@ $(document).ready(function() {
     inner=$("<div class='col-1 d-flex justify-content-center align-items-center'></div>")
     for (type in jsonitem[itemname]['types']){
       inner.append("<div><img class='searchlisttype' src='/static/pokemondatabase/sprites/types/"+jsonitem[itemname]['types'][type]+".png'></div>")
+      outer.addClass("type-"+jsonitem[itemname]['types'][type].replace(/ /g,""))
     }
     outer.append(inner)
     inner=$("<div class='col-3 text-center my-auto'></div>")
     inner.append("<small class='searchlistability'>"+jsonitem[itemname]['abilities'].join(", ")+"</small>")
+    for (ability in jsonitem[itemname]['abilities']){
+      outer.addClass("ability-"+jsonitem[itemname]['abilities'][ability].replace(/ /g,""))
+    }
     outer.append(inner)
     inner=$("<div class='col-3 my-auto'></div>")
     inner.append('<div class="text-dark text-center"><table class="table table-sm p-0 m-0 text-center"><tr class="statstable"><td>'+jsonitem[itemname]['basestats']['hp']+'</td><td>'+jsonitem[itemname]['basestats']['attack']+'</td><td>'+jsonitem[itemname]['basestats']['defense']+'</td><td>'+jsonitem[itemname]['basestats']['s_attack']+'</td><td>'+jsonitem[itemname]['basestats']['s_defense']+'</td><td>'+jsonitem[itemname]['basestats']['speed']+'</td><td>'+jsonitem[itemname]['basestats']['bst']+'</td></tr></table></div>')
@@ -25,6 +29,7 @@ $(document).ready(function() {
       if(learnset[move]=='Stealth Rock'||learnset[move]=='Spikes'||learnset[move]=='Toxic Spikes'||learnset[move]=='Sticky Web'||learnset[move]=='Defog'||learnset[move]=='Rapid Spin'||learnset[move]=='Court Change'||learnset[move]=='Heal Bell'||learnset[move]=='Aromatherapy'||learnset[move]=='Wish'){
         useful.push(learnset[move])
       }
+      outer.addClass("move-"+learnset[move].replace(/ /g,""))
     }
     if (useful.join(", ")==""){
       inner.append("<small class='searchlistmoves'>-</small>")
@@ -35,17 +40,17 @@ $(document).ready(function() {
     outer.append(inner)
     $("#monsearchlist").append(outer)
   }
-  $("#monsearchlist").append("<div class='row p-1 border border-dark bg-dark text-light searchheading d-none'><div class='col-12'>Types</div></div>")
+  $("#monsearchlist").append("<div class='row p-1 border border-dark bg-dark text-light searchheading np-searchheading d-none'><div class='col-12'>Types</div></div>")
   for (x in typelist){
-    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none'><div class='col-12'>"+typelist[x]+"</div></div>")
+    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none filteritem filtertype'><div class='col-12'>"+typelist[x]+"</div></div>")
   }
-  $("#monsearchlist").append("<div class='row p-1 border border-dark bg-dark text-light searchheading d-none'><div class='col-12'>Abilities</div></div>")
+  $("#monsearchlist").append("<div class='row p-1 border border-dark bg-dark text-light searchheading np-searchheading d-none'><div class='col-12'>Abilities</div></div>")
   for (x in abilitylist){
-    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none'><div class='col-12'>"+abilitylist[x]+"</div></div>")
+    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none filteritem filterability'><div class='col-12'>"+abilitylist[x]+"</div></div>")
   }
-  $("#monsearchlist").append("<div class='row p-1 border border-dark bg-dark text-light searchheading d-none'><div class='col-12'>Moves</div></div>")
+  $("#monsearchlist").append("<div class='row p-1 border border-dark bg-dark text-light searchheading np-searchheading d-none'><div class='col-12'>Moves</div></div>")
   for (x in movelist){
-    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none'><div class='col-12'>"+movelist[x]+"</div></div>")
+    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none filteritem filtermove'><div class='col-12'>"+movelist[x]+"</div></div>")
   }
 
   //clicking searchlist
@@ -72,8 +77,33 @@ $(document).ready(function() {
     $(".activemon .topmoves").append(selectedmoves.clone())
     $(".searchheading").addClass('d-none')
     $(".monsearchlistitem").addClass('d-none')
+    $(".activefilter").remove()
     savedraft()
     updatedata()
+  })
+
+  //click filteritam
+  $(".filteritem").click(function() {
+    filtertext=$(this).find(".col-12").text()
+    if ($(this).hasClass('filtertype')){
+    $("#filterarea").append("<span class='border border-secondary rounded activefilter filtertype mr-1'><span class='filtertext'>"+filtertext+"</span> <span class='activefilterdelete'>ⓧ</span></span>")
+    }
+    else if ($(this).hasClass('filterability')){
+      $("#filterarea").append("<span class='border border-secondary rounded activefilter filterability mr-1'><span class='filtertext'>"+filtertext+"</span> <span class='activefilterdelete'>ⓧ</span></span>")
+    }
+    else if ($(this).hasClass('filtermove')){
+      $("#filterarea").append("<span class='border border-secondary rounded activefilter filtermove mr-1'><span class='filtertext'>"+filtertext+"</span> <span class='activefilterdelete'>ⓧ</span></span>")
+    }
+    $(".np-searchheading").addClass('d-none')
+    $(".filteritem").addClass('d-none')
+    $("#moninput").val("")
+    filterlist()
+  })
+
+  //delete filteritem
+  $("span").on('click','.activefilterdelete',function(){
+    $(this).closest(".activefilter").remove()
+    filterlist()
   })
 
   //searchbox
@@ -90,11 +120,29 @@ $(document).ready(function() {
         $(this).addClass('d-none')
       }
     })
+    $(".filteritem").each(function() {
+      lu=String(lookup).toLowerCase()
+      item=$(this)
+      clickedtext=item.find(".col-12").text()
+      if (clickedtext.toLowerCase().includes(lu)){
+        item.removeClass('d-none')
+      }
+      else{
+        item.addClass('d-none')
+      }
+      $(".activefilter").each(function(){
+        if ($(this).find(".filtertext").text()==clickedtext){
+          item.addClass('d-none')
+        }
+      })
+    })
     }
     else{
       $(".searchheading").addClass('d-none')
       $(".monsearchlistitem").addClass('d-none')
+      $(".filteritem").addClass('d-none')
     }
+    $(".filtered").addClass('d-none')
   })
 
   //addmon
@@ -150,6 +198,31 @@ $(document).ready(function() {
   $("#deletebutton").click(deletedraft); 
 
 });
+
+function filterlist(){
+  $(".monsearchlistitem").removeClass('d-none')
+  if ($(".activefilter").length>0){
+    $(".monsearchlistitem").addClass('filtered')
+  }
+  else{
+    $(".monsearchlistitem").removeClass('filtered')
+  }
+  requiredclass=[]
+  $(".activefilter").each(function(){
+    if ($(this).hasClass("filtertype")){
+      requiredclass.push(".type-"+$(this).find(".filtertext").text().replace(/ /g,""))
+    }
+    else if ($(this).hasClass("filterability")){
+      requiredclass.push(".ability-"+$(this).find(".filtertext").text().replace(/ /g,""))
+    }
+    else if ($(this).hasClass("filtermove")){
+      requiredclass.push(".move-"+$(this).find(".filtertext").text().replace(/ /g,""))
+    }
+  })
+  $(".monsearchlistitem"+requiredclass.join("")).removeClass('filtered')
+  $(".filtered").addClass("d-none")
+}
+
 
 function updatescore(){
   score=0
