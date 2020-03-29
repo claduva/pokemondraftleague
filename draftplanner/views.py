@@ -53,6 +53,16 @@ def draftplanner(request):
     except:
         user=User.objects.get(username="defaultuser")
         site_settings = user.sitesettings
+    availablesubleagues=[]
+    availablesubleagues_=league_subleague.objects.all()
+    for item in availablesubleagues_:
+        try:
+            item.seasonsetting.draftbudget
+            tiers=pokemon_tier.objects.filter(subleague=item).count()
+            if tiers>0:
+                availablesubleagues.append(item)
+        except:
+            pass
     context = {
         'usersdrafts':usersdrafts,
         'defaultname':defaultname,
@@ -62,6 +72,7 @@ def draftplanner(request):
         'movelist':movelist,
         'abilitylist':abilitylist,
         'spriteurl': str(site_settings.sprite),
+        'availablesubleagues':availablesubleagues,
     }
     return render(request, 'draftplanner.html',context)
 
@@ -85,12 +96,24 @@ def getdraft(request):
     return JsonResponse(data)
 
 @csrf_exempt
+def gettiers(request):
+    associatedleague=request.POST['associatedleague']
+    associatedleague=league_subleague.objects.get(id=int(associatedleague))
+    draftbudget=associatedleague.seasonsetting.draftbudget
+    tiers=list(pokemon_tier.objects.filter(subleague=associatedleague).values_list('pokemon__pokemon','tier__tiername','tier__tierpoints'))
+    data={
+        'draftbudget':draftbudget,
+        'tiers':tiers,
+        }
+    return JsonResponse(data)
+
+@csrf_exempt
 def savedraft(request):
     drafttoeditid=''
     draftname=request.POST['draftname']
     associatedleague=request.POST['associatedleague']
     if associatedleague != 'None':
-        associatedleague=league.objects.get(id=associatedleague)
+        associatedleague=league_subleague.objects.get(id=associatedleague)
     else:
         associatedleague=None
     savelist=request.POST.getlist('savelist[]')

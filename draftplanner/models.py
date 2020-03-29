@@ -12,6 +12,6 @@ from pokemondatabase.models import *
 
 class planned_draft(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    associatedleague = models.ForeignKey(league, on_delete=models.CASCADE, null=True)
+    associatedleague = models.ForeignKey(league_subleague, on_delete=models.CASCADE, null=True)
     draftname = models.CharField(max_length=100)
     pokemonlist = models.ManyToManyField(all_pokemon)

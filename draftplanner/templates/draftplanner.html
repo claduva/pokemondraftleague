@@ -8,19 +8,19 @@
 {% endblock %}
 {% block body %}
 <div class="row bg-darkgrey rounded text-light mb-2 align-items-center">
-    <div class="col-3">
+    <div class="col-2">
         <div class="bg-dark text-light text-center border my-2 p-2 rounded">
             <strong>Current Draft Name</strong>
-            <input id="draftname" type="text" value="{{defaultname}}">
+            <input class="form-control form-control-sm" id="draftname" type="text" value="{{defaultname}}">
         </div>
     </div>
-    <div class="col-3">
+    <div class="col-4">
         <div class="bg-dark text-light text-center border my-2 p-2 rounded align-items-stretch">
             <strong>Associated League</strong>
-            <select id="associatedleague">
+            <select class="form-control form-control-sm" id="associatedleague">
                 <option value="None">None Selected</option>
-                {% for item in allleagues %}
-                <option value={{item.id}}>{{item.name}}</option>
+                {% for item in availablesubleagues %}
+                <option value={{item.id}}>{{item.league.name}}-{{item.subleague}}</option>
                 {% endfor %}
             </select>
         </div>
@@ -28,13 +28,12 @@
     <div class="col-3">
         <div class="bg-dark text-light text-center border my-2 p-2 rounded">
             <strong>Load Existing Draft</strong>
-            <select id="draftselect">
+            <select class="form-control form-control-sm" id="draftselect">
                 <option value="None">None Selected</option>
                 {% for item in usersdrafts %}
                 <option value={{item.id}}>{{item.draftname}}</option>
                 {% endfor %}
             </select>
-            <button id="loadbutton" class="btn btn-primary btn-sm">Load</button>
         </div>
     </div>
     <div class="col-3">
@@ -54,6 +53,7 @@
                 class="col-1 bg-lightgrey text-dark text-center border d-flex align-items-center justify-content-center">
                 <strong>+</strong>
             </div>
+            <h4 id="availablepoints" class="col-12 text-center d-none">Available Points: <span id="remainingpoints">0</span>/<span id="totalpoints">0</span></h4>
         </div>
     </div>
 </div>
@@ -69,7 +69,7 @@
                         <div id="selectedmon" class="d-flex justify-content-center"><img class="mediumsprite"
                                 src="/static/pokemondatabase/sprites/question.png"></div>
                         <div>Pokemon</div>
-                        <input id="moninput" type="text">
+                        <input class="form-control form-control-sm" id="moninput" type="text">
                     </div>
                 </div>
                 <div class="col-1 p-1">

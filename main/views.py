@@ -21,6 +21,7 @@ from leagues.models import *
 from individualleague.models import *
 from pokemonadmin.models import *
 from pokemondatabase.models import *
+from draftplanner.models import *
 from .forms import HelpForm
 
 from replayanalysis.NewParser.parser import *
@@ -139,13 +140,7 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    i=1
-    for item in pokemon_moveset.objects.all():
-        for p in preevolution.objects.filter(pokemon=item.pokemon):
-            try:
-                pokemon_moveset.objects.filter(moveinfo=item.moveinfo).get(pokemon=p.preevo)
-            except:
-                pokemon_moveset.objects.create(pokemon=p.preevo,moveinfo=item.moveinfo)
-        print(f'{i}/{pokemon_moveset.objects.all().count()}')
-        i+=1
+    for item in planned_draft.objects.all():
+        item.associatedleague=None
+        item.save()
     return redirect('home')

@@ -514,7 +514,7 @@ ap=all_pokemon.objects.all()
         else:
             print(item.pokemon)
 
-pokemon_moveset.objects.all().delete()
+    pokemon_moveset.objects.all().delete()
     allmoves=moveinfo.objects.all()
     with open('learnsets.json') as json_file:
         data = json.load(json_file)
