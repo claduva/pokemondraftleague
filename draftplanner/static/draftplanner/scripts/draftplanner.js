@@ -226,7 +226,8 @@ function addleaguetiering(){
         associatedleague: associatedleague,
       },
       function(data) {
-        $("#totalpoints").text(data.draftbudget)
+        pointsremaining=data.draftbudget
+        $("#totalpoints").text(pointsremaining)
         tierlist=data.tiers
         for (x in tierlist){
           mon=tierlist[x][0]
@@ -245,11 +246,10 @@ function addleaguetiering(){
           listitem.find(".toppointvalue").text(points)
           $(".TopBanned").find(".toppoints").text("(Banned)")
         }
-        pointsremaining=data.draftbudget
-        (".toppointvalue").each(function(){
+        $(".toppointvalue").each(function(){
           pointsremaining=pointsremaining-parseInt($(this).text())
         })
-        $("#remainingpoints").text(pointsremaing)
+        $("#remainingpoints").text(pointsremaining)
       }
     );
   }
