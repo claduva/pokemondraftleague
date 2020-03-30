@@ -6,6 +6,7 @@ $(document).ready(function() {
     itemname=Object.keys(jsonitem)[0]
     outer=$("<div class='row p-1 border border-dark bg-lightgrey text-dark monsearchlistitem d-none'></div>")
     outer.append("<div class='col-2 d-flex justify-content-center align-items-center text-center'><img class='smallsprite searchlistimg' src='"+jsonitem[itemname]['sprites'][spriteurl]+"'><span class='searchlistname'>"+itemname+"</span><span class='listpts d-none'> (<span class='itemcost'></span> pts)</span></div>")
+    outer.addClass("pokemon-"+itemname.replace(" ","").replace(".","").replace(":","").replace("%",""))
     inner=$("<div class='col-1 d-flex justify-content-center align-items-center'></div>")
     for (type in jsonitem[itemname]['types']){
       inner.append("<div><img class='searchlisttype' src='/static/pokemondatabase/sprites/types/"+jsonitem[itemname]['types'][type]+".png'></div>")
@@ -70,6 +71,7 @@ $(document).ready(function() {
     $("#movesbox").html(selectedmoves)
     $(".activemon").html(selectedimgmd.clone()).removeClass('nomonselected')
     $(".activemon").append('<div class="topname" hidden></div><div class="toptypes" hidden></div><div class="topabilities" hidden></div><div class="topstats" hidden></div><div class="topmoves" hidden></div><div class="toppoints d-none">(<span class="toppointvalue"></span> pts)</div>')
+    $(".activemon").addClass("topmon-"+selectedname.replace(" ","").replace(".","").replace(":","").replace("%",""))
     $(".activemon .topname").append(selectedname)
     $(".activemon .toptypes").append(selectedtyping.clone())
     $(".activemon .topabilities").append(selectedability.clone())
@@ -233,13 +235,13 @@ function addleaguetiering(){
           mon=tierlist[x][0]
           tiername=tierlist[x][1]
           points=tierlist[x][2]
-          listitem=$(".monsearchlistitem").filter(function(){return $(this).find(".searchlistname").text()==mon})
+          listitem=$(".pokemon-"+mon.replace(" ","").replace(".","").replace(":","").replace("%",""))
           if (tiername=="Banned"){
             listitem.addClass("Banned")
           }
           listitem.find(".itemcost").text(points)
           $(".Banned").find(".listpts").text("(Banned)")
-          listitem=$(".topmon").filter(function(){return $(this).find(".topname").text()==mon})
+          listitem=$(".topmon-"+mon.replace(" ","").replace(".","").replace(":","").replace("%",""))
           if (tiername=="Banned"){
             listitem.addClass("TopBanned")
           }
@@ -254,6 +256,10 @@ function addleaguetiering(){
     );
   }
   savedraft()
+}
+
+function updatetoppoints(){
+
 }
 
 function filterlist(){
@@ -366,7 +372,6 @@ function updatescore(){
   if(($("#Water1 img").length+$("#Water2 img").length+$("#Water3 img").length-$("#Water-1 img").length-$("#Water-2 img").length)>=0){water=1}else{water=0}
   score=score+bug+dark+dragon+electric+fairy+fighting+fire+flying+ghost+grass+ground+ice+normal+poison+psychic+rock+steel+water
   $("#draftscore").text(score)
-  console.log(score)
 }
 
 function deleteitem(){
@@ -456,6 +461,7 @@ function loaddraft() {
           $("#movesbox").html(selectedmoves)
           $(".activemon").html(selectedimgmd.clone()).removeClass('nomonselected')
           $(".activemon").append('<div class="topname" hidden></div><div class="toptypes" hidden></div><div class="topabilities" hidden></div><div class="topstats" hidden></div><div class="topmoves" hidden></div><div class="toppoints d-none">(<span class="toppointvalue"></span> pts)</div>')
+          $(".activemon").addClass("topmon-"+selectedname.replace(" ","").replace(".","").replace(":","").replace("%",""))
           $(".activemon .topname").append(selectedname)
           $(".activemon .toptypes").append(selectedtyping.clone())
           $(".activemon .topabilities").append(selectedability.clone())
