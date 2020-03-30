@@ -31,6 +31,7 @@
                         <th>Wins</th>
                         <th>Losses</th>
                         <th>+/-</th>
+                        <th>Win%</th>
                         <th>Seasons Played</th>
                         <th>Damage Done</th>
                         <th>HP Healed</th>
@@ -39,7 +40,8 @@
                         <th>Remaining Health</th>
                         <th>Playoff Wins</th>
                         <th>Playoff Losses</th>
-                        <th>Playoff Differential</th>
+                        <th>Playoff +/-</th>
+                        <th>Playoff Win%</th>
                     </tr>
                 </thead>
                 <tbody class="bg-lightgrey text-dark">
@@ -61,6 +63,7 @@
                         <td>{{ item.wins }}</td>
                         <td>{{ item.losses }}</td>
                         <td>{{ item.differential }}</td>
+                        <td>{{ item.wins|winpercentage:item.losses }}</td>
                         <td>{{ item.seasonsplayed }}</td>
                         <td>{{ item.damagedone }}</td>
                         <td>{{ item.hphealed }}</td>
@@ -70,6 +73,7 @@
                         <td>{{ item.playoffwins }}</td>
                         <td>{{ item.playofflosses }}</td>
                         <td>{{ item.playoffdifferential }}</td>
+                        <td>{{ item.playoffwins|winpercentage:item.playofflosses }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
