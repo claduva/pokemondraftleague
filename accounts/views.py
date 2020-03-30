@@ -34,6 +34,11 @@ def user_profile(request,username):
         winpercent=f'{round(userprofile.wins/(userprofile.wins+userprofile.losses)*100)}%'
     except:
         winpercent='N/A'
+    try:  
+        site_settings = request.user.sitesettings
+    except:
+        user=User.objects.get(username="defaultuser")
+        site_settings = user.sitesettings
     #favorite pokemon
     alldraft=list(draft.objects.all().exclude(pokemon__isnull=True).filter(Q(team__coach=userofinterest)|Q(team__teammate=userofinterest)).values_list('pokemon',flat=True))
     allhistoricdraft=list(historical_draft.objects.all().exclude(pokemon__isnull=True).filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('pokemon',flat=True))
@@ -41,15 +46,16 @@ def user_profile(request,username):
     allhistoricfreeagency=list(historical_freeagency.objects.all().exclude(addedpokemon__isnull=True).filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('addedpokemon',flat=True))
     alltrading=list(trading.objects.all().exclude(addedpokemon__isnull=True).filter(Q(coach__coach=userofinterest)|Q(coach__teammate=userofinterest)).values_list('addedpokemon',flat=True))
     allhistorictrading=list(historical_trading.objects.all().exclude(addedpokemon__isnull=True).filter(Q(team__coach1=userofinterest)|Q(team__coach2=userofinterest)).values_list('addedpokemon',flat=True))
-    monlist_=alldraft+allhistoricdraft+allfreeagency+allhistoricfreeagency+alltrading+allhistorictrading
-    monlist=[]
+    monlist=alldraft+allhistoricdraft+allfreeagency+allhistoricfreeagency+alltrading+allhistorictrading
     allmons=all_pokemon.objects.all()
-    for item in monlist_:
-        print(item)
-        monlist.append(allmons.get(id=item).pokemon)
-    mostacquired=dict(Counter(monlist))
-    mostacquired={k:v for (k,v) in mostacquired.items() if v>1}
-    mostacquired = dict(sorted(mostacquired.items() ,reverse=True,  key=lambda x: x[1]))
+    mostacquired_=list(dict(Counter(monlist)).items())
+    mostacquired_=list(filter(lambda x: x[1]>1,mostacquired_))
+    mostacquired=[]
+    for item in mostacquired_:
+        moi=allmons.get(id=item[0])
+        mostacquired.append([moi.pokemon,item[1],get_sprite_url(moi,site_settings.sprite)])
+    mostacquired=sorted(mostacquired,key=lambda x: x[0])
+    mostacquired=sorted(mostacquired,key=lambda x: x[1], reverse=True)
     context = {
         "title": f"{username}'s Profile",
         'userofinterest':userofinterest,
@@ -208,3 +214,22 @@ def read_inbox(request):
     inbox.objects.all().filter(recipient=request.user).update(read=True)
     messages.success(request,'Success!')
     return redirect('inbox') 
+
+def get_sprite_url(poi,arg):
+    if arg=="swsh/ani/standard/PKMN.gif":
+        string=poi.sprite.dexani.url
+    elif arg=="swsh/ani/shiny/PKMN.gif":
+        string=poi.sprite.dexanishiny.url
+    elif arg=="swsh/png/standard/PKMN.png":
+        string=poi.sprite.dex.url
+    elif arg=="swsh/png/shiny/PKMN.png":
+        string=poi.sprite.dexshiny.url
+    elif arg=="bw/png/standard/PKMN.png":
+        string=poi.sprite.bw.url
+    elif arg=="bw/png/shiny/PKMN.png":
+        string=poi.sprite.bwshiny.url
+    elif arg=="afd/png/standard/PKMN.png":
+        string=poi.sprite.afd.url
+    elif arg=="afd/png/shiny/PKMN.png":
+        string=poi.sprite.afdshiny.url
+    return string

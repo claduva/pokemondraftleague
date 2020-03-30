@@ -140,7 +140,17 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    for item in planned_draft.objects.all():
-        item.associatedleague=None
-        item.save()
+    allusers=User.objects.all()
+    for userofinterest in allusers:
+        userprofile=userofinterest.profile
+        userprofile.playoffwins=0
+        userprofile.playofflosses=0
+        usermatches=replaydatabase.objects.all().filter(Q(team1coach1=userofinterest)|Q(team1coach2=userofinterest)|Q(team2coach1=userofinterest)|Q(team2coach2=userofinterest))
+        wins=usermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
+        playoffusermatches=usermatches.filter(Q(associatedmatch__week__icontains="Playoff")|Q(associatedhistoricmatch__week__icontains="Playoff"))
+        playoffwins=playoffusermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
+        userprofile.playoffwins+=playoffwins.count()
+        userprofile.playofflosses+=playoffusermatches.count()-playoffwins.count()
+        userprofile.save()
+        print(userofinterest)
     return redirect('home')

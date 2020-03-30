@@ -14,117 +14,176 @@
             <div class="m-3 bg-lightgrey text-dark rounded text-center">
                 <img src="{{ userofinterest.profile.pfp.url }}" class="rounded-circle mediumlogo m-2">
                 <h3>{{ userofinterest.username }}</h3>
-                <h5>Career Stats</h5>
-                <table class="table table-sm text-center">
-                    <tr>
-                        <td colspan="2">Seasons Played: {{ userofinterest.profile.seasonsplayed }}</td>
-                    </tr>
-                    <tr>
-                        <td>Wins: {{ userofinterest.profile.wins }}</td>
-                        <td>Losses: {{ userofinterest.profile.losses }}</td>
-                    </tr>
-                    <tr>
-                        <td>+/-: {{ userofinterest.profile.differential }}</td>
-                        <td>Win%: {{winpercent}}</td>
-                    </tr>
-                    <tr class="bg-dark text-light">
-                        <th colspan="2">Coach Biography</th>
-                    </tr>
-                    <tr>
-                    <td colspan="2">{{ userofinterest.profile.coachdata }}</td>
-                </tr>
-                </table>
+                <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                        <tr class="bg-dark text-light">
+                            <th colspan="2">Career Stats</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Seasons Played: {{ userofinterest.profile.seasonsplayed }}</td>
+                        </tr>
+                        <tr>
+                            <td>Wins: {{ userofinterest.profile.wins }}</td>
+                            <td>Losses: {{ userofinterest.profile.losses }}</td>
+                        </tr>
+                        <tr>
+                            <td>+/-: {{ userofinterest.profile.differential }}</td>
+                            <td>Win%: {{winpercent}}</td>
+                        </tr>
+                        <tr class="bg-dark text-light">
+                            <th colspan="2">Playoff Stats</th>
+                        </tr>
+                        <tr>
+                            <td>Wins: {{ userofinterest.profile.playoffwins }}</td>
+                            <td>Losses: {{ userofinterest.profile.playofflosses }}</td>
+                        </tr>
+                        <tr>
+                            <td>+/-: {{ userofinterest.profile.playoffdifferential }}</td>
+                            <td>Win%: {{ userofinterest.profile.playoffwins|winpercentage:userofinterest.profile.playofflosses }}</td>
+                        </tr>
+                        <tr class="bg-dark text-light">
+                            <th colspan="2">Coach Biography</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">{{ userofinterest.profile.coachdata }}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             {% if userofinterest.coaching.all or userofinterest.teammate.all or userofinterest.alternate.all %}
             <div class="m-3 bg-lightgrey text-dark rounded text-center">
-                <h5 class="col-md-12">Current Teams Coaching</h5>
-                <div class="col-md-12">
-                    {% for item in userofinterest.coaching.all %}
-                    <a href="{% url 'league_detail' league_name=item.league_name.name %}" class="text-dark">
-                        <div>
-                            <img class="smallsprite"
-                                src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league_name.name }}
-                        </div>
-                    </a>
-                    {% endfor %}
-                    {% for item in userofinterest.teammate.all %}
-                    <a href="{% url 'league_detail' league_name=item.league_name.name %}" class="text-dark">
-                        <div>
-                            <img class="smallsprite"
-                                src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league_name.name }}
-                        </div>
-                    </a>
-                    {% endfor %}
+                <div class="card table-responsive bg-lightgrey text-dark text-center mb-3">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                        <tr class="bg-dark text-light">
+                            <th colspan="2">Current Teams Coaching</th>
+                        </tr>
+                        {% for item in userofinterest.coaching.all %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'league_detail' league_name=item.league_name.name %}" class="text-dark">
+                                    <div>
+                                        <img class="smallsprite"
+                                            src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league_name.name }}
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% for item in userofinterest.teammate.all %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'league_detail' league_name=item.league_name.name %}" class="text-dark">
+                                    <div>
+                                        <img class="smallsprite"
+                                            src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league_name.name }}
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
                 </div>
             </div>
             {% endif %}
             {% if userofinterest.awards.all %}
             <div class="m-3 bg-lightgrey text-dark rounded text-center">
-                <h5>Trophy Case</h5>
-                <div class="row align-items-center justify-content-center mx-2">
-                    {% for item in userofinterest.awards.all %}
-                    <div class="col-3">
-                        <img src="{{ item.award.image.url }}" class="mediumsprite"
-                            title="{{ item.award.awardname }}: {{ item.text }}" alt="{{ item.text }}" />
-                    </div>
-                    {% endfor %}
+                <div class="card table-responsive bg-lightgrey text-dark text-center mb-3">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                        <tr class="bg-dark text-light">
+                            <th colspan="2">Trophy Case</th>
+                        </tr>
+                        <tr>
+                            <td class="row align-items-center justify-content-center mx-2">
+                                {% for item in userofinterest.awards.all %}
+                                <div class="col-3">
+                                    <img src="{{ item.award.image.url }}" class="mediumsprite"
+                                        title="{{ item.award.awardname }}: {{ item.text }}" alt="{{ item.text }}" />
+                                </div>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             {% endif %}
             {% if userofinterest.historical_team_coach1.all or userofinterest.historical_team_coach2.all %}
             <div class="m-3 bg-lightgrey text-dark rounded text-center">
-                <h5 class="col-md-12">Previous Season Teams</h5>
-                <div class="col-md-12">
-                    {% for item in userofinterest.historical_team_coach1.all %}
-                    <a href="{% url 'seasonteamdetail' league_name=item.league.name seasonofinterest=item.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}"
-                        class="text-dark">
-                        <div>
-                            <img class="smallsprite"
-                                src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league.name }}-{{ item.seasonname }}
-                        </div>
-                    </a>
-                    {% endfor %}
-                    {% for item in userofinterest.historical_team_coach2.all %}
-                    <a href="{% url 'seasonteamdetail' league_name=item.league.name seasonofinterest=item.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}"
-                        class="text-dark">
-                        <div>
-                            <img class="smallsprite"
-                                src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league.name }}-{{ item.seasonname }}
-                        </div>
-                    </a>
-                    {% endfor %}
+                <div class="card table-responsive bg-lightgrey text-dark text-center mb-3">
+                    <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                        <tr class="bg-dark text-light">
+                            <th colspan="2">Previous Season Teams</th>
+                        </tr>
+                        {% for item in userofinterest.historical_team_coach1.all %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'seasonteamdetail' league_name=item.league.name seasonofinterest=item.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}"
+                                    class="text-dark">
+                                    <div>
+                                        <img class="smallsprite"
+                                            src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league.name }}-{{ item.seasonname }}
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% for item in userofinterest.historical_team_coach2.all %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'seasonteamdetail' league_name=item.league.name seasonofinterest=item.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}"
+                                    class="text-dark">
+                                    <div>
+                                        <img class="smallsprite"
+                                            src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league.name }}-{{ item.seasonname }}
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
                 </div>
             </div>
             {% endif %}
         </div>
         <div class="col-md-8">
-            <div class="m-3 bg-dark text-light rounded text-center">
-                <h3>Advanced Data</h3>
-                <select>
-                    <option>Most Acquired Pokemon</option>
-                </select>
+            <div class="m-3">
+            <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                    <tr class="bg-dark text-light">
+                        <th>
+                            <h3>Advanced Data</h3>
+                        </th>
+                    </tr>
+                    <tr class="bg-dark text-light">
+                        <th>
+                            <select id="tableselector">
+                                <option value="mostacquired">Most Acquired Pokemon</option>
+                            </select>
+                        </th>
+                    </tr>
+                </table>
             </div>
-            <div class="m-3 bg-lightgrey text-dark rounded text-center">
-                <div>
-                    <h4 class="bg-dark text-light">Most Acquired Pokemon</h4>
-                    <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
-                        <table class="table table-sm table-bordered table-striped p-0 m-0">
-                            <tr class="bg-dark text-light">
-                                <th>Pokemon</th>
-                                <th>Times Acquired</th>
-                            </tr>
-                            {% for mon,value in mostacquired.items %}
-                            <tr>
-                                <td><img class="smallsprite" src="{{ mon|sprite:site_settings.sprite }}">
-                                    {{mon}}</td>
-                                <td>{{value}}</td>
-                            </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-                </div>
+            <div id="mostacquired" class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+                <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                    <tr class="bg-dark text-light">
+                        <th colspan=2>
+                            <h4>Most Acquired Pokemon</h4>
+                        </th>
+                    </tr>
+                    <tr class="bg-dark text-light">
+                        <th>Pokemon</th>
+                        <th>Times Acquired</th>
+                    </tr>
+                </table>
             </div>
+        </div>
         </div>
     </div>
 </div>
+</div>
+{% endblock %}
+{% block footer %}
+<script>
+    var mostacquired={{mostacquired|safe}}
+</script>
+<script src="{% static 'accounts/scripts/profile.js' %}"></script>
 {% endblock %}

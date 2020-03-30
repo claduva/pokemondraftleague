@@ -1089,7 +1089,7 @@ def archive_season(request,league_name):
         if item.team1==item.winner:
             winner=team1
         elif item.team2==item.winner:
-            winner=team1
+            winner=team2
         else:
             winner=None
         histmatch=historical_match.objects.create(

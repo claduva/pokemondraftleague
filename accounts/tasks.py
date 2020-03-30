@@ -22,74 +22,45 @@ def user_stat_update():
         userprofile.losses=0
         userprofile.seasonsplayed=0
         userprofile.differential=0
+        userprofile.playoffwins=0
+        userprofile.playofflosses=0
+        userprofile.seasonsplayed=0
+        userprofile.playoffdifferential=0
         userprofile.support=0
         userprofile.damagedone=0
         userprofile.hphealed=0
         userprofile.luck =0
         userprofile.remaininghealth=0
         userprofile.save()
-        coaching=coachdata.objects.filter(Q(coach=userofinterest)|Q(teammate=userofinterest)).exclude(league_name__name__contains="Test")
+        coaching=coachdata.objects.filter(Q(coach=userofinterest)|Q(teammate=userofinterest)).exclude(league_name__name__icontains="Test")
         for item in coaching:
-            userprofile.wins+=item.wins
-            userprofile.losses+=item.losses
             userprofile.differential+=item.differential
             userprofile.support+=item.support
             userprofile.damagedone+=item.damagedone
             userprofile.hphealed+=item.hphealed
             userprofile.luck+=item.luck
             userprofile.remaininghealth+=item.remaininghealth
-        priorseasons=historical_team.objects.filter(Q(coach1=userofinterest)|Q(coach2=userofinterest)).exclude(league__name__contains="Test")
+        priorseasons=historical_team.objects.filter(Q(coach1=userofinterest)|Q(coach2=userofinterest)).exclude(league__name__icontains="Test")
         for item in priorseasons:
-            userprofile.wins+=item.wins
-            userprofile.losses+=item.losses
             userprofile.differential+=item.differential
             userprofile.support+=item.support
             userprofile.damagedone+=item.damagedone
             userprofile.hphealed+=item.hphealed
             userprofile.luck+=item.luck
             userprofile.remaininghealth+=item.remaininghealth
-        #adjust for alternative coach
-        differentialadjustment=0
-        lossestosubtractt1=schedule.objects.all().filter(Q(team1__coach=userofinterest)|Q(team1__teammate=userofinterest)).filter(team1alternateattribution__isnull=False).exclude(Q(winner__coach=userofinterest)|Q(winner__teammate=userofinterest))
-        for item in lossestosubtractt1:
-            differentialadjustment+=item.team2score
-        lossestosubtractt2=schedule.objects.all().filter(Q(team2__coach=userofinterest)|Q(team2__teammate=userofinterest)).filter(team2alternateattribution__isnull=False).exclude(Q(winner__coach=userofinterest)|Q(winner__teammate=userofinterest))
-        for item in lossestosubtractt2:
-            differentialadjustment+=item.team1score
-        lossestosubtract=lossestosubtractt1.count()+lossestosubtractt2.count()
-        winstosubtractt1=schedule.objects.all().filter(Q(team1__coach=userofinterest)|Q(team1__teammate=userofinterest)).filter(team1alternateattribution__isnull=False).filter(Q(winner__coach=userofinterest)|Q(winner__teammate=userofinterest))
-        for item in winstosubtractt1:
-            differentialadjustment+=(-item.team1score)
-        winstosubtractt2=schedule.objects.all().filter(Q(team2__coach=userofinterest)|Q(team2__teammate=userofinterest)).filter(team2alternateattribution__isnull=False).filter(Q(winner__coach=userofinterest)|Q(winner__teammate=userofinterest))
-        for item in winstosubtractt2:
-            differentialadjustment+=(-item.team2score)
-        winstosubtract=winstosubtractt1.count()+winstosubtractt2.count()
-        lossestoadd=0
-        lossestoaddt1=schedule.objects.all().filter(team1alternateattribution=userofinterest)
-        for item in lossestoaddt1:
-            if item.winner!=item.team1: lossestoadd+=1
-            differentialadjustment+=(-item.team2score)
-        lossestoaddt2=schedule.objects.all().filter(team2alternateattribution=userofinterest)
-        for item in lossestoaddt2:
-            if item.winner!=item.team2: lossestoadd+=1
-            differentialadjustment+=(-item.team1score)
-        winstoadd=0
-        winstoaddt1=schedule.objects.all().filter(team1alternateattribution=userofinterest)
-        for item in winstoaddt1:
-            if item.winner!=item.team2: winstoadd+=1
-            differentialadjustment+=(item.team1score)
-        winstoaddt2=schedule.objects.all().filter(team2alternateattribution=userofinterest)
-        for item in winstoaddt2:
-            if item.winner!=item.team1: winstoadd+=1
-            differentialadjustment+=(item.team2score)
-        alternativeseasoncount=schedule.objects.all().filter(Q(team1alternateattribution=userofinterest)|Q(team2alternateattribution=userofinterest)).distinct('season').count()
+        alternativeseasoncount=schedule.objects.all().filter(Q(team1alternateattribution=userofinterest)|Q(team2alternateattribution=userofinterest)).distinct('season').count()+historical_match.objects.all().filter(Q(team1alternateattribution=userofinterest)|Q(team2alternateattribution=userofinterest)).distinct('team1__seasonname').count()
         seasonsplayed=coaching.count()+priorseasons.count()+alternativeseasoncount
-        userprofile.wins+=winstoadd-winstosubtract
-        userprofile.losses+=lossestoadd-lossestosubtract
-        userprofile.differential+=differentialadjustment
+        usermatches=replaydatabase.objects.all().filter(Q(team1coach1=userofinterest)|Q(team1coach2=userofinterest)|Q(team2coach1=userofinterest)|Q(team2coach2=userofinterest))
+        wins=usermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
+        playoffusermatches=usermatches.filter(Q(associatedmatch__week__icontains="Playoff")|Q(associatedhistoricmatch__week__icontains="Playoff"))
+        playoffwins=playoffusermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
+        userprofile.wins+=wins.count()
+        userprofile.losses+=usermatches.count()-wins.count()
+        userprofile.playoffwins+=playoffwins.count()
+        userprofile.playofflosses+=playoffusermatches.count()-playoffwins.count()
+        userprofile.differential+=0
         userprofile.seasonsplayed=seasonsplayed
         userprofile.save()
-
 
 @shared_task(name = "award_check")
 def award_check():

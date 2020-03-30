@@ -35,6 +35,14 @@ def divide(int, arg):
 def percentage(int, arg):
     return round(arg/int*100,2)
 
+@register.filter(name='winpercentage')
+def winpercentage(win, loss):
+    try:
+        return round(win/(win+loss)*100,2)+"%"
+    except:
+        return "N/A"
+    
+
 @register.filter
 def halve(thelist):
     firsthalf=[]
