@@ -28,7 +28,7 @@
                         </tr>
                         <tr>
                             <td>+/-: {{ userofinterest.profile.differential }}</td>
-                            <td>Win%: {{winpercent}}</td>
+                            <td>Win%: {{ userofinterest.profile.wins|winpercentage:userofinterest.profile.losses }}</td>
                         </tr>
                         <tr class="bg-dark text-light">
                             <th colspan="2">Playoff Stats</th>

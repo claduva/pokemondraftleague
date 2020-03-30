@@ -38,7 +38,7 @@ def percentage(int, arg):
 @register.filter(name='winpercentage')
 def winpercentage(win, loss):
     try:
-        return round(win/(win+loss)*100,2)+"%"
+        return str(round(win/(win+loss)*100,2))+"%"
     except:
         return "N/A"
     
