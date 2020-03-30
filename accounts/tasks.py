@@ -54,11 +54,21 @@ def user_stat_update():
         wins=usermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
         playoffusermatches=usermatches.filter(Q(associatedmatch__week__icontains="Playoff")|Q(associatedhistoricmatch__week__icontains="Playoff"))
         playoffwins=playoffusermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
+        for item in playoffusermatches:
+            if userofinterest==item.winnercoach1 or userofinterest==item.winnercoach1:
+                if item.associatedmatch != None:
+                    userprofile.playoffdifferential+=max(item.associatedmatch.team1score,item.associatedmatch.team2score)
+                elif item.associatedhistoricmatch != None:
+                    userprofile.playoffdifferential+=max(item.associatedhistoricmatch.team1score,item.associatedhistoricmatch.team2score)
+            else:
+                if item.associatedmatch != None:
+                    userprofile.playoffdifferential+=-max(item.associatedmatch.team1score,item.associatedmatch.team2score)
+                elif item.associatedhistoricmatch != None:
+                    userprofile.playoffdifferential+=-max(item.associatedhistoricmatch.team1score,item.associatedhistoricmatch.team2score)
         userprofile.wins+=wins.count()
         userprofile.losses+=usermatches.count()-wins.count()
         userprofile.playoffwins+=playoffwins.count()
         userprofile.playofflosses+=playoffusermatches.count()-playoffwins.count()
-        userprofile.differential+=0
         userprofile.seasonsplayed=seasonsplayed
         userprofile.save()
 

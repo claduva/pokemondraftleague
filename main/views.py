@@ -143,14 +143,20 @@ def runscript(request):
     allusers=User.objects.all()
     for userofinterest in allusers:
         userprofile=userofinterest.profile
-        userprofile.playoffwins=0
-        userprofile.playofflosses=0
+        userprofile.playoffdifferential=0
         usermatches=replaydatabase.objects.all().filter(Q(team1coach1=userofinterest)|Q(team1coach2=userofinterest)|Q(team2coach1=userofinterest)|Q(team2coach2=userofinterest))
-        wins=usermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
         playoffusermatches=usermatches.filter(Q(associatedmatch__week__icontains="Playoff")|Q(associatedhistoricmatch__week__icontains="Playoff"))
-        playoffwins=playoffusermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
-        userprofile.playoffwins+=playoffwins.count()
-        userprofile.playofflosses+=playoffusermatches.count()-playoffwins.count()
+        for item in playoffusermatches:
+            if userofinterest==item.winnercoach1 or userofinterest==item.winnercoach1:
+                if item.associatedmatch != None:
+                    userprofile.playoffdifferential+=max(item.associatedmatch.team1score,item.associatedmatch.team2score)
+                elif item.associatedhistoricmatch != None:
+                    userprofile.playoffdifferential+=max(item.associatedhistoricmatch.team1score,item.associatedhistoricmatch.team2score)
+            else:
+                if item.associatedmatch != None:
+                    userprofile.playoffdifferential+=-max(item.associatedmatch.team1score,item.associatedmatch.team2score)
+                elif item.associatedhistoricmatch != None:
+                    userprofile.playoffdifferential+=-max(item.associatedhistoricmatch.team1score,item.associatedhistoricmatch.team2score)
         userprofile.save()
         print(userofinterest)
     return redirect('home')

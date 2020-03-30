@@ -37,6 +37,9 @@
                         <th>Luck</th>
                         <th>Support Provided</th>
                         <th>Remaining Health</th>
+                        <th>Playoff Wins</th>
+                        <th>Playoff Losses</th>
+                        <th>Playoff Differential</th>
                     </tr>
                 </thead>
                 <tbody class="bg-lightgrey text-dark">
@@ -64,6 +67,9 @@
                         <td>{{ item.luck }}</td>
                         <td>{{ item.support }}</td>
                         <td>{{ item.remaininghealth }}</td>
+                        <td>{{ item.playoffwins }}</td>
+                        <td>{{ item.playofflosses }}</td>
+                        <td>{{ item.playoffdifferential }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
