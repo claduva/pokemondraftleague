@@ -5,7 +5,7 @@ $(document).ready(function() {
     jsonitem=JSON.parse(pokemondatabase[x])
     itemname=Object.keys(jsonitem)[0]
     outer=$("<div class='row p-1 border border-dark bg-lightgrey text-dark monsearchlistitem d-none'></div>")
-    outer.append("<div class='col-2 d-flex justify-content-center align-items-center text-center'><img class='smallsprite searchlistimg' src='"+jsonitem[itemname]['sprites'][spriteurl]+"'><span class='searchlistname'>"+itemname+"</span><span class='listpts d-none'> (<span class='itemcost'></span> pts)</span></div>")
+    outer.append("<div class='col-3 d-flex justify-content-center align-items-center text-center'><img class='smallsprite searchlistimg' src='"+jsonitem[itemname]['sprites'][spriteurl]+"'><span class='searchlistname'>"+itemname+"</span><span>&nbsp</span><span class='listpts d-none'> (<span class='itemcost'></span> pts)</span></div>")
     outer.addClass("pokemon-"+itemname.replace(" ","").replace(".","").replace(":","").replace("%",""))
     inner=$("<div class='col-1 d-flex justify-content-center align-items-center'></div>")
     for (type in jsonitem[itemname]['types']){
@@ -22,7 +22,7 @@ $(document).ready(function() {
     inner=$("<div class='col-3 my-auto'></div>")
     inner.append('<div class="text-dark text-center"><table class="table table-sm p-0 m-0 text-center"><tr class="statstable"><td>'+jsonitem[itemname]['basestats']['hp']+'</td><td>'+jsonitem[itemname]['basestats']['attack']+'</td><td>'+jsonitem[itemname]['basestats']['defense']+'</td><td>'+jsonitem[itemname]['basestats']['s_attack']+'</td><td>'+jsonitem[itemname]['basestats']['s_defense']+'</td><td>'+jsonitem[itemname]['basestats']['speed']+'</td><td>'+jsonitem[itemname]['basestats']['bst']+'</td></tr></table></div>')
     outer.append(inner)
-    inner=$("<div class='col-3 my-auto text-center'></div>")
+    inner=$("<div class='col-2 my-auto text-center'></div>")
     learnset=jsonitem[itemname]['learnset']
     learnset=Object.keys(learnset)
     useful=[]
@@ -83,7 +83,7 @@ $(document).ready(function() {
     $(".activefilter").remove()
     savedraft()
     updatedata()
-    addleaguetiering()
+    updatetoppoints()
   })
 
   //click filteritam
@@ -209,8 +209,6 @@ $(document).ready(function() {
 function addleaguetiering(){
   al_value=$("#associatedleague").val()
   $(".Banned").removeClass("Banned")
-  $(".TopBanned").removeClass("TopBanned")
-  $(".toppoints").html("(<span class='toppointvalue'></span> pts)")
   $(".listpts").html(" (<span class='itemcost'></span> pts)")
   if (al_value=="None"){
     $("#availablepoints").addClass("d-none")
@@ -230,6 +228,7 @@ function addleaguetiering(){
       function(data) {
         pointsremaining=data.draftbudget
         $("#totalpoints").text(pointsremaining)
+        $("#remainingpoints").text(pointsremaining)
         tierlist=data.tiers
         for (x in tierlist){
           mon=tierlist[x][0]
@@ -241,17 +240,8 @@ function addleaguetiering(){
           }
           listitem.find(".itemcost").text(points)
           $(".Banned").find(".listpts").text("(Banned)")
-          listitem=$(".topmon-"+mon.replace(" ","").replace(".","").replace(":","").replace("%",""))
-          if (tiername=="Banned"){
-            listitem.addClass("TopBanned")
-          }
-          listitem.find(".toppointvalue").text(points)
-          $(".TopBanned").find(".toppoints").text("(Banned)")
         }
-        $(".toppointvalue").each(function(){
-          pointsremaining=pointsremaining-parseInt($(this).text())
-        })
-        $("#remainingpoints").text(pointsremaining)
+        updatetoppoints()
       }
     );
   }
@@ -259,7 +249,28 @@ function addleaguetiering(){
 }
 
 function updatetoppoints(){
-
+  al_value=$("#associatedleague").val()
+  if (al_value!="None"){
+    pointsremaining=parseInt($("#totalpoints").text())
+    $(".TopBanned").removeClass("TopBanned")
+    $(".toppoints").removeClass("d-none")
+    $(".toppoints").html("(<span class='toppointvalue'></span> pts)")
+    $(".topmon").each(function(){
+      name=$(this).find(".topname").text().replace(" ","").replace(".","").replace(":","").replace("%","")
+      listitem=$(".pokemon-"+name)
+      if (listitem.find(".listpts").text()=="(Banned)"){
+        $(this).find(".toppoints").text("(Banned)")
+        $(this).addClass("TopBanned")
+        pointsremaining=pointsremaining-1000
+      }
+      else{
+        cost=listitem.find(".itemcost").text()
+        pointsremaining=pointsremaining-parseInt(cost)
+        $(this).find(".toppointvalue").text(cost)
+      }
+    })
+    $("#remainingpoints").text(pointsremaining)
+  }
 }
 
 function filterlist(){
@@ -402,7 +413,7 @@ function deleteitem(){
   }
   savedraft()
   updatedata()
-  addleaguetiering()
+  updatetoppoints()
 }
 
 function savedraft() {
