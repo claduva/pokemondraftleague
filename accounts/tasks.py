@@ -34,7 +34,6 @@ def user_stat_update():
         userprofile.save()
         coaching=coachdata.objects.filter(Q(coach=userofinterest)|Q(teammate=userofinterest)).exclude(league_name__name__icontains="Test")
         for item in coaching:
-            userprofile.differential+=item.differential
             userprofile.support+=item.support
             userprofile.damagedone+=item.damagedone
             userprofile.hphealed+=item.hphealed
@@ -42,7 +41,6 @@ def user_stat_update():
             userprofile.remaininghealth+=item.remaininghealth
         priorseasons=historical_team.objects.filter(Q(coach1=userofinterest)|Q(coach2=userofinterest)).exclude(league__name__icontains="Test")
         for item in priorseasons:
-            userprofile.differential+=item.differential
             userprofile.support+=item.support
             userprofile.damagedone+=item.damagedone
             userprofile.hphealed+=item.hphealed
@@ -54,7 +52,18 @@ def user_stat_update():
         wins=usermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
         playoffusermatches=usermatches.filter(Q(associatedmatch__week__icontains="Playoff")|Q(associatedhistoricmatch__week__icontains="Playoff"))
         playoffwins=playoffusermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
-        for item in playoffusermatches:
+        for item in usermatches:
+            if userofinterest==item.winnercoach1 or userofinterest==item.winnercoach1:
+                if item.associatedmatch != None:
+                    userprofile.differential+=max(item.associatedmatch.team1score,item.associatedmatch.team2score)
+                elif item.associatedhistoricmatch != None:
+                    userprofile.differential+=max(item.associatedhistoricmatch.team1score,item.associatedhistoricmatch.team2score)
+            else:
+                if item.associatedmatch != None:
+                    userprofile.differential+=-max(item.associatedmatch.team1score,item.associatedmatch.team2score)
+                elif item.associatedhistoricmatch != None:
+                    userprofile.differential+=-max(item.associatedhistoricmatch.team1score,item.associatedhistoricmatch.team2score)
+        for item in playoffusermatches:            
             if userofinterest==item.winnercoach1 or userofinterest==item.winnercoach1:
                 if item.associatedmatch != None:
                     userprofile.playoffdifferential+=max(item.associatedmatch.team1score,item.associatedmatch.team2score)
