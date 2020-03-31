@@ -496,7 +496,7 @@ def league_schedule(request,league_name,subleague_name):
                 matchtoupdate.winner=team2
                 matchtoupdate.team2score=3
                 team1.losses+=1; team2.wins+=1
-                team1.differential+=(-6); team2.differential+=3
+                team1.differential+=(-3); team2.differential+=3
                 team1.forfeit+=1
                 if team1.streak>-1:
                     team1.streak=-1
@@ -512,7 +512,7 @@ def league_schedule(request,league_name,subleague_name):
                 matchtoupdate.winner=team1
                 matchtoupdate.team1score=3
                 team1.wins+=1; team2.losses+=1
-                team1.differential+=3; team2.differential+=(-6)
+                team1.differential+=3; team2.differential+=(-3)
                 team2.forfeit+=1
                 if team1.streak>-1:
                     team1.streak+=1
@@ -526,7 +526,7 @@ def league_schedule(request,league_name,subleague_name):
             elif request.POST['purpose']=="bothff":
                 matchtoupdate.replay='Both Teams Forfeit'
                 team1.losses+=1; team2.losses+=1
-                team1.differential+=(-6); team2.differential+=(-6)
+                team1.differential+=(-3); team2.differential+=(-3)
                 team1.forfeit+=1; team2.forfeit+=1
                 if team1.streak>-1:
                     team1.streak=-1
@@ -602,7 +602,7 @@ def total_league_schedule(request,league_name):
                 matchtoupdate.winner=team2
                 matchtoupdate.team2score=3
                 team1.losses+=1; team2.wins+=1
-                team1.differential+=(-6); team2.differential+=3
+                team1.differential+=(-3); team2.differential+=3
                 team1.forfeit+=1
                 if team1.streak>-1:
                     team1.streak=-1
@@ -618,7 +618,7 @@ def total_league_schedule(request,league_name):
                 matchtoupdate.winner=team1
                 matchtoupdate.team1score=3
                 team1.wins+=1; team2.losses+=1
-                team1.differential+=3; team2.differential+=(-6)
+                team1.differential+=3; team2.differential+=(-3)
                 team2.forfeit+=1
                 if team1.streak>-1:
                     team1.streak+=1
@@ -632,7 +632,7 @@ def total_league_schedule(request,league_name):
             elif request.POST['purpose']=="bothff":
                 matchtoupdate.replay='Both Teams Forfeit'
                 team1.losses+=1; team2.losses+=1
-                team1.differential+=(-6); team2.differential+=(-6)
+                team1.differential+=(-3); team2.differential+=(-3)
                 team1.forfeit+=1; team2.forfeit+=1
                 if team1.streak>-1:
                     team1.streak=-1
@@ -708,7 +708,7 @@ def total_league_playoffs(request,league_name):
                 matchtoupdate.winner=team2
                 matchtoupdate.team2score=3
                 team1.losses+=1; team2.wins+=1
-                team1.differential+=(-6); team2.differential+=3
+                team1.differential+=(-3); team2.differential+=3
                 team1.forfeit+=1
                 if team1.streak>-1:
                     team1.streak=-1
@@ -724,7 +724,7 @@ def total_league_playoffs(request,league_name):
                 matchtoupdate.winner=team1
                 matchtoupdate.team1score=3
                 team1.wins+=1; team2.losses+=1
-                team1.differential+=3; team2.differential+=(-6)
+                team1.differential+=3; team2.differential+=(-3)
                 team2.forfeit+=1
                 if team1.streak>-1:
                     team1.streak+=1
@@ -738,7 +738,7 @@ def total_league_playoffs(request,league_name):
             elif request.POST['purpose']=="bothff":
                 matchtoupdate.replay='Both Teams Forfeit'
                 team1.losses+=1; team2.losses+=1
-                team1.differential+=(-6); team2.differential+=(-6)
+                team1.differential+=(-3); team2.differential+=(-3)
                 team1.forfeit+=1; team2.forfeit+=1
                 if team1.streak>-1:
                     team1.streak=-1
@@ -815,7 +815,7 @@ def composite_weekly_matchup(request,league_name,week,teamname):
                 matchtoupdate.winner=team2
                 matchtoupdate.team2score=3
                 team1.losses+=1; team2.wins+=1
-                team1.differential+=(-6); team2.differential+=3
+                team1.differential+=(-3); team2.differential+=3
                 team1.forfeit+=1
                 if team1.streak>-1:
                     team1.streak=-1
@@ -831,7 +831,7 @@ def composite_weekly_matchup(request,league_name,week,teamname):
                 matchtoupdate.winner=team1
                 matchtoupdate.team1score=3
                 team1.wins+=1; team2.losses+=1
-                team1.differential+=3; team2.differential+=(-6)
+                team1.differential+=3; team2.differential+=(-3)
                 team2.forfeit+=1
                 if team1.streak>-1:
                     team1.streak+=1
@@ -845,7 +845,7 @@ def composite_weekly_matchup(request,league_name,week,teamname):
             elif request.POST['purpose']=="bothff":
                 matchtoupdate.replay='Both Teams Forfeit'
                 team1.losses+=1; team2.losses+=1
-                team1.differential+=(-6); team2.differential+=(-6)
+                team1.differential+=(-3); team2.differential+=(-6)
                 team1.forfeit+=1; team2.forfeit+=1
                 if team1.streak>-1:
                     team1.streak=-1
@@ -1373,7 +1373,7 @@ def league_playoffs(request,league_name,subleague_name):
                 matchtoupdate.replay=f'Team 1 Forfeits'
                 matchtoupdate.winner=team2
                 team1.losses+=1; team2.wins+=1
-                team1.differential+=(-6); team2.differential+=3
+                team1.differential+=(-3); team2.differential+=3
                 team1.forfeit+=1
                 if team1.streak>-1:
                     team1.streak=-1
@@ -1388,7 +1388,7 @@ def league_playoffs(request,league_name,subleague_name):
                 matchtoupdate.replay=f'Team 2 Forfeits'
                 matchtoupdate.winner=team1
                 team1.wins+=1; team2.losses+=1
-                team1.differential+=3; team2.differential+=(-6)
+                team1.differential+=3; team2.differential+=(-3)
                 team2.forfeit+=1
                 if team1.streak>-1:
                     team1.streak+=1
@@ -1402,7 +1402,7 @@ def league_playoffs(request,league_name,subleague_name):
             elif request.POST['purpose']=="bothff":
                 matchtoupdate.replay='Both Teams Forfeit'
                 team1.losses+=1; team2.losses+=1
-                team1.differential+=(-6); team2.differential+=(-6)
+                team1.differential+=(-3); team2.differential+=(-3)
                 team1.forfeit+=1; team2.forfeit+=1
                 if team1.streak>-1:
                     team1.streak=-1
