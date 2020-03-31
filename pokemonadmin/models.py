@@ -116,5 +116,5 @@ class replaydatabase(models.Model):
     replay=models.CharField(max_length=500)
 
 class favoritereplay(models.Model):
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='user_favorities')
     replay=models.ForeignKey(replaydatabase,on_delete=models.CASCADE,related_name='users_favorited')
