@@ -56,11 +56,24 @@ def user_profile(request,username):
         mostacquired.append([moi.pokemon,item[1],get_sprite_url(moi,site_settings.sprite)])
     mostacquired=sorted(mostacquired,key=lambda x: x[0])
     mostacquired=sorted(mostacquired,key=lambda x: x[1], reverse=True)
+    #all matches
+    usermatches=replaydatabase.objects.all().filter(Q(team1coach1=request.user)|Q(team1coach2=request.user)|Q(team2coach1=request.user)|Q(team2coach2=request.user))
+    userhistoricmatches=usermatches.filter(associatedhistoricmatch__isnull=False)
+    usermatches=usermatches.filter(associatedhistoricmatch__isnull=True)
+    usermatches_t1=list(usermatches.filter(Q(team1coach1=request.user)|Q(team1coach2=request.user)).values_list('associatedmatch__season__league__name','associatedmatch__season__seasonname','associatedmatch__week','associatedmatch__team2__teamname','associatedmatch__replay','associatedmatch__team1score'))
+    usermatches_t2=list(usermatches.filter(Q(team2coach1=request.user)|Q(team2coach2=request.user)).values_list('associatedmatch__season__league__name','associatedmatch__season__seasonname','associatedmatch__week','associatedmatch__team1__teamname','associatedmatch__replay','associatedmatch__team2score'))
+    userhistoricmatches_t1=list(userhistoricmatches.filter(Q(team1coach1=request.user)|Q(team1coach2=request.user)).values_list('associatedhistoricmatch__team1__league__name','associatedhistoricmatch__team1__seasonname','associatedhistoricmatch__week','associatedhistoricmatch__team2__teamname','associatedhistoricmatch__replay','associatedhistoricmatch__team1score'))
+    userhistoricmatches_t2=list(userhistoricmatches.filter(Q(team2coach1=request.user)|Q(team2coach2=request.user)).values_list('associatedhistoricmatch__team1__league__name','associatedhistoricmatch__team1__seasonname','associatedhistoricmatch__week','associatedhistoricmatch__team1__teamname','associatedhistoricmatch__replay','associatedhistoricmatch__team2score'))
+    matchlist_=usermatches_t1+usermatches_t2+userhistoricmatches_t1+userhistoricmatches_t2
+    matchlist=[]
+    for item in matchlist_:
+        matchlist.append([item[0],item[1],item[2],item[3],item[4],item[5]])
     context = {
         "title": f"{username}'s Profile",
         'userofinterest':userofinterest,
         'winpercent':winpercent,
         'mostacquired':mostacquired,
+        'matchlist':matchlist,
     }
     return render(request, 'userprofile.html',context)
 

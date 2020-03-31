@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.files.storage import default_storage as storage
-from django.contrib.postgres.fields import JSONField
+from django.contrib.postgres.fields import JSONField, ArrayField
 import urllib
 import os
 from enum import Enum
@@ -114,3 +114,7 @@ class replaydatabase(models.Model):
     replayuser2=models.CharField(max_length=200)
     winneruser=models.CharField(max_length=200,default="")
     replay=models.CharField(max_length=500)
+
+class favoritereplay(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    replay=models.ForeignKey(replaydatabase,on_delete=models.CASCADE,related_name='users_favorited')

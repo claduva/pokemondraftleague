@@ -17,24 +17,18 @@ $(document).ready(function() {
         if (li[2].includes("Playoff")){
             tr.addClass("Playoffs")
         }
-        if (li[5]>0){
-            tr.addClass("Win")
-        }
-        else{
+        if (li[3]==li[5]){
             tr.addClass("Loss")
         }
-        if (li[4].includes("Forfeit")){
-            tr.addClass("Forfeit")
-            td5=$("<td>Forfeit</td>")
-        }
         else{
-            td5=$("<td><a href='"+li[4]+"'>Link</a</td>")
+            tr.addClass("Win")
         }
         td1=$("<td>"+li[0]+"</td>")
         td2=$("<td>"+li[1]+"</td>")
         td3=$("<td>"+li[2]+"</td>")
         td4=$("<td>"+li[3]+"</td>")
-        td6=$("<td class='nonfavorite'><img class='x-smallsprite' src='/static/main/images/emptystar.png' ></td>")
+        td5=$("<td><a href='"+li[4]+"'>Link</a</td>")
+        td6=$("<td><img class='x-smallsprite' src='/static/main/images/emptystar.png' ></td>")
         tr.append(td6,td1,td2,td3,td4,td5)
         allmatchestable.append(tr)
     }
@@ -58,14 +52,6 @@ $(document).ready(function() {
             $(".matchitem").addClass("d-none")
             $(".Loss").removeClass("d-none")
         }
-        else if (sel=="ffwins"){
-            $(".matchitem").addClass("d-none")
-            $(".Win.Forfeit").removeClass("d-none")
-        }
-        else if (sel=="fflosses"){
-            $(".matchitem").addClass("d-none")
-            $(".Loss.Forfeit").removeClass("d-none")
-        }
         else if (sel=="Playoffs"){
             $(".matchitem").addClass("d-none")
             $(".Playoffs").removeClass("d-none")
@@ -75,13 +61,4 @@ $(document).ready(function() {
         }
     })
 
-    $(".nonfavorite").click(function(){
-        $(this).empty().addClass("favorite").removeClass("nonfavorite")
-        $(this).append("<img class='x-smallsprite' src='/static/main/images/goldstar.png' >")
-    })
-
-    $(".favorite").click(function(){
-        $(this).empty().addClass("nonfavorite").removeClass("favorite")
-        $(this).append("<img class='x-smallsprite' src='/static/main/images/emptystar.png' >")
-    })
 })

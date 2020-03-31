@@ -157,12 +157,13 @@
                         <th>
                             <select id="tableselector">
                                 <option value="mostacquired">Most Acquired Pokemon</option>
+                                <option value="allmatches">All Matches</option>
                             </select>
                         </th>
                     </tr>
                 </table>
             </div>
-            <div id="mostacquired" class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
+            <div id="mostacquired" class="profiletable card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto">
                 <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                     <tr class="bg-dark text-light">
                         <th colspan=2>
@@ -175,6 +176,32 @@
                     </tr>
                 </table>
             </div>
+            <div id="allmatches" class="profiletable card table-responsive bg-lightgrey text-dark text-center overflow-auto d-none">
+                <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                    <tr class="bg-dark text-light">
+                        <th colspan="6">
+                            <h4>All Matches</h4>
+                            <select id="matchfilter">
+                                <option value="All">All Matches</option>
+                                <option value="Wins">Wins</option>
+                                <option value="Losses">Losses</option>
+                                <option value="ffwins">Forfeit Wins</option>
+                                <option value="fflosses">Forfeit Losses</option>
+                                <option value="Playoffs">Playoffs</option>
+                                <option value="Favorites">Favorites</option>
+                            </select>
+                        </th>
+                    </tr>
+                    <tr class="bg-dark text-light">
+                        <th></th>
+                        <th>League</th>
+                        <th>Season</th>
+                        <th>Week</th>
+                        <th>Opponent</th>
+                        <th>Replay</th>
+                    </tr>
+                </table>
+            </div>
         </div>
         </div>
     </div>
@@ -184,6 +211,7 @@
 {% block footer %}
 <script>
     var mostacquired={{mostacquired|safe}}
+    var matchlist={{matchlist|safe}}
 </script>
 <script src="{% static 'accounts/scripts/profile.js' %}"></script>
 {% endblock %}
