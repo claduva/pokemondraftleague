@@ -163,7 +163,7 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
     team1.losses+=abs(results['team1']['wins']-1)
     team1.forfeit+=results['team1']['forfeit']
     if team1.forfeit == 1:
-        team1.differential+=(-6)
+        team1.differential+=(-3)
     else:
         team1.differential+=results['team1']['score']-results['team2']['score']
     if team1.streak < 0:
@@ -182,7 +182,7 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
     team2.losses+=abs(results['team2']['wins']-1)
     team2.forfeit+=results['team2']['forfeit']
     if team2.forfeit == 1:
-        team2.differential+=(-6)
+        team2.differential+=(-3)
     else:
         team2.differential+=results['team2']['score']-results['team1']['score']
     if team2.streak < 0:
@@ -329,20 +329,20 @@ def check_analyzer(request):
         team1=item.team1
         team2=item.team2
         if item.replay=="Both Teams Forfeit":
-            team1.differential+=-6
-            team2.differential+=-6
+            team1.differential+=-3
+            team2.differential+=-3
             team1.losses+=1
             team2.losses+=1
             team1.forfeit+=1
             team2.forfeit+=1
         elif item.replay=="Team 1 Forfeits":
-            team1.differential+=-6
+            team1.differential+=-3
             team2.differential+=3
             team1.losses+=1
             team2.wins+=1
             team1.forfeit+=1
         elif item.replay=="Team 2 Forfeits":
-            team2.differential+=-6
+            team2.differential+=-3
             team1.differential+=3
             team2.losses+=1
             team1.wins+=1
@@ -355,20 +355,20 @@ def check_analyzer(request):
         team1=item.team1
         team2=item.team2
         if item.replay=="Both Teams Forfeit":
-            team1.differential+=-6
-            team2.differential+=-6
+            team1.differential+=-3
+            team2.differential+=-3
             team1.losses+=1
             team2.losses+=1
             team1.forfeit+=1
             team2.forfeit+=1
         elif item.replay=="Team 1 Forfeits":
-            team1.differential+=-6
+            team1.differential+=-3
             team2.differential+=3
             team1.losses+=1
             team2.wins+=1
             team1.forfeit+=1
         elif item.replay=="Team 2 Forfeits":
-            team2.differential+=-6
+            team2.differential+=-3
             team1.differential+=3
             team2.losses+=1
             team1.wins+=1
@@ -679,7 +679,7 @@ def upload_league_replay_manual(request,league_name,subleague_name,matchid):
                     team1.streak+=(-1)
             if form.cleaned_data['t1forfeit']==True:
                 team1.forfeit+=1
-                team1.differential+=(-6)
+                team1.differential+=(-3)
             else:
                 if match.team1score>match.team2score:
                     team1.differential+=match.team1score
@@ -687,7 +687,7 @@ def upload_league_replay_manual(request,league_name,subleague_name,matchid):
                     team1.differential+=(-match.team2score)
             if form.cleaned_data['t2forfeit']==True:
                 team2.forfeit+=1
-                team2.differential+=(-6)
+                team2.differential+=(-3)
             else:
                 if match.team2score>match.team1score:
                     team2.differential+=match.team2score
