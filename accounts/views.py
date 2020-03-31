@@ -9,6 +9,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
 from django.db.models import Q
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 from collections import Counter
 
@@ -57,28 +59,54 @@ def user_profile(request,username):
     mostacquired=sorted(mostacquired,key=lambda x: x[0])
     mostacquired=sorted(mostacquired,key=lambda x: x[1], reverse=True)
     #all matches
-    usermatches_=replaydatabase.objects.all().filter(Q(team1coach1=request.user)|Q(team1coach2=request.user)|Q(team2coach1=request.user)|Q(team2coach2=request.user))
+    usermatches_=replaydatabase.objects.all().filter(Q(team1coach1=userofinterest)|Q(team1coach2=userofinterest)|Q(team2coach1=userofinterest)|Q(team2coach2=userofinterest))
     userhistoricmatches=usermatches_.filter(associatedhistoricmatch__isnull=False)
     usermatches=usermatches_.filter(associatedhistoricmatch__isnull=True)
-    usermatches_t1=list(usermatches.filter(Q(team1coach1=request.user)|Q(team1coach2=request.user)).values_list('associatedmatch__season__league__name','associatedmatch__season__seasonname','associatedmatch__week','associatedmatch__team2__teamname','associatedmatch__replay','associatedmatch__team1score','id'))
-    usermatches_t2=list(usermatches.filter(Q(team2coach1=request.user)|Q(team2coach2=request.user)).values_list('associatedmatch__season__league__name','associatedmatch__season__seasonname','associatedmatch__week','associatedmatch__team1__teamname','associatedmatch__replay','associatedmatch__team2score','id'))
-    userhistoricmatches_t1=list(userhistoricmatches.filter(Q(team1coach1=request.user)|Q(team1coach2=request.user)).values_list('associatedhistoricmatch__team1__league__name','associatedhistoricmatch__team1__seasonname','associatedhistoricmatch__week','associatedhistoricmatch__team2__teamname','associatedhistoricmatch__replay','associatedhistoricmatch__team1score','id'))
-    userhistoricmatches_t2=list(userhistoricmatches.filter(Q(team2coach1=request.user)|Q(team2coach2=request.user)).values_list('associatedhistoricmatch__team1__league__name','associatedhistoricmatch__team1__seasonname','associatedhistoricmatch__week','associatedhistoricmatch__team1__teamname','associatedhistoricmatch__replay','associatedhistoricmatch__team2score','id'))
+    usermatches_t1=list(usermatches.filter(Q(team1coach1=userofinterest)|Q(team1coach2=userofinterest)).values_list('associatedmatch__season__league__name','associatedmatch__season__seasonname','associatedmatch__week','associatedmatch__team2__teamname','associatedmatch__replay','associatedmatch__team1score','id'))
+    usermatches_t2=list(usermatches.filter(Q(team2coach1=userofinterest)|Q(team2coach2=userofinterest)).values_list('associatedmatch__season__league__name','associatedmatch__season__seasonname','associatedmatch__week','associatedmatch__team1__teamname','associatedmatch__replay','associatedmatch__team2score','id'))
+    userhistoricmatches_t1=list(userhistoricmatches.filter(Q(team1coach1=userofinterest)|Q(team1coach2=userofinterest)).values_list('associatedhistoricmatch__team1__league__name','associatedhistoricmatch__team1__seasonname','associatedhistoricmatch__week','associatedhistoricmatch__team2__teamname','associatedhistoricmatch__replay','associatedhistoricmatch__team1score','id'))
+    userhistoricmatches_t2=list(userhistoricmatches.filter(Q(team2coach1=userofinterest)|Q(team2coach2=userofinterest)).values_list('associatedhistoricmatch__team1__league__name','associatedhistoricmatch__team1__seasonname','associatedhistoricmatch__week','associatedhistoricmatch__team1__teamname','associatedhistoricmatch__replay','associatedhistoricmatch__team2score','id'))
     matchlist_=usermatches_t1+usermatches_t2+userhistoricmatches_t1+userhistoricmatches_t2
     matchlist=[]
-    userfavmatches=list(userofinterest.user_favorites.values_list('replay__id',flat=True))
+    userfavmatches=list(favoritereplay.objects.filter(user=userofinterest).values_list('replay__id',flat=True))
     for item in matchlist_:
         if int(item[6]) in userfavmatches:
-            fav=True
+            fav='True'
         else:
-            fav=False
+            fav='False'
         matchlist.append([item[0],item[1],item[2],item[3],item[4],item[5],item[6],fav])
+    #rivalry
+    usermatches_=replaydatabase.objects.all().filter(Q(team1coach1=userofinterest)|Q(team1coach2=userofinterest)|Q(team2coach1=userofinterest)|Q(team2coach2=userofinterest))
+    userhistoricmatches=usermatches_.filter(associatedhistoricmatch__isnull=False)
+    usermatches=usermatches_.filter(associatedhistoricmatch__isnull=True)
+    usermatches_t1=usermatches.filter(Q(team1coach1=userofinterest)|Q(team1coach2=userofinterest))
+    usermatches_t2=usermatches.filter(Q(team2coach1=userofinterest)|Q(team2coach2=userofinterest))
+    userhistoricmatches_t1=userhistoricmatches.filter(Q(team1coach1=userofinterest)|Q(team1coach2=userofinterest))
+    userhistoricmatches_t2=userhistoricmatches.filter(Q(team2coach1=userofinterest)|Q(team2coach2=userofinterest))
+    usermatches_t1_c1=list(usermatches_t1.values_list('team2coach1__username',flat=True))
+    usermatches_t1_c2=list(usermatches_t1.values_list('team2coach2__username',flat=True))
+    usermatches_t2_c1=list(usermatches_t2.values_list('team1coach1__username',flat=True))
+    usermatches_t2_c2=list(usermatches_t2.values_list('team1coach2__username',flat=True))
+    userhistoricmatches_t1_c1=list(userhistoricmatches_t1.values_list('team2coach1__username',flat=True))
+    userhistoricmatches_t1_c2=list(userhistoricmatches_t1.values_list('team2coach2__username',flat=True))
+    userhistoricmatches_t2_c1=list(userhistoricmatches_t2.values_list('team1coach1__username',flat=True))
+    userhistoricmatches_t2_c2=list(userhistoricmatches_t2.values_list('team1coach2__username',flat=True))
+    rivallist_=usermatches_t1_c1+usermatches_t2_c1+userhistoricmatches_t1_c1+userhistoricmatches_t2_c1+usermatches_t1_c2+usermatches_t2_c2+userhistoricmatches_t1_c2+userhistoricmatches_t2_c2
+    rivallist_=list(dict(Counter(rivallist_)).items())
+    rivallist_=list(filter(lambda x: x[1]>1 and x[0] not in [None,'UnclaimedCoach'],rivallist_))
+    rivallist=[]
+    for item in rivallist_:
+        coachname=item[0]
+        wins=usermatches_.filter(Q(team1coach1__username=coachname)|Q(team1coach2__username=coachname)|Q(team2coach1__username=coachname)|Q(team2coach2__username=coachname)).filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest)).exclude(team1coach1=userofinterest,team1coach2__username=coachname).exclude(team1coach2=userofinterest,team1coach1__username=coachname).exclude(team2coach1=userofinterest,team2coach2__username=coachname).exclude(team2coach2=userofinterest,team2coach1__username=coachname).count()
+        rivallist.append([item[0],item[1],wins])
+    rivallist=sorted(rivallist,key=lambda x: (x[1],x[2]),reverse=True)
     context = {
         "title": f"{username}'s Profile",
         'userofinterest':userofinterest,
         'winpercent':winpercent,
         'mostacquired':mostacquired,
         'matchlist':matchlist,
+        'rivallist':rivallist,
     }
     return render(request, 'userprofile.html',context)
 
@@ -232,6 +260,30 @@ def read_inbox(request):
     inbox.objects.all().filter(recipient=request.user).update(read=True)
     messages.success(request,'Success!')
     return redirect('inbox') 
+
+@csrf_exempt
+def favoritematch(request):
+    matchid=request.POST['matchid']
+    roi=replaydatabase.objects.get(id=int(matchid))
+    try:
+        favoritereplay.objects.filter(user=request.user).get(replay=roi)
+    except:
+        favoritereplay.objects.create(user=request.user,replay=roi)
+    data={
+        }
+    return JsonResponse(data)
+
+@csrf_exempt
+def unfavoritematch(request):
+    matchid=request.POST['matchid']
+    roi=replaydatabase.objects.get(id=int(matchid))
+    try:
+        favoritereplay.objects.filter(user=request.user).get(replay=roi).delete()
+    except:
+        pass
+    data={
+        }
+    return JsonResponse(data)
 
 def get_sprite_url(poi,arg):
     if arg=="swsh/ani/standard/PKMN.gif":

@@ -9,6 +9,17 @@ $(document).ready(function() {
         acquiredtable.append(tr)
     }
 
+    rivaltable=$("#rivals").find("table")
+    for (x in rivallist){
+        li=rivallist[x]
+        tr=$("<tr></tr")
+        td1=$("<td>"+li[0]+"</td>")
+        td2=$("<td>"+li[1]+"</td>")
+        td3=$("<td>"+li[2]+"</td>")
+        tr.append(td1,td2,td3)
+        rivaltable.append(tr)
+    }
+
     allmatchestable=$("#allmatches").find("table")
     for (x in matchlist){
         li=matchlist[x]
@@ -33,8 +44,15 @@ $(document).ready(function() {
         td2=$("<td>"+li[1]+"</td>")
         td3=$("<td>"+li[2]+"</td>")
         td4=$("<td>"+li[3]+"</td>")
-        td6=$("<td class='favorite'><img class='x-smallsprite' src='/static/main/images/emptystar.png' ></td>")
-        tr.append(td6,td1,td2,td3,td4,td5)
+        if (li[7]=="False"){
+            td6=$("<td class='nonfavorite'><div class='replayid' hidden>"+li[6]+"</div><img class='x-smallsprite' src='/static/main/images/emptystar.png' ></td>")
+        }
+        else{
+            td6=$("<td class='favorite'><div class='replayid' hidden>"+li[6]+"</div><img class='x-smallsprite' src='/static/main/images/goldstar.png' ></td>")
+            tr.addClass("Favorite")
+        }
+        if (isuser){tr.append(td6,td1,td2,td3,td4,td5)}
+        else{tr.append(td1,td2,td3,td4,td5)}
         allmatchestable.append(tr)
     }
 
@@ -71,18 +89,39 @@ $(document).ready(function() {
         }
         else if (sel=="Favorites"){
             $(".matchitem").addClass("d-none")
+            $(".Favorite").removeClass("d-none")
         }
     })
 
     $("tr").on('click','.nonfavorite',function(){
-        console.log('select')
-        $(this).empty().addClass("favorite").removeClass("nonfavorite")
+        $(this).addClass("favorite").removeClass("nonfavorite")
+        $(this).find('img').remove()
         $(this).append("<img class='x-smallsprite' src='/static/main/images/goldstar.png' >")
+        $(this).closest("tr").addClass('Favorite')
+        $.post(
+            "/addfavorite/",
+            {
+              matchid: $(this).find(".replayid").text(),
+            },
+            function(data) {
+             
+            }
+        );
     })
 
     $("tr").on('click','.favorite',function(){
-        console.log('unselect')
-        $(this).empty().removeClass("favorite").addClass("nonfavorite")
+        $(this).removeClass("favorite").addClass("nonfavorite")
+        $(this).find('img').remove()
         $(this).append("<img class='x-smallsprite' src='/static/main/images/emptystar.png' >")
+        $(this).closest("tr").removeClass('Favorite')
+        $.post(
+            "/removefavorite/",
+            {
+              matchid: $(this).find(".replayid").text(),
+            },
+            function(data) {
+             
+            }
+        );
     })
 })

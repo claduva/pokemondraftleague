@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
     path('signup/', views.SignUp.as_view(), name='signup'),
     path('users/<str:username>/',views.user_profile,name="user_profile"),
+    path('addfavorite/',views.favoritematch,name="favoritematch"),
+    path('removefavorite/',views.unfavoritematch,name="unfavoritematch"),
     path('inbox/', views.inbox_view, name='inbox'),
     path('inbox/compose/', views.compose_message, name='compose'),
     path('inbox/delete/', views.delete_inbox, name='delete_inbox'),

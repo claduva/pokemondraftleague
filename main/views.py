@@ -149,6 +149,4 @@ def runscript(request):
             item.winner=item.team2
             item.save()
     """
-    for item in replaydatabase.objects.all():
-        print(item.favorited)
     return redirect('home')
