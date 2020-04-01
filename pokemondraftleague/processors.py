@@ -30,7 +30,7 @@ def processor(request):
     except:
         leaguescoaching = None
     try:  
-        userhistoricteams = historical_team.objects.all().filter(Q(coach1=request.user)|Q(coach2=request.user)).order_by('league__name')
+        userhistoricteams = historical_team.objects.all().filter(Q(coach1=request.user)|Q(coach2=request.user)).order_by('league__name','seasonname')
     except:
         userhistoricteams = None
     try:  
