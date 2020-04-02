@@ -116,6 +116,7 @@ class pokemon_tier(models.Model):
 
     class Meta:
         ordering = ['pokemon__pokemon']
+        unique_together = (("pokemon", "subleague"),)  
 
     def __str__(self):
         return f'{self.league.name}: Tiering for {self.pokemon.pokemon}'

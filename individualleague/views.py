@@ -319,7 +319,8 @@ def league_draft(request,league_name,subleague_name):
                 points=subleaguetiers.get(pokemon=item_.pokemon).tier.tierpoints
                 pointsremaining+=-points
                 pointsused+=points
-            except:
+            except Exception as e:
+                print(e)
                 pkmn="-"
                 points="-"
             teamdraft.append([item_.picknumber,pkmn,points])
