@@ -1,0 +1,544 @@
+|j|Revez
+|j|claduva
+
+
+|player|p1|Revez|169
+
+
+|player|p2|claduva|266
+|gametype|singles
+|gen|7
+|tier|[Gen 7] Custom Game
+|seed|
+|clearpoke
+|poke|p1|Jirachi, L50|item
+|poke|p1|Hitmontop, L50, M|item
+|poke|p1|Pinsir, L50, M|item
+|poke|p1|Pyroar, L50, M|item
+|poke|p1|Dusclops, L50, M|item
+|poke|p1|Porygon2, L50|item
+|poke|p2|Tapu Bulu, L50|item
+|poke|p2|Reuniclus, L50, F, shiny|item
+|poke|p2|Alomomola, M|item
+|poke|p2|Cofagrigus, L50, F|item
+|poke|p2|Zygarde-10%, L50|item
+|poke|p2|Swellow, L50, F|item
+|teampreview
+
+
+|debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
+|choice||team 5, team 2, team 3, team 4, team 1, team 6
+|
+|start
+|switch|p1a: Jirachi|Jirachi, L50|176/176
+|switch|p2a: Zygarde|Zygarde-10%, L50|129/129
+|-ability|p2a: Zygarde|Aura Break
+|turn|1
+
+
+|j|DI - Eastonn8
+
+
+|choice||move thousandarrows
+|
+|switch|p1a: Porygon2|Porygon2, L50|192/192
+|-ability|p1a: Porygon2|Download|boost
+|-boost|p1a: Porygon2|atk|1
+|move|p2a: Zygarde|Thousand Arrows|p1a: Porygon2
+|-damage|p1a: Porygon2|122/192
+|
+|upkeep
+|turn|2
+
+
+|choice||switch 2
+|
+|switch|p2a: Reuniclus|Reuniclus, L50, F, shiny|217/217
+|move|p1a: Porygon2|Recover|p1a: Porygon2
+|-heal|p1a: Porygon2|192/192
+|
+|upkeep
+|turn|3
+
+
+|choice||move calmmind
+|
+|move|p1a: Porygon2|Signal Beam|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|163/217
+|move|p2a: Reuniclus|Calm Mind|p2a: Reuniclus
+|-boost|p2a: Reuniclus|spa|1
+|-boost|p2a: Reuniclus|spd|1
+|
+|-heal|p2a: Reuniclus|176/217|[from] item: Leftovers
+|upkeep
+|turn|4
+
+
+|choice||move acidarmor
+|
+|move|p1a: Porygon2|Signal Beam|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|132/217
+|move|p2a: Reuniclus|Acid Armor|p2a: Reuniclus
+|-boost|p2a: Reuniclus|def|2
+|
+|-heal|p2a: Reuniclus|145/217|[from] item: Leftovers
+|upkeep
+|turn|5
+
+
+|choice||move recover
+|
+|move|p1a: Porygon2|Signal Beam|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|105/217
+|-start|p2a: Reuniclus|confusion
+|-activate|p2a: Reuniclus|confusion
+|move|p2a: Reuniclus|Recover|p2a: Reuniclus
+|-heal|p2a: Reuniclus|214/217
+|
+|-heal|p2a: Reuniclus|217/217|[from] item: Leftovers
+|upkeep
+|turn|6
+
+
+|choice||move calmmind
+|
+|move|p1a: Porygon2|Tri Attack|p2a: Reuniclus
+|-damage|p2a: Reuniclus|187/217
+|-activate|p2a: Reuniclus|confusion
+|move|p2a: Reuniclus|Calm Mind|p2a: Reuniclus
+|-boost|p2a: Reuniclus|spa|1
+|-boost|p2a: Reuniclus|spd|1
+|
+|-heal|p2a: Reuniclus|200/217|[from] item: Leftovers
+|upkeep
+|turn|7
+
+
+|choice||move acidarmor
+|
+|move|p1a: Porygon2|Signal Beam|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|172/217
+|-activate|p2a: Reuniclus|confusion
+|move|p2a: Reuniclus|Acid Armor|p2a: Reuniclus
+|-boost|p2a: Reuniclus|def|2
+|
+|-heal|p2a: Reuniclus|185/217|[from] item: Leftovers
+|upkeep
+|turn|8
+
+
+|choice||move calmmind
+|
+|move|p1a: Porygon2|Tri Attack|p2a: Reuniclus
+|-damage|p2a: Reuniclus|160/217
+|-end|p2a: Reuniclus|confusion
+|move|p2a: Reuniclus|Calm Mind|p2a: Reuniclus
+|-boost|p2a: Reuniclus|spa|1
+|-boost|p2a: Reuniclus|spd|1
+|
+|-heal|p2a: Reuniclus|173/217|[from] item: Leftovers
+|upkeep
+|turn|9
+
+
+|choice||move calmmind
+|
+|move|p1a: Porygon2|Tri Attack|p2a: Reuniclus
+|-damage|p2a: Reuniclus|155/217
+|move|p2a: Reuniclus|Calm Mind|p2a: Reuniclus
+|-boost|p2a: Reuniclus|spa|1
+|-boost|p2a: Reuniclus|spd|1
+|
+|-heal|p2a: Reuniclus|168/217|[from] item: Leftovers
+|upkeep
+|turn|10
+
+
+|choice||move calmmind
+|
+|move|p1a: Porygon2|Signal Beam|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|146/217
+|move|p2a: Reuniclus|Calm Mind|p2a: Reuniclus
+|-boost|p2a: Reuniclus|spa|1
+|-boost|p2a: Reuniclus|spd|1
+|
+|-heal|p2a: Reuniclus|159/217|[from] item: Leftovers
+|upkeep
+|turn|11
+
+
+|choice||move calmmind
+|
+|move|p1a: Porygon2|Signal Beam|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|143/217
+|move|p2a: Reuniclus|Calm Mind|p2a: Reuniclus
+|-boost|p2a: Reuniclus|spa|1
+|-boost|p2a: Reuniclus|spd|1
+|
+|-heal|p2a: Reuniclus|156/217|[from] item: Leftovers
+|upkeep
+|turn|12
+
+
+|choice||move recover
+|
+|move|p1a: Porygon2|Signal Beam|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|140/217
+|move|p2a: Reuniclus|Recover|p2a: Reuniclus
+|-heal|p2a: Reuniclus|217/217
+|
+|upkeep
+|turn|13
+
+
+|choice||move recover
+|
+|move|p1a: Porygon2|Tri Attack|p2a: Reuniclus
+|-damage|p2a: Reuniclus|205/217
+|move|p2a: Reuniclus|Recover|p2a: Reuniclus
+|-heal|p2a: Reuniclus|217/217
+|
+|upkeep
+|turn|14
+
+
+|choice||move acidarmor
+|
+|move|p1a: Porygon2|Tri Attack|p2a: Reuniclus
+|-damage|p2a: Reuniclus|204/217
+|move|p2a: Reuniclus|Acid Armor|p2a: Reuniclus
+|-boost|p2a: Reuniclus|def|2
+|
+|-heal|p2a: Reuniclus|217/217|[from] item: Leftovers
+|upkeep
+|turn|15
+
+
+|c|☆claduva|lol
+
+
+|choice||move acidarmor
+|
+|switch|p1a: Pinsir|Pinsir, L50, M|140/140
+|move|p2a: Reuniclus|Acid Armor|p2a: Reuniclus
+|-boost|p2a: Reuniclus|def|0
+|debug|move failed because it did nothing
+|
+|upkeep
+|turn|16
+
+
+|choice||move psychic
+|
+|detailschange|p1a: Pinsir|Pinsir-Mega, L50, M
+|-mega|p1a: Pinsir|Pinsir|Pinsirite
+|move|p1a: Pinsir|Return|p2a: Reuniclus
+|-damage|p2a: Reuniclus|172/217
+|move|p2a: Reuniclus|Psychic|p1a: Pinsir
+|-crit|p1a: Pinsir
+|-damage|p1a: Pinsir|0 fnt
+|faint|p1a: Pinsir
+|
+|-heal|p2a: Reuniclus|185/217|[from] item: Leftovers
+|upkeep
+
+
+|c|☆Revez|clad i hate you now
+
+
+|c|☆claduva|<3
+
+
+|c|☆Revez|this is a harsh 6-0 lol
+
+
+|c|☆Revez|should've brought milotic
+
+
+|choice||
+|
+|switch|p1a: Jirachi|Jirachi, L50|176/176
+|turn|17
+
+
+|c|☆claduva|lol as soon as I saw 0 dark types and no phaser lol
+
+
+|choice||move psychic
+|
+|-zpower|p1a: Jirachi
+|move|p1a: Jirachi|Twinkle Tackle|p2a: Reuniclus|[zeffect]
+|-damage|p2a: Reuniclus|167/217
+|move|p2a: Reuniclus|Psychic|p1a: Jirachi
+|-resisted|p1a: Jirachi
+|-damage|p1a: Jirachi|113/176
+|
+|-heal|p2a: Reuniclus|180/217|[from] item: Leftovers
+|upkeep
+|turn|18
+
+
+|j|ketchupplant
+
+
+|choice||move psychic
+|
+|move|p1a: Jirachi|U-turn|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|164/217
+
+
+|choice||
+|
+|switch|p1a: Porygon2|Porygon2, L50|192/192
+|-ability|p1a: Porygon2|Download|boost
+|-boost|p1a: Porygon2|atk|1
+|move|p2a: Reuniclus|Psychic|p1a: Porygon2
+|-damage|p1a: Porygon2|20/192
+|-unboost|p1a: Porygon2|spd|1
+|
+|-heal|p2a: Reuniclus|177/217|[from] item: Leftovers
+|upkeep
+|turn|19
+
+
+|choice||move psychic
+|
+|move|p1a: Porygon2|Tri Attack|p2a: Reuniclus
+|-damage|p2a: Reuniclus|164/217
+|move|p2a: Reuniclus|Psychic|p1a: Porygon2
+|-damage|p1a: Porygon2|0 fnt
+|faint|p1a: Porygon2
+|
+|-heal|p2a: Reuniclus|177/217|[from] item: Leftovers
+|upkeep
+
+
+|debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
+|choice||
+|
+|switch|p1a: Pyroar|Pyroar, L50, M|161/161
+|-ability|p1a: Pyroar|Unnerve|p2: claduva
+|turn|20
+
+
+|choice||move psychic
+|
+|move|p1a: Pyroar|Dark Pulse|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|155/217
+|cant|p2a: Reuniclus|flinch
+|
+|-heal|p2a: Reuniclus|168/217|[from] item: Leftovers
+|upkeep
+|turn|21
+
+
+|c|☆Revez|what do we do here clad
+
+
+|c| ketchupplant|'Run' 
+
+
+|c|⚜DI - Eastonn8|Throw a rock at it
+
+
+|c|☆claduva|doesn't matter too much! If you have a non attacking move
+
+
+|c|☆Revez|for those watching, clad and i are playing on DS and he just killed me bc i didn't get a flinch in the actual match
+
+
+|c|☆Revez|i'm choiced into dark pulse
+
+
+|c|☆claduva|just go for it then lol
+
+
+|choice||move psychic
+|
+|move|p1a: Pyroar|Dark Pulse|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|148/217
+|cant|p2a: Reuniclus|flinch
+|
+|-heal|p2a: Reuniclus|161/217|[from] item: Leftovers
+|upkeep
+|turn|22
+
+
+|c|☆Revez|lol
+
+
+|choice||move psychic
+|
+|move|p1a: Pyroar|Dark Pulse|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|141/217
+|move|p2a: Reuniclus|Psychic|p1a: Pyroar
+|-damage|p1a: Pyroar|0 fnt
+|faint|p1a: Pyroar
+|
+|debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
+|-heal|p2a: Reuniclus|154/217|[from] item: Leftovers
+|upkeep
+
+
+|debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
+|choice||
+|
+|switch|p1a: Dusclops|Dusclops, L50, M|139/139
+|-item|p2a: Reuniclus|Leftovers|[from] ability: Frisk|[of] p1a: Dusclops|[identify]
+|turn|23
+
+
+|choice||move psychic
+|
+|move|p2a: Reuniclus|Psychic|p1a: Dusclops
+|-damage|p1a: Dusclops|13/139
+|-unboost|p1a: Dusclops|spd|1
+|move|p1a: Dusclops|Calm Mind|p1a: Dusclops
+|-boost|p1a: Dusclops|spa|1
+|-boost|p1a: Dusclops|spd|1
+|
+|-heal|p2a: Reuniclus|167/217|[from] item: Leftovers
+|upkeep
+|turn|24
+
+
+|choice||move psychic
+|
+|move|p2a: Reuniclus|Psychic|p1a: Dusclops
+|-damage|p1a: Dusclops|0 fnt
+|faint|p1a: Dusclops
+|
+|-heal|p2a: Reuniclus|180/217|[from] item: Leftovers
+|upkeep
+
+
+|c|☆claduva|welp
+
+
+|c|☆Revez|for the record to people watching, this isn't the real match and it's currently going slightly differently than thsi shows
+
+
+|c|☆claduva|just wait to see what happens I guess
+
+
+|c|☆Revez|yeah
+
+
+|c|☆Revez|bruh
+
+
+|c|☆Revez|you really need that recover
+
+
+|choice||
+|
+|switch|p1a: Hitmontop|Hitmontop, L50, M|157/157
+|-ability|p1a: Hitmontop|Intimidate|boost
+|-unboost|p2a: Reuniclus|atk|1
+|turn|25
+
+
+|c|☆claduva|can't be too careful lol
+
+
+|choice||move psychic
+|
+|move|p1a: Hitmontop|Earthquake|p2a: Reuniclus
+|-damage|p2a: Reuniclus|165/217
+|move|p2a: Reuniclus|Psychic|p1a: Hitmontop
+|-supereffective|p1a: Hitmontop
+|-crit|p1a: Hitmontop
+|-damage|p1a: Hitmontop|0 fnt
+|faint|p1a: Hitmontop
+|
+|-heal|p2a: Reuniclus|178/217|[from] item: Leftovers
+|upkeep
+
+
+|c|☆Revez|gg
+
+
+|c|☆claduva|gg
+
+
+|c| ketchupplant|#CritMattered
+
+
+|c|☆claduva|sorry:/
+
+
+|c|☆Revez|not gonna lie i'm fully tilted rn
+
+
+|c|☆claduva|Do you have iron head?
+
+
+|c|☆Revez|no
+
+
+|c|☆Revez|i was special
+
+
+|l|ketchupplant
+
+
+|c|☆claduva|Could flinch me to death in that case
+
+
+|choice||
+|
+|switch|p1a: Jirachi|Jirachi, L50|113/176
+|turn|26
+
+
+|c|☆Revez|bruh i'm not getting 20 flinches
+
+
+|c|☆claduva|true. But early! 
+
+
+|c|⚜DI - Eastonn8|xD
+
+
+|choice||move psychic
+|
+|move|p1a: Jirachi|U-turn|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|160/217
+|move|p2a: Reuniclus|Psychic|p1a: Jirachi
+|-resisted|p1a: Jirachi
+|-damage|p1a: Jirachi|44/176
+|
+|-heal|p2a: Reuniclus|173/217|[from] item: Leftovers
+|upkeep
+|turn|27
+
+
+|choice||move psychic
+|
+|move|p1a: Jirachi|U-turn|p2a: Reuniclus
+|-supereffective|p2a: Reuniclus
+|-damage|p2a: Reuniclus|155/217
+|move|p2a: Reuniclus|Psychic|p1a: Jirachi
+|-resisted|p1a: Jirachi
+|-damage|p1a: Jirachi|0 fnt
+|faint|p1a: Jirachi
+|
+|win|claduva
+
+
+|player|p1
+
+
+|player|p2
