@@ -16,6 +16,7 @@ class historical_team(models.Model):
     seasonname = models.CharField(max_length=100)
     subseason = models.CharField(max_length=100, null=True)
     teamname = models.CharField(max_length=100)
+    subteam = models.CharField(max_length=100, null=True)
     coach1= models.ForeignKey(User, on_delete=models.CASCADE,related_name="historical_team_coach1")
     coach1username=models.CharField(max_length=100)
     coach2=models.ForeignKey(User, on_delete=models.CASCADE,related_name="historical_team_coach2",null=True)

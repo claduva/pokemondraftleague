@@ -1026,7 +1026,7 @@ def archive_season(request,league_name):
     for item in coachdataitems:
         maxid+=1
         if item.teammate:
-            historical_team.objects.create(
+            ht=historical_team.objects.create(
                 id=maxid,
                 league = item.league_name,
                 seasonname = season.seasonname,
@@ -1048,7 +1048,7 @@ def archive_season(request,league_name):
                 remaininghealth=item.remaininghealth
             )
         else:
-            historical_team.objects.create(
+            ht=historical_team.objects.create(
                 id=maxid,
                 league = item.league_name,
                 seasonname = season.seasonname,
@@ -1067,6 +1067,9 @@ def archive_season(request,league_name):
                 luck=item.luck,
                 remaininghealth=item.remaininghealth
             )
+        if item.parent_team:
+            ht.subteam=item.parent_team.name
+            ht.save()
     for item in freeagencyitems:
         team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.coach.coach)
         maxid+=1
