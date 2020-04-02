@@ -140,13 +140,7 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    """
-    for item in historical_match.objects.all():
-        if item.team1score>item.team2score and item.winner==item.team2:
-            item.winner=item.team1
-            item.save()
-        if item.team2score>item.team1score and item.winner==item.team1:
-            item.winner=item.team2
-            item.save()
-    """
+    items=historical_team.objects.all().filter(subseason__isnull=True)
+    items.update(subseason="Main")
+        
     return redirect('home')

@@ -1030,6 +1030,7 @@ def archive_season(request,league_name):
                 id=maxid,
                 league = item.league_name,
                 seasonname = season.seasonname,
+                subseason= item.subleague.subleague,
                 teamname = item.teamname,
                 coach1= item.coach,
                 coach1username=item.coach.username,
@@ -1051,6 +1052,7 @@ def archive_season(request,league_name):
                 id=maxid,
                 league = item.league_name,
                 seasonname = season.seasonname,
+                subseason= item.subleague.subleague,
                 teamname = item.teamname,
                 coach1= item.coach,
                 coach1username=item.coach.username,
@@ -1115,7 +1117,7 @@ def archive_season(request,league_name):
             pass
         item.delete()   
     coachdataitems.delete()
-    season.delete()
+    seasonsetting.objects.filter(league=league_).delete()
     return redirect('leagues_hosted_settings')
 
 @login_required
