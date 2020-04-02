@@ -34,15 +34,25 @@
         <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
-                    <th colspan="4">Standings</th>
+                    <th colspan="100%"><h3>Standings</h3></th>
+                </tr>
+                {% regroup season_teams by subseason as season_teams_ %}
+                {% for subseason in season_teams_ %}
+                <tr class="bg-dark text-light">
+                    <th colspan="100%">{{ subseason.grouper }}</th>
                 </tr>
                 <tr class="bg-dark text-light">
                     <th>Team</th>
+                    {% with ft=subseason.list|first %}
+                    {% if ft.subteam %}
+                    <td>Parent Team</td>
+                    {% endif %}
+                    {% endwith %}
                     <th>W</th>
                     <th>L</th>
                     <th>+/-</th>
                 </tr>
-                {% for item in season_teams|standings %}
+                {% for item in subseason.list|list_standings %}
                 <tr>
                     <td>
                         <a class="text-dark"
@@ -56,10 +66,14 @@
                             </div>
                         </a>
                     </td>
+                    {% if item.subteam %}
+                    <td>{{ item.subteam }}</td>
+                    {% endif %}
                     <td>{{item.wins}}</td>
                     <td>{{item.losses}}</td>
                     <td>{{item.differential}}</td>
                 </tr>
+                {% endfor %}
                 {% endfor %}
             </table>
             </div>

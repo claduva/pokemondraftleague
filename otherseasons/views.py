@@ -49,7 +49,7 @@ def seasondetail(request,league_name,seasonofinterest):
     except:
         messages.error(request,'League does not exist',extra_tags='danger')
         return redirect('home')
-    season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest)    
+    season_teams=historical_team.objects.all().filter(league__name=league_name,seasonname=seasonofinterest).order_by('subseason')
     season=season_teams.first()
     if season==None:
         messages.error(request,'Season does not exist',extra_tags='danger')

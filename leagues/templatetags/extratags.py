@@ -120,6 +120,14 @@ def standings(query):
     resp=query.order_by('-wins','losses','-differential','teamname')
     return resp
 
+@register.filter(name='list_standings')
+def list_standings(query):
+    resp=sorted(query,key=lambda x: x.teamname)
+    resp=sorted(resp,key=lambda x: x.differential,reverse=True)
+    resp=sorted(resp,key=lambda x: x.losses)
+    resp=sorted(resp,key=lambda x: x.wins,reverse=True)
+    return resp
+
 @register.filter(name='ordinal')
 def ordinal(query):
     if query==1:
