@@ -68,7 +68,13 @@ def league_detail(request,league_name):
                                 item.points+=1
                             item.save()
                     standings.append([item,teamschedule])
-                numberofweeks=range(teamschedule_.count())
+                weeks_=list(schedule.objects.filter(season__league=league_).order_by('week').distinct('week').values_list('week',flat=True))
+                weeks=[]
+                for item in weeks_:
+                    if item.find("Playoff")==-1:
+                        weeks.append("Week "+item)
+                    else:
+                        weeks.append(item)
                 context = {
                     'league': league_,
                     'league_name': league_name,
@@ -77,9 +83,10 @@ def league_detail(request,league_name):
                     'apply':True,
                     'league_teams':league_teams,
                     'standings':standings,
-                    'numberofweeks':numberofweeks,
+                    'weeks':weeks,
                 }
-            except:
+            except Exception as e:
+                print(e)
                 context = {
                 'league': league_,
                 'league_name': league_name,
@@ -88,7 +95,7 @@ def league_detail(request,league_name):
                 'apply':True,
                 'league_teams':league_teams,
                 'standings':None,
-                'numberofweeks':None,
+                'weeks':None,
                 }
             return render(request, 'subleague_composite_detail.html',context)
         else:

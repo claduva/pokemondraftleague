@@ -140,7 +140,5 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    items=historical_team.objects.all().filter(subseason__isnull=True)
-    items.update(subseason="Main")
         
     return redirect('home')
