@@ -20,7 +20,11 @@
 <div class="row content-section align-items-center">
     <div class="col-12">
         {% if results.replay %}
+        {% if "pokemondraftleague.online/static/logfiles" in results.replay %}
+        <div><iframe src="{% url 'render_uploaded_replay' string=results.replay|get_replay_string %}" height="500vh" width="100%"></iframe></div>
+        {% else %}
         <iframe src="{{ results.replay }}" height="500vh" width="100%"></iframe>
+        {% endif %}
         {% endif %}
     </div>
     <div class="col-12">

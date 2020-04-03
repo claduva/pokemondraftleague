@@ -20,6 +20,11 @@ def pkmnreplace(string, arg):
 def split(string, arg):
     return string.split(".")[arg]
 
+@register.filter(name='get_replay_string')
+def get_replay_string(string):
+    string=string.split("/logfiles/")[1].split(".txt")[0]
+    return string
+
 @register.filter(name='subtract')
 def subtract(num, arg):
     try:
