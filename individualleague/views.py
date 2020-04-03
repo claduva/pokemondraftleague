@@ -4,6 +4,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.db.models import Q
+from django.forms.models import model_to_dict
 
 import math
 import json
@@ -886,6 +887,11 @@ def league_matchup(request,league_name,subleague_name,matchid):
     league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     season=subleague.seasonsetting
+    try:  
+        site_settings = request.user.sitesettings
+    except:
+        user=User.objects.get(username="defaultuser")
+        site_settings = user.sitesettings
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
     try:
         match=schedule.objects.get(id=matchid)
@@ -895,12 +901,23 @@ def league_matchup(request,league_name,subleague_name,matchid):
     team1roster=roster.objects.filter(season=season,team=match.team1,pokemon__isnull=False).order_by('pokemon__pokemon')
     team2roster=roster.objects.filter(season=season,team=match.team2,pokemon__isnull=False).order_by('pokemon__pokemon')
     moves=['Stealth Rock','Spikes','Toxic Spikes','Sticky Web','Defog','Rapid Spin','Heal Bell','Aromatherapy','Wish']
+    team1rostereffectiveness=[]
+    for item in team1roster:
+        effectiveness=model_to_dict(item.pokemon.effectiveness);effectiveness.pop('id');effectiveness.pop('pokemon')
+        team1rostereffectiveness.append([get_sprite_url(item.pokemon,site_settings.sprite),effectiveness])
+    team2rostereffectiveness=[]
+    for item in team2roster:
+        effectiveness=model_to_dict(item.pokemon.effectiveness);effectiveness.pop('id');effectiveness.pop('pokemon')
+        team2rostereffectiveness.append([get_sprite_url(item.pokemon,site_settings.sprite),effectiveness])
     context = {
         'subleague':subleague,
         'match':match,
+        'league_teams':league_teams,
         'team1roster':team1roster,
         'team2roster':team2roster,
         'moves':moves,
+        'team1rostereffectiveness':team1rostereffectiveness,
+        'team2rostereffectiveness':team2rostereffectiveness,
     }
     return render(request, 'matchup.html',context)
 

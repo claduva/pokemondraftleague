@@ -697,6 +697,10 @@
 {% endblock %}
 {% block footer %}
 <!-- select code -->
+<script>
+    var team1effectiveness={{team1rostereffectiveness|safe}}
+    var team2effectiveness={{team2rostereffectiveness|safe}}
+</script>
 <script src="{% static 'individualleague/scripts/matchup.js' %}"></script>
 <script src="{% static 'individualleague/scripts/tablesorter.js' %}"></script>
 {% endblock %}
