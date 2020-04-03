@@ -140,5 +140,6 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-        
-    return redirect('home')
+    context = {
+    } 
+    return render(request,"ALPH_S1_claduva_vs_Revez.html",context)

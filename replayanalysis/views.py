@@ -725,3 +725,7 @@ def upload_league_replay_manual(request,league_name,subleague_name,matchid):
         'league_teams': league_teams,
     }
     return  render(request,"replayanalysisform.html",context)
+
+def render_uploaded_replay(request,string):
+    context={}
+    return  render(request,string+".html",context)
