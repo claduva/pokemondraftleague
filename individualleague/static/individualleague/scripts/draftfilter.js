@@ -10,7 +10,6 @@ $(document).ready(function() {
         datatable=JSON.parse(availablejson[x][3])
         types=datatable[name]['types']
         url=datatable[name]['sprites'][spritesettings[0]]
-        console.log(url)
         b=$('<td></td>')
         c=$('<img class="smallsprite" src="'+url+'"><span>'+name+' ('+tier+': '+points+' pts)</span>')
         b.append(c)

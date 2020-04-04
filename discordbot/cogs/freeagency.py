@@ -26,13 +26,16 @@ class Freeagency(commands.Cog):
                         if item.name==record[1]:
                             for channel in item.channels:
                                 if channel.name==record[4]:
-                                    embed=discord.Embed(title=record[3],colour=discord.Colour.blue())
-                                    embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
-                                    pokemonadded=record[3].split(" for ")[1].split(".")[0]
-                                    embed.set_image(url=f"https://play.pokemonshowdown.com/sprites/xyani/{pokemonadded.lower().replace(' ','').replace('.','').replace(':','').replace('%','').replace('mega-','mega').replace('nidoran-m','nidoran').replace('o-o','oo').replace('dusk-mane','duskmane').replace('dawn-wings','dawnwings')}.gif")
-                                    await channel.send(embed=embed)
-                                    ps_cursor.execute("DELETE from individualleague_freeagency_announcements WHERE id = %s",(record[0],))
-                                    ps_connection.commit()
+                                    try:
+                                        embed=discord.Embed(title=record[3],colour=discord.Colour.blue())
+                                        embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
+                                        pokemonadded=record[3].split(" for ")[1].split(".")[0]
+                                        embed.set_image(url=f"https://play.pokemonshowdown.com/sprites/xyani/{pokemonadded.lower().replace(' ','').replace('.','').replace(':','').replace('%','').replace('mega-','mega').replace('nidoran-m','nidoran').replace('o-o','oo').replace('dusk-mane','duskmane').replace('dawn-wings','dawnwings')}.gif")
+                                        await channel.send(embed=embed)
+                                        ps_cursor.execute("DELETE from individualleague_freeagency_announcements WHERE id = %s",(record[0],))
+                                        ps_connection.commit()
+                                    except:
+                                        pass
                 ps_cursor.close()
                 #Use this method to release the connection object and send back to connection pool
                 self.bot.pg_con.putconn(ps_connection)
