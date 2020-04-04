@@ -305,6 +305,7 @@ def league_draft(request,league_name,subleague_name):
     takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
     availablepokemon=pokemon_tier.objects.all().exclude(tier__tiername="Banned").exclude(pokemon__id__in=takenpokemon).filter(subleague=subleague).order_by("-tier__tierpoints",'pokemon__pokemon')
     availablepokemonjson=[]
+    availablepokemonvalues=list(availablepokemon.values_list('pokemon__pokemon','tier__tiername','tier__tierpoints','pokemon__data'))
     for item in availablepokemon:
         availablepokemonjson.append([item.pokemon.pokemon,item.tier.tiername,item.tier.tierpoints,get_sprite_url(item.pokemon,site_settings.sprite),list(item.pokemon.types.all().values('typing'))])
     json.dumps(availablepokemonjson)

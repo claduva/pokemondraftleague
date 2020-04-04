@@ -101,8 +101,10 @@ class pokemon_moveset(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='moves')
     moveinfo = models.ForeignKey(moveinfo,on_delete=models.CASCADE)
 
+
     class Meta:
         ordering = ['moveinfo__name']
+        unique_together = (("pokemon", "moveinfo"),)  
 
     def __str__(self):
         return f'Moveset data for {self.pokemon.pokemon}'

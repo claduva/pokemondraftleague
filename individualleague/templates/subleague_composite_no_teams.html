@@ -41,11 +41,15 @@
                 </tr>
                 {% for item in division.divisionteams.all|standings %}
                 <tr>
-                    <td><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</td>
+                    <td><a class="text-dark" href="{% url 'team_page' league_name=item.subleague.league.name subleague_name=item.subleague.subleague team_abbreviation=item.teamabbreviation %}"><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</a></td>
                     <td>{{item.wins}}</td>
                     <td>{{item.losses}}</td>
                     <td>{{item.differential}}</td>
-                    <td>{{item.streak}}</td>
+                    {% if item.streak < 0 %}
+                    <td>Lose{{item.streak}}</td>
+                    {% else %}
+                    <td>Win-{{item.streak}}</td>
+                    {% endif  %}
                 </tr>
                 {% endfor %}
                 {% endfor %}
@@ -59,11 +63,15 @@
                 </tr>
                 {% for item in conference.conferenceteams.all|standings %}
                 <tr>
-                    <td><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</td>
+                    <td><a class="text-dark" href="{% url 'team_page' league_name=item.subleague.league.name subleague_name=item.subleague.subleague team_abbreviation=item.teamabbreviation %}"><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</a></td>
                     <td>{{item.wins}}</td>
                     <td>{{item.losses}}</td>
                     <td>{{item.differential}}</td>
-                    <td>{{item.streak}}</td>
+                    {% if item.streak < 0 %}
+                    <td>Lose{{item.streak}}</td>
+                    {% else %}
+                    <td>Win-{{item.streak}}</td>
+                    {% endif  %}
                 </tr>
                 {% endfor %}
                 {% endif %}
