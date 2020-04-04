@@ -10,6 +10,8 @@ import math
 import json
 from datetime import datetime, timezone, timedelta
 import pytz
+import timeit
+import time
 from dal import autocomplete
 from itertools import chain
 
@@ -291,6 +293,7 @@ def team_page(request,league_name,subleague_name,team_abbreviation):
 @check_if_subleague
 @check_if_season
 def league_draft(request,league_name,subleague_name):
+    start_time = time.time()
     league_name=league_name.replace('_',' ')
     ##basic config
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
@@ -304,10 +307,13 @@ def league_draft(request,league_name,subleague_name):
         site_settings = user.sitesettings
     takenpokemon=roster.objects.all().filter(season=season).exclude(pokemon__isnull=True).values_list('pokemon',flat=True)
     availablepokemon=pokemon_tier.objects.all().exclude(tier__tiername="Banned").exclude(pokemon__id__in=takenpokemon).filter(subleague=subleague).order_by("-tier__tierpoints",'pokemon__pokemon')
+    #availablepokemonjson=[]
+    availablepokemonjson_=list(availablepokemon.values_list('pokemon__pokemon','tier__tiername','tier__tierpoints','pokemon__data'))
     availablepokemonjson=[]
-    availablepokemonvalues=list(availablepokemon.values_list('pokemon__pokemon','tier__tiername','tier__tierpoints','pokemon__data'))
-    for item in availablepokemon:
-        availablepokemonjson.append([item.pokemon.pokemon,item.tier.tiername,item.tier.tierpoints,get_sprite_url(item.pokemon,site_settings.sprite),list(item.pokemon.types.all().values('typing'))])
+    for item in availablepokemonjson_:
+        availablepokemonjson.append(list(item))
+    #for item in availablepokemon:
+    #   availablepokemonjson.append([item.pokemon.pokemon,item.tier.tiername,item.tier.tierpoints,get_sprite_url(item.pokemon,site_settings.sprite),list(item.pokemon.types.all().values('typing'))])
     json.dumps(availablepokemonjson)
     tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
@@ -441,7 +447,10 @@ def league_draft(request,league_name,subleague_name):
         'tierchoices':tierchoices,
         'types':types,
         'leaguepage': True,
+        'spritesettings':[site_settings.sprite],
     }
+    end_time = time.time()
+    print("Total execution time: {} seconds".format(end_time - start_time))
     return render(request, 'draft.html',context)
 
 def senddraftpicktobot(currentpick,pokemon,subleague,draftlist):

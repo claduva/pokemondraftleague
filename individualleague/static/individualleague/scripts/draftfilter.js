@@ -7,11 +7,15 @@ $(document).ready(function() {
         url=availablejson[x][3]
         a=$('<tr class="tieritem"></tr>')
         a.attr('data-tier',points)
+        datatable=JSON.parse(availablejson[x][3])
+        types=datatable[name]['types']
+        url=datatable[name]['sprites'][spritesettings[0]]
+        console.log(url)
         b=$('<td></td>')
         c=$('<img class="smallsprite" src="'+url+'"><span>'+name+' ('+tier+': '+points+' pts)</span>')
         b.append(c)
-        for (y in availablejson[x][4]){
-            typing=availablejson[x][4][y]['typing']
+        for (y in types){
+            typing=types[y]
             b.append('<div class="'+typing+'" hidden>'+typing+'</div>')
         }
         a.append(b)

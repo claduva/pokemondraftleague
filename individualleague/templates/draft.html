@@ -175,6 +175,7 @@
 {% endblock %}
 {% block footer %}
 <script>
+    var spritesettings ={{spritesettings|safe}}
     var availablejson = {{availablepokemonjson|safe}}
 </script>
 <script src="{% static 'individualleague/scripts/draftfilter.js' %}"></script>
