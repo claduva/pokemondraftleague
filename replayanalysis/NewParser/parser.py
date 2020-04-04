@@ -483,6 +483,8 @@ def move_function(line,parsedlogfile,results):
         #search for miss 
         turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0] , parsedlogfile))[::-1]
         miss=False
+        if line[3].find("[notarget]")>-1:
+            miss=True
         for line in turndata:
             if (line[2]=="miss" and line[3].split(": ")[0]==attackingteam) or (line[2]=="immune" and line[3].split(": ")[0]==defendingteam):
                 miss=True
