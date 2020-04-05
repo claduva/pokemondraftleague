@@ -1,3 +1,4 @@
+"""
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 from datetime import datetime, timedelta,timezone
@@ -260,3 +261,4 @@ def historic_searchmon(toi,searchmon):
                 except:
                     foundmon=all_pokemon.objects.all().get(pokemon=searchmon)
     return foundmon
+"""
