@@ -18,6 +18,7 @@ from itertools import chain
 from .models import *
 from leagues.models import *
 from pokemondatabase.models import *
+from pokemonadmin.models import *
 from accounts.models import *
 from .forms import *
 from pokemondraftleague.customdecorators import check_if_subleague, check_if_league, check_if_season, check_if_team, check_if_host
@@ -1342,21 +1343,18 @@ def trading_view(request,league_name,subleague_name):
     return render(request, 'trading.html',context)
 
 @check_if_subleague
-@check_if_season
 def league_hall_of_fame(request,league_name,subleague_name):
     league_name=league_name.replace('_',' ')
+    league_=league.objects.get(name=league_name)
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    season=subleague.seasonsetting
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    is_host=(request.user in subleague.league.host.all())
-    halloffameentries=None
+    championshipgames=historical_match.objects.all().filter(team1__league=league_,week__contains="Finals").order_by('-team1__seasonname')
     context = {
         'subleague': subleague,
         'leaguepage': True,
         'league_teams': league_teams,
         'league_name': league_name,
-        'is_host': is_host,
-        'halloffameentries':halloffameentries,
+        'championshipgames':championshipgames,
     }
     return render(request, 'halloffame.html',context)
 

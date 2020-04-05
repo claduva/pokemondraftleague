@@ -474,8 +474,8 @@ def check_hist_match(match):
             team1=match.team2
             team2=match.team1
         #update teams
-        team1.wins+=data['team1']['wins']; team1.losses+=abs(data['team1']['wins']-1); team1.differential+=data['team1']['kills']-data['team1']['deaths']; team1.forfeit=data['team1']['forfeit']
-        team2.wins+=data['team2']['wins']; team2.losses+=abs(data['team2']['wins']-1); team2.differential+=data['team2']['kills']-data['team2']['deaths']; team2.forfeit=data['team2']['forfeit']
+        team1.wins+=data['team1']['wins']; team1.losses+=abs(data['team1']['wins']-1); team1.differential+=data['team1']['score']-data['team2']['score']; team1.forfeit=data['team1']['forfeit']
+        team2.wins+=data['team2']['wins']; team2.losses+=abs(data['team2']['wins']-1); team2.differential+=data['team2']['score']-data['team1']['score']; team2.forfeit=data['team2']['forfeit']
         ##
         for mon in data['team1']['roster']:
             searchmon=mon['pokemon']

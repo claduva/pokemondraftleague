@@ -62,6 +62,16 @@ def halve(thelist):
     return [firsthalf,secondhalf]
 
 @register.filter
+def half(thelist,side):
+    length=len(thelist)
+    half=math.ceil(length/2)
+    if side==1:
+        qs=thelist[0:half]
+    else:
+        qs=thelist[half:]
+    return qs
+
+@register.filter
 def integer(string):
     return int(string)
 
