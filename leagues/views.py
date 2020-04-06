@@ -609,11 +609,11 @@ def default_tiers(request,league_name,subleague_name):
     if request.method == 'POST':
         purpose=request.POST['purposeid']
         if purpose=='Select':
-            templatetierset=leaguetiertemplate.objects.all().exclude(tiername="Banned").filter(template=request.POST['template-select'])
-            leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").delete()
+            templatetierset=leaguetiertemplate.objects.all().filter(template=request.POST['template-select'])
+            leaguetiers.objects.all().filter(subleague=subleague).delete()
             for item in templatetierset:
                 leaguetiers.objects.create(league=league_,subleague=subleague,tiername=item.tiername,tierpoints=item.tierpoints)
-            templatepokemonset=pokemon_tier_template.objects.all().exclude(tier__tiername="Banned").filter(template=request.POST['template-select'])
+            templatepokemonset=pokemon_tier_template.objects.all().filter(template=request.POST['template-select'])
             existingpokemontiers=pokemon_tier.objects.all().filter(league=league_,subleague=subleague)
             thisleaguetiers=leaguetiers.objects.all().filter(subleague=subleague)
             for item in templatepokemonset:
@@ -624,10 +624,10 @@ def default_tiers(request,league_name,subleague_name):
             messages.success(request,'The template has been applied!')
         elif purpose=="Use":
             #delete existing
-            subleague.subleaguetiers.all().exclude(tiername="Banned").delete()
+            subleague.subleaguetiers.all().delete()
             #add new
             leagueofinterest=league_subleague.objects.get(id=request.POST['leagueid'])
-            leagueofinteresttiers=leagueofinterest.subleaguetiers.all().exclude(tiername="Banned")
+            leagueofinteresttiers=leagueofinterest.subleaguetiers.all()
             for item in leagueofinteresttiers:
                 leaguetiers.objects.create(league=league_,subleague=subleague,tiername=item.tiername,tierpoints=item.tierpoints)
             ##update pokemon
