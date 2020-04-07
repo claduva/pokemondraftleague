@@ -21,7 +21,6 @@ from pokemonadmin.models import *
 from individualleague.models import *
 from accounts.models import *
 
-from replayanalysis.ShowdownReplayParser.replayparser import *
 from replayanalysis.helperfunctions import *
 from replayanalysis.NewParser.parser import *
 from replayanalysis.helperfunctions import *

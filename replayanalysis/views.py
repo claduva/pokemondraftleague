@@ -17,7 +17,6 @@ from .forms import *
 from leagues.models import *
 from pokemonadmin.models import *
 from accounts.models import showdownalts, inbox
-from .ShowdownReplayParser.replayparser import *
 from .NewParser.parser import *
 from .helperfunctions import *
 from pokemondraftleague.customdecorators import check_if_subleague, check_if_league, check_if_season, check_if_team, check_if_host, check_if_match, check_if_clad

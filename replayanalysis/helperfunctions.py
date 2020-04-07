@@ -15,7 +15,6 @@ from .forms import *
 from leagues.models import *
 from accounts.models import showdownalts
 from pokemondatabase.models import *
-from .ShowdownReplayParser.replayparser import *
 
 def checkpokemon(testpokemon,season,team,league_name,request):
     try:

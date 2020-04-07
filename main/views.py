@@ -26,7 +26,6 @@ from .forms import HelpForm
 
 from replayanalysis.NewParser.parser import *
 from replayanalysis.models import *
-from replayanalysis.ShowdownReplayParser.replayparser import *
 from replayanalysis.helperfunctions import *
 from pokemondraftleague.customdecorators import check_if_clad
 
@@ -140,6 +139,7 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
+    """
     for item in replaydatabase.objects.all():
         try:
             sa=showdownalts.objects.get(showdownalt=item.winneruser)
@@ -151,23 +151,28 @@ def runscript(request):
                 print(item.winneruser)
         except:
             pass
+    
     """
-    with open('teams.csv') as csv_file:
+    """
+    with open('trades.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
             if line_count == 0:
                 line_count += 1
             else:
-                id_=historical_team.objects.all().order_by('-id').first().id+1
-                league_=league.objects.get(name="SKL")
-                sn=row[1]
-                tn=row[2]
-                cun=row[3]
-                c=User.objects.get(username=row[4])
-                historical_team.objects.create(id=id_,league=league_,subseason="Main",seasonname=sn,teamname=tn,coach1username=cun,coach1=c)
+                id_=historical_trading.objects.all().order_by('-id').first().id+1
+                sn=row[0]
+                tn=row[1]
+                pokemon1=row[2]
+                pokemon1=get_pkmn(pokemon1)
+                pokemon2=row[3]
+                pokemon2=get_pkmn(pokemon2)
+                print(f'{sn} {tn}')
+                toi=historical_team.objects.filter(league__name="SKL",seasonname=sn).get(teamname=tn)
+                historical_trading.objects.create(id=id_,team=toi,droppedpokemon=pokemon1,addedpokemon=pokemon2)
                 line_count += 1
-                """
+    """
     return redirect('home')
 
 def get_pkmn(pkmn):
@@ -180,10 +185,19 @@ def get_pkmn(pkmn):
         pkmn=pkmn.replace("Cryoganol","Cryogonal").replace("Cincinno","Cinccino")
         if pkmn.find("M.")>-1:
             pkmn=pkmn.replace("M.","")+"-Mega"
+        if pkmn.find("M-")>-1:
+            pkmn=pkmn.replace("M-","")+"-Mega"
+        if pkmn.find("A-")>-1:
+            pkmn=pkmn.replace("A-","")+"-Alola"
+        if pkmn.find("Alolan ")>-1:
+            pkmn=pkmn.replace("Alolan ","")+"-Alola"
+        if pkmn.find("Alola ")>-1:
+            pkmn=pkmn.replace("Alola ","")+"-Alola"
         if pkmn.find("Mega ")>-1:
             pkmn=pkmn.replace("Mega ","")+"-Mega"
         try:
             pkmn=all_pokemon.objects.get(pokemon=pkmn)
         except:
             print(pkmn)
+            #raise
     return pkmn

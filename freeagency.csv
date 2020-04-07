@@ -1,61 +1,46 @@
 Season,Team,Dropped Pokemon,Added Pokemon
-Season 6,Vegas Night Marchers,Doublade,Jellicent
-Season 6,Pillars of Tahoma,Arcanine,Tauros
-Season 6,Rick Gastly's Troupe,Drapion,Cofagrigus
-Season 6,Colorado Mamoswine,Delphox,Torracat
-Season 6,Vegas Night Marchers,Komala,Ninjask
-Season 6,Whiscash Wanderers,Vileplume,Blastoise
-Season 6,Colorado Mamoswine,Ninjask,Blastoise
-Season 6,Vegas Night Marchers,Lycanroc (Day),Escavalier
-Season 6,Arctic Mankeys,Lilligant,Trevenant
-Season 6,Whiscash Wanderers,Prinplup,Sandslash
-Season 6,Pillars of Tahoma,Seismitoad,Quagsire
-Season 6,Rick Gastly's Troupe,Avalugg,Slaking
-Season 6,Whiscash Wanderers,Spiritomb,Sceptile
-Season 6,Rick Gastly's Troupe,Haunter,Bellossom
-Season 6,Colorado Mamoswine,Dewgong,Bronzor
-Season 6,Atlanta Archeops,Whirlipede,Porygon-Z
-Season 6,Sundsvall Seels,Armaldo,Sandslash
-Season 5,Phoenix Blaze ,Scolipede,Excadrill
-Season 5,Phoenix Blaze ,Thundurus,Dragonite
-Season 5,Phoenix Blaze ,M.Aerodactyl,M.Alakazam
-Season 5,Poipole Poke-Pimps,Milotic,Mandibuzz
-Season 5,Indianapolis Bolts,Snorlax,Porygon2
-Season 5,Colorado Mamoswine,Cofagrigus,Gourgeist
-Season 5,Dallas Starlies,Carbink,Golem
-Season 5,The Duffled Bags,Dugtrio,Diggersby
-Season 5,Emperor Palpitoad's Regime,Hoopa,Marowak (Alola)
-Season 5,Phoenix Blaze ,Crawdaunt,Hippopotas
-Season 5,Islamic State Oddish,Mienshao,Jolteon
-Season 5,Northeastern Duskies,Lanturn,Vanilluxe
-Season 5,Phoenix Blaze ,Kyurem,Cloyster
-Season 5,Chicago Beartics,Sableye,Mismagius
-Season 5,The Duffled Bags,Kingdra,Feraligatr
-Season 5,The Duffled Bags,Vaporeon,Vikavolt
-Season 5,Chicago Beartics,Mudsdale,Hitmontop
-Season 5,Dallas Starlies,Abomasnow,Lurantis
-Season 5,Aurorus Borealis,Cresselia,Hitmonchan
-Season 5,The Duffled Bags,Gligar,Raichu (Alola)
-Season 5,Chicago Beartics,Hitmonchan,Palossand
-Season 5,Aurorus Borealis,Buzzwole,Volcanion
-Season 5,Phoenix Blaze ,Golurk,Zoroark
-Season 5,Colorado Mamoswine,Slaking,Smeargle
-Season 5,Northeastern Duskies,Raichu (Alola),Gligar
-Season 5,Poipole Poke-Pimps,Cloyster,Drifblim
-Season 5,Pillars of Tahoma,Porygon2,Toxapex
-Season 5,Islamic State Oddish,Tangela,Gurdurr
-Season 5,The Duffled Bags,Golem (Alola),Seismitoad
-Season 4,Colorado Avaluggs,Ninetales-Alola,Vaporeon
-Season 4,Colorado Avaluggs,Guzzlord,Raichu
-Season 4,Colorado Avaluggs,Zapdos,Latias
-Season 4,Dallas Starlies,Tyranitar,Volcanion
-Season 4,Dallas Starlies,Gyarados,Pelipper
-Season 4,Dallas Starlies,Charizard-Mega-X,Mega Aerodactyl
-Season 4,DC Darmanitans,Starmie,Buzzwole
-Season 4,Libretto Lugias,Zeraora,Zapdos
-Season 4,Libretto Lugias,Snorlax,Staraptor
-Season 4,Montreal Togedemaru,Komala,Machamp
-Season 4,Northeastern Duskies,Hoopa-Unbound,Tyranitar
-Season 4,The Arctic Mankeys,Infernape,Hoopa-Unbound
-Season 4,The Arctic Mankeys,Cacturne,Gourgeist
-Season 4,The Duffled Bags,Mega Slowbro,Charizard-Mega-Y
+Season 3,Chicago Beartics,Dusclops,Garbodor
+Season 3,Chicago Beartics,Emboar,Gastrodon
+Season 3,Chicago Beartics,Gliscor,Entei
+Season 3,Dallas Starlies,Mandibuzz,Amoonguss
+Season 3,Gallifreyan Gallades,Beartic,Persian-Alola
+Season 3,La Tuque's Xatus,Eevee,Kecleon
+Season 3,London Vespiquens,Hawlucha,Weavile
+Season 3,London Vespiquens,Leavanny,Gourgeist
+Season 3,London Vespiquens,Magnezone,Quagsire
+Season 3,London Vespiquens,Qwilfish,Electivire
+Season 3,Manchester Skitty,Castform,Armaldo
+Season 3,Manchester Skitty,Froslass,Slurpuff
+Season 3,Manchester Skitty,Kingdra,Diggersby
+Season 3,Manchester Skitty,M-Swampert,Mega Gardevoir
+Season 3,Manchester Skitty,Mesprit,Darmanitan
+Season 3,Manchester Skitty,Pelipper,Alomomola
+Season 3,North Pole Piplups,Bewear,Machamp
+Season 3,The Pakd Machamps,Entei,Silvally
+Season 3,The Pakd Machamps,Shuckle,Gligar
+Season 3,The Pakd Machamps,Weavile,Heatran
+Season 2,Chicago Beartics,Spiritomb,Exploud
+Season 2,Chicago Beartics,Volcanion,Infernape
+Season 2,Cleavland Escaviliers,Politoed,Swampert
+Season 2,Cleavland Escaviliers,Toxapex,Diggersby
+Season 2,Singapore Silvallies,Ditto,Lanturn
+Season 1,Aston Vanilluxe,Haunter,Scyther
+Season 1,Aston Vanilluxe,Hawlucha,Staraptor
+Season 1,Aston Vanilluxe,Uxie,Cobalion
+Season 1,Cleavland Escaviliers,Alolan Raichu,Slaking
+Season 1,Cleavland Escaviliers,Latios,Nihilego
+Season 1,Dallas Starlies,Blaziken,Ditto
+Season 1,Dallas Starlies,Ninetales,Chesnaught
+Season 1,Dallas Starlies,Staraptor,Florges
+Season 1,Dynamic Diancies,Conkeldurr,Blissey
+Season 1,Montreal Mamoswines,Drampa,Swellow
+Season 1,Montreal Mamoswines,Milotic,Gengar
+Season 1,Perth Persians,Diggersby,Hawlucha
+Season 1,Perth Persians,Machamp,Golurk
+Season 1,San Francisco Staraptors,Jellicent,Cofagrigus
+Season 1,San Francisco Staraptors,Mudsdale,Seismitoad
+Season 1,San Francisco Staraptors,Stunfisk,Kecleon
+Season 1,Singapore Sableyes,Alakazam,Scolipede
+Season 1,Singapore Sableyes,Steelix,Alolan Golem
+Season 1,The Arctic Mankeys,Cradily,Hitmonchan
+Season 1,The Arctic Mankeys,Turtonator,Lapras
