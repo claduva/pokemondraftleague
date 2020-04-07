@@ -3,16 +3,18 @@ $(document).ready(function() {
     tableheads=$("#tableheads")
     tablebody=$("#tablebody")
     for (x in tierdict){
-        tableheads.append('<th class="bg-dark text-light">'+x+'</th>')
+        tableheads.append('<th class="bg-dark text-light">'+tierdict[x][0][1]+' ('+tierdict[x][0][2]+' pts)'+'</th>')
         ita1=$('<td class="p-0 m-0"></td>')
         for (y in tierdict[x]){
-            if (tierdict[x][y][2]=="FREE"){
+            itemdata=JSON.parse(tierdict[x][y][3])
+            spriteurl=itemdata[tierdict[x][y][0]]['sprites'][sprite]
+            if (tierdict[x][y][5]=="FREE"){
                 ita2=$('<div style="height:30px;" class="bg-green border border-dark"></div>')
             }
             else{
                 ita2=$('<div style="height:30px;" class="bg-red border border-dark"></div>')
             }
-            ita2.append(tierdict[x][y][2]+'<img class="smallsprite" src="'+tierdict[x][y][1]+'">'+tierdict[x][y][0])
+            ita2.append(tierdict[x][y][5]+'<img class="smallsprite" src="'+spriteurl+'">'+tierdict[x][y][0])
             ita1.append(ita2)
         }
         tablebody.append(ita1)
@@ -21,40 +23,49 @@ $(document).ready(function() {
     // insert tierlist
     tl=$("#tierlist")
     for (x in tierlist) {
+        pokemon=tierlist[x][0]
+        tiername=tierlist[x][1]
+        tierpoints=tierlist[x][2]
+        itemdata=JSON.parse(tierlist[x][3])
+        availability=tierlist[x][5]
         eta1=$("<div class='tieritem'></div>")
-        eta1.attr('data-tier',tierlist[x][3])
-        eta1.attr('data-bst',tierlist[x][12])
-        eta1.attr('data-hp',tierlist[x][6])
-        eta1.attr('data-atk',tierlist[x][7])
-        eta1.attr('data-def',tierlist[x][8])
-        eta1.attr('data-spa',tierlist[x][9])
-        eta1.attr('data-spd',tierlist[x][10])
-        eta1.attr('data-speed',tierlist[x][11])
-        eta1.attr('data-pokemon',tierlist[x][0])
-        eta1.attr('data-available',tierlist[x][1])
+        eta1.attr('data-tier',tierpoints)
+        eta1.attr('data-bst',itemdata[pokemon]['basestats']['bst'])
+        eta1.attr('data-hp',itemdata[pokemon]['basestats']['hp'])
+        eta1.attr('data-atk',itemdata[pokemon]['basestats']['attack'])
+        eta1.attr('data-def',itemdata[pokemon]['basestats']['defense'])
+        eta1.attr('data-spa',itemdata[pokemon]['basestats']['s_attack'])
+        eta1.attr('data-spd',itemdata[pokemon]['basestats']['s_defense'])
+        eta1.attr('data-speed',itemdata[pokemon]['basestats']['speed'])
+        eta1.attr('data-pokemon',pokemon)
+        eta1.attr('data-available',availability)
         eta2=$("<a href=''></a>")
-        if (tierlist[x][1]=="FREE"){
+        spriteurl=itemdata[pokemon]['sprites'][sprite]
+        if (availability=="FREE"){
             eta3=$("<div class='row bg-green text-dark rounded mb-1'></div>")
+            eta4=$("<div class='col-3 col-md-2 justify-content-center d-flex align-items-center'><div class='text-center'>"+availability+"</div></div>")
         }
         else{
             eta3=$("<div class='row bg-red text-dark rounded mb-1'></div>")
+            eta4=$("<div class='col-3 col-md-2 justify-content-center d-flex align-items-center'><div class='text-center'>Signed by "+availability+"</div></div>")
         }
-        eta4=$("<div class='col-3 col-md-2 justify-content-center d-flex align-items-center'><div class='text-center'>"+tierlist[x][1]+"</div></div>")
-        eta5=$('<div class="col-3 col-md-2 text-center align-middle"><div>'+tierlist[x][2]+'</div><div>('+tierlist[x][3]+' pts)</div></div>')
-        eta6=$('<div class="col-3 col-md-2 d-flex justify-content-center align-items-center"><img class="smallsprite" src="'+tierlist[x][4]+'">'+tierlist[x][0]+'</div>')
+        eta5=$('<div class="col-3 col-md-2 text-center align-middle"><div>'+tiername+'</div><div>('+tierpoints+' pts)</div></div>')
+        eta6=$('<div class="col-3 col-md-2 d-flex justify-content-center align-items-center"><img class="smallsprite" src="'+spriteurl+'">'+pokemon+'</div>')
         eta7=$('<div class="col-3 col-md-2 d-flex justify-content-center align-items-center"><div></div></div>')
-        for (y in tierlist[x][5]) {
-            eta8=$('<div><img src="/static/pokemondatabase/sprites/types/'+tierlist[x][5][y]+'.png"></div><div class="'+tierlist[x][5][y]+'" hidden>'+tierlist[x][5][y]+'</div>')
+        types=itemdata[pokemon]['types']
+        for (y in types) {
+            typing=types[y]
+            eta8=$('<div><img src="/static/pokemondatabase/sprites/types/'+typing+'.png"></div><div class="'+typing+'" hidden>'+typing+'</div>')
             eta7.append(eta8)
         }
         eta9=$('<div class="col-12 col-md-4 d-flex justify-content-center"></div>')
-        eta9.append('<div class="px-1"><div><small>HP</small></div><div><small>'+tierlist[x][6]+'</small></div></div>')
-        eta9.append('<div class="px-1"><div><small>Atk</small></div><div><small>'+tierlist[x][7]+'</small></div></div>')
-        eta9.append('<div class="px-1"><div><small>Def</small></div><div><small>'+tierlist[x][8]+'</small></div></div>')
-        eta9.append('<div class="px-1"><div><small>SpA</small></div><div><small>'+tierlist[x][9]+'</small></div></div>')
-        eta9.append('<div class="px-1"><div><small>SpD</small></div><div><small>'+tierlist[x][10]+'</small></div></div>')
-        eta9.append('<div class="px-1"><div><small>Spe</small></div><div><small>'+tierlist[x][11]+'</small></div></div>')
-        eta9.append('<div class="px-1"><div><small>BST</small></div><div><small>'+tierlist[x][12]+'</small></div></div>')
+        eta9.append('<div class="px-1"><div><small>HP</small></div><div><small>'+itemdata[pokemon]['basestats']['hp']+'</small></div></div>')
+        eta9.append('<div class="px-1"><div><small>Atk</small></div><div><small>'+itemdata[pokemon]['basestats']['attack']+'</small></div></div>')
+        eta9.append('<div class="px-1"><div><small>Def</small></div><div><small>'+itemdata[pokemon]['basestats']['defense']+'</small></div></div>')
+        eta9.append('<div class="px-1"><div><small>SpA</small></div><div><small>'+itemdata[pokemon]['basestats']['s_attack']+'</small></div></div>')
+        eta9.append('<div class="px-1"><div><small>SpD</small></div><div><small>'+itemdata[pokemon]['basestats']['s_defense']+'</small></div></div>')
+        eta9.append('<div class="px-1"><div><small>Spe</small></div><div><small>'+itemdata[pokemon]['basestats']['speed']+'</small></div></div>')
+        eta9.append('<div class="px-1"><div><small>BST</small></div><div><small>'+itemdata[pokemon]['basestats']['bst']+'</small></div></div>')
         eta3.append(eta4)
         eta3.append(eta5)
         eta3.append(eta6)

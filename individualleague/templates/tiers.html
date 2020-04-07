@@ -74,7 +74,7 @@
         </div>
     </div>
 </div>
-<div class="row bg-darkgrey rounded p-2">
+<div class="row bg-darkgrey rounded p-2"> 
     <div id="tiertable" style="height: 1000px;" class="table-responsive text-nowrap overflow-auto">
         <table class="table text-dark bg-lightgrey text-center">
             <tr id="tableheads"></tr>
@@ -86,6 +86,7 @@
 {% endblock %}
 {% block footer %}
 <script type='text/javascript'>
+    var sprite = {{ sprite|safe}};
     var tierlist = {{ tiersjson|safe }};
     var tierdict = {{ tierdictjson|safe }};
 </script>

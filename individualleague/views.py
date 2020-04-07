@@ -981,6 +981,7 @@ def edit_league_rules(request,league_name,subleague_name):
 
 @check_if_subleague
 def league_tiers(request,league_name,subleague_name):
+    start_time = time.time()
     league_name=league_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')
@@ -993,10 +994,12 @@ def league_tiers(request,league_name,subleague_name):
     except:
         user=User.objects.get(username="defaultuser")
         site_settings = user.sitesettings
+    """
     tiersjson=[]
     tierdictjson={}
     for item in tierchoices:
         tierdictjson[f'{item.tiername} ({item.tierpoints} pts)']=[]
+
     for item in tierlist_:
         poi=item.pokemon
         types=[]
@@ -1014,9 +1017,27 @@ def league_tiers(request,league_name,subleague_name):
                 banned=leaguetiers.objects.all().filter(subleague=subleague).get(tiername="Banned")
                 item.tier=banned
                 item.save()
-    types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     json.dumps(tiersjson)
     json.dumps(tierdictjson)
+    """
+    types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
+    tiersjson_=list(tierlist_.values_list('pokemon__pokemon','tier__tiername','tier__tierpoints','pokemon__data','pokemon__id'))
+    tiersjson=[]
+    for item in tiersjson_:
+        item=list(item)
+        if item[4] in rosterlist_:
+            owner=rosterlist.get(pokemon__id=item[4])
+            item.append(f"Signed by {owner.team.teamabbreviation}")
+        else:
+            item.append("FREE")
+        tiersjson.append(item)
+    tierdictjson=[]
+    for item in tierchoices:
+        n=item.tiername
+        fl=list(filter(lambda x: x[1]==n,tiersjson))
+        tierdictjson.append(fl)
+    end_time = time.time()
+    print("Total execution time: {} seconds".format(end_time - start_time))
     context = {
         'subleague': subleague,
         'leaguepage': True,
@@ -1026,6 +1047,7 @@ def league_tiers(request,league_name,subleague_name):
         'tierchoices':tierchoices,
         'tiersjson':tiersjson,
         'tierdictjson':tierdictjson,
+        'sprite':[site_settings.sprite],
     }
     return render(request, 'tiers.html',context)
 
