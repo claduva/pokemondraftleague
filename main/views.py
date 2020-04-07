@@ -140,6 +140,34 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
+    for item in replaydatabase.objects.all():
+        try:
+            sa=showdownalts.objects.get(showdownalt=item.winneruser)
+            if (sa.user != item.winnercoach1) and (sa.user != item.winnercoach2) and (item.winnercoach1.username != "UnclaimedCoach"):
+                print(sa)
+                print(item.winneruser)
+            elif (sa.user != item.winnercoach1) and (sa.user != item.winnercoach2) and (item.winnercoach1.username == "UnclaimedCoach"):
+                print(sa)
+                print(item.winneruser)
+        except:
+            pass
+    """
+    with open('teams.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                line_count += 1
+            else:
+                id_=historical_team.objects.all().order_by('-id').first().id+1
+                league_=league.objects.get(name="SKL")
+                sn=row[1]
+                tn=row[2]
+                cun=row[3]
+                c=User.objects.get(username=row[4])
+                historical_team.objects.create(id=id_,league=league_,subseason="Main",seasonname=sn,teamname=tn,coach1username=cun,coach1=c)
+                line_count += 1
+                """
     return redirect('home')
 
 def get_pkmn(pkmn):

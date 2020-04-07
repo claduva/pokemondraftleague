@@ -994,32 +994,6 @@ def league_tiers(request,league_name,subleague_name):
     except:
         user=User.objects.get(username="defaultuser")
         site_settings = user.sitesettings
-    """
-    tiersjson=[]
-    tierdictjson={}
-    for item in tierchoices:
-        tierdictjson[f'{item.tiername} ({item.tierpoints} pts)']=[]
-
-    for item in tierlist_:
-        poi=item.pokemon
-        types=[]
-        for item2 in poi.types.all():
-            types.append(item2.typing)
-        if item.pokemon.id in rosterlist_:
-            owner=rosterlist.get(pokemon__id=item.pokemon.id)
-            tiersjson.append([poi.pokemon,f"Signed by {owner.team.teamabbreviation}",item.tier.tiername,item.tier.tierpoints,get_sprite_url(poi,site_settings.sprite),types,poi.hp,poi.attack,poi.defense,poi.s_attack,poi.s_defense,poi.speed,poi.bst])
-            tierdictjson[f'{item.tier.tiername} ({item.tier.tierpoints} pts)'].append([poi.pokemon,get_sprite_url(poi,site_settings.sprite),owner.team.teamabbreviation])
-        else:
-            try:
-                tiersjson.append([poi.pokemon,f"FREE",item.tier.tiername,item.tier.tierpoints,get_sprite_url(poi,site_settings.sprite),types,poi.hp,poi.attack,poi.defense,poi.s_attack,poi.s_defense,poi.speed,poi.bst])
-                tierdictjson[f'{item.tier.tiername} ({item.tier.tierpoints} pts)'].append([poi.pokemon,get_sprite_url(poi,site_settings.sprite),'FREE'])
-            except:
-                banned=leaguetiers.objects.all().filter(subleague=subleague).get(tiername="Banned")
-                item.tier=banned
-                item.save()
-    json.dumps(tiersjson)
-    json.dumps(tierdictjson)
-    """
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     tiersjson_=list(tierlist_.values_list('pokemon__pokemon','tier__tiername','tier__tierpoints','pokemon__data','pokemon__id'))
     tiersjson=[]
@@ -1027,7 +1001,7 @@ def league_tiers(request,league_name,subleague_name):
         item=list(item)
         if item[4] in rosterlist_:
             owner=rosterlist.get(pokemon__id=item[4])
-            item.append(f"Signed by {owner.team.teamabbreviation}")
+            item.append(f"{owner.team.teamabbreviation}")
         else:
             item.append("FREE")
         tiersjson.append(item)

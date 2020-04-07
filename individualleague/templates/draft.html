@@ -11,7 +11,7 @@
 <div class="row bg-darkgrey rounded pt-2 mb-2">
     <datalist id="availablepokemon">
         {% for item in availablepokemon %}
-        <option value={{ item.pokemon.pokemon }}>{{ item.pokemon.pokemon }}</option>
+        <option value="{{ item.pokemon.pokemon }}">{{ item.pokemon.pokemon }}</option>
         {% endfor %}
     </datalist>
     <div class="col-md">
