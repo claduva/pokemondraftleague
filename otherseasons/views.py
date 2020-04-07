@@ -140,8 +140,8 @@ def seasontransactions(request,league_name,seasonofinterest):
         messages.error(request,'Season does not exist',extra_tags='danger')
         return redirect('home')
     otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname').exclude(seasonname=seasonofinterest)
-    free_agencies=historical_freeagency.objects.all().filter(team__seasonname=season.seasonname).order_by('team__teamname')
-    trades_=historical_trading.objects.all().filter(team__seasonname=season.seasonname)
+    free_agencies=historical_freeagency.objects.all().filter(team__league=league_,team__seasonname=season.seasonname).order_by('team__teamname')
+    trades_=historical_trading.objects.all().filter(team__league=league_,team__seasonname=season.seasonname).order_by('id')
     trades=[]
     i=0
     for item in trades_:

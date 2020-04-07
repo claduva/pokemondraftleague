@@ -140,5 +140,22 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-
     return redirect('home')
+
+def get_pkmn(pkmn):
+    try:
+        pkmn=all_pokemon.objects.get(pokemon=pkmn)
+    except:
+        #adjust
+        pkmn=pkmn.replace(" (Alola)","-Alola").replace(" (Dusk)","-Dusk").replace(" (Day)","").replace("-Day","").replace(". ",".").replace(" (BB)","-Ash").replace("-I","").replace("-E","-Eternal")
+        pkmn=pkmn.replace("Blue ","").replace("-T","-Therian").replace("-O","-o").replace(" 50%","").replace(" 10%","-10%")
+        pkmn=pkmn.replace("Cryoganol","Cryogonal").replace("Cincinno","Cinccino")
+        if pkmn.find("M.")>-1:
+            pkmn=pkmn.replace("M.","")+"-Mega"
+        if pkmn.find("Mega ")>-1:
+            pkmn=pkmn.replace("Mega ","")+"-Mega"
+        try:
+            pkmn=all_pokemon.objects.get(pokemon=pkmn)
+        except:
+            print(pkmn)
+    return pkmn
