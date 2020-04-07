@@ -595,3 +595,23 @@ ap=all_pokemon.objects.all()
         print(item.pokemon)
         item.data=data
         item.save()
+
+
+#merge user
+accounttodelete=User.objects.get(username="Its_Bruno")
+    accounttokeep=User.objects.get(username="Bruno")
+    #historical_teams
+    for item in historical_team.objects.filter(coach1=accounttodelete):
+        item.coach1=accounttokeep
+        item.save()
+    for item in historical_team.objects.filter(coach2=accounttodelete):
+        item.coach2=accounttokeep
+        item.save()
+    #coachawards
+    for item in coachaward.objects.filter(coach=accounttodelete):
+        try:
+            item.coach=accounttokeep
+            item.save()
+        except:
+            item.delete()
+    #showdown alts

@@ -162,6 +162,7 @@ class coachaward(models.Model):
 
     class Meta:
         ordering = ['award__ordering','-text']
+        unique_together = (("coach", "award",'text'),)  
 
     def __str__(self):
         return f'{self.award.awardname} for {self.coach.username}'
