@@ -10,7 +10,37 @@ from individualleague.models import *
 
 class profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    timezone = models.CharField(max_length=30, null=True,blank=True)
+    timezone = models.CharField(max_length=30, choices=(
+        ("Not Specified","Not Specified"),
+        ('UTC-12:00','UTC-12:00'),
+        ('UTC-11:00','UTC-11:00'),
+        ('UTC-10:00','UTC-19:00'),
+        ('UTC-09:00','UTC-09:00'),
+        ('UTC-08:00','UTC-08:00'),
+        ('UTC-07:00','UTC-07:00'),
+        ('UTC-06:00','UTC-06:00'),
+        ('UTC-05:00','UTC-05:00'),
+        ('UTC-04:00','UTC-04:00'),
+        ('UTC-03:00','UTC-03:00'),
+        ('UTC-02:00','UTC-02:00'),
+        ('UTC-01:00','UTC-01:00'),
+        ('UTC+00:00','UTC+00:00'),
+        ('UTC+01:00','UTC+01:00'),
+        ('UTC+02:00','UTC+02:00'),
+        ('UTC+03:00','UTC+03:00'),
+        ('UTC+04:00','UTC+04:00'),
+        ('UTC+05:00','UTC+05:00'),
+        ('UTC+06:00','UTC+06:00'),
+        ('UTC+07:00','UTC+07:00'),
+        ('UTC+08:00','UTC+08:00'),
+        ('UTC+09:00','UTC+09:00'),
+        ('UTC+10:00','UTC+10:00'),
+        ('UTC+11:00','UTC+11:00'),
+        ('UTC+12:00','UTC+12:00'),
+        ('UTC+13:00','UTC+13:00'),
+        ('UTC+14:00','UTC+14:00'),
+        ),
+        default="Not Specified")
     pfp = models.ImageField(default='profile_pics/defaultpfp.png',upload_to='profile_pics',null=True, blank=True)
     discordid = models.BigIntegerField(null=True,help_text="Right click yourself in the Discord right sidebar and click 'Copy ID'")
     coachdata = models.TextField(default="TBD")
