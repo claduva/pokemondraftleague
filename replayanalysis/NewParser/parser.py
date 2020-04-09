@@ -185,6 +185,7 @@ def damage_function(line,parsedlogfile,results):
         #not direct damage
         cause=line[3].split("[from] ")[1]
         if cause=="stealthrock": cause='Stealth Rock'
+        if cause=="spikes": cause='Spikes'
         damager=None ;move=None
         if cause=="psn" and pokemon[cause]==None:
             cause="tox"

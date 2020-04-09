@@ -139,72 +139,31 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    for item in replaydatabase.objects.all():
-        try:
-            sa=showdownalts.objects.get(showdownalt=item.winneruser)
-            if (sa.user != item.winnercoach1) and (sa.user != item.winnercoach2):
-                #check if on team 1
-                if (sa.user==item.team1coach1) or (sa.user==item.team1coach2):
-                    #try accessing hist match
-                    try:
-                        hm=item.associatedhistoricmatch
-                        hm.winner=hm.team1
-                        hm.team1score=hm.team2score
-                        hm.team2score=0
-                        hm.save()
-                        print(f'{item.winneruser} {hm.team1.coach1} {hm.winner.coach1}')
-                    except:
-                        #try accessing hist match
-                        try:
-                            m=item.associatedmatch
-                            m.winner=m.team1
-                            m.team1score=m.team2score
-                            m.team2score=0
-                            m.save()
-                            print(f'{item.winneruser} {m.team1.coach} {m.winner.coach}')
-                        except:
-                            pass
-                elif (sa.user==item.team2coach1) or (sa.user==item.team2coach2):
-                    try:
-                        hm=item.associatedhistoricmatch
-                        hm.winner=hm.team2
-                        hm.team2score=hm.team1score
-                        hm.team1score=0
-                        hm.save()
-                        print(f'{item.winneruser} {hm.team2.coach1} {hm.winner.coach1}')
-                    except:
-                        #try accessing hist match
-                        try:
-                            m=item.associatedmatch
-                            m.winner=m.team2
-                            m.team2score=m.team1score
-                            m.team1score=0
-                            m.save()
-                            print(f'{item.winneruser} {m.team2.coach} {m.winner.coach}')
-                        except:
-                            pass
-        except:
-            pass
-    """
-    with open('trades.csv') as csv_file:
+    with open('matchs.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
             if line_count == 0:
                 line_count += 1
             else:
-                id_=historical_trading.objects.all().order_by('-id').first().id+1
+                id_=historical_match.objects.all().order_by('-id').first().id+1
                 sn=row[0]
-                tn=row[1]
-                pokemon1=row[2]
-                pokemon1=get_pkmn(pokemon1)
-                pokemon2=row[3]
-                pokemon2=get_pkmn(pokemon2)
-                print(f'{sn} {tn}')
-                toi=historical_team.objects.filter(league__name="SKL",seasonname=sn).get(teamname=tn)
-                historical_trading.objects.create(id=id_,team=toi,droppedpokemon=pokemon1,addedpokemon=pokemon2)
+                week=row[1]
+                team1=row[2].rstrip()
+                team2=row[3].rstrip()
+                winner=row[4].rstrip()
+                team1score=row[5]
+                team2score=row[6]
+                replay=row[7]
+                team1=historical_team.objects.filter(league__name="SKL",seasonname=sn).get(teamname=team1)
+                team2=historical_team.objects.filter(league__name="SKL",seasonname=sn).get(teamname=team2)
+                if winner!="":
+                    winner=historical_team.objects.filter(league__name="SKL",seasonname=sn).get(teamname=winner)
+                else:
+                    winner=None
+                historical_match.objects.create(id=id_,week=week,team1=team1,team2=team2,winner=winner,team1score=team1score,team2score=team2score,replay=replay)
                 line_count += 1
-    """
+                print(line_count)
     return redirect('home')
 
 def get_pkmn(pkmn):
