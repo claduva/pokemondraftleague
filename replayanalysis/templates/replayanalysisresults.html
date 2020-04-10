@@ -33,29 +33,43 @@
             <h4>{{message}}</h4>
         </div>
         {% endfor %}
-        <h5 class="d-flex justify-content-center">
-            {% if results.team1.wins is 1 %}
-            Winning Coach: {{ results.team1.coach }}
-            {% elif results.team2.wins is 1 %}
-            Winning Coach: {{ results.team2.coach }}
-            {% endif %}
-        </h5>
-        <h5 class="d-flex justify-content-center">
-            {% if results.team1.wins is 0 %}
-            Losing Coach: {{ results.team1.coach }}
-            {% elif results.team2.wins is 0 %}
-            Losing Coach: {{ results.team2.coach }}
-            {% endif %}
-        </h5>
-        <h5 class="d-flex justify-content-center">Score:
-            {% if results.team1.wins is 1 %}
-            {{ results.team1.score }}-{{ results.team2.score }}
-            {% elif results.team2.wins is 1 %}
-            {{ results.team2.score }}-{{ results.team1.score }}
-            {% endif %}
-        </h5>
-        <h6 class="d-flex justify-content-center">Number of Turns: {{results.numberofturns}}</h6>
-        <h6 class="d-flex justify-content-center"><a class="text-light" href="{{ results.replay }}">Replay</a></h6>
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th><h5 class="m-0 p-0">Match Summary</h5></th>
+                </tr>
+                <tr>
+                    <td>
+                        {% if results.team1.wins is 1 %}
+                        Winning Coach: {{ results.team1.coach }}
+                        {% elif results.team2.wins is 1 %}
+                        Winning Coach: {{ results.team2.coach }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if results.team1.wins is 0 %}
+                        Losing Coach: {{ results.team1.coach }}
+                        {% elif results.team2.wins is 0 %}
+                        Losing Coach: {{ results.team2.coach }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Score:
+                        {% if results.team1.wins is 1 %}
+                        {{ results.team1.score }}-{{ results.team2.score }}
+                        {% elif results.team2.wins is 1 %}
+                        {{ results.team2.score }}-{{ results.team1.score }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr><td>Number of Turns: {{results.numberofturns}}</td></tr>
+                <tr><td><a class="text-dark" href="{{ results.replay }}">Replay</a></td></tr>
+            </table>
+        </div>
     </div>
     <div class=col-md-6>
         <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
@@ -89,7 +103,7 @@
                 <td>{{item.kills}}</td>
                 <td>{{item.deaths}}</td>
                 <td>{{item.kills|subtract:item.deaths}}</td>
-                <td>{{item.luck}}</td>
+                <td>{{item.luck|floatformat:2}}</td>
                 <td>{{item.damagedone}}</td>
                 <td>{{item.hphealed}}</td>
                 <td>{{item.support}}</td>
@@ -100,7 +114,7 @@
                 <td>{{results.team1.kills}}</td>
                 <td>{{results.team1.deaths}}</td>
                 <td>{{results.team1.kills|subtract:results.team1.deaths}}</td>
-                <td>{{results.team1.luck}}</td>
+                <td>{{results.team1.luck|floatformat:2}}</td>
                 <td>{{results.team1.damagedone}}</td>
                 <td>{{results.team1.hphealed}}</td>
                 <td>{{results.team1.support}}</td>
@@ -108,26 +122,6 @@
             <tr>
                 <th>Self-Inflicted Deaths</th>
                 <td>{{results.team1.selfdeaths}}</td>
-            </tr>
-            <tr>
-                <th>Mega Evolved?</th>
-                <td>
-                    {% if results.team1.megaevolved %}
-                    Yes
-                    {% else %}
-                    No
-                    {% endif %}
-                </td>
-            </tr>
-            <tr>
-                <th>Used Z-Move?</th>
-                <td>
-                    {% if results.team1.usedzmove %}
-                    Yes
-                    {% else %}
-                    No
-                    {% endif %}
-                </td>
             </tr>
             <tr>
                 <th>Times Switched</th>
@@ -168,7 +162,7 @@
                 <td>{{item.kills}}</td>
                 <td>{{item.deaths}}</td>
                 <td>{{item.kills|subtract:item.deaths}}</td>
-                <td>{{item.luck}}</td>
+                <td>{{item.luck|floatformat:2}}</td>
                 <td>{{item.damagedone}}</td>
                 <td>{{item.hphealed}}</td>
                 <td>{{item.support}}</td>
@@ -179,7 +173,7 @@
                 <td>{{results.team2.kills}}</td>
                 <td>{{results.team2.deaths}}</td>
                 <td>{{results.team2.kills|subtract:results.team2.deaths}}</td>
-                <td>{{results.team2.luck}}</td>
+                <td>{{results.team2.luck|floatformat:2}}</td>
                 <td>{{results.team2.damagedone}}</td>
                 <td>{{results.team2.hphealed}}</td>
                 <td>{{results.team2.support}}</td>
@@ -187,26 +181,6 @@
             <tr>
                 <th>Self-Inflicted Deaths</th>
                 <td>{{results.team2.selfdeaths}}</td>
-            </tr>
-            <tr>
-                <th>Mega Evolved?</th>
-                <td>
-                    {% if results.team2.megaevolved %}
-                    Yes
-                    {% else %}
-                    No
-                    {% endif %}
-                </td>
-            </tr>
-            <tr>
-                <th>Used Z-Move?</th>
-                <td>
-                    {% if results.team2.usedzmove %}
-                    Yes
-                    {% else %}
-                    No
-                    {% endif %}
-                </td>
             </tr>
             <tr>
                 <th>Times Switched</th>

@@ -431,7 +431,7 @@ def league_draft(request,league_name,subleague_name):
         draftprogress=round(draftlist.exclude(pokemon__isnull=True).count()/draftlist.count()*100,1)
     except:
         draftprogress="N/A"
-    leftpicks=left_pick.objects.all().filter(season=season,coach__coach=request.user)
+    leftpicks=left_pick.objects.all().filter(season=season,coach__coach=request.user).order_by('id')
     context={
         'subleague':subleague,
         'league_name':league_name,

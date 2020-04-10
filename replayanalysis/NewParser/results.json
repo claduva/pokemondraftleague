@@ -1,123 +1,18 @@
 {
   "team1": {
-    "coach": "Pakd",
+    "coach": "muskrat catcher",
     "roster": [
       {
-        "pokemon": "Vaporeon",
-        "startform": "Vaporeon",
-        "nickname": "Vaporeon",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 3,
-        "damagedone": 352,
-        "hphealed": 131,
-        "luck": 2.2,
-        "remaininghealth": 93,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": "Identity Crisis",
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Pinsir",
-        "startform": "Pinsir",
-        "nickname": "Pinsir",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 58,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Reuniclus",
-        "startform": "Reuniclus",
-        "nickname": "Reuniclus",
-        "kills": 2,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 495,
-        "hphealed": 66,
-        "luck": 5.86,
-        "remaininghealth": 85,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Thundurus-Therian",
-        "startform": "Thundurus-Therian",
-        "nickname": "Thundurus-Therian",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 100,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Honchkrow",
-        "startform": "Honchkrow",
-        "nickname": "Honchkrow",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 34,
-        "hphealed": -10,
-        "luck": 0.04,
-        "remaininghealth": 24,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Whimsicott",
-        "startform": "Whimsicott",
-        "nickname": "Whimsicott",
+        "pokemon": "Keldeo",
+        "startform": "Keldeo",
+        "nickname": "Keldeo",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 2,
-        "damagedone": 1,
-        "hphealed": 19,
-        "luck": -0.12,
+        "support": 1,
+        "damagedone": 68,
+        "hphealed": 0,
+        "luck": 0.2,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -126,28 +21,175 @@
         "par": null,
         "frz": null,
         "tox": null,
-        "Curse": null
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
+      },
+      {
+        "pokemon": "Nidoqueen",
+        "startform": "Nidoqueen",
+        "nickname": "Nidoqueen",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.18,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
+      },
+      {
+        "pokemon": "Umbreon",
+        "startform": "Umbreon",
+        "nickname": "Umbreon",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 6,
+        "damagedone": 105,
+        "hphealed": 159,
+        "luck": 0.38,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": -1,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
+      },
+      {
+        "pokemon": "Avalugg",
+        "startform": "Avalugg",
+        "nickname": "Avalugg",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 18,
+        "hphealed": 6,
+        "luck": -0.82,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
+      },
+      {
+        "pokemon": "Florges",
+        "startform": "Florges",
+        "nickname": "Florges",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 15,
+        "damagedone": 169,
+        "hphealed": 160,
+        "luck": -8.768099999999997,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
+      },
+      {
+        "pokemon": "Tapu Bulu",
+        "startform": "Tapu Bulu",
+        "nickname": "Tapu Bulu",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 68,
+        "hphealed": 36,
+        "luck": -0.37,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Sears.exe",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
       }
     ],
-    "wins": 1,
+    "wins": 0,
     "forfeit": 0,
-    "score": 5,
+    "score": 0,
     "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 3,
-    "selfdeaths": 0,
-    "remaininghealth": 360,
+    "timesswitched": 9,
+    "selfdeaths": 1,
+    "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 5,
-    "deaths": 1,
-    "luck": 7.98,
-    "damagedone": 882,
-    "hphealed": 206,
-    "support": 6,
-    "activemon": "Reuniclus",
+    "kills": 2,
+    "deaths": 6,
+    "luck": -9.1981,
+    "damagedone": 428,
+    "hphealed": 361,
+    "support": 26,
+    "activemon": "Umbreon",
     "Toxic Spikes": null,
-    "Spikes": "My Super Suit",
-    "Stealth Rock": "Yo Girl's DMs",
+    "Spikes": null,
+    "Stealth Rock": "Britannia",
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -156,41 +198,76 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "Grankie",
+    "coach": "A Mere Noob",
     "roster": [
       {
-        "pokemon": "Glalie-Mega",
-        "startform": "Glalie",
-        "nickname": "My Super Suit",
+        "pokemon": "Landorus-Therian",
+        "startform": "Landorus-Therian",
+        "nickname": "41.72%",
+        "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 155,
+        "hphealed": 0,
+        "luck": -0.2,
+        "remaininghealth": 16,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 1,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
+      },
+      {
+        "pokemon": "Cresselia",
+        "startform": "Cresselia",
+        "nickname": "Kaguya",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 2,
-        "damagedone": 112,
-        "hphealed": -13,
-        "luck": -0.16,
+        "support": 0,
+        "damagedone": 190,
+        "hphealed": 52,
+        "luck": 9.088099999999997,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
-        "brn": "Vaporeon",
+        "brn": null,
         "par": null,
         "frz": null,
-        "tox": null,
-        "Curse": null
+        "tox": "Florges",
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
       },
       {
-        "pokemon": "Dugtrio",
-        "startform": "Dugtrio",
-        "nickname": "Yo Girl's DMs",
-        "kills": 0,
-        "deaths": 1,
+        "pokemon": "Kyurem",
+        "startform": "Kyurem",
+        "nickname": "Hyorinmaru",
+        "kills": 2,
+        "deaths": 0,
         "causeofdeath": null,
         "support": 1,
-        "damagedone": 83,
-        "hphealed": 0,
-        "luck": 1.19,
-        "remaininghealth": 0,
+        "damagedone": 213,
+        "hphealed": -13,
+        "luck": 0.76,
+        "remaininghealth": 74,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -198,19 +275,26 @@
         "par": null,
         "frz": null,
         "tox": null,
-        "Curse": null
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
       },
       {
-        "pokemon": "Salamence",
-        "startform": "Salamence",
-        "nickname": "Spyro",
+        "pokemon": "Empoleon",
+        "startform": "Empoleon",
+        "nickname": "Britannia",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 87,
-        "hphealed": 0,
-        "luck": 0.06,
+        "support": 4,
+        "damagedone": 176,
+        "hphealed": 12,
+        "luck": -1.1,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -219,89 +303,89 @@
         "par": null,
         "frz": null,
         "tox": null,
-        "Curse": null
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
       },
       {
-        "pokemon": "Dragalge",
-        "startform": "Dragalge",
-        "nickname": "Sally",
+        "pokemon": "Rotom-Wash",
+        "startform": "Rotom-Wash",
+        "nickname": "Sears.exe",
         "kills": 0,
-        "deaths": 1,
+        "deaths": 0,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
+        "support": 2,
+        "damagedone": 57,
         "hphealed": 0,
-        "luck": -1.92,
-        "remaininghealth": 0,
+        "luck": -0.03,
+        "remaininghealth": 51,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
         "par": null,
-        "frz": "Vaporeon",
-        "tox": null,
-        "Curse": null
+        "frz": null,
+        "tox": "Keldeo",
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
       },
       {
-        "pokemon": "Mew",
-        "startform": "Mew",
-        "nickname": "Identity Crisis",
-        "kills": 0,
-        "deaths": 1,
+        "pokemon": "Gallade-Mega",
+        "startform": "Gallade",
+        "nickname": "Siegfried",
+        "kills": 2,
+        "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 60,
+        "damagedone": 170,
         "hphealed": 0,
-        "luck": -0.56,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": "Vaporeon",
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null
-      },
-      {
-        "pokemon": "Aromatisse",
-        "startform": "Aromatisse",
-        "nickname": "Smashing!",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 5,
-        "damagedone": 104,
-        "hphealed": 295,
-        "luck": -6.59,
-        "remaininghealth": 0,
+        "luck": 0.68,
+        "remaininghealth": 82,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
-        "par": "Whimsicott",
+        "par": null,
         "frz": null,
-        "tox": null,
-        "Curse": null
+        "tox": "Avalugg",
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0
       }
     ],
-    "wins": 0,
+    "wins": 1,
     "forfeit": 0,
-    "score": 0,
+    "score": 4,
     "megaevolved": true,
-    "usedzmove": false,
-    "timesswitched": 7,
-    "selfdeaths": 1,
-    "remaininghealth": 0,
+    "usedzmove": true,
+    "timesswitched": 14,
+    "selfdeaths": 0,
+    "remaininghealth": 223,
     "totalhealth": 600,
-    "kills": 1,
-    "deaths": 6,
-    "luck": -7.98,
-    "damagedone": 446,
-    "hphealed": 282,
-    "support": 8,
-    "activemon": "Spyro",
-    "Toxic Spikes": null,
+    "kills": 5,
+    "deaths": 2,
+    "luck": 9.1981,
+    "damagedone": 961,
+    "hphealed": 51,
+    "support": 7,
+    "activemon": "41.72%",
+    "Toxic Spikes": "Nidoqueen",
     "Spikes": null,
     "Stealth Rock": null,
     "G-Max Steelsurge": null,
@@ -312,129 +396,306 @@
     "Leech Seed": null
   },
   "Perish Song": null,
-  "numberofturns": 39,
+  "Gravity": 1.667,
+  "numberofturns": 113,
   "turns": [],
-  "replay": "http://replay.pokemonshowdown.com/gen7customgame-579326428",
+  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-837812642",
   "significantevents": [
     [
       1,
-      "Dugtrio provided support by using Stealth Rock"
+      "Florges provided support by using Toxic"
     ],
     [
       2,
-      "LUCK: Dragalge was frozen by Vaporeon with Ice Beam"
+      "Empoleon provided support by using Stealth Rock"
     ],
     [
       3,
-      "LUCK: Vaporeon landed a crit on Dragalge with Ice Beam"
-    ],
-    [
-      3,
-      "Vaporeon killed Dragalge with Ice Beam"
+      "Empoleon provided support by using Roar"
     ],
     [
       4,
-      "Glalie-Mega provided support by using Spikes"
-    ],
-    [
-      4,
-      "Vaporeon provided support by using Wish"
-    ],
-    [
-      5,
-      "Glalie-Mega provided support by using Spikes"
+      "Keldeo provided support by using Toxic"
     ],
     [
       6,
-      "LUCK: Glalie-Mega was burned by Vaporeon with Scald"
+      "Florges provided support by using Toxic"
     ],
     [
       7,
-      "Vaporeon provided support by using Wish"
+      "Empoleon provided support by using Roar"
+    ],
+    [
+      8,
+      "Umbreon provided support by using Toxic"
     ],
     [
       9,
-      "Vaporeon provided support by using Wish"
+      "Umbreon provided support by using Wish"
     ],
     [
       11,
-      "LUCK: Mew was burned by Vaporeon with Scald"
+      "Umbreon provided support by using Wish"
     ],
     [
       13,
-      "Honchkrow killed Mew with Pursuit"
+      "Nidoqueen provided support by using Toxic Spikes"
     ],
     [
       14,
-      "Honchkrow provided support by using Taunt"
+      "Nidoqueen provided support by using Toxic Spikes"
+    ],
+    [
+      15,
+      "Kyurem killed Nidoqueen with Ice Beam"
     ],
     [
       16,
-      "Whimsicott provided support by using Stun Spore"
-    ],
-    [
-      16,
-      "LUCK: Whimsicott missed Stun Spore against Dugtrio"
-    ],
-    [
-      17,
-      "Whimsicott killed Dugtrio with Moonblast"
-    ],
-    [
-      18,
-      "Whimsicott provided support by using Stun Spore"
-    ],
-    [
-      18,
-      "Aromatisse killed Whimsicott with Moonblast"
+      "Kyurem provided support by using Toxic"
     ],
     [
       19,
-      "Aromatisse provided support by using Wish"
+      "Umbreon provided support by using Toxic"
     ],
     [
-      22,
-      "LUCK: Aromatisse suffered a stat drop via secondary effect by Reuniclus with Psychic"
+      19,
+      "LUCK: Umbreon missed Toxic against Cresselia"
     ],
     [
-      23,
-      "Aromatisse provided support by using Wish"
+      20,
+      "Umbreon provided support by using Heal Bell"
     ],
     [
-      25,
-      "Aromatisse provided support by using Wish"
+      27,
+      "LUCK: Florges suffered a stat drop via secondary effect by Cresselia with Moonblast"
     ],
     [
-      26,
-      "LUCK: Aromatisse suffered a stat drop via secondary effect by Reuniclus with Psychic"
+      30,
+      "LUCK: Florges missed Moonblast against Cresselia"
     ],
     [
-      26,
-      "LUCK: Reuniclus suffered a stat drop via secondary effect by Aromatisse with Moonblast"
+      31,
+      "LUCK: Florges missed Moonblast against Cresselia"
     ],
     [
       32,
-      "Aromatisse provided support by using Wish"
+      "LUCK: Florges missed Moonblast against Cresselia"
+    ],
+    [
+      33,
+      "LUCK: Florges missed Moonblast against Cresselia"
     ],
     [
       34,
-      "LUCK: Aromatisse suffered a stat drop via secondary effect by Reuniclus with Shadow Ball"
-    ],
-    [
-      34,
-      "Aromatisse provided support by using Wish"
+      "LUCK: Florges missed Moonblast against Cresselia"
     ],
     [
       35,
-      "LUCK: Aromatisse suffered a stat drop via secondary effect by Reuniclus with Shadow Ball"
+      "LUCK: Florges suffered a stat drop via secondary effect by Cresselia with Moonblast"
+    ],
+    [
+      37,
+      "LUCK: Florges missed Moonblast against Cresselia"
     ],
     [
       38,
-      "Reuniclus killed Aromatisse with Psychic"
+      "LUCK: Florges missed Moonblast against Cresselia"
     ],
     [
-      39,
-      "Reuniclus killed Salamence with Psychic"
+      50,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      50,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      51,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      51,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      53,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      53,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      54,
+      "LUCK: Florges missed Moonblast against Cresselia"
+    ],
+    [
+      56,
+      "LUCK: Cresselia suffered a stat drop via secondary effect by Florges with Moonblast"
+    ],
+    [
+      57,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      57,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      58,
+      "LUCK: Florges missed Moonblast against Cresselia"
+    ],
+    [
+      59,
+      "LUCK: Florges missed Moonblast against Cresselia"
+    ],
+    [
+      60,
+      "LUCK: Florges missed Moonblast against Cresselia"
+    ],
+    [
+      62,
+      "LUCK: Florges missed Moonblast against Cresselia"
+    ],
+    [
+      76,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      76,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      78,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      78,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      79,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      79,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      80,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      80,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      81,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      81,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      82,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      82,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      83,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      83,
+      "LUCK: Florges missed Toxic against Cresselia"
+    ],
+    [
+      90,
+      "LUCK: Florges suffered a stat drop via secondary effect by Cresselia with Moonblast"
+    ],
+    [
+      90,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      91,
+      "LUCK: Florges missed Moonblast against Cresselia"
+    ],
+    [
+      92,
+      "LUCK: Florges suffered a stat drop via secondary effect by Cresselia with Moonblast"
+    ],
+    [
+      92,
+      "Florges provided support by using Toxic"
+    ],
+    [
+      93,
+      "LUCK: Florges missed Moonblast against Cresselia"
+    ],
+    [
+      95,
+      "Florges killed Cresselia via tox"
+    ],
+    [
+      96,
+      "Rotom-Wash provided support by using Defog"
+    ],
+    [
+      96,
+      "Florges fainted via recoil"
+    ],
+    [
+      97,
+      "Rotom-Wash provided support by using Will-O-Wisp"
+    ],
+    [
+      98,
+      "Tapu Bulu provided support by using Leech Seed"
+    ],
+    [
+      99,
+      "Empoleon provided support by using Stealth Rock"
+    ],
+    [
+      102,
+      "LUCK: Tapu Bulu missed Nature's Madness against Kyurem"
+    ],
+    [
+      104,
+      "Kyurem killed Tapu Bulu with Ice Beam"
+    ],
+    [
+      106,
+      "Keldeo killed Empoleon with Secret Sword"
+    ],
+    [
+      107,
+      "Gallade-Mega killed Keldeo with Zen Headbutt"
+    ],
+    [
+      108,
+      "Avalugg provided support by using Toxic"
+    ],
+    [
+      109,
+      "LUCK: Gallade-Mega landed a crit on Avalugg with Close Combat"
+    ],
+    [
+      109,
+      "Gallade-Mega killed Avalugg with Close Combat"
+    ],
+    [
+      111,
+      "Umbreon provided support by using Wish"
+    ],
+    [
+      113,
+      "Landorus-Therian killed Umbreon with Focus Blast"
     ]
   ],
   "errormessage": []

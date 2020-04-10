@@ -139,31 +139,12 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    with open('matchs.csv') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        line_count = 0
-        for row in csv_reader:
-            if line_count == 0:
-                line_count += 1
-            else:
-                id_=historical_match.objects.all().order_by('-id').first().id+1
-                sn=row[0]
-                week=row[1]
-                team1=row[2].rstrip()
-                team2=row[3].rstrip()
-                winner=row[4].rstrip()
-                team1score=row[5]
-                team2score=row[6]
-                replay=row[7]
-                team1=historical_team.objects.filter(league__name="SKL",seasonname=sn).get(teamname=team1)
-                team2=historical_team.objects.filter(league__name="SKL",seasonname=sn).get(teamname=team2)
-                if winner!="":
-                    winner=historical_team.objects.filter(league__name="SKL",seasonname=sn).get(teamname=winner)
-                else:
-                    winner=None
-                historical_match.objects.create(id=id_,week=week,team1=team1,team2=team2,winner=winner,team1score=team1score,team2score=team2score,replay=replay)
-                line_count += 1
-                print(line_count)
+    """
+    movedict=[]
+    for item in moveinfo.objects.all().filter(move_power__gt=0):
+        movedict.append(item.name)
+    print(movedict)
+    """
     return redirect('home')
 
 def get_pkmn(pkmn):
