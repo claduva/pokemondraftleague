@@ -16,7 +16,7 @@
         <div class="justify-content-center text-center d-none d-md-flex">Hosted by
             {% for h in subleague.league.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and
             {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</div>
-        {% if subleague.discord_settings.discordurl != "Not Provided" and item.subleague.first.discord_settings %}
+        {% if subleague.discord_settings.discordurl != "Not Provided" and subleague.discord_settings %}
         <div class="d-flex justify-content-center"><a href="{{ subleague.discord_settings.discordurl }}"><button
                     class="btn btn-sm btn-primary">Join the Discord</button></a></div>
         {% endif %}

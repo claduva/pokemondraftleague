@@ -27,8 +27,8 @@
                             <div>{{ item.name }}</div>
                         </a>
                     </td>
-                    <td>{{item.settings.platform}}</td>
-                    <td>{{item.settings.metagame}}</td>
+                    <td class="align-middle">{{item.settings.platform}}</td>
+                    <td class="align-middle">{{item.settings.metagame}}</td>
                     <td class="d-none d-md-table-cell align-middle">{% for h in item.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and
                         {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</td>
                     <td class="align-middle">

@@ -35,21 +35,17 @@
                 <div class="mb-3"><img class="img-fluid" src="{% static 'main/images/pdllogo.png' %}" alt=""></div>
             </div>
         </div>
-        <div class="col-md-6">
-            <form action="{% url 'signup' %}" method="post">
-                <h2>Sign Up For Free</h2>
-                {% csrf_token %}
-                {{ form|crispy  }}
-                <button class="btn btn-sm btn-primary" type="submit">Sign up</button>
-                <div>Already have an account? <a class="text-light" href="{% url 'login' %}">Sign In</a></div>
-            </form>
+        <div class="col-md-6 text-center">
+            <h3>Welcome to Pokemon Draft League Online!</h3>
+            <div>This is a website designed to assist in running and participating in Pokemon Draft Leagues.</div>
+            <div>New Users may sign up for an account <a class="text-light" href="{% url 'signup' %}">here.</a></div>
+            <div>Returning Users may sign up for an account <a class="text-light" href="{% url 'login' %}">here.</a></div>
         </div>
         {% endif %}
     </div>
 </div>
-<div class="row ">
-    <div class="col-md-12 bg-darkgrey rounded">
-        <h3 class="text-light">All Leagues</h3>
+<div class="row">
+    <div class="col-md-12 bg-darkgrey rounded pt-3">
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
@@ -67,8 +63,8 @@
                             <div>{{ item.name }}</div>
                         </a>
                     </td>
-                    <td>{{item.settings.platform}}</td>
-                    <td>{{item.settings.metagame}}</td>
+                    <td class="align-middle">{{item.settings.platform}}</td>
+                    <td class="align-middle">{{item.settings.metagame}}</td>
                     <td class="d-none d-md-table-cell align-middle">{% for h in item.host.all %}{% if forloop.first %}{{h.username}}{% elif forloop.last %} and
                         {{h.username}}{% else %}, {{h.username}}{% endif %}{% endfor %}</td>
                     <td class="align-middle">
