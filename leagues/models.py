@@ -20,7 +20,7 @@ class league_settings(models.Model):
     league_name = models.OneToOneField(league, on_delete=models.CASCADE,related_name="settings")
     is_recruiting = models.BooleanField(default=True)
     is_public = models.BooleanField(default=True)
-    platform=MultiSelectField(choices=(
+    platform=models.CharField(max_length=30,choices=(
         ('Youtube Showdown','Youtube Showdown'),
         ('Youtube Wifi','Youtube Wifi'),
         ('Showdown','Showdown'),

@@ -99,6 +99,7 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
                 'league_teams': league_teams,
             }
             return render(request,"replayanalysisresults.html",context)
+    print(subleague.league.platform)
     form=LeagueReplayForm(instance=match,initial={"replay":""})
     context={
         'form': form,
