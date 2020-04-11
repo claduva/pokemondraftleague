@@ -40,7 +40,7 @@
                 <h2>Sign Up For Free</h2>
                 {% csrf_token %}
                 {{ form|crispy  }}
-                <button type="submit">Sign up</button>
+                <button class="btn btn-sm btn-primary" type="submit">Sign up</button>
                 <div>Already have an account? <a class="text-light" href="{% url 'login' %}">Sign In</a></div>
             </form>
         </div>
@@ -62,7 +62,7 @@
                 {% for item in allleagues %}
                 <tr>
                     <td class="align-middle">
-                        <a class="text-dark" href="{{ item.name }}">
+                        <a class="text-dark" href="{% url 'league_detail' league_name=item.name %}">
                             <img src="{{ item.logo.url }}" class="small-logo img-fluid">
                             <div>{{ item.name }}</div>
                         </a>
