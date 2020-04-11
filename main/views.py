@@ -139,12 +139,10 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    """
-    movedict=[]
-    for item in moveinfo.objects.all().filter(move_power__gt=0):
-        movedict.append(item.name)
-    print(movedict)
-    """
+    mons=[]
+    for item in pokemon_ability.objects.all().filter(ability="Super Luck"):
+        mons.append(item.pokemon.pokemon)
+    print(mons)
     return redirect('home')
 
 def get_pkmn(pkmn):

@@ -444,6 +444,18 @@ def move_function(line,parsedlogfile,results):
     if move in movesthatcanmiss.keys():
         try: 
             acc_modifier=accuracy_modifier(attacker['accuracy'],target['evasion'])*results['Gravity']
+            #compound eyes, victory star
+            if attacker['pokemon'] in ['Venonat', 'Joltik', 'Yanma', 'Vivillon', 'Nincada', 'Dustox', 'Dottler', 'Galvantula', 'Butterfree-Gmax', 'Scatterbug', 'Butterfree', 'Blipbug']:
+                acc_modifier=acc_modifier*1.3
+            if attacker['pokemon'] in ['Victini']:
+                acc_modifier=acc_modifier*1.1
+            #no guard
+            if attacker['pokemon'] in ['Machamp', 'Pidgeot-Mega', 'Golett', 'Lycanroc-Midnight', 'Machoke', 'Golurk', 'Honedge', 'Karrablast', 'Doublade', 'Machamp-Gmax', 'Machop']:
+                acc_modifier=100000000
+            #hustle cant be implemented right now
+            #rain mod
+            if move in ['Thunder','Hurricane'] and results['Rain']:
+                acc_modifier=100000000
             attacker['luck']+=100-min(movesthatcanmiss[move]*acc_modifier,100)
             target['luck']+=-(100-min(movesthatcanmiss[move]*acc_modifier,100))
         except:
@@ -453,10 +465,31 @@ def move_function(line,parsedlogfile,results):
         results=miss_function(line,attacker,target,move,results)
     #check if can crit
     movesthatcancrit=['Scratch', 'Anchor Shot', 'Avalanche', 'Sand Tomb', 'Fire Punch', 'Infestation', 'Superpower', 'Zing Zap', 'Giga Drain', 'Chatter', 'Ice Punch', 'Tail Slap', 'Double Slap', 'Thunder Shock', 'Splintered Stormshards', 'Sky Uppercut', 'Hyper Beam', 'Dynamic Punch', 'Poison Sting', 'Dig', 'Focus Blast', 'Liquidation', 'Double Kick', 'Ice Ball', 'Round', 'False Swipe', 'Crush Claw', 'Shadow Sneak', 'Tectonic Rage', 'Hidden Power Electric', 'Seed Bomb', 'Hidden Power Fire', 'Chip Away', 'Metal Claw', 'Acid', 'Vital Throw', 'Shock Wave', 'Baddy Bad', 'Accelerock', 'Aurora Beam', 'Heart Stamp', 'Magma Storm', 'Crunch', 'Aeroblast', 'Explosion', 'Gigavolt Havoc', 'Moongeist Beam', 'Revenge', 'Clear Smog', 'Wake-Up Slap', 'Pursuit', 'Head Smash', 'Earthquake', 'Incinerate', 'Water Pulse', 'Dragon Pulse', 'Glitzy Glow', 'Acid Spray', 'Thunder Punch', 'Extrasensory', 'Blizzard', 'Blast Burn', 'Paleo Wave', 'Mud-Slap', 'Inferno Overdrive', 'Freeze-Dry', 'Overheat', 'Savage Spin-Out', 'Flame Charge', 'Dizzy Punch', 'Flying Press', 'Lunge', 'Prismatic Laser', 'U-turn', 'Future Sight', 'Fire Lash', 'Smelling Salts', 'Burn Up', 'Catastropika', 'Bug Bite', 'Hidden Power Ghost', 'Shell Trap', 'Hyperspace Hole', 'Sky Drop', 'Crabhammer', 'Light That Burns the Sky', 'Darkest Lariat', 'Hidden Power', 'Razor Leaf', 'Head Charge', 'Dive', 'Signal Beam', 'Rock Tomb', 'Power Whip', 'Buzzy Buzz', "Let's Snuggle Forever", 'Psychic Fangs', 'Bind', 'Throat Chop', 'Parabolic Charge', 'Retaliate', 'Steamroller', 'Bullet Seed', 'Freezy Frost', 'Aqua Jet', 'Flame Burst', 'Thief', 'Astonish', 'Dream Eater', 'Energy Ball', 'Fury Swipes', 'Belch', 'Power Trip', 'Fury Cutter', 'Iron Tail', 'Hidden Power Flying', 'Egg Bomb', 'Payback', 'Fusion Flare', 'Boomburst', 'Secret Sword', 'Thunder Fang', 'Charge Beam', 'Rapid Spin', 'Skull Bash', 'Clamp', 'Rock Throw', 'Secret Power', 'Fairy Wind', 'Water Shuriken', 'Struggle Bug', 'Ice Fang', 'Self-Destruct', 'Sinister Arrow Raid', 'Stored Power', 'Tri Attack', 'Psychic', 'Electroweb', 'Weather Ball', 'Shattered Psyche', 'Whirlpool', 'Smog', 'Assurance', 'Icy Wind', 'Steel Wing', 'Core Enforcer', 'Synchronoise', 'Zippy Zap', 'Petal Dance', 'Iron Head', 'Trop Kick', 'Headbutt', 'Drain Punch', 'Bug Buzz', 'Fire Fang', 'Sludge', 'Mist Ball', 'Jump Kick', 'Water Spout', 'Ice Shard', 'Earth Power', 'Stomping Tantrum', 'Bolt Strike', 'Bite', 'Sappy Seed', 'Mega Kick', 'Inferno', 'Rock Climb', 'Rock Blast', 'Feint', 'Sucker Punch', 'Dragon Ascent', 'Freeze Shock', 'Peck', 'Drill Run', 'Leafage', 'Dark Pulse', 'Flash Cannon', 'Floaty Fall', 'Poison Fang', 'Dazzling Gleam', 'Double-Edge', 'Hidden Power Rock', 'Sludge Bomb', 'Lick', 'Fire Spin', 'Close Combat', 'Bone Rush', 'Slam', 'Aqua Tail', 'Strength', 'Fusion Bolt', 'Rage', 'Hidden Power Dark', 'Psycho Boost', 'Surf', 'Gear Grind', 'Shadow Ball', 'Eruption', 'Barrage', 'Shadow Force', 'Bonemerang', 'Cross Poison', 'Low Sweep', 'Sludge Wave', 'Leaf Tornado', 'Hyper Fang', 'Covet', 'Karate Chop', 'Fell Stinger', 'Thunder', 'Constrict', 'Razor Wind', 'Water Pledge', 'Brine', 'Hammer Arm', 'Last Resort', 'Pulverizing Pancake', 'Bullet Punch', 'Brick Break', 'Pay Day', 'Oblivion Wing', 'Origin Pulse', 'Stomp', 'Poison Tail', 'Bone Club', 'Fire Blast', 'Brave Bird', 'Gust', 'Mud Bomb', 'Leaf Blade', 'Sparkly Swirl', 'Twineedle', 'Solar Blade', 'Splishy Splash', 'Spirit Shackle', 'Continental Crush', 'Mystical Fire', 'Confusion', 'Pluck', 'Frost Breath', 'Roar of Time', 'Fury Attack', 'Swift', 'High Jump Kick', 'Brutal Swing', 'Petal Blizzard', 'Wing Attack', 'Hidden Power Steel', 'Wood Hammer', 'Hidden Power Water', 'Hyperspace Fury', 'Fiery Dance', 'Echoed Voice', 'Smack Down', "Land's Wrath", 'Mega Punch', 'Revelation Dance', 'Night Daze', 'Dragon Tail', 'Flare Blitz', 'Ice Hammer', 'V-create', 'Acid Downpour', 'Shadow Claw', 'Sacred Fire', 'Ice Beam', 'Facade', 'Vice Grip', 'Hidden Power Ice', 'Extreme Speed', 'Poison Jab', 'Take Down', 'Phantom Force', 'Double Iron Bash', 'Mind Blown', 'Multi-Attack', 'Zap Cannon', 'Magnet Bomb', 'Absorb', 'Waterfall', 'Judgment', 'Hidden Power Bug', 'Psybeam', 'Knock Off', 'Octazooka', 'Hyper Voice', 'Double Hit', 'Spark', 'Stone Edge', 'Rock Wrecker', 'Bouncy Bubble', 'Draining Kiss', 'Mud Shot', 'Mirror Shot', 'Megahorn', 'Acrobatics', 'Fleur Cannon', 'Dragon Rush', 'Solar Beam', 'Mach Punch', 'Luster Purge', 'Breakneck Blitz', 'Snore', 'Submission', 'Vacuum Wave', 'Thunderbolt', 'Circle Throw', 'All-Out Pummeling', 'Flame Wheel', 'Hidden Power Poison', 'Subzero Slammer', 'Fire Pledge', 'Bounce', 'Photon Geyser', 'Giga Impact', 'Dragon Claw', 'Soul-Stealing 7-Star Strike', 'Scald', 'Uproar', 'Force Palm', 'Hurricane', 'Ice Burn', 'Cross Chop', 'Psyshock', 'Hidden Power Grass', 'Techno Blast', 'Gunk Shot', 'Wild Charge', 'Dragon Hammer', 'Horn Attack', 'Blaze Kick', 'Psystrike', 'Spike Cannon', 'Horn Leech', 'Searing Shot', 'Supersonic Skystrike', 'Arm Thrust', 'Dual Chop', 'Foul Play', 'Twister', 'Focus Punch', 'Slash', 'Rollout', 'Icicle Spear', 'Wrap', 'Leech Life', 'Sacred Sword', 'Hex', 'Bubble', 'Quick Attack', 'Glaciate', 'Psycho Cut', 'Sizzly Slide', 'Rock Smash', 'Volt Tackle', 'Grass Pledge', 'Sparkling Aria', 'Vine Whip', 'Ember', 'Spacial Rend', 'Light of Ruin', 'Stoked Sparksurfer', 'Powder Snow', 'Power-Up Punch', 'Spectral Thief', 'Moonblast', 'Hydro Vortex', 'Thousand Waves', 'Rock Slide', 'Aura Sphere', 'Drill Peck', 'Storm Throw', 'Heat Wave', 'Tackle', 'Discharge', 'Razor Shell', 'Hidden Power Ground', 'Rolling Kick', 'Blue Flare', 'Sky Attack', 'Power Gem', 'Mega Drain', 'Genesis Supernova', 'High Horsepower', 'Black Hole Eclipse', 'Pollen Puff', 'Triple Kick', 'Night Slash', 'Plasma Fists', 'Pin Missile', 'First Impression', 'Fly', 'Relic Song', 'Fake Out', 'Ancient Power', 'Bubble Beam', 'Play Rough', 'Zen Headbutt', 'Clanging Scales', 'Shadow Strike', 'Hidden Power Dragon', 'Corkscrew Crash', 'Struggle', 'Body Slam', 'Seed Flare', 'Leaf Storm', 'Air Cutter', 'Flamethrower', 'Doom Desire', 'Sunsteel Strike', 'Twinkle Tackle', 'Frenzy Plant', 'Diamond Storm', 'Never-Ending Nightmare', 'Draco Meteor', 'Muddy Water', 'Outrage', 'Malicious Moonsault', 'Beak Blast', 'Hydro Pump', 'Steam Eruption', 'Smart Strike', 'X-Scissor', 'Disarming Voice', 'Water Gun', 'Clangorous Soulblaze', "Magikarp's Revenge", 'Nuzzle', 'Hidden Power Fighting', 'Snarl', 'Venoshock', 'Thousand Arrows', 'Needle Arm', 'Dragon Breath', 'Searing Sunraze Smash', 'Cut', 'Comet Punch', 'Aerial Ace', 'Bulldoze', 'Menacing Moonraze Maelstrom', 'Thrash', 'Volt Switch', 'Pound', 'Silver Wind', 'Precipice Blades', 'Bloom Doom', 'Hidden Power Psychic', 'Hydro Cannon', 'Air Slash', 'Magical Leaf', '10,000,000 Volt Thunderbolt', 'Lava Plume', 'Meteor Mash', 'Shadow Punch', 'Feint Attack', 'Icicle Crash', 'Devastating Drake', 'Oceanic Operetta', 'Attack Order', 'Hold Back', 'Shadow Bone', 'Ominous Wind', 'Steel Beam', 'Apple Acid', 'Body Press', 'Fishious Rend', 'Bolt Beak', 'Breaking Swipe', 'Strange Steam', 'Vise Grip', 'Jaw Lock', 'Pyro Ball', 'Dynamax Cannon', 'Snipe Shot', 'Drum Beating', 'Snap Trap', 'Behemoth Blade', 'Branch Poke', 'Aura Wheel', 'Overdrive', 'Grav Apple', 'Behemoth Bash', 'Spirit Break', 'False Surrender', 'Meteor Assault', 'Eternabeam', 'Dragon Darts']
-    if move in movesthatcancrit:
+    increasedcrit=['Aeroblast','Air Cutter','Attack Order','Blaze Kick','Crabhammer','Cross Chop','Cross Poison','Drill Run','Karate Chop','Leaf Blade','Night Slash','Poison Tail','Psycho Cut','Razor Leaf','Razor Wind','Shadow Claw','Sky Attack','Slash','Snipe Shot','Spacial Rend','Stone Edge']
+    if move in increasedcrit:
         try:
-            attacker['luck']+=-4
-            target['luck']+=4
+            if attacker['Focus Energy']:
+                attacker['luck']+=-100
+                target['luck']+=100
+            elif attacker['pokemon'] in ['Unfezant', 'Pidove', 'Honchkrow', 'Tranquill', 'Togepi', 'Murkrow', 'Absol']:
+                attacker['luck']+=-50
+                target['luck']+=50
+            else:
+                attacker['luck']+=-12.5
+                target['luck']+=12.5
+        except:
+            pass
+    elif move in movesthatcancrit:
+        try:
+            if attacker['Focus Energy']:
+                attacker['luck']+=-50
+                target['luck']+=50
+            elif attacker['pokemon'] in ['Unfezant', 'Pidove', 'Honchkrow', 'Tranquill', 'Togepi', 'Murkrow', 'Absol']:
+                attacker['luck']+=-12.5
+                target['luck']+=12.5
+            else:
+                attacker['luck']+=-4.167
+                target['luck']+=4.167
         except:
             pass
     #moves with secondary effect
@@ -553,13 +586,13 @@ def poke_function(line,parsedlogfile,results):
         results['team1']['roster'].append({
             'pokemon':line[3].split("|")[1], 'startform':adjustedmon,'nickname':adjustedmon,
             'kills':0,'deaths':0,'causeofdeath':None,'support':0,'damagedone':0,'hphealed':0,'luck':0,'remaininghealth':100,'lines':[],
-            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,'Curse':None,'atk':0,'def':0,'spa':0,'spd':0,'spe':0,'accuracy':0,'evasion':0,
+            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,'Curse':None,'atk':0,'def':0,'spa':0,'spd':0,'spe':0,'accuracy':0,'evasion':0,'Focus Energy':False
         })  
     elif line[3].split("|",1)[0]=="p2":
         results['team2']['roster'].append({
             'pokemon':line[3].split("|")[1], 'startform':adjustedmon,'nickname':adjustedmon,
             'kills':0,'deaths':0,'causeofdeath':None,'support':0,'damagedone':0,'hphealed':0,'luck':0,'remaininghealth':100,'lines':[],
-            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,'Curse':None,'atk':0,'def':0,'spa':0,'spd':0,'spe':0,'accuracy':0,'evasion':0,
+            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,'Curse':None,'atk':0,'def':0,'spa':0,'spd':0,'spe':0,'accuracy':0,'evasion':0,'Focus Energy':False
         })
     if adjustedmon in ['Zorua','Zoroark']:
         parsedlogfile=illusion_function(parsedlogfile,adjustedmon)
@@ -754,16 +787,21 @@ def start_function(line,parsedlogfile,results):
                 setter['remaininghealth']=healthremaining
                 setter['hphealed']=healthremaining-priorhealth
                 break
+    if line[3].find("Focus Energy")>-1:
+        mon=line[3].split("|")[0].split(": ")[1]
+        team=line[3].split(": ")[0]
+        mon=roster_search(team,mon,results)
+        mon['Focus Energy']=True
     return line,parsedlogfile,results
 
 def switch_drag_function(line,parsedlogfile,results):
     if line[3].split(":",1)[0]=="p1a":
         for mon in results['team1']['roster']:
-            mon['atk']=0;mon['def']=0;mon['spa']=0;mon['spd']=0;mon['spe']=0;mon['accuracy']=0;mon['evasion']=0
+            mon['atk']=0;mon['def']=0;mon['spa']=0;mon['spd']=0;mon['spe']=0;mon['accuracy']=0;mon['evasion']=0;mon['Focus Energy']=False
         results,line=namecheck(results,line,1)
     elif line[3].split(":",1)[0]=="p2a":
         for mon in results['team2']['roster']:
-            mon['atk']=0;mon['def']=0;mon['spa']=0;mon['spd']=0;mon['spe']=0;mon['accuracy']=0;mon['evasion']=0
+            mon['atk']=0;mon['def']=0;mon['spa']=0;mon['spd']=0;mon['spe']=0;mon['accuracy']=0;mon['evasion']=0;mon['Focus Energy']=False
         results,line=namecheck(results,line,2)
     return line,parsedlogfile,results
 
@@ -790,11 +828,14 @@ def weather_function(line,parsedlogfile,results):
                 results['team2'][weather]=setter
             elif thisteam=="p2a":
                 results['team1'][weather]=setter
+    if line[3].find("Rain")>-1 or line[3].find("Drizzle")>-1 or line[3].find("Max Geyser")>-1:
+        results['Rain']=True
     elif line[3]=="none":
         results['team1']['Sandstorm']=None
         results['team1']['Hail']=None
         results['team2']['Sandstorm']=None
         results['team2']['Hail']=None
+        results['Rain']=False
     return line,parsedlogfile,results
     
 def win_function(line,parsedlogfile,results):
@@ -910,6 +951,7 @@ def initializeoutput():
     results['team2']['Leech Seed']=None
     results['Perish Song']=None
     results['Gravity']=1.0
+    results['Rain']=False
     results['numberofturns']=0
     results['turns']=[]
     results['replay']=""

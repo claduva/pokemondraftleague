@@ -1070,8 +1070,11 @@ def freeagency(request,league_name,subleague_name):
             pass
     availablepokemon=pokemon_tier.objects.all().exclude(tier__tiername="Banned").exclude(pokemon__id__in=takenpokemon).filter(subleague=subleague).order_by("-tier__tierpoints",'pokemon__pokemon')
     availablepokemonjson=[]
-    for item in availablepokemon:
-        availablepokemonjson.append([item.pokemon.pokemon,item.tier.tiername,item.tier.tierpoints,get_sprite_url(item.pokemon,site_settings.sprite),list(item.pokemon.types.all().values('typing'))])
+    availablepokemonjson_=list(availablepokemon.values_list('pokemon__pokemon','tier__tiername','tier__tierpoints','pokemon__data'))
+    availablepokemonjson=[]
+    for item in availablepokemonjson_:
+        availablepokemonjson.append(list(item))
+    json.dumps(availablepokemonjson)
     tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     userroster=roster.objects.all().filter(season=season,team__coach=request.user)
@@ -1138,6 +1141,7 @@ def freeagency(request,league_name,subleague_name):
         'userroster':userroster,
         'pointsremaining':pointsremaining,
         'form':form,
+        "spritesettings":[site_settings.sprite],
     }
     return render(request, 'freeagency.html',context)
 

@@ -26,7 +26,7 @@
     <div class="col-md-6">
         <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
-                <tr class="bg-dark text-light"><th colspan="5"><h3>{{subleague.subleague}}</h3></th></tr>
+                <tr class="bg-dark text-light"><th colspan="5"><h3 class="m-0 p-0">{{subleague.subleague|replace:"_, "}}</h3></th></tr>
                 {% for conference in subleague.subleague_conferences.all %}
                 <tr class="bg-dark text-light"><th colspan="5">{{conference.name}} Conference</th></tr>
                 {% if conference.divisions.all %}
