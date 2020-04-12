@@ -10,32 +10,30 @@
 
 <div class="row content-section align-items-center">
     <div class="col-md-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}"
-            class="rounded-circle mediumlogo"></div>
+            class="mediumlogo"></div>
     <div class="col-md-4">
         <h2 class="d-flex justify-content-center">Replay Analyzer</h2>
     </div>
     <div class="col-md-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}"
-            class="rounded-circle mediumlogo"></div>
+            class="mediumlogo"></div>
 </div>
 <div class="row content-section align-items-center">
-    {% if manual_submission %}
-    <h4 class="col-md-6">Team 1: {{ match.team1.teamname }}</h4>
-    <h4 class="col-md-6">Team 2: {{ match.team2.teamname }}</h4>
-    <div class="col-md-12">
-        {% crispy form %}
-    </div>
-    {% elif submission %}
-    <div class="col-md-12 d-flex justify-content-between">
-        <h3 class="pt-2">Upload Replay by URL</h3>
-    </div>
-    <div class="col-md-12">
+    {% if submission %}
+    <div class="col-md-12 bg-lightgrey rounded text-dark p-2">
+        {% if manual %}
         <form method="post">
             {% csrf_token %}
-            {{ form|crispy  }}
+            {% crispy form %}
+        </form>
+        {% else %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
             <div>
                 <input class="btn btn-primary" type="Submit" value="Submit">
             </div>
         </form>
+        {% endif %}
     </div>
     {% else %}
         {% if showreplay %}
@@ -321,18 +319,6 @@
             </tr>
         </table>
     </div>
-    {% endif %}
-    {% if confirm %}
-        <div class="col-12 d-flex justify-content-center">
-            <div>
-                <form action="{% url 'confirm_league_replay' league_name=league_name subleague_name=subleague.subleague matchid=matchid %}" method="post">
-                    {% csrf_token %}
-                    <div hidden>{{ form }}</div>
-                    <input class="btn btn-success" type="submit" value="Confirm">
-                </form>
-                <a href="{% url 'upload_league_replay' league_name=league_name subleague_name=subleague.subleague matchid=matchid %}"><button class="btn btn-danger">Reject</button></a>
-            </div>
-        </div>
     {% endif %}
 </div>
 {% endblock %}

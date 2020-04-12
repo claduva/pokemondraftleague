@@ -4,7 +4,7 @@ from django.forms.widgets import FileInput
 from .models import *
 from individualleague.models import schedule
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Row, Column
+from crispy_forms.layout import Layout, Submit, Row, Column, HTML
 from django.db.models import Q
 
 from leagues.models import *
@@ -112,10 +112,12 @@ class ManualLeagueReplayForm(forms.ModelForm):
         teams.add(match.team2)
         self.fields['winner'].queryset = coachdata.objects.all().filter(Q(id=match.team1.id)|Q(id=match.team2.id))
         self.fields['winner'].label_from_instance = lambda obj: obj.teamname
-
         self.helper = FormHelper()
         self.helper.layout = Layout(
             'match',
+            Row(
+                HTML('<h3 class="col-md-6">'+match.team1.teamname+'</h3><h3 class="col-md-6">'+match.team2.teamname+'</h3>')
+            ),
             Row(
                 Column('t1pokemon1', css_class='form-group col-md-2 mb-0'),
                 Column('t1pokemon1kills', css_class='form-group col-md-2 mb-0'),
@@ -170,19 +172,7 @@ class ManualLeagueReplayForm(forms.ModelForm):
                 Column('t2pokemon6death', css_class='form-group col-md-2 mb-0'),
                 css_class='form-row'
             ),
-            Row(
-                Column('t1megaevolved', css_class='form-group col-md-3 mb-0'),
-                Column('t1usedz', css_class='form-group col-md-3 mb-0'),
-                Column('t2megaevolved', css_class='form-group col-md-3 mb-0'),
-                Column('t2usedz', css_class='form-group col-md-3 mb-0'),
-                css_class='form-row'
-            ),
             'winner',
-            Row(
-                Column('t1forfeit', css_class='form-group col-md-3 mb-0'),
-                Column('t2forfeit', css_class='form-group col-md-3 mb-0'),
-                css_class='form-row'
-            ),
             'replay',
-            Submit('submit', 'Submit')
+            Submit('submit', 'Submit', css_class='btn btn-sm btn-primary')
         )

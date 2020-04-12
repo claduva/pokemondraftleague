@@ -58,49 +58,61 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
     if match.replay != "Link":
         messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
         return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
-    if request.method=="POST":
-        form = LeagueReplayForm(request.POST,instance=match)
-        if form.is_valid():
-            clad=User.objects.get(username="claduva")
-            url=form.cleaned_data['replay']
-            try:    
-                results = newreplayparse(url)
-            except:
-                inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
-                messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
-            coach1=results['team1']['coach']
-            coach2=results['team2']['coach']
-            try:
-                coach1alt=showdownalts.objects.all().get(showdownalt=coach1)
-                coach1team=coachdata.objects.all().filter(subleague=subleague).get(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user))
-            except:
-                messages.error(request,f'A matching showdown alt for {coach1} was not found!',extra_tags='danger')
-                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
-            try:
-                coach2alt=showdownalts.objects.all().get(showdownalt=coach2)
-                coach2team=coachdata.objects.all().filter(subleague=subleague).get(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user))
-            except:
-                messages.error(request,f'A matching showdown alt for {coach2} was not found!',extra_tags='danger')
-                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
-            if len(results['errormessage'])==0:
-                save_league_replay(request,results,match,coach1team,coach2team,form,subleague)
-            else:
-                inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
-                messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
-                return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
-            context={
-                'results':results,
-                'team1name':coach1team,
-                'team2name':coach2team,
-                'league_name':league_name,
-                'subleague': subleague,
-                'leaguepage': True,
-                'league_teams': league_teams,
-            }
-            return render(request,"replayanalysisresults.html",context)
-    print(subleague.league.platform)
-    form=LeagueReplayForm(instance=match,initial={"replay":""})
+    if subleague.league.settings.platform in ['Showdown','Youtube Showdown']:
+        if request.method=="POST":
+            form = LeagueReplayForm(request.POST,instance=match)
+            if form.is_valid():
+                clad=User.objects.get(username="claduva")
+                url=form.cleaned_data['replay']
+                try:    
+                    results = newreplayparse(url)
+                except:
+                    inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                    messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
+                    return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
+                coach1=results['team1']['coach']
+                coach2=results['team2']['coach']
+                try:
+                    coach1alt=showdownalts.objects.all().get(showdownalt=coach1)
+                    coach1team=coachdata.objects.all().filter(subleague=subleague).get(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user))
+                except:
+                    messages.error(request,f'A matching showdown alt for {coach1} was not found!',extra_tags='danger')
+                    return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
+                try:
+                    coach2alt=showdownalts.objects.all().get(showdownalt=coach2)
+                    coach2team=coachdata.objects.all().filter(subleague=subleague).get(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user))
+                except:
+                    messages.error(request,f'A matching showdown alt for {coach2} was not found!',extra_tags='danger')
+                    return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
+                if len(results['errormessage'])==0:
+                    save_league_replay(request,results,match,coach1team,coach2team,form,subleague)
+                else:
+                    inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
+                    messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
+                    return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
+                context={
+                    'results':results,
+                    'team1name':coach1team,
+                    'team2name':coach2team,
+                    'league_name':league_name,
+                    'subleague': subleague,
+                    'leaguepage': True,
+                    'league_teams': league_teams,
+                }
+                return render(request,"replayanalysisresults.html",context)
+        form=LeagueReplayForm(instance=match,initial={"replay":""})
+        manual=False
+    else:
+        if request.method=="POST":
+            form = ManualLeagueReplayForm(match)
+            print('here')
+        form=ManualLeagueReplayForm(match,initial={
+        't1pokemon1kills':0,'t1pokemon2kills':0,'t1pokemon3kills':0,'t1pokemon4kills':0,'t1pokemon5kills':0,'t1pokemon6kills':0,
+        't2pokemon1kills':0,'t2pokemon2kills':0,'t2pokemon3kills':0,'t2pokemon4kills':0,'t2pokemon5kills':0,'t2pokemon6kills':0,
+        't1pokemon1death':0,'t1pokemon2death':0,'t1pokemon3death':0,'t1pokemon4death':0,'t1pokemon5death':0,'t1pokemon6death':0,
+        't2pokemon1death':0,'t2pokemon2death':0,'t2pokemon3death':0,'t2pokemon4death':0, 't2pokemon5death':0,'t2pokemon6death':0,
+        })
+        manual=True
     context={
         'form': form,
         'submission': True,
@@ -109,6 +121,7 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
         'subleague': subleague,
         'leaguepage': True,
         'league_teams': league_teams,
+        'manual':manual,
     }
     return  render(request,"replayanalysisform.html",context)
 

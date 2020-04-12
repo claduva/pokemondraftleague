@@ -14,10 +14,6 @@ from individualleague.models import *
 class manual_replay(models.Model):
     match=models.OneToOneField(schedule,on_delete=models.CASCADE)
     replay=models.CharField(max_length=200,default="None")
-    t1megaevolved=models.BooleanField(default="False")
-    t2megaevolved=models.BooleanField(default="False")
-    t1usedz=models.BooleanField(default="False")
-    t2usedz=models.BooleanField(default="False")
     t1pokemon1=models.ForeignKey(all_pokemon,on_delete=models.CASCADE, related_name='Team1Pokemon1')
     t1pokemon2=models.ForeignKey(all_pokemon,on_delete=models.CASCADE, related_name='Team1Pokemon2')
     t1pokemon3=models.ForeignKey(all_pokemon,on_delete=models.CASCADE, related_name='Team1Pokemon3')
@@ -56,9 +52,6 @@ class manual_replay(models.Model):
     t2pokemon5death=models.IntegerField(default=0)
     t2pokemon6death=models.IntegerField(default=0)
     winner=models.ForeignKey(coachdata,on_delete=models.CASCADE)
-    t1forfeit=models.BooleanField(default="False")
-    t2forfeit=models.BooleanField(default="False")
-
 
 class match_replay(models.Model):
     match=models.OneToOneField(schedule,on_delete=models.CASCADE)
