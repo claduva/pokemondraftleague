@@ -104,9 +104,19 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
         manual=False
     else:
         if request.method=="POST":
-            form = ManualLeagueReplayForm(match)
-            print('here')
+            form = ManualLeagueReplayForm(match,request.POST)
+            if form.is_valid():
+                data=update_manual_match(match,form,request)
+                context={
+                    'manualreplay':data,
+                    'league_name':league_name,
+                    'subleague': subleague,
+                    'leaguepage': True,
+                    'league_teams': league_teams,
+                }
+                return render(request,"manualreplayresults.html",context)
         form=ManualLeagueReplayForm(match,initial={
+        'match':match,
         't1pokemon1kills':0,'t1pokemon2kills':0,'t1pokemon3kills':0,'t1pokemon4kills':0,'t1pokemon5kills':0,'t1pokemon6kills':0,
         't2pokemon1kills':0,'t2pokemon2kills':0,'t2pokemon3kills':0,'t2pokemon4kills':0,'t2pokemon5kills':0,'t2pokemon6kills':0,
         't1pokemon1death':0,'t1pokemon2death':0,'t1pokemon3death':0,'t1pokemon4death':0,'t1pokemon5death':0,'t1pokemon6death':0,
@@ -297,6 +307,9 @@ def league_match_results(request,league_name,subleague_name,matchid):
             'loser': loser,
             'score': score,
             'league_teams': league_teams,
+            'league_name':league_name,
+            'subleague': subleague,
+            'leaguepage': True,
         }
         return render(request,"manualreplayresults.html",context)
     except:
@@ -304,6 +317,10 @@ def league_match_results(request,league_name,subleague_name,matchid):
             results = match.match_replay.data
             context={
                     'results': results,
+                    'league_teams': league_teams,
+                    'league_name':league_name,
+                    'subleague': subleague,
+                    'leaguepage': True,
             }
         except:
             url=match.replay
@@ -317,6 +334,10 @@ def league_match_results(request,league_name,subleague_name,matchid):
                 inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
         context={
             'results': results,
+            'league_teams': league_teams,
+            'league_name':league_name,
+            'subleague': subleague,
+            'leaguepage': True,
         }
         return render(request,"replayanalysisresults.html",context)
 
@@ -585,159 +606,116 @@ def historic_searchmon(toi,searchmon):
                     foundmon=all_pokemon.objects.all().get(pokemon=searchmon)
     return foundmon
 
-@check_if_subleague
-@check_if_season
-@check_if_match
-@login_required
-def upload_league_replay_manual(request,league_name,subleague_name,matchid):
-    league_name=league_name.replace('%20',' ')
-    subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
-    season=subleague.seasonsetting
-    league_teams=subleague.subleague_coachs.all().order_by('teamname')
-    match=schedule.objects.get(pk=matchid)
-    if match.replay != "Link":
-        messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
-        return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
-    if request.method=="POST":
-        form=ManualLeagueReplayForm(match,request.POST)
-        if form.is_valid():
-            #get match
-            match=form.cleaned_data['match']
-            #get teams
-            team1=match.team1
-            team2=match.team2
-            #get pokemon
-            t1pokemon1=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon1'])
-            t1pokemon2=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon2'])
-            t1pokemon3=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon3'])
-            t1pokemon4=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon4'])
-            t1pokemon5=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon5'])
-            t1pokemon6=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon6'])
-            t2pokemon1=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon1'])
-            t2pokemon2=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon2'])
-            t2pokemon3=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon3'])
-            t2pokemon4=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon4'])
-            t2pokemon5=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon5'])
-            t2pokemon6=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon6'])
-            #update match
-            match.replay=form.cleaned_data['replay']
-            match.team1megaevolved=form.cleaned_data['t1megaevolved']
-            match.team2megaevolved=form.cleaned_data['t2megaevolved']
-            match.team1usedz=form.cleaned_data['t1usedz']
-            match.team2usedz=form.cleaned_data['t2usedz']
-            match.team1score=6-form.cleaned_data['t1pokemon1death']-form.cleaned_data['t1pokemon2death']-form.cleaned_data['t1pokemon3death']-form.cleaned_data['t1pokemon4death']-form.cleaned_data['t1pokemon5death']-form.cleaned_data['t1pokemon6death']
-            match.team2score=6-form.cleaned_data['t2pokemon1death']-form.cleaned_data['t2pokemon2death']-form.cleaned_data['t2pokemon3death']-form.cleaned_data['t2pokemon4death']-form.cleaned_data['t2pokemon5death']-form.cleaned_data['t2pokemon6death']
-            #update pokemon
-            t1pokemon1.kills+=form.cleaned_data['t1pokemon1kills']
-            t1pokemon2.kills+=form.cleaned_data['t1pokemon2kills']
-            t1pokemon3.kills+=form.cleaned_data['t1pokemon3kills']
-            t1pokemon4.kills+=form.cleaned_data['t1pokemon4kills']
-            t1pokemon5.kills+=form.cleaned_data['t1pokemon5kills']
-            t1pokemon6.kills+=form.cleaned_data['t1pokemon6kills']
-            t2pokemon1.kills+=form.cleaned_data['t2pokemon1kills']
-            t2pokemon2.kills+=form.cleaned_data['t2pokemon2kills']
-            t2pokemon3.kills+=form.cleaned_data['t2pokemon3kills']
-            t2pokemon4.kills+=form.cleaned_data['t2pokemon4kills']
-            t2pokemon5.kills+=form.cleaned_data['t2pokemon5kills']
-            t2pokemon6.kills+=form.cleaned_data['t2pokemon6kills']
-            t1pokemon1.deaths+=form.cleaned_data['t1pokemon1death']
-            t1pokemon2.deaths+=form.cleaned_data['t1pokemon2death']
-            t1pokemon3.deaths+=form.cleaned_data['t1pokemon3death']
-            t1pokemon4.deaths+=form.cleaned_data['t1pokemon4death']
-            t1pokemon5.deaths+=form.cleaned_data['t1pokemon5death']
-            t1pokemon6.deaths+=form.cleaned_data['t1pokemon6death']
-            t2pokemon1.deaths+=form.cleaned_data['t2pokemon1death']
-            t2pokemon2.deaths+=form.cleaned_data['t2pokemon2death']
-            t2pokemon3.deaths+=form.cleaned_data['t2pokemon3death']
-            t2pokemon4.deaths+=form.cleaned_data['t2pokemon4death']
-            t2pokemon5.deaths+=form.cleaned_data['t2pokemon5death']
-            t2pokemon6.deaths+=form.cleaned_data['t2pokemon6death']
-            t1pokemon1.differential+=form.cleaned_data['t1pokemon1kills']-form.cleaned_data['t1pokemon1death']
-            t1pokemon2.differential+=form.cleaned_data['t1pokemon2kills']-form.cleaned_data['t1pokemon2death']
-            t1pokemon3.differential+=form.cleaned_data['t1pokemon3kills']-form.cleaned_data['t1pokemon3death']
-            t1pokemon4.differential+=form.cleaned_data['t1pokemon4kills']-form.cleaned_data['t1pokemon4death']
-            t1pokemon5.differential+=form.cleaned_data['t1pokemon5kills']-form.cleaned_data['t1pokemon5death']
-            t1pokemon6.differential+=form.cleaned_data['t1pokemon6kills']-form.cleaned_data['t1pokemon6death']
-            t2pokemon1.differential+=form.cleaned_data['t2pokemon1kills']-form.cleaned_data['t2pokemon1death']
-            t2pokemon2.differential+=form.cleaned_data['t2pokemon2kills']-form.cleaned_data['t2pokemon2death']
-            t2pokemon3.differential+=form.cleaned_data['t2pokemon3kills']-form.cleaned_data['t2pokemon3death']
-            t2pokemon4.differential+=form.cleaned_data['t2pokemon4kills']-form.cleaned_data['t2pokemon4death']
-            t2pokemon5.differential+=form.cleaned_data['t2pokemon5kills']-form.cleaned_data['t2pokemon5death']
-            t2pokemon6.differential+=form.cleaned_data['t2pokemon6kills']-form.cleaned_data['t2pokemon6death']
-            t1pokemon1.gp+=1; t1pokemon2.gp+=1; t1pokemon3.gp+=1; t1pokemon4.gp+=1; t1pokemon5.gp+=1; t1pokemon6.gp+=1
-            t2pokemon1.gp+=1; t2pokemon2.gp+=1; t2pokemon3.gp+=1; t2pokemon4.gp+=1; t2pokemon5.gp+=1; t2pokemon6.gp+=1
-            winner=form.cleaned_data['winner']
-            match.winner=winner
-            if winner == match.team1:
-                team1.wins+=1; team2.losses+=1
-                t1pokemon1.gw+=1; t1pokemon2.gw+=1; t1pokemon3.gw+=1; t1pokemon4.gw+=1; t1pokemon5.gw+=1; t1pokemon6.gw+=1
-                if team1.streak>-1:
-                    team1.streak+=1
-                else:
-                    team1.streak=1
-                if team2.streak>-1:
-                    team2.streak=(-1)
-                else:
-                    team2.streak+=(-1)
-            elif winner == match.team2:
-                team2.wins+=1; team1.losses+=1
-                t2pokemon1.gw+=1; t2pokemon2.gw+=1; t2pokemon3.gw+=1; t2pokemon4.gw+=1; t2pokemon5.gw+=1; t2pokemon6.gw+=1
-                if team2.streak>-1:
-                    team2.streak+=1
-                else:
-                    team2.streak=1
-                if team1.streak>-1:
-                    team1.streak=(-1)
-                else:
-                    team1.streak+=(-1)
-            if form.cleaned_data['t1forfeit']==True:
-                team1.forfeit+=1
-                team1.differential+=(-3)
-            else:
-                if match.team1score>match.team2score:
-                    team1.differential+=match.team1score
-                elif match.team2score>match.team1score:
-                    team1.differential+=(-match.team2score)
-            if form.cleaned_data['t2forfeit']==True:
-                team2.forfeit+=1
-                team2.differential+=(-3)
-            else:
-                if match.team2score>match.team1score:
-                    team2.differential+=match.team2score
-                elif match.team1score>match.team2score:
-                    team2.differential+=(-match.team1score)
-            #save data
-            form.save(); match.save(); team1.save(); team2.save()
-            t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
-            t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
-            messages.success(request,"Match has been saved!")
-            discordserver=subleague.discord_settings.discordserver
-            discordchannel=subleague.discord_settings.replaychannel
-            title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
-            replay_announcements.objects.create(
-                league = discordserver,
-                league_name = league_name,
-                text = title,
-                replaychannel = discordchannel
-            )
-            matchpickems=pickems.objects.all().filter(match=match)
-            for item in matchpickems:
-                if item.pick==match.winner:
-                    item.correct=True
-                    item.save()
-            return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
-    form=ManualLeagueReplayForm(match,initial={'match':match})
-    context={
-        'form': form,
-        'manual_submission': True,
-        'league_name':league_name,
-        'matchid':matchid,
-        'subleague': subleague,
-        'leaguepage': True,
-        'match': match,
-        'league_teams': league_teams,
-    }
-    return  render(request,"replayanalysisform.html",context)
+def update_manual_match(match,form,request):
+    season=match.season
+    subleague=season.subleague
+    league_name=subleague.league.name
+    #get teams
+    team1=match.team1
+    team2=match.team2
+    #get pokemon
+    t1pokemon1=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon1'])
+    t1pokemon2=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon2'])
+    t1pokemon3=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon3'])
+    t1pokemon4=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon4'])
+    t1pokemon5=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon5'])
+    t1pokemon6=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t1pokemon6'])
+    t2pokemon1=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon1'])
+    t2pokemon2=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon2'])
+    t2pokemon3=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon3'])
+    t2pokemon4=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon4'])
+    t2pokemon5=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon5'])
+    t2pokemon6=roster.objects.filter(season=season).get(pokemon=form.cleaned_data['t2pokemon6'])
+    #update match
+    match.replay=form.cleaned_data['replay']
+    match.team1score=6-form.cleaned_data['t1pokemon1death']-form.cleaned_data['t1pokemon2death']-form.cleaned_data['t1pokemon3death']-form.cleaned_data['t1pokemon4death']-form.cleaned_data['t1pokemon5death']-form.cleaned_data['t1pokemon6death']
+    match.team2score=6-form.cleaned_data['t2pokemon1death']-form.cleaned_data['t2pokemon2death']-form.cleaned_data['t2pokemon3death']-form.cleaned_data['t2pokemon4death']-form.cleaned_data['t2pokemon5death']-form.cleaned_data['t2pokemon6death']
+    #update pokemon
+    t1pokemon1.kills+=form.cleaned_data['t1pokemon1kills']
+    t1pokemon2.kills+=form.cleaned_data['t1pokemon2kills']
+    t1pokemon3.kills+=form.cleaned_data['t1pokemon3kills']
+    t1pokemon4.kills+=form.cleaned_data['t1pokemon4kills']
+    t1pokemon5.kills+=form.cleaned_data['t1pokemon5kills']
+    t1pokemon6.kills+=form.cleaned_data['t1pokemon6kills']
+    t2pokemon1.kills+=form.cleaned_data['t2pokemon1kills']
+    t2pokemon2.kills+=form.cleaned_data['t2pokemon2kills']
+    t2pokemon3.kills+=form.cleaned_data['t2pokemon3kills']
+    t2pokemon4.kills+=form.cleaned_data['t2pokemon4kills']
+    t2pokemon5.kills+=form.cleaned_data['t2pokemon5kills']
+    t2pokemon6.kills+=form.cleaned_data['t2pokemon6kills']
+    t1pokemon1.deaths+=form.cleaned_data['t1pokemon1death']
+    t1pokemon2.deaths+=form.cleaned_data['t1pokemon2death']
+    t1pokemon3.deaths+=form.cleaned_data['t1pokemon3death']
+    t1pokemon4.deaths+=form.cleaned_data['t1pokemon4death']
+    t1pokemon5.deaths+=form.cleaned_data['t1pokemon5death']
+    t1pokemon6.deaths+=form.cleaned_data['t1pokemon6death']
+    t2pokemon1.deaths+=form.cleaned_data['t2pokemon1death']
+    t2pokemon2.deaths+=form.cleaned_data['t2pokemon2death']
+    t2pokemon3.deaths+=form.cleaned_data['t2pokemon3death']
+    t2pokemon4.deaths+=form.cleaned_data['t2pokemon4death']
+    t2pokemon5.deaths+=form.cleaned_data['t2pokemon5death']
+    t2pokemon6.deaths+=form.cleaned_data['t2pokemon6death']
+    t1pokemon1.differential+=form.cleaned_data['t1pokemon1kills']-form.cleaned_data['t1pokemon1death']
+    t1pokemon2.differential+=form.cleaned_data['t1pokemon2kills']-form.cleaned_data['t1pokemon2death']
+    t1pokemon3.differential+=form.cleaned_data['t1pokemon3kills']-form.cleaned_data['t1pokemon3death']
+    t1pokemon4.differential+=form.cleaned_data['t1pokemon4kills']-form.cleaned_data['t1pokemon4death']
+    t1pokemon5.differential+=form.cleaned_data['t1pokemon5kills']-form.cleaned_data['t1pokemon5death']
+    t1pokemon6.differential+=form.cleaned_data['t1pokemon6kills']-form.cleaned_data['t1pokemon6death']
+    t2pokemon1.differential+=form.cleaned_data['t2pokemon1kills']-form.cleaned_data['t2pokemon1death']
+    t2pokemon2.differential+=form.cleaned_data['t2pokemon2kills']-form.cleaned_data['t2pokemon2death']
+    t2pokemon3.differential+=form.cleaned_data['t2pokemon3kills']-form.cleaned_data['t2pokemon3death']
+    t2pokemon4.differential+=form.cleaned_data['t2pokemon4kills']-form.cleaned_data['t2pokemon4death']
+    t2pokemon5.differential+=form.cleaned_data['t2pokemon5kills']-form.cleaned_data['t2pokemon5death']
+    t2pokemon6.differential+=form.cleaned_data['t2pokemon6kills']-form.cleaned_data['t2pokemon6death']
+    t1pokemon1.gp+=1; t1pokemon2.gp+=1; t1pokemon3.gp+=1; t1pokemon4.gp+=1; t1pokemon5.gp+=1; t1pokemon6.gp+=1
+    t2pokemon1.gp+=1; t2pokemon2.gp+=1; t2pokemon3.gp+=1; t2pokemon4.gp+=1; t2pokemon5.gp+=1; t2pokemon6.gp+=1
+    winner=form.cleaned_data['winner']
+    match.winner=winner
+    if winner == match.team1:
+        team1.wins+=1; team2.losses+=1
+        t1pokemon1.gw+=1; t1pokemon2.gw+=1; t1pokemon3.gw+=1; t1pokemon4.gw+=1; t1pokemon5.gw+=1; t1pokemon6.gw+=1
+        if team1.streak>-1:
+            team1.streak+=1
+        else:
+            team1.streak=1
+        if team2.streak>-1:
+            team2.streak=(-1)
+        else:
+            team2.streak+=(-1)
+    elif winner == match.team2:
+        team2.wins+=1; team1.losses+=1
+        t2pokemon1.gw+=1; t2pokemon2.gw+=1; t2pokemon3.gw+=1; t2pokemon4.gw+=1; t2pokemon5.gw+=1; t2pokemon6.gw+=1
+        if team2.streak>-1:
+            team2.streak+=1
+        else:
+            team2.streak=1
+        if team1.streak>-1:
+            team1.streak=(-1)
+        else:
+            team1.streak+=(-1)
+    if match.team1score>match.team2score:
+        team1.differential+=match.team1score
+    elif match.team2score>match.team1score:
+        team1.differential+=(-match.team2score)
+    if match.team2score>match.team1score:
+        team2.differential+=match.team2score
+    elif match.team1score>match.team2score:
+        team2.differential+=(-match.team1score)
+    #save data
+    data=form.save(); match.save(); team1.save(); team2.save()
+    t1pokemon1.save(); t1pokemon2.save(); t1pokemon3.save(); t1pokemon4.save(); t1pokemon5.save(); t1pokemon6.save()
+    t2pokemon1.save(); t2pokemon2.save(); t2pokemon3.save(); t2pokemon4.save(); t2pokemon5.save(); t2pokemon6.save()
+    messages.success(request,"Match has been saved!")
+    discordserver=subleague.discord_settings.discordserver
+    discordchannel=subleague.discord_settings.replaychannel
+    title=f"Week: {match.week}. {match.team1.teamname} vs {match.team2.teamname}: {match.replay}."
+    replay_announcements.objects.create(
+        league = discordserver,
+        league_name = league_name,
+        text = title,
+        replaychannel = discordchannel
+    )
+    return data
 
 def render_uploaded_replay(request,string):
     context={}

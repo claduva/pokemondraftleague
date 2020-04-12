@@ -10,253 +10,210 @@
 
 <div class="row content-section align-items-center">
     <div class="col-md-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}"
-            class="rounded-circle mediumlogo"></div>
+            class="mediumlogo"></div>
     <div class="col-md-4">
         <h2 class="d-flex justify-content-center">Replay Analyzer</h2>
     </div>
     <div class="col-md-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}"
-            class="rounded-circle mediumlogo"></div>
+            class="mediumlogo"></div>
 </div>
 <div class="row content-section align-items-center">
-    {% if showreplay %}
     <div class="col-12">
-        <iframe src="{{ replay }}" height="500vh" width="100%"></iframe>
-    </div>
-    {% endif %}
-    <div class="col-12">
-        <h5 class="d-flex justify-content-center">
-            Winning Team: {{ manualreplay.winner.teamname }}
-        </h5>
-        <h5 class="d-flex justify-content-center">
-            Losing Team: {{ loser.teamname }}
-        </h5>
-        <h5 class="d-flex justify-content-center">
-            Score: {{ score }}
-        </h5>
-        {% if showreplay %}
-        <h6 class="d-flex justify-content-center"><a class="text-light" href="{{ replay }}">Replay</a></h6>
-        {% else %}
-        <h6 class="d-flex justify-content-center"><a class="text-light" href="">Replay: {{ manualreplay.replay }}</a>
-        </h6>
-        {% endif %}
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th>
+                        <h5 class="m-0 p-0">Match Summary</h5>
+                    </th>
+                </tr>
+                <tr>
+                    <td>Winning Team: {{ manualreplay.winner.teamname }}</td>
+                </tr>
+                <tr>
+                    <td>Losing Team: {{loser}}</td>
+                </tr>
+                <tr>
+                    <td>Score: {{score}}</td>
+                </tr>
+                <tr>
+                    <td><a class="text-dark" href="{{ results.replay }}">Replay: {{ manualreplay.replay }}</a></td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div class=col-md-6>
-        <table class="table table-sm text-center bg-lightgrey text-dark">
-            <tr>
-                <th colspan="4">
-                    <div class="d-flex justify-content-center">
-                        {{ manualreplay.match.team1.teamname }}
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th>Pokemon</th>
-                <th>K</th>
-                <th>D</th>
-                <th>+/-</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t1pokemon1.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div> {{ manualreplay.t1pokemon1.pokemon }} </div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t1pokemon1kills}}</td>
-                <td>{{manualreplay.t1pokemon1death}}</td>
-                <td>{{manualreplay.t1pokemon1kills|subtract:manualreplay.t1pokemon1death}}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t1pokemon2.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div>{{ manualreplay.t1pokemon2.pokemon }}</div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t1pokemon2kills}}</td>
-                <td>{{manualreplay.t1pokemon2death}}</td>
-                <td>{{manualreplay.t1pokemon2kills|subtract:manualreplay.t1pokemon2death}}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t1pokemon3.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div>{{ manualreplay.t1pokemon3.pokemon }}</div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t1pokemon3kills}}</td>
-                <td>{{manualreplay.t1pokemon3death}}</td>
-                <td>{{manualreplay.t1pokemon3kills|subtract:manualreplay.t1pokemon3death}}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t1pokemon4.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div>{{ manualreplay.t1pokemon4.pokemon }}</div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t1pokemon4kills}}</td>
-                <td>{{manualreplay.t1pokemon4death}}</td>
-                <td>{{manualreplay.t1pokemon4kills|subtract:manualreplay.t1pokemon4death}}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t1pokemon5.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div>{{ manualreplay.t1pokemon5.pokemon }}</div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t1pokemon5kills}}</td>
-                <td>{{manualreplay.t1pokemon5death}}</td>
-                <td>{{manualreplay.t1pokemon5kills|subtract:manualreplay.t1pokemon5death}}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t1pokemon6.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div>{{manualreplay.t1pokemon6.pokemon}}</div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t1pokemon6kills}}</td>
-                <td>{{manualreplay.t1pokemon6death}}</td>
-                <td>{{manualreplay.t1pokemon6kills|subtract:manualreplay.t1pokemon6death}}</td>
-            </tr>
-            <tr>
-                <th>Mega Evolved?</th>
-                <td>
-                    {% if manualreplay.t1megaevolved %}
-                    Yes
-                    {% else %}
-                    No
-                    {% endif %}
-                </td>
-            </tr>
-            <tr>
-                <th>Used Z-Move?</th>
-                <td>
-                    {% if manualreplay.t1usedz %}
-                    Yes
-                    {% else %}
-                    No
-                    {% endif %}
-                </td>
-            </tr>
-        </table>
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th colspan="4">{{ manualreplay.match.team1.teamname }}</th>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>Pokemon</th>
+                    <th>K</th>
+                    <th>D</th>
+                    <th>+/-</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t1pokemon1.pokemon|sprite:site_settings.sprite }}'>
+                            <div> {{ manualreplay.t1pokemon1.pokemon }} </div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t1pokemon1kills}}</td>
+                    <td>{{manualreplay.t1pokemon1death}}</td>
+                    <td>{{manualreplay.t1pokemon1kills|subtract:manualreplay.t1pokemon1death}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t1pokemon2.pokemon|sprite:site_settings.sprite }}'>
+                            <div>{{ manualreplay.t1pokemon2.pokemon }}</div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t1pokemon2kills}}</td>
+                    <td>{{manualreplay.t1pokemon2death}}</td>
+                    <td>{{manualreplay.t1pokemon2kills|subtract:manualreplay.t1pokemon2death}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t1pokemon3.pokemon|sprite:site_settings.sprite }}'>
+                            <div>{{ manualreplay.t1pokemon3.pokemon }}</div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t1pokemon3kills}}</td>
+                    <td>{{manualreplay.t1pokemon3death}}</td>
+                    <td>{{manualreplay.t1pokemon3kills|subtract:manualreplay.t1pokemon3death}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t1pokemon4.pokemon|sprite:site_settings.sprite }}'>
+                            <div>{{ manualreplay.t1pokemon4.pokemon }}</div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t1pokemon4kills}}</td>
+                    <td>{{manualreplay.t1pokemon4death}}</td>
+                    <td>{{manualreplay.t1pokemon4kills|subtract:manualreplay.t1pokemon4death}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t1pokemon5.pokemon|sprite:site_settings.sprite }}'>
+                            <div>{{ manualreplay.t1pokemon5.pokemon }}</div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t1pokemon5kills}}</td>
+                    <td>{{manualreplay.t1pokemon5death}}</td>
+                    <td>{{manualreplay.t1pokemon5kills|subtract:manualreplay.t1pokemon5death}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t1pokemon6.pokemon|sprite:site_settings.sprite }}'>
+                            <div>{{manualreplay.t1pokemon6.pokemon}}</div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t1pokemon6kills}}</td>
+                    <td>{{manualreplay.t1pokemon6death}}</td>
+                    <td>{{manualreplay.t1pokemon6kills|subtract:manualreplay.t1pokemon6death}}</td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div class=col-md-6>
-        <table class="table table-sm text-center bg-lightgrey text-dark">
-            <tr>
-                <th colspan="4">
-                    <div class="d-flex justify-content-center">
-                        {{ manualreplay.match.team2.teamname }}
-                    </div>
-                </th>
-            </tr>
-            <tr>
-                <th>Pokemon</th>
-                <th>K</th>
-                <th>D</th>
-                <th>+/-</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t2pokemon1.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div> {{ manualreplay.t2pokemon1.pokemon }} </div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t2pokemon1kills}}</td>
-                <td>{{manualreplay.t2pokemon1death}}</td>
-                <td>{{manualreplay.t2pokemon1kills|subtract:manualreplay.t2pokemon1death}}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t2pokemon2.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div>{{ manualreplay.t2pokemon2.pokemon }}</div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t2pokemon2kills}}</td>
-                <td>{{manualreplay.t2pokemon2death}}</td>
-                <td>{{manualreplay.t2pokemon2kills|subtract:manualreplay.t2pokemon2death}}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t2pokemon3.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div>{{ manualreplay.t2pokemon3.pokemon }}</div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t2pokemon3kills}}</td>
-                <td>{{manualreplay.t2pokemon3death}}</td>
-                <td>{{manualreplay.t2pokemon3kills|subtract:manualreplay.t2pokemon3death}}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t2pokemon4.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div>{{ manualreplay.t2pokemon4.pokemon }}</div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t2pokemon4kills}}</td>
-                <td>{{manualreplay.t2pokemon4death}}</td>
-                <td>{{manualreplay.t2pokemon4kills|subtract:manualreplay.t2pokemon4death}}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t2pokemon5.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div>{{ manualreplay.t2pokemon5.pokemon }}</div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t2pokemon5kills}}</td>
-                <td>{{manualreplay.t2pokemon5death}}</td>
-                <td>{{manualreplay.t2pokemon5kills|subtract:manualreplay.t2pokemon5death}}</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex justify-content-center">
-                        <img class="smallsprite"
-                            src="https://play.pokemonshowdown.com/sprites/{{ site_settings.sprite|split:0 }}/{{ manualreplay.t2pokemon6.pokemon|lower|cut:' '|cut:'.'|cut:':'|cut:'%'|replace:'mega-,mega'|replace:'nidoran-m,nidoran'|replace:'o-o,oo'|replace:'dusk-mane,duskmane'|replace:'dawn-wings,dawnwings' }}.{{ site_settings.sprite|split:1 }}">
-                        <div>{{manualreplay.t2pokemon6.pokemon}}</div>
-                    </div>
-                </td>
-                <td>{{manualreplay.t2pokemon6kills}}</td>
-                <td>{{manualreplay.t2pokemon6death}}</td>
-                <td>{{manualreplay.t2pokemon6kills|subtract:manualreplay.t2pokemon6death}}</td>
-            </tr>
-            <tr>
-                <th>Mega Evolved?</th>
-                <td>
-                    {% if manualreplay.t2megaevolved %}
-                    Yes
-                    {% else %}
-                    No
-                    {% endif %}
-                </td>
-            </tr>
-            <tr>
-                <th>Used Z-Move?</th>
-                <td>
-                    {% if manualreplay.t2usedz %}
-                    Yes
-                    {% else %}
-                    No
-                    {% endif %}
-                </td>
-            </tr>
-        </table>
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th colspan="4">{{ manualreplay.match.team2.teamname }}</th>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>Pokemon</th>
+                    <th>K</th>
+                    <th>D</th>
+                    <th>+/-</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t2pokemon1.pokemon|sprite:site_settings.sprite }}'>
+                            <div> {{ manualreplay.t2pokemon1.pokemon }} </div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t2pokemon1kills}}</td>
+                    <td>{{manualreplay.t2pokemon1death}}</td>
+                    <td>{{manualreplay.t2pokemon1kills|subtract:manualreplay.t2pokemon1death}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t2pokemon2.pokemon|sprite:site_settings.sprite }}'>
+                            <div>{{ manualreplay.t2pokemon2.pokemon }}</div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t2pokemon2kills}}</td>
+                    <td>{{manualreplay.t2pokemon2death}}</td>
+                    <td>{{manualreplay.t2pokemon2kills|subtract:manualreplay.t2pokemon2death}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t2pokemon3.pokemon|sprite:site_settings.sprite }}'>
+                            <div>{{ manualreplay.t2pokemon3.pokemon }}</div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t2pokemon3kills}}</td>
+                    <td>{{manualreplay.t2pokemon3death}}</td>
+                    <td>{{manualreplay.t2pokemon3kills|subtract:manualreplay.t2pokemon3death}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t2pokemon4.pokemon|sprite:site_settings.sprite }}'>
+                            <div>{{ manualreplay.t2pokemon4.pokemon }}</div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t2pokemon4kills}}</td>
+                    <td>{{manualreplay.t2pokemon4death}}</td>
+                    <td>{{manualreplay.t2pokemon4kills|subtract:manualreplay.t2pokemon4death}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t2pokemon5.pokemon|sprite:site_settings.sprite }}'>
+                            <div>{{ manualreplay.t2pokemon5.pokemon }}</div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t2pokemon5kills}}</td>
+                    <td>{{manualreplay.t2pokemon5death}}</td>
+                    <td>{{manualreplay.t2pokemon5kills|subtract:manualreplay.t2pokemon5death}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center">
+                            <img class="smallsprite"
+                                src='{{ manualreplay.t2pokemon6.pokemon|sprite:site_settings.sprite }}'>
+                            <div>{{manualreplay.t2pokemon6.pokemon}}</div>
+                        </div>
+                    </td>
+                    <td>{{manualreplay.t2pokemon6kills}}</td>
+                    <td>{{manualreplay.t2pokemon6death}}</td>
+                    <td>{{manualreplay.t2pokemon6kills|subtract:manualreplay.t2pokemon6death}}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}
