@@ -168,9 +168,6 @@
         </div>
       </div>
       <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
-      {% if user.is_staff %}
-      <a class="nav-item nav-link" href="{% url 'runscript' %}">Runscript</a>
-      {% endif %}
     </div>
 
     <!-- Navbar Right Side -->
@@ -198,6 +195,7 @@
           <a class="dropdown-item" href="{% url 'help' %}">Help</a>
           {% if user.is_staff %}
           <a class="dropdown-item" href="/admin/">Admin</a>
+          <a class="dropdown-item" href="{% url 'runscript' %}">Runscript</a>
           {% endif %}
           <a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a>
         </div>
