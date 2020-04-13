@@ -1107,6 +1107,8 @@ def freeagency(request,league_name,subleague_name):
                     except:
                         elapsed=timeadded-seasonstart
                         weekeffective=math.ceil(elapsed.days/7)
+                else:
+                    weekeffective=1
                 faoi.weekeffective=weekeffective
                 faoi.save()
                 discordserver=subleague.discord_settings.discordserver
