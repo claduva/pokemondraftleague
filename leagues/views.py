@@ -1023,6 +1023,7 @@ def archive_season(request,league_name):
     tradingitems=trading.objects.all().filter(season__league=league_)
     season=league_.subleague.first().seasonsetting
     maxid=historical_team.objects.all().order_by('-id').first().id
+    """
     for item in coachdataitems:
         maxid+=1
         if item.teammate:
@@ -1070,25 +1071,35 @@ def archive_season(request,league_name):
         if item.parent_team:
             ht.subteam=item.parent_team.name
             ht.save()
+    """
+    maxid=historical_freeagency.objects.all().order_by('-id').first().id
     for item in freeagencyitems:
-        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.coach.coach)
+        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname)
+        team=team.get(coach1=item.coach.coach)
         maxid+=1
-        historical_freeagency.objects.create(team=team,addedpokemon=item.addedpokemon,droppedpokemon=item.droppedpokemon)
+        historical_freeagency.objects.create(id=maxid,team=team,addedpokemon=item.addedpokemon,droppedpokemon=item.droppedpokemon)
         item.delete()
+    maxid=historical_trading.objects.all().order_by('-id').first().id
     for item in tradingitems:
         team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.coach.coach)
-        historical_trading.objects.create(team=team,addedpokemon=item.addedpokemon,droppedpokemon=item.droppedpokemon)
+        maxid+=1
+        historical_trading.objects.create(id=maxid,team=team,addedpokemon=item.addedpokemon,droppedpokemon=item.droppedpokemon)
         item.delete()
-    startid=draftitems.order_by('id').first().id
+    maxid=historical_draft.objects.all().order_by('-id').first().id
     for item in draftitems:
         team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team.coach)
-        historical_draft.objects.create(team=team,pokemon=item.pokemon,picknumber=item.id-startid+1)
+        maxid+=1
+        historical_draft.objects.create(id=maxid,team=team,pokemon=item.pokemon,picknumber=item.picknumber)
         item.delete()
+    maxid=historical_roster.objects.all().order_by('-id').first().id
     for item in rosteritems:
         team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team.coach)
-        historical_roster.objects.create(team=team,pokemon=item.pokemon,kills=item.kills,deaths=item.deaths,differential=item.differential,gp=item.gp,gw=item.gw,support=item.support,damagedone=item.damagedone,hphealed=item.hphealed,luck=item.luck,remaininghealth=item.remaininghealth)
+        maxid+=1
+        historical_roster.objects.create(id=maxid,team=team,pokemon=item.pokemon,kills=item.kills,deaths=item.deaths,differential=item.differential,gp=item.gp,gw=item.gw,support=item.support,damagedone=item.damagedone,hphealed=item.hphealed,luck=item.luck,remaininghealth=item.remaininghealth)
         item.delete()
+    maxid=historical_match.objects.all().order_by('-id').first().id
     for item in scheduleitems:
+        maxid+=1
         team1=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team1.coach)
         team2=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team2.coach)
         if item.team1==item.winner:
@@ -1098,6 +1109,7 @@ def archive_season(request,league_name):
         else:
             winner=None
         histmatch=historical_match.objects.create(
+            id=maxid,
             week=item.week,
             team1=team1,
             team1alternateattribution=item.team1alternateattribution,

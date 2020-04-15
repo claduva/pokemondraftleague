@@ -83,7 +83,7 @@ def newreplayparse(replay):
                 line_number+=1
     #iterate through parsed logfile
     for line in parsedlogfile:
-        line,parsedlogfile,results=replay_parse_switch(line,parsedlogfile,results)
+        line,parsedlogfile,results=replay_parse_switch(line,parsedlogfile,results) 
     #sort significant events
     results['significantevents']=sorted( results['significantevents'],key=lambda tup: tup[0])
     #update result totals
@@ -422,6 +422,11 @@ def move_function(line,parsedlogfile,results):
     #check for 2 turn moves
     if line[3].find("[still]")>-1:
         return line,parsedlogfile,results
+    #check for immunity
+    turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0], parsedlogfile))
+    notimmune=True
+    for line in turndata:
+        print(line)
     #support moves
     supportmoves=['Reflect','Light Screen','Heal Bell','Aromatherapy','Wish','Stealth Rock','Spikes','Toxic Spikes','Sticky Web', 'Aurora Veil','Defog','Rapid Spin','Hail','Sandstorm','Sunny Day','Rain Dance','Encore','Taunt','Haze','Clear Smog','Roar','Whirlwind','Leech Seed','Toxic','Will-O-Wisp','Stun Spore','Poison Powder','Block','Mean Look','Dark Void','Destiny Bond','Disable','Electric Terrain','Embargo','Endure','Fairy Lock',"Forest's Curse",'Glare','Grass Whistle','Grassy Terrain','Gravity','Grudge','Heal Block','Healing Wish','Hypnosis','Lucky Chant','Lunar Dance','Magic Coat','Magic Room','Mean Look','Memento','Mist','Misty Terrain','Mud Sport','Parting Shot','Perish Song','Poison Gas','Psychic Terrain','Safeguard','Simple Beam','Sing','Skill Swap','Sleep Powder','Soak','Speed Swap','Spider Web','Spite','Spore','Sweet Kiss','Switcheroo','Tailwind','Thunder Wave','Torment','Toxic Thread','Trick','Trick Room','Water Sport','Wonder Room','Worry Seed','Yawn']
     #check for support
