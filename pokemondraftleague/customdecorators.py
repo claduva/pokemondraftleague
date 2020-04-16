@@ -11,7 +11,6 @@ def check_if_league(view):
             return view(request, *args, **kwargs)
         except Exception as e:
             print(e)
-            raise(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),

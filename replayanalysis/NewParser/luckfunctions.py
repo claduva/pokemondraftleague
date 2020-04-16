@@ -145,6 +145,9 @@ def secondary_check(attacker,target,move,line,results,parsedlogfile):
     ['Sky Attack', ['cant', 'flinch',target['nickname'], .3,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]]])
     move_=moveswithsecondaryeffect[move]
     turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0], parsedlogfile))
+    #turndata=list(filter(lambda x: x[1] == line[1], parsedlogfile))
+    #print(turndata)
+    #print(line)
     for line_ in turndata:
         if move=="Tri Attack":
             if line_[2]==move_[0] and line_[3].find(move_[2])>-1:
