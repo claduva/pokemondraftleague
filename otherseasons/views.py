@@ -277,7 +277,7 @@ def seasonleagueleaders(request,league_name,seasonofinterest):
         messages.error(request,'Season does not exist',extra_tags='danger')
         return redirect('home')
     otherseasons=historical_team.objects.all().filter(league__name=league_name).distinct('seasonname')
-    leagueleaders=historical_roster.objects.all().filter(team__seasonname=season.seasonname,gp__gt=0).order_by('-kills','-differential')
+    leagueleaders=historical_roster.objects.all().filter(team__league__name=league_name,team__seasonname=season.seasonname,gp__gt=0).order_by('-kills','-differential')
     context = {
         'league': league_,
         'league_name': league_name,

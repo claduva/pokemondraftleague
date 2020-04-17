@@ -24,7 +24,7 @@ def processor(request):
     except Exception as e:
         print(e)
         leagueshosted = None
-    allleagues = league.objects.all().exclude(name__contains='Test').order_by('name')
+    allleagues = league.objects.all().exclude(name__icontains='Test').order_by('name')
     try:  
         leaguescoaching = coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user)).order_by('league_name')
     except:
