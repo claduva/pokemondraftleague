@@ -22,7 +22,7 @@
 </div>
 <div class="row bg-darkgrey rounded text-light p-2 align-items-center mb-2">
     <div class="col-12"><h2 class="text-center">Standings</h2></div>
-    {% for subleague in league.subleague.all %}
+    {% for subleague in league.subleague.all|alphabetize:"subleague" %}
     <div class="col-md-6">
         <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
