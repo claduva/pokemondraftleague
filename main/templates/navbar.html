@@ -168,8 +168,17 @@
         </div>
       </div>
       <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+      {% if user.is_staff %}
+    <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">Admin</a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" href="/admin/">Admin</a>
+          <a class="dropdown-item" href="{% url 'runscript' %}">Runscript</a>
+      </div>
     </div>
-
+    {% endif %}
+    </div>
     <!-- Navbar Right Side -->
     <div class="navbar-nav ml-auto">
       {% if user.is_authenticated %}
@@ -193,10 +202,6 @@
           </a>
           <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
           <a class="dropdown-item" href="{% url 'help' %}">Help</a>
-          {% if user.is_staff %}
-          <a class="dropdown-item" href="/admin/">Admin</a>
-          <a class="dropdown-item" href="{% url 'runscript' %}">Runscript</a>
-          {% endif %}
           <a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a>
         </div>
       </div>
