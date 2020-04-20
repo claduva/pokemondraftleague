@@ -357,6 +357,31 @@ def check_analyzer(request):
     unavailable=historical_match.objects.all().filter(replay="Unavailable")
     total=currentmatches.count()+histmatches.count()+histffmatches.count()+ffmatches.count()+unavailable.count()
     i=1
+    failed=[]
+    print('Current')
+    for item in currentmatches:
+        try:
+            success=check_current_match(item)
+            if not success:
+                failed.append(item)
+                print(f'{item.id}: {item.replay}')
+        except:
+            failed.append(item)
+            print(f'{item.id}: {item.replay}')
+        print(f'{i}/{total}')
+        i+=1
+    print('Historic')
+    for item in histmatches:
+        try:
+            success=check_hist_match(item)
+            if not success:
+                failed.append(item)
+                print(f'{item.id}: {item.replay}')
+        except:
+            failed.append(item)
+            print(f'{item.id}: {item.replay}')
+        print(f'{i}/{total}')
+        i+=1
     #forfeits
     print('Forfeit')
     for item in ffmatches:
@@ -426,23 +451,6 @@ def check_analyzer(request):
             team1.losses+=1
         print(f'{i}/{total}')
         i+=1
-    failed=[]
-    print('Current')
-    for item in currentmatches:
-        try:
-            check_current_match(item)
-        except:
-            failed.append(item)
-        print(f'{i}/{total}')
-        i+=1
-    print('Historic')
-    for item in histmatches:
-        try:
-            check_hist_match(item)
-        except:
-            failed.append(item)
-        print(f'{i}/{total}')
-        i+=1
     print('Failed')
     for item in failed:
         print(f'{item.id}: {item.replay}')
@@ -473,12 +481,8 @@ def check_current_match(match):
         except:
             mr=match_replay.objects.create(match=match,data=results)
         update_current_match(mr)
-    data={
-        'replay': url,
-        'success': success,
-        }
     #return JsonResponse(data)
-    return
+    return success
 
 @csrf_exempt
 #def check_hist_match(request):
@@ -536,7 +540,7 @@ def check_hist_match(match):
         'success': success,
         }
     #return JsonResponse(data)
-    return
+    return success
 
 def update_current_match(mr):
     match=mr.match

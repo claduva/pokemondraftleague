@@ -1,7 +1,14 @@
+def luckappend(line,results,mon,event,luckchange):
+    startluck=mon['luck']/100
+    mon['luck']+=luckchange
+    if luckchange!=0:
+        results['luckcatalog'].append([line[1],mon['pokemon'],event,startluck,luckchange/100,mon['luck']/100])
+    return results
+
 def miss_function(line,attacker,target,move,results):
-    attacker['luck']+=-100
-    target['luck']+=100
-    results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} missed {move} against {target['pokemon']}"])
+    results=luckappend(line,results,attacker,f"Mon missed a move ({move})",-100)
+    results=luckappend(line,results,target,f"Opponent missed a move ({move})",100)
+    #results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} missed {move} against {target['pokemon']}"])
     return results
 
 def roster_search(team,pokemon,results):
@@ -101,7 +108,7 @@ def secondary_check(attacker,target,move,line,results,parsedlogfile):
     ['Sacred Fire', ['status', 'brn',target['nickname'], .5,f"{target['pokemon']} was burned by {attacker['pokemon']} with {move}"]], 
     ['Ice Beam', ['status', 'frz',target['nickname'], .1,f"{target['pokemon']} was frozen by {attacker['pokemon']} with {move}"]], 
     ['Poison Jab', ['status', 'psn',target['nickname'], .3,f"{target['pokemon']} was poisoned by {attacker['pokemon']} with {move}"]], 
-    ['Double Iron Bash', ['cant', 'flinch',target['nickname'], .3,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]], 
+    ['Double Iron Bash', ['cant', 'flinch',target['nickname'], .51,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]], 
     ['Waterfall', ['cant', 'flinch',target['nickname'], .2,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]], 
     ['Psybeam', ['start', 'confusion',target['nickname'], .1,f"{target['pokemon']} was confused by {attacker['pokemon']} with {move}"]], 
     ['Strange Steam', ['start', 'confusion',target['nickname'], .2,f"{target['pokemon']} was confused by {attacker['pokemon']} with {move}"]], 
@@ -145,23 +152,21 @@ def secondary_check(attacker,target,move,line,results,parsedlogfile):
     ['Sky Attack', ['cant', 'flinch',target['nickname'], .3,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]]])
     move_=moveswithsecondaryeffect[move]
     turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0], parsedlogfile))
-    #turndata=list(filter(lambda x: x[1] == line[1], parsedlogfile))
-    #print(turndata)
-    #print(line)
     for line_ in turndata:
+        #need adjustment for fang moves
         if move=="Tri Attack":
             if line_[2]==move_[0] and line_[3].find(move_[2])>-1:
                 status=line_[3].split("|")[1]
                 if status in ['brn','par','frz']:
-                    results['significantevents'].append([line[1],f"LUCK: {move_[4]}"])
-                    attacker['luck']+=100
-                    target['luck']+=-100
+                    #results['significantevents'].append([line[1],f"LUCK: {move_[4]}"])
+                    results=luckappend(line,results,attacker,f"Mon incurred secondary effect ({move})",100)
+                    results=luckappend(line,results,target,f"Mon harmed by secondary effect ({move})",-100)
                     target[status]=attacker['nickname']   
                     break
         elif line_[2]==move_[0] and line_[3].find(move_[1])>-1 and line_[3].find(move_[2])>-1:
-            results['significantevents'].append([line[1],f"LUCK: {move_[4]}"])
-            attacker['luck']+=100
-            target['luck']+=-100
+            #results['significantevents'].append([line[1],f"LUCK: {move_[4]}"])
+            results=luckappend(line,results,attacker,f"Mon incurred secondary effect ({move})",100)
+            results=luckappend(line,results,target,f"Mon harmed by secondary effect ({move})",-100)
             if move_[0]=="status" or move_[0]=="start":
                 target[move_[1]]=attacker['nickname']
     return results
@@ -177,16 +182,16 @@ def crit_function(line,parsedlogfile,results):
             attackingteam="p2a"
             attacker=line_[3].split("|",1)[0].split(" ",1)[1]
             attacker=roster_search(attackingteam,attacker,results)
-            attacker['luck']+=100
-            crittedmon_['luck']+=-100
+            results=luckappend(line,results,attacker,f"Mon landed a critical hit",100)
+            results=luckappend(line,results,crittedmon_,f"Mon was hit by a critical hit",-100)
             move=line_[3].split("|")[1]
-            results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon_['pokemon']} with {move}"])
+            #results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon_['pokemon']} with {move}"])
         elif crittedteam=="p2a" and line_[2]=="move" and line_[3].split(":",1)[0]=="p1a" and line_[3].split("|")[2]==f"{crittedteam}: {crittedmon}":
             attackingteam="p1a"
             attacker=line_[3].split("|",1)[0].split(" ",1)[1]
             attacker=roster_search(attackingteam,attacker,results)
-            attacker['luck']+=100
-            crittedmon_['luck']+=-100
+            results=luckappend(line,results,attacker,f"Mon landed a critical hit",100)
+            results=luckappend(line,results,crittedmon_,f"Mon was hit by a critical hit",-100)
             move=line_[3].split("|")[1]
-            results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon_['pokemon']} with {move}"])
+            #results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon_['pokemon']} with {move}"])
     return line,parsedlogfile,results

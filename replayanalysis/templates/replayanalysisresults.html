@@ -208,5 +208,32 @@
             </table>
         </div>
     </div>
+    <div class="col-md-12">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th colspan="100%">Luck Catalog</th>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>Turn</th>
+                    <th>Pokemon</th>
+                    <th>Event</th>
+                    <th>Starting Luck</th>
+                    <th>Luck Change</th>
+                    <th>Total Current Luck</th>
+                </tr>
+                {% for turn,pokemon,event,startluck,luckchange,totalluck in results.luckcatalog %}
+                <tr>
+                    <td>{{turn}}</td>
+                    <td>{{pokemon}}</td>
+                    <td>{{event}}</td>
+                    <td>{{startluck|floatformat:2}}</td>
+                    <td>{{luckchange|floatformat:2}}</td>
+                    <td>{{totalluck|floatformat:2}}</td>
+                </tr>
+                {% endfor%}
+            </table>
+        </div>
+    </div>
 </div>
 {% endblock %}
