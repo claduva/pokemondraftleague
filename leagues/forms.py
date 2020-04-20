@@ -186,9 +186,13 @@ class CreateMatchForm(forms.ModelForm):
 
     def __init__(self,season,subleague, *args, **kwargs):
         super(CreateMatchForm, self).__init__(*args, **kwargs)
-        self.fields['team1'].queryset = coachdata.objects.filter(subleague=subleague).order_by('teamname')
+        if season.league.configuration.allows_cross_subleague_matches:
+            self.fields['team1'].queryset = coachdata.objects.filter(subleague__league=subleague.league).order_by('teamname')
+            self.fields['team2'].queryset = coachdata.objects.filter(subleague__league=subleague.league).order_by('teamname')
+        else:
+            self.fields['team1'].queryset = coachdata.objects.filter(subleague=subleague).order_by('teamname')
+            self.fields['team2'].queryset = coachdata.objects.filter(subleague=subleague).order_by('teamname')
         self.fields['team1'].label_from_instance = lambda obj: obj.teamname
-        self.fields['team2'].queryset = coachdata.objects.filter(subleague=subleague).order_by('teamname')
         self.fields['team2'].label_from_instance = lambda obj: obj.teamname
         c=[(i+1,i+1) for i in range(season.seasonlength)]
         d=[(f'Playoffs Round {i+1}',f'Playoffs Round {i+1}') for i in range(season.playoffslength-3)]

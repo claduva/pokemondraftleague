@@ -41,6 +41,7 @@ class league_settings(models.Model):
 class league_configuration(models.Model):
     league = models.OneToOneField(league, on_delete=models.CASCADE,related_name="configuration")
     number_of_subleagues = models.IntegerField(default=1)
+    allows_cross_subleague_matches = models.BooleanField(default=False)
     allows_teams = models.BooleanField(default=False)
     teambased = models.BooleanField(default=False)
 
