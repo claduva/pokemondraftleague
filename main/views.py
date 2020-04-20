@@ -139,7 +139,6 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    print(list(moveinfo.objects.all().filter(secondary_effect__contains="self boosts").values_list('name',flat=True)))
     return redirect('home')
 
 def get_pkmn(pkmn):

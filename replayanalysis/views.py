@@ -342,6 +342,34 @@ def league_match_results(request,league_name,subleague_name,matchid):
         return render(request,"replayanalysisresults.html",context)
 
 @check_if_clad
+def check_existing_replay(request):
+    if request.method=="POST":
+        form = MatchReplayForm(request.POST)
+        if form.is_valid():
+            url=form.cleaned_data['url']
+            #currentmatch
+            try:
+                item=schedule.objects.get(replay=url)
+                success=check_current_match(item)
+                if success:
+                    messages.success(request,"Match has been executed!")
+            #historic match
+            except:
+                try:
+                    item=historical_match.objects.get(replay=url)
+                    success=check_hist_match(item)
+                    if success:
+                        messages.success(request,"Match has been executed!")
+                except:
+                    messages.error(request,f'Replay is not in the library.',extra_tags="danger")
+    form=MatchReplayForm()
+    context={
+        'form': form,
+        'submission': True,
+    }
+    return  render(request,"replayanalysisform.html",context)
+
+@check_if_clad
 def check_analyzer(request):
     ##zero rosters  
     roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)

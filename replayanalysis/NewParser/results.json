@@ -1,18 +1,18 @@
 {
   "team1": {
-    "coach": "Lunar",
+    "coach": "can3",
     "roster": [
       {
-        "pokemon": "Blastoise-Mega",
-        "startform": "Blastoise",
-        "nickname": "Blastoise",
+        "pokemon": "Infernape",
+        "startform": "Infernape",
+        "nickname": "Infernape",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 36,
-        "hphealed": 0,
-        "luck": -0.075,
+        "damagedone": 92,
+        "hphealed": -19,
+        "luck": -0.04167,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -32,16 +32,16 @@
         "Focus Energy": false
       },
       {
-        "pokemon": "Zeraora",
-        "startform": "Zeraora",
-        "nickname": "Zeraora",
+        "pokemon": "Heliolisk",
+        "startform": "Heliolisk",
+        "nickname": "Heliolisk",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 255,
         "hphealed": 0,
-        "luck": 0.0,
+        "luck": -0.8583700000000001,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -61,74 +61,16 @@
         "Focus Energy": false
       },
       {
-        "pokemon": "Aromatisse",
-        "startform": "Aromatisse",
-        "nickname": "Aromatisse",
+        "pokemon": "Landorus-Therian",
+        "startform": "Landorus",
+        "nickname": "Landorus",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 6,
-        "damagedone": 34,
-        "hphealed": 169,
-        "luck": -0.8666499999999999,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false
-      },
-      {
-        "pokemon": "Conkeldurr",
-        "startform": "Conkeldurr",
-        "nickname": "Conkeldurr",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
         "support": 0,
-        "damagedone": 169,
-        "hphealed": 21,
-        "luck": -0.24167000000000002,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": "Conkeldurr",
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false
-      },
-      {
-        "pokemon": "Torkoal",
-        "startform": "Torkoal",
-        "nickname": "Torkoal",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 314,
+        "damagedone": 71,
         "hphealed": 0,
-        "luck": -1.17501,
+        "luck": 1.03333,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -148,16 +90,74 @@
         "Focus Energy": false
       },
       {
-        "pokemon": "Runerigus",
-        "startform": "Runerigus",
-        "nickname": "Runerigus",
+        "pokemon": "Starmie",
+        "startform": "Starmie",
+        "nickname": "Starmie",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 63,
+        "hphealed": 100,
+        "luck": 0.72501,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false
+      },
+      {
+        "pokemon": "Venusaur-Mega",
+        "startform": "Venusaur",
+        "nickname": "Venusaur",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 1,
-        "damagedone": 48,
+        "damagedone": 12,
         "hphealed": 0,
-        "luck": -0.11666,
+        "luck": -0.14165999999999998,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false
+      },
+      {
+        "pokemon": "Avalugg",
+        "startform": "Avalugg",
+        "nickname": "Avalugg",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 75,
+        "hphealed": 0,
+        "luck": 0.125,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -182,17 +182,17 @@
     "score": 0,
     "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 13,
+    "timesswitched": 37,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 3,
+    "kills": 1,
     "deaths": 6,
-    "luck": -2.475,
-    "damagedone": 601,
-    "hphealed": 190,
-    "support": 7,
-    "activemon": "Conkeldurr",
+    "luck": 0.8415,
+    "damagedone": 568,
+    "hphealed": 81,
+    "support": 3,
+    "activemon": "Venusaur",
     "Toxic Spikes": null,
     "Spikes": null,
     "Stealth Rock": null,
@@ -204,157 +204,12 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "hotcheesenips",
+    "coach": "Shuckle15",
     "roster": [
       {
-        "pokemon": "Whimsicott",
-        "startform": "Whimsicott",
-        "nickname": "Whimsicott",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 65,
-        "hphealed": 16,
-        "luck": 0.05833,
-        "remaininghealth": 63,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false
-      },
-      {
-        "pokemon": "Aerodactyl-Mega",
-        "startform": "Aerodactyl",
-        "nickname": "Aerodactyl",
-        "kills": 3,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 252,
-        "hphealed": 36,
-        "luck": -0.59167,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false
-      },
-      {
-        "pokemon": "Accelgor",
-        "startform": "Accelgor",
-        "nickname": "Accelgor",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 100,
-        "hphealed": -100,
-        "luck": 0.0,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false
-      },
-      {
-        "pokemon": "Aegislash",
-        "startform": "Aegislash",
-        "nickname": "Aegislash",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.10833,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false
-      },
-      {
-        "pokemon": "Rotom-Wash",
-        "startform": "Rotom",
-        "nickname": "Rotom",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 373,
-        "hphealed": 212,
-        "luck": 3.11666,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false
-      },
-      {
-        "pokemon": "Kommo-o",
-        "startform": "Kommo-o",
-        "nickname": "Kommo-o",
+        "pokemon": "Weavile",
+        "startform": "Weavile",
+        "nickname": "Weavile",
         "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
@@ -379,27 +234,172 @@
         "accuracy": 0,
         "evasion": 0,
         "Focus Energy": false
+      },
+      {
+        "pokemon": "Zeraora",
+        "startform": "Zeraora",
+        "nickname": "Nathaniel",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 55,
+        "hphealed": 12,
+        "luck": 0.18334,
+        "remaininghealth": 77,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false
+      },
+      {
+        "pokemon": "Gallade-Mega",
+        "startform": "Gallade",
+        "nickname": "Accidental",
+        "kills": 5,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 358,
+        "hphealed": 52,
+        "luck": -1.9166800000000002,
+        "remaininghealth": 30,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false
+      },
+      {
+        "pokemon": "Togekiss",
+        "startform": "Togekiss",
+        "nickname": "Capita",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 155,
+        "hphealed": 73,
+        "luck": 0.55,
+        "remaininghealth": 100,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false
+      },
+      {
+        "pokemon": "Blastoise",
+        "startform": "Blastoise",
+        "nickname": "Collin",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 113,
+        "hphealed": 0,
+        "luck": -0.8749899999999999,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false
+      },
+      {
+        "pokemon": "Lickilicky",
+        "startform": "Lickilicky",
+        "nickname": "Mewsthebest",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 4,
+        "damagedone": 0,
+        "hphealed": 189,
+        "luck": 1.21669,
+        "remaininghealth": 51,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false
       }
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 2,
+    "score": 5,
     "megaevolved": true,
-    "usedzmove": false,
-    "timesswitched": 13,
-    "selfdeaths": 1,
-    "remaininghealth": 163,
+    "usedzmove": true,
+    "timesswitched": 27,
+    "selfdeaths": 0,
+    "remaininghealth": 358,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 4,
-    "luck": 2.475,
-    "damagedone": 790,
-    "hphealed": 164,
-    "support": 5,
-    "activemon": "Whimsicott",
+    "deaths": 1,
+    "luck": -0.8417,
+    "damagedone": 681,
+    "hphealed": 326,
+    "support": 6,
+    "activemon": "Accidental",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Runerigus",
+    "Stealth Rock": null,
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -411,719 +411,1051 @@
   "Gravity": 1.0,
   "Rain": false,
   "Hail": false,
-  "numberofturns": 34,
+  "numberofturns": 56,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexlegacy-53301",
+  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexlegacy-50293",
   "significantevents": [
     [
-      1,
-      "Accelgor killed Zeraora with Final Gambit"
+      4,
+      "Togekiss provided support by using Heal Bell"
     ],
     [
-      2,
-      "Aromatisse provided support by using Trick Room"
-    ],
-    [
-      6,
-      "Torkoal killed Aegislash with Fire Blast"
-    ],
-    [
-      8,
-      "Aromatisse provided support by using Trick Room"
-    ],
-    [
-      12,
-      "Runerigus provided support by using Stealth Rock"
+      9,
+      "Lickilicky provided support by using Wish"
     ],
     [
       13,
-      "Aerodactyl-Mega provided support by using Taunt"
+      "Venusaur-Mega provided support by using Leech Seed"
     ],
     [
       15,
-      "Aerodactyl-Mega killed Runerigus with Earthquake"
+      "Starmie provided support by using Thunder Wave"
     ],
     [
-      16,
-      "Aerodactyl-Mega killed Blastoise-Mega with Stone Edge"
+      15,
+      "Lickilicky provided support by using Wish"
     ],
     [
       20,
-      "Aromatisse provided support by using Wish"
-    ],
-    [
-      21,
-      "Rotom-Wash provided support by using Defog"
-    ],
-    [
-      22,
-      "Aromatisse provided support by using Trick Room"
+      "Lickilicky provided support by using Wish"
     ],
     [
       23,
-      "Rotom-Wash provided support by using Defog"
+      "Blastoise killed Infernape with Aqua Jet"
     ],
     [
       25,
-      "Whimsicott provided support by using Leech Seed"
+      "Lickilicky provided support by using Wish"
     ],
     [
       26,
-      "Aromatisse provided support by using Wish"
+      "Avalugg killed Blastoise with Body Press"
     ],
     [
-      27,
-      "Aerodactyl-Mega provided support by using Taunt"
+      35,
+      "Starmie provided support by using Thunder Wave"
     ],
     [
-      28,
-      "Aromatisse provided support by using Trick Room"
+      39,
+      "Gallade-Mega killed Starmie with Knock Off"
     ],
     [
-      29,
-      "Aerodactyl-Mega killed Aromatisse with Aerial Ace"
+      43,
+      "Togekiss provided support by using Heal Bell"
     ],
     [
-      30,
-      "Torkoal killed Aerodactyl-Mega with Eruption"
+      52,
+      "Gallade-Mega killed Landorus-Therian with Knock Off"
     ],
     [
-      32,
-      "Rotom-Wash killed Torkoal with Hydro Pump"
+      54,
+      "Gallade-Mega killed Avalugg with Drain Punch"
     ],
     [
-      33,
-      "Conkeldurr killed Rotom-Wash with Drain Punch"
+      55,
+      "Gallade-Mega killed Heliolisk with Drain Punch"
     ],
     [
-      34,
-      "Whimsicott killed Conkeldurr with Moonblast"
+      56,
+      "Gallade-Mega killed Venusaur-Mega with Psycho Cut"
     ]
   ],
   "luckcatalog": [
     [
-      6,
-      "Aegislash",
-      "Target of Move That Can Miss (Fire Blast)",
-      0.0,
-      -0.15,
-      -0.15
-    ],
-    [
-      6,
-      "Aegislash",
-      "Target of Move With Crit Chance (Fire Blast)",
-      -0.15,
-      0.04167,
-      -0.10833
-    ],
-    [
-      9,
-      "Aerodactyl-Mega",
-      "Mon Used Move With Crit Chance (Aerial Ace)",
+      26,
+      "Avalugg",
+      "Mon Used Move With Crit Chance (Body Press)",
       0.0,
       -0.04167,
       -0.04167
     ],
     [
-      14,
-      "Aerodactyl-Mega",
-      "Mon Used Move With Crit Chance (Earthquake)",
+      51,
+      "Avalugg",
+      "Target of Move With Increased Crit Chance (Psycho Cut)",
       -0.04167,
-      -0.04167,
-      -0.08334
+      0.125,
+      0.08333
     ],
     [
-      14,
-      "Aerodactyl-Mega",
-      "Target of Move With Crit Chance (Body Press)",
-      -0.08334,
+      53,
+      "Avalugg",
+      "Target of Move With Crit Chance (Drain Punch)",
+      0.08333,
       0.04167,
-      -0.04167
+      0.125
     ],
     [
-      15,
-      "Aerodactyl-Mega",
-      "Mon Used Move With Crit Chance (Earthquake)",
+      53,
+      "Avalugg",
+      "Mon Used Move With Crit Chance (Avalanche)",
+      0.125,
       -0.04167,
-      -0.04167,
-      -0.08334
+      0.08333
     ],
     [
-      16,
-      "Aerodactyl-Mega",
-      "Mon Used a Move That Can Miss (Stone Edge)",
-      -0.08334,
-      0.2,
-      0.11666
-    ],
-    [
-      16,
-      "Aerodactyl-Mega",
-      "Mon Used Move With Increased Crit Chance (Stone Edge)",
-      0.11666,
-      -0.125,
-      -0.008339999999999997
-    ],
-    [
-      28,
-      "Aerodactyl-Mega",
-      "Mon Used a Move That Can Miss (Stone Edge)",
-      -0.008339999999999997,
-      0.2,
-      0.19166
-    ],
-    [
-      28,
-      "Aerodactyl-Mega",
-      "Mon Used Move With Increased Crit Chance (Stone Edge)",
-      0.19166,
-      -0.125,
-      0.06666
-    ],
-    [
-      29,
-      "Aerodactyl-Mega",
-      "Target of Move With Crit Chance (Moonblast)",
-      0.06666,
+      54,
+      "Avalugg",
+      "Target of Move With Crit Chance (Drain Punch)",
+      0.08333,
       0.04167,
-      0.10833
+      0.125
     ],
     [
-      29,
-      "Aerodactyl-Mega",
-      "Target of Move With Secondary Effect Chance (Moonblast)",
-      0.10833,
-      0.3,
-      0.40832999999999997
+      6,
+      "Blastoise",
+      "Target of Move With Crit Chance (Close Combat)",
+      0.0,
+      0.04167,
+      0.04167
     ],
     [
-      29,
-      "Aerodactyl-Mega",
-      "Mon harmed by secondary effect (Moonblast)",
-      0.40832999999999997,
+      12,
+      "Blastoise",
+      "Target of Move With Crit Chance (U-turn)",
+      0.04167,
+      0.04167,
+      0.08334
+    ],
+    [
+      12,
+      "Blastoise",
+      "Mon was hit by a critical hit",
+      0.08334,
       -1.0,
-      -0.59167
+      -0.9166599999999999
     ],
     [
-      29,
-      "Aerodactyl-Mega",
-      "Mon Used Move With Crit Chance (Aerial Ace)",
-      -0.59167,
-      -0.04167,
-      -0.63334
-    ],
-    [
-      30,
-      "Aerodactyl-Mega",
-      "Target of Move With Crit Chance (Eruption)",
-      -0.63334,
+      22,
+      "Blastoise",
+      "Target of Move With Crit Chance (Close Combat)",
+      -0.9166599999999999,
       0.04167,
-      -0.59167
+      -0.8749899999999999
+    ],
+    [
+      23,
+      "Blastoise",
+      "Mon Used Move With Crit Chance (Aqua Jet)",
+      -0.8749899999999999,
+      -0.04167,
+      -0.9166599999999999
+    ],
+    [
+      26,
+      "Blastoise",
+      "Target of Move With Crit Chance (Body Press)",
+      -0.9166599999999999,
+      0.04167,
+      -0.8749899999999999
+    ],
+    [
+      1,
+      "Gallade-Mega",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      0.0,
+      -0.04167,
+      -0.04167
     ],
     [
       2,
-      "Aromatisse",
-      "Target of Move With Crit Chance (Volt Switch)",
+      "Gallade-Mega",
+      "Target of Move With Crit Chance (Scald)",
+      -0.04167,
+      0.04167,
+      0.0
+    ],
+    [
+      2,
+      "Gallade-Mega",
+      "Target of Move With Secondary Effect Chance (Scald)",
       0.0,
-      0.04167,
-      0.04167
+      0.3,
+      0.3
     ],
     [
-      7,
-      "Aromatisse",
-      "Target of Move That Can Miss (Hydro Pump)",
-      0.04167,
-      -0.2,
-      -0.15833
-    ],
-    [
-      7,
-      "Aromatisse",
-      "Target of Move With Crit Chance (Hydro Pump)",
-      -0.15833,
-      0.04167,
-      -0.11666
-    ],
-    [
-      7,
-      "Aromatisse",
-      "Mon was hit by a critical hit",
-      -0.11666,
+      2,
+      "Gallade-Mega",
+      "Mon harmed by secondary effect (Scald)",
+      0.3,
       -1.0,
-      -1.11666
+      -0.7
+    ],
+    [
+      2,
+      "Gallade-Mega",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      -0.7,
+      -0.04167,
+      -0.74167
+    ],
+    [
+      13,
+      "Gallade-Mega",
+      "Target of Move That Can Miss (Leech Seed)",
+      -0.74167,
+      -0.1,
+      -0.84167
+    ],
+    [
+      38,
+      "Gallade-Mega",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      -0.84167,
+      -0.04167,
+      -0.88334
+    ],
+    [
+      39,
+      "Gallade-Mega",
+      "Target of Move With Crit Chance (Scald)",
+      -0.88334,
+      0.04167,
+      -0.84167
+    ],
+    [
+      39,
+      "Gallade-Mega",
+      "Target of Move With Secondary Effect Chance (Scald)",
+      -0.84167,
+      0.3,
+      -0.54167
+    ],
+    [
+      39,
+      "Gallade-Mega",
+      "Mon harmed by secondary effect (Scald)",
+      -0.54167,
+      -1.0,
+      -1.54167
+    ],
+    [
+      39,
+      "Gallade-Mega",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      -1.54167,
+      -0.04167,
+      -1.58334
+    ],
+    [
+      51,
+      "Gallade-Mega",
+      "Mon Used Move With Increased Crit Chance (Psycho Cut)",
+      -1.58334,
+      -0.125,
+      -1.70834
+    ],
+    [
+      52,
+      "Gallade-Mega",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      -1.70834,
+      -0.04167,
+      -1.75001
+    ],
+    [
+      53,
+      "Gallade-Mega",
+      "Mon Used Move With Crit Chance (Drain Punch)",
+      -1.75001,
+      -0.04167,
+      -1.7916800000000002
+    ],
+    [
+      53,
+      "Gallade-Mega",
+      "Target of Move With Crit Chance (Avalanche)",
+      -1.7916800000000002,
+      0.04167,
+      -1.75001
+    ],
+    [
+      54,
+      "Gallade-Mega",
+      "Mon Used Move With Crit Chance (Drain Punch)",
+      -1.75001,
+      -0.04167,
+      -1.7916800000000002
+    ],
+    [
+      55,
+      "Gallade-Mega",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      -1.7916800000000002,
+      0.04167,
+      -1.75001
+    ],
+    [
+      55,
+      "Gallade-Mega",
+      "Mon Used Move With Crit Chance (Drain Punch)",
+      -1.75001,
+      -0.04167,
+      -1.7916800000000002
+    ],
+    [
+      56,
+      "Gallade-Mega",
+      "Mon Used Move With Increased Crit Chance (Psycho Cut)",
+      -1.7916800000000002,
+      -0.125,
+      -1.9166800000000002
+    ],
+    [
+      5,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (U-turn)",
+      0.0,
+      -0.04167,
+      -0.04167
     ],
     [
       8,
-      "Aromatisse",
-      "Target of Move With Crit Chance (Volt Switch)",
-      -1.11666,
-      0.04167,
-      -1.07499
-    ],
-    [
-      19,
-      "Aromatisse",
-      "Target of Move That Can Miss (Hydro Pump)",
-      -1.07499,
-      -0.2,
-      -1.2749899999999998
-    ],
-    [
-      19,
-      "Aromatisse",
-      "Target of Move With Crit Chance (Hydro Pump)",
-      -1.2749899999999998,
-      0.04167,
-      -1.23332
-    ],
-    [
-      20,
-      "Aromatisse",
-      "Target of Move That Can Miss (Hydro Pump)",
-      -1.23332,
-      -0.2,
-      -1.43332
-    ],
-    [
-      20,
-      "Aromatisse",
-      "Target of Move With Crit Chance (Hydro Pump)",
-      -1.43332,
-      0.04167,
-      -1.3916499999999998
-    ],
-    [
-      25,
-      "Aromatisse",
-      "Target of Move That Can Miss (Leech Seed)",
-      -1.3916499999999998,
-      -0.1,
-      -1.49165
-    ],
-    [
-      28,
-      "Aromatisse",
-      "Target of Move That Can Miss (Stone Edge)",
-      -1.49165,
-      -0.2,
-      -1.6916499999999999
-    ],
-    [
-      28,
-      "Aromatisse",
-      "Target of Move With Increased Crit Chance (Stone Edge)",
-      -1.6916499999999999,
-      0.125,
-      -1.5666499999999999
-    ],
-    [
-      29,
-      "Aromatisse",
-      "Mon Used Move With Crit Chance (Moonblast)",
-      -1.5666499999999999,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (Thunderbolt)",
       -0.04167,
-      -1.60832
+      -0.04167,
+      -0.08334
     ],
     [
-      29,
-      "Aromatisse",
-      "Mon Used Move With Secondary Effect Chance (Moonblast)",
-      -1.60832,
-      -0.3,
-      -1.90832
-    ],
-    [
-      29,
-      "Aromatisse",
-      "Mon incurred secondary effect (Moonblast)",
-      -1.90832,
-      1.0,
-      -0.9083199999999999
-    ],
-    [
-      29,
-      "Aromatisse",
-      "Target of Move With Crit Chance (Aerial Ace)",
-      -0.9083199999999999,
-      0.04167,
-      -0.8666499999999999
+      8,
+      "Heliolisk",
+      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
+      -0.08334,
+      -0.1,
+      -0.18334
     ],
     [
       9,
-      "Blastoise",
-      "Target of Move With Crit Chance (Aerial Ace)",
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (U-turn)",
+      -0.18334,
+      -0.04167,
+      -0.22501
+    ],
+    [
+      11,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (U-turn)",
+      -0.22501,
+      -0.04167,
+      -0.26668
+    ],
+    [
+      19,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      -0.26668,
+      -0.04167,
+      -0.30835
+    ],
+    [
+      20,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (U-turn)",
+      -0.30835,
+      -0.04167,
+      -0.35002
+    ],
+    [
+      24,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      -0.35002,
+      -0.04167,
+      -0.39169000000000004
+    ],
+    [
+      25,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (U-turn)",
+      -0.39169000000000004,
+      -0.04167,
+      -0.4333600000000001
+    ],
+    [
+      27,
+      "Heliolisk",
+      "Target of Move With Crit Chance (Dazzling Gleam)",
+      -0.4333600000000001,
+      0.04167,
+      -0.39169000000000004
+    ],
+    [
+      29,
+      "Heliolisk",
+      "Target of Move That Can Miss (Air Slash)",
+      -0.39169000000000004,
+      -0.05,
+      -0.44169
+    ],
+    [
+      29,
+      "Heliolisk",
+      "Target of Move With Crit Chance (Air Slash)",
+      -0.44169,
+      0.04167,
+      -0.40002000000000004
+    ],
+    [
+      30,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (Thunderbolt)",
+      -0.40002000000000004,
+      -0.04167,
+      -0.44169
+    ],
+    [
+      30,
+      "Heliolisk",
+      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
+      -0.44169,
+      -0.1,
+      -0.54169
+    ],
+    [
+      34,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (U-turn)",
+      -0.54169,
+      -0.04167,
+      -0.5833600000000001
+    ],
+    [
+      41,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (U-turn)",
+      -0.5833600000000001,
+      -0.04167,
+      -0.6250300000000001
+    ],
+    [
+      44,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (Thunderbolt)",
+      -0.6250300000000001,
+      -0.04167,
+      -0.6667000000000001
+    ],
+    [
+      44,
+      "Heliolisk",
+      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
+      -0.6667000000000001,
+      -0.1,
+      -0.7667
+    ],
+    [
+      45,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (U-turn)",
+      -0.7667,
+      -0.04167,
+      -0.80837
+    ],
+    [
+      47,
+      "Heliolisk",
+      "Target of Move That Can Miss (Air Slash)",
+      -0.80837,
+      -0.05,
+      -0.8583700000000001
+    ],
+    [
+      47,
+      "Heliolisk",
+      "Target of Move With Crit Chance (Air Slash)",
+      -0.8583700000000001,
+      0.04167,
+      -0.8167
+    ],
+    [
+      48,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (U-turn)",
+      -0.8167,
+      -0.04167,
+      -0.8583700000000001
+    ],
+    [
+      55,
+      "Heliolisk",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      -0.8583700000000001,
+      -0.04167,
+      -0.9000400000000001
+    ],
+    [
+      55,
+      "Heliolisk",
+      "Target of Move With Crit Chance (Drain Punch)",
+      -0.9000400000000001,
+      0.04167,
+      -0.8583700000000001
+    ],
+    [
+      6,
+      "Infernape",
+      "Mon Used Move With Crit Chance (Close Combat)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      22,
+      "Infernape",
+      "Mon Used Move With Crit Chance (Close Combat)",
+      -0.04167,
+      -0.04167,
+      -0.08334
+    ],
+    [
+      23,
+      "Infernape",
+      "Target of Move With Crit Chance (Aqua Jet)",
+      -0.08334,
+      0.04167,
+      -0.04167
+    ],
+    [
+      12,
+      "Landorus-Therian",
+      "Mon Used Move With Crit Chance (U-turn)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      12,
+      "Landorus-Therian",
+      "Mon landed a critical hit",
+      -0.04167,
+      1.0,
+      0.95833
+    ],
+    [
+      32,
+      "Landorus-Therian",
+      "Target of Move With Crit Chance (Supersonic Skystrike)",
+      0.95833,
+      0.04167,
+      1.0
+    ],
+    [
+      33,
+      "Landorus-Therian",
+      "Mon Used Move With Crit Chance (U-turn)",
+      1.0,
+      -0.04167,
+      0.95833
+    ],
+    [
+      40,
+      "Landorus-Therian",
+      "Mon Used Move With Crit Chance (U-turn)",
+      0.95833,
+      -0.04167,
+      0.9166599999999999
+    ],
+    [
+      49,
+      "Landorus-Therian",
+      "Mon Used a Move That Can Miss (Stone Edge)",
+      0.9166599999999999,
+      0.2,
+      1.11666
+    ],
+    [
+      49,
+      "Landorus-Therian",
+      "Mon Used Move With Increased Crit Chance (Stone Edge)",
+      1.11666,
+      -0.125,
+      0.99166
+    ],
+    [
+      52,
+      "Landorus-Therian",
+      "Target of Move With Crit Chance (Knock Off)",
+      0.99166,
+      0.04167,
+      1.03333
+    ],
+    [
+      5,
+      "Lickilicky",
+      "Target of Move With Crit Chance (U-turn)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      10,
-      "Blastoise-Mega",
-      "Mon Used Move With Crit Chance (Aura Sphere)",
+      8,
+      "Lickilicky",
+      "Target of Move With Crit Chance (Thunderbolt)",
+      0.04167,
+      0.04167,
+      0.08334
+    ],
+    [
+      8,
+      "Lickilicky",
+      "Target of Move With Secondary Effect Chance (Thunderbolt)",
+      0.08334,
+      0.1,
+      0.18334
+    ],
+    [
+      9,
+      "Lickilicky",
+      "Target of Move With Crit Chance (U-turn)",
+      0.18334,
+      0.04167,
+      0.22501
+    ],
+    [
+      15,
+      "Lickilicky",
+      "Target of Move That Can Miss (Thunder Wave)",
+      0.22501,
+      -0.1,
+      0.12500999999999998
+    ],
+    [
+      15,
+      "Lickilicky",
+      "Opponent missed a move (Thunder Wave)",
+      0.12500999999999998,
+      1.0,
+      1.12501
+    ],
+    [
+      19,
+      "Lickilicky",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      1.12501,
+      0.04167,
+      1.1666800000000002
+    ],
+    [
+      20,
+      "Lickilicky",
+      "Target of Move With Crit Chance (U-turn)",
+      1.1666800000000002,
+      0.04167,
+      1.20835
+    ],
+    [
+      24,
+      "Lickilicky",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      1.20835,
+      0.04167,
+      1.2500200000000001
+    ],
+    [
+      25,
+      "Lickilicky",
+      "Target of Move With Crit Chance (U-turn)",
+      1.2500200000000001,
+      0.04167,
+      1.29169
+    ],
+    [
+      49,
+      "Lickilicky",
+      "Target of Move That Can Miss (Stone Edge)",
+      1.29169,
+      -0.2,
+      1.09169
+    ],
+    [
+      49,
+      "Lickilicky",
+      "Target of Move With Increased Crit Chance (Stone Edge)",
+      1.09169,
+      0.125,
+      1.21669
+    ],
+    [
+      1,
+      "Starmie",
+      "Target of Move With Crit Chance (Knock Off)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      2,
+      "Starmie",
+      "Mon Used Move With Crit Chance (Scald)",
       0.04167,
       -0.04167,
       0.0
     ],
     [
-      16,
-      "Blastoise-Mega",
-      "Target of Move That Can Miss (Stone Edge)",
+      2,
+      "Starmie",
+      "Mon Used Move With Secondary Effect Chance (Scald)",
       0.0,
-      -0.2,
-      -0.2
-    ],
-    [
-      16,
-      "Blastoise-Mega",
-      "Target of Move With Increased Crit Chance (Stone Edge)",
-      -0.2,
-      0.125,
-      -0.075
-    ],
-    [
-      17,
-      "Conkeldurr",
-      "Mon Used Move With Crit Chance (Drain Punch)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      18,
-      "Conkeldurr",
-      "Mon Used Move With Crit Chance (Drain Punch)",
-      -0.04167,
-      -0.04167,
-      -0.08334
-    ],
-    [
-      33,
-      "Conkeldurr",
-      "Target of Move That Can Miss (Hydro Pump)",
-      -0.08334,
-      -0.2,
-      -0.28334
-    ],
-    [
-      33,
-      "Conkeldurr",
-      "Target of Move With Crit Chance (Hydro Pump)",
-      -0.28334,
-      0.04167,
-      -0.24167000000000002
-    ],
-    [
-      33,
-      "Conkeldurr",
-      "Mon Used Move With Crit Chance (Drain Punch)",
-      -0.24167000000000002,
-      -0.04167,
-      -0.28334000000000004
-    ],
-    [
-      34,
-      "Conkeldurr",
-      "Target of Move With Crit Chance (Moonblast)",
-      -0.28334000000000004,
-      0.04167,
-      -0.24167000000000002
+      -0.3,
+      -0.3
     ],
     [
       2,
-      "Rotom-Wash",
-      "Mon Used Move With Crit Chance (Volt Switch)",
+      "Starmie",
+      "Mon incurred secondary effect (Scald)",
+      -0.3,
+      1.0,
+      0.7
+    ],
+    [
+      2,
+      "Starmie",
+      "Target of Move With Crit Chance (Knock Off)",
+      0.7,
+      0.04167,
+      0.74167
+    ],
+    [
+      15,
+      "Starmie",
+      "Mon Used a Move That Can Miss (Thunder Wave)",
+      0.74167,
+      0.1,
+      0.84167
+    ],
+    [
+      15,
+      "Starmie",
+      "Mon missed a move (Thunder Wave)",
+      0.84167,
+      -1.0,
+      -0.15832999999999997
+    ],
+    [
+      35,
+      "Starmie",
+      "Mon Used a Move That Can Miss (Thunder Wave)",
+      -0.15832999999999997,
+      0.1,
+      -0.058329999999999986
+    ],
+    [
+      35,
+      "Starmie",
+      "Target of Move With Crit Chance (Dazzling Gleam)",
+      -0.058329999999999986,
+      0.04167,
+      -0.016659999999999987
+    ],
+    [
+      38,
+      "Starmie",
+      "Target of Move With Crit Chance (Knock Off)",
+      -0.016659999999999987,
+      0.04167,
+      0.02501000000000001
+    ],
+    [
+      39,
+      "Starmie",
+      "Mon Used Move With Crit Chance (Scald)",
+      0.02501000000000001,
+      -0.04167,
+      -0.016659999999999987
+    ],
+    [
+      39,
+      "Starmie",
+      "Mon Used Move With Secondary Effect Chance (Scald)",
+      -0.016659999999999987,
+      -0.3,
+      -0.31665999999999994
+    ],
+    [
+      39,
+      "Starmie",
+      "Mon incurred secondary effect (Scald)",
+      -0.31665999999999994,
+      1.0,
+      0.6833400000000001
+    ],
+    [
+      39,
+      "Starmie",
+      "Target of Move With Crit Chance (Knock Off)",
+      0.6833400000000001,
+      0.04167,
+      0.72501
+    ],
+    [
+      27,
+      "Togekiss",
+      "Mon Used Move With Crit Chance (Dazzling Gleam)",
       0.0,
       -0.04167,
       -0.04167
     ],
     [
-      7,
-      "Rotom-Wash",
-      "Mon Used a Move That Can Miss (Hydro Pump)",
+      29,
+      "Togekiss",
+      "Mon Used a Move That Can Miss (Air Slash)",
       -0.04167,
-      0.2,
-      0.15833
+      0.05,
+      0.008330000000000002
     ],
     [
-      7,
-      "Rotom-Wash",
-      "Mon Used Move With Crit Chance (Hydro Pump)",
-      0.15833,
+      29,
+      "Togekiss",
+      "Mon Used Move With Crit Chance (Air Slash)",
+      0.008330000000000002,
       -0.04167,
-      0.11666
+      -0.033339999999999995
     ],
     [
-      7,
-      "Rotom-Wash",
-      "Mon landed a critical hit",
-      0.11666,
+      33,
+      "Togekiss",
+      "Target of Move With Crit Chance (U-turn)",
+      -0.033339999999999995,
+      0.04167,
+      0.008330000000000002
+    ],
+    [
+      34,
+      "Togekiss",
+      "Target of Move With Crit Chance (U-turn)",
+      0.008330000000000002,
+      0.04167,
+      0.05
+    ],
+    [
+      35,
+      "Togekiss",
+      "Target of Move That Can Miss (Thunder Wave)",
+      0.05,
+      -0.1,
+      -0.05
+    ],
+    [
+      35,
+      "Togekiss",
+      "Mon Used Move With Crit Chance (Dazzling Gleam)",
+      -0.05,
+      -0.04167,
+      -0.09167
+    ],
+    [
+      40,
+      "Togekiss",
+      "Target of Move With Crit Chance (U-turn)",
+      -0.09167,
+      0.04167,
+      -0.05
+    ],
+    [
+      44,
+      "Togekiss",
+      "Target of Move With Crit Chance (Thunderbolt)",
+      -0.05,
+      0.04167,
+      -0.008330000000000002
+    ],
+    [
+      44,
+      "Togekiss",
+      "Target of Move With Secondary Effect Chance (Thunderbolt)",
+      -0.008330000000000002,
+      0.1,
+      0.09167
+    ],
+    [
+      45,
+      "Togekiss",
+      "Target of Move With Crit Chance (U-turn)",
+      0.09167,
+      0.04167,
+      0.13334
+    ],
+    [
+      46,
+      "Togekiss",
+      "Mon Used a Move That Can Miss (Air Slash)",
+      0.13334,
+      0.05,
+      0.18334
+    ],
+    [
+      46,
+      "Togekiss",
+      "Mon Used Move With Crit Chance (Air Slash)",
+      0.18334,
+      -0.04167,
+      0.14167
+    ],
+    [
+      46,
+      "Togekiss",
+      "Mon Used Move With Secondary Effect Chance (Air Slash)",
+      0.14167,
+      -0.6,
+      -0.45832999999999996
+    ],
+    [
+      46,
+      "Togekiss",
+      "Mon incurred secondary effect (Air Slash)",
+      -0.45832999999999996,
       1.0,
-      1.11666
+      0.54167
     ],
     [
-      8,
-      "Rotom-Wash",
-      "Mon Used Move With Crit Chance (Volt Switch)",
-      1.11666,
+      47,
+      "Togekiss",
+      "Mon Used a Move That Can Miss (Air Slash)",
+      0.54167,
+      0.05,
+      0.59167
+    ],
+    [
+      47,
+      "Togekiss",
+      "Mon Used Move With Crit Chance (Air Slash)",
+      0.59167,
       -0.04167,
-      1.07499
+      0.55
     ],
     [
-      10,
-      "Rotom-Wash",
-      "Target of Move With Crit Chance (Aura Sphere)",
-      1.07499,
-      0.04167,
-      1.11666
-    ],
-    [
-      11,
-      "Rotom-Wash",
-      "Mon Used a Move That Can Miss (Hydro Pump)",
-      1.11666,
-      0.2,
-      1.31666
-    ],
-    [
-      11,
-      "Rotom-Wash",
-      "Mon Used Move With Crit Chance (Hydro Pump)",
-      1.31666,
-      -0.04167,
-      1.2749899999999998
-    ],
-    [
-      17,
-      "Rotom-Wash",
-      "Target of Move With Crit Chance (Drain Punch)",
-      1.2749899999999998,
-      0.04167,
-      1.31666
-    ],
-    [
-      18,
-      "Rotom-Wash",
-      "Target of Move With Crit Chance (Drain Punch)",
-      1.31666,
-      0.04167,
-      1.35833
-    ],
-    [
-      19,
-      "Rotom-Wash",
-      "Mon Used a Move That Can Miss (Hydro Pump)",
-      1.35833,
-      0.2,
-      1.55833
-    ],
-    [
-      19,
-      "Rotom-Wash",
-      "Mon Used Move With Crit Chance (Hydro Pump)",
-      1.55833,
-      -0.04167,
-      1.51666
-    ],
-    [
-      20,
-      "Rotom-Wash",
-      "Mon Used a Move That Can Miss (Hydro Pump)",
-      1.51666,
-      0.2,
-      1.71666
-    ],
-    [
-      20,
-      "Rotom-Wash",
-      "Mon Used Move With Crit Chance (Hydro Pump)",
-      1.71666,
-      -0.04167,
-      1.67499
-    ],
-    [
-      31,
-      "Rotom-Wash",
-      "Target of Move With Crit Chance (Eruption)",
-      1.67499,
-      0.04167,
-      1.71666
-    ],
-    [
-      32,
-      "Rotom-Wash",
-      "Target of Move With Crit Chance (Eruption)",
-      1.71666,
-      0.04167,
-      1.75833
-    ],
-    [
-      32,
-      "Rotom-Wash",
-      "Mon Used a Move That Can Miss (Hydro Pump)",
-      1.75833,
-      0.2,
-      1.95833
-    ],
-    [
-      32,
-      "Rotom-Wash",
-      "Mon Used Move With Crit Chance (Hydro Pump)",
-      1.95833,
-      -0.04167,
-      1.91666
-    ],
-    [
-      32,
-      "Rotom-Wash",
-      "Mon landed a critical hit",
-      1.91666,
-      1.0,
-      2.91666
-    ],
-    [
-      33,
-      "Rotom-Wash",
-      "Mon Used a Move That Can Miss (Hydro Pump)",
-      2.91666,
-      0.2,
-      3.11666
-    ],
-    [
-      33,
-      "Rotom-Wash",
-      "Mon Used Move With Crit Chance (Hydro Pump)",
-      3.11666,
-      -0.04167,
-      3.07499
-    ],
-    [
-      33,
-      "Rotom-Wash",
-      "Target of Move With Crit Chance (Drain Punch)",
-      3.07499,
-      0.04167,
-      3.11666
-    ],
-    [
-      11,
-      "Runerigus",
-      "Target of Move That Can Miss (Hydro Pump)",
-      0.0,
-      -0.2,
-      -0.2
-    ],
-    [
-      11,
-      "Runerigus",
-      "Target of Move With Crit Chance (Hydro Pump)",
-      -0.2,
-      0.04167,
-      -0.15833
-    ],
-    [
-      14,
-      "Runerigus",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.15833,
-      0.04167,
-      -0.11666
-    ],
-    [
-      14,
-      "Runerigus",
-      "Mon Used Move With Crit Chance (Body Press)",
-      -0.11666,
-      -0.04167,
-      -0.15833
-    ],
-    [
-      15,
-      "Runerigus",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.15833,
-      0.04167,
-      -0.11666
-    ],
-    [
-      6,
-      "Torkoal",
-      "Mon Used a Move That Can Miss (Fire Blast)",
-      0.0,
-      0.15,
-      0.15
-    ],
-    [
-      6,
-      "Torkoal",
-      "Mon Used Move With Crit Chance (Fire Blast)",
-      0.15,
-      -0.04167,
-      0.10833
-    ],
-    [
-      30,
-      "Torkoal",
-      "Mon Used Move With Crit Chance (Eruption)",
-      0.10833,
-      -0.04167,
-      0.06666
-    ],
-    [
-      31,
-      "Torkoal",
-      "Mon Used Move With Crit Chance (Eruption)",
-      0.06666,
-      -0.04167,
-      0.024990000000000005
-    ],
-    [
-      32,
-      "Torkoal",
-      "Mon Used Move With Crit Chance (Eruption)",
-      0.024990000000000005,
-      -0.04167,
-      -0.016679999999999993
-    ],
-    [
-      32,
-      "Torkoal",
-      "Target of Move That Can Miss (Hydro Pump)",
-      -0.016679999999999993,
-      -0.2,
-      -0.21667999999999998
-    ],
-    [
-      32,
-      "Torkoal",
-      "Target of Move With Crit Chance (Hydro Pump)",
-      -0.21667999999999998,
-      0.04167,
-      -0.17500999999999997
-    ],
-    [
-      32,
-      "Torkoal",
-      "Mon was hit by a critical hit",
-      -0.17500999999999997,
-      -1.0,
-      -1.17501
-    ],
-    [
-      25,
-      "Whimsicott",
+      13,
+      "Venusaur-Mega",
       "Mon Used a Move That Can Miss (Leech Seed)",
       0.0,
       0.1,
       0.1
     ],
     [
-      34,
-      "Whimsicott",
-      "Mon Used Move With Crit Chance (Moonblast)",
+      31,
+      "Venusaur-Mega",
+      "Target of Move With Crit Chance (Knock Off)",
       0.1,
+      0.04167,
+      0.14167
+    ],
+    [
+      46,
+      "Venusaur-Mega",
+      "Target of Move That Can Miss (Air Slash)",
+      0.14167,
+      -0.05,
+      0.09167
+    ],
+    [
+      46,
+      "Venusaur-Mega",
+      "Target of Move With Crit Chance (Air Slash)",
+      0.09167,
+      0.04167,
+      0.13334
+    ],
+    [
+      46,
+      "Venusaur-Mega",
+      "Target of Move With Secondary Effect Chance (Air Slash)",
+      0.13334,
+      0.6,
+      0.73334
+    ],
+    [
+      46,
+      "Venusaur-Mega",
+      "Mon harmed by secondary effect (Air Slash)",
+      0.73334,
+      -1.0,
+      -0.26665999999999995
+    ],
+    [
+      56,
+      "Venusaur-Mega",
+      "Target of Move With Increased Crit Chance (Psycho Cut)",
+      -0.26665999999999995,
+      0.125,
+      -0.14165999999999998
+    ],
+    [
+      11,
+      "Zeraora",
+      "Target of Move With Crit Chance (U-turn)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      30,
+      "Zeraora",
+      "Target of Move With Crit Chance (Thunderbolt)",
+      0.04167,
+      0.04167,
+      0.08334
+    ],
+    [
+      30,
+      "Zeraora",
+      "Target of Move With Secondary Effect Chance (Thunderbolt)",
+      0.08334,
+      0.1,
+      0.18334
+    ],
+    [
+      31,
+      "Zeraora",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      0.18334,
       -0.04167,
-      0.05833
+      0.14167
+    ],
+    [
+      32,
+      "Zeraora",
+      "Mon Used Move With Crit Chance (Supersonic Skystrike)",
+      0.14167,
+      -0.04167,
+      0.1
+    ],
+    [
+      41,
+      "Zeraora",
+      "Target of Move With Crit Chance (U-turn)",
+      0.1,
+      0.04167,
+      0.14167
+    ],
+    [
+      48,
+      "Zeraora",
+      "Target of Move With Crit Chance (U-turn)",
+      0.14167,
+      0.04167,
+      0.18334
     ]
   ],
   "errormessage": []
