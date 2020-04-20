@@ -342,6 +342,77 @@ def league_match_results(request,league_name,subleague_name,matchid):
         return render(request,"replayanalysisresults.html",context)
 
 @check_if_clad
+def upload_historic_match(request):
+    """
+    Season 2 top 8: 
+    https://replay.pokemonshowdown.com/gen7customgame-645812093
+    Season 4 week 5:
+    https://replay.pokemonshowdown.com/gen7anythinggoes-779737491
+    Season 4 top 4: Legendary match vs Amir
+    https://replay.pokemonshowdown.com/gen7anythinggoes-786582667
+    """
+    if request.method=="POST":
+        form = UploadHistoricMatchForm(request.POST)
+        league_ = request.POST['league_']
+        seasonname = request.POST['seasonname']
+        team1=request.POST['team1']
+        team2=request.POST['team2']
+        winner=request.POST['winner']
+        week=request.POST['week']
+        replay=request.POST['replay']
+        #analyze replay
+        try:
+            data = newreplayparse(replay)
+            if len(data['errormessage'])>0:
+                messages.error(request,f'Analysis Failed.',extra_tags="danger")
+            else:
+                team1=historical_team.objects.filter(league=league_,seasonname=seasonname).get(teamname=team1)
+                team2=historical_team.objects.filter(league=league_,seasonname=seasonname).get(teamname=team2)
+                winner=historical_team.objects.filter(league=league_,seasonname=seasonname).get(teamname=winner)
+                match=historical_match.objects.create(week=week,team1=team1,team2=team2,winner=winner,replay=replay)
+                success=check_hist_match(match)
+                if success:
+                    results = newreplayparse(replay)
+                    if match.winner==match.team1:
+                        match.team1score=max(results['team1']['score'],results['team2']['score'])
+                    elif match.winner==match.team2:
+                        match.team2score=max(results['team1']['score'],results['team2']['score'])
+                    match.save()
+                    messages.success(request,"Success!")    
+                else:
+                    messages.error(request,f'Analysis Failed.',extra_tags="danger")
+        except:
+            messages.error(request,f'Analysis Failed.',extra_tags="danger")
+        return redirect('upload_historic_match')
+    form=UploadHistoricMatchForm()
+    context={
+        'form': form,
+        'submission': True,
+    }
+    return  render(request,"replayanalysisform.html",context)
+
+@csrf_exempt
+def uploadhistoricrender(request):
+    purpose=request.POST['purpose']
+    if purpose=="Add Seasons":
+        league_id=request.POST['associatedleague']
+        league_=league.objects.get(id=league_id)
+        seasons=list(historical_team.objects.filter(league=league_).order_by('seasonname').distinct('seasonname').values_list('seasonname',flat=True))
+        data={
+            'seasons':seasons,
+            }
+    elif purpose=="Add Teams":
+        league_id=request.POST['associatedleague']
+        seasonname=request.POST['seasonname']
+        league_=league.objects.get(id=league_id)
+        teams=list(historical_team.objects.filter(league=league_,seasonname=seasonname).order_by('teamname').values_list('teamname',flat=True))
+        data={
+            'teams':teams,
+            }
+    return JsonResponse(data)
+
+
+@check_if_clad
 def check_existing_replay(request):
     if request.method=="POST":
         form = MatchReplayForm(request.POST)

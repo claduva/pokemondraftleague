@@ -8,6 +8,7 @@ from crispy_forms.layout import Layout, Submit, Row, Column, HTML
 from django.db.models import Q
 
 from leagues.models import *
+from pokemonadmin.models import *
 
 class MatchReplayForm(forms.Form):
     url=forms.CharField(max_length=200,label="Replay URL")
@@ -17,7 +18,6 @@ class LeagueReplayForm(forms.ModelForm):
    class Meta:
         model = schedule
         fields = ['replay']
-
 
 class ManualLeagueReplayForm(forms.ModelForm):
     replay=forms.CharField(max_length=200,label="Replay")
@@ -176,3 +176,20 @@ class ManualLeagueReplayForm(forms.ModelForm):
             'replay',
             Submit('submit', 'Submit', css_class='btn btn-sm btn-primary')
         )
+
+class UploadHistoricMatchForm(forms.Form):
+    choices_=[]
+    #for item in historical_team.objects.all().order_by('seasonname').distinct('seasonname'):
+    #    choices_.append((item.seasonname,item.seasonname))
+    league_ = forms.ModelChoiceField(queryset = league.objects.all().order_by('name'))
+    seasonname = forms.ChoiceField(choices=[("---------","---------")])
+    team1 = forms.ChoiceField(choices=[("---------","---------")])
+    team2 = forms.ChoiceField(choices=[("---------","---------")])
+    winner = forms.ChoiceField(choices=[("---------","---------")])
+    week= forms.CharField(max_length=30)
+    replay= forms.CharField(max_length=200)
+
+    class Media:
+        js = ('replayanalysis/scripts/uploadhistoricmatch.js',)
+
+

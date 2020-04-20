@@ -1,0 +1,783 @@
+|j|yeti_87
+|j|Jayy1417
+
+|player|p1|yeti_87|290
+|teamsize|p1|6
+
+
+|player|p2|Jayy1417|253
+|teamsize|p2|6
+|gametype|singles
+|gen|7
+|tier|[Gen 7] Custom Game
+|seed|
+|clearpoke
+|poke|p1|Roserade, M|item
+|poke|p1|Rotom-Wash|item
+|poke|p1|Landorus-Therian, M|item
+|poke|p1|Incineroar, F|item
+|poke|p1|Reuniclus, M|item
+|poke|p1|Diancie|item
+|poke|p2|Tangrowth, F|item
+|poke|p2|Garchomp, F|item
+|poke|p2|Slowbro, M|item
+|poke|p2|Tapu Koko|item
+|poke|p2|Terrakion|item
+|poke|p2|Hydreigon, M|item
+|teampreview|24
+
+
+|c|☆Jayy1417|there we go
+
+
+|c|☆Jayy1417|glhf
+
+
+|j|Vitoria Vaporeons
+
+
+|c|☆yeti_87|u2
+
+
+|c| Vitoria Vaporeons|go jayy
+
+
+|c| Vitoria Vaporeons|im eyeing that leading spot :eyes:
+
+
+|c|☆Jayy1417|^?
+
+
+|c| Vitoria Vaporeons|pedro here '-'
+
+
+|c|☆Jayy1417|oo
+
+
+|j|muskrat catcher
+
+
+|c| Vitoria Vaporeons|if curls loses, i have a shot at leading the conference
+
+
+|c| Vitoria Vaporeons|'-'
+
+
+|c| muskrat catcher|lets go smash con bois
+
+
+|c| muskrat catcher|for real this time
+
+
+|c| Vitoria Vaporeons|and if musk stop dodging me
+
+
+|c| Vitoria Vaporeons|:eyes:
+
+
+|c| muskrat catcher|GAH
+
+
+|c|☆Jayy1417|oof
+
+
+|choice||team 4, team 2, team 3, team 1, team 5, team 6
+|debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
+|
+|start
+|switch|p1a: Diancie|Diancie|296/296
+|switch|p2a: Asuna|Tapu Koko, shiny|297/297
+|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Asuna
+|turn|1
+
+
+|choice||move steelwing
+|
+|switch|p1a: Rotom|Rotom-Wash|304/304
+|move|p2a: Asuna|Steel Wing|p1a: Rotom
+|-resisted|p1a: Rotom
+|-damage|p1a: Rotom|291/304
+|-damage|p2a: Asuna|268/297|[from] item: Life Orb
+|
+|-heal|p1a: Rotom|304/304|[from] item: Leftovers
+|upkeep
+|turn|2
+
+
+|c| muskrat catcher|woah the tech
+
+
+|c|☆yeti_87|woah
+
+
+|c|☆Jayy1417|throwback to season 1 steel wing scarfed decidueye xd
+
+
+|c| muskrat catcher|that thing was awesome
+
+
+|choice||move uturn
+|
+|move|p2a: Asuna|U-turn|p1a: Rotom
+|-damage|p1a: Rotom|252/304
+|-damage|p2a: Asuna|239/297|[from] item: Life Orb
+
+
+|choice||switch 4
+|
+|switch|p2a: Leafa|Tangrowth, F, shiny|404/404
+|move|p1a: Rotom|Hydro Pump|p2a: Leafa
+|-resisted|p2a: Leafa
+|-damage|p2a: Leafa|353/404
+|
+|-heal|p1a: Rotom|271/304|[from] item: Leftovers
+|upkeep
+|turn|3
+
+
+|choice||move knockoff
+|
+|switch|p1a: Incineroar|Incineroar, F|394/394
+|move|p2a: Leafa|Knock Off|p1a: Incineroar
+|-resisted|p1a: Incineroar
+|-damage|p1a: Incineroar|364/394
+|
+|upkeep
+|turn|4
+
+
+|c| Vitoria Vaporeons|mega incineroar
+
+
+|c| Vitoria Vaporeons|:o
+
+
+|c| muskrat catcher|o boi you know what that means he's holding
+
+
+|c| Vitoria Vaporeons|a mega stone
+
+
+|c| Vitoria Vaporeons|:o
+
+
+|c|☆Jayy1417|z move
+
+
+|c| muskrat catcher|^
+
+
+|c| muskrat catcher|nah pedro was right
+
+
+|choice||switch 5
+|
+|switch|p2a: Silica|Terrakion|324/324
+|-zpower|p1a: Incineroar
+|move|p1a: Incineroar|Malicious Moonsault|p2a: Silica|[zeffect]
+|-resisted|p2a: Silica
+|-damage|p2a: Silica|144/324
+|-ability|p2a: Silica|Justified|boost
+|-boost|p2a: Silica|atk|1
+|
+|upkeep
+|turn|5
+
+
+|c| Vitoria Vaporeons|tangrowth is my fave mon to use in league
+
+
+|c| Vitoria Vaporeons|love it
+
+
+|c| muskrat catcher|ooooh dang
+
+
+|c|☆yeti_87|ooooo
+
+
+|c| muskrat catcher|justified
+
+
+|c| muskrat catcher|comin thru
+
+
+|c|☆yeti_87|i forgot about that
+
+
+|c|☆Jayy1417|tbh i did too lol
+
+
+|choice||move stealthrock
+|
+|switch|p1a: Landorus|Landorus-Therian, M|382/382
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Silica|atk|1
+|move|p2a: Silica|Stealth Rock|p1a: Landorus
+|-sidestart|p1: yeti_87|move: Stealth Rock
+|
+|-fieldend|move: Electric Terrain
+|upkeep
+|turn|6
+
+
+|choice||switch 6
+|
+|switch|p2a: Kirito|Hydreigon, M|369/369
+|move|p1a: Landorus|Rock Polish|p1a: Landorus
+|-boost|p1a: Landorus|spe|2
+|
+|upkeep
+|turn|7
+
+
+|choice||move hiddenpower
+|
+|move|p1a: Landorus|U-turn|p2a: Kirito
+|-supereffective|p2a: Kirito
+|-damage|p2a: Kirito|105/369
+
+
+|c| muskrat catcher|ouch
+
+
+|choice||
+|
+|switch|p1a: Roserade|Roserade, M|324/324
+|-damage|p1a: Roserade|284/324|[from] Stealth Rock
+|move|p2a: Kirito|Hidden Power|p1a: Roserade
+|-supereffective|p1a: Roserade
+|-damage|p1a: Roserade|194/324
+|
+|upkeep
+|turn|8
+
+
+|choice||switch 5
+|
+|switch|p2a: Leafa|Tangrowth, F, shiny|404/404
+|move|p1a: Roserade|Sludge Bomb|p2a: Leafa
+|-supereffective|p2a: Leafa
+|-damage|p2a: Leafa|182/404
+|
+|upkeep
+|turn|9
+
+
+|c| muskrat catcher|okaaaaay
+
+
+|choice||switch 2
+|
+|switch|p2a: Sinon|Garchomp, F|420/420
+|move|p1a: Roserade|Hidden Power|p2a: Sinon
+|debug|Technician boost
+|-supereffective|p2a: Sinon
+|-damage|p2a: Sinon|56/420
+|
+|upkeep
+|turn|10
+
+
+|c| Vitoria Vaporeons|mega drain should be 60 bp so roserade could abuse it with technician
+
+
+|c| muskrat catcher|WHAT
+
+
+|c| muskrat catcher|THIS MAN IS ON FIRE
+
+
+|c|☆Jayy1417|gg
+
+
+|c| muskrat catcher|lol
+
+
+|c| Vitoria Vaporeons|G.G
+
+
+|c|☆Jayy1417|im srs
+
+
+|c| muskrat catcher|those reads were amazing
+
+
+|choice||move earthquake mega
+|
+|switch|p1a: Landorus|Landorus-Therian, M|382/382
+|-damage|p1a: Landorus|335/382|[from] Stealth Rock
+|-ability|p1a: Landorus|Intimidate|boost
+|-unboost|p2a: Sinon|atk|1
+|detailschange|p2a: Sinon|Garchomp-Mega, F
+|-mega|p2a: Sinon|Garchomp|Garchompite
+|move|p2a: Sinon|Earthquake|p1a: Landorus
+|-immune|p1a: Landorus|[msg]
+|
+|upkeep
+|turn|11
+
+
+|c| Vitoria Vaporeons|jayy, at least bring the diff down ):
+
+
+|c| muskrat catcher|lol
+
+
+|c| muskrat catcher|I mean nothing you have has died yet, I doubt its over
+
+
+|choice||move hiddenpower
+|
+|switch|p1a: Rotom|Rotom-Wash|271/304
+|-damage|p1a: Rotom|233/304|[from] Stealth Rock
+|move|p2a: Sinon|Hidden Power|p1a: Rotom
+|-resisted|p1a: Rotom
+|-damage|p1a: Rotom|204/304
+|
+|-heal|p1a: Rotom|223/304|[from] item: Leftovers
+|upkeep
+|turn|12
+
+
+|c|☆Jayy1417|how
+
+
+|c|☆Jayy1417|did
+
+
+|c|☆Jayy1417|you
+
+
+|c|☆Jayy1417|know
+
+
+|c| muskrat catcher|HIDDEN POWER MEGA CHOMPPPPPP
+
+
+|choice||switch 2
+|
+|switch|p2a: Leafa|Tangrowth, F, shiny|316/404
+|move|p1a: Rotom|Hidden Power|p2a: Leafa
+|-supereffective|p2a: Leafa
+|-damage|p2a: Leafa|240/404
+|
+|-heal|p1a: Rotom|242/304|[from] item: Leftovers
+|upkeep
+|turn|13
+
+
+|choice||move earthquake
+|
+|move|p1a: Rotom|Volt Switch|p2a: Leafa
+|-resisted|p2a: Leafa
+|-damage|p2a: Leafa|205/404
+
+
+|choice||
+|
+|switch|p1a: Incineroar|Incineroar, F|364/394
+|-damage|p1a: Incineroar|266/394|[from] Stealth Rock
+|move|p2a: Leafa|Earthquake|p1a: Incineroar
+|-supereffective|p1a: Incineroar
+|-damage|p1a: Incineroar|80/394
+|
+|upkeep
+|turn|14
+
+
+|c| muskrat catcher|okay we got a read the other direction this time
+
+
+|c|☆Jayy1417|lol pokken just came in the mail
+
+
+|c|☆Jayy1417|yayyyyyy
+
+
+|c| muskrat catcher|LOL just now?
+
+
+|c|☆yeti_87|dope i kinda want to get it
+
+
+|c| muskrat catcher|I'm less enthusiastic about that game
+
+
+|c|☆Jayy1417|its my bae
+
+
+|choice||switch 6
+|
+|switch|p2a: Silica|Terrakion|144/324
+|move|p1a: Incineroar|Flare Blitz|p2a: Silica
+|debug|Blaze boost
+|-resisted|p2a: Silica
+|-damage|p2a: Silica|0 fnt
+|-damage|p1a: Incineroar|32/394|[from] Recoil|[of] p2a: Silica
+|faint|p2a: Silica
+|
+|upkeep
+
+
+|c|☆Jayy1417|dayum
+
+
+|c|☆Jayy1417|thats stronk
+
+
+|choice||switch 4
+|
+|switch|p2a: Asuna|Tapu Koko, shiny|239/297
+|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Asuna
+|turn|15
+
+
+|c| muskrat catcher|powah
+
+
+|c| Vitoria Vaporeons|blaze ):
+
+
+|c|☆yeti_87|dayum i didnt think that would kill
+
+
+|c|☆Jayy1417|tru blaze
+
+
+|c|☆yeti_87|oh true
+
+
+|c| muskrat catcher|oh wow
+
+
+|choice||move thunderbolt
+|
+|move|p2a: Asuna|Thunderbolt|p1a: Incineroar
+|debug|electric terrain boost
+|-damage|p1a: Incineroar|0 fnt
+|-damage|p2a: Asuna|210/297|[from] item: Life Orb
+|faint|p1a: Incineroar
+|
+|upkeep
+
+
+|c| muskrat catcher|ITS MIXED
+
+
+|c| muskrat catcher|you madman
+
+
+|choice||
+|
+|switch|p1a: Rotom|Rotom-Wash|242/304
+|-damage|p1a: Rotom|204/304|[from] Stealth Rock
+|turn|16
+
+
+|choice||move uturn
+|
+|move|p2a: Asuna|U-turn|p1a: Rotom
+|-damage|p1a: Rotom|152/304
+|-damage|p2a: Asuna|181/297|[from] item: Life Orb
+
+
+|choice||switch 6
+|
+|switch|p2a: Leafa|Tangrowth, F, shiny|339/404
+|move|p1a: Rotom|Hydro Pump|p2a: Leafa|[miss]
+|-miss|p1a: Rotom|p2a: Leafa
+|
+|-heal|p1a: Rotom|171/304|[from] item: Leftovers
+|upkeep
+|turn|17
+
+
+|choice||move gigadrain
+|
+|move|p1a: Rotom|Volt Switch|p2a: Leafa
+|-resisted|p2a: Leafa
+|-damage|p2a: Leafa|303/404
+
+
+|choice||
+|
+|switch|p1a: Roserade|Roserade, M|194/324
+|-damage|p1a: Roserade|154/324|[from] Stealth Rock
+|move|p2a: Leafa|Giga Drain|p1a: Roserade
+|-resisted|p1a: Roserade
+|-crit|p1a: Roserade
+|-damage|p1a: Roserade|133/324
+|-heal|p2a: Leafa|314/404|[from] drain|[of] p1a: Roserade
+|
+|upkeep
+|turn|18
+
+
+|c|☆Jayy1417|crit mattered
+
+
+|c| muskrat catcher|dat crit
+
+
+|choice||move earthquake
+|
+|move|p1a: Roserade|Sludge Bomb|p2a: Leafa
+|-supereffective|p2a: Leafa
+|-damage|p2a: Leafa|108/404
+|-status|p2a: Leafa|psn
+|move|p2a: Leafa|Earthquake|p1a: Roserade
+|-damage|p1a: Roserade|23/324
+|
+|-damage|p2a: Leafa|58/404 psn|[from] psn
+|upkeep
+|turn|19
+
+
+|c| muskrat catcher|ooch poison
+
+
+|choice||switch 2
+|
+|switch|p2a: Sinon|Garchomp-Mega, F|56/420
+|move|p1a: Roserade|Sludge Bomb|p2a: Sinon
+|-resisted|p2a: Sinon
+|-damage|p2a: Sinon|0 fnt
+|faint|p2a: Sinon
+|
+|-fieldend|move: Electric Terrain
+|upkeep
+
+
+|choice||switch 5
+|
+|switch|p2a: Kirito|Hydreigon, M|105/369
+|turn|20
+
+
+|choice||move darkpulse
+|
+|move|p2a: Kirito|Dark Pulse|p1a: Roserade
+|-damage|p1a: Roserade|0 fnt
+|faint|p1a: Roserade
+|
+|upkeep
+
+|choice||
+|
+|switch|p1a: Diancie|Diancie|296/296
+|-damage|p1a: Diancie|259/296|[from] Stealth Rock
+|turn|21
+
+|choice||switch 3
+|
+|switch|p2a: Recon|Slowbro, M, shiny|394/394
+|detailschange|p1a: Diancie|Diancie-Mega
+|-mega|p1a: Diancie|Diancie|Diancite
+|move|p1a: Diancie|Diamond Storm|p2a: Recon
+|-damage|p2a: Recon|271/394
+|
+|-heal|p2a: Recon|295/394|[from] item: Leftovers
+|upkeep
+|turn|22
+
+
+|choice||move calmmind
+|
+|move|p1a: Diancie|Moonblast|p2a: Recon
+|-damage|p2a: Recon|102/394
+|move|p2a: Recon|Calm Mind|p2a: Recon
+|-boost|p2a: Recon|spa|1
+|-boost|p2a: Recon|spd|1
+|
+|-heal|p2a: Recon|126/394|[from] item: Leftovers
+|upkeep
+|turn|23
+
+|choice||move slackoff
+|
+|move|p1a: Diancie|Moonblast|p2a: Recon
+|-damage|p2a: Recon|0 fnt
+|debug|move failed because it did nothing
+|faint|p2a: Recon
+|
+|upkeep
+
+
+|c| muskrat catcher|powah
+
+
+|choice||switch 3
+|
+|switch|p2a: Kirito|Hydreigon, M|105/369
+|turn|24
+
+
+|choice||move flashcannon
+|
+|switch|p1a: Rotom|Rotom-Wash|171/304
+|-damage|p1a: Rotom|133/304|[from] Stealth Rock
+|move|p2a: Kirito|Flash Cannon|p1a: Rotom
+|-resisted|p1a: Rotom
+|-damage|p1a: Rotom|109/304
+|
+|-heal|p1a: Rotom|128/304|[from] item: Leftovers
+|upkeep
+|turn|25
+
+
+|choice||switch 2
+|
+|switch|p2a: Leafa|Tangrowth, F, shiny|192/404 psn
+|move|p1a: Rotom|Hidden Power|p2a: Leafa
+|-supereffective|p2a: Leafa
+|-damage|p2a: Leafa|116/404 psn
+|
+|-heal|p1a: Rotom|147/304|[from] item: Leftovers
+|-damage|p2a: Leafa|66/404 psn|[from] psn
+|upkeep
+|turn|26
+
+
+|choice||switch 2
+|
+|switch|p2a: Kirito|Hydreigon, M|105/369
+|move|p1a: Rotom|Hidden Power|p2a: Kirito
+|-supereffective|p2a: Kirito
+|-damage|p2a: Kirito|0 fnt
+|faint|p2a: Kirito
+|
+|debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
+|-heal|p1a: Rotom|166/304|[from] item: Leftovers
+|upkeep
+
+
+|debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
+|choice||switch 2
+|debug|ModifySpe handler suppressed by Embargo, Klutz or Magic Room
+|
+|switch|p2a: Leafa|Tangrowth, F, shiny|200/404 psn
+|turn|27
+
+
+|choice||move knockoff
+|
+|switch|p1a: Reuniclus|Reuniclus, M|424/424
+|debug|damage event failed
+|move|p2a: Leafa|Knock Off|p1a: Reuniclus
+|-supereffective|p1a: Reuniclus
+|-enditem|p1a: Reuniclus|Colbur Berry|[eat]
+|debug|-50% reduction
+|-enditem|p1a: Reuniclus|Colbur Berry|[weaken]
+|-damage|p1a: Reuniclus|362/424
+|
+|-damage|p2a: Leafa|150/404 psn|[from] psn
+|upkeep
+|turn|28
+
+
+|c|☆Jayy1417|rip
+
+
+|c| muskrat catcher|anti-knock off tech
+
+
+|c|☆Jayy1417|gg
+
+
+|choice||move gigadrain
+|
+|move|p2a: Leafa|Giga Drain|p1a: Reuniclus
+|-damage|p1a: Reuniclus|250/424
+|-heal|p2a: Leafa|206/404 psn|[from] drain|[of] p1a: Reuniclus
+|move|p1a: Reuniclus|Psyshock|p2a: Leafa
+|-damage|p2a: Leafa|107/404 psn
+|
+|-damage|p2a: Leafa|57/404 psn|[from] psn
+|upkeep
+|turn|29
+
+
+|c| muskrat catcher|get the crit jayy
+
+
+|c| muskrat catcher|do it for the differential
+
+
+|choice||move gigadrain
+|
+|move|p2a: Leafa|Giga Drain|p1a: Reuniclus
+|-damage|p1a: Reuniclus|132/424
+|-heal|p2a: Leafa|116/404 psn|[from] drain|[of] p1a: Reuniclus
+|move|p1a: Reuniclus|Calm Mind|p1a: Reuniclus
+|-boost|p1a: Reuniclus|spa|1
+|-boost|p1a: Reuniclus|spd|1
+|
+|-damage|p2a: Leafa|66/404 psn|[from] psn
+|upkeep
+|turn|30
+
+
+|choice||move knockoff
+|
+|move|p2a: Leafa|Knock Off|p1a: Reuniclus
+|-supereffective|p1a: Reuniclus
+|-damage|p1a: Reuniclus|34/424
+|move|p1a: Reuniclus|Recover|p1a: Reuniclus
+|-heal|p1a: Reuniclus|246/424
+|
+|-damage|p2a: Leafa|16/404 psn|[from] psn
+|upkeep
+|turn|31
+
+
+|c|☆Jayy1417|gg
+
+
+|c| muskrat catcher|rip
+
+
+|choice||move knockoff
+|
+|move|p2a: Leafa|Knock Off|p1a: Reuniclus
+|-supereffective|p1a: Reuniclus
+|-damage|p1a: Reuniclus|156/424
+|move|p1a: Reuniclus|Recover|p1a: Reuniclus
+|-heal|p1a: Reuniclus|368/424
+|
+|-damage|p2a: Leafa|0 fnt|[from] psn
+|upkeep
+|faint|p2a: Leafa
+
+
+|choice||switch 6
+|
+|switch|p2a: Asuna|Tapu Koko, shiny|181/297
+|-fieldstart|move: Electric Terrain|[from] ability: Electric Surge|[of] p2a: Asuna
+|turn|32
+
+
+|choice||move uturn
+|
+|move|p2a: Asuna|U-turn|p1a: Reuniclus
+|-supereffective|p1a: Reuniclus
+|-crit|p1a: Reuniclus
+|-damage|p1a: Reuniclus|170/424
+|-damage|p2a: Asuna|152/297|[from] item: Life Orb
+|move|p1a: Reuniclus|Psyshock|p2a: Asuna
+|-damage|p2a: Asuna|0 fnt
+|faint|p2a: Asuna
+|
+|win|yeti_87
+
+
+|c|☆yeti_87|gg
+
+
+|c| muskrat catcher|there's the crit!
+
+
+|c|☆Jayy1417|how do we save replay...
+
+
+|c| muskrat catcher|download it

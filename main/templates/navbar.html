@@ -173,9 +173,10 @@
       <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">Admin</a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item" href="/admin/">Admin</a>
-          <a class="dropdown-item" href="{% url 'runscript' %}">Runscript</a>
           <a class="dropdown-item" href="{% url 'check_existing_replay' %}">Check Existing Replay</a>
+          <a class="dropdown-item" href="{% url 'upload_historic_match' %}">Upload Historic Match</a>
+          <a class="dropdown-item" href="/admin/">Admin</a>
+          <a class="dropdown-item" href="{% url 'runscript' %}">Runscript</a>
       </div>
     </div>
     {% endif %}

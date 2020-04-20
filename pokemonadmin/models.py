@@ -85,10 +85,6 @@ class historical_match(models.Model):
     team1score = models.IntegerField(default=0)
     team2score = models.IntegerField(default=0)
     replay = models.CharField(max_length=100,default="Link")
-    team1usedz = models.BooleanField(default=False)
-    team2usedz = models.BooleanField(default=False)
-    team1megaevolved = models.BooleanField(default=False)
-    team2megaevolved = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.team1.league.name} {self.team1.seasonname} Week {self.week} {self.team1.teamname} vs. {self.team2.teamname}'
