@@ -139,7 +139,6 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    print(historical_match_replay.objects.all().order_by('data').first())
     return redirect('home')
 
 def get_pkmn(pkmn):

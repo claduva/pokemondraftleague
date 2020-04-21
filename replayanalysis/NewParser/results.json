@@ -1,18 +1,18 @@
 {
   "team1": {
-    "coach": "pokkerz",
+    "coach": "master_of_rave",
     "roster": [
       {
-        "pokemon": "Kyurem-White",
-        "startform": "Kyurem-White",
-        "nickname": "1",
-        "kills": 1,
+        "pokemon": "Pyroar",
+        "startform": "Pyroar",
+        "nickname": "Pyroar",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 191,
-        "hphealed": -29,
-        "luck": 0.31665999999999994,
+        "damagedone": 69,
+        "hphealed": 0,
+        "luck": -1.15835,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -32,15 +32,44 @@
         "Focus Energy": false
       },
       {
-        "pokemon": "Victini",
-        "startform": "Victini",
-        "nickname": "2",
+        "pokemon": "Hariyama",
+        "startform": "Hariyama",
+        "nickname": "Hariyama",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 94,
         "hphealed": 0,
+        "luck": 0.3,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false
+      },
+      {
+        "pokemon": "Chimecho",
+        "startform": "Chimecho",
+        "nickname": "Chimecho",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 4,
+        "damagedone": 12,
+        "hphealed": 26,
         "luck": 0.08334,
         "remaininghealth": 0,
         "lines": [],
@@ -61,16 +90,16 @@
         "Focus Energy": false
       },
       {
-        "pokemon": "Aegislash",
-        "startform": "Aegislash",
-        "nickname": "3",
+        "pokemon": "Swellow",
+        "startform": "Swellow",
+        "nickname": "Swellow",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 15,
-        "hphealed": 6,
-        "luck": 0.058339999999999996,
+        "damagedone": 25,
+        "hphealed": 0,
+        "luck": -0.34167000000000003,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -90,16 +119,16 @@
         "Focus Energy": false
       },
       {
-        "pokemon": "Zoroark",
-        "startform": "Zoroark",
-        "nickname": "4",
-        "kills": 0,
+        "pokemon": "Crustle",
+        "startform": "Crustle",
+        "nickname": "Crustle",
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
+        "damagedone": 192,
         "hphealed": 0,
-        "luck": -0.71666,
+        "luck": 0.9749899999999999,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -119,45 +148,16 @@
         "Focus Energy": false
       },
       {
-        "pokemon": "Haxorus",
-        "startform": "Haxorus",
-        "nickname": "5",
-        "kills": 0,
+        "pokemon": "Empoleon",
+        "startform": "Empoleon",
+        "nickname": "Empoleon",
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.08334,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false
-      },
-      {
-        "pokemon": "Smeargle",
-        "startform": "Smeargle",
-        "nickname": "6",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 35,
-        "hphealed": 0,
-        "luck": 0.0,
+        "damagedone": 115,
+        "hphealed": 41,
+        "luck": -1.58334,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -182,20 +182,20 @@
     "score": 0,
     "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 7,
+    "timesswitched": 10,
     "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 2,
+    "kills": 3,
     "deaths": 6,
-    "luck": -0.1751,
-    "damagedone": 241,
-    "hphealed": -23,
-    "support": 0,
-    "activemon": "6",
+    "luck": -1.7250999999999999,
+    "damagedone": 507,
+    "hphealed": 67,
+    "support": 4,
+    "activemon": "Pyroar",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": null,
+    "Stealth Rock": "Archer",
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -204,20 +204,20 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "Joey_RiverAPP",
+    "coach": "datoneman",
     "roster": [
       {
-        "pokemon": "Houndoom-Mega",
-        "startform": "Houndoom",
-        "nickname": "Houndoom",
-        "kills": 5,
+        "pokemon": "Accelgor",
+        "startform": "Accelgor",
+        "nickname": "do i bug u?",
+        "kills": 1,
         "deaths": 0,
         "causeofdeath": null,
-        "support": 2,
-        "damagedone": 456,
-        "hphealed": 0,
-        "luck": 0.5083099999999999,
-        "remaininghealth": 65,
+        "support": 0,
+        "damagedone": 100,
+        "hphealed": -9,
+        "luck": 0.25833,
+        "remaininghealth": 91,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -236,16 +236,45 @@
         "Focus Energy": false
       },
       {
-        "pokemon": "Snorlax",
-        "startform": "Snorlax",
-        "nickname": "Snorlax",
+        "pokemon": "Nidoking",
+        "startform": "Nidoking",
+        "nickname": "THE KING",
+        "kills": 2,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 109,
+        "hphealed": 0,
+        "luck": -0.1,
+        "remaininghealth": 28,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false
+      },
+      {
+        "pokemon": "Heracross",
+        "startform": "Heracross",
+        "nickname": "Berserker",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 0,
-        "hphealed": 6,
-        "luck": -0.41666,
+        "damagedone": 58,
+        "hphealed": 0,
+        "luck": 0.08334,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -265,17 +294,17 @@
         "Focus Energy": false
       },
       {
-        "pokemon": "Chesnaught",
-        "startform": "Chesnaught",
-        "nickname": "Chesnaught",
+        "pokemon": "Steelix",
+        "startform": "Steelix",
+        "nickname": "Archer",
         "kills": 0,
-        "deaths": 0,
+        "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 100,
+        "support": 1,
+        "damagedone": 23,
+        "hphealed": 18,
+        "luck": -0.77499,
+        "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -294,17 +323,17 @@
         "Focus Energy": false
       },
       {
-        "pokemon": "Groudon",
-        "startform": "Groudon",
-        "nickname": "Groudon",
-        "kills": 0,
+        "pokemon": "Munchlax",
+        "startform": "Munchlax",
+        "nickname": "FAT BOI",
+        "kills": 2,
         "deaths": 0,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 100,
+        "support": 1,
+        "damagedone": 270,
+        "hphealed": 134,
+        "luck": 1.95835,
+        "remaininghealth": 62,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -320,54 +349,26 @@
         "spe": 0,
         "accuracy": 0,
         "evasion": 0,
-        "Focus Energy": false
+        "Focus Energy": false,
+        "slp": null
       },
       {
-        "pokemon": "Raikou",
-        "startform": "Raikou",
-        "nickname": "Raikou",
+        "pokemon": "Abomasnow",
+        "startform": "Abomasnow",
+        "nickname": "its a wrap",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 121,
-        "hphealed": 0,
-        "luck": 0.08333,
+        "damagedone": 107,
+        "hphealed": -55,
+        "luck": 0.3,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false
-      },
-      {
-        "pokemon": "Forretress",
-        "startform": "Forretress",
-        "nickname": "Forretress",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 100,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
+        "par": "Chimecho",
         "frz": null,
         "tox": null,
         "Curse": null,
@@ -383,20 +384,20 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 4,
-    "megaevolved": true,
-    "usedzmove": true,
-    "timesswitched": 3,
+    "score": 3,
+    "megaevolved": false,
+    "usedzmove": false,
+    "timesswitched": 13,
     "selfdeaths": 0,
-    "remaininghealth": 365,
+    "remaininghealth": 181,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 2,
-    "luck": 0.17489999999999997,
-    "damagedone": 577,
-    "hphealed": 6,
+    "deaths": 3,
+    "luck": 1.725,
+    "damagedone": 667,
+    "hphealed": 88,
     "support": 2,
-    "activemon": "Houndoom",
+    "activemon": "FAT BOI",
     "Toxic Spikes": null,
     "Spikes": null,
     "Stealth Rock": null,
@@ -411,403 +412,1047 @@
   "Gravity": 1.0,
   "Rain": false,
   "Hail": false,
-  "numberofturns": 15,
+  "numberofturns": 35,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen7ubers-976425199",
+  "replay": "https://replay.pokemonshowdown.com/gen7anythinggoes-844623994",
   "significantevents": [
     [
-      1,
-      "Houndoom-Mega provided support by using Taunt"
+      3,
+      "Chimecho provided support by using Wish"
     ],
     [
       3,
-      "Houndoom-Mega killed Haxorus with Dark Pulse"
+      "Steelix provided support by using Stealth Rock"
+    ],
+    [
+      4,
+      "Chimecho provided support by using Defog"
     ],
     [
       5,
-      "Houndoom-Mega killed Zoroark with Flamethrower"
+      "Chimecho provided support by using Thunder Wave"
     ],
     [
-      7,
-      "Kyurem-White killed Snorlax with Focus Blast"
+      6,
+      "Chimecho provided support by using Wish"
+    ],
+    [
+      6,
+      "Abomasnow killed Chimecho with Wood Hammer"
     ],
     [
       9,
-      "Raikou killed Kyurem-White with All-Out Pummeling"
+      "Crustle killed Steelix with Earthquake"
     ],
     [
       10,
-      "Aegislash killed Raikou with Shadow Claw"
-    ],
-    [
-      11,
-      "Houndoom-Mega killed Aegislash with Dark Pulse"
-    ],
-    [
-      12,
-      "Houndoom-Mega provided support by using Taunt"
-    ],
-    [
-      14,
-      "Houndoom-Mega killed Victini with Dark Pulse"
+      "Munchlax provided support by using Whirlwind"
     ],
     [
       15,
-      "Houndoom-Mega killed Smeargle with Dark Pulse"
+      "Nidoking killed Hariyama with Ice Beam"
+    ],
+    [
+      16,
+      "Swellow killed Heracross with Boomburst"
+    ],
+    [
+      17,
+      "Accelgor killed Swellow with Focus Blast"
+    ],
+    [
+      21,
+      "Empoleon killed Abomasnow with Ice Beam"
+    ],
+    [
+      26,
+      "Nidoking killed Crustle with Earth Power"
+    ],
+    [
+      30,
+      "Munchlax killed Empoleon with Earthquake"
+    ],
+    [
+      35,
+      "Munchlax killed Pyroar with Earthquake"
     ]
   ],
   "luckcatalog": [
     [
-      10,
-      "Aegislash",
-      "Target of Move With Crit Chance (Thunderbolt)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      10,
-      "Aegislash",
-      "Target of Move With Secondary Effect Chance (Thunderbolt)",
-      0.04167,
-      0.1,
-      0.14167
-    ],
-    [
-      10,
-      "Aegislash",
-      "Mon Used Move With Increased Crit Chance (Shadow Claw)",
-      0.14167,
-      -0.125,
-      0.016669999999999997
-    ],
-    [
-      11,
-      "Aegislash",
-      "Target of Move With Crit Chance (Dark Pulse)",
-      0.016669999999999997,
-      0.04167,
-      0.058339999999999996
-    ],
-    [
-      2,
-      "Haxorus",
-      "Target of Move With Crit Chance (Dark Pulse)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      3,
-      "Haxorus",
-      "Target of Move With Crit Chance (Dark Pulse)",
-      0.04167,
-      0.04167,
-      0.08334
-    ],
-    [
-      2,
-      "Houndoom-Mega",
-      "Mon Used Move With Crit Chance (Dark Pulse)",
+      5,
+      "Abomasnow",
+      "Mon Used Move With Crit Chance (Wood Hammer)",
       0.0,
       -0.04167,
       -0.04167
     ],
     [
-      3,
-      "Houndoom-Mega",
-      "Mon Used Move With Crit Chance (Dark Pulse)",
+      6,
+      "Abomasnow",
+      "Mon Used Move With Crit Chance (Wood Hammer)",
       -0.04167,
       -0.04167,
       -0.08334
     ],
     [
-      4,
-      "Houndoom-Mega",
-      "Mon Used Move With Crit Chance (Dark Pulse)",
+      20,
+      "Abomasnow",
+      "Target of Move With Crit Chance (Scald)",
       -0.08334,
-      -0.04167,
-      -0.12500999999999998
-    ],
-    [
-      4,
-      "Houndoom-Mega",
-      "Mon Used Move With Secondary Effect Chance (Dark Pulse)",
-      -0.12500999999999998,
-      -0.2,
-      -0.32500999999999997
-    ],
-    [
-      4,
-      "Houndoom-Mega",
-      "Mon incurred secondary effect (Dark Pulse)",
-      -0.32500999999999997,
-      1.0,
-      0.67499
-    ],
-    [
-      5,
-      "Houndoom-Mega",
-      "Mon Used Move With Crit Chance (Flamethrower)",
-      0.67499,
-      -0.04167,
-      0.6333199999999999
-    ],
-    [
-      11,
-      "Houndoom-Mega",
-      "Mon Used Move With Crit Chance (Dark Pulse)",
-      0.6333199999999999,
-      -0.04167,
-      0.5916499999999999
-    ],
-    [
-      12,
-      "Houndoom-Mega",
-      "Target of Move With Crit Chance (Boomburst)",
-      0.5916499999999999,
       0.04167,
-      0.6333199999999999
+      -0.04167
     ],
     [
-      13,
-      "Houndoom-Mega",
-      "Mon Used Move With Crit Chance (Dark Pulse)",
-      0.6333199999999999,
+      20,
+      "Abomasnow",
+      "Target of Move With Secondary Effect Chance (Scald)",
       -0.04167,
-      0.5916499999999999
+      0.3,
+      0.25833
     ],
     [
-      14,
-      "Houndoom-Mega",
-      "Mon Used Move With Crit Chance (Dark Pulse)",
-      0.5916499999999999,
-      -0.04167,
-      0.5499799999999999
+      21,
+      "Abomasnow",
+      "Target of Move With Crit Chance (Ice Beam)",
+      0.25833,
+      0.04167,
+      0.3
     ],
     [
-      15,
-      "Houndoom-Mega",
-      "Mon Used Move With Crit Chance (Dark Pulse)",
-      0.5499799999999999,
-      -0.04167,
-      0.5083099999999999
-    ],
-    [
-      6,
-      "Kyurem-White",
+      17,
+      "Accelgor",
       "Mon Used a Move That Can Miss (Focus Blast)",
       0.0,
       0.3,
       0.3
     ],
     [
-      6,
-      "Kyurem-White",
+      17,
+      "Accelgor",
       "Mon Used Move With Crit Chance (Focus Blast)",
       0.3,
       -0.04167,
       0.25833
     ],
     [
-      6,
-      "Kyurem-White",
-      "Mon Used Move With Secondary Effect Chance (Focus Blast)",
-      0.25833,
-      -0.1,
-      0.15832999999999997
-    ],
-    [
-      7,
-      "Kyurem-White",
-      "Mon Used a Move That Can Miss (Focus Blast)",
-      0.15832999999999997,
-      0.3,
-      0.45832999999999996
-    ],
-    [
-      7,
-      "Kyurem-White",
-      "Mon Used Move With Crit Chance (Focus Blast)",
-      0.45832999999999996,
-      -0.04167,
-      0.41666
-    ],
-    [
-      8,
-      "Kyurem-White",
-      "Mon Used Move With Crit Chance (Earth Power)",
-      0.41666,
-      -0.04167,
-      0.37498999999999993
-    ],
-    [
-      8,
-      "Kyurem-White",
-      "Mon Used Move With Secondary Effect Chance (Earth Power)",
-      0.37498999999999993,
-      -0.1,
-      0.27498999999999996
-    ],
-    [
-      9,
-      "Kyurem-White",
-      "Target of Move With Crit Chance (All-Out Pummeling)",
-      0.27498999999999996,
-      0.04167,
-      0.31665999999999994
-    ],
-    [
-      8,
-      "Raikou",
-      "Target of Move With Crit Chance (Earth Power)",
+      1,
+      "Chimecho",
+      "Target of Move With Crit Chance (Ice Beam)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      8,
-      "Raikou",
-      "Target of Move With Secondary Effect Chance (Earth Power)",
+      1,
+      "Chimecho",
+      "Target of Move With Secondary Effect Chance (Ice Beam)",
       0.04167,
       0.1,
       0.14167
     ],
     [
-      9,
-      "Raikou",
-      "Mon Used Move With Crit Chance (All-Out Pummeling)",
+      2,
+      "Chimecho",
+      "Mon Used Move With Crit Chance (Psychic)",
       0.14167,
       -0.04167,
       0.1
     ],
     [
-      10,
-      "Raikou",
-      "Mon Used Move With Crit Chance (Thunderbolt)",
+      2,
+      "Chimecho",
+      "Mon Used Move With Secondary Effect Chance (Psychic)",
       0.1,
-      -0.04167,
-      0.05833
-    ],
-    [
-      10,
-      "Raikou",
-      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
-      0.05833,
       -0.1,
-      -0.04167
-    ],
-    [
-      10,
-      "Raikou",
-      "Target of Move With Increased Crit Chance (Shadow Claw)",
-      -0.04167,
-      0.125,
-      0.08333
-    ],
-    [
-      12,
-      "Smeargle",
-      "Mon Used Move With Crit Chance (Boomburst)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      15,
-      "Smeargle",
-      "Target of Move With Crit Chance (Dark Pulse)",
-      -0.04167,
-      0.04167,
       0.0
     ],
     [
-      6,
-      "Snorlax",
-      "Target of Move That Can Miss (Focus Blast)",
-      0.0,
-      -0.3,
-      -0.3
-    ],
-    [
-      6,
-      "Snorlax",
-      "Target of Move With Crit Chance (Focus Blast)",
-      -0.3,
-      0.04167,
-      -0.25833
-    ],
-    [
-      6,
-      "Snorlax",
-      "Target of Move With Secondary Effect Chance (Focus Blast)",
-      -0.25833,
-      0.1,
-      -0.15832999999999997
-    ],
-    [
-      7,
-      "Snorlax",
-      "Target of Move That Can Miss (Focus Blast)",
-      -0.15832999999999997,
-      -0.3,
-      -0.45832999999999996
-    ],
-    [
-      7,
-      "Snorlax",
-      "Target of Move With Crit Chance (Focus Blast)",
-      -0.45832999999999996,
-      0.04167,
-      -0.41666
-    ],
-    [
-      13,
-      "Victini",
-      "Target of Move With Crit Chance (Dark Pulse)",
+      5,
+      "Chimecho",
+      "Target of Move With Crit Chance (Wood Hammer)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      14,
-      "Victini",
-      "Target of Move With Crit Chance (Dark Pulse)",
+      6,
+      "Chimecho",
+      "Target of Move With Crit Chance (Wood Hammer)",
       0.04167,
       0.04167,
       0.08334
     ],
     [
-      4,
-      "Zoroark",
-      "Target of Move With Crit Chance (Dark Pulse)",
+      8,
+      "Crustle",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      8,
+      "Crustle",
+      "Mon landed a critical hit",
+      -0.04167,
+      1.0,
+      0.95833
+    ],
+    [
+      9,
+      "Crustle",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      0.95833,
+      -0.04167,
+      0.9166599999999999
+    ],
+    [
+      10,
+      "Crustle",
+      "Mon Used a Move That Can Miss (Rock Blast)",
+      0.9166599999999999,
+      0.1,
+      1.01666
+    ],
+    [
+      10,
+      "Crustle",
+      "Mon Used Move With Crit Chance (Rock Blast)",
+      1.01666,
+      -0.04167,
+      0.9749899999999999
+    ],
+    [
+      26,
+      "Crustle",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      0.9749899999999999,
+      -0.04167,
+      0.9333199999999999
+    ],
+    [
+      26,
+      "Crustle",
+      "Target of Move With Crit Chance (Earth Power)",
+      0.9333199999999999,
+      0.04167,
+      0.9749899999999999
+    ],
+    [
+      19,
+      "Empoleon",
+      "Target of Move With Crit Chance (Earthquake)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      4,
-      "Zoroark",
-      "Target of Move With Secondary Effect Chance (Dark Pulse)",
+      20,
+      "Empoleon",
+      "Mon Used Move With Crit Chance (Scald)",
       0.04167,
-      0.2,
-      0.24167000000000002
+      -0.04167,
+      0.0
     ],
     [
-      4,
-      "Zoroark",
-      "Mon harmed by secondary effect (Dark Pulse)",
-      0.24167000000000002,
-      -1.0,
-      -0.75833
+      20,
+      "Empoleon",
+      "Mon Used Move With Secondary Effect Chance (Scald)",
+      0.0,
+      -0.3,
+      -0.3
     ],
     [
-      5,
-      "Zoroark",
+      21,
+      "Empoleon",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      -0.3,
+      -0.04167,
+      -0.34167000000000003
+    ],
+    [
+      22,
+      "Empoleon",
+      "Mon Used Move With Crit Chance (Scald)",
+      -0.34167000000000003,
+      -0.04167,
+      -0.38334
+    ],
+    [
+      22,
+      "Empoleon",
+      "Mon Used Move With Secondary Effect Chance (Scald)",
+      -0.38334,
+      -0.3,
+      -0.6833400000000001
+    ],
+    [
+      22,
+      "Empoleon",
+      "Target of Move With Crit Chance (Earthquake)",
+      -0.6833400000000001,
+      0.04167,
+      -0.64167
+    ],
+    [
+      23,
+      "Empoleon",
+      "Mon Used Move With Crit Chance (Scald)",
+      -0.64167,
+      -0.04167,
+      -0.6833400000000001
+    ],
+    [
+      23,
+      "Empoleon",
+      "Mon Used Move With Secondary Effect Chance (Scald)",
+      -0.6833400000000001,
+      -0.3,
+      -0.98334
+    ],
+    [
+      29,
+      "Empoleon",
+      "Mon Used Move With Crit Chance (Scald)",
+      -0.98334,
+      -0.04167,
+      -1.02501
+    ],
+    [
+      29,
+      "Empoleon",
+      "Mon Used Move With Secondary Effect Chance (Scald)",
+      -1.02501,
+      -0.3,
+      -1.32501
+    ],
+    [
+      29,
+      "Empoleon",
+      "Target of Move With Crit Chance (Earthquake)",
+      -1.32501,
+      0.04167,
+      -1.28334
+    ],
+    [
+      30,
+      "Empoleon",
+      "Mon Used Move With Crit Chance (Scald)",
+      -1.28334,
+      -0.04167,
+      -1.32501
+    ],
+    [
+      30,
+      "Empoleon",
+      "Mon Used Move With Secondary Effect Chance (Scald)",
+      -1.32501,
+      -0.3,
+      -1.62501
+    ],
+    [
+      30,
+      "Empoleon",
+      "Target of Move With Crit Chance (Earthquake)",
+      -1.62501,
+      0.04167,
+      -1.58334
+    ],
+    [
+      11,
+      "Hariyama",
+      "Target of Move With Crit Chance (Body Slam)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      11,
+      "Hariyama",
+      "Target of Move With Secondary Effect Chance (Body Slam)",
+      0.04167,
+      0.3,
+      0.34167000000000003
+    ],
+    [
+      12,
+      "Hariyama",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      0.34167000000000003,
+      -0.04167,
+      0.3
+    ],
+    [
+      13,
+      "Hariyama",
+      "Target of Move With Crit Chance (Close Combat)",
+      0.3,
+      0.04167,
+      0.34167000000000003
+    ],
+    [
+      13,
+      "Hariyama",
+      "Mon Used Move With Crit Chance (Close Combat)",
+      0.34167000000000003,
+      -0.04167,
+      0.3
+    ],
+    [
+      14,
+      "Hariyama",
+      "Mon Used Move With Crit Chance (Bullet Punch)",
+      0.3,
+      -0.04167,
+      0.25833
+    ],
+    [
+      15,
+      "Hariyama",
+      "Target of Move With Crit Chance (Ice Beam)",
+      0.25833,
+      0.04167,
+      0.3
+    ],
+    [
+      12,
+      "Heracross",
+      "Target of Move With Crit Chance (Knock Off)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      13,
+      "Heracross",
+      "Mon Used Move With Crit Chance (Close Combat)",
+      0.04167,
+      -0.04167,
+      0.0
+    ],
+    [
+      13,
+      "Heracross",
+      "Target of Move With Crit Chance (Close Combat)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      16,
+      "Heracross",
+      "Target of Move With Crit Chance (Boomburst)",
+      0.04167,
+      0.04167,
+      0.08334
+    ],
+    [
+      10,
+      "Munchlax",
+      "Target of Move That Can Miss (Rock Blast)",
+      0.0,
+      -0.1,
+      -0.1
+    ],
+    [
+      10,
+      "Munchlax",
+      "Target of Move With Crit Chance (Rock Blast)",
+      -0.1,
+      0.04167,
+      -0.05833
+    ],
+    [
+      11,
+      "Munchlax",
+      "Mon Used Move With Crit Chance (Body Slam)",
+      -0.05833,
+      -0.04167,
+      -0.1
+    ],
+    [
+      11,
+      "Munchlax",
+      "Mon Used Move With Secondary Effect Chance (Body Slam)",
+      -0.1,
+      -0.3,
+      -0.4
+    ],
+    [
+      18,
+      "Munchlax",
       "Target of Move With Crit Chance (Flamethrower)",
-      -0.75833,
+      -0.4,
       0.04167,
-      -0.71666
+      -0.35833
+    ],
+    [
+      18,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Flamethrower)",
+      -0.35833,
+      0.1,
+      -0.25833
+    ],
+    [
+      19,
+      "Munchlax",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      -0.25833,
+      -0.04167,
+      -0.3
+    ],
+    [
+      22,
+      "Munchlax",
+      "Target of Move With Crit Chance (Scald)",
+      -0.3,
+      0.04167,
+      -0.25833
+    ],
+    [
+      22,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Scald)",
+      -0.25833,
+      0.3,
+      0.04167000000000001
+    ],
+    [
+      22,
+      "Munchlax",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      0.04167000000000001,
+      -0.04167,
+      1.7763568394002505e-17
+    ],
+    [
+      23,
+      "Munchlax",
+      "Target of Move With Crit Chance (Scald)",
+      1.7763568394002505e-17,
+      0.04167,
+      0.04167000000000001
+    ],
+    [
+      23,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Scald)",
+      0.04167000000000001,
+      0.3,
+      0.34167000000000003
+    ],
+    [
+      27,
+      "Munchlax",
+      "Target of Move With Crit Chance (Flamethrower)",
+      0.34167000000000003,
+      0.04167,
+      0.38334
+    ],
+    [
+      27,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Flamethrower)",
+      0.38334,
+      0.1,
+      0.48334000000000005
+    ],
+    [
+      29,
+      "Munchlax",
+      "Target of Move With Crit Chance (Scald)",
+      0.48334000000000005,
+      0.04167,
+      0.5250100000000001
+    ],
+    [
+      29,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Scald)",
+      0.5250100000000001,
+      0.3,
+      0.82501
+    ],
+    [
+      29,
+      "Munchlax",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      0.82501,
+      -0.04167,
+      0.78334
+    ],
+    [
+      30,
+      "Munchlax",
+      "Target of Move With Crit Chance (Scald)",
+      0.78334,
+      0.04167,
+      0.82501
+    ],
+    [
+      30,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Scald)",
+      0.82501,
+      0.3,
+      1.12501
+    ],
+    [
+      30,
+      "Munchlax",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      1.12501,
+      -0.04167,
+      1.08334
+    ],
+    [
+      31,
+      "Munchlax",
+      "Target of Move That Can Miss (Fire Blast)",
+      1.08334,
+      -0.15,
+      0.9333400000000001
+    ],
+    [
+      31,
+      "Munchlax",
+      "Target of Move With Crit Chance (Fire Blast)",
+      0.9333400000000001,
+      0.04167,
+      0.97501
+    ],
+    [
+      31,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Fire Blast)",
+      0.97501,
+      0.1,
+      1.07501
+    ],
+    [
+      32,
+      "Munchlax",
+      "Target of Move That Can Miss (Fire Blast)",
+      1.07501,
+      -0.15,
+      0.92501
+    ],
+    [
+      32,
+      "Munchlax",
+      "Opponent missed a move (Fire Blast)",
+      0.92501,
+      1.0,
+      1.92501
+    ],
+    [
+      32,
+      "Munchlax",
+      "Target of Move With Crit Chance (Fire Blast)",
+      1.92501,
+      0.04167,
+      1.96668
+    ],
+    [
+      32,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Fire Blast)",
+      1.96668,
+      0.1,
+      2.06668
+    ],
+    [
+      33,
+      "Munchlax",
+      "Target of Move That Can Miss (Fire Blast)",
+      2.06668,
+      -0.15,
+      1.9166800000000002
+    ],
+    [
+      33,
+      "Munchlax",
+      "Target of Move With Crit Chance (Fire Blast)",
+      1.9166800000000002,
+      0.04167,
+      1.95835
+    ],
+    [
+      33,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Fire Blast)",
+      1.95835,
+      0.1,
+      2.05835
+    ],
+    [
+      34,
+      "Munchlax",
+      "Target of Move That Can Miss (Fire Blast)",
+      2.05835,
+      -0.15,
+      1.90835
+    ],
+    [
+      34,
+      "Munchlax",
+      "Target of Move With Crit Chance (Fire Blast)",
+      1.90835,
+      0.04167,
+      1.95002
+    ],
+    [
+      34,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Fire Blast)",
+      1.95002,
+      0.1,
+      2.05002
+    ],
+    [
+      34,
+      "Munchlax",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      2.05002,
+      -0.04167,
+      2.00835
+    ],
+    [
+      35,
+      "Munchlax",
+      "Target of Move That Can Miss (Fire Blast)",
+      2.00835,
+      -0.15,
+      1.8583500000000002
+    ],
+    [
+      35,
+      "Munchlax",
+      "Target of Move With Crit Chance (Fire Blast)",
+      1.8583500000000002,
+      0.04167,
+      1.90002
+    ],
+    [
+      35,
+      "Munchlax",
+      "Target of Move With Secondary Effect Chance (Fire Blast)",
+      1.90002,
+      0.1,
+      2.00002
+    ],
+    [
+      35,
+      "Munchlax",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      2.00002,
+      -0.04167,
+      1.95835
+    ],
+    [
+      1,
+      "Nidoking",
+      "Target of Move With Crit Chance (U-turn)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      1,
+      "Nidoking",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      0.04167,
+      -0.04167,
+      0.0
+    ],
+    [
+      1,
+      "Nidoking",
+      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
+      0.0,
+      -0.1,
+      -0.1
+    ],
+    [
+      14,
+      "Nidoking",
+      "Target of Move With Crit Chance (Bullet Punch)",
+      -0.1,
+      0.04167,
+      -0.05833
+    ],
+    [
+      15,
+      "Nidoking",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      -0.05833,
+      -0.04167,
+      -0.1
+    ],
+    [
+      26,
+      "Nidoking",
+      "Target of Move With Crit Chance (Earthquake)",
+      -0.1,
+      0.04167,
+      -0.05833
+    ],
+    [
+      26,
+      "Nidoking",
+      "Mon Used Move With Crit Chance (Earth Power)",
+      -0.05833,
+      -0.04167,
+      -0.1
+    ],
+    [
+      18,
+      "Pyroar",
+      "Mon Used Move With Crit Chance (Flamethrower)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      18,
+      "Pyroar",
+      "Mon Used Move With Secondary Effect Chance (Flamethrower)",
+      -0.04167,
+      -0.1,
+      -0.14167
+    ],
+    [
+      27,
+      "Pyroar",
+      "Mon Used Move With Crit Chance (Flamethrower)",
+      -0.14167,
+      -0.04167,
+      -0.18334
+    ],
+    [
+      27,
+      "Pyroar",
+      "Mon Used Move With Secondary Effect Chance (Flamethrower)",
+      -0.18334,
+      -0.1,
+      -0.28334
+    ],
+    [
+      31,
+      "Pyroar",
+      "Mon Used a Move That Can Miss (Fire Blast)",
+      -0.28334,
+      0.15,
+      -0.13334
+    ],
+    [
+      31,
+      "Pyroar",
+      "Mon Used Move With Crit Chance (Fire Blast)",
+      -0.13334,
+      -0.04167,
+      -0.17500999999999997
+    ],
+    [
+      31,
+      "Pyroar",
+      "Mon Used Move With Secondary Effect Chance (Fire Blast)",
+      -0.17500999999999997,
+      -0.1,
+      -0.27501
+    ],
+    [
+      32,
+      "Pyroar",
+      "Mon Used a Move That Can Miss (Fire Blast)",
+      -0.27501,
+      0.15,
+      -0.12500999999999998
+    ],
+    [
+      32,
+      "Pyroar",
+      "Mon missed a move (Fire Blast)",
+      -0.12500999999999998,
+      -1.0,
+      -1.12501
+    ],
+    [
+      32,
+      "Pyroar",
+      "Mon Used Move With Crit Chance (Fire Blast)",
+      -1.12501,
+      -0.04167,
+      -1.1666800000000002
+    ],
+    [
+      32,
+      "Pyroar",
+      "Mon Used Move With Secondary Effect Chance (Fire Blast)",
+      -1.1666800000000002,
+      -0.1,
+      -1.26668
+    ],
+    [
+      33,
+      "Pyroar",
+      "Mon Used a Move That Can Miss (Fire Blast)",
+      -1.26668,
+      0.15,
+      -1.1166800000000001
+    ],
+    [
+      33,
+      "Pyroar",
+      "Mon Used Move With Crit Chance (Fire Blast)",
+      -1.1166800000000001,
+      -0.04167,
+      -1.15835
+    ],
+    [
+      33,
+      "Pyroar",
+      "Mon Used Move With Secondary Effect Chance (Fire Blast)",
+      -1.15835,
+      -0.1,
+      -1.25835
+    ],
+    [
+      34,
+      "Pyroar",
+      "Mon Used a Move That Can Miss (Fire Blast)",
+      -1.25835,
+      0.15,
+      -1.1083500000000002
+    ],
+    [
+      34,
+      "Pyroar",
+      "Mon Used Move With Crit Chance (Fire Blast)",
+      -1.1083500000000002,
+      -0.04167,
+      -1.15002
+    ],
+    [
+      34,
+      "Pyroar",
+      "Mon Used Move With Secondary Effect Chance (Fire Blast)",
+      -1.15002,
+      -0.1,
+      -1.2500200000000001
+    ],
+    [
+      34,
+      "Pyroar",
+      "Target of Move With Crit Chance (Earthquake)",
+      -1.2500200000000001,
+      0.04167,
+      -1.20835
+    ],
+    [
+      35,
+      "Pyroar",
+      "Mon Used a Move That Can Miss (Fire Blast)",
+      -1.20835,
+      0.15,
+      -1.0583500000000001
+    ],
+    [
+      35,
+      "Pyroar",
+      "Mon Used Move With Crit Chance (Fire Blast)",
+      -1.0583500000000001,
+      -0.04167,
+      -1.10002
+    ],
+    [
+      35,
+      "Pyroar",
+      "Mon Used Move With Secondary Effect Chance (Fire Blast)",
+      -1.10002,
+      -0.1,
+      -1.20002
+    ],
+    [
+      35,
+      "Pyroar",
+      "Target of Move With Crit Chance (Earthquake)",
+      -1.20002,
+      0.04167,
+      -1.15835
+    ],
+    [
+      2,
+      "Steelix",
+      "Target of Move With Crit Chance (Psychic)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      2,
+      "Steelix",
+      "Target of Move With Secondary Effect Chance (Psychic)",
+      0.04167,
+      0.1,
+      0.14167
+    ],
+    [
+      8,
+      "Steelix",
+      "Target of Move With Crit Chance (Earthquake)",
+      0.14167,
+      0.04167,
+      0.18334
+    ],
+    [
+      8,
+      "Steelix",
+      "Mon was hit by a critical hit",
+      0.18334,
+      -1.0,
+      -0.8166599999999999
+    ],
+    [
+      9,
+      "Steelix",
+      "Target of Move With Crit Chance (Earthquake)",
+      -0.8166599999999999,
+      0.04167,
+      -0.77499
+    ],
+    [
+      1,
+      "Swellow",
+      "Mon Used Move With Crit Chance (U-turn)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      16,
+      "Swellow",
+      "Mon Used Move With Crit Chance (Boomburst)",
+      -0.04167,
+      -0.04167,
+      -0.08334
+    ],
+    [
+      17,
+      "Swellow",
+      "Target of Move That Can Miss (Focus Blast)",
+      -0.08334,
+      -0.3,
+      -0.38334
+    ],
+    [
+      17,
+      "Swellow",
+      "Target of Move With Crit Chance (Focus Blast)",
+      -0.38334,
+      0.04167,
+      -0.34167000000000003
     ]
   ],
   "errormessage": []

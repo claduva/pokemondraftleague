@@ -343,14 +343,6 @@ def league_match_results(request,league_name,subleague_name,matchid):
 
 @check_if_clad
 def upload_historic_match(request):
-    """
-    Season 2 top 8: 
-    https://replay.pokemonshowdown.com/gen7customgame-645812093
-    Season 4 week 5:
-    https://replay.pokemonshowdown.com/gen7anythinggoes-779737491
-    Season 4 top 4: Legendary match vs Amir
-    https://replay.pokemonshowdown.com/gen7anythinggoes-786582667
-    """
     if request.method=="POST":
         form = UploadHistoricMatchForm(request.POST)
         league_ = request.POST['league_']
@@ -369,7 +361,7 @@ def upload_historic_match(request):
                 team1=historical_team.objects.filter(league=league_,seasonname=seasonname).get(teamname=team1)
                 team2=historical_team.objects.filter(league=league_,seasonname=seasonname).get(teamname=team2)
                 winner=historical_team.objects.filter(league=league_,seasonname=seasonname).get(teamname=winner)
-                match=historical_match.objects.create(week=week,team1=team1,team2=team2,winner=winner,replay=replay)
+                match=historical_match.objects.create(id=historical_match.objects.all().order_by('-id').first().id+1,week=week,team1=team1,team2=team2,winner=winner,replay=replay)
                 success=check_hist_match(match)
                 if success:
                     results = newreplayparse(replay)
@@ -381,7 +373,8 @@ def upload_historic_match(request):
                     messages.success(request,"Success!")    
                 else:
                     messages.error(request,f'Analysis Failed.',extra_tags="danger")
-        except:
+        except Exception as e:
+            print(e)
             messages.error(request,f'Analysis Failed.',extra_tags="danger")
         return redirect('upload_historic_match')
     form=UploadHistoricMatchForm()

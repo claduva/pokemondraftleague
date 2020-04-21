@@ -17,6 +17,7 @@ from accounts.forms import UserRegisterForm
 from .models import *
 from leagues.models import *
 from pokemonadmin.models import *
+from replayanalysis.models import *
 from .forms import *
 
 # Create your views here.
@@ -46,6 +47,11 @@ def pokedex_item(request,pokemon_of_interest):
             pokemon_data.differential+=item.differential
             pokemon_data.gp+=item.gp
             pokemon_data.gw+=item.gw
+            pokemon_data.support+=item.support
+            pokemon_data.remaininghealth+=item.remaininghealth
+            pokemon_data.luck+=item.luck
+            pokemon_data.hphealed+=item.hphealed
+            pokemon_data.damagedone+=item.damagedone
         otherseason_data=historical_roster.objects.all().filter(pokemon=pokemon_data)
         for item in otherseason_data:
             pokemon_data.kills+=item.kills
@@ -53,13 +59,24 @@ def pokedex_item(request,pokemon_of_interest):
             pokemon_data.differential+=item.differential
             pokemon_data.gp+=item.gp
             pokemon_data.gw+=item.gw
+            pokemon_data.support+=item.support
+            pokemon_data.remaininghealth+=item.remaininghealth
+            pokemon_data.luck+=item.luck
+            pokemon_data.hphealed+=item.hphealed
+            pokemon_data.damagedone+=item.damagedone
     except:
         messages.error(request,'Pokemon does not exist!',extra_tags='danger')
         return redirect('pokedex')
+    replays=match_replay.objects.all().filter(Q(data__team1__roster__contains=[{'pokemon':pokemon_of_interest}])|Q(data__team2__roster__contains=[{'pokemon':pokemon_of_interest}]))
+    histreplays=historical_match_replay.objects.all().filter(Q(data__team1__roster__contains=[{'pokemon':pokemon_of_interest}])|Q(data__team2__roster__contains=[{'pokemon':pokemon_of_interest}]))
     context = {
         "title": pokemon_of_interest,
         'pokedexitem': True,
         'pokemon_data':pokemon_data,
+        'replays':replays,
+        'histreplays':histreplays,
+        'roster':roster_data,
+        'histroster':otherseason_data
     }
     return render(request,"pokedex.html", context)
 
