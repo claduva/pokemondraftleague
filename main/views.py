@@ -147,6 +147,19 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
+    maxluck=0
+    replay=""
+    for item in historical_match_replay.objects.all():
+        for item_ in item.data['team1']['roster']:
+            if item_['luck']>maxluck:
+                replay=item.data['replay']
+                maxluck=item_['luck']
+        for item_ in item.data['team2']['roster']:
+            if item_['luck']>maxluck:
+                replay=item.data['replay']
+                maxluck=item_['luck']
+    print(maxluck)
+    print(replay)
     return redirect('home')
 
 def get_pkmn(pkmn):
