@@ -84,7 +84,7 @@ class historical_match(models.Model):
     winneralternateattribution=models.ForeignKey(User,on_delete=models.CASCADE, related_name="historicwinneralternateattribution",null=True)
     team1score = models.IntegerField(default=0)
     team2score = models.IntegerField(default=0)
-    replay = models.CharField(max_length=100,default="Link")
+    replay = models.CharField(max_length=200,default="Link")
 
     def __str__(self):
         return f'{self.team1.league.name} {self.team1.seasonname} Week {self.week} {self.team1.teamname} vs. {self.team2.teamname}'
