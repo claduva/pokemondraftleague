@@ -1023,6 +1023,7 @@ def archive_season(request,league_name):
     tradingitems=trading.objects.all().filter(season__league=league_)
     season=league_.subleague.first().seasonsetting
     maxid=historical_team.objects.all().order_by('-id').first().id
+    """
     for item in coachdataitems:
         maxid+=1
         if item.teammate:
@@ -1070,6 +1071,7 @@ def archive_season(request,league_name):
         if item.parent_team:
             ht.subteam=item.parent_team.name
             ht.save()
+    """
     maxid=historical_freeagency.objects.all().order_by('-id').first().id
     for item in freeagencyitems:
         team=historical_team.objects.filter(league=league_,seasonname = season.seasonname)
@@ -1118,10 +1120,6 @@ def archive_season(request,league_name):
             team1score = item.team1score,
             team2score = item.team2score,
             replay = item.replay,
-            team1usedz = item.team1usedz,
-            team2usedz = item.team2usedz,
-            team1megaevolved = item.team1megaevolved,
-            team2megaevolved = item.team2megaevolved
         )
         try: 
             mr=item.match_replay

@@ -9,6 +9,7 @@ urlpatterns = [
     path("pokemonleaderboard/", views.pokemonleaderboard, name="pokemonleaderboard"),
     path("userleaderboard/", views.userleaderboard, name="userleaderboard"),
     path("pickemleaderboard/", views.pickemleaderboard, name="pickemleaderboard"),
+    #path("replayleaderboard/", views.replayleaderboard, name="replayleaderboard"),
     path("replay_database/", views.replay_database, name="replay_database"),
     path("help/", views.help, name="help"),
     path("runscript/", views.runscript, name="runscript"),

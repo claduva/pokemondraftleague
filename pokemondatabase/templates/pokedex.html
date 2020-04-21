@@ -123,7 +123,7 @@
                 <tr class="bg-dark text-light">
                     <th>Tiering</th>
                 </tr>
-                {% for item in pokemon_data.pokemon_tiers.all %}
+                {% for item in pokemon_data.pokemon_tiers.all|alphabetize:"league__name" %}
                 <tr>
                     <td>
                         <div class="d-flex justify-content-center">

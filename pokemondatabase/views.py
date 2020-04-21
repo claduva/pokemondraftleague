@@ -40,7 +40,7 @@ def pokedex_item(request,pokemon_of_interest):
         pokemon_data=all_pokemon.objects.get(pokemon=pokemon_of_interest)
         draftnumber=draft.objects.all().filter(pokemon=pokemon_data).count()+historical_draft.objects.all().filter(pokemon=pokemon_data).count()
         pokemon_data.timesdrafted+=draftnumber
-        roster_data=roster.objects.all().filter(pokemon=pokemon_data)
+        roster_data=roster.objects.all().filter(pokemon=pokemon_data).order_by('season__league__name','season__seasonname')
         for item in roster_data:
             pokemon_data.kills+=item.kills
             pokemon_data.deaths+=item.deaths
@@ -52,7 +52,7 @@ def pokedex_item(request,pokemon_of_interest):
             pokemon_data.luck+=item.luck
             pokemon_data.hphealed+=item.hphealed
             pokemon_data.damagedone+=item.damagedone
-        otherseason_data=historical_roster.objects.all().filter(pokemon=pokemon_data)
+        otherseason_data=historical_roster.objects.all().filter(pokemon=pokemon_data).order_by('team__league__name','team__seasonname')
         for item in otherseason_data:
             pokemon_data.kills+=item.kills
             pokemon_data.deaths+=item.deaths
@@ -67,8 +67,8 @@ def pokedex_item(request,pokemon_of_interest):
     except:
         messages.error(request,'Pokemon does not exist!',extra_tags='danger')
         return redirect('pokedex')
-    replays=match_replay.objects.all().filter(Q(data__team1__roster__contains=[{'pokemon':pokemon_of_interest}])|Q(data__team2__roster__contains=[{'pokemon':pokemon_of_interest}]))
-    histreplays=historical_match_replay.objects.all().filter(Q(data__team1__roster__contains=[{'pokemon':pokemon_of_interest}])|Q(data__team2__roster__contains=[{'pokemon':pokemon_of_interest}]))
+    replays=match_replay.objects.all().filter(Q(data__team1__roster__contains=[{'pokemon':pokemon_of_interest}])|Q(data__team2__roster__contains=[{'pokemon':pokemon_of_interest}])).order_by('match__season__league__name','match__season__seasonname','match__week')
+    histreplays=historical_match_replay.objects.all().filter(Q(data__team1__roster__contains=[{'pokemon':pokemon_of_interest}])|Q(data__team2__roster__contains=[{'pokemon':pokemon_of_interest}])).order_by('match__team1__league__name','match__team1__seasonname','match__week')
     context = {
         "title": pokemon_of_interest,
         'pokedexitem': True,
@@ -76,7 +76,7 @@ def pokedex_item(request,pokemon_of_interest):
         'replays':replays,
         'histreplays':histreplays,
         'roster':roster_data,
-        'histroster':otherseason_data
+        'histroster':otherseason_data,
     }
     return render(request,"pokedex.html", context)
 

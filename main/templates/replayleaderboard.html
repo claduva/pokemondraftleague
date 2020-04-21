@@ -1,0 +1,55 @@
+{% extends "template.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load extratags %}
+
+{% block title %}{{title}}{% endblock %}
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/leagueleaders.css' %}">
+{% endblock %}
+{% block body %}
+<div class="row bg-darkgrey rounded text-light p-2 align-items-center mb-2">
+    <div class="col-4 d-flex justify-content-start"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="mediumlogo">
+    </div>
+    <div class="col-4">
+        <h3 class="d-flex justify-content-center">Replay Leaderboard</h3>
+    </div>
+    <div class="col-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}"
+            class="mediumlogo">
+    </div>
+</div>
+<div class="row bg-darkgrey rounded text-light p-2">
+    <div class="col-12">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table id="leadertable"
+                class="table table-sm table-bordered table-striped p-0 m-0 text-center text-nowrap tablesorter">
+                <thead>
+                    <tr class="bg-dark text-light">
+                        <th>#</th>
+                    <th>League</th>
+                    <th>Season</th>
+                    <th>Team</th>
+                    <th>Damage Done</th>
+                    <th>HP Healed</th>
+                    <th>Luck</th>
+                    <th>Support</th>
+                </tr>
+            </thead>
+            <tbody class="bg-lightgrey text-dark">
+                {% for item in leaderboard %}
+                    <tr class="text-center">
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<script src="{% static 'individualleague/scripts/tablesorter2.js' %}"></script>
+<script src="{% static 'individualleague/scripts/tablesorterwidgets.js' %}"></script>
+<script src="{% static 'individualleague/scripts/leaderboardsorter.js' %}"></script>
+{% endblock %}
