@@ -137,6 +137,7 @@
         </div>
     </div>
     <div class="col-md-7">
+        {% if roster or histroster %}
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
@@ -205,6 +206,8 @@
                 {% endfor %}
             </table>
         </div>
+        {% endif %}
+        {% if replays or histreplays %}
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
@@ -257,6 +260,7 @@
                 {% endfor %}
             </table>
         </div>
+        {% endif %}
     </div>
 </div>
 {% elif pokedex %}
