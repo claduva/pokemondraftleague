@@ -29,13 +29,13 @@ def replay_analysis(request):
             url=form.cleaned_data['url']
             try:    
                 results = newreplayparse(url)
+                if len(results['errormessage'])!=0 and request.user!=clad:
+                    inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
             except Exception as e:
+                raise(e)
                 if request.user != clad:
                     inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
                 messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
-                raise(e)
-            if len(results['errormessage'])!=0 and request.user!=clad:
-                inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
             context={
                 'results': results,
             }
@@ -329,7 +329,6 @@ def league_match_results(request,league_name,subleague_name,matchid):
             except Exception as e:
                 inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
                 messages.error(request,f'There was an error processing your replay. claduva has been notified.',extra_tags="danger")
-                raise(e)
             if len(results['errormessage'])!=0:
                 inbox.objects.create(sender=request.user,recipient=clad, messagesubject="Replay Error",messagebody=url)
         context={
@@ -432,6 +431,43 @@ def check_existing_replay(request):
         'submission': True,
     }
     return  render(request,"replayanalysisform.html",context)
+
+@check_if_clad
+def check_if_passes(request):
+    currentmatches=schedule.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
+    histmatches=historical_match.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
+    total=currentmatches.count()+histmatches.count()
+    i=1
+    failed=[]
+    for item in currentmatches:
+        try:    
+            results = newreplayparse(item.replay)
+            if len(results['errormessage'])>0:
+                failed.append(item.replay)
+            else:
+                data=item.match_replay
+                data.data=results
+                data.save()
+        except:
+            failed.append(item.replay)
+        print(f'{i}/{total}')
+        i+=1
+    for item in histmatches:
+        try:    
+            results = newreplayparse(item.replay)
+            if len(results['errormessage'])>0:
+                failed.append(item.replay)
+            else:
+                data=item.historical_match_replay
+                data.data=results
+                data.save()
+        except:
+            failed.append(item.replay)
+        print(f'{i}/{total}')
+        i+=1
+    for item in failed:
+        print(item)
+    return redirect('home')
 
 @check_if_clad
 def check_analyzer(request):

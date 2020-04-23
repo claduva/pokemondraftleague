@@ -150,7 +150,6 @@ def secondary_check(attacker,target,move,line,results,parsedlogfile):
     ['Rolling Kick', ['cant', 'flinch',target['nickname'], .3,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]], 
     ['Blue Flare', ['status', 'brn',target['nickname'], .2,f"{target['pokemon']} was burned by {attacker['pokemon']} with {move}"]], 
     ['Sky Attack', ['cant', 'flinch',target['nickname'], .3,f"{target['pokemon']} was flinched by {attacker['pokemon']} with {move}"]]])
-    print(move)
     move_=moveswithsecondaryeffect[move]
     turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0], parsedlogfile))
     for line_ in turndata:
@@ -164,6 +163,16 @@ def secondary_check(attacker,target,move,line,results,parsedlogfile):
                     results=luckappend(line,results,target,f"Mon harmed by secondary effect ({move})",-100)
                     target[status]=attacker['nickname']   
                     break
+        elif move in ['Fire Fang','Ice Fang','Thunder Fang']:
+            if line_[2]==move_[0] and line_[3].find(move_[1])>-1 and line_[3].find(move_[2])>-1:
+                #results['significantevents'].append([line[1],f"LUCK: {move_[4]}"])
+                results=luckappend(line,results,attacker,f"Mon incurred secondary effect ({move})",100)
+                results=luckappend(line,results,target,f"Mon harmed by secondary effect ({move})",-100)
+                if move_[0]=="status" or move_[0]=="start":
+                    target[move_[1]]=attacker['nickname']
+            elif line_[2]=='cant' and line_[3].find('flinch')>-1 and line_[3].find(move_[2])>-1:
+                results=luckappend(line,results,attacker,f"Mon incurred secondary effect ({move})",100)
+                results=luckappend(line,results,target,f"Mon harmed by secondary effect ({move})",-100)
         elif line_[2]==move_[0] and line_[3].find(move_[1])>-1 and line_[3].find(move_[2])>-1:
             #results['significantevents'].append([line[1],f"LUCK: {move_[4]}"])
             results=luckappend(line,results,attacker,f"Mon incurred secondary effect ({move})",100)
@@ -183,16 +192,18 @@ def crit_function(line,parsedlogfile,results):
             attackingteam="p2a"
             attacker=line_[3].split("|",1)[0].split(" ",1)[1]
             attacker=roster_search(attackingteam,attacker,results)
-            results=luckappend(line,results,attacker,f"Mon landed a critical hit",100)
-            results=luckappend(line,results,crittedmon_,f"Mon was hit by a critical hit",-100)
-            move=line_[3].split("|")[1]
+            if attacker['pokemon'] not in ['Mareanie','Toxapex'] or (crittedmon_['psn']==None and crittedmon_['tox']==None):
+                results=luckappend(line,results,attacker,f"Mon landed a critical hit",100)
+                results=luckappend(line,results,crittedmon_,f"Mon was hit by a critical hit",-100)
+                move=line_[3].split("|")[1]
             #results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon_['pokemon']} with {move}"])
         elif crittedteam=="p2a" and line_[2]=="move" and line_[3].split(":",1)[0]=="p1a" and line_[3].split("|")[2]==f"{crittedteam}: {crittedmon}":
             attackingteam="p1a"
             attacker=line_[3].split("|",1)[0].split(" ",1)[1]
             attacker=roster_search(attackingteam,attacker,results)
-            results=luckappend(line,results,attacker,f"Mon landed a critical hit",100)
-            results=luckappend(line,results,crittedmon_,f"Mon was hit by a critical hit",-100)
-            move=line_[3].split("|")[1]
+            if attacker['pokemon'] not in ['Mareanie','Toxapex'] or (crittedmon_['psn']==None and crittedmon_['tox']==None):
+                results=luckappend(line,results,attacker,f"Mon landed a critical hit",100)
+                results=luckappend(line,results,crittedmon_,f"Mon was hit by a critical hit",-100)
+                move=line_[3].split("|")[1]
             #results['significantevents'].append([line[1],f"LUCK: {attacker['pokemon']} landed a crit on {crittedmon_['pokemon']} with {move}"])
     return line,parsedlogfile,results

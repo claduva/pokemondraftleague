@@ -36,19 +36,45 @@ def replay_parse_switch(argument,parsedlogfile,results):
     # Execute the function
     return func(argument,parsedlogfile,results)
 
-def newreplayparse(replay):
-    #initialize variables
-    if replay.find("logfiles")>-1 and replay.find(".txt")>-1:
-        logfile = requests.get(replay).text.splitlines()
-    else:
-        logfile = requests.get(replay+".log").text.splitlines()   
+def alternate_replay_parse_switch(argument,parsedlogfile,results):
+    switcher = {
+        'activate': activate_function,
+        'boost':boost_function,
+        'cant': cant_function,
+        'crit': crit_function,
+        'curestatus': curestatus_function,
+        'damage': damage_function,
+        'detailschange': detailschange_function,
+        'drag': switch_drag_function,
+        'fieldstart': fieldstart_function,
+        'fieldend': fieldend_function,
+        'heal':heal_function,
+        'message': message_function,
+        'move': move_function,
+        'player': player_function,
+        'poke': poke_function,
+        'replace': replace_function,
+        'sethp':sethp_function,
+        'start': start_function,
+        'status': status_function,
+        'switch': alternate_switch_drag_function,
+        'unboost': unboost_function,
+        'weather': weather_function,
+        'win': win_function,
+        'zpower': zpower_function,
+        #gen,turn,start,tie,detailschange,transform,formechange,switchout,faint,swap,move,cant,message,start,end,ability,endability,item,enditem,status,curestatus,cureteam,singleturn,singlemove,sidestart,sideend,weather,fieldstart,fieldend,sethp,message,hint,activate,heal,boost,unboost,setboost,swapboost,copyboost,clearboost,clearpositiveboost,clearnegativeboost,invertboost,clearallboost,crit,supereffective,resisted,block,fail,immune,miss,center,notarget,mega,primal,zpower,burst,zbroken,hitcount,waiting,anim
+    }
+    # Get the function from switcher dictionary
+    func = switcher.get(argument[2], lambda argument,parsedlogfile,results: (argument,parsedlogfile,results))
+    # Execute the function
+    return func(argument,parsedlogfile,results)
+
+def prepare_parsedlogfile(logfile,replay):
     parsedlogfile=[]
     line_number=0
     turn_number=0
-    #initialize output json
     results=initializeoutput()
-    results['replay']=replay
-    #iterate through logfile
+    results['replay']=replay 
     for line in logfile:
         if line.find("|")>-1:
             #remove unneeded lines
@@ -80,9 +106,23 @@ def newreplayparse(replay):
                     lineremainder=lineremainder_[1:]
                 parsedlogfile.append([line_number,turn_number,linepurpose,lineremainder])
                 line_number+=1
+    return results,parsedlogfile
+
+def newreplayparse(replay):
+    #initialize variables
+    if replay.find("logfiles")>-1 and replay.find(".txt")>-1:
+        logfile = requests.get(replay).text.splitlines()
+    else:
+        logfile = requests.get(replay+".log").text.splitlines()   
     #iterate through parsed logfile
-    for line in parsedlogfile:
-        line,parsedlogfile,results=replay_parse_switch(line,parsedlogfile,results) 
+    try:
+        results,parsedlogfile=prepare_parsedlogfile(logfile,replay)
+        for line in parsedlogfile:
+            line,parsedlogfile,results=alternate_replay_parse_switch(line,parsedlogfile,results)
+    except:
+        results,parsedlogfile=prepare_parsedlogfile(logfile,replay)
+        for line in parsedlogfile:
+            line,parsedlogfile,results=replay_parse_switch(line,parsedlogfile,results)
     #sort significant events
     results['significantevents']=sorted( results['significantevents'],key=lambda tup: tup[0])
     #sort luckcatalog
@@ -264,9 +304,6 @@ def damage_function(line,parsedlogfile,results):
                         if mon[cause]!=None:
                             pokemon[cause]=mon[cause]
                             break
-                #print(line)
-                #print(cause)
-                #print(pokemon[cause])
                 damager=roster_search(otherteam,pokemon[cause],results)
         if damager:
             damager['damagedone']+=damagedone 
@@ -432,7 +469,29 @@ def move_function(line,parsedlogfile,results):
         defendingteam=None; target=None
     #check for 2 turn moves
     if line[3].find("[still]")>-1:
+        if move in ['Fly','Dive','Bounce','Dig','Sky Drop','Shadow Force','Phantom Force']:
+            attacker['semiinv']=True
         return line,parsedlogfile,results
+    if move in ['Fly','Dive','Bounce','Dig','Sky Drop','Shadow Force','Phantom Force']:
+        attacker['semiinv']=False
+    try:
+        semiinv=target['semiinv']
+    except:
+        semiinv=False
+    #check if paralyzed or frozen
+    if attackingteam=="p1a":
+        opponent=results['team2']['activemon']
+        opponent=roster_search('p2a',opponent,results)
+    elif attackingteam=="p2a":
+        opponent=results['team1']['activemon']
+        opponent=roster_search('p1a',opponent,results)
+    if attacker['par']!=None:
+        results=luckappend(line,results,attacker,f"Mon Broke Through Paralysis",25)
+        results=luckappend(line,results,opponent,f"Opponent Broke Through Paralysis",-25)
+    if attacker['frz']!=None:
+        results=luckappend(line,results,attacker,f"Mon Thawed",80)
+        attacker['frz']=None
+        results=luckappend(line,results,opponent,f"Opponent Thawed",-80)
     #check for immunity
     turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0], parsedlogfile))
     turndata_=list(filter(lambda x: x[1] == line[1] and x[0] < line[0], parsedlogfile))
@@ -480,7 +539,7 @@ def move_function(line,parsedlogfile,results):
     movesthatcanmiss2=[['Hydro Pump', 80], ['Steam Eruption', 95], ['X-Scissor', 100], ['Water Gun', 100], ['Nuzzle', 100], ['Hidden Power Fighting', 100], ['Snarl', 95], ['Venoshock', 100], ['Thousand Arrows', 100], ['Needle Arm', 100], ['Dragon Breath', 100], ['Cut', 95], ['Comet Punch', 85], ['Fake Tears', 100], ['Low Kick', 100], ['Bulldoze', 100], ['Psycho Shift', 100], ['Thrash', 100], ['Volt Switch', 100], ['Pound', 100], ['Silver Wind', 100], ['Precipice Blades', 85], ['Toxic Thread', 100], ['Hidden Power Psychic', 100], ['Hydro Cannon', 90], ['Air Slash', 95], ['Lava Plume', 100], ['Meteor Mash', 90], ['Icicle Crash', 90], ['Frustration', 100], ['Attack Order', 100], ['Entrainment', 100], ['Hold Back', 100], ["Nature's Madness", 90], ['Shadow Bone', 100], ['Ominous Wind', 100], ['Steel Beam', 95], ['Apple Acid', 100], ['Body Press', 100], ['Fishious Rend', 100], ['Bolt Beak', 100], ['Breaking Swipe', 100], ['Strange Steam', 95], ['Vise Grip', 100], ['Jaw Lock', 100], ['Pyro Ball', 90], ['Tar Shot', 100], ['Dynamax Cannon', 100], ['Snipe Shot', 100], ['Magic Powder', 100], ['Octolock', 100], ['Drum Beating', 100], ['Snap Trap', 100], ['Behemoth Blade', 100], ['Branch Poke', 100], ['Aura Wheel', 100], ['Overdrive', 100], ['Grav Apple', 100], ['Behemoth Bash', 100], ['Spirit Break', 100], ['Meteor Assault', 100], ['Eternabeam', 90], ['Dragon Darts', 100]]
     movesthatcanmiss=dict(movesthatcanmiss1+movesthatcanmiss2)
     #check if can miss
-    if move in movesthatcanmiss.keys() and notimmune and targetnotprotected and targetmon:
+    if move in movesthatcanmiss.keys() and notimmune and targetnotprotected and targetmon and not semiinv:
         try: 
             acc_modifier=accuracy_modifier(attacker['accuracy'],target['evasion'])*results['Gravity']
             #compound eyes, victory star
@@ -503,13 +562,21 @@ def move_function(line,parsedlogfile,results):
             pass
     #check for miss
     movehit=True
-    if line[3].find("|[miss]")>-1 and notimmune and targetnotprotected and targetmon:
+    if line[3].find("|[miss]")>-1 and notimmune and targetnotprotected and targetmon and not semiinv:
         results=miss_function(line,attacker,target,move,results)
         movehit=False
     #check if can crit
     movesthatcancrit=['Scratch', 'Anchor Shot', 'Avalanche', 'Sand Tomb', 'Fire Punch', 'Infestation', 'Superpower', 'Zing Zap', 'Giga Drain', 'Chatter', 'Ice Punch', 'Tail Slap', 'Double Slap', 'Thunder Shock', 'Splintered Stormshards', 'Sky Uppercut', 'Hyper Beam', 'Dynamic Punch', 'Poison Sting', 'Dig', 'Focus Blast', 'Liquidation', 'Double Kick', 'Ice Ball', 'Round', 'False Swipe', 'Crush Claw', 'Shadow Sneak', 'Tectonic Rage', 'Hidden Power Electric', 'Seed Bomb', 'Hidden Power Fire', 'Chip Away', 'Metal Claw', 'Acid', 'Vital Throw', 'Shock Wave', 'Baddy Bad', 'Accelerock', 'Aurora Beam', 'Heart Stamp', 'Magma Storm', 'Crunch', 'Aeroblast', 'Explosion', 'Gigavolt Havoc', 'Moongeist Beam', 'Revenge', 'Clear Smog', 'Wake-Up Slap', 'Pursuit', 'Head Smash', 'Earthquake', 'Incinerate', 'Water Pulse', 'Dragon Pulse', 'Glitzy Glow', 'Acid Spray', 'Thunder Punch', 'Extrasensory', 'Blizzard', 'Blast Burn', 'Paleo Wave', 'Mud-Slap', 'Inferno Overdrive', 'Freeze-Dry', 'Overheat', 'Savage Spin-Out', 'Flame Charge', 'Dizzy Punch', 'Flying Press', 'Lunge', 'Prismatic Laser', 'U-turn', 'Future Sight', 'Fire Lash', 'Smelling Salts', 'Burn Up', 'Catastropika', 'Bug Bite', 'Hidden Power Ghost', 'Shell Trap', 'Hyperspace Hole', 'Sky Drop', 'Crabhammer', 'Light That Burns the Sky', 'Darkest Lariat', 'Hidden Power', 'Razor Leaf', 'Head Charge', 'Dive', 'Signal Beam', 'Rock Tomb', 'Power Whip', 'Buzzy Buzz', "Let's Snuggle Forever", 'Psychic Fangs', 'Bind', 'Throat Chop', 'Parabolic Charge', 'Retaliate', 'Steamroller', 'Bullet Seed', 'Freezy Frost', 'Aqua Jet', 'Flame Burst', 'Thief', 'Astonish', 'Dream Eater', 'Energy Ball', 'Fury Swipes', 'Belch', 'Power Trip', 'Fury Cutter', 'Iron Tail', 'Hidden Power Flying', 'Egg Bomb', 'Payback', 'Fusion Flare', 'Boomburst', 'Secret Sword', 'Thunder Fang', 'Charge Beam', 'Rapid Spin', 'Skull Bash', 'Clamp', 'Rock Throw', 'Secret Power', 'Fairy Wind', 'Water Shuriken', 'Struggle Bug', 'Ice Fang', 'Self-Destruct', 'Sinister Arrow Raid', 'Stored Power', 'Tri Attack', 'Psychic', 'Electroweb', 'Weather Ball', 'Shattered Psyche', 'Whirlpool', 'Smog', 'Assurance', 'Icy Wind', 'Steel Wing', 'Core Enforcer', 'Synchronoise', 'Zippy Zap', 'Petal Dance', 'Iron Head', 'Trop Kick', 'Headbutt', 'Drain Punch', 'Bug Buzz', 'Fire Fang', 'Sludge', 'Mist Ball', 'Jump Kick', 'Water Spout', 'Ice Shard', 'Earth Power', 'Stomping Tantrum', 'Bolt Strike', 'Bite', 'Sappy Seed', 'Mega Kick', 'Inferno', 'Rock Climb', 'Rock Blast', 'Feint', 'Sucker Punch', 'Dragon Ascent', 'Freeze Shock', 'Peck', 'Drill Run', 'Leafage', 'Dark Pulse', 'Flash Cannon', 'Floaty Fall', 'Poison Fang', 'Dazzling Gleam', 'Double-Edge', 'Hidden Power Rock', 'Sludge Bomb', 'Lick', 'Fire Spin', 'Close Combat', 'Bone Rush', 'Slam', 'Aqua Tail', 'Strength', 'Fusion Bolt', 'Rage', 'Hidden Power Dark', 'Psycho Boost', 'Surf', 'Gear Grind', 'Shadow Ball', 'Eruption', 'Barrage', 'Shadow Force', 'Bonemerang', 'Cross Poison', 'Low Sweep', 'Sludge Wave', 'Leaf Tornado', 'Hyper Fang', 'Covet', 'Karate Chop', 'Fell Stinger', 'Thunder', 'Constrict', 'Razor Wind', 'Water Pledge', 'Brine', 'Hammer Arm', 'Last Resort', 'Pulverizing Pancake', 'Bullet Punch', 'Brick Break', 'Pay Day', 'Oblivion Wing', 'Origin Pulse', 'Stomp', 'Poison Tail', 'Bone Club', 'Fire Blast', 'Brave Bird', 'Gust', 'Mud Bomb', 'Leaf Blade', 'Sparkly Swirl', 'Twineedle', 'Solar Blade', 'Splishy Splash', 'Spirit Shackle', 'Continental Crush', 'Mystical Fire', 'Confusion', 'Pluck', 'Frost Breath', 'Roar of Time', 'Fury Attack', 'Swift', 'High Jump Kick', 'Brutal Swing', 'Petal Blizzard', 'Wing Attack', 'Hidden Power Steel', 'Wood Hammer', 'Hidden Power Water', 'Hyperspace Fury', 'Fiery Dance', 'Echoed Voice', 'Smack Down', "Land's Wrath", 'Mega Punch', 'Revelation Dance', 'Night Daze', 'Dragon Tail', 'Flare Blitz', 'Ice Hammer', 'V-create', 'Acid Downpour', 'Shadow Claw', 'Sacred Fire', 'Ice Beam', 'Facade', 'Vice Grip', 'Hidden Power Ice', 'Extreme Speed', 'Poison Jab', 'Take Down', 'Phantom Force', 'Double Iron Bash', 'Mind Blown', 'Multi-Attack', 'Zap Cannon', 'Magnet Bomb', 'Absorb', 'Waterfall', 'Judgment', 'Hidden Power Bug', 'Psybeam', 'Knock Off', 'Octazooka', 'Hyper Voice', 'Double Hit', 'Spark', 'Stone Edge', 'Rock Wrecker', 'Bouncy Bubble', 'Draining Kiss', 'Mud Shot', 'Mirror Shot', 'Megahorn', 'Acrobatics', 'Fleur Cannon', 'Dragon Rush', 'Solar Beam', 'Mach Punch', 'Luster Purge', 'Breakneck Blitz', 'Snore', 'Submission', 'Vacuum Wave', 'Thunderbolt', 'Circle Throw', 'All-Out Pummeling', 'Flame Wheel', 'Hidden Power Poison', 'Subzero Slammer', 'Fire Pledge', 'Bounce', 'Photon Geyser', 'Giga Impact', 'Dragon Claw', 'Soul-Stealing 7-Star Strike', 'Scald', 'Uproar', 'Force Palm', 'Hurricane', 'Ice Burn', 'Cross Chop', 'Psyshock', 'Hidden Power Grass', 'Techno Blast', 'Gunk Shot', 'Wild Charge', 'Dragon Hammer', 'Horn Attack', 'Blaze Kick', 'Psystrike', 'Spike Cannon', 'Horn Leech', 'Searing Shot', 'Supersonic Skystrike', 'Arm Thrust', 'Dual Chop', 'Foul Play', 'Twister', 'Focus Punch', 'Slash', 'Rollout', 'Icicle Spear', 'Wrap', 'Leech Life', 'Sacred Sword', 'Hex', 'Bubble', 'Quick Attack', 'Glaciate', 'Psycho Cut', 'Sizzly Slide', 'Rock Smash', 'Volt Tackle', 'Grass Pledge', 'Sparkling Aria', 'Vine Whip', 'Ember', 'Spacial Rend', 'Light of Ruin', 'Stoked Sparksurfer', 'Powder Snow', 'Power-Up Punch', 'Spectral Thief', 'Moonblast', 'Hydro Vortex', 'Thousand Waves', 'Rock Slide', 'Aura Sphere', 'Drill Peck', 'Storm Throw', 'Heat Wave', 'Tackle', 'Discharge', 'Razor Shell', 'Hidden Power Ground', 'Rolling Kick', 'Blue Flare', 'Sky Attack', 'Power Gem', 'Mega Drain', 'Genesis Supernova', 'High Horsepower', 'Black Hole Eclipse', 'Pollen Puff', 'Triple Kick', 'Night Slash', 'Plasma Fists', 'Pin Missile', 'First Impression', 'Fly', 'Relic Song', 'Fake Out', 'Ancient Power', 'Bubble Beam', 'Play Rough', 'Zen Headbutt', 'Clanging Scales', 'Shadow Strike', 'Hidden Power Dragon', 'Corkscrew Crash', 'Struggle', 'Body Slam', 'Seed Flare', 'Leaf Storm', 'Air Cutter', 'Flamethrower', 'Doom Desire', 'Sunsteel Strike', 'Twinkle Tackle', 'Frenzy Plant', 'Diamond Storm', 'Never-Ending Nightmare', 'Draco Meteor', 'Muddy Water', 'Outrage', 'Malicious Moonsault', 'Beak Blast', 'Hydro Pump', 'Steam Eruption', 'Smart Strike', 'X-Scissor', 'Disarming Voice', 'Water Gun', 'Clangorous Soulblaze', "Magikarp's Revenge", 'Nuzzle', 'Hidden Power Fighting', 'Snarl', 'Venoshock', 'Thousand Arrows', 'Needle Arm', 'Dragon Breath', 'Searing Sunraze Smash', 'Cut', 'Comet Punch', 'Aerial Ace', 'Bulldoze', 'Menacing Moonraze Maelstrom', 'Thrash', 'Volt Switch', 'Pound', 'Silver Wind', 'Precipice Blades', 'Bloom Doom', 'Hidden Power Psychic', 'Hydro Cannon', 'Air Slash', 'Magical Leaf', '10,000,000 Volt Thunderbolt', 'Lava Plume', 'Meteor Mash', 'Shadow Punch', 'Feint Attack', 'Icicle Crash', 'Devastating Drake', 'Oceanic Operetta', 'Attack Order', 'Hold Back', 'Shadow Bone', 'Ominous Wind', 'Steel Beam', 'Apple Acid', 'Body Press', 'Fishious Rend', 'Bolt Beak', 'Breaking Swipe', 'Strange Steam', 'Vise Grip', 'Jaw Lock', 'Pyro Ball', 'Dynamax Cannon', 'Snipe Shot', 'Drum Beating', 'Snap Trap', 'Behemoth Blade', 'Branch Poke', 'Aura Wheel', 'Overdrive', 'Grav Apple', 'Behemoth Bash', 'Spirit Break', 'False Surrender', 'Meteor Assault', 'Eternabeam', 'Dragon Darts']
     increasedcrit=['Aeroblast','Air Cutter','Attack Order','Blaze Kick','Crabhammer','Cross Chop','Cross Poison','Drill Run','Karate Chop','Leaf Blade','Night Slash','Poison Tail','Psycho Cut','Razor Leaf','Razor Wind','Shadow Claw','Sky Attack','Slash','Snipe Shot','Spacial Rend','Stone Edge']
-    if move in increasedcrit and notimmune and targetnotprotected and targetmon and movehit and target['pokemon'] not in ['Type: Null','Slowbro-Mega','Turtonator']:
+    movesthatalwayscrit=['Frost Breath','Storm Throw','Zippy Zap']
+    #check for merciless
+    notmerciless=True
+    if attacker['pokemon'] in ['Mareanie','Toxapex'] and (target['psn']!=None or target['tox']!=None):
+        notmerciless=False
+    if move in movesthatalwayscrit and notimmune and targetnotprotected and targetmon and movehit and target['pokemon'] not in ['Type:Null','Slowbro-Mega','Turtonator']:
+        results=luckappend(line,results,attacker,f"Mon Used Move That Always Crits ({move})",-100)
+        results=luckappend(line,results,target,f"Target of Move That Always Crits ({move})",100)
+    elif move in increasedcrit and notimmune and targetnotprotected and targetmon and movehit and notmerciless and target['pokemon'] not in ['Type:Null','Slowbro-Mega','Turtonator']:
         try:
             if attacker['Focus Energy']:
                 results=luckappend(line,results,attacker,f"Mon With Focus Energy Used Move With Increased Crit Chance ({move})",-100)
@@ -521,8 +588,8 @@ def move_function(line,parsedlogfile,results):
                 results=luckappend(line,results,attacker,f"Mon Used Move With Increased Crit Chance ({move})",-12.5)
                 results=luckappend(line,results,target,f"Target of Move With Increased Crit Chance ({move})",12.5)
         except Exception as e:
-            print(e)
-    elif move in movesthatcancrit and notimmune and targetnotprotected and targetmon and movehit and target['pokemon'] not in ['Type: Null','Slowbro-Mega','Turtonator']:
+            print(move)
+    elif move in movesthatcancrit and notimmune and targetnotprotected and targetmon and movehit and notmerciless and target['pokemon'] not in ['Type:Null','Slowbro-Mega','Turtonator']:
         try:
             if attacker['Focus Energy']:
                 results=luckappend(line,results,attacker,f"Mon With Focus Energy Used Move With Crit Chance ({move})",-50)
@@ -536,11 +603,31 @@ def move_function(line,parsedlogfile,results):
         except:
             pass
     #moves with secondary effect
-    moveswithsecondaryeffect=dict([['Fire Punch', 10],['Fire Fang', 10],['Ice Fang', 10],['Thunder Fang', 10], ['Zing Zap', 30], ['Ice Punch', 10], ['Thunder Shock', 10], ['Poison Sting', 30], ['Focus Blast', 10], ['Liquidation', 20], ['Crush Claw', 50], ['Metal Claw', 10], ['Acid', 10], ['Aurora Beam', 10], ['Heart Stamp', 30], ['Crunch', 20], ['Water Pulse', 20], ['Thunder Punch', 10], ['Extrasensory', 10], ['Blizzard', 10], ['Paleo Wave', 20], ['Freeze-Dry', 10], ['Dizzy Punch', 20], ['Signal Beam', 10], ['Steamroller', 30], ['Astonish', 30], ['Energy Ball', 10], ['Iron Tail', 30], ['Charge Beam', 70], ['Secret Power', 30], ['Tri Attack', 20], ['Psychic', 10], ['Smog', 40], ['Steel Wing', 10], ['Iron Head', 30], ['Headbutt', 30], ['Bug Buzz', 10], ['Sludge', 30], ['Mist Ball', 50], ['Earth Power', 10], ['Bolt Strike', 20], ['Bite', 30], ['Rock Climb', 20], ['Freeze Shock', 30], ['Dark Pulse', 20], ['Flash Cannon', 10], ['Floaty Fall', 30], ['Poison Fang', 50], ['Sludge Bomb', 30], ['Lick', 30], ['Shadow Ball', 20], ['Cross Poison', 10], ['Sludge Wave', 10], ['Leaf Tornado', 50], ['Hyper Fang', 10], ['Thunder', 30], ['Constrict', 10], ['Stomp', 30], ['Poison Tail', 10], ['Bone Club', 10], ['Fire Blast', 10], ['Mud Bomb', 30], ['Twineedle', 20], ['Splishy Splash', 30], ['Confusion', 10], ['Fiery Dance', 50], ['Night Daze', 40], ['Flare Blitz', 10], ['Sacred Fire', 50], ['Ice Beam', 10], ['Poison Jab', 30], ['Double Iron Bash', 51], ['Waterfall', 20], ['Psybeam', 10], ['Octazooka', 50], ['Spark', 30], ['Mirror Shot', 30], ['Dragon Rush', 20], ['Luster Purge', 50], ['Snore', 30], ['Thunderbolt', 10], ['Flame Wheel', 10], ['Bounce', 30], ['Scald', 30], ['Force Palm', 30], ['Hurricane', 30], ['Ice Burn', 30], ['Gunk Shot', 30], ['Blaze Kick', 10], ['Searing Shot', 30], ['Twister', 20], ['Bubble', 10], ['Rock Smash', 50], ['Volt Tackle', 10], ['Ember', 10], ['Powder Snow', 10], ['Moonblast', 30], ['Rock Slide', 30], ['Heat Wave', 10], ['Discharge', 30], ['Razor Shell', 50], ['Rolling Kick', 30], ['Blue Flare', 20], ['Sky Attack', 30], ['Relic Song', 10], ['Ancient Power', 10], ['Bubble Beam', 10], ['Play Rough', 10], ['Zen Headbutt', 20], ['Shadow Strike', 50], ['Body Slam', 30], ['Seed Flare', 40], ['Flamethrower', 10], ['Diamond Storm', 50], ['Muddy Water', 30], ['Steam Eruption', 30], ['Needle Arm', 30], ['Dragon Breath', 30], ['Silver Wind', 10], ['Air Slash', 30], ['Lava Plume', 30], ['Meteor Mash', 20], ['Icicle Crash', 30], ['Shadow Bone', 20], ['Ominous Wind', 10], ['Strange Steam', 20], ['Pyro Ball', 10]])
+    #check if already statused
+    statusdict=dict([['Thunder Punch', 'par'], ['Fire Punch', 'brn'], ['Fire Fang', 'brn'], ['Pyro Ball', 'brn'], ['Ice Punch', 'frz'], ['Ice Fang', 'frz'], ['Thunder Fang', 'par'], ['Thunder Shock', 'par'], ['Poison Sting', 'psn'], ['Blizzard', 'frz'], ['Freeze-Dry', 'frz'], ['Relic Song', 'slp'], ['Sludge', 'psn'], ['Secret Power', 'par'], ['Smog', 'psn'], ['Body Slam', 'par'], ['Bolt Strike', 'par'], ['Flamethrower', 'brn'], ['Freeze Shock', 'par'], ['Poison Fang', 'tox'], ['Sludge Bomb', 'psn'], ['Lick', 'par'], ['Cross Poison', 'psn'], ['Sludge Wave', 'psn'], ['Thunder', 'par'], ['Poison Tail', 'psn'], ['Fire Blast', 'brn'], ['Twineedle', 'psn'], ['Splishy Splash', 'par'], ['Steam Eruption', 'brn'], ['Flare Blitz', 'brn'], ['Sacred Fire', 'brn'], ['Ice Beam', 'frz'], ['Poison Jab', 'psn'], ['Spark', 'par'], ['Dragon Breath', 'par'], ['Thunderbolt', 'par'], ['Flame Wheel', 'brn'], ['Bounce', 'par'], ['Scald', 'brn'], ['Force Palm', 'par'], ['Ice Burn', 'brn'], ['Gunk Shot', 'psn'], ['Blaze Kick', 'brn'], ['Lava Plume', 'brn'], ['Searing Shot', 'brn'], ['Volt Tackle', 'par'], ['Ember', 'brn'], ['Powder Snow', 'frz'], ['Heat Wave', 'brn'], ['Discharge', 'par'], ['Blue Flare', 'brn']])
+    immunebytype={
+        'par':['Yamper', 'Pichu', 'Electivire', 'Galvantula', 'Magnemite', 'Boltund', 'Golem-Alola', 'Stunfisk', 'Flaaffy', 'Plusle', 'Thundurus', 'Eelektrik', 'Ampharos', 'Manectric-Mega', 'Luxray', 'Magnezone', 'Manectric', 'Ampharos-Mega', 'Voltorb', 'Rotom-Frost', 'Electabuzz', 'Minun', 'Shinx', 'Zebstrika', 'Rotom', 'Tynamo', 'Electrike', 'Toxel', 'Toxtricity', 'Joltik', 'Zeraora', 'Magneton', 'Blitzle', 'Electrode', 'Elekid', 'Graveler-Alola', 'Charjabug', 'Zapdos', 'Rotom-Mow', 'Luxio', 'Zekrom', 'Xurkitree', 'Geodude-Alola', 'Raikou', 'Pincurchin', 'Morpeko', 'Dracozolt', 'Arctozolt', 'Chinchou', 'Mareep', 'Togedemaru', 'Pikachu-Gmax', 'Toxtricity-Gmax', 'Rotom-Wash', 'Thundurus-Therian', 'Pachirisu', 'Heliolisk', 'Rotom-Heat', 'Jolteon', 'Rotom-Fan', 'Vikavolt', 'Raichu-Alola', 'Lanturn', 'Pikachu', 'Emolga', 'Tapu Koko', 'Dedenne', 'Helioptile', 'Raichu', 'Eelektross'],
+        'brn':['Scorbunny', 'Raboot', 'Cinderace', 'Quilava', 'Tepig', 'Charmander', 'Salandit', 'Darumaka', 'Combusken', 'Delphox', 'Talonflame', 'Moltres', 'Turtonator', 'Carkol', 'Coalossal', 'Pansear', 'Simisear', 'Infernape', 'Heatran', 'Monferno', 'Reshiram', 'Litten', 'Braixen', 'Pyroar', 'Chandelure', 'Litwick', 'Rapidash', 'Blacephalon', 'Arcanine', 'Volcarona', 'Fletchinder', 'Lampent', 'Charizard-Mega-X', 'Oricorio', 'Ninetales', 'Ho-Oh', 'Slugma', 'Growlithe', 'Litleo', 'Torkoal', 'Flareon', 'Darmanitan', 'Ponyta', 'Houndour', 'Sizzlipede', 'Centiskorch', 'Charmeleon', 'Camerupt', 'Victini', 'Heatmor', 'Magmortar', 'Numel', 'Houndoom-Mega', 'Emboar', 'Houndoom', 'Marowak-Alola', 'Magcargo', 'Blaziken', 'Incineroar', 'Chimchar', 'Volcanion', 'Coalossal-Gmax', 'Centiskorch-Gmax', 'Charizard-Gmax', 'Magby', 'Charizard', 'Fennekin', 'Cyndaquil', 'Magmar', 'Groudon-Primal', 'Pignite', 'Blaziken-Mega', 'Rotom-Heat', 'Entei', 'Charizard-Mega-Y', 'Vulpix', 'Torracat', 'Larvesta', 'Torchic', 'Salazzle', 'Typhlosion', 'Camerupt-Mega'],
+        'psn':['Weezing-Galar', 'Salandit', 'Venusaur-Mega', 'Weezing', 'Qwilfish', 'Roselia', 'Gastly', 'Beedrill-Mega', 'Grimer', 'Seviper', 'Scolipede', 'Zubat', 'Toxicroak', 'Tentacruel', 'Foongus', 'Weepinbell', 'Stunky', 'Venusaur', 'Muk-Alola', 'Croagunk', 'Gloom', 'Koffing', 'Bellsprout', 'Mareanie', 'Swalot', 'Nidoran-F', 'Nidoran-M', 'Skrelp', 'Crobat', 'Venipede', 'Amoonguss', 'Gengar-Mega', 'Nidoking', 'Toxel', 'Toxtricity', 'Vileplume', 'Drapion', 'Haunter', 'Weedle', 'Skorupi', 'Muk', 'Skuntank', 'Grimer-Alola', 'Garbodor', 'Toxapex', 'Ivysaur', 'Nihilego', 'Gulpin', 'Trubbish', 'Golbat', 'Whirlipede', 'Eternatus', 'Beedrill', 'Spinarak', 'Budew', 'Nidoqueen', 'Naganadel', 'Gengar', 'Toxtricity-Gmax', 'Garbodor-Gmax', 'Gengar-Gmax', 'Oddish', 'Bulbasaur', 'Dustox', 'Arbok', 'Venonat', 'Dragalge', 'Roserade', 'Venomoth', 'Nidorino', 'Nidorina', 'Poipole', 'Tentacool', 'Victreebel', 'Salazzle', 'Ariados', 'Ekans', 'Kakuna'],
+        'tox':['Weezing-Galar', 'Salandit', 'Venusaur-Mega', 'Weezing', 'Qwilfish', 'Roselia', 'Gastly', 'Beedrill-Mega', 'Grimer', 'Seviper', 'Scolipede', 'Zubat', 'Toxicroak', 'Tentacruel', 'Foongus', 'Weepinbell', 'Stunky', 'Venusaur', 'Muk-Alola', 'Croagunk', 'Gloom', 'Koffing', 'Bellsprout', 'Mareanie', 'Swalot', 'Nidoran-F', 'Nidoran-M', 'Skrelp', 'Crobat', 'Venipede', 'Amoonguss', 'Gengar-Mega', 'Nidoking', 'Toxel', 'Toxtricity', 'Vileplume', 'Drapion', 'Haunter', 'Weedle', 'Skorupi', 'Muk', 'Skuntank', 'Grimer-Alola', 'Garbodor', 'Toxapex', 'Ivysaur', 'Nihilego', 'Gulpin', 'Trubbish', 'Golbat', 'Whirlipede', 'Eternatus', 'Beedrill', 'Spinarak', 'Budew', 'Nidoqueen', 'Naganadel', 'Gengar', 'Toxtricity-Gmax', 'Garbodor-Gmax', 'Gengar-Gmax', 'Oddish', 'Bulbasaur', 'Dustox', 'Arbok', 'Venonat', 'Dragalge', 'Roserade', 'Venomoth', 'Nidorino', 'Nidorina', 'Poipole', 'Tentacool', 'Victreebel', 'Salazzle', 'Ariados', 'Ekans', 'Kakuna'],
+        'frz':['Mr.Mime-Galar', 'Darumaka-Galar', 'Darmanitan-Galar', 'Vanillish', 'Jynx', 'Swinub', 'Crabominable', 'Kyurem-White', 'Kyurem', 'Sneasel', 'Glalie', 'Glaceon', 'Sandslash-Alola', 'Rotom-Frost', 'Abomasnow', 'Abomasnow-Mega', 'Spheal', 'Ninetales-Alola', 'Sealeo', 'Snorunt', 'Vanilluxe', 'Cubchoo', 'Dewgong', 'Sandshrew-Alola', 'Cloyster', 'Mr.Rime', 'Snom', 'Frosmoth', 'Eiscue', 'Arctozolt', 'Arctovish', 'Glalie-Mega', 'Vanillite', 'Piloswine', 'Lapras-Gmax', 'Snover', 'Aurorus', 'Walrein', 'Smoochum', 'Amaura', 'Avalugg', 'Weavile', 'Cryogonal', 'Delibird', 'Articuno', 'Vulpix-Alola', 'Mamoswine', 'Beartic', 'Bergmite', 'Kyurem-Black', 'Froslass', 'Lapras', 'Regice'],
+        'slp':[],
+    }
+    notimmunebytype=True
+    notstatused=True
+    if move in statusdict.keys() and (target['psn']!=None or target['tox']!=None or target['par']!=None or target['frz']!=None or target['brn']!=None or target['slp']!=None):
+        notstatused=False
+    if move in statusdict.keys():
+        status=statusdict[move]
+        if target['pokemon'] in immunebytype[status] and (attacker['pokemon'] not in ['Salazzle','Salandit'] or status not in ['psn','tox']):
+            notimmunebytype=False
+    if movedfirst: 
+        moveswithsecondaryeffect=dict([['Fire Punch', 10],['Fire Fang', 19],['Ice Fang', 19],['Thunder Fang', 19], ['Zing Zap', 30], ['Ice Punch', 10], ['Thunder Shock', 10], ['Poison Sting', 30], ['Focus Blast', 10], ['Liquidation', 20], ['Crush Claw', 50], ['Metal Claw', 10], ['Acid', 10], ['Aurora Beam', 10], ['Heart Stamp', 30], ['Crunch', 20], ['Water Pulse', 20], ['Thunder Punch', 10], ['Extrasensory', 10], ['Blizzard', 10], ['Paleo Wave', 20], ['Freeze-Dry', 10], ['Dizzy Punch', 20], ['Signal Beam', 10], ['Steamroller', 30], ['Astonish', 30], ['Energy Ball', 10], ['Iron Tail', 30], ['Charge Beam', 70], ['Secret Power', 30], ['Tri Attack', 20], ['Psychic', 10], ['Smog', 40], ['Steel Wing', 10], ['Iron Head', 30], ['Headbutt', 30], ['Bug Buzz', 10], ['Sludge', 30], ['Mist Ball', 50], ['Earth Power', 10], ['Bolt Strike', 20], ['Bite', 30], ['Rock Climb', 20], ['Freeze Shock', 30], ['Dark Pulse', 20], ['Flash Cannon', 10], ['Floaty Fall', 30], ['Poison Fang', 50], ['Sludge Bomb', 30], ['Lick', 30], ['Shadow Ball', 20], ['Cross Poison', 10], ['Sludge Wave', 10], ['Leaf Tornado', 50], ['Hyper Fang', 10], ['Thunder', 30], ['Constrict', 10], ['Stomp', 30], ['Poison Tail', 10], ['Bone Club', 10], ['Fire Blast', 10], ['Mud Bomb', 30], ['Twineedle', 20], ['Splishy Splash', 30], ['Confusion', 10], ['Fiery Dance', 50], ['Night Daze', 40], ['Flare Blitz', 10], ['Sacred Fire', 50], ['Ice Beam', 10], ['Poison Jab', 30], ['Double Iron Bash', 51], ['Waterfall', 20], ['Psybeam', 10], ['Octazooka', 50], ['Spark', 30], ['Mirror Shot', 30], ['Dragon Rush', 20], ['Luster Purge', 50], ['Snore', 30], ['Thunderbolt', 10], ['Flame Wheel', 10], ['Bounce', 30], ['Scald', 30], ['Force Palm', 30], ['Hurricane', 30], ['Ice Burn', 30], ['Gunk Shot', 30], ['Blaze Kick', 10], ['Searing Shot', 30], ['Twister', 20], ['Bubble', 10], ['Rock Smash', 50], ['Volt Tackle', 10], ['Ember', 10], ['Powder Snow', 10], ['Moonblast', 30], ['Rock Slide', 30], ['Heat Wave', 10], ['Discharge', 30], ['Razor Shell', 50], ['Rolling Kick', 30], ['Blue Flare', 20], ['Sky Attack', 30], ['Relic Song', 10], ['Ancient Power', 10], ['Bubble Beam', 10], ['Play Rough', 10], ['Zen Headbutt', 20], ['Shadow Strike', 50], ['Body Slam', 30], ['Seed Flare', 40], ['Flamethrower', 10], ['Diamond Storm', 50], ['Muddy Water', 30], ['Steam Eruption', 30], ['Needle Arm', 30], ['Dragon Breath', 30], ['Silver Wind', 10], ['Air Slash', 30], ['Lava Plume', 30], ['Meteor Mash', 20], ['Icicle Crash', 30], ['Shadow Bone', 20], ['Ominous Wind', 10], ['Strange Steam', 20], ['Pyro Ball', 10]])
+    else:    
+        moveswithsecondaryeffect=dict([['Fire Punch', 10],['Fire Fang', 10],['Ice Fang', 10],['Thunder Fang', 10], ['Zing Zap', 30], ['Ice Punch', 10], ['Thunder Shock', 10], ['Poison Sting', 30], ['Focus Blast', 10], ['Liquidation', 20], ['Crush Claw', 50], ['Metal Claw', 10], ['Acid', 10], ['Aurora Beam', 10], ['Heart Stamp', 30], ['Crunch', 20], ['Water Pulse', 20], ['Thunder Punch', 10], ['Extrasensory', 10], ['Blizzard', 10], ['Paleo Wave', 20], ['Freeze-Dry', 10], ['Dizzy Punch', 20], ['Signal Beam', 10], ['Steamroller', 30], ['Astonish', 30], ['Energy Ball', 10], ['Iron Tail', 30], ['Charge Beam', 70], ['Secret Power', 30], ['Tri Attack', 20], ['Psychic', 10], ['Smog', 40], ['Steel Wing', 10], ['Iron Head', 30], ['Headbutt', 30], ['Bug Buzz', 10], ['Sludge', 30], ['Mist Ball', 50], ['Earth Power', 10], ['Bolt Strike', 20], ['Bite', 30], ['Rock Climb', 20], ['Freeze Shock', 30], ['Dark Pulse', 20], ['Flash Cannon', 10], ['Floaty Fall', 30], ['Poison Fang', 50], ['Sludge Bomb', 30], ['Lick', 30], ['Shadow Ball', 20], ['Cross Poison', 10], ['Sludge Wave', 10], ['Leaf Tornado', 50], ['Hyper Fang', 10], ['Thunder', 30], ['Constrict', 10], ['Stomp', 30], ['Poison Tail', 10], ['Bone Club', 10], ['Fire Blast', 10], ['Mud Bomb', 30], ['Twineedle', 20], ['Splishy Splash', 30], ['Confusion', 10], ['Fiery Dance', 50], ['Night Daze', 40], ['Flare Blitz', 10], ['Sacred Fire', 50], ['Ice Beam', 10], ['Poison Jab', 30], ['Double Iron Bash', 51], ['Waterfall', 20], ['Psybeam', 10], ['Octazooka', 50], ['Spark', 30], ['Mirror Shot', 30], ['Dragon Rush', 20], ['Luster Purge', 50], ['Snore', 30], ['Thunderbolt', 10], ['Flame Wheel', 10], ['Bounce', 30], ['Scald', 30], ['Force Palm', 30], ['Hurricane', 30], ['Ice Burn', 30], ['Gunk Shot', 30], ['Blaze Kick', 10], ['Searing Shot', 30], ['Twister', 20], ['Bubble', 10], ['Rock Smash', 50], ['Volt Tackle', 10], ['Ember', 10], ['Powder Snow', 10], ['Moonblast', 30], ['Rock Slide', 30], ['Heat Wave', 10], ['Discharge', 30], ['Razor Shell', 50], ['Rolling Kick', 30], ['Blue Flare', 20], ['Sky Attack', 30], ['Relic Song', 10], ['Ancient Power', 10], ['Bubble Beam', 10], ['Play Rough', 10], ['Zen Headbutt', 20], ['Shadow Strike', 50], ['Body Slam', 30], ['Seed Flare', 40], ['Flamethrower', 10], ['Diamond Storm', 50], ['Muddy Water', 30], ['Steam Eruption', 30], ['Needle Arm', 30], ['Dragon Breath', 30], ['Silver Wind', 10], ['Air Slash', 30], ['Lava Plume', 30], ['Meteor Mash', 20], ['Icicle Crash', 30], ['Shadow Bone', 20], ['Ominous Wind', 10], ['Strange Steam', 20], ['Pyro Ball', 10]])
     flinchmoves=['Zing Zap', 'Heart Stamp', 'Extrasensory', 'Steamroller', 'Astonish', 'Iron Head', 'Headbutt', 'Bite', 'Dark Pulse', 'Floaty Fall', 'Hyper Fang', 'Stomp', 'Bone Club', 'Waterfall', 'Double Iron Bash', 'Dragon Rush', 'Snore', 'Twister', 'Rock Slide', 'Rolling Kick', 'Sky Attack', 'Fake Out', 'Zen Headbutt', 'Needle Arm', 'Air Slash', 'Icicle Crash']
     selfboostmoves=['Metal Claw', 'Flame Charge', 'Charge Beam', 'Steel Wing', 'Fiery Dance', 'Power-Up Punch', 'Ancient Power', 'Diamond Storm', 'Silver Wind', 'Meteor Mash', 'Ominous Wind']
-    #if move in moveswithsecondaryeffect.keys() and notimmune and targetnotprotected and targetmon and (targetalive or move in selfboostmoves) and (movedfirst or move not in flinchmoves):
-    if move in moveswithsecondaryeffect.keys() and notimmune and targetnotprotected and targetmon and movehit and (targetalive or move in selfboostmoves) and (movedfirst or move not in flinchmoves):
+    if move in moveswithsecondaryeffect.keys() and notimmune and notstatused and targetnotprotected and targetmon and notimmunebytype and movehit and (targetalive or move in selfboostmoves) and (movedfirst or move not in flinchmoves):
         secondaryeffectmodifier=1
         if attacker['pokemon'] in ['Chansey','Blissey','Dunsparce','Togepi','Togetic','Togekiss','Shaymin-Sky','Jirachi','Happiny','Deerling','Sawsbuck','Meloetta']:
             secondaryeffectmodifier=2
@@ -635,13 +722,13 @@ def poke_function(line,parsedlogfile,results):
         results['team1']['roster'].append({
             'pokemon':line[3].split("|")[1], 'startform':adjustedmon,'nickname':adjustedmon,
             'kills':0,'deaths':0,'causeofdeath':None,'support':0,'damagedone':0,'hphealed':0,'luck':0,'remaininghealth':100,'lines':[],
-            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,'Curse':None,'atk':0,'def':0,'spa':0,'spd':0,'spe':0,'accuracy':0,'evasion':0,'Focus Energy':False
+            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,'slp':None,'Curse':None,'atk':0,'def':0,'spa':0,'spd':0,'spe':0,'accuracy':0,'evasion':0,'Focus Energy':False,'semiinv':False
         })  
     elif line[3].split("|",1)[0]=="p2":
         results['team2']['roster'].append({
             'pokemon':line[3].split("|")[1], 'startform':adjustedmon,'nickname':adjustedmon,
             'kills':0,'deaths':0,'causeofdeath':None,'support':0,'damagedone':0,'hphealed':0,'luck':0,'remaininghealth':100,'lines':[],
-            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,'Curse':None,'atk':0,'def':0,'spa':0,'spd':0,'spe':0,'accuracy':0,'evasion':0,'Focus Energy':False
+            'confusion':None,'psn':None,'brn':None,'par':None,'frz':None,'tox':None,'slp':None,'Curse':None,'atk':0,'def':0,'spa':0,'spd':0,'spe':0,'accuracy':0,'evasion':0,'Focus Energy':False,'semiinv':False
         })
     if adjustedmon in ['Zorua','Zoroark']:
         parsedlogfile=illusion_function(parsedlogfile,adjustedmon)
@@ -750,6 +837,12 @@ def status_function(line,parsedlogfile,results):
                 break
         if switched==False:
             mon[status]=mon['nickname']
+    elif line[3].find("[from] move: Rest")>-1 or line[3].find("|slp")>-1: 
+        turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0], parsedlogfile))
+        for line_ in turndata:
+            if line_[2]=="heal" and line_[3].find(mon['nickname'])>-1:
+                mon['slp']=mon['nickname']
+                mon['tox']=None; mon['psn']=None; mon['brn']=None; mon['frz']=None; mon['par']=None
     else:
         movesthatcausestatus=dict([
             ['tox',['Toxic','Fling','Psycho Shift']],
@@ -853,6 +946,30 @@ def switch_drag_function(line,parsedlogfile,results):
             mon['atk']=0;mon['def']=0;mon['spa']=0;mon['spd']=0;mon['spe']=0;mon['accuracy']=0;mon['evasion']=0;mon['Focus Energy']=False
         results,line=namecheck(results,line,2)
     return line,parsedlogfile,results
+
+def alternate_switch_drag_function(line,parsedlogfile,results):
+    if line[3].split(":",1)[0]=="p1a":
+        for mon in results['team1']['roster']:
+            mon['atk']=0;mon['def']=0;mon['spa']=0;mon['spd']=0;mon['spe']=0;mon['accuracy']=0;mon['evasion']=0;mon['Focus Energy']=False
+            if mon['pokemon'] in ['Chansey','Blissey','Starmie','Celebi','Roselia','Swablu','Altaria','Budew','Happiny','Shaymin']:
+                results,mon=reset_status(results,mon)
+        results,line=namecheck(results,line,1)
+    elif line[3].split(":",1)[0]=="p2a":
+        for mon in results['team2']['roster']:
+            mon['atk']=0;mon['def']=0;mon['spa']=0;mon['spd']=0;mon['spe']=0;mon['accuracy']=0;mon['evasion']=0;mon['Focus Energy']=False
+            if mon['pokemon'] in ['Chansey','Blissey','Starmie','Celebi','Roselia','Swablu','Altaria','Budew','Happiny','Shaymin']:
+                results,mon=reset_status(results,mon)
+        results,line=namecheck(results,line,2)
+    return line,parsedlogfile,results
+
+def reset_status(results,mon):
+    mon['tox']=None
+    mon['psn']=None
+    mon['brn']=None
+    mon['par']=None
+    mon['slp']=None
+    mon['frz']=None
+    return results,mon
 
 def unboost_function(line,parsedlogfile,results):
     team=line[3].split(":")[0]
@@ -1039,45 +1156,38 @@ def roster_search(team,pokemon,results):
 def alternativereplayparse(replay):
     #initialize variables
     logfile = requests.get(replay+".log").text.splitlines()
-    parsedlogfile=[]
-    line_number=0
-    turn_number=0
     #initialize output json
-    results=initializeoutput()
-    results['replay']=replay
     #iterate through logfile
-    for line in logfile:
-        if line.find("|")>-1:
-            #remove unneeded lines
-            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace(", L5","").replace("-Striped","").replace("-Trash","").replace("-Sandy","").replace("Indeedee-F","Indeedee").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("Florges-White","Florges").replace("-Pokeball","").replace("-Elegant","").replace("-Indigo","").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","").replace("-Douse","").replace("-Burn","").replace("-Chill","").replace("-Shock","").replace("Type: ","Type:").replace("Mr. ","Mr.").replace("-Sensu","").replace("-Pom-Pom","").replace("-Pa'u","").replace("Farfetch'd","Farfetchd").replace("-Totem","").replace("-Resolute","").replace("-Meteor","").replace("Meowstic-F","Meowstic").replace("-East","").replace("Sirfetch'd","Sirfetchd")
-            linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
-            badlines=["","|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost","|-nothing"]
-            linepurposestoremove=["j","c","l","html","raw","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
-            linepurpose=line.split("|",2)[1].replace("-","")
-            #iterate turn number
-            if linepurpose=="turn":
-                turn_number+=1
-                results['numberofturns']=turn_number
-            #add turn data
-            elif line not in linestoremove and linepurpose not in linepurposestoremove and line not in badlines:
-                lineremainder=line.split("|",2)[2]
-                parsedlogfile.append([line_number,turn_number,linepurpose,lineremainder])
-                line_number+=1
-    #iterate through parsed logfile replacing names
-    switchdraglines=list(filter(lambda x: x[2] in ["switch","drag"], parsedlogfile))[::-1]
-    for line in switchdraglines:
-        team=line[3].split(": ",)[0]
-        nickname=line[3].split("|")[0].split(": ",)[1]
-        pokemon=line[3].split("|")[1].split("-")[0]
-        if pokemon.find(nickname)==-1:
-            matchdata=list(filter(lambda x: x[0]>=line[0], parsedlogfile))
-            for line_ in matchdata:
-                line_[3]=line_[3].replace(nickname,pokemon)
-    #iterate through parsed logfile
-    for line in parsedlogfile:
-        line,parsedlogfile,results=replay_parse_switch(line,parsedlogfile,results)
+    try:
+        results,parsedlogfile=prepare_parsedlogfile(logfile,replay)
+        switchdraglines=list(filter(lambda x: x[2] in ["switch","drag"], parsedlogfile))[::-1]
+        for line in switchdraglines:
+            team=line[3].split(": ",)[0]
+            nickname=line[3].split("|")[0].split(": ",)[1]
+            pokemon=line[3].split("|")[1].split("-")[0]
+            if pokemon.find(nickname)==-1:
+                matchdata=list(filter(lambda x: x[0]>=line[0], parsedlogfile))
+                for line_ in matchdata:
+                    line_[3]=line_[3].replace(nickname,pokemon)
+        for line in parsedlogfile:
+            line,parsedlogfile,results=alternate_replay_parse_switch(line,parsedlogfile,results)
+    except:
+        results,parsedlogfile=prepare_parsedlogfile(logfile,replay)
+        switchdraglines=list(filter(lambda x: x[2] in ["switch","drag"], parsedlogfile))[::-1]
+        for line in switchdraglines:
+            team=line[3].split(": ",)[0]
+            nickname=line[3].split("|")[0].split(": ",)[1]
+            pokemon=line[3].split("|")[1].split("-")[0]
+            if pokemon.find(nickname)==-1:
+                matchdata=list(filter(lambda x: x[0]>=line[0], parsedlogfile))
+                for line_ in matchdata:
+                    line_[3]=line_[3].replace(nickname,pokemon)
+        for line in parsedlogfile:
+            line,parsedlogfile,results=replay_parse_switch(line,parsedlogfile,results)
     #sort significant events
     results['significantevents']=sorted( results['significantevents'],key=lambda tup: tup[0])
+    #sort luckcatalog
+    results['luckcatalog']=sorted( results['luckcatalog'],key=lambda tup: tup[1])
     #update result totals
     teams=['team1','team2']
     categories=['kills','deaths','luck','support','hphealed','damagedone','remaininghealth']

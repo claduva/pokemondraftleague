@@ -90,7 +90,6 @@ def league_detail(request,league_name):
                     'weeks':weeks,
                 }
             except Exception as e:
-                print(e)
                 context = {
                 'league': league_,
                 'league_name': league_name,
@@ -291,6 +290,7 @@ def team_page(request,league_name,subleague_name,team_abbreviation):
     }
     return render(request, 'teampage.html',context)
 
+@login_required
 @check_if_subleague
 @check_if_season
 def league_draft(request,league_name,subleague_name):
@@ -336,7 +336,6 @@ def league_draft(request,league_name,subleague_name):
                 pointsremaining+=-points
                 pointsused+=points
             except Exception as e:
-                print(e)
                 pkmn="-"
                 points="-"
             teamdraft.append([item_.picknumber,pkmn,points])
@@ -1089,7 +1088,6 @@ def freeagency(request,league_name,subleague_name):
             'season':season,
         })
     except Exception as e:
-        print(e)
         form=None
     if request.method=="POST":
         formpurpose=request.POST['formpurpose']
