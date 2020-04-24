@@ -329,7 +329,6 @@ def league_draft(request,league_name,subleague_name):
         lastpicktime=season.draftstart
     deadline=(lastpicktime+timedelta(hours=drafttimer)).replace(tzinfo=None)
     deadline=[deadline.year,deadline.month,deadline.day,deadline.hour,deadline.minute]
-    print(deadline)
     subleaguetiers=pokemon_tier.objects.filter(subleague=subleague)
     ##existing draftdata
     draftbyteam=[]
@@ -469,12 +468,14 @@ def senddraftpicktobot(currentpick,pokemon,subleague,draftlist):
     text=f'The {currentpick.team.teamname} have drafted {pokemon.pokemon}'
     draftchannel=subleague.discord_settings.draftchannel
     try:
-        upnext=draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.username
+        upnext=draftlist.filter(pokemon__isnull=True).get(picknumber=currentpick.picknumber+1).team.coach.username
         upnextid=str(draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.profile.discordid)
     except:
         upnext="The draft has concluded"
         upnextid=""
-    draft_announcements.objects.create(league=subleague.discord_settings.discordserver,league_name=subleague.league.name.replace(' ','%20'),text=text,upnext=upnext,draftchannel=draftchannel,upnextid=upnextid)
+    subleague=subleague.subleague
+    imageurl=pokemon.sprite.dexani.url
+    draft_announcements.objects.create(league=subleague.discord_settings.discordserver,league_name=subleague.league.name.replace(' ','%20'),text=text,upnext=upnext,draftchannel=draftchannel,upnextid=upnextid,subleague=subleague,imageurl=imageurl)
     return
 
 @check_if_subleague

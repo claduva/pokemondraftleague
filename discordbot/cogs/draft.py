@@ -30,16 +30,15 @@ class Draft(commands.Cog):
                                         persontotagid=record[7]
                                         persontotag=None
                                         if record[5].find("The draft has concluded")>-1:
-                                            embed=discord.Embed(title=record[2],description=f"The draft has concluded. Please go to http://pokemondraftleague.online/leagues/{record[4]}/draft/ to view the full draft.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/draft/',colour=discord.Colour.blue())
+                                            embed=discord.Embed(title=record[2],description=f"The draft has concluded. Please go to http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/ to view the full draft.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/',colour=discord.Colour.blue())
                                         else:
-                                            embed=discord.Embed(title=record[2],description=f"{record[5]} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/draft/',colour=discord.Colour.blue())
+                                            embed=discord.Embed(title=record[2],description=f"{record[5]} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/',colour=discord.Colour.blue())
                                         for person in item.members:
                                             if str(person.id)==str(persontotagid):
                                                 persontotag=person
-                                                embed=discord.Embed(title=record[2],description=f"{persontotag.mention} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/draft/',colour=discord.Colour.blue())
+                                                embed=discord.Embed(title=record[2],description=f"{persontotag.mention} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/',colour=discord.Colour.blue())
                                         embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
-                                        embed.set_image(url=f"https://play.pokemonshowdown.com/sprites/xyani/{(record[2].split(' have drafted ')[1]).lower().replace(' ','').replace('.','').replace(':','').replace('%','').replace('mega-','mega').replace('nidoran-m','nidoran').replace('o-o','oo').replace('dusk-mane','duskmane').replace('dawn-wings','dawnwings')}.gif")
-                                        print(f"https://play.pokemonshowdown.com/sprites/xyani/{(record[2].split(' have drafted ')[1]).lower().replace(' ','').replace('.','').replace(':','').replace('%','').replace('mega-','mega').replace('nidoran-m','nidoran').replace('o-o','oo').replace('dusk-mane','duskmane').replace('dawn-wings','dawnwings')}.gif")
+                                        embed.set_image(url=record[9])
                                         await channel.send(embed=embed)
                                         if persontotag != None:
                                             await channel.send(persontotag.mention)

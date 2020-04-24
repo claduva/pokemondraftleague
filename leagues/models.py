@@ -269,3 +269,5 @@ class draft_announcements(models.Model):
     upnext = models.CharField(max_length=100,null=True)
     draftchannel = models.CharField(max_length=100,null=True)
     upnextid = models.CharField(max_length=100,null=True)
+    subleague = models.CharField(max_length=100,default="Main")
+    imageurl = models.CharField(max_length=200,default="")
