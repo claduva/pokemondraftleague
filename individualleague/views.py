@@ -296,6 +296,7 @@ def team_page(request,league_name,subleague_name,team_abbreviation):
 def league_draft(request,league_name,subleague_name):
     start_time = time.time()
     league_name=league_name.replace('_',' ')
+    subleague_name=subleague_name.replace('_',' ')
     ##basic config
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
     league_teams=subleague.subleague_coachs.all().order_by('teamname')

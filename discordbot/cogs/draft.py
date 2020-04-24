@@ -29,22 +29,25 @@ class Draft(commands.Cog):
                                     try:
                                         persontotagid=record[7]
                                         persontotag=None
+                                        sl=record[9].replace(" ","%20")
                                         if record[5].find("The draft has concluded")>-1:
-                                            embed=discord.Embed(title=record[2],description=f"The draft has concluded. Please go to http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/ to view the full draft.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/',colour=discord.Colour.blue())
+                                            embed=discord.Embed(title=record[2],description=f"The draft has concluded. Please go to http://pokemondraftleague.online/leagues/{record[4]}/{sl}/draft/ to view the full draft.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/{sl}/draft/',colour=discord.Colour.blue())
                                         else:
-                                            embed=discord.Embed(title=record[2],description=f"{record[5]} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/',colour=discord.Colour.blue())
+                                            print(f'http://pokemondraftleague.online/leagues/{record[4]}/{sl}/draft/')
+                                            embed=discord.Embed(title=record[2],description=f"{record[5]} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/{sl}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/{sl}/draft/',colour=discord.Colour.blue())
                                         for person in item.members:
                                             if str(person.id)==str(persontotagid):
                                                 persontotag=person
-                                                embed=discord.Embed(title=record[2],description=f"{persontotag.mention} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/{record[8]}/draft/',colour=discord.Colour.blue())
+                                                embed=discord.Embed(title=record[2],description=f"{persontotag.mention} is now on the clock. Please go to http://pokemondraftleague.online/leagues/{record[4]}/{sl}/draft/ to input your next pick.",url=f'http://pokemondraftleague.online/leagues/{record[4]}/{sl}/draft/',colour=discord.Colour.blue())
                                         embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
-                                        embed.set_image(url=record[9])
+                                        embed.set_image(url=record[8])
                                         await channel.send(embed=embed)
                                         if persontotag != None:
                                             await channel.send(persontotag.mention)
                                         ps_cursor.execute("DELETE from leagues_draft_announcements WHERE id = %s",(record[0],))
                                         ps_connection.commit()
-                                    except:
+                                    except Exception as e:
+                                        print(e)
                                         pass
                 ps_cursor.close()
                 #Use this method to release the connection object and send back to connection pool
