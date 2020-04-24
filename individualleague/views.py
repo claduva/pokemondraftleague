@@ -320,6 +320,16 @@ def league_draft(request,league_name,subleague_name):
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
     draftlist=draft.objects.all().filter(season=season)
     currentpick=draftlist.filter(pokemon__isnull=True,skipped=False).order_by('picknumber').first()
+    #prep timer
+    drafttimer=season.drafttimer
+    try:
+        lastpick=draftlist.get(picknumber=currentpick.picknumber-1)
+        lastpicktime=lastpick.picktime
+    except:
+        lastpicktime=season.draftstart
+    deadline=(lastpicktime+timedelta(hours=drafttimer)).replace(tzinfo=None)
+    deadline=[deadline.year,deadline.month,deadline.day,deadline.hour,deadline.minute]
+    print(deadline)
     subleaguetiers=pokemon_tier.objects.filter(subleague=subleague)
     ##existing draftdata
     draftbyteam=[]
@@ -448,6 +458,7 @@ def league_draft(request,league_name,subleague_name):
         'types':types,
         'leaguepage': True,
         'spritesettings':[site_settings.sprite],
+        'pickdeadline':deadline,
     }
     end_time = time.time()
     print("Total execution time: {} seconds".format(end_time - start_time))

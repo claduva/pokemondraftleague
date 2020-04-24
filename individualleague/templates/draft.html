@@ -19,6 +19,8 @@
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light"><th>Current Drafting Team</th><th >Points Remaining</th></tr>
                 <tr><th><img class="smallsprite" src="{{currentpick.team.logo.url}}">{{currentpick.team.teamname}} ({{currentpick.team.teamabbreviation}})</th><th>{{ currentpoints }}</th></tr>
+                <tr class="bg-dark text-light"><th colspan="2">Timer</th></tr>
+                <tr><th colspan="2" id="timer">Initializing</th></tr>
                 <tr>
                     <td class="bg-dark text-light" colspan="2">Current Roster</td>
                 </tr>
@@ -177,6 +179,8 @@
 <script>
     var spritesettings ={{spritesettings|safe}}
     var availablejson = {{availablepokemonjson|safe}}
+    var pickdeadline_ = {{pickdeadline}}
 </script>
 <script src="{% static 'individualleague/scripts/draftfilter.js' %}"></script>
+<script src="{% static 'individualleague/scripts/drafttimer.js' %}"></script>
 {% endblock %}
