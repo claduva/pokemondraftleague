@@ -473,9 +473,9 @@ def senddraftpicktobot(currentpick,pokemon,subleague,draftlist):
     except:
         upnext="The draft has concluded"
         upnextid=""
-    subleague=subleague.subleague
+    subleaguename=subleague.subleague
     imageurl=pokemon.sprite.dexani.url
-    draft_announcements.objects.create(league=subleague.discord_settings.discordserver,league_name=subleague.league.name.replace(' ','%20'),text=text,upnext=upnext,draftchannel=draftchannel,upnextid=upnextid,subleague=subleague,imageurl=imageurl)
+    draft_announcements.objects.create(league=subleague.discord_settings.discordserver,league_name=subleague.league.name.replace(' ','%20'),text=text,upnext=upnext,draftchannel=draftchannel,upnextid=upnextid,subleague=subleaguename,imageurl=imageurl)
     return
 
 @check_if_subleague
