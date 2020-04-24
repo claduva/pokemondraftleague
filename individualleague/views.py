@@ -476,7 +476,7 @@ def senddraftpicktobot(currentpick,pokemon,subleague,draftlist):
         upnextid=""
     subleaguename=subleague.subleague
     imageurl=pokemon.sprite.dexani.url
-    draft_announcements.objects.create(league=subleague.discord_settings.discordserver,league_name=subleague.league.name.replace(' ','%20'),text=text,upnext=upnext,draftchannel=draftchannel,upnextid=upnextid,subleague=subleaguename,imageurl=imageurl)
+    draft_announcements.objects.create(league=subleague.discord_settings.discordserver,league_name=subleague.league.name,text=text,upnext=upnext,draftchannel=draftchannel,upnextid=upnextid,subleague=subleaguename,imageurl=imageurl)
     return
 
 @check_if_subleague
