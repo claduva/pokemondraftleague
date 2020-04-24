@@ -29,8 +29,8 @@ class Draft(commands.Cog):
                                     try:
                                         persontotagid=record[7]
                                         persontotag=None
-                                        sl=record[9].replace(" ","_")
-                                        ln=record[4].replace(" ","_")
+                                        sl=record[9].replace(" ","_").replace("%20","_")
+                                        ln=record[4].replace(" ","_").replace("%20","_")
                                         if record[5].find("The draft has concluded")>-1:
                                             embed=discord.Embed(title=record[2],description=f"The draft has concluded. Please go to http://pokemondraftleague.online/leagues/{ln}/{sl}/draft/ to view the full draft.",url=f'http://pokemondraftleague.online/leagues/{ln}/{sl}/draft/',colour=discord.Colour.blue())
                                         else:

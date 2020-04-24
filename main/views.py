@@ -147,17 +147,7 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    """
-    luck=[]
-    for item in historical_match_replay.objects.all():
-        for item_ in item.data['team1']['roster']:
-            luck.append([item.data['replay'],item_['luck'],item_['pokemon']])
-        for item_ in item.data['team2']['roster']:
-            luck.append([item.data['replay'],item_['luck'],item_['pokemon']])
-    luck=sorted(luck,key=lambda tup: tup[1])
-    for item in luck[0:10]:
-        print(item)
-    """
+    draft_announcements.objects.filter(imageurl="").delete()
     return redirect('home')
 
 def get_pkmn(pkmn):
