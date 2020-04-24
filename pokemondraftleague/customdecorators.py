@@ -23,7 +23,7 @@ def check_if_league(view):
 def check_if_subleague(view):
     def wrap(request, *args, **kwargs):
         try:
-            league_=league_subleague.objects.filter(league__name=kwargs['league_name'].replace("_"," ")).get(subleague=kwargs['subleague_name'])
+            league_=league_subleague.objects.filter(league__name=kwargs['league_name'].replace("_"," ")).get(subleague=kwargs['subleague_name'].replace("_"," "))
             return view(request, *args, **kwargs)
         except Exception as e:
             print('subleague')
@@ -40,7 +40,7 @@ def check_if_subleague(view):
 def check_if_season(view):
     def wrap(request, *args, **kwargs):
         try:
-            season=seasonsetting.objects.filter(subleague__league__name=kwargs['league_name']).get(subleague__subleague=kwargs['subleague_name'])
+            season=seasonsetting.objects.filter(subleague__league__name=kwargs['league_name'].replace("_"," ")).get(subleague__subleague=kwargs['subleague_name'].replace("_"," "))
             return view(request, *args, **kwargs)
         except Exception as e:
             print(e)
