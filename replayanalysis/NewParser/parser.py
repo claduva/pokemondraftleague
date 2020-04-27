@@ -304,6 +304,7 @@ def damage_function(line,parsedlogfile,results):
                         if mon[cause]!=None:
                             pokemon[cause]=mon[cause]
                             break
+                print(line)
                 damager=roster_search(otherteam,pokemon[cause],results)
         if damager:
             damager['damagedone']+=damagedone 
@@ -893,6 +894,7 @@ def start_function(line,parsedlogfile,results):
             setter['damagedone']+=priorhealth
             setter['kills']+=1
     if line[3].split("|")[1]=="confusion":
+        print('here')
         mon=line[3].split("|")[0].split(": ")[1]
         team=line[3].split(": ")[0]
         mon_=roster_search(team,mon,results)
@@ -900,7 +902,7 @@ def start_function(line,parsedlogfile,results):
             mon_['confusion']=mon
         else:
             turndata=list(filter(lambda x: x[0] < line[0] and x[1] == line[1] and x[2]=="move", parsedlogfile))[::-1]
-            movesthatconfuse=['Dynamic Punch','Confuse Ray','Chatter','Supersonic']
+            movesthatconfuse=['Dynamic Punch','Confuse Ray','Chatter','Supersonic','Teeter Dance']
             for line_ in turndata:
                 move=line_[3].split("|")[1]
                 team_=line_[3].split(": ")[0]

@@ -1,49 +1,18 @@
 {
   "team1": {
-    "coach": "parcomagni",
+    "coach": "master_of_rave",
     "roster": [
       {
-        "pokemon": "Dragapult",
-        "startform": "Dragapult",
-        "nickname": "Dragapult",
+        "pokemon": "Blissey",
+        "startform": "Blissey",
+        "nickname": "IMAFIRINMYLAZER",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 78,
-        "hphealed": -19,
-        "luck": 0.04167,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 1,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 1,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Galvantula",
-        "startform": "Galvantula",
-        "nickname": "Galvantula",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 1,
-        "hphealed": 0,
-        "luck": 0.04167,
+        "damagedone": 129,
+        "hphealed": -34,
+        "luck": 0.016659999999999987,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -65,16 +34,16 @@
         "semiinv": false
       },
       {
-        "pokemon": "Excadrill",
-        "startform": "Excadrill",
-        "nickname": "Excadrill",
+        "pokemon": "Bellossom",
+        "startform": "Bellossom",
+        "nickname": "buffsPl0x",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 99,
-        "hphealed": 0,
-        "luck": 0.04167,
+        "damagedone": 5,
+        "hphealed": 29,
+        "luck": -0.11666,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -96,201 +65,47 @@
         "semiinv": false
       },
       {
-        "pokemon": "Togekiss",
-        "startform": "Togekiss",
-        "nickname": "Togekiss",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 168,
-        "hphealed": -29,
-        "luck": -0.32500999999999997,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Gastrodon",
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Obstagoon",
-        "startform": "Obstagoon",
-        "nickname": "Obstagoon",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 22,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Barraskewda",
-        "startform": "Barraskewda",
-        "nickname": "Barraskewda",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 79,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      }
-    ],
-    "wins": 0,
-    "forfeit": 0,
-    "score": 0,
-    "megaevolved": false,
-    "usedzmove": false,
-    "timesswitched": 5,
-    "selfdeaths": 0,
-    "remaininghealth": 0,
-    "totalhealth": 600,
-    "kills": 4,
-    "deaths": 6,
-    "luck": -0.1999,
-    "damagedone": 447,
-    "hphealed": -48,
-    "support": 0,
-    "activemon": "Dragapult",
-    "Toxic Spikes": null,
-    "Spikes": null,
-    "Stealth Rock": null,
-    "G-Max Steelsurge": null,
-    "Future Sight": null,
-    "Doom Desire": null,
-    "Sandstorm": "Hippowdon",
-    "Hail": null,
-    "Leech Seed": null
-  },
-  "team2": {
-    "coach": "Exeight",
-    "roster": [
-      {
-        "pokemon": "Tyranitar",
-        "startform": "Tyranitar",
-        "nickname": "Tyranitar",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 13,
-        "hphealed": 7,
-        "luck": 0.28334000000000004,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Excadrill",
-        "startform": "Excadrill",
-        "nickname": "Excadrill",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 293,
-        "hphealed": 0,
-        "luck": -0.08334,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Hippowdon",
-        "startform": "Hippowdon",
-        "nickname": "Hippowdon",
+        "pokemon": "Mew",
+        "startform": "Mew",
+        "nickname": "Ditto...?",
         "kills": 1,
         "deaths": 0,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 50,
+        "support": 1,
+        "damagedone": 40,
         "hphealed": 0,
-        "luck": -0.04167,
+        "luck": 0.695,
+        "remaininghealth": 15,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Eiscue",
+        "startform": "Eiscue",
+        "nickname": "WinterIsComing",
+        "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 3,
+        "damagedone": 125,
+        "hphealed": -22,
+        "luck": -0.35834000000000005,
         "remaininghealth": 100,
         "lines": [],
         "confusion": null,
@@ -312,47 +127,16 @@
         "semiinv": false
       },
       {
-        "pokemon": "Corviknight",
-        "startform": "Corviknight",
-        "nickname": "Corviknight",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 7,
-        "luck": -0.008330000000000002,
-        "remaininghealth": 67,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Sylveon",
-        "startform": "Sylveon",
-        "nickname": "Sylveon",
+        "pokemon": "Heracross",
+        "startform": "Heracross",
+        "nickname": "nostatusplzimmoxie",
         "kills": 2,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 132,
-        "hphealed": 0,
-        "luck": -0.04167,
+        "damagedone": 200,
+        "hphealed": 66,
+        "luck": -0.5082200239952009,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -361,7 +145,7 @@
         "par": null,
         "frz": null,
         "tox": null,
-        "slp": null,
+        "slp": "nostatusplzimmoxie",
         "Curse": null,
         "atk": 0,
         "def": 0,
@@ -374,16 +158,16 @@
         "semiinv": false
       },
       {
-        "pokemon": "Gastrodon",
-        "startform": "Gastrodon",
-        "nickname": "Gastrodon",
+        "pokemon": "Magmar",
+        "startform": "Magmar",
+        "nickname": "GODTAKETHEWHEEL",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 64,
-        "hphealed": 0,
-        "luck": 0.09167,
+        "support": 2,
+        "damagedone": 150,
+        "hphealed": -23,
+        "luck": -0.23334000000000002,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -410,17 +194,233 @@
     "score": 2,
     "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 6,
-    "selfdeaths": 0,
-    "remaininghealth": 167,
+    "timesswitched": 14,
+    "selfdeaths": 1,
+    "remaininghealth": 115,
     "totalhealth": 600,
     "kills": 6,
     "deaths": 4,
-    "luck": 0.2,
-    "damagedone": 552,
-    "hphealed": 14,
-    "support": 2,
-    "activemon": "Hippowdon",
+    "luck": -0.5047999999999999,
+    "damagedone": 649,
+    "hphealed": 16,
+    "support": 6,
+    "activemon": "WinterIsComing",
+    "Toxic Spikes": null,
+    "Spikes": null,
+    "Stealth Rock": null,
+    "G-Max Steelsurge": null,
+    "Future Sight": null,
+    "Doom Desire": null,
+    "Sandstorm": null,
+    "Hail": null,
+    "Leech Seed": null
+  },
+  "team2": {
+    "coach": "phirefalcon",
+    "roster": [
+      {
+        "pokemon": "Lycanroc-Dusk",
+        "startform": "Lycanroc-Dusk",
+        "nickname": "ruff skin",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 77,
+        "hphealed": -9,
+        "luck": 0.34167000000000003,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Liepard",
+        "startform": "Liepard",
+        "nickname": "but he's a guy",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 17,
+        "luck": 0.23334000000000002,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Bronzong",
+        "startform": "Bronzong",
+        "nickname": "funeral bell",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.06666,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Swellow",
+        "startform": "Swellow",
+        "nickname": "dat ain't falco",
+        "kills": 2,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 244,
+        "hphealed": 0,
+        "luck": 1.30834,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Drapion",
+        "startform": "Drapion",
+        "nickname": "drape nation",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.35844997600479905,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Sylveon",
+        "startform": "Sylveon",
+        "nickname": "todokete",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 180,
+        "hphealed": 41,
+        "luck": -0.9533400000000001,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": "buffsPl0x",
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": "IMAFIRINMYLAZER",
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      }
+    ],
+    "wins": 0,
+    "forfeit": 0,
+    "score": 0,
+    "megaevolved": false,
+    "usedzmove": false,
+    "timesswitched": 12,
+    "selfdeaths": 0,
+    "remaininghealth": 0,
+    "totalhealth": 600,
+    "kills": 3,
+    "deaths": 6,
+    "luck": 0.5049,
+    "damagedone": 501,
+    "hphealed": 49,
+    "support": 1,
+    "activemon": "dat ain't falco",
     "Toxic Spikes": null,
     "Spikes": null,
     "Stealth Rock": null,
@@ -435,411 +435,847 @@
   "Gravity": 1.0,
   "Rain": false,
   "Hail": false,
-  "numberofturns": 17,
+  "numberofturns": 49,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/gen8ou-1101986828",
+  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexlegacy-61679",
   "significantevents": [
     [
       1,
-      "Gastrodon provided support by using Toxic"
+      "Bronzong provided support by using Hypnosis"
     ],
     [
       2,
-      "Togekiss killed Gastrodon with Air Slash"
-    ],
-    [
-      5,
-      "Gastrodon killed Togekiss via tox"
-    ],
-    [
-      6,
-      "Barraskewda killed Tyranitar with Liquidation"
-    ],
-    [
-      7,
-      "Excadrill killed Barraskewda with Earthquake"
-    ],
-    [
-      8,
-      "Excadrill provided support by using Rapid Spin"
+      "Magmar provided support by using Sandstorm"
     ],
     [
       9,
-      "Excadrill killed Excadrill with Earthquake"
-    ],
-    [
-      10,
-      "Galvantula killed Excadrill with Bug Buzz"
+      "Magmar killed Bronzong via move: Fire Spin|[partiallytrapped]"
     ],
     [
       11,
-      "Sylveon killed Galvantula with Quick Attack"
+      "Magmar provided support by using Electric Terrain"
     ],
     [
       12,
-      "Sylveon killed Obstagoon with Hyper Voice"
+      "Lycanroc-Dusk killed Magmar with Stomping Tantrum"
     ],
     [
-      16,
-      "Dragapult killed Sylveon with Phantom Force"
+      13,
+      "Eiscue provided support by using Hail"
     ],
     [
-      17,
-      "Hippowdon killed Dragapult with Earthquake"
+      14,
+      "Eiscue provided support by using Aurora Veil"
+    ],
+    [
+      27,
+      "Heracross killed Liepard with Megahorn"
+    ],
+    [
+      29,
+      "Heracross killed Drapion with Close Combat"
+    ],
+    [
+      34,
+      "Blissey killed Sylveon with Hyper Beam"
+    ],
+    [
+      34,
+      "Blissey fainted via item: Life Orb"
+    ],
+    [
+      36,
+      "Mew killed Lycanroc-Dusk with Stomping Tantrum"
+    ],
+    [
+      38,
+      "Swellow killed Bellossom with Sky Attack"
+    ],
+    [
+      39,
+      "Eiscue provided support by using Hail"
+    ],
+    [
+      42,
+      "Mew provided support by using Trick Room"
+    ],
+    [
+      46,
+      "Swellow killed Heracross with Sky Attack"
+    ],
+    [
+      49,
+      "Eiscue killed Swellow with Hydro Pump"
     ]
   ],
   "luckcatalog": [
     [
-      6,
-      "Barraskewda",
-      "Mon Used Move With Crit Chance (Liquidation)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      7,
-      "Barraskewda",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.04167,
-      0.04167,
-      0.0
-    ],
-    [
-      4,
-      "Corviknight",
-      "Target of Move That Can Miss (Air Slash)",
-      0.0,
-      -0.05,
-      -0.05
-    ],
-    [
-      4,
-      "Corviknight",
-      "Target of Move With Crit Chance (Air Slash)",
-      -0.05,
-      0.04167,
-      -0.008330000000000002
-    ],
-    [
-      13,
-      "Dragapult",
-      "Target of Move With Crit Chance (Hyper Voice)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      14,
-      "Dragapult",
-      "Mon Used Move With Crit Chance (Phantom Force)",
-      0.04167,
-      -0.04167,
-      0.0
-    ],
-    [
       15,
-      "Dragapult",
-      "Target of Move With Crit Chance (Quick Attack)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      16,
-      "Dragapult",
-      "Mon Used Move With Crit Chance (Phantom Force)",
-      0.04167,
-      -0.04167,
-      0.0
-    ],
-    [
-      17,
-      "Dragapult",
-      "Target of Move With Crit Chance (Earthquake)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      7,
-      "Excadrill",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      8,
-      "Excadrill",
-      "Mon Used Move With Crit Chance (Rapid Spin)",
-      -0.04167,
-      -0.04167,
-      -0.08334
-    ],
-    [
-      8,
-      "Excadrill",
-      "Target of Move With Crit Chance (Rapid Spin)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      8,
-      "Excadrill",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      0.04167,
-      -0.04167,
-      0.0
-    ],
-    [
-      8,
-      "Excadrill",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.08334,
-      0.04167,
-      -0.04167
-    ],
-    [
-      9,
-      "Excadrill",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      -0.04167,
-      -0.04167,
-      -0.08334
-    ],
-    [
-      9,
-      "Excadrill",
-      "Target of Move With Crit Chance (Earthquake)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      10,
-      "Excadrill",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      -0.08334,
-      -0.04167,
-      -0.12500999999999998
-    ],
-    [
-      10,
-      "Excadrill",
-      "Target of Move With Crit Chance (Bug Buzz)",
-      -0.12500999999999998,
-      0.04167,
-      -0.08334
-    ],
-    [
-      10,
-      "Galvantula",
-      "Target of Move With Crit Chance (Earthquake)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      10,
-      "Galvantula",
-      "Mon Used Move With Crit Chance (Bug Buzz)",
-      0.04167,
-      -0.04167,
-      0.0
-    ],
-    [
-      11,
-      "Galvantula",
-      "Target of Move With Crit Chance (Quick Attack)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      1,
-      "Gastrodon",
-      "Mon Used a Move That Can Miss (Toxic)",
-      0.0,
-      0.1,
-      0.1
-    ],
-    [
-      2,
-      "Gastrodon",
-      "Target of Move That Can Miss (Air Slash)",
-      0.1,
-      -0.05,
-      0.05
-    ],
-    [
-      2,
-      "Gastrodon",
-      "Target of Move With Crit Chance (Air Slash)",
-      0.05,
-      0.04167,
-      0.09167
-    ],
-    [
-      17,
-      "Hippowdon",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      12,
-      "Obstagoon",
-      "Mon Used Move With Crit Chance (Knock Off)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      12,
-      "Obstagoon",
-      "Target of Move With Crit Chance (Hyper Voice)",
-      -0.04167,
-      0.04167,
-      0.0
-    ],
-    [
-      11,
-      "Sylveon",
-      "Mon Used Move With Crit Chance (Quick Attack)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      12,
-      "Sylveon",
-      "Target of Move With Crit Chance (Knock Off)",
-      -0.04167,
-      0.04167,
-      0.0
-    ],
-    [
-      12,
-      "Sylveon",
-      "Mon Used Move With Crit Chance (Hyper Voice)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      13,
-      "Sylveon",
-      "Mon Used Move With Crit Chance (Hyper Voice)",
-      -0.04167,
-      -0.04167,
-      -0.08334
-    ],
-    [
-      14,
-      "Sylveon",
-      "Target of Move With Crit Chance (Phantom Force)",
-      -0.08334,
-      0.04167,
-      -0.04167
-    ],
-    [
-      15,
-      "Sylveon",
-      "Mon Used Move With Crit Chance (Quick Attack)",
-      -0.04167,
-      -0.04167,
-      -0.08334
-    ],
-    [
-      16,
-      "Sylveon",
-      "Target of Move With Crit Chance (Phantom Force)",
-      -0.08334,
-      0.04167,
-      -0.04167
-    ],
-    [
-      1,
-      "Togekiss",
-      "Target of Move That Can Miss (Toxic)",
+      "Bellossom",
+      "Target of Move That Can Miss (Hyper Beam)",
       0.0,
       -0.1,
       -0.1
     ],
     [
-      2,
-      "Togekiss",
-      "Mon Used a Move That Can Miss (Air Slash)",
+      15,
+      "Bellossom",
+      "Target of Move With Crit Chance (Hyper Beam)",
       -0.1,
-      0.05,
-      -0.05
+      0.04167,
+      -0.05833
     ],
     [
-      2,
-      "Togekiss",
-      "Mon Used Move With Crit Chance (Air Slash)",
-      -0.05,
+      17,
+      "Bellossom",
+      "Target of Move That Can Miss (Hyper Beam)",
+      -0.05833,
+      -0.1,
+      -0.15833
+    ],
+    [
+      17,
+      "Bellossom",
+      "Target of Move With Crit Chance (Hyper Beam)",
+      -0.15833,
+      0.04167,
+      -0.11666
+    ],
+    [
+      22,
+      "Blissey",
+      "Mon Used a Move That Can Miss (Charge Beam)",
+      0.0,
+      0.1,
+      0.1
+    ],
+    [
+      22,
+      "Blissey",
+      "Mon Used Move With Crit Chance (Charge Beam)",
+      0.1,
       -0.04167,
-      -0.09167
+      0.05833
     ],
     [
-      4,
-      "Togekiss",
-      "Mon Used a Move That Can Miss (Air Slash)",
-      -0.09167,
-      0.05,
-      -0.04167
+      22,
+      "Blissey",
+      "Mon Used Move With Secondary Effect Chance (Charge Beam)",
+      0.05833,
+      -1.4,
+      -1.34167
     ],
     [
-      4,
-      "Togekiss",
-      "Mon Used Move With Crit Chance (Air Slash)",
+      22,
+      "Blissey",
+      "Mon incurred secondary effect (Charge Beam)",
+      -1.34167,
+      1.0,
+      -0.34167000000000003
+    ],
+    [
+      31,
+      "Blissey",
+      "Target of Move That Can Miss (Hyper Beam)",
+      -0.34167000000000003,
+      -0.1,
+      -0.44167
+    ],
+    [
+      31,
+      "Blissey",
+      "Target of Move With Crit Chance (Hyper Beam)",
+      -0.44167,
+      0.04167,
+      -0.4
+    ],
+    [
+      32,
+      "Blissey",
+      "Mon Used a Move That Can Miss (Charge Beam)",
+      -0.4,
+      0.1,
+      -0.3
+    ],
+    [
+      32,
+      "Blissey",
+      "Mon Used Move With Crit Chance (Charge Beam)",
+      -0.3,
       -0.04167,
-      -0.04167,
-      -0.08334
+      -0.34167000000000003
     ],
     [
-      5,
-      "Togekiss",
-      "Mon Used Move With Crit Chance (Flamethrower)",
-      -0.08334,
-      -0.04167,
-      -0.12500999999999998
+      32,
+      "Blissey",
+      "Mon Used Move With Secondary Effect Chance (Charge Beam)",
+      -0.34167000000000003,
+      -1.4,
+      -1.74167
     ],
     [
-      5,
-      "Togekiss",
-      "Mon Used Move With Secondary Effect Chance (Flamethrower)",
-      -0.12500999999999998,
+      32,
+      "Blissey",
+      "Mon incurred secondary effect (Charge Beam)",
+      -1.74167,
+      1.0,
+      -0.74167
+    ],
+    [
+      33,
+      "Blissey",
+      "Target of Move That Can Miss (Hyper Beam)",
+      -0.74167,
+      -0.1,
+      -0.84167
+    ],
+    [
+      33,
+      "Blissey",
+      "Target of Move With Crit Chance (Hyper Beam)",
+      -0.84167,
+      0.04167,
+      -0.8
+    ],
+    [
+      33,
+      "Blissey",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      -0.8,
+      -0.04167,
+      -0.84167
+    ],
+    [
+      33,
+      "Blissey",
+      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
+      -0.84167,
       -0.2,
-      -0.32500999999999997
+      -1.04167
     ],
     [
-      5,
-      "Tyranitar",
-      "Target of Move With Crit Chance (Flamethrower)",
+      33,
+      "Blissey",
+      "Mon incurred secondary effect (Ice Beam)",
+      -1.04167,
+      1.0,
+      -0.04167000000000001
+    ],
+    [
+      34,
+      "Blissey",
+      "Mon Used a Move That Can Miss (Hyper Beam)",
+      -0.04167000000000001,
+      0.1,
+      0.058329999999999986
+    ],
+    [
+      34,
+      "Blissey",
+      "Mon Used Move With Crit Chance (Hyper Beam)",
+      0.058329999999999986,
+      -0.04167,
+      0.016659999999999987
+    ],
+    [
+      7,
+      "Bronzong",
+      "Target of Move With Crit Chance (Spirit Shackle)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      5,
-      "Tyranitar",
-      "Target of Move With Secondary Effect Chance (Flamethrower)",
+      8,
+      "Bronzong",
+      "Target of Move That Can Miss (Fire Spin)",
       0.04167,
-      0.2,
-      0.24167000000000002
+      -0.15,
+      -0.10833
     ],
     [
-      6,
-      "Tyranitar",
-      "Target of Move With Crit Chance (Liquidation)",
-      0.24167000000000002,
+      8,
+      "Bronzong",
+      "Target of Move With Crit Chance (Fire Spin)",
+      -0.10833,
       0.04167,
-      0.28334000000000004
+      -0.06666
+    ],
+    [
+      29,
+      "Drapion",
+      "Target of Move That Can Miss (Close Combat)",
+      0.0,
+      -0.4001199760047991,
+      -0.4001199760047991
+    ],
+    [
+      29,
+      "Drapion",
+      "Target of Move With Crit Chance (Close Combat)",
+      -0.4001199760047991,
+      0.04167,
+      -0.35844997600479905
+    ],
+    [
+      40,
+      "Eiscue",
+      "Mon Used a Move That Can Miss (Hydro Pump)",
+      0.0,
+      0.2,
+      0.2
+    ],
+    [
+      40,
+      "Eiscue",
+      "Mon Used Move With Crit Chance (Hydro Pump)",
+      0.2,
+      -0.04167,
+      0.15833
+    ],
+    [
+      48,
+      "Eiscue",
+      "Target of Move That Can Miss (Sky Attack)",
+      0.15833,
+      -0.1,
+      0.05833
+    ],
+    [
+      48,
+      "Eiscue",
+      "Target of Move With Increased Crit Chance (Sky Attack)",
+      0.05833,
+      0.125,
+      0.18333
+    ],
+    [
+      48,
+      "Eiscue",
+      "Target of Move With Secondary Effect Chance (Sky Attack)",
+      0.18333,
+      0.3,
+      0.48333
+    ],
+    [
+      48,
+      "Eiscue",
+      "Mon was hit by a critical hit",
+      0.48333,
+      -1.0,
+      -0.51667
+    ],
+    [
+      49,
+      "Eiscue",
+      "Mon Used a Move That Can Miss (Hydro Pump)",
+      -0.51667,
+      0.2,
+      -0.31667
+    ],
+    [
+      49,
+      "Eiscue",
+      "Mon Used Move With Crit Chance (Hydro Pump)",
+      -0.31667,
+      -0.04167,
+      -0.35834000000000005
+    ],
+    [
+      27,
+      "Heracross",
+      "Mon Used a Move That Can Miss (Megahorn)",
+      0.0,
+      0.15,
+      0.15
+    ],
+    [
+      27,
+      "Heracross",
+      "Mon Used Move With Crit Chance (Megahorn)",
+      0.15,
+      -0.04167,
+      0.10833
+    ],
+    [
+      29,
+      "Heracross",
+      "Mon Used a Move That Can Miss (Close Combat)",
+      0.10833,
+      0.4001199760047991,
+      0.508449976004799
+    ],
+    [
+      29,
+      "Heracross",
+      "Mon Used Move With Crit Chance (Close Combat)",
+      0.508449976004799,
+      -0.04167,
+      0.46677997600479904
+    ],
+    [
+      46,
+      "Heracross",
+      "Target of Move That Can Miss (Sky Attack)",
+      0.46677997600479904,
+      -0.1,
+      0.36677997600479906
+    ],
+    [
+      46,
+      "Heracross",
+      "Target of Move With Increased Crit Chance (Sky Attack)",
+      0.36677997600479906,
+      0.125,
+      0.49177997600479906
+    ],
+    [
+      46,
+      "Heracross",
+      "Mon was hit by a critical hit",
+      0.49177997600479906,
+      -1.0,
+      -0.5082200239952009
+    ],
+    [
+      22,
+      "Liepard",
+      "Target of Move That Can Miss (Charge Beam)",
+      0.0,
+      -0.1,
+      -0.1
+    ],
+    [
+      22,
+      "Liepard",
+      "Target of Move With Crit Chance (Charge Beam)",
+      -0.1,
+      0.04167,
+      -0.05833
+    ],
+    [
+      22,
+      "Liepard",
+      "Target of Move With Secondary Effect Chance (Charge Beam)",
+      -0.05833,
+      1.4,
+      1.34167
+    ],
+    [
+      22,
+      "Liepard",
+      "Mon harmed by secondary effect (Charge Beam)",
+      1.34167,
+      -1.0,
+      0.34167000000000003
+    ],
+    [
+      27,
+      "Liepard",
+      "Target of Move That Can Miss (Megahorn)",
+      0.34167000000000003,
+      -0.15,
+      0.19167
+    ],
+    [
+      27,
+      "Liepard",
+      "Target of Move With Crit Chance (Megahorn)",
+      0.19167,
+      0.04167,
+      0.23334000000000002
+    ],
+    [
+      3,
+      "Lycanroc-Dusk",
+      "Target of Move With Crit Chance (Spark)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      3,
+      "Lycanroc-Dusk",
+      "Target of Move With Secondary Effect Chance (Spark)",
+      0.04167,
+      0.3,
+      0.34167000000000003
+    ],
+    [
+      12,
+      "Lycanroc-Dusk",
+      "Mon Used Move With Crit Chance (Stomping Tantrum)",
+      0.34167000000000003,
+      -0.04167,
+      0.3
+    ],
+    [
+      36,
+      "Lycanroc-Dusk",
+      "Target of Move With Crit Chance (Stomping Tantrum)",
+      0.3,
+      0.04167,
+      0.34167000000000003
+    ],
+    [
+      3,
+      "Magmar",
+      "Mon Used Move With Crit Chance (Spark)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      3,
+      "Magmar",
+      "Mon Used Move With Secondary Effect Chance (Spark)",
+      -0.04167,
+      -0.3,
+      -0.34167000000000003
+    ],
+    [
+      7,
+      "Magmar",
+      "Mon Used Move With Crit Chance (Spirit Shackle)",
+      -0.34167000000000003,
+      -0.04167,
+      -0.38334
+    ],
+    [
+      8,
+      "Magmar",
+      "Mon Used a Move That Can Miss (Fire Spin)",
+      -0.38334,
+      0.15,
+      -0.23334000000000002
+    ],
+    [
+      8,
+      "Magmar",
+      "Mon Used Move With Crit Chance (Fire Spin)",
+      -0.23334000000000002,
+      -0.04167,
+      -0.27501000000000003
+    ],
+    [
+      12,
+      "Magmar",
+      "Target of Move With Crit Chance (Stomping Tantrum)",
+      -0.27501000000000003,
+      0.04167,
+      -0.23334000000000002
+    ],
+    [
+      19,
+      "Mew",
+      "Mon is confused",
+      0.0,
+      -0.33,
+      -0.33
+    ],
+    [
+      19,
+      "Mew",
+      "Opponent Hit Self In Confusion",
+      -0.33,
+      1.0,
+      0.67
+    ],
+    [
+      20,
+      "Mew",
+      "Target of Move With Crit Chance (Synchronoise)",
+      0.67,
+      0.04167,
+      0.71167
+    ],
+    [
+      36,
+      "Mew",
+      "Mon Used Move With Crit Chance (Stomping Tantrum)",
+      0.71167,
+      -0.04167,
+      0.67
+    ],
+    [
+      41,
+      "Mew",
+      "Target of Move That Can Miss (Sky Attack)",
+      0.67,
+      -0.1,
+      0.57
+    ],
+    [
+      41,
+      "Mew",
+      "Target of Move With Increased Crit Chance (Sky Attack)",
+      0.57,
+      0.125,
+      0.695
+    ],
+    [
+      40,
+      "Swellow",
+      "Target of Move That Can Miss (Hydro Pump)",
+      0.0,
+      -0.2,
+      -0.2
+    ],
+    [
+      40,
+      "Swellow",
+      "Target of Move With Crit Chance (Hydro Pump)",
+      -0.2,
+      0.04167,
+      -0.15833
+    ],
+    [
+      41,
+      "Swellow",
+      "Mon Used a Move That Can Miss (Sky Attack)",
+      -0.15833,
+      0.1,
+      -0.05833
+    ],
+    [
+      41,
+      "Swellow",
+      "Mon Used Move With Increased Crit Chance (Sky Attack)",
+      -0.05833,
+      -0.125,
+      -0.18333
+    ],
+    [
+      46,
+      "Swellow",
+      "Mon Used a Move That Can Miss (Sky Attack)",
+      -0.18333,
+      0.1,
+      -0.08332999999999999
+    ],
+    [
+      46,
+      "Swellow",
+      "Mon Used Move With Increased Crit Chance (Sky Attack)",
+      -0.08332999999999999,
+      -0.125,
+      -0.20833
+    ],
+    [
+      46,
+      "Swellow",
+      "Mon landed a critical hit",
+      -0.20833,
+      1.0,
+      0.79167
+    ],
+    [
+      48,
+      "Swellow",
+      "Mon Used a Move That Can Miss (Sky Attack)",
+      0.79167,
+      0.1,
+      0.89167
+    ],
+    [
+      48,
+      "Swellow",
+      "Mon Used Move With Increased Crit Chance (Sky Attack)",
+      0.89167,
+      -0.125,
+      0.76667
+    ],
+    [
+      48,
+      "Swellow",
+      "Mon Used Move With Secondary Effect Chance (Sky Attack)",
+      0.76667,
+      -0.3,
+      0.46667000000000003
+    ],
+    [
+      48,
+      "Swellow",
+      "Mon landed a critical hit",
+      0.46667000000000003,
+      1.0,
+      1.46667
+    ],
+    [
+      49,
+      "Swellow",
+      "Target of Move That Can Miss (Hydro Pump)",
+      1.46667,
+      -0.2,
+      1.26667
+    ],
+    [
+      49,
+      "Swellow",
+      "Target of Move With Crit Chance (Hydro Pump)",
+      1.26667,
+      0.04167,
+      1.30834
+    ],
+    [
+      15,
+      "Sylveon",
+      "Mon Used a Move That Can Miss (Hyper Beam)",
+      0.0,
+      0.1,
+      0.1
+    ],
+    [
+      15,
+      "Sylveon",
+      "Mon Used Move With Crit Chance (Hyper Beam)",
+      0.1,
+      -0.04167,
+      0.05833
+    ],
+    [
+      17,
+      "Sylveon",
+      "Mon Used a Move That Can Miss (Hyper Beam)",
+      0.05833,
+      0.1,
+      0.15833
+    ],
+    [
+      17,
+      "Sylveon",
+      "Mon Used Move With Crit Chance (Hyper Beam)",
+      0.15833,
+      -0.04167,
+      0.11666
+    ],
+    [
+      19,
+      "Sylveon",
+      "Opponent is confused",
+      0.11666,
+      0.33,
+      0.44665999999999995
+    ],
+    [
+      19,
+      "Sylveon",
+      "Mon Hit Self In Confusion",
+      0.44665999999999995,
+      -1.0,
+      -0.55334
+    ],
+    [
+      20,
+      "Sylveon",
+      "Mon Used Move With Crit Chance (Synchronoise)",
+      -0.55334,
+      -0.04167,
+      -0.59501
+    ],
+    [
+      31,
+      "Sylveon",
+      "Mon Used a Move That Can Miss (Hyper Beam)",
+      -0.59501,
+      0.1,
+      -0.49501000000000006
+    ],
+    [
+      31,
+      "Sylveon",
+      "Mon Used Move With Crit Chance (Hyper Beam)",
+      -0.49501000000000006,
+      -0.04167,
+      -0.53668
+    ],
+    [
+      32,
+      "Sylveon",
+      "Target of Move That Can Miss (Charge Beam)",
+      -0.53668,
+      -0.1,
+      -0.63668
+    ],
+    [
+      32,
+      "Sylveon",
+      "Target of Move With Crit Chance (Charge Beam)",
+      -0.63668,
+      0.04167,
+      -0.59501
+    ],
+    [
+      32,
+      "Sylveon",
+      "Target of Move With Secondary Effect Chance (Charge Beam)",
+      -0.59501,
+      1.4,
+      0.80499
+    ],
+    [
+      32,
+      "Sylveon",
+      "Mon harmed by secondary effect (Charge Beam)",
+      0.80499,
+      -1.0,
+      -0.19501000000000004
+    ],
+    [
+      33,
+      "Sylveon",
+      "Mon Used a Move That Can Miss (Hyper Beam)",
+      -0.19501000000000004,
+      0.1,
+      -0.09501000000000005
+    ],
+    [
+      33,
+      "Sylveon",
+      "Mon Used Move With Crit Chance (Hyper Beam)",
+      -0.09501000000000005,
+      -0.04167,
+      -0.13668000000000005
+    ],
+    [
+      33,
+      "Sylveon",
+      "Target of Move With Crit Chance (Ice Beam)",
+      -0.13668000000000005,
+      0.04167,
+      -0.09501000000000005
+    ],
+    [
+      33,
+      "Sylveon",
+      "Target of Move With Secondary Effect Chance (Ice Beam)",
+      -0.09501000000000005,
+      0.2,
+      0.10498999999999996
+    ],
+    [
+      33,
+      "Sylveon",
+      "Mon harmed by secondary effect (Ice Beam)",
+      0.10498999999999996,
+      -1.0,
+      -0.8950100000000001
+    ],
+    [
+      34,
+      "Sylveon",
+      "Target of Move That Can Miss (Hyper Beam)",
+      -0.8950100000000001,
+      -0.1,
+      -0.9950100000000001
+    ],
+    [
+      34,
+      "Sylveon",
+      "Target of Move With Crit Chance (Hyper Beam)",
+      -0.9950100000000001,
+      0.04167,
+      -0.9533400000000001
     ]
   ],
   "errormessage": []

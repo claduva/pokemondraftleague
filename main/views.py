@@ -147,7 +147,6 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    draft_announcements.objects.filter(imageurl="").delete()
     return redirect('home')
 
 def get_pkmn(pkmn):
