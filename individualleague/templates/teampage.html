@@ -49,45 +49,53 @@
         </div>
     </div>
 </div>
-<div class="row text-light bg-darkgrey rounded align-items-center mb-2">
-    <div class="col-md-12">
-        <h4>Roster</h4>
-        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+<div class="row text-light bg-darkgrey rounded align-items-center mb-2 p-3">
+    <div class="col-md-12 m-0 p-0">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
             <thead>
                 <tr class="text-center bg-dark text-light">
-                    <th class="p-0 m-0">Pokemon</th>
-                    <th class="p-0 m-0">K</th>
-                    <th class="p-0 m-0">D</th>
-                    <th class="p-0 m-0">+/-</th>
-                    <th class="p-0 m-0">GP</th>
-                    <th class="p-0 m-0">GW</th>
+                    <th colspan="100%"><h4 class="p-0 m-0">Roster</h4></th>
+                </tr>
+                <tr class="text-center bg-dark text-light">
+                    <th >Pokemon</th>
+                    <th >GP</th>
+                    <th >GW</th>
+                    <th >K</th>
+                    <th >D</th>
+                    <th >+/-</th>
+                    <th >HR</th>
+                    <th >DD</th>
+                    <th >HPH</th>
+                    <th >L</th>
+                    <th >SP</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in roster %}
                 <tr class="bg-lightgrey text-dark text-center">
-                    <td class="p-0 m-0">
+                    <td class="align-middle">
                         {% if item.pokemon.pokemon %}
-                        <div class="d-flex justify-content-center">
-                            <img class="smallsprite"
-                                src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">
-                            <p>{{ item.pokemon.pokemon }}</p>
+                            <img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{ item.pokemon.pokemon }}
                             {% if item.zuser == 'OS' %}
                                 <div><img class="smallsprite" src="{% static 'main/images/z-crystal.png' %}">(Offensive & Status)</div>
                             {% elif item.zuser == 'O' %}    
                                 <div><img class="smallsprite" src="{% static 'main/images/z-crystal.png' %}">(Offensive)</div>
                             {% endif %}
-                        </div>
                         {% else %}
-                        <div>-</div>
+                        -
                         {% endif %}
                     </td>
-                    <td class="p-0 m-0">{{ item.kills }}</td>
-                    <td class="p-0 m-0">{{ item.deaths }}</td>
-                    <td class="p-0 m-0">{{ item.differential }}</td>
-                    <td class="p-0 m-0">{{ item.gp }}</td>
-                    <td class="p-0 m-0">{{ item.gw }}</td>
+                    <td class="align-middle">{{ item.gp }}</td>
+                    <td class="align-middle">{{ item.gw }}</td>
+                    <td class="align-middle">{{ item.kills }}</td>
+                    <td class="align-middle">{{ item.deaths }}</td>
+                    <td class="align-middle">{{ item.differential }}</td>
+                    <td class="align-middle">{{ item.remaininghealth }}</td>
+                    <td class="align-middle">{{ item.damagedone }}</td>
+                    <td class="align-middle">{{ item.hphealed }}</td>
+                    <td class="align-middle">{{ item.luck|floatformat:2 }}</td>
+                    <td class="align-middle">{{ item.support }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -96,11 +104,13 @@
     </div>
 </div>
 {% if upcoming %}
-<div class="row bg-darkgrey text-light rounded p-2 mb-2">
-    <div class="col-md-12">
-        <h3>Upcoming Matches</h3>
-        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+<div class="row bg-darkgrey text-light rounded p-3 mb-2">
+    <div class="col-md-12 p-0 m-0">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th colspan="100%"><h4 class="p-0 m-0">Upcoming Matches</h4></th>
+                </tr>
                 <tr class="bg-dark text-light">
                     <th>Week</th>
                     <th>Opponent</th>
@@ -144,9 +154,11 @@
 {% if results %}
 <div class="row bg-darkgrey text-light rounded p-2 mb-2">
     <div class="col-md-12">
-        <h3>Recent Results</h3>
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th colspan="100%"><h4 class="p-0 m-0">Recent Results</h4></th>
+                </tr>
                 <tr class="bg-dark text-light">
                     <th>Week</th>
                     <th>Opponent</th>
@@ -155,7 +167,7 @@
                 {% for item in results %}
                 <tr>
                     <td class="align-middle">{{item.week}}</td>
-                    <td>
+                    <td class="align-middle">
                         {% if item.team1 == team %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">
                         <div><img class="small-logo rounded-circle" src="{{ item.team2.logo.url }}"></div>
