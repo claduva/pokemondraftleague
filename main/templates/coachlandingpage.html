@@ -10,7 +10,6 @@
 {% endblock %}
 
 {% block marquee %}
-<div class="border border-dark p-0 m-0 text-center" style="background-color: #b0f0ff"><strong>Please take 10 minutes to support a member of our community with his research involving improving the quality of life of gamers by taking <a href="https://brock.ca1.qualtrics.com/jfe/form/SV_1LVehAffxmc5gVL">this</a> survey. You can find out more about it <a href="https://pastebin.com/iEfGzmeu">here</a>.</strong></div>
 {% endblock %}
 {% block body %}
 <div class="row bg-darkgrey text-light rounded p-2 mb-2 align-items-center">
@@ -35,11 +34,13 @@
 
     </div>
 </div>
-<div class="row bg-darkgrey text-light rounded p-2 mb-2">
-    <div class="col-md-12">
-        <h3>Your Teams</h3>
-        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+<div class="row bg-darkgrey text-light rounded p-3 mb-2">
+    <div class="col-md-12 p-0 m-0">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th class="align-middle" colspan="100%"><h3 class="p-0 m-0">Your Teams</h3></th>
+                </tr>
                 <tr class="bg-dark text-light">
                     <th>Team</th>
                     <th>League Homepage</th>
@@ -85,11 +86,13 @@
     </div>
 </div>
 {% if upcomingmatches %}
-<div class="row bg-darkgrey text-light rounded p-2 mb-2">
-    <div class="col-md-12">
-        <h3>Upcoming Matches</h3>
-        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+<div class="row bg-darkgrey text-light rounded p-3 mb-2">
+    <div class="col-md-12 p-0 m-0">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th class="align-middle" colspan="100%"><h3 class="p-0 m-0">Upcoming Matches</h3></th>
+                </tr>
                 <tr class="bg-dark text-light">
                     <th>League</th>
                     <th>Week</th>
@@ -99,7 +102,7 @@
                 </tr>
                 {% for item in upcomingmatches %}
                 <tr>
-                    <td>
+                    <td class="align-middle">
                         <a class="text-dark"
                             href="{% url 'league_detail' league_name=item.season.subleague.league.name %}">
                             <div class="d-flex justify-content-center">
@@ -111,7 +114,7 @@
                         </a>
                     </td>
                     <td class="align-middle">{{item.week}}</td>
-                    <td>
+                    <td class="align-middle">
                         {% if item.team1.coach == request.user %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">
                         <div><img class="small-logo rounded-circle" src="{{ item.team2.logo.url }}"></div>
@@ -124,7 +127,7 @@
                         </a>
                         {% endif %}
                     </td>
-                    <td>{{item.duedate}}</td>
+                    <td class="align-middle">{{item.duedate}}</td>
                     <td class="align-middle">
                         <a class="text-dark"
                             href="{% url 'league_matchup' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague matchid=item.id %}">
@@ -143,11 +146,13 @@
 </div>
 {% endif %}
 {% if recentresults %}
-<div class="row bg-darkgrey text-light rounded p-2 mb-2">
-    <div class="col-md-12">
-        <h3>Recent Results</h3>
-        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+<div class="row bg-darkgrey text-light rounded p-3 mb-2">
+    <div class="col-md-12 p-0 m-0">
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
+                    <th class="align-middle" colspan="100%"><h3 class="p-0 m-0">Recent Results</h3></th>
+                </tr>
                 <tr class="bg-dark text-light">
                     <th>League</th>
                     <th>Week</th>

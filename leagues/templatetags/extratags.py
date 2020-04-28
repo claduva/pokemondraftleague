@@ -12,6 +12,10 @@ def replace(string, arg):
     replacement=arg.split(",")[1]
     return string.replace(search, replacement)
 
+@register.filter(name='s2u')
+def s2u(string):
+    return string.replace(" ", "_")
+
 @register.filter(name='pkmnreplace')
 def pkmnreplace(string, arg):
     return string.replace('PKMN', arg)

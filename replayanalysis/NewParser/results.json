@@ -1,26 +1,26 @@
 {
   "team1": {
-    "coach": "master_of_rave",
+    "coach": "Steamboat\u262dGeyser",
     "roster": [
       {
-        "pokemon": "Blissey",
-        "startform": "Blissey",
-        "nickname": "IMAFIRINMYLAZER",
-        "kills": 1,
-        "deaths": 1,
+        "pokemon": "Dracovish",
+        "startform": "Dracovish",
+        "nickname": "Dracovish",
+        "kills": 3,
+        "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 129,
-        "hphealed": -34,
-        "luck": 0.016659999999999987,
-        "remaininghealth": 0,
+        "damagedone": 254,
+        "hphealed": 0,
+        "luck": 1.0249899999999998,
+        "remaininghealth": 63,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": null,
+        "tox": "Arceus",
         "slp": null,
         "Curse": null,
         "atk": 0,
@@ -34,16 +34,16 @@
         "semiinv": false
       },
       {
-        "pokemon": "Bellossom",
-        "startform": "Bellossom",
-        "nickname": "buffsPl0x",
+        "pokemon": "Groudon",
+        "startform": "Groudon",
+        "nickname": "Groudon",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 5,
-        "hphealed": 29,
-        "luck": -0.11666,
+        "support": 2,
+        "damagedone": 97,
+        "hphealed": 0,
+        "luck": -0.5666599999999999,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -65,47 +65,16 @@
         "semiinv": false
       },
       {
-        "pokemon": "Mew",
-        "startform": "Mew",
-        "nickname": "Ditto...?",
-        "kills": 1,
+        "pokemon": "Zygarde",
+        "startform": "Zygarde",
+        "nickname": "Zygarde",
+        "kills": 0,
         "deaths": 0,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 40,
+        "support": 2,
+        "damagedone": 0,
         "hphealed": 0,
-        "luck": 0.695,
-        "remaininghealth": 15,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Eiscue",
-        "startform": "Eiscue",
-        "nickname": "WinterIsComing",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 3,
-        "damagedone": 125,
-        "hphealed": -22,
-        "luck": -0.35834000000000005,
+        "luck": 0.75,
         "remaininghealth": 100,
         "lines": [],
         "confusion": null,
@@ -127,17 +96,17 @@
         "semiinv": false
       },
       {
-        "pokemon": "Heracross",
-        "startform": "Heracross",
-        "nickname": "nostatusplzimmoxie",
-        "kills": 2,
-        "deaths": 1,
+        "pokemon": "Ho-Oh",
+        "startform": "Ho-Oh",
+        "nickname": "Ho-Oh",
+        "kills": 0,
+        "deaths": 0,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 200,
-        "hphealed": 66,
-        "luck": -0.5082200239952009,
-        "remaininghealth": 0,
+        "support": 4,
+        "damagedone": 22,
+        "hphealed": 0,
+        "luck": -0.38332,
+        "remaininghealth": 85,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -145,7 +114,7 @@
         "par": null,
         "frz": null,
         "tox": null,
-        "slp": "nostatusplzimmoxie",
+        "slp": null,
         "Curse": null,
         "atk": 0,
         "def": 0,
@@ -158,16 +127,16 @@
         "semiinv": false
       },
       {
-        "pokemon": "Magmar",
-        "startform": "Magmar",
-        "nickname": "GODTAKETHEWHEEL",
-        "kills": 1,
+        "pokemon": "Necrozma-Dusk-Mane",
+        "startform": "Necrozma",
+        "nickname": "Necrozma",
+        "kills": 2,
         "deaths": 1,
         "causeofdeath": null,
         "support": 2,
-        "damagedone": 150,
-        "hphealed": -23,
-        "luck": -0.23334000000000002,
+        "damagedone": 139,
+        "hphealed": 135,
+        "luck": -0.84167,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -182,6 +151,37 @@
         "def": 0,
         "spa": 0,
         "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Rayquaza-Mega",
+        "startform": "Rayquaza",
+        "nickname": "Rayquaza",
+        "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 61,
+        "hphealed": 0,
+        "luck": -0.15,
+        "remaininghealth": 45,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": -1,
+        "spa": 0,
+        "spd": -1,
         "spe": 0,
         "accuracy": 0,
         "evasion": 0,
@@ -191,23 +191,23 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 2,
-    "megaevolved": false,
+    "score": 4,
+    "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 14,
-    "selfdeaths": 1,
-    "remaininghealth": 115,
+    "timesswitched": 18,
+    "selfdeaths": 0,
+    "remaininghealth": 293,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 4,
-    "luck": -0.5047999999999999,
-    "damagedone": 649,
-    "hphealed": 16,
-    "support": 6,
-    "activemon": "WinterIsComing",
+    "deaths": 2,
+    "luck": -0.16670000000000001,
+    "damagedone": 573,
+    "hphealed": 135,
+    "support": 10,
+    "activemon": "Rayquaza",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": null,
+    "Stealth Rock": "Arceus",
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -216,56 +216,25 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "phirefalcon",
+    "coach": "Zixerneas",
     "roster": [
       {
-        "pokemon": "Lycanroc-Dusk",
-        "startform": "Lycanroc-Dusk",
-        "nickname": "ruff skin",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 77,
-        "hphealed": -9,
-        "luck": 0.34167000000000003,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Liepard",
-        "startform": "Liepard",
-        "nickname": "but he's a guy",
+        "pokemon": "Arceus",
+        "startform": "Arceus",
+        "nickname": "Arceus",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 17,
-        "luck": 0.23334000000000002,
+        "support": 4,
+        "damagedone": 109,
+        "hphealed": 200,
+        "luck": 0.04999999999999998,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
-        "par": null,
+        "par": "Necrozma",
         "frz": null,
         "tox": null,
         "slp": null,
@@ -281,17 +250,48 @@
         "semiinv": false
       },
       {
-        "pokemon": "Bronzong",
-        "startform": "Bronzong",
-        "nickname": "funeral bell",
+        "pokemon": "Necrozma-Dusk-Mane",
+        "startform": "Necrozma",
+        "nickname": "Necrozma",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 1,
         "damagedone": 0,
         "hphealed": 0,
-        "luck": -0.06666,
+        "luck": -0.55833,
         "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": "Ho",
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Arceus",
+        "startform": "Arceus",
+        "nickname": "Arceus",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": -12,
+        "luck": 0.0,
+        "remaininghealth": 88,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -312,16 +312,78 @@
         "semiinv": false
       },
       {
-        "pokemon": "Swellow",
-        "startform": "Swellow",
-        "nickname": "dat ain't falco",
+        "pokemon": "Arceus",
+        "startform": "Arceus",
+        "nickname": "Arceus",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": -12,
+        "luck": 0.0,
+        "remaininghealth": 88,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Zacian-Crowned",
+        "startform": "Zacian",
+        "nickname": "Zacian",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 99,
+        "hphealed": -24,
+        "luck": 0.65,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": "Necrozma",
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Kyogre",
+        "startform": "Kyogre",
+        "nickname": "Kyogre",
         "kills": 2,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 244,
-        "hphealed": 0,
-        "luck": 1.30834,
+        "damagedone": 219,
+        "hphealed": -3,
+        "luck": 0.024990000000000005,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -329,68 +391,6 @@
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Drapion",
-        "startform": "Drapion",
-        "nickname": "drape nation",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.35844997600479905,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Sylveon",
-        "startform": "Sylveon",
-        "nickname": "todokete",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 180,
-        "hphealed": 41,
-        "luck": -0.9533400000000001,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": "buffsPl0x",
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": "IMAFIRINMYLAZER",
         "tox": null,
         "slp": null,
         "Curse": null,
@@ -407,23 +407,23 @@
     ],
     "wins": 0,
     "forfeit": 0,
-    "score": 0,
+    "score": 2,
     "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 12,
+    "timesswitched": 15,
     "selfdeaths": 0,
-    "remaininghealth": 0,
+    "remaininghealth": 176,
     "totalhealth": 600,
-    "kills": 3,
-    "deaths": 6,
-    "luck": 0.5049,
-    "damagedone": 501,
-    "hphealed": 49,
-    "support": 1,
-    "activemon": "dat ain't falco",
+    "kills": 2,
+    "deaths": 4,
+    "luck": 0.16670000000000001,
+    "damagedone": 427,
+    "hphealed": 149,
+    "support": 5,
+    "activemon": "Kyogre",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": null,
+    "Stealth Rock": "Groudon",
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -433,849 +433,921 @@
   },
   "Perish Song": null,
   "Gravity": 1.0,
-  "Rain": false,
+  "Rain": true,
   "Hail": false,
-  "numberofturns": 49,
+  "numberofturns": 41,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexlegacy-61679",
+  "replay": "https://replay.pokemonshowdown.com/gen8nationaldexag-1104343529",
   "significantevents": [
     [
-      1,
-      "Bronzong provided support by using Hypnosis"
+      2,
+      "Ho-Oh provided support by using Thunder Wave"
     ],
     [
-      2,
-      "Magmar provided support by using Sandstorm"
+      3,
+      "Necrozma-Dusk-Mane provided support by using Trick Room"
+    ],
+    [
+      5,
+      "Zygarde provided support by using Haze"
+    ],
+    [
+      6,
+      "Zygarde provided support by using Glare"
     ],
     [
       9,
-      "Magmar killed Bronzong via move: Fire Spin|[partiallytrapped]"
-    ],
-    [
-      11,
-      "Magmar provided support by using Electric Terrain"
+      "Dracovish killed Necrozma-Dusk-Mane with Fishious Rend"
     ],
     [
       12,
-      "Lycanroc-Dusk killed Magmar with Stomping Tantrum"
+      "Necrozma-Dusk-Mane provided support by using Thunder Wave"
     ],
     [
-      13,
-      "Eiscue provided support by using Hail"
+      15,
+      "Arceus provided support by using Toxic"
     ],
     [
-      14,
-      "Eiscue provided support by using Aurora Veil"
+      16,
+      "Dracovish killed Arceus with Fishious Rend"
     ],
     [
-      27,
-      "Heracross killed Liepard with Megahorn"
+      18,
+      "Arceus provided support by using Reflect"
     ],
     [
-      29,
-      "Heracross killed Drapion with Close Combat"
+      18,
+      "Groudon provided support by using Thunder Wave"
     ],
     [
-      34,
-      "Blissey killed Sylveon with Hyper Beam"
+      19,
+      "Groudon provided support by using Stealth Rock"
     ],
     [
-      34,
-      "Blissey fainted via item: Life Orb"
+      22,
+      "Ho-Oh provided support by using Whirlwind"
+    ],
+    [
+      23,
+      "Ho-Oh provided support by using Whirlwind"
+    ],
+    [
+      24,
+      "Ho-Oh provided support by using Thunder Wave"
+    ],
+    [
+      26,
+      "Dracovish killed Arceus with Fishious Rend"
+    ],
+    [
+      30,
+      "Kyogre killed Groudon with Ice Beam"
+    ],
+    [
+      33,
+      "Necrozma-Dusk-Mane killed Zacian-Crowned with Sunsteel Strike"
     ],
     [
       36,
-      "Mew killed Lycanroc-Dusk with Stomping Tantrum"
+      "Arceus provided support by using Defog"
+    ],
+    [
+      36,
+      "Necrozma-Dusk-Mane provided support by using Thunder Wave"
+    ],
+    [
+      37,
+      "Arceus provided support by using Stealth Rock"
     ],
     [
       38,
-      "Swellow killed Bellossom with Sky Attack"
+      "Necrozma-Dusk-Mane killed Arceus with Sunsteel Strike"
     ],
     [
-      39,
-      "Eiscue provided support by using Hail"
+      40,
+      "Kyogre killed Necrozma-Dusk-Mane with Origin Pulse"
     ],
     [
-      42,
-      "Mew provided support by using Trick Room"
-    ],
-    [
-      46,
-      "Swellow killed Heracross with Sky Attack"
-    ],
-    [
-      49,
-      "Eiscue killed Swellow with Hydro Pump"
+      41,
+      "Rayquaza-Mega killed Kyogre with Dragon Ascent"
     ]
   ],
   "luckcatalog": [
     [
-      15,
-      "Bellossom",
-      "Target of Move That Can Miss (Hyper Beam)",
-      0.0,
-      -0.1,
-      -0.1
-    ],
-    [
-      15,
-      "Bellossom",
-      "Target of Move With Crit Chance (Hyper Beam)",
-      -0.1,
-      0.04167,
-      -0.05833
-    ],
-    [
-      17,
-      "Bellossom",
-      "Target of Move That Can Miss (Hyper Beam)",
-      -0.05833,
-      -0.1,
-      -0.15833
-    ],
-    [
-      17,
-      "Bellossom",
-      "Target of Move With Crit Chance (Hyper Beam)",
-      -0.15833,
-      0.04167,
-      -0.11666
-    ],
-    [
-      22,
-      "Blissey",
-      "Mon Used a Move That Can Miss (Charge Beam)",
-      0.0,
-      0.1,
-      0.1
-    ],
-    [
-      22,
-      "Blissey",
-      "Mon Used Move With Crit Chance (Charge Beam)",
-      0.1,
-      -0.04167,
-      0.05833
-    ],
-    [
-      22,
-      "Blissey",
-      "Mon Used Move With Secondary Effect Chance (Charge Beam)",
-      0.05833,
-      -1.4,
-      -1.34167
-    ],
-    [
-      22,
-      "Blissey",
-      "Mon incurred secondary effect (Charge Beam)",
-      -1.34167,
-      1.0,
-      -0.34167000000000003
-    ],
-    [
-      31,
-      "Blissey",
-      "Target of Move That Can Miss (Hyper Beam)",
-      -0.34167000000000003,
-      -0.1,
-      -0.44167
-    ],
-    [
-      31,
-      "Blissey",
-      "Target of Move With Crit Chance (Hyper Beam)",
-      -0.44167,
-      0.04167,
-      -0.4
-    ],
-    [
-      32,
-      "Blissey",
-      "Mon Used a Move That Can Miss (Charge Beam)",
-      -0.4,
-      0.1,
-      -0.3
-    ],
-    [
-      32,
-      "Blissey",
-      "Mon Used Move With Crit Chance (Charge Beam)",
-      -0.3,
-      -0.04167,
-      -0.34167000000000003
-    ],
-    [
-      32,
-      "Blissey",
-      "Mon Used Move With Secondary Effect Chance (Charge Beam)",
-      -0.34167000000000003,
-      -1.4,
-      -1.74167
-    ],
-    [
-      32,
-      "Blissey",
-      "Mon incurred secondary effect (Charge Beam)",
-      -1.74167,
-      1.0,
-      -0.74167
-    ],
-    [
-      33,
-      "Blissey",
-      "Target of Move That Can Miss (Hyper Beam)",
-      -0.74167,
-      -0.1,
-      -0.84167
-    ],
-    [
-      33,
-      "Blissey",
-      "Target of Move With Crit Chance (Hyper Beam)",
-      -0.84167,
-      0.04167,
-      -0.8
-    ],
-    [
-      33,
-      "Blissey",
-      "Mon Used Move With Crit Chance (Ice Beam)",
-      -0.8,
-      -0.04167,
-      -0.84167
-    ],
-    [
-      33,
-      "Blissey",
-      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
-      -0.84167,
-      -0.2,
-      -1.04167
-    ],
-    [
-      33,
-      "Blissey",
-      "Mon incurred secondary effect (Ice Beam)",
-      -1.04167,
-      1.0,
-      -0.04167000000000001
-    ],
-    [
-      34,
-      "Blissey",
-      "Mon Used a Move That Can Miss (Hyper Beam)",
-      -0.04167000000000001,
-      0.1,
-      0.058329999999999986
-    ],
-    [
-      34,
-      "Blissey",
-      "Mon Used Move With Crit Chance (Hyper Beam)",
-      0.058329999999999986,
-      -0.04167,
-      0.016659999999999987
-    ],
-    [
-      7,
-      "Bronzong",
-      "Target of Move With Crit Chance (Spirit Shackle)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      8,
-      "Bronzong",
-      "Target of Move That Can Miss (Fire Spin)",
-      0.04167,
-      -0.15,
-      -0.10833
-    ],
-    [
-      8,
-      "Bronzong",
-      "Target of Move With Crit Chance (Fire Spin)",
-      -0.10833,
-      0.04167,
-      -0.06666
-    ],
-    [
-      29,
-      "Drapion",
-      "Target of Move That Can Miss (Close Combat)",
-      0.0,
-      -0.4001199760047991,
-      -0.4001199760047991
-    ],
-    [
-      29,
-      "Drapion",
-      "Target of Move With Crit Chance (Close Combat)",
-      -0.4001199760047991,
-      0.04167,
-      -0.35844997600479905
-    ],
-    [
-      40,
-      "Eiscue",
-      "Mon Used a Move That Can Miss (Hydro Pump)",
-      0.0,
-      0.2,
-      0.2
-    ],
-    [
-      40,
-      "Eiscue",
-      "Mon Used Move With Crit Chance (Hydro Pump)",
-      0.2,
-      -0.04167,
-      0.15833
-    ],
-    [
-      48,
-      "Eiscue",
-      "Target of Move That Can Miss (Sky Attack)",
-      0.15833,
-      -0.1,
-      0.05833
-    ],
-    [
-      48,
-      "Eiscue",
-      "Target of Move With Increased Crit Chance (Sky Attack)",
-      0.05833,
-      0.125,
-      0.18333
-    ],
-    [
-      48,
-      "Eiscue",
-      "Target of Move With Secondary Effect Chance (Sky Attack)",
-      0.18333,
-      0.3,
-      0.48333
-    ],
-    [
-      48,
-      "Eiscue",
-      "Mon was hit by a critical hit",
-      0.48333,
-      -1.0,
-      -0.51667
-    ],
-    [
-      49,
-      "Eiscue",
-      "Mon Used a Move That Can Miss (Hydro Pump)",
-      -0.51667,
-      0.2,
-      -0.31667
-    ],
-    [
-      49,
-      "Eiscue",
-      "Mon Used Move With Crit Chance (Hydro Pump)",
-      -0.31667,
-      -0.04167,
-      -0.35834000000000005
-    ],
-    [
-      27,
-      "Heracross",
-      "Mon Used a Move That Can Miss (Megahorn)",
-      0.0,
-      0.15,
-      0.15
-    ],
-    [
-      27,
-      "Heracross",
-      "Mon Used Move With Crit Chance (Megahorn)",
-      0.15,
-      -0.04167,
-      0.10833
-    ],
-    [
-      29,
-      "Heracross",
-      "Mon Used a Move That Can Miss (Close Combat)",
-      0.10833,
-      0.4001199760047991,
-      0.508449976004799
-    ],
-    [
-      29,
-      "Heracross",
-      "Mon Used Move With Crit Chance (Close Combat)",
-      0.508449976004799,
-      -0.04167,
-      0.46677997600479904
-    ],
-    [
-      46,
-      "Heracross",
-      "Target of Move That Can Miss (Sky Attack)",
-      0.46677997600479904,
-      -0.1,
-      0.36677997600479906
-    ],
-    [
-      46,
-      "Heracross",
-      "Target of Move With Increased Crit Chance (Sky Attack)",
-      0.36677997600479906,
-      0.125,
-      0.49177997600479906
-    ],
-    [
-      46,
-      "Heracross",
-      "Mon was hit by a critical hit",
-      0.49177997600479906,
-      -1.0,
-      -0.5082200239952009
-    ],
-    [
-      22,
-      "Liepard",
-      "Target of Move That Can Miss (Charge Beam)",
-      0.0,
-      -0.1,
-      -0.1
-    ],
-    [
-      22,
-      "Liepard",
-      "Target of Move With Crit Chance (Charge Beam)",
-      -0.1,
-      0.04167,
-      -0.05833
-    ],
-    [
-      22,
-      "Liepard",
-      "Target of Move With Secondary Effect Chance (Charge Beam)",
-      -0.05833,
-      1.4,
-      1.34167
-    ],
-    [
-      22,
-      "Liepard",
-      "Mon harmed by secondary effect (Charge Beam)",
-      1.34167,
-      -1.0,
-      0.34167000000000003
-    ],
-    [
-      27,
-      "Liepard",
-      "Target of Move That Can Miss (Megahorn)",
-      0.34167000000000003,
-      -0.15,
-      0.19167
-    ],
-    [
-      27,
-      "Liepard",
-      "Target of Move With Crit Chance (Megahorn)",
-      0.19167,
-      0.04167,
-      0.23334000000000002
-    ],
-    [
-      3,
-      "Lycanroc-Dusk",
-      "Target of Move With Crit Chance (Spark)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      3,
-      "Lycanroc-Dusk",
-      "Target of Move With Secondary Effect Chance (Spark)",
-      0.04167,
-      0.3,
-      0.34167000000000003
-    ],
-    [
-      12,
-      "Lycanroc-Dusk",
-      "Mon Used Move With Crit Chance (Stomping Tantrum)",
-      0.34167000000000003,
-      -0.04167,
-      0.3
-    ],
-    [
-      36,
-      "Lycanroc-Dusk",
-      "Target of Move With Crit Chance (Stomping Tantrum)",
-      0.3,
-      0.04167,
-      0.34167000000000003
-    ],
-    [
-      3,
-      "Magmar",
-      "Mon Used Move With Crit Chance (Spark)",
+      1,
+      "Arceus",
+      "Mon Used Move With Crit Chance (Judgment)",
       0.0,
       -0.04167,
       -0.04167
     ],
     [
-      3,
-      "Magmar",
-      "Mon Used Move With Secondary Effect Chance (Spark)",
+      7,
+      "Arceus",
+      "Mon Broke Through Paralysis",
       -0.04167,
-      -0.3,
-      -0.34167000000000003
+      0.25,
+      0.20833
     ],
     [
       7,
-      "Magmar",
-      "Mon Used Move With Crit Chance (Spirit Shackle)",
-      -0.34167000000000003,
+      "Arceus",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      0.20833,
       -0.04167,
-      -0.38334
+      0.16665999999999997
     ],
     [
-      8,
-      "Magmar",
-      "Mon Used a Move That Can Miss (Fire Spin)",
-      -0.38334,
-      0.15,
-      -0.23334000000000002
-    ],
-    [
-      8,
-      "Magmar",
-      "Mon Used Move With Crit Chance (Fire Spin)",
-      -0.23334000000000002,
-      -0.04167,
-      -0.27501000000000003
-    ],
-    [
-      12,
-      "Magmar",
-      "Target of Move With Crit Chance (Stomping Tantrum)",
-      -0.27501000000000003,
-      0.04167,
-      -0.23334000000000002
-    ],
-    [
-      19,
-      "Mew",
-      "Mon is confused",
-      0.0,
-      -0.33,
-      -0.33
-    ],
-    [
-      19,
-      "Mew",
-      "Opponent Hit Self In Confusion",
-      -0.33,
-      1.0,
-      0.67
-    ],
-    [
-      20,
-      "Mew",
-      "Target of Move With Crit Chance (Synchronoise)",
-      0.67,
-      0.04167,
-      0.71167
-    ],
-    [
-      36,
-      "Mew",
-      "Mon Used Move With Crit Chance (Stomping Tantrum)",
-      0.71167,
-      -0.04167,
-      0.67
-    ],
-    [
-      41,
-      "Mew",
-      "Target of Move That Can Miss (Sky Attack)",
-      0.67,
+      7,
+      "Arceus",
+      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
+      0.16665999999999997,
       -0.1,
-      0.57
+      0.06665999999999997
     ],
     [
-      41,
-      "Mew",
-      "Target of Move With Increased Crit Chance (Sky Attack)",
-      0.57,
-      0.125,
-      0.695
+      8,
+      "Arceus",
+      "Mon Could Not Move Due to Paralysis",
+      0.06665999999999997,
+      -0.75,
+      -0.6833400000000001
     ],
     [
-      40,
-      "Swellow",
-      "Target of Move That Can Miss (Hydro Pump)",
-      0.0,
-      -0.2,
-      -0.2
+      14,
+      "Arceus",
+      "Target of Move That Can Miss (Sacred Fire)",
+      -0.6833400000000001,
+      -0.05,
+      -0.73334
     ],
     [
-      40,
-      "Swellow",
-      "Target of Move With Crit Chance (Hydro Pump)",
-      -0.2,
+      14,
+      "Arceus",
+      "Target of Move With Crit Chance (Sacred Fire)",
+      -0.73334,
       0.04167,
-      -0.15833
-    ],
-    [
-      41,
-      "Swellow",
-      "Mon Used a Move That Can Miss (Sky Attack)",
-      -0.15833,
-      0.1,
-      -0.05833
-    ],
-    [
-      41,
-      "Swellow",
-      "Mon Used Move With Increased Crit Chance (Sky Attack)",
-      -0.05833,
-      -0.125,
-      -0.18333
-    ],
-    [
-      46,
-      "Swellow",
-      "Mon Used a Move That Can Miss (Sky Attack)",
-      -0.18333,
-      0.1,
-      -0.08332999999999999
-    ],
-    [
-      46,
-      "Swellow",
-      "Mon Used Move With Increased Crit Chance (Sky Attack)",
-      -0.08332999999999999,
-      -0.125,
-      -0.20833
-    ],
-    [
-      46,
-      "Swellow",
-      "Mon landed a critical hit",
-      -0.20833,
-      1.0,
-      0.79167
-    ],
-    [
-      48,
-      "Swellow",
-      "Mon Used a Move That Can Miss (Sky Attack)",
-      0.79167,
-      0.1,
-      0.89167
-    ],
-    [
-      48,
-      "Swellow",
-      "Mon Used Move With Increased Crit Chance (Sky Attack)",
-      0.89167,
-      -0.125,
-      0.76667
-    ],
-    [
-      48,
-      "Swellow",
-      "Mon Used Move With Secondary Effect Chance (Sky Attack)",
-      0.76667,
-      -0.3,
-      0.46667000000000003
-    ],
-    [
-      48,
-      "Swellow",
-      "Mon landed a critical hit",
-      0.46667000000000003,
-      1.0,
-      1.46667
-    ],
-    [
-      49,
-      "Swellow",
-      "Target of Move That Can Miss (Hydro Pump)",
-      1.46667,
-      -0.2,
-      1.26667
-    ],
-    [
-      49,
-      "Swellow",
-      "Target of Move With Crit Chance (Hydro Pump)",
-      1.26667,
-      0.04167,
-      1.30834
+      -0.69167
     ],
     [
       15,
-      "Sylveon",
-      "Mon Used a Move That Can Miss (Hyper Beam)",
+      "Arceus",
+      "Mon Broke Through Paralysis",
+      -0.69167,
+      0.25,
+      -0.44167
+    ],
+    [
+      15,
+      "Arceus",
+      "Mon Used a Move That Can Miss (Toxic)",
+      -0.44167,
+      0.1,
+      -0.34167000000000003
+    ],
+    [
+      16,
+      "Arceus",
+      "Target of Move With Crit Chance (Fishious Rend)",
+      -0.34167000000000003,
+      0.04167,
+      -0.3
+    ],
+    [
+      18,
+      "Arceus",
+      "Mon Broke Through Paralysis",
+      -0.3,
+      0.25,
+      -0.05
+    ],
+    [
+      18,
+      "Arceus",
+      "Target of Move That Can Miss (Thunder Wave)",
+      -0.05,
+      -0.1,
+      -0.15
+    ],
+    [
+      19,
+      "Arceus",
+      "Mon Could Not Move Due to Paralysis",
+      -0.15,
+      -0.75,
+      -0.9
+    ],
+    [
+      20,
+      "Arceus",
+      "Target of Move That Can Miss (Precipice Blades)",
+      -0.9,
+      -0.15,
+      -1.05
+    ],
+    [
+      20,
+      "Arceus",
+      "Opponent missed a move (Precipice Blades)",
+      -1.05,
+      1.0,
+      -0.05
+    ],
+    [
+      20,
+      "Arceus",
+      "Mon Broke Through Paralysis",
+      -0.05,
+      0.25,
+      0.2
+    ],
+    [
+      20,
+      "Arceus",
+      "Mon Used Move With Crit Chance (Earth Power)",
+      0.2,
+      -0.04167,
+      0.15833
+    ],
+    [
+      20,
+      "Arceus",
+      "Mon Used Move With Secondary Effect Chance (Earth Power)",
+      0.15833,
+      -0.1,
+      0.05833
+    ],
+    [
+      21,
+      "Arceus",
+      "Mon Broke Through Paralysis",
+      0.05833,
+      0.25,
+      0.30833
+    ],
+    [
+      21,
+      "Arceus",
+      "Mon Used Move With Crit Chance (Earth Power)",
+      0.30833,
+      -0.04167,
+      0.26665999999999995
+    ],
+    [
+      21,
+      "Arceus",
+      "Mon Used Move With Secondary Effect Chance (Earth Power)",
+      0.26665999999999995,
+      -0.1,
+      0.16665999999999997
+    ],
+    [
+      22,
+      "Arceus",
+      "Mon Broke Through Paralysis",
+      0.16665999999999997,
+      0.25,
+      0.41666
+    ],
+    [
+      22,
+      "Arceus",
+      "Mon Used Move With Crit Chance (Judgment)",
+      0.41666,
+      -0.04167,
+      0.37498999999999993
+    ],
+    [
+      24,
+      "Arceus",
+      "Target of Move That Can Miss (Thunder Wave)",
+      0.37498999999999993,
+      -0.1,
+      0.27498999999999996
+    ],
+    [
+      25,
+      "Arceus",
+      "Mon Could Not Move Due to Paralysis",
+      0.27498999999999996,
+      -0.75,
+      -0.47501000000000004
+    ],
+    [
+      26,
+      "Arceus",
+      "Target of Move With Crit Chance (Fishious Rend)",
+      -0.47501000000000004,
+      0.04167,
+      -0.43334000000000006
+    ],
+    [
+      36,
+      "Arceus",
+      "Mon Broke Through Paralysis",
+      -0.43334000000000006,
+      0.25,
+      -0.18334000000000003
+    ],
+    [
+      36,
+      "Arceus",
+      "Target of Move That Can Miss (Thunder Wave)",
+      -0.18334000000000003,
+      -0.1,
+      -0.28334000000000004
+    ],
+    [
+      37,
+      "Arceus",
+      "Target of Move With Crit Chance (Knock Off)",
+      -0.28334000000000004,
+      0.04167,
+      -0.24167000000000002
+    ],
+    [
+      37,
+      "Arceus",
+      "Mon Broke Through Paralysis",
+      -0.24167000000000002,
+      0.25,
+      0.008329999999999983
+    ],
+    [
+      38,
+      "Arceus",
+      "Target of Move With Crit Chance (Sunsteel Strike)",
+      0.008329999999999983,
+      0.04167,
+      0.04999999999999998
+    ],
+    [
+      8,
+      "Dracovish",
+      "Opponent Could Not Move Due to Paralysis",
+      0.0,
+      0.75,
+      0.75
+    ],
+    [
+      9,
+      "Dracovish",
+      "Mon Used Move With Crit Chance (Fishious Rend)",
+      0.75,
+      -0.04167,
+      0.70833
+    ],
+    [
+      15,
+      "Dracovish",
+      "Opponent Broke Through Paralysis",
+      0.70833,
+      -0.25,
+      0.45832999999999996
+    ],
+    [
+      15,
+      "Dracovish",
+      "Target of Move That Can Miss (Toxic)",
+      0.45832999999999996,
+      -0.1,
+      0.35833
+    ],
+    [
+      16,
+      "Dracovish",
+      "Mon Used Move With Crit Chance (Fishious Rend)",
+      0.35833,
+      -0.04167,
+      0.31665999999999994
+    ],
+    [
+      25,
+      "Dracovish",
+      "Opponent Could Not Move Due to Paralysis",
+      0.31665999999999994,
+      0.75,
+      1.06666
+    ],
+    [
+      26,
+      "Dracovish",
+      "Mon Used Move With Crit Chance (Fishious Rend)",
+      1.06666,
+      -0.04167,
+      1.0249899999999998
+    ],
+    [
+      3,
+      "Groudon",
+      "Opponent Broke Through Paralysis",
+      0.0,
+      -0.25,
+      -0.25
+    ],
+    [
+      18,
+      "Groudon",
+      "Opponent Broke Through Paralysis",
+      -0.25,
+      -0.25,
+      -0.5
+    ],
+    [
+      18,
+      "Groudon",
+      "Mon Used a Move That Can Miss (Thunder Wave)",
+      -0.5,
+      0.1,
+      -0.4
+    ],
+    [
+      19,
+      "Groudon",
+      "Opponent Could Not Move Due to Paralysis",
+      -0.4,
+      0.75,
+      0.35
+    ],
+    [
+      20,
+      "Groudon",
+      "Mon Used a Move That Can Miss (Precipice Blades)",
+      0.35,
+      0.15,
+      0.5
+    ],
+    [
+      20,
+      "Groudon",
+      "Mon missed a move (Precipice Blades)",
+      0.5,
+      -1.0,
+      -0.5
+    ],
+    [
+      20,
+      "Groudon",
+      "Opponent Broke Through Paralysis",
+      -0.5,
+      -0.25,
+      -0.75
+    ],
+    [
+      20,
+      "Groudon",
+      "Target of Move With Crit Chance (Earth Power)",
+      -0.75,
+      0.04167,
+      -0.70833
+    ],
+    [
+      20,
+      "Groudon",
+      "Target of Move With Secondary Effect Chance (Earth Power)",
+      -0.70833,
+      0.1,
+      -0.60833
+    ],
+    [
+      30,
+      "Groudon",
+      "Target of Move With Crit Chance (Ice Beam)",
+      -0.60833,
+      0.04167,
+      -0.5666599999999999
+    ],
+    [
+      1,
+      "Ho-Oh",
+      "Target of Move With Crit Chance (Judgment)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      2,
+      "Ho-Oh",
+      "Mon Used a Move That Can Miss (Thunder Wave)",
+      0.04167,
+      0.1,
+      0.14167
+    ],
+    [
+      7,
+      "Ho-Oh",
+      "Opponent Broke Through Paralysis",
+      0.14167,
+      -0.25,
+      -0.10833
+    ],
+    [
+      7,
+      "Ho-Oh",
+      "Target of Move With Crit Chance (Ice Beam)",
+      -0.10833,
+      0.04167,
+      -0.06666
+    ],
+    [
+      7,
+      "Ho-Oh",
+      "Target of Move With Secondary Effect Chance (Ice Beam)",
+      -0.06666,
+      0.1,
+      0.033339999999999995
+    ],
+    [
+      13,
+      "Ho-Oh",
+      "Opponent Broke Through Paralysis",
+      0.033339999999999995,
+      -0.25,
+      -0.21666
+    ],
+    [
+      13,
+      "Ho-Oh",
+      "Target of Move With Crit Chance (Sacred Sword)",
+      -0.21666,
+      0.04167,
+      -0.17499000000000003
+    ],
+    [
+      14,
+      "Ho-Oh",
+      "Mon Used a Move That Can Miss (Sacred Fire)",
+      -0.17499000000000003,
+      0.05,
+      -0.12499000000000002
+    ],
+    [
+      14,
+      "Ho-Oh",
+      "Mon Used Move With Crit Chance (Sacred Fire)",
+      -0.12499000000000002,
+      -0.04167,
+      -0.16666000000000003
+    ],
+    [
+      21,
+      "Ho-Oh",
+      "Opponent Broke Through Paralysis",
+      -0.16666000000000003,
+      -0.25,
+      -0.41666000000000003
+    ],
+    [
+      21,
+      "Ho-Oh",
+      "Target of Move With Crit Chance (Earth Power)",
+      -0.41666000000000003,
+      0.04167,
+      -0.37499000000000005
+    ],
+    [
+      21,
+      "Ho-Oh",
+      "Target of Move With Secondary Effect Chance (Earth Power)",
+      -0.37499000000000005,
+      0.1,
+      -0.27499
+    ],
+    [
+      22,
+      "Ho-Oh",
+      "Opponent Broke Through Paralysis",
+      -0.27499,
+      -0.25,
+      -0.5249900000000001
+    ],
+    [
+      22,
+      "Ho-Oh",
+      "Target of Move With Crit Chance (Judgment)",
+      -0.5249900000000001,
+      0.04167,
+      -0.48332
+    ],
+    [
+      24,
+      "Ho-Oh",
+      "Mon Used a Move That Can Miss (Thunder Wave)",
+      -0.48332,
+      0.1,
+      -0.38332
+    ],
+    [
+      30,
+      "Kyogre",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      34,
+      "Kyogre",
+      "Mon Used a Move That Can Miss (Origin Pulse)",
+      -0.04167,
+      0.15,
+      0.10833
+    ],
+    [
+      34,
+      "Kyogre",
+      "Mon Used Move With Crit Chance (Origin Pulse)",
+      0.10833,
+      -0.04167,
+      0.06666
+    ],
+    [
+      39,
+      "Kyogre",
+      "Mon Used Move With Crit Chance (Origin Pulse)",
+      0.06666,
+      -0.04167,
+      0.024990000000000005
+    ],
+    [
+      40,
+      "Kyogre",
+      "Mon Used Move With Crit Chance (Origin Pulse)",
+      0.024990000000000005,
+      -0.04167,
+      -0.016679999999999993
+    ],
+    [
+      41,
+      "Kyogre",
+      "Target of Move With Crit Chance (Dragon Ascent)",
+      -0.016679999999999993,
+      0.04167,
+      0.024990000000000005
+    ],
+    [
+      2,
+      "Necrozma-Dusk-Mane",
+      "Target of Move That Can Miss (Thunder Wave)",
+      0.0,
+      -0.1,
+      -0.1
+    ],
+    [
+      3,
+      "Necrozma-Dusk-Mane",
+      "Mon Broke Through Paralysis",
+      -0.1,
+      0.25,
+      0.15
+    ],
+    [
+      4,
+      "Necrozma-Dusk-Mane",
+      "Mon Could Not Move Due to Paralysis",
+      0.15,
+      -0.75,
+      -0.6
+    ],
+    [
+      9,
+      "Necrozma-Dusk-Mane",
+      "Target of Move With Crit Chance (Fishious Rend)",
+      -0.6,
+      0.04167,
+      -0.55833
+    ],
+    [
+      11,
+      "Necrozma-Dusk-Mane",
+      "Mon Used Move With Crit Chance (Sunsteel Strike)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      12,
+      "Necrozma-Dusk-Mane",
+      "Target of Move With Crit Chance (Sacred Sword)",
+      -0.04167,
+      0.04167,
+      0.0
+    ],
+    [
+      12,
+      "Necrozma-Dusk-Mane",
+      "Mon Used a Move That Can Miss (Thunder Wave)",
       0.0,
       0.1,
       0.1
     ],
     [
-      15,
-      "Sylveon",
-      "Mon Used Move With Crit Chance (Hyper Beam)",
+      32,
+      "Necrozma-Dusk-Mane",
+      "Opponent Broke Through Paralysis",
       0.1,
-      -0.04167,
-      0.05833
-    ],
-    [
-      17,
-      "Sylveon",
-      "Mon Used a Move That Can Miss (Hyper Beam)",
-      0.05833,
-      0.1,
-      0.15833
-    ],
-    [
-      17,
-      "Sylveon",
-      "Mon Used Move With Crit Chance (Hyper Beam)",
-      0.15833,
-      -0.04167,
-      0.11666
-    ],
-    [
-      19,
-      "Sylveon",
-      "Opponent is confused",
-      0.11666,
-      0.33,
-      0.44665999999999995
-    ],
-    [
-      19,
-      "Sylveon",
-      "Mon Hit Self In Confusion",
-      0.44665999999999995,
-      -1.0,
-      -0.55334
-    ],
-    [
-      20,
-      "Sylveon",
-      "Mon Used Move With Crit Chance (Synchronoise)",
-      -0.55334,
-      -0.04167,
-      -0.59501
-    ],
-    [
-      31,
-      "Sylveon",
-      "Mon Used a Move That Can Miss (Hyper Beam)",
-      -0.59501,
-      0.1,
-      -0.49501000000000006
-    ],
-    [
-      31,
-      "Sylveon",
-      "Mon Used Move With Crit Chance (Hyper Beam)",
-      -0.49501000000000006,
-      -0.04167,
-      -0.53668
+      -0.25,
+      -0.15
     ],
     [
       32,
-      "Sylveon",
-      "Target of Move That Can Miss (Charge Beam)",
-      -0.53668,
-      -0.1,
-      -0.63668
+      "Necrozma-Dusk-Mane",
+      "Mon Used Move With Crit Chance (Sunsteel Strike)",
+      -0.15,
+      -0.04167,
+      -0.19167
     ],
     [
-      32,
-      "Sylveon",
-      "Target of Move With Crit Chance (Charge Beam)",
-      -0.63668,
+      33,
+      "Necrozma-Dusk-Mane",
+      "Opponent Broke Through Paralysis",
+      -0.19167,
+      -0.25,
+      -0.44167
+    ],
+    [
+      33,
+      "Necrozma-Dusk-Mane",
+      "Target of Move With Crit Chance (Sacred Sword)",
+      -0.44167,
       0.04167,
-      -0.59501
-    ],
-    [
-      32,
-      "Sylveon",
-      "Target of Move With Secondary Effect Chance (Charge Beam)",
-      -0.59501,
-      1.4,
-      0.80499
-    ],
-    [
-      32,
-      "Sylveon",
-      "Mon harmed by secondary effect (Charge Beam)",
-      0.80499,
-      -1.0,
-      -0.19501000000000004
+      -0.4
     ],
     [
       33,
-      "Sylveon",
-      "Mon Used a Move That Can Miss (Hyper Beam)",
-      -0.19501000000000004,
-      0.1,
-      -0.09501000000000005
-    ],
-    [
-      33,
-      "Sylveon",
-      "Mon Used Move With Crit Chance (Hyper Beam)",
-      -0.09501000000000005,
+      "Necrozma-Dusk-Mane",
+      "Mon Used Move With Crit Chance (Sunsteel Strike)",
+      -0.4,
       -0.04167,
-      -0.13668000000000005
+      -0.44167
     ],
     [
-      33,
-      "Sylveon",
-      "Target of Move With Crit Chance (Ice Beam)",
-      -0.13668000000000005,
+      36,
+      "Necrozma-Dusk-Mane",
+      "Opponent Broke Through Paralysis",
+      -0.44167,
+      -0.25,
+      -0.69167
+    ],
+    [
+      36,
+      "Necrozma-Dusk-Mane",
+      "Mon Used a Move That Can Miss (Thunder Wave)",
+      -0.69167,
+      0.1,
+      -0.59167
+    ],
+    [
+      37,
+      "Necrozma-Dusk-Mane",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      -0.59167,
+      -0.04167,
+      -0.63334
+    ],
+    [
+      37,
+      "Necrozma-Dusk-Mane",
+      "Opponent Broke Through Paralysis",
+      -0.63334,
+      -0.25,
+      -0.88334
+    ],
+    [
+      38,
+      "Necrozma-Dusk-Mane",
+      "Mon Used Move With Crit Chance (Sunsteel Strike)",
+      -0.88334,
+      -0.04167,
+      -0.92501
+    ],
+    [
+      39,
+      "Necrozma-Dusk-Mane",
+      "Target of Move With Crit Chance (Origin Pulse)",
+      -0.92501,
       0.04167,
-      -0.09501000000000005
+      -0.88334
     ],
     [
-      33,
-      "Sylveon",
-      "Target of Move With Secondary Effect Chance (Ice Beam)",
-      -0.09501000000000005,
-      0.2,
-      0.10498999999999996
-    ],
-    [
-      33,
-      "Sylveon",
-      "Mon harmed by secondary effect (Ice Beam)",
-      0.10498999999999996,
-      -1.0,
-      -0.8950100000000001
+      40,
+      "Necrozma-Dusk-Mane",
+      "Target of Move With Crit Chance (Origin Pulse)",
+      -0.88334,
+      0.04167,
+      -0.84167
     ],
     [
       34,
-      "Sylveon",
-      "Target of Move That Can Miss (Hyper Beam)",
-      -0.8950100000000001,
-      -0.1,
-      -0.9950100000000001
+      "Rayquaza",
+      "Target of Move That Can Miss (Origin Pulse)",
+      0.0,
+      -0.15,
+      -0.15
     ],
     [
       34,
-      "Sylveon",
-      "Target of Move With Crit Chance (Hyper Beam)",
-      -0.9950100000000001,
+      "Rayquaza",
+      "Target of Move With Crit Chance (Origin Pulse)",
+      -0.15,
       0.04167,
-      -0.9533400000000001
+      -0.10833
+    ],
+    [
+      41,
+      "Rayquaza-Mega",
+      "Mon Used Move With Crit Chance (Dragon Ascent)",
+      -0.10833,
+      -0.04167,
+      -0.15
+    ],
+    [
+      11,
+      "Zacian-Crowned",
+      "Target of Move With Crit Chance (Sunsteel Strike)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      12,
+      "Zacian-Crowned",
+      "Mon Used Move With Crit Chance (Sacred Sword)",
+      0.04167,
+      -0.04167,
+      0.0
+    ],
+    [
+      12,
+      "Zacian-Crowned",
+      "Target of Move That Can Miss (Thunder Wave)",
+      0.0,
+      -0.1,
+      -0.1
+    ],
+    [
+      13,
+      "Zacian-Crowned",
+      "Mon Broke Through Paralysis",
+      -0.1,
+      0.25,
+      0.15
+    ],
+    [
+      13,
+      "Zacian-Crowned",
+      "Mon Used Move With Crit Chance (Sacred Sword)",
+      0.15,
+      -0.04167,
+      0.10833
+    ],
+    [
+      32,
+      "Zacian-Crowned",
+      "Mon Broke Through Paralysis",
+      0.10833,
+      0.25,
+      0.35833
+    ],
+    [
+      32,
+      "Zacian-Crowned",
+      "Target of Move With Crit Chance (Sunsteel Strike)",
+      0.35833,
+      0.04167,
+      0.4
+    ],
+    [
+      33,
+      "Zacian-Crowned",
+      "Mon Broke Through Paralysis",
+      0.4,
+      0.25,
+      0.65
+    ],
+    [
+      33,
+      "Zacian-Crowned",
+      "Mon Used Move With Crit Chance (Sacred Sword)",
+      0.65,
+      -0.04167,
+      0.60833
+    ],
+    [
+      33,
+      "Zacian-Crowned",
+      "Target of Move With Crit Chance (Sunsteel Strike)",
+      0.60833,
+      0.04167,
+      0.65
+    ],
+    [
+      4,
+      "Zygarde",
+      "Opponent Could Not Move Due to Paralysis",
+      0.0,
+      0.75,
+      0.75
     ]
   ],
   "errormessage": []

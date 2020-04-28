@@ -41,7 +41,7 @@
                 </tr>
                 {% for item in division.divisionteams.all|standings %}
                 <tr>
-                    <td><a class="text-dark" href="{% url 'team_page' league_name=item.subleague.league.name subleague_name=item.subleague.subleague team_abbreviation=item.teamabbreviation %}"><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</a></td>
+                    <td><a class="text-dark" href="{% url 'team_page' league_name=item.subleague.league.name|s2u subleague_name=item.subleague.subleague|s2u team_abbreviation=item.teamabbreviation %}"><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</a></td>
                     <td>{{item.wins}}</td>
                     <td>{{item.losses}}</td>
                     <td>{{item.differential}}</td>
@@ -63,7 +63,7 @@
                 </tr>
                 {% for item in conference.conferenceteams.all|standings %}
                 <tr>
-                    <td><a class="text-dark" href="{% url 'team_page' league_name=item.subleague.league.name subleague_name=item.subleague.subleague team_abbreviation=item.teamabbreviation %}"><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</a></td>
+                    <td><a class="text-dark" href="{% url 'team_page' league_name=item.subleague.league.name|s2u subleague_name=item.subleague.subleague|s2u team_abbreviation=item.teamabbreviation %}"><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</a></td>
                     <td>{{item.wins}}</td>
                     <td>{{item.losses}}</td>
                     <td>{{item.differential}}</td>

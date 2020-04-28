@@ -25,7 +25,7 @@
         <h3>Historic Season List</h3>
         {% for item in otherseasons %}
         <div class="p-1"><a
-                href="{% url 'seasondetail' league_name=league_name seasonofinterest=item.seasonname|replace:' ,_' %}"
+                href="{% url 'seasondetail' league_name=league_name|s2u seasonofinterest=item.seasonname|s2u %}"
                 class="text-light">{{item.seasonname}}</a></div>
         {% endfor %}
     </div>

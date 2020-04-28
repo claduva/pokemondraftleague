@@ -894,7 +894,6 @@ def start_function(line,parsedlogfile,results):
             setter['damagedone']+=priorhealth
             setter['kills']+=1
     if line[3].split("|")[1]=="confusion":
-        print('here')
         mon=line[3].split("|")[0].split(": ")[1]
         team=line[3].split(": ")[0]
         mon_=roster_search(team,mon,results)

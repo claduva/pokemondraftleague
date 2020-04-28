@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load extratags %}
 
 {% block title %}{{league_name}}{% endblock %}
 {% block head%}
@@ -9,7 +10,7 @@
 
 <div class="row content-section align-items-center">
     <div class="col-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}"
-            class="rounded-circle mediumlogo">
+            class="mediumlogo">
     </div>
     <div class="col-4">
         <h3 class="d-flex justify-content-center">{{league_name}}</h3>
@@ -22,7 +23,7 @@
         {% endif %}
     </div>
     <div class="col-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}"
-            class="rounded-circle mediumlogo">
+            class="mediumlogo">
     </div>
 </div>
 <div class="row content-section align-items-center">
@@ -34,7 +35,7 @@
         </div>
         <div class="row align-items-start d-flex justify-content-center">
             {% for conference,divisions in conferences %}
-            <div class="col-md-6">
+            <div class="col">
                 <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
                     <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                         <tr class="bg-dark text-light">
@@ -54,12 +55,9 @@
                         </tr>
                         {% for coach in coachs %}
                         <tr>
-                            <td>
-                                <a class="d-flex text-dark"
-                                    href="{% url 'team_page' league_name=league_name subleague_name=coach.subleague.subleague team_abbreviation=coach.teamabbreviation %}">
-                                    <div class="small-logo"><img class="img-fluid rounded-sprite"
-                                            src="{{ coach.logo.url }}"></div>
-                                    <div> {{ coach.teamname }} ({{ coach.teamabbreviation }})</div>
+                            <td class="text-center">
+                                <a class="text-dark" href="{% url 'team_page' league_name=league_name|s2u subleague_name=coach.subleague.subleague|s2u team_abbreviation=coach.teamabbreviation %}">
+                                    <img class="small-logo rounded-sprite" src="{{ coach.logo.url }}">{{ coach.teamname }} ({{ coach.teamabbreviation }})
                                 </a>
                             </td>
                             <td>{{ coach.wins }}</td>
@@ -84,12 +82,9 @@
                         </tr>
                         {% for coach in coachs %}
                         <tr>
-                            <td>
-                                <a class="d-flex text-dark"
-                                    href="{% url 'team_page' league_name=league_name subleague_name=coach.subleague.subleague team_abbreviation=coach.teamabbreviation %}">
-                                    <div class="small-logo"><img class="img-fluid rounded-sprite"
-                                            src="{{ coach.logo.url }}"></div>
-                                    <div> {{ coach.teamname }} ({{ coach.teamabbreviation }})</div>
+                            <td class="text-center">
+                                <a class="text-dark" href="{% url 'team_page' league_name=league_name|s2u subleague_name=coach.subleague.subleague|s2u team_abbreviation=coach.teamabbreviation %}">
+                                    <img class="small-logo rounded-sprite" src="{{ coach.logo.url }}">{{ coach.teamname }} ({{ coach.teamabbreviation }})
                                 </a>
                             </td>
                             <td>{{ coach.wins }}</td>
