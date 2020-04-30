@@ -218,7 +218,7 @@ function addleaguetiering(){
           mon=tierlist[x][0]
           tiername=tierlist[x][1]
           points=tierlist[x][2]
-          listitem=$(".pokemon-"+mon.replace(" ","").replace(".","").replace(":","").replace("%",""))
+          listitem=$(".pokemon-"+mon.replace(" ","").replace(".","").replace(":","").replace("%","").toLowerCase())
           if (tiername=="Banned"){
             listitem.addClass("Banned")
           }
@@ -240,7 +240,7 @@ function updatetoppoints(){
     $(".toppoints").removeClass("d-none")
     $(".toppoints").html("(<span class='toppointvalue'></span> pts)")
     $(".topmon").each(function(){
-      name=$(this).find(".topname").text().replace(" ","").replace(".","").replace(":","").replace("%","")
+      name=$(this).find(".topname").text().replace(" ","").replace(".","").replace(":","").replace("%","").toLowerCase()
       listitem=$(".pokemon-"+name)
       if (listitem.find(".listpts").text()=="(Banned)"){
         $(this).find(".toppoints").text("(Banned)")
