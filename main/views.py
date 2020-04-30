@@ -147,6 +147,10 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
+    for item in historical_team.objects.all().order_by('league','seasonname').distinct('league','seasonname'):
+        finals=historical_match.objects.filter(team1__league=item.league,team1__seasonname=item.seasonname,week="Playoffs Finals")
+        if finals.count()==0:
+            print(item)
     return redirect('home')
 
 def get_pkmn(pkmn):

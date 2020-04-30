@@ -6,7 +6,7 @@ $(document).ready(function() {
     itemname=Object.keys(jsonitem)[0]
     outer=$("<div class='row p-1 border border-dark bg-lightgrey text-dark monsearchlistitem d-none'></div>")
     outer.append("<div class='col-3 d-flex justify-content-center align-items-center text-center'><img class='smallsprite searchlistimg' src='"+jsonitem[itemname]['sprites'][spriteurl]+"'><span class='searchlistname'>"+itemname+"</span><span>&nbsp</span><span class='listpts d-none'> (<span class='itemcost'></span> pts)</span></div>")
-    outer.addClass("pokemon-"+itemname.replace(" ","").replace(".","").replace(":","").replace("%",""))
+    outer.addClass("pokemon-"+itemname.replace(" ","").replace(".","").replace(":","").replace("%","").toLowerCase())
     inner=$("<div class='col-1 d-flex justify-content-center align-items-center'></div>")
     for (type in jsonitem[itemname]['types']){
       inner.append("<div><img class='searchlisttype' src='/static/pokemondatabase/sprites/types/"+jsonitem[itemname]['types'][type]+".png'></div>")
@@ -43,15 +43,15 @@ $(document).ready(function() {
   }
   $("#monsearchlist").append("<div class='row p-1 border border-dark bg-dark text-light searchheading np-searchheading d-none'><div class='col-12'>Types</div></div>")
   for (x in typelist){
-    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none filteritem filtertype'><div class='col-12'>"+typelist[x]+"</div></div>")
+    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none filteritem filtertype "+typelist[x].replace(" ","").toLowerCase()+"'><div class='col-12'>"+typelist[x]+"</div></div>")
   }
   $("#monsearchlist").append("<div class='row p-1 border border-dark bg-dark text-light searchheading np-searchheading d-none'><div class='col-12'>Abilities</div></div>")
   for (x in abilitylist){
-    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none filteritem filterability'><div class='col-12'>"+abilitylist[x]+"</div></div>")
+    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none filteritem filterability "+abilitylist[x].replace(" ","").toLowerCase()+"'><div class='col-12'>"+abilitylist[x]+"</div></div>")
   }
   $("#monsearchlist").append("<div class='row p-1 border border-dark bg-dark text-light searchheading np-searchheading d-none'><div class='col-12'>Moves</div></div>")
   for (x in movelist){
-    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none filteritem filtermove'><div class='col-12'>"+movelist[x]+"</div></div>")
+    $("#monsearchlist").append("<div class='row p-1 border border-dark bg-lightgrey text-dark d-none filteritem filtermove "+movelist[x].replace(" ","").toLowerCase()+"'><div class='col-12'>"+movelist[x]+"</div></div>")
   }
 
   //clicking searchlist
@@ -115,30 +115,14 @@ $(document).ready(function() {
     lookup = $("#moninput").val();
     if (lookup != ""){
     $(".searchheading").removeClass('d-none')
-    $(".monsearchlistitem").each(function() {
-      lu=String(lookup).toLowerCase()
-      if ($(this).find(".searchlistname").text().toLowerCase().includes(lu)){
-        $(this).removeClass('d-none')
-      }
-      else{
-        $(this).addClass('d-none')
-      }
-    })
-    $(".filteritem").each(function() {
-      lu=String(lookup).toLowerCase()
-      item=$(this)
-      clickedtext=item.find(".col-12").text()
-      if (clickedtext.toLowerCase().includes(lu)){
-        item.removeClass('d-none')
-      }
-      else{
-        item.addClass('d-none')
-      }
-      $(".activefilter").each(function(){
-        if ($(this).find(".filtertext").text()==clickedtext){
-          item.addClass('d-none')
-        }
-      })
+    lu=String(lookup).toLowerCase().replace(" ","")
+    $(".monsearchlistitem").addClass('d-none')
+    $(".monsearchlistitem[class*='pokemon-"+lu+"']").removeClass('d-none')
+    $(".filteritem").addClass('d-none')
+    $(".filteritem[class*='"+lu+"']").removeClass('d-none')
+    $(".activefilter").each(function(){
+      fil=$(this).find(".filtertext").text().toLowerCase().replace(" ","")
+      $(".filteritem ."+fil).addClass('d-none')
     })
     }
     else{
