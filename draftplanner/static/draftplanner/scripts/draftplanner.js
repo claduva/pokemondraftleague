@@ -122,7 +122,7 @@ $(document).ready(function() {
     $(".filteritem[class*='"+lu+"']").removeClass('d-none')
     $(".activefilter").each(function(){
       fil=$(this).find(".filtertext").text().toLowerCase().replace(" ","")
-      $(".filteritem ."+fil).addClass('d-none')
+      $(".filteritem."+fil).addClass('d-none')
     })
     }
     else{
