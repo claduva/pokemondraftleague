@@ -57,7 +57,7 @@ def check_if_season(view):
 def check_if_team(view):
     def wrap(request, *args, **kwargs):
         try:
-            team=coachdata.objects.filter(league_name__name=kwargs['league_name']).get(teamabbreviation=kwargs['team_abbreviation'])
+            team=coachdata.objects.filter(league_name__name=kwargs['league_name'].replace("_"," "),subleague__subleague=kwargs['subleague_name'].replace("_"," ")).get(teamabbreviation=kwargs['team_abbreviation'])
             return view(request, *args, **kwargs)
         except Exception as e:
             print(e)
