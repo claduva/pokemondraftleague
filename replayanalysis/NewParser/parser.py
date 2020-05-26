@@ -304,7 +304,6 @@ def damage_function(line,parsedlogfile,results):
                         if mon[cause]!=None:
                             pokemon[cause]=mon[cause]
                             break
-                print(line)
                 damager=roster_search(otherteam,pokemon[cause],results)
         if damager:
             damager['damagedone']+=damagedone 
@@ -472,7 +471,13 @@ def move_function(line,parsedlogfile,results):
     if line[3].find("[still]")>-1:
         if move in ['Fly','Dive','Bounce','Dig','Sky Drop','Shadow Force','Phantom Force']:
             attacker['semiinv']=True
-        return line,parsedlogfile,results
+        if move not in ['Scald']:   
+            return line,parsedlogfile,results
+        else:
+            if attackingteam=="p1a":
+                target=roster_search("p2a",results['team2']['activemon'],results)
+            elif attackingteam=="p2a":
+                target=roster_search("p1a",results['team1']['activemon'],results)
     if move in ['Fly','Dive','Bounce','Dig','Sky Drop','Shadow Force','Phantom Force']:
         attacker['semiinv']=False
     try:
@@ -574,6 +579,8 @@ def move_function(line,parsedlogfile,results):
     notmerciless=True
     if attacker['pokemon'] in ['Mareanie','Toxapex'] and (target['psn']!=None or target['tox']!=None):
         notmerciless=False
+    print(target)
+    print(line)
     if move in movesthatalwayscrit and notimmune and targetnotprotected and targetmon and movehit and target['pokemon'] not in ['Type:Null','Slowbro-Mega','Turtonator']:
         results=luckappend(line,results,attacker,f"Mon Used Move That Always Crits ({move})",-100)
         results=luckappend(line,results,target,f"Target of Move That Always Crits ({move})",100)
@@ -864,7 +871,7 @@ def status_function(line,parsedlogfile,results):
                 if move in statusmoves and team!=attackingteam:
                     mon[status]=attacker
                     break
-            elif line_[2]=="activate" and line_[3].find(f"|ability: Synchronize")>-1:
+            elif line_[2]=="activate" and line_[3].find(f"|ability: Synchronize")>-1 and mon[status]==None:
                 mon[status]=line_[3].split("|")[0].split(": ",1)[1]
                 break
         if (status=="psn" or status=="tox") and mon[status]==None and results[team_]['Toxic Spikes']!=None:

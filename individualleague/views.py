@@ -270,6 +270,7 @@ def league_apply(request,league_name):
 @check_if_season
 @check_if_team
 def team_page(request,league_name,subleague_name,team_abbreviation):
+    print('here')
     league_name=league_name.replace('_',' ')
     subleague_name=subleague_name.replace('_',' ')
     subleague=league_subleague.objects.filter(league__name=league_name).get(subleague=subleague_name)
