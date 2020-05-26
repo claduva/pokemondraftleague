@@ -474,10 +474,15 @@ def move_function(line,parsedlogfile,results):
         if move not in ['Scald']:   
             return line,parsedlogfile,results
         else:
-            if attackingteam=="p1a":
-                target=roster_search("p2a",results['team2']['activemon'],results)
-            elif attackingteam=="p2a":
-                target=roster_search("p1a",results['team1']['activemon'],results)
+            try:
+                if attackingteam=="p1a":
+                    defendingteam='p2a'
+                    target=roster_search(defendingteam,results['team2']['activemon'],results)
+                elif attackingteam=="p2a":
+                    defendingteam='p1a'
+                    target=roster_search(defendingteam,results['team1']['activemon'],results)
+            except:
+                defendingteam=None; target=None
     if move in ['Fly','Dive','Bounce','Dig','Sky Drop','Shadow Force','Phantom Force']:
         attacker['semiinv']=False
     try:
