@@ -80,10 +80,11 @@ def about(request):
     return  render(request,"about.html", context)
 
 def custom404(request,exception):
-    return render(request,"404.html")
+    data = {}
+    return render(request,'404.html', data)
 
-def custom500(request,exception):
-    return render(request,"500.html")
+#def custom500(request,exception):
+#    return render(request,"500.html")
 
 def discordbotpage(request):
     return  render(request,"discordbot.html")
