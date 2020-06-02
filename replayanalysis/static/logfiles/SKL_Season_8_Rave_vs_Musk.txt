@@ -1,0 +1,461 @@
+|j|☆master_of_rave
+|j|☆muskrat catcher
+|player|p1|master_of_rave|266|
+|player|p2|muskrat catcher|boarder|
+|teamsize|p1|6
+|teamsize|p2|6
+|gametype|singles
+|gen|8
+|tier|[Gen 8] National Dex DLC Draft
+|rule|Sleep Clause Mod: Limit one foe put to sleep
+|rule|OHKO Clause: OHKO moves are banned
+|rule|Evasion Moves Clause: Evasion moves are banned
+|rule|Endless Battle Clause: Forcing endless battles is banned
+|rule|HP Percentage Mod: HP is shown in percentages
+|clearpoke
+|poke|p1|Moltres|
+|poke|p1|Aggron, F|
+|poke|p1|Miltank, F|
+|poke|p1|Dragalge, M|
+|poke|p1|Spiritomb, M|
+|poke|p1|Claydol|
+|poke|p2|Lycanroc-Dusk, F|
+|poke|p2|Oricorio-Pom-Pom, F|
+|poke|p2|Seismitoad, F|
+|poke|p2|Absol, M|
+|poke|p2|Druddigon, F|
+|poke|p2|Granbull, M|
+|rule|Dynamax Clause: You cannot dynamax
+|teampreview
+|c|☆muskrat catcher|good luck!
+|c|☆master_of_rave|hf
+|c|☆master_of_rave|those words are cursed musk
+|j| Accidental
+|c|☆master_of_rave|don't you know what will happen
+|c|☆muskrat catcher|I say it every time
+|j| Spearklez
+|c|☆muskrat catcher|and look where it's gotten me
+|c| Accidental|smh
+|j| K0banite
+|c| Accidental|bad luck
+|c|☆muskrat catcher|o
+|c| Accidental|good fun
+|j| bkendrick678932
+|l| bkendrick678932
+|j| hotcheesenips
+|j| bkendrick678932
+|l|☆muskrat catcher
+|player|p2|
+|c| K0banite|What's up unnamed fanbase?
+|c| hotcheesenips|quick, click timer
+|c| K0banite|It's Koba coming at you live for the live commentary
+|c| bkendrick678932|big spiritomb
+|c| K0banite|Match of the century
+|c| K0banite|It's this dude versus this other dude
+|c| K0banite|Everyone's a dude
+|c| K0banite|...
+|c| K0banite|Ok I give up
+|c| K0banite|I can't do that for every turn
+|c| bkendrick678932|we got a full blown nut vs a fire chicken
+|j| spookd
+|c| spookd|Nice avatar musk
+|j|☆muskrat catcher
+|player|p2|muskrat catcher|boarder
+|c| bkendrick678932|musk is activating his lag switch rn
+|c|☆muskrat catcher|the heck
+|c| spookd|Oh there it is
+|c|☆muskrat catcher|IDK why that happened
+|c|☆muskrat catcher|well
+|c|☆muskrat catcher|we back
+|
+|start
+|switch|p1a: Dragalge|Dragalge, M|100/100
+|switch|p2a: Absol|Absol, M|100/100
+|turn|1
+|j| A Mere Noob
+|
+|move|p2a: Absol|Taunt|p1a: Dragalge
+|-start|p1a: Dragalge|move: Taunt
+|move|p1a: Dragalge|Sludge Wave|p2a: Absol
+|-enditem|p2a: Absol|Focus Sash
+|-damage|p2a: Absol|1/100
+|
+|upkeep
+|turn|2
+|c| K0banite|What no poison?
+|c| K0banite|Never lucky
+|c|☆muskrat catcher|lol
+|
+|move|p2a: Absol|Knock Off|p1a: Dragalge
+|-damage|p1a: Dragalge|40/100
+|-enditem|p1a: Dragalge|Black Sludge|[from] move: Knock Off|[of] p2a: Absol
+|move|p1a: Dragalge|Sludge Wave|p2a: Absol
+|-damage|p2a: Absol|0 fnt
+|faint|p2a: Absol
+|
+|upkeep
+|c| Accidental|should've been sludge bomb smh my head
+|c| K0banite|But Sludge Wave poison is for asserting dominance
+|
+|switch|p2a: Druddigon|Druddigon, F|100/100
+|turn|3
+|
+|move|p2a: Druddigon|Stealth Rock|p1a: Dragalge
+|-sidestart|p1: master_of_rave|move: Stealth Rock
+|move|p1a: Dragalge|Draco Meteor|p2a: Druddigon
+|-supereffective|p2a: Druddigon
+|-damage|p2a: Druddigon|0 fnt
+|-unboost|p1a: Dragalge|spa|2
+|faint|p2a: Druddigon
+|
+|-end|p1a: Dragalge|move: Taunt
+|upkeep
+|c| Accidental|rekt
+|
+|switch|p2a: Seismitoad|Seismitoad, F|100/100
+|turn|4
+|
+|switch|p1a: Spiritomb|Spiritomb, M|100/100
+|-damage|p1a: Spiritomb|88/100|[from] Stealth Rock
+|-ability|p1a: Spiritomb|Pressure
+|move|p2a: Seismitoad|Earthquake|p1a: Spiritomb
+|-damage|p1a: Spiritomb|53/100
+|
+|-heal|p1a: Spiritomb|60/100|[from] item: Leftovers
+|upkeep
+|turn|5
+|c| K0banite|It's time for... BANDED SEISMITOAD
+|c| K0banite|Probably not banded
+|c| K0banite|But I can dream
+|
+|move|p2a: Seismitoad|Knock Off|p1a: Spiritomb
+|-damage|p1a: Spiritomb|36/100
+|-enditem|p1a: Spiritomb|Leftovers|[from] move: Knock Off|[of] p2a: Seismitoad
+|move|p1a: Spiritomb|Toxic|p2a: Seismitoad
+|-status|p2a: Seismitoad|tox
+|
+|-damage|p2a: Seismitoad|94/100 tox|[from] psn
+|upkeep
+|turn|6
+|c| spookd|Actually everything but the absol is banded
+|c|☆master_of_rave|mod pls ban him
+|c|☆master_of_rave|his banded frog
+|c|☆master_of_rave|just switched moves
+|c| Spearklez|Smh hackor
+|
+|switch|p2a: Granbull|Granbull, M|100/100
+|move|p1a: Spiritomb|Foul Play|p2a: Granbull
+|-resisted|p2a: Granbull
+|-damage|p2a: Granbull|69/100
+|
+|-status|p2a: Granbull|tox|[from] item: Toxic Orb
+|upkeep
+|turn|7
+|c| spookd|that did a ton
+|c| K0banite|Maybe... The Spiritomb is banded
+|c|☆master_of_rave|musk you need to heal bell that off
+|c|☆master_of_rave|immediately
+|c|☆master_of_rave|the damage is just gonna rack up
+|
+|move|p1a: Spiritomb|Protect|p1a: Spiritomb
+|-singleturn|p1a: Spiritomb|Protect
+|move|p2a: Granbull|Play Rough|p1a: Spiritomb
+|-activate|p1a: Spiritomb|move: Protect
+|
+|-damage|p2a: Granbull|63/100 tox|[from] psn
+|upkeep
+|turn|8
+|
+|switch|p1a: Moltres|Moltres|100/100
+|move|p2a: Granbull|Play Rough|p1a: Moltres
+|-resisted|p1a: Moltres
+|-damage|p1a: Moltres|70/100
+|
+|-damage|p2a: Granbull|51/100 tox|[from] psn
+|upkeep
+|turn|9
+|c| K0banite|So there I was... Training a team of 4 Spinda to face off against Burgh in the Castelia Sewers.
+|c| K0banite|It was going extremely slow.
+|c| K0banite|But what choice do I have?
+|c| K0banite|So I watched a league game in the mean time.
+|
+|switch|p1a: Claydol|Claydol|100/100
+|-damage|p1a: Claydol|94/100|[from] Stealth Rock
+|move|p2a: Granbull|Stone Edge|p1a: Claydol
+|-resisted|p1a: Claydol
+|-damage|p1a: Claydol|81/100
+|
+|-damage|p2a: Granbull|33/100 tox|[from] psn
+|upkeep
+|turn|10
+|c| K0banite|And that game was this game
+|
+|move|p2a: Granbull|Play Rough|p1a: Claydol
+|-damage|p1a: Claydol|43/100
+|move|p1a: Claydol|Rapid Spin|p2a: Granbull
+|-damage|p2a: Granbull|21/100 tox
+|-boost|p1a: Claydol|spe|1
+|-sideend|p1: master_of_rave|Stealth Rock|[from] move: Rapid Spin|[of] p1a: Claydol
+|
+|-damage|p2a: Granbull|0 fnt|[from] psn
+|faint|p2a: Granbull
+|upkeep
+|
+|switch|p2a: Oricorio|Oricorio-Pom-Pom, F|100/100
+|turn|11
+|c| K0banite|Electric > Ground
+|c|☆muskrat catcher|Ground > Flying tho
+|
+|switch|p1a: Spiritomb|Spiritomb, M|36/100
+|-ability|p1a: Spiritomb|Pressure
+|move|p2a: Oricorio|Calm Mind|p2a: Oricorio
+|-boost|p2a: Oricorio|spa|1
+|-boost|p2a: Oricorio|spd|1
+|
+|upkeep
+|turn|12
+|
+|move|p2a: Oricorio|Revelation Dance|p1a: Spiritomb
+|-damage|p1a: Spiritomb|0 fnt
+|faint|p1a: Spiritomb
+|
+|upkeep
+|
+|switch|p1a: Miltank|Miltank, F|100/100
+|turn|13
+|
+|move|p1a: Miltank|Rock Tomb|p2a: Oricorio
+|-supereffective|p2a: Oricorio
+|-damage|p2a: Oricorio|69/100
+|-unboost|p2a: Oricorio|spe|1
+|move|p2a: Oricorio|Calm Mind|p2a: Oricorio
+|-boost|p2a: Oricorio|spa|1
+|-boost|p2a: Oricorio|spd|1
+|
+|upkeep
+|turn|14
+|c| K0banite|Careful this Miltank might be Unaware
+|c| Accidental|fast cow
+|c| Spearklez|Might be Lightning Rod
+|c|☆master_of_rave|those udders
+|c| Accidental|could be volt absorb cow
+|c|☆master_of_rave|are the lightning rods
+|c| Spearklez|Exactly
+|
+|move|p1a: Miltank|Rock Tomb|p2a: Oricorio
+|-supereffective|p2a: Oricorio
+|-damage|p2a: Oricorio|38/100
+|-unboost|p2a: Oricorio|spe|1
+|move|p2a: Oricorio|Revelation Dance|p1a: Miltank
+|-damage|p1a: Miltank|29/100
+|
+|-heal|p1a: Miltank|35/100|[from] item: Leftovers
+|upkeep
+|turn|15
+|
+|move|p1a: Miltank|Rock Tomb|p2a: Oricorio
+|-supereffective|p2a: Oricorio
+|-damage|p2a: Oricorio|7/100
+|-unboost|p2a: Oricorio|spe|1
+|move|p2a: Oricorio|Roost|p2a: Oricorio
+|-heal|p2a: Oricorio|57/100
+|-singleturn|p2a: Oricorio|move: Roost
+|
+|-heal|p1a: Miltank|41/100|[from] item: Leftovers
+|upkeep
+|turn|16
+|c| Accidental|now crit
+|c| Accidental|f
+|j| bo0t
+|
+|move|p1a: Miltank|Milk Drink|p1a: Miltank
+|-heal|p1a: Miltank|91/100
+|move|p2a: Oricorio|Roost|p2a: Oricorio
+|-heal|p2a: Oricorio|100/100
+|-singleturn|p2a: Oricorio|move: Roost
+|
+|-heal|p1a: Miltank|97/100|[from] item: Leftovers
+|upkeep
+|turn|17
+|
+|move|p1a: Miltank|Rock Tomb|p2a: Oricorio
+|-supereffective|p2a: Oricorio
+|-damage|p2a: Oricorio|69/100
+|-unboost|p2a: Oricorio|spe|1
+|move|p2a: Oricorio|Air Slash|p1a: Miltank
+|-damage|p1a: Miltank|31/100
+|
+|-heal|p1a: Miltank|37/100|[from] item: Leftovers
+|upkeep
+|turn|18
+|
+|move|p1a: Miltank|Rock Tomb|p2a: Oricorio
+|-supereffective|p2a: Oricorio
+|-damage|p2a: Oricorio|38/100
+|-unboost|p2a: Oricorio|spe|1
+|move|p2a: Oricorio|Roost|p2a: Oricorio
+|-heal|p2a: Oricorio|88/100
+|-singleturn|p2a: Oricorio|move: Roost
+|
+|-heal|p1a: Miltank|43/100|[from] item: Leftovers
+|upkeep
+|turn|19
+|c| K0banite|This reminds me of when my Tangrowth was doing 20% to the opposing Mandibuzz with Rock Slide in another league today.
+|c| K0banite|I didn't win that battle.
+|c| spookd|reveal trick room oricorio
+|
+|switch|p2a: Seismitoad|Seismitoad, F|94/100 tox
+|move|p1a: Miltank|Rock Tomb|p2a: Seismitoad
+|-resisted|p2a: Seismitoad
+|-damage|p2a: Seismitoad|88/100 tox
+|-unboost|p2a: Seismitoad|spe|1
+|
+|-heal|p1a: Miltank|49/100|[from] item: Leftovers
+|-heal|p2a: Seismitoad|94/100 tox|[from] item: Leftovers
+|-damage|p2a: Seismitoad|88/100 tox|[from] psn
+|upkeep
+|turn|20
+|c| K0banite|reveal super tailwind
+|
+|move|p1a: Miltank|Stealth Rock|p2a: Seismitoad
+|-sidestart|p2: muskrat catcher|move: Stealth Rock
+|move|p2a: Seismitoad|Toxic|p1a: Miltank|[miss]
+|-miss|p2a: Seismitoad|p1a: Miltank
+|
+|-heal|p1a: Miltank|55/100|[from] item: Leftovers
+|-heal|p2a: Seismitoad|94/100 tox|[from] item: Leftovers
+|-damage|p2a: Seismitoad|82/100 tox|[from] psn
+|upkeep
+|turn|21
+|c|☆master_of_rave|and that
+|c| Accidental|F
+|c|☆master_of_rave|is why you don't say good luck
+|c|☆muskrat catcher|uy
+|c| K0banite|u2
+|
+|move|p1a: Miltank|Milk Drink|p1a: Miltank
+|-heal|p1a: Miltank|100/100
+|move|p2a: Seismitoad|Knock Off|p1a: Miltank
+|-damage|p1a: Miltank|83/100
+|-enditem|p1a: Miltank|Leftovers|[from] move: Knock Off|[of] p2a: Seismitoad
+|
+|-heal|p2a: Seismitoad|88/100 tox|[from] item: Leftovers
+|-damage|p2a: Seismitoad|70/100 tox|[from] psn
+|upkeep
+|turn|22
+|c|☆master_of_rave|you ever just try to eat some leftovers and drink some milk when I frog comes outa nowhere and smacks it out of your hand
+|c|☆master_of_rave|a frog*
+|c|☆muskrat catcher|I want ur food
+|c|☆muskrat catcher|I'm literally dying over here
+|c|☆muskrat catcher|I got tha corona
+|c| bkendrick678932|musk lose some weight jesus
+|c| K0banite|Poison Touch Toad confirmed
+|c|☆muskrat catcher|its gonna deal a fourth of my life force this turn halp
+|c| bkendrick678932|eating everybody
+|
+|move|p1a: Miltank|Earthquake|p2a: Seismitoad
+|-damage|p2a: Seismitoad|49/100 tox
+|move|p2a: Seismitoad|Toxic|p1a: Miltank
+|-status|p1a: Miltank|tox
+|
+|-heal|p2a: Seismitoad|55/100 tox|[from] item: Leftovers
+|-damage|p1a: Miltank|77/100 tox|[from] psn
+|-damage|p2a: Seismitoad|31/100 tox|[from] psn
+|upkeep
+|turn|23
+|
+|move|p1a: Miltank|Milk Drink|p1a: Miltank
+|-heal|p1a: Miltank|100/100 tox
+|move|p2a: Seismitoad|Earthquake|p1a: Miltank
+|-damage|p1a: Miltank|72/100 tox
+|
+|-heal|p2a: Seismitoad|37/100 tox|[from] item: Leftovers
+|-damage|p1a: Miltank|59/100 tox|[from] psn
+|-damage|p2a: Seismitoad|7/100 tox|[from] psn
+|upkeep
+|turn|24
+|
+|move|p1a: Miltank|Milk Drink|p1a: Miltank
+|-heal|p1a: Miltank|100/100 tox
+|move|p2a: Seismitoad|Earthquake|p1a: Miltank
+|-damage|p1a: Miltank|74/100 tox
+|
+|-heal|p2a: Seismitoad|13/100 tox|[from] item: Leftovers
+|-damage|p1a: Miltank|55/100 tox|[from] psn
+|-damage|p2a: Seismitoad|0 fnt|[from] psn
+|faint|p2a: Seismitoad
+|upkeep
+|
+|switch|p2a: Oricorio|Oricorio-Pom-Pom, F|88/100
+|turn|25
+|c| spookd|ngl musk i don't understand this play at all
+|c| spookd|like i think i get it but i also don't
+|
+|move|p1a: Miltank|Rock Tomb|p2a: Oricorio
+|-supereffective|p2a: Oricorio
+|-crit|p2a: Oricorio
+|-damage|p2a: Oricorio|39/100
+|-unboost|p2a: Oricorio|spe|1
+|move|p2a: Oricorio|Calm Mind|p2a: Oricorio
+|-boost|p2a: Oricorio|spa|1
+|-boost|p2a: Oricorio|spd|1
+|
+|-damage|p1a: Miltank|31/100 tox|[from] psn
+|upkeep
+|turn|26
+|c|☆muskrat catcher|o
+|
+|move|p1a: Miltank|Rock Tomb|p2a: Oricorio
+|-supereffective|p2a: Oricorio
+|-damage|p2a: Oricorio|8/100
+|-unboost|p2a: Oricorio|spe|1
+|move|p2a: Oricorio|Roost|p2a: Oricorio
+|-heal|p2a: Oricorio|58/100
+|-singleturn|p2a: Oricorio|move: Roost
+|
+|-damage|p1a: Miltank|0 fnt|[from] psn
+|faint|p1a: Miltank
+|upkeep
+|l| Accidental
+|
+|switch|p1a: Aggron|Aggron, F|100/100
+|turn|27
+|
+|move|p1a: Aggron|Head Smash|p2a: Oricorio
+|-supereffective|p2a: Oricorio
+|-damage|p2a: Oricorio|0 fnt
+|faint|p2a: Oricorio
+|
+|upkeep
+|
+|switch|p2a: Lycanroc|Lycanroc-Dusk, F|100/100
+|-damage|p2a: Lycanroc|88/100|[from] Stealth Rock
+|turn|28
+|
+|move|p1a: Aggron|Head Smash|p2a: Lycanroc
+|-damage|p2a: Lycanroc|0 fnt
+|faint|p2a: Lycanroc
+|
+|win|master_of_rave
+|c|☆master_of_rave|lol
+|c|☆muskrat catcher|Oh
+|c|☆master_of_rave|scarf
+|c|☆muskrat catcher|that was scarfed
+|c|☆master_of_rave|heh
+|l| K0banite
+|c|☆muskrat catcher|well then
+|c|☆muskrat catcher|gg
+|l| hotcheesenips
+|l| spookd
+|l| bkendrick678932
+|c|☆master_of_rave|I'm gettin
+|c|☆master_of_rave|an error
+|c|☆master_of_rave|trying to upload and share
+|c|☆muskrat catcher|O shoot
+|c|☆muskrat catcher|I am too
+|c|☆muskrat catcher|I downloaded replay
+|c|☆master_of_rave|same
+|l| Spearklez
+
+
+|j| Accidental

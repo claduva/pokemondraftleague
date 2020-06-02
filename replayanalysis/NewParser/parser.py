@@ -80,7 +80,7 @@ def prepare_parsedlogfile(logfile,replay):
             #remove unneeded lines
             line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace(", L5","").replace("-Striped","").replace("-Trash","").replace("-Sandy","").replace("Indeedee-F","Indeedee").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("Florges-White","Florges").replace("-Pokeball","").replace("-Elegant","").replace("-Indigo","").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","").replace("-Douse","").replace("-Burn","").replace("-Chill","").replace("-Shock","").replace("Type: ","Type:").replace("Mr. ","Mr.").replace("-Sensu","").replace("-Pom-Pom","").replace("-Pa'u","").replace("Farfetch'd","Farfetchd").replace("-Totem","").replace("-Resolute","").replace("-Meteor","").replace("Meowstic-F","Meowstic").replace("-East","").replace("fetch’d","fetchd").replace("fetch'd","fetchd")
             linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
-            badlines=["","|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost","|-nothing","|-ohko"]
+            badlines=["","|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost","|-nothing","|-ohko","|rated"]
             linepurposestoremove=["j","c","l","html","raw","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
             linepurpose=line.split("|",2)[1].replace("-","")
             #iterate turn number
@@ -325,6 +325,7 @@ def damage_function(line,parsedlogfile,results):
             damager['kills']+=1
             results['significantevents'].append([line[1],f"{damager['pokemon']} killed {pokemon['pokemon']} via {cause}"])
         else:
+            print(line)
             results['significantevents'].append([line[1],f"{pokemon['pokemon']} fainted via {cause}"])
             results[thisteam]['selfdeaths']+=1
     return line,parsedlogfile,results
@@ -415,8 +416,8 @@ def heal_function(line,parsedlogfile,results):
     previoushealth=pokemon['remaininghealth']
     pokemon['remaininghealth']=healthremaining
     healthhealed=healthremaining-previoushealth
-    print(line)
-    print(healthhealed)
+    #print(line)
+    #print(healthhealed)
     #update health healed
     if line[3].find("|[wisher] ")==-1 and line[3].find("[from] move: Lunar Dance")==-1:   
         pokemon['hphealed']+=healthhealed

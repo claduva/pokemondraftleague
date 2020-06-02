@@ -1,119 +1,26 @@
 {
   "team1": {
-    "coach": "K0banite",
+    "coach": "Joker8417",
     "roster": [
       {
-        "pokemon": "Shaymin",
-        "startform": "Shaymin",
-        "nickname": "Shaymin",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 70,
-        "hphealed": 18,
-        "luck": 1.15,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Donphan",
-        "startform": "Donphan",
-        "nickname": "Donphan",
+        "pokemon": "Tyranitar",
+        "startform": "Tyranitar",
+        "nickname": "Tyranitar",
         "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 162,
-        "hphealed": 35,
-        "luck": 0.11666,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Emboar",
-        "startform": "Emboar",
-        "nickname": "Emboar",
-        "kills": 1,
-        "deaths": 1,
+        "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 55,
-        "hphealed": -9,
-        "luck": -0.14167,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Jellicent",
-        "startform": "Jellicent",
-        "nickname": "Jellicent",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 77,
+        "damagedone": 36,
         "hphealed": 0,
-        "luck": -1.65334,
-        "remaininghealth": 0,
+        "luck": 0.0,
+        "remaininghealth": 1,
         "lines": [],
-        "confusion": "Kutaka",
+        "confusion": null,
         "psn": null,
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": "Medicine",
+        "tox": null,
         "slp": null,
         "Curse": null,
         "atk": 0,
@@ -127,16 +34,16 @@
         "semiinv": false
       },
       {
-        "pokemon": "Skuntank",
-        "startform": "Skuntank",
-        "nickname": "Skuntank",
-        "kills": 0,
+        "pokemon": "Gengar",
+        "startform": "Gengar",
+        "nickname": "Gengar",
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": -11,
-        "hphealed": 25,
-        "luck": 0.34167000000000003,
+        "support": 0,
+        "damagedone": 86,
+        "hphealed": -1,
+        "luck": -0.9,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -158,16 +65,16 @@
         "semiinv": false
       },
       {
-        "pokemon": "Jolteon",
-        "startform": "Jolteon",
-        "nickname": "Jolteon",
+        "pokemon": "Hawlucha",
+        "startform": "Hawlucha",
+        "nickname": "Hawlucha",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 0,
-        "hphealed": -10,
-        "luck": -0.25833,
+        "support": 0,
+        "damagedone": 137,
+        "hphealed": 0,
+        "luck": -1.39167,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -187,51 +94,52 @@
         "evasion": 0,
         "Focus Energy": false,
         "semiinv": false
-      }
-    ],
-    "wins": 0,
-    "forfeit": 0,
-    "score": 0,
-    "megaevolved": false,
-    "usedzmove": false,
-    "timesswitched": 9,
-    "selfdeaths": 0,
-    "remaininghealth": 0,
-    "totalhealth": 600,
-    "kills": 2,
-    "deaths": 6,
-    "luck": -0.4449,
-    "damagedone": 353,
-    "hphealed": 59,
-    "support": 4,
-    "activemon": "Donphan",
-    "Toxic Spikes": null,
-    "Spikes": "Medicine",
-    "Stealth Rock": null,
-    "G-Max Steelsurge": null,
-    "Future Sight": null,
-    "Doom Desire": null,
-    "Sandstorm": null,
-    "Hail": null,
-    "Leech Seed": null
-  },
-  "team2": {
-    "coach": "A Mere Noob",
-    "roster": [
+      },
       {
-        "pokemon": "Gligar",
-        "startform": "Gligar",
-        "nickname": "Satori",
+        "pokemon": "Gliscor",
+        "startform": "Gliscor",
+        "nickname": "Gliscor",
         "kills": 3,
-        "deaths": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 2,
+        "damagedone": 216,
+        "hphealed": 76,
+        "luck": -1.50835,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Gliscor",
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Heatran",
+        "startform": "Heatran",
+        "nickname": "Heatran",
+        "kills": 0,
+        "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 205,
+        "damagedone": 16,
         "hphealed": 0,
-        "luck": 0.1,
-        "remaininghealth": 6,
+        "luck": -0.05833,
+        "remaininghealth": 0,
         "lines": [],
-        "confusion": "Satori",
+        "confusion": null,
         "psn": null,
         "brn": null,
         "par": null,
@@ -239,152 +147,28 @@
         "tox": null,
         "slp": null,
         "Curse": null,
-        "atk": 1,
+        "atk": 0,
         "def": 0,
         "spa": 0,
         "spd": 0,
-        "spe": 1,
+        "spe": 0,
         "accuracy": 0,
         "evasion": 0,
         "Focus Energy": false,
         "semiinv": false
       },
       {
-        "pokemon": "Qwilfish",
-        "startform": "Qwilfish",
-        "nickname": "Medicine",
+        "pokemon": "Rotom-Wash",
+        "startform": "Rotom-Wash",
+        "nickname": "Rotom-Wash",
         "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 5,
-        "damagedone": 163,
-        "hphealed": 0,
-        "luck": 0.72501,
-        "remaininghealth": 17,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Blaziken",
-        "startform": "Blaziken",
-        "nickname": "Blaziken",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 100,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Hoopa",
-        "startform": "Hoopa",
-        "nickname": "Yukari",
-        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 73,
-        "hphealed": 0,
-        "luck": -0.15833,
+        "support": 4,
+        "damagedone": 268,
+        "hphealed": 43,
+        "luck": 1.45833,
         "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Cramorant",
-        "startform": "Cramorant",
-        "nickname": "Kutaka",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 218,
-        "hphealed": -24,
-        "luck": -0.22167,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Tyrantrum",
-        "startform": "Tyrantrum",
-        "nickname": "Satori",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": 0.0,
-        "remaininghealth": 100,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -407,20 +191,236 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 4,
+    "score": 1,
     "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 5,
+    "timesswitched": 8,
     "selfdeaths": 0,
-    "remaininghealth": 223,
+    "remaininghealth": 1,
     "totalhealth": 600,
     "kills": 6,
-    "deaths": 2,
-    "luck": 0.445,
-    "damagedone": 659,
-    "hphealed": -24,
-    "support": 5,
-    "activemon": "Satori",
+    "deaths": 5,
+    "luck": -2.4,
+    "damagedone": 759,
+    "hphealed": 118,
+    "support": 6,
+    "activemon": "Tyranitar",
+    "Toxic Spikes": null,
+    "Spikes": null,
+    "Stealth Rock": "Hippowdon",
+    "G-Max Steelsurge": null,
+    "Future Sight": null,
+    "Doom Desire": null,
+    "Sandstorm": null,
+    "Hail": null,
+    "Leech Seed": null
+  },
+  "team2": {
+    "coach": "merkrafter",
+    "roster": [
+      {
+        "pokemon": "Tyranitar",
+        "startform": "Tyranitar",
+        "nickname": "Tyranitar",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 169,
+        "hphealed": 0,
+        "luck": 0.29167000000000004,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 1,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 1,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Garchomp",
+        "startform": "Garchomp",
+        "nickname": "Garchomp",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": -0.11666,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Scizor",
+        "startform": "Scizor",
+        "nickname": "Scizor",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 23,
+        "hphealed": 0,
+        "luck": 1.2,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Terrakion",
+        "startform": "Terrakion",
+        "nickname": "Terrakion",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 89,
+        "hphealed": 0,
+        "luck": 1.29167,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Hippowdon",
+        "startform": "Hippowdon",
+        "nickname": "Hippowdon",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 172,
+        "hphealed": 100,
+        "luck": 0.88334,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Rotom-Wash",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Vaporeon",
+        "startform": "Vaporeon",
+        "nickname": "Vaporeon",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 3,
+        "damagedone": 184,
+        "hphealed": 86,
+        "luck": -1.15,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": "Rotom-Wash",
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      }
+    ],
+    "wins": 0,
+    "forfeit": 0,
+    "score": 0,
+    "megaevolved": false,
+    "usedzmove": false,
+    "timesswitched": 15,
+    "selfdeaths": 0,
+    "remaininghealth": 0,
+    "totalhealth": 600,
+    "kills": 5,
+    "deaths": 6,
+    "luck": 2.4,
+    "damagedone": 637,
+    "hphealed": 186,
+    "support": 4,
+    "activemon": "Tyranitar",
     "Toxic Spikes": null,
     "Spikes": null,
     "Stealth Rock": null,
@@ -435,783 +435,1023 @@
   "Gravity": 1.0,
   "Rain": false,
   "Hail": false,
-  "numberofturns": 25,
+  "numberofturns": 37,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexdlcdraft-83990",
+  "replay": "https://replay.pokemonshowdown.com/ou-98825813",
   "significantevents": [
     [
-      1,
-      "Qwilfish provided support by using Taunt"
-    ],
-    [
       2,
-      "Qwilfish provided support by using Toxic"
+      "Hippowdon provided support by using Stealth Rock"
     ],
     [
-      3,
-      "Qwilfish provided support by using Spikes"
-    ],
-    [
-      4,
-      "Qwilfish provided support by using Taunt"
-    ],
-    [
-      5,
-      "Qwilfish provided support by using Taunt"
-    ],
-    [
-      6,
-      "Donphan provided support by using Rapid Spin"
-    ],
-    [
-      8,
-      "Donphan killed Hoopa with Ice Shard"
+      7,
+      "Hippowdon killed Hawlucha via item: Rocky Helmet|[of] p2a: Hippowdon"
     ],
     [
       10,
-      "Qwilfish killed Jellicent via tox"
-    ],
-    [
-      11,
-      "Jolteon provided support by using Rain Dance"
+      "Vaporeon provided support by using Wish"
     ],
     [
       12,
-      "Cramorant killed Jolteon with Surf"
+      "Vaporeon provided support by using Wish"
     ],
     [
       13,
-      "Shaymin provided support by using Leech Seed"
+      "Rotom-Wash provided support by using Trick"
     ],
     [
       14,
-      "Cramorant killed Shaymin via ability: Gulp Missile|[of] p2a: Kutaka"
+      "Rotom-Wash provided support by using Trick"
+    ],
+    [
+      14,
+      "Vaporeon provided support by using Wish"
     ],
     [
       15,
-      "Emboar killed Cramorant with Sucker Punch"
+      "Rotom-Wash provided support by using Will-O-Wisp"
     ],
     [
       17,
-      "Gligar killed Emboar with Earthquake"
+      "Rotom-Wash provided support by using Will-O-Wisp"
     ],
     [
-      22,
-      "Skuntank provided support by using Haze"
+      20,
+      "Vaporeon killed Heatran with Scald"
     ],
     [
-      24,
-      "Gligar killed Skuntank with Outrage"
+      21,
+      "Gengar killed Garchomp with Dazzling Gleam"
+    ],
+    [
+      23,
+      "Scizor killed Gengar with Knock Off"
     ],
     [
       25,
-      "Gligar killed Donphan with Outrage"
+      "Rotom-Wash killed Hippowdon with Hydro Pump"
+    ],
+    [
+      26,
+      "Terrakion killed Rotom-Wash with Quick Attack"
+    ],
+    [
+      29,
+      "Gliscor killed Scizor with Earthquake"
+    ],
+    [
+      30,
+      "Gliscor killed Vaporeon with Earthquake"
+    ],
+    [
+      31,
+      "Gliscor provided support by using Toxic"
+    ],
+    [
+      33,
+      "Gliscor killed Terrakion with Earthquake"
+    ],
+    [
+      34,
+      "Gliscor provided support by using Toxic"
+    ],
+    [
+      36,
+      "Tyranitar killed Gliscor with Stone Edge"
+    ],
+    [
+      37,
+      "Tyranitar killed Tyranitar with Earthquake"
     ]
   ],
   "luckcatalog": [
     [
-      9,
-      "Cramorant",
-      "Mon Used a Move That Can Miss (Hurricane)",
-      0.0,
-      0.3,
-      0.3
-    ],
-    [
-      9,
-      "Cramorant",
-      "Mon Used Move With Crit Chance (Hurricane)",
-      0.3,
-      -0.04167,
-      0.25833
-    ],
-    [
-      9,
-      "Cramorant",
-      "Mon Used Move With Secondary Effect Chance (Hurricane)",
-      0.25833,
-      -0.3,
-      -0.04167000000000001
-    ],
-    [
-      9,
-      "Cramorant",
-      "Mon incurred secondary effect (Hurricane)",
-      -0.04167000000000001,
-      1.0,
-      0.95833
-    ],
-    [
-      10,
-      "Cramorant",
-      "Mon is confused",
-      0.95833,
-      -0.33,
-      0.6283299999999999
-    ],
-    [
-      11,
-      "Cramorant",
-      "Mon Used Move With Crit Chance (Surf)",
-      0.6283299999999999,
-      -0.04167,
-      0.58666
-    ],
-    [
-      12,
-      "Cramorant",
-      "Target of Move With Crit Chance (Thunder)",
-      0.58666,
-      0.04167,
-      0.6283299999999999
-    ],
-    [
-      12,
-      "Cramorant",
-      "Target of Move With Secondary Effect Chance (Thunder)",
-      0.6283299999999999,
-      0.3,
-      0.92833
-    ],
-    [
-      12,
-      "Cramorant",
-      "Mon Used Move With Crit Chance (Surf)",
-      0.92833,
-      -0.04167,
-      0.88666
-    ],
-    [
-      13,
-      "Cramorant",
-      "Target of Move That Can Miss (Leech Seed)",
-      0.88666,
-      -0.1,
-      0.7866599999999999
-    ],
-    [
-      13,
-      "Cramorant",
-      "Mon Used Move With Crit Chance (Hurricane)",
-      0.7866599999999999,
-      -0.04167,
-      0.7449899999999999
-    ],
-    [
-      13,
-      "Cramorant",
-      "Mon Used Move With Secondary Effect Chance (Hurricane)",
-      0.7449899999999999,
-      -0.3,
-      0.44498999999999994
-    ],
-    [
-      14,
-      "Cramorant",
-      "Target of Move That Can Miss (Seed Flare)",
-      0.44498999999999994,
-      -0.15,
-      0.29499
-    ],
-    [
-      14,
-      "Cramorant",
-      "Target of Move With Crit Chance (Seed Flare)",
-      0.29499,
-      0.04167,
-      0.33665999999999996
-    ],
-    [
-      14,
-      "Cramorant",
-      "Target of Move With Secondary Effect Chance (Seed Flare)",
-      0.33665999999999996,
-      0.4,
-      0.73666
-    ],
-    [
-      14,
-      "Cramorant",
-      "Mon harmed by secondary effect (Seed Flare)",
-      0.73666,
-      -1.0,
-      -0.26334
-    ],
-    [
-      15,
-      "Cramorant",
-      "Target of Move With Crit Chance (Sucker Punch)",
-      -0.26334,
-      0.04167,
-      -0.22167
-    ],
-    [
-      7,
-      "Donphan",
-      "Target of Move With Crit Chance (Shadow Ball)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      7,
-      "Donphan",
-      "Target of Move With Secondary Effect Chance (Shadow Ball)",
-      0.04167,
-      0.2,
-      0.24167000000000002
-    ],
-    [
-      7,
-      "Donphan",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      0.24167000000000002,
-      -0.04167,
-      0.2
-    ],
-    [
       8,
-      "Donphan",
-      "Mon Used Move With Crit Chance (Ice Shard)",
-      0.2,
-      -0.04167,
-      0.15833
-    ],
-    [
-      18,
-      "Donphan",
-      "Mon Used Move With Crit Chance (Ice Shard)",
-      0.15833,
-      -0.04167,
-      0.11666
-    ],
-    [
-      18,
-      "Donphan",
-      "Target of Move With Crit Chance (Earthquake)",
-      0.11666,
-      0.04167,
-      0.15833
-    ],
-    [
-      19,
-      "Donphan",
-      "Mon Used Move With Crit Chance (Ice Shard)",
-      0.15833,
-      -0.04167,
-      0.11666
-    ],
-    [
-      25,
-      "Donphan",
-      "Mon Used Move With Crit Chance (Ice Shard)",
-      0.11666,
-      -0.04167,
-      0.07499
-    ],
-    [
-      25,
-      "Donphan",
-      "Target of Move With Crit Chance (Outrage)",
-      0.07499,
-      0.04167,
-      0.11666
-    ],
-    [
-      15,
-      "Emboar",
-      "Mon Used Move With Crit Chance (Sucker Punch)",
+      "Garchomp",
+      "Target of Move That Can Miss (Hydro Pump)",
       0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      16,
-      "Emboar",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.04167,
-      0.04167,
-      0.0
-    ],
-    [
-      16,
-      "Emboar",
-      "Mon Used Move With Crit Chance (Flare Blitz)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      16,
-      "Emboar",
-      "Mon Used Move With Secondary Effect Chance (Flare Blitz)",
-      -0.04167,
-      -0.1,
-      -0.14167
-    ],
-    [
-      17,
-      "Emboar",
-      "Mon Used Move With Crit Chance (Sucker Punch)",
-      -0.14167,
-      -0.04167,
-      -0.18334
-    ],
-    [
-      17,
-      "Emboar",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.18334,
-      0.04167,
-      -0.14167
-    ],
-    [
-      16,
-      "Gligar",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      16,
-      "Gligar",
-      "Target of Move With Crit Chance (Flare Blitz)",
-      -0.04167,
-      0.04167,
-      0.0
-    ],
-    [
-      16,
-      "Gligar",
-      "Target of Move With Secondary Effect Chance (Flare Blitz)",
-      0.0,
-      0.1,
-      0.1
-    ],
-    [
-      17,
-      "Gligar",
-      "Target of Move With Crit Chance (Sucker Punch)",
-      0.1,
-      0.04167,
-      0.14167
-    ],
-    [
-      17,
-      "Gligar",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      0.14167,
-      -0.04167,
-      0.1
-    ],
-    [
-      18,
-      "Gligar",
-      "Target of Move With Crit Chance (Ice Shard)",
-      0.1,
-      0.04167,
-      0.14167
-    ],
-    [
-      18,
-      "Gligar",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      0.14167,
-      -0.04167,
-      0.1
-    ],
-    [
-      23,
-      "Gligar",
-      "Target of Move With Crit Chance (Sucker Punch)",
-      0.1,
-      0.04167,
-      0.14167
-    ],
-    [
-      23,
-      "Gligar",
-      "Mon Used Move With Crit Chance (Outrage)",
-      0.14167,
-      -0.04167,
-      0.1
-    ],
-    [
-      24,
-      "Gligar",
-      "Target of Move With Crit Chance (Sucker Punch)",
-      0.1,
-      0.04167,
-      0.14167
-    ],
-    [
-      24,
-      "Gligar",
-      "Mon Used Move With Crit Chance (Outrage)",
-      0.14167,
-      -0.04167,
-      0.1
-    ],
-    [
-      25,
-      "Gligar",
-      "Target of Move With Crit Chance (Ice Shard)",
-      0.1,
-      0.04167,
-      0.14167
-    ],
-    [
-      25,
-      "Gligar",
-      "Mon Used Move With Crit Chance (Outrage)",
-      0.14167,
-      -0.04167,
-      0.1
-    ],
-    [
-      7,
-      "Hoopa",
-      "Mon Used Move With Crit Chance (Shadow Ball)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      7,
-      "Hoopa",
-      "Mon Used Move With Secondary Effect Chance (Shadow Ball)",
-      -0.04167,
       -0.2,
-      -0.24167000000000002
-    ],
-    [
-      7,
-      "Hoopa",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.24167000000000002,
-      0.04167,
       -0.2
     ],
     [
       8,
-      "Hoopa",
-      "Target of Move With Crit Chance (Ice Shard)",
+      "Garchomp",
+      "Target of Move With Crit Chance (Hydro Pump)",
       -0.2,
       0.04167,
       -0.15833
     ],
     [
-      2,
-      "Jellicent",
-      "Target of Move That Can Miss (Toxic)",
-      0.0,
-      -0.1,
-      -0.1
-    ],
-    [
-      2,
-      "Jellicent",
-      "Mon Used Move With Crit Chance (Scald)",
-      -0.1,
-      -0.04167,
-      -0.14167
-    ],
-    [
-      2,
-      "Jellicent",
-      "Mon Used Move With Secondary Effect Chance (Scald)",
-      -0.14167,
-      -0.3,
-      -0.44167
-    ],
-    [
-      3,
-      "Jellicent",
-      "Mon Used Move With Crit Chance (Scald)",
-      -0.44167,
-      -0.04167,
-      -0.48334000000000005
-    ],
-    [
-      3,
-      "Jellicent",
-      "Mon Used Move With Secondary Effect Chance (Scald)",
-      -0.48334000000000005,
-      -0.3,
-      -0.78334
-    ],
-    [
-      4,
-      "Jellicent",
-      "Mon Used Move With Crit Chance (Shadow Ball)",
-      -0.78334,
-      -0.04167,
-      -0.82501
-    ],
-    [
-      4,
-      "Jellicent",
-      "Mon Used Move With Secondary Effect Chance (Shadow Ball)",
-      -0.82501,
-      -0.2,
-      -1.02501
-    ],
-    [
-      9,
-      "Jellicent",
-      "Target of Move That Can Miss (Hurricane)",
-      -1.02501,
-      -0.3,
-      -1.32501
-    ],
-    [
-      9,
-      "Jellicent",
-      "Target of Move With Crit Chance (Hurricane)",
-      -1.32501,
+      21,
+      "Garchomp",
+      "Target of Move With Crit Chance (Dazzling Gleam)",
+      -0.15833,
       0.04167,
-      -1.28334
-    ],
-    [
-      9,
-      "Jellicent",
-      "Target of Move With Secondary Effect Chance (Hurricane)",
-      -1.28334,
-      0.3,
-      -0.98334
-    ],
-    [
-      9,
-      "Jellicent",
-      "Mon harmed by secondary effect (Hurricane)",
-      -0.98334,
-      -1.0,
-      -1.98334
-    ],
-    [
-      10,
-      "Jellicent",
-      "Opponent is confused",
-      -1.98334,
-      0.33,
-      -1.65334
+      -0.11666
     ],
     [
       11,
-      "Jolteon",
-      "Target of Move With Crit Chance (Surf)",
+      "Gengar",
+      "Mon Used Move With Crit Chance (Dazzling Gleam)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      11,
+      "Gengar",
+      "Target of Move With Crit Chance (Scald)",
+      -0.04167,
+      0.04167,
+      0.0
+    ],
+    [
+      11,
+      "Gengar",
+      "Target of Move With Secondary Effect Chance (Scald)",
+      0.0,
+      0.3,
+      0.3
+    ],
+    [
+      21,
+      "Gengar",
+      "Mon Used Move With Crit Chance (Dazzling Gleam)",
+      0.3,
+      -0.04167,
+      0.25833
+    ],
+    [
+      22,
+      "Gengar",
+      "Target of Move With Crit Chance (Knock Off)",
+      0.25833,
+      0.04167,
+      0.3
+    ],
+    [
+      23,
+      "Gengar",
+      "Mon Used Move With Crit Chance (Shadow Ball)",
+      0.3,
+      -0.04167,
+      0.25833
+    ],
+    [
+      23,
+      "Gengar",
+      "Mon Used Move With Secondary Effect Chance (Shadow Ball)",
+      0.25833,
+      -0.2,
+      0.058329999999999986
+    ],
+    [
+      23,
+      "Gengar",
+      "Target of Move With Crit Chance (Knock Off)",
+      0.058329999999999986,
+      0.04167,
+      0.09999999999999998
+    ],
+    [
+      23,
+      "Gengar",
+      "Mon was hit by a critical hit",
+      0.09999999999999998,
+      -1.0,
+      -0.9
+    ],
+    [
+      28,
+      "Gliscor",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      28,
+      "Gliscor",
+      "Target of Move With Crit Chance (Knock Off)",
+      -0.04167,
+      0.04167,
+      0.0
+    ],
+    [
+      29,
+      "Gliscor",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      30,
+      "Gliscor",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      -0.04167,
+      -0.04167,
+      -0.08334
+    ],
+    [
+      31,
+      "Gliscor",
+      "Target of Move That Can Miss (Stone Edge)",
+      -0.08334,
+      -0.2,
+      -0.28334
+    ],
+    [
+      31,
+      "Gliscor",
+      "Target of Move With Increased Crit Chance (Stone Edge)",
+      -0.28334,
+      0.125,
+      -0.15834
+    ],
+    [
+      31,
+      "Gliscor",
+      "Mon Used a Move That Can Miss (Toxic)",
+      -0.15834,
+      0.1,
+      -0.058339999999999996
+    ],
+    [
+      31,
+      "Gliscor",
+      "Mon missed a move (Toxic)",
+      -0.058339999999999996,
+      -1.0,
+      -1.05834
+    ],
+    [
+      32,
+      "Gliscor",
+      "Target of Move That Can Miss (Stone Edge)",
+      -1.05834,
+      -0.2,
+      -1.25834
+    ],
+    [
+      32,
+      "Gliscor",
+      "Opponent missed a move (Stone Edge)",
+      -1.25834,
+      1.0,
+      -0.25834
+    ],
+    [
+      32,
+      "Gliscor",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      -0.25834,
+      -0.04167,
+      -0.30001000000000005
+    ],
+    [
+      33,
+      "Gliscor",
+      "Target of Move That Can Miss (Stone Edge)",
+      -0.30001000000000005,
+      -0.2,
+      -0.5000100000000001
+    ],
+    [
+      33,
+      "Gliscor",
+      "Target of Move With Increased Crit Chance (Stone Edge)",
+      -0.5000100000000001,
+      0.125,
+      -0.37501000000000007
+    ],
+    [
+      33,
+      "Gliscor",
+      "Mon was hit by a critical hit",
+      -0.37501000000000007,
+      -1.0,
+      -1.37501
+    ],
+    [
+      33,
+      "Gliscor",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      -1.37501,
+      -0.04167,
+      -1.4166800000000002
+    ],
+    [
+      34,
+      "Gliscor",
+      "Mon Used a Move That Can Miss (Toxic)",
+      -1.4166800000000002,
+      0.1,
+      -1.31668
+    ],
+    [
+      35,
+      "Gliscor",
+      "Target of Move That Can Miss (Stone Edge)",
+      -1.31668,
+      -0.2,
+      -1.51668
+    ],
+    [
+      35,
+      "Gliscor",
+      "Target of Move With Increased Crit Chance (Stone Edge)",
+      -1.51668,
+      0.125,
+      -1.39168
+    ],
+    [
+      35,
+      "Gliscor",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      -1.39168,
+      -0.04167,
+      -1.4333500000000001
+    ],
+    [
+      36,
+      "Gliscor",
+      "Target of Move That Can Miss (Stone Edge)",
+      -1.4333500000000001,
+      -0.2,
+      -1.63335
+    ],
+    [
+      36,
+      "Gliscor",
+      "Target of Move With Increased Crit Chance (Stone Edge)",
+      -1.63335,
+      0.125,
+      -1.50835
+    ],
+    [
+      3,
+      "Hawlucha",
+      "Mon Used Move With Crit Chance (Acrobatics)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      4,
+      "Hawlucha",
+      "Target of Move That Can Miss (Ice Fang)",
+      -0.04167,
+      -0.05,
+      -0.09167
+    ],
+    [
+      4,
+      "Hawlucha",
+      "Target of Move With Crit Chance (Ice Fang)",
+      -0.09167,
+      0.04167,
+      -0.05
+    ],
+    [
+      4,
+      "Hawlucha",
+      "Target of Move With Secondary Effect Chance (Ice Fang)",
+      -0.05,
+      0.1,
+      0.05
+    ],
+    [
+      4,
+      "Hawlucha",
+      "Mon harmed by secondary effect (Ice Fang)",
+      0.05,
+      -1.0,
+      -0.95
+    ],
+    [
+      5,
+      "Hawlucha",
+      "Mon Could Not Move Due to Freeze",
+      -0.95,
+      -0.2,
+      -1.15
+    ],
+    [
+      6,
+      "Hawlucha",
+      "Mon Could Not Move Due to Freeze",
+      -1.15,
+      -0.2,
+      -1.35
+    ],
+    [
+      7,
+      "Hawlucha",
+      "Mon Used Move With Crit Chance (Acrobatics)",
+      -1.35,
+      -0.04167,
+      -1.39167
+    ],
+    [
+      19,
+      "Heatran",
+      "Target of Move With Crit Chance (Scald)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      12,
-      "Jolteon",
-      "Mon Used Move With Crit Chance (Thunder)",
+      20,
+      "Heatran",
+      "Mon Used Move With Crit Chance (Earth Power)",
       0.04167,
       -0.04167,
       0.0
     ],
     [
-      12,
-      "Jolteon",
-      "Mon Used Move With Secondary Effect Chance (Thunder)",
+      20,
+      "Heatran",
+      "Mon Used Move With Secondary Effect Chance (Earth Power)",
       0.0,
-      -0.3,
-      -0.3
+      -0.1,
+      -0.1
     ],
     [
-      12,
-      "Jolteon",
-      "Target of Move With Crit Chance (Surf)",
-      -0.3,
-      0.04167,
-      -0.25833
-    ],
-    [
-      2,
-      "Qwilfish",
-      "Mon Used a Move That Can Miss (Toxic)",
-      0.0,
-      0.1,
-      0.1
-    ],
-    [
-      2,
-      "Qwilfish",
+      20,
+      "Heatran",
       "Target of Move With Crit Chance (Scald)",
-      0.1,
+      -0.1,
       0.04167,
-      0.14167
-    ],
-    [
-      2,
-      "Qwilfish",
-      "Target of Move With Secondary Effect Chance (Scald)",
-      0.14167,
-      0.3,
-      0.44167
+      -0.05833
     ],
     [
       3,
-      "Qwilfish",
-      "Target of Move With Crit Chance (Scald)",
-      0.44167,
-      0.04167,
-      0.48334000000000005
-    ],
-    [
-      3,
-      "Qwilfish",
-      "Target of Move With Secondary Effect Chance (Scald)",
-      0.48334000000000005,
-      0.3,
-      0.78334
-    ],
-    [
-      4,
-      "Qwilfish",
-      "Target of Move With Crit Chance (Shadow Ball)",
-      0.78334,
-      0.04167,
-      0.82501
-    ],
-    [
-      4,
-      "Qwilfish",
-      "Target of Move With Secondary Effect Chance (Shadow Ball)",
-      0.82501,
-      0.2,
-      1.02501
-    ],
-    [
-      19,
-      "Qwilfish",
-      "Target of Move With Crit Chance (Ice Shard)",
-      1.02501,
-      0.04167,
-      1.06668
-    ],
-    [
-      20,
-      "Qwilfish",
-      "Mon Used Move With Crit Chance (Scald)",
-      1.06668,
-      -0.04167,
-      1.02501
-    ],
-    [
-      20,
-      "Qwilfish",
-      "Mon Used Move With Secondary Effect Chance (Scald)",
-      1.02501,
-      -0.3,
-      0.72501
-    ],
-    [
-      13,
-      "Shaymin",
-      "Mon Used a Move That Can Miss (Leech Seed)",
-      0.0,
-      0.1,
-      0.1
-    ],
-    [
-      13,
-      "Shaymin",
-      "Target of Move With Crit Chance (Hurricane)",
-      0.1,
-      0.04167,
-      0.14167
-    ],
-    [
-      13,
-      "Shaymin",
-      "Target of Move With Secondary Effect Chance (Hurricane)",
-      0.14167,
-      0.3,
-      0.44167
-    ],
-    [
-      14,
-      "Shaymin",
-      "Mon Used a Move That Can Miss (Seed Flare)",
-      0.44167,
-      0.15,
-      0.59167
-    ],
-    [
-      14,
-      "Shaymin",
-      "Mon Used Move With Crit Chance (Seed Flare)",
-      0.59167,
-      -0.04167,
-      0.55
-    ],
-    [
-      14,
-      "Shaymin",
-      "Mon Used Move With Secondary Effect Chance (Seed Flare)",
-      0.55,
-      -0.4,
-      0.15
-    ],
-    [
-      14,
-      "Shaymin",
-      "Mon incurred secondary effect (Seed Flare)",
-      0.15,
-      1.0,
-      1.15
-    ],
-    [
-      20,
-      "Skuntank",
-      "Target of Move With Crit Chance (Scald)",
+      "Hippowdon",
+      "Target of Move With Crit Chance (Acrobatics)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      20,
-      "Skuntank",
+      4,
+      "Hippowdon",
+      "Mon Used a Move That Can Miss (Ice Fang)",
+      0.04167,
+      0.05,
+      0.09167
+    ],
+    [
+      4,
+      "Hippowdon",
+      "Mon Used Move With Crit Chance (Ice Fang)",
+      0.09167,
+      -0.04167,
+      0.05
+    ],
+    [
+      4,
+      "Hippowdon",
+      "Mon Used Move With Secondary Effect Chance (Ice Fang)",
+      0.05,
+      -0.1,
+      -0.05
+    ],
+    [
+      4,
+      "Hippowdon",
+      "Mon incurred secondary effect (Ice Fang)",
+      -0.05,
+      1.0,
+      0.95
+    ],
+    [
+      6,
+      "Hippowdon",
+      "Opponent Could Not Move Due to Freeze",
+      0.95,
+      0.2,
+      1.15
+    ],
+    [
+      7,
+      "Hippowdon",
+      "Target of Move With Crit Chance (Acrobatics)",
+      1.15,
+      0.04167,
+      1.19167
+    ],
+    [
+      15,
+      "Hippowdon",
+      "Target of Move That Can Miss (Will-O-Wisp)",
+      1.19167,
+      -0.15,
+      1.04167
+    ],
+    [
+      25,
+      "Hippowdon",
+      "Target of Move That Can Miss (Hydro Pump)",
+      1.04167,
+      -0.2,
+      0.84167
+    ],
+    [
+      25,
+      "Hippowdon",
+      "Target of Move With Crit Chance (Hydro Pump)",
+      0.84167,
+      0.04167,
+      0.88334
+    ],
+    [
+      8,
+      "Rotom-Wash",
+      "Mon Used a Move That Can Miss (Hydro Pump)",
+      0.0,
+      0.2,
+      0.2
+    ],
+    [
+      8,
+      "Rotom-Wash",
+      "Mon Used Move With Crit Chance (Hydro Pump)",
+      0.2,
+      -0.04167,
+      0.15833
+    ],
+    [
+      15,
+      "Rotom-Wash",
+      "Mon Used a Move That Can Miss (Will-O-Wisp)",
+      0.15833,
+      0.15,
+      0.30833
+    ],
+    [
+      17,
+      "Rotom-Wash",
+      "Mon Used a Move That Can Miss (Will-O-Wisp)",
+      0.30833,
+      0.15,
+      0.45832999999999996
+    ],
+    [
+      17,
+      "Rotom-Wash",
+      "Target of Move With Crit Chance (Scald)",
+      0.45832999999999996,
+      0.04167,
+      0.5
+    ],
+    [
+      17,
+      "Rotom-Wash",
       "Target of Move With Secondary Effect Chance (Scald)",
-      0.04167,
+      0.5,
       0.3,
-      0.34167000000000003
+      0.8
+    ],
+    [
+      18,
+      "Rotom-Wash",
+      "Mon Used a Move That Can Miss (Hydro Pump)",
+      0.8,
+      0.2,
+      1.0
+    ],
+    [
+      18,
+      "Rotom-Wash",
+      "Mon Used Move With Crit Chance (Hydro Pump)",
+      1.0,
+      -0.04167,
+      0.95833
+    ],
+    [
+      18,
+      "Rotom-Wash",
+      "Target of Move With Crit Chance (Scald)",
+      0.95833,
+      0.04167,
+      1.0
+    ],
+    [
+      18,
+      "Rotom-Wash",
+      "Target of Move With Secondary Effect Chance (Scald)",
+      1.0,
+      0.3,
+      1.3
+    ],
+    [
+      19,
+      "Rotom-Wash",
+      "Mon Used Move With Crit Chance (Volt Switch)",
+      1.3,
+      -0.04167,
+      1.25833
+    ],
+    [
+      25,
+      "Rotom-Wash",
+      "Mon Used a Move That Can Miss (Hydro Pump)",
+      1.25833,
+      0.2,
+      1.45833
+    ],
+    [
+      25,
+      "Rotom-Wash",
+      "Mon Used Move With Crit Chance (Hydro Pump)",
+      1.45833,
+      -0.04167,
+      1.41666
+    ],
+    [
+      26,
+      "Rotom-Wash",
+      "Target of Move With Crit Chance (Quick Attack)",
+      1.41666,
+      0.04167,
+      1.45833
+    ],
+    [
+      22,
+      "Scizor",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      0.0,
+      -0.04167,
+      -0.04167
     ],
     [
       23,
-      "Skuntank",
-      "Mon Used Move With Crit Chance (Sucker Punch)",
-      0.34167000000000003,
+      "Scizor",
+      "Target of Move With Crit Chance (Shadow Ball)",
       -0.04167,
-      0.3
+      0.04167,
+      0.0
     ],
     [
       23,
-      "Skuntank",
-      "Target of Move With Crit Chance (Outrage)",
-      0.3,
-      0.04167,
-      0.34167000000000003
+      "Scizor",
+      "Target of Move With Secondary Effect Chance (Shadow Ball)",
+      0.0,
+      0.2,
+      0.2
     ],
     [
-      24,
-      "Skuntank",
-      "Mon Used Move With Crit Chance (Sucker Punch)",
-      0.34167000000000003,
+      23,
+      "Scizor",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      0.2,
       -0.04167,
+      0.15833
+    ],
+    [
+      23,
+      "Scizor",
+      "Mon landed a critical hit",
+      0.15833,
+      1.0,
+      1.15833
+    ],
+    [
+      28,
+      "Scizor",
+      "Target of Move With Crit Chance (Earthquake)",
+      1.15833,
+      0.04167,
+      1.2
+    ],
+    [
+      28,
+      "Scizor",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      1.2,
+      -0.04167,
+      1.15833
+    ],
+    [
+      29,
+      "Scizor",
+      "Target of Move With Crit Chance (Earthquake)",
+      1.15833,
+      0.04167,
+      1.2
+    ],
+    [
+      26,
+      "Terrakion",
+      "Mon Used Move With Crit Chance (Quick Attack)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      31,
+      "Terrakion",
+      "Mon Used a Move That Can Miss (Stone Edge)",
+      -0.04167,
+      0.2,
+      0.15833
+    ],
+    [
+      31,
+      "Terrakion",
+      "Mon Used Move With Increased Crit Chance (Stone Edge)",
+      0.15833,
+      -0.125,
+      0.03333
+    ],
+    [
+      31,
+      "Terrakion",
+      "Target of Move That Can Miss (Toxic)",
+      0.03333,
+      -0.1,
+      -0.06667
+    ],
+    [
+      31,
+      "Terrakion",
+      "Opponent missed a move (Toxic)",
+      -0.06667,
+      1.0,
+      0.93333
+    ],
+    [
+      32,
+      "Terrakion",
+      "Mon Used a Move That Can Miss (Stone Edge)",
+      0.93333,
+      0.2,
+      1.13333
+    ],
+    [
+      32,
+      "Terrakion",
+      "Mon missed a move (Stone Edge)",
+      1.13333,
+      -1.0,
+      0.13332999999999998
+    ],
+    [
+      32,
+      "Terrakion",
+      "Target of Move With Crit Chance (Earthquake)",
+      0.13332999999999998,
+      0.04167,
+      0.175
+    ],
+    [
+      33,
+      "Terrakion",
+      "Mon Used a Move That Can Miss (Stone Edge)",
+      0.175,
+      0.2,
+      0.375
+    ],
+    [
+      33,
+      "Terrakion",
+      "Mon Used Move With Increased Crit Chance (Stone Edge)",
+      0.375,
+      -0.125,
+      0.25
+    ],
+    [
+      33,
+      "Terrakion",
+      "Mon landed a critical hit",
+      0.25,
+      1.0,
+      1.25
+    ],
+    [
+      33,
+      "Terrakion",
+      "Target of Move With Crit Chance (Earthquake)",
+      1.25,
+      0.04167,
+      1.29167
+    ],
+    [
+      5,
+      "Tyranitar",
+      "Opponent Could Not Move Due to Freeze",
+      0.0,
+      0.2,
+      0.2
+    ],
+    [
+      34,
+      "Tyranitar",
+      "Target of Move That Can Miss (Toxic)",
+      0.2,
+      -0.1,
+      0.1
+    ],
+    [
+      35,
+      "Tyranitar",
+      "Mon Used a Move That Can Miss (Stone Edge)",
+      0.1,
+      0.2,
       0.3
     ],
     [
-      24,
-      "Skuntank",
-      "Target of Move With Crit Chance (Outrage)",
+      35,
+      "Tyranitar",
+      "Mon Used Move With Increased Crit Chance (Stone Edge)",
       0.3,
+      -0.125,
+      0.175
+    ],
+    [
+      35,
+      "Tyranitar",
+      "Target of Move With Crit Chance (Earthquake)",
+      0.175,
       0.04167,
-      0.34167000000000003
+      0.21667000000000003
+    ],
+    [
+      36,
+      "Tyranitar",
+      "Mon Used a Move That Can Miss (Stone Edge)",
+      0.21667000000000003,
+      0.2,
+      0.41667000000000004
+    ],
+    [
+      36,
+      "Tyranitar",
+      "Mon Used Move With Increased Crit Chance (Stone Edge)",
+      0.41667000000000004,
+      -0.125,
+      0.29167000000000004
+    ],
+    [
+      37,
+      "Tyranitar",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      0.29167000000000004,
+      -0.04167,
+      0.25
+    ],
+    [
+      37,
+      "Tyranitar",
+      "Target of Move With Crit Chance (Earthquake)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      37,
+      "Tyranitar",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      0.04167,
+      -0.04167,
+      0.0
+    ],
+    [
+      37,
+      "Tyranitar",
+      "Target of Move With Crit Chance (Earthquake)",
+      0.25,
+      0.04167,
+      0.29167000000000004
+    ],
+    [
+      11,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Dazzling Gleam)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      11,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Scald)",
+      0.04167,
+      -0.04167,
+      0.0
+    ],
+    [
+      11,
+      "Vaporeon",
+      "Mon Used Move With Secondary Effect Chance (Scald)",
+      0.0,
+      -0.3,
+      -0.3
+    ],
+    [
+      17,
+      "Vaporeon",
+      "Target of Move That Can Miss (Will-O-Wisp)",
+      -0.3,
+      -0.15,
+      -0.45
+    ],
+    [
+      17,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Scald)",
+      -0.45,
+      -0.04167,
+      -0.49167
+    ],
+    [
+      17,
+      "Vaporeon",
+      "Mon Used Move With Secondary Effect Chance (Scald)",
+      -0.49167,
+      -0.3,
+      -0.79167
+    ],
+    [
+      18,
+      "Vaporeon",
+      "Target of Move That Can Miss (Hydro Pump)",
+      -0.79167,
+      -0.2,
+      -0.99167
+    ],
+    [
+      18,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hydro Pump)",
+      -0.99167,
+      0.04167,
+      -0.95
+    ],
+    [
+      18,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Scald)",
+      -0.95,
+      -0.04167,
+      -0.99167
+    ],
+    [
+      18,
+      "Vaporeon",
+      "Mon Used Move With Secondary Effect Chance (Scald)",
+      -0.99167,
+      -0.3,
+      -1.29167
+    ],
+    [
+      19,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Volt Switch)",
+      -1.29167,
+      0.04167,
+      -1.25
+    ],
+    [
+      19,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Scald)",
+      -1.25,
+      -0.04167,
+      -1.29167
+    ],
+    [
+      20,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Earth Power)",
+      -1.29167,
+      0.04167,
+      -1.25
+    ],
+    [
+      20,
+      "Vaporeon",
+      "Target of Move With Secondary Effect Chance (Earth Power)",
+      -1.25,
+      0.1,
+      -1.15
+    ],
+    [
+      20,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Scald)",
+      -1.15,
+      -0.04167,
+      -1.19167
+    ],
+    [
+      30,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Earthquake)",
+      -1.19167,
+      0.04167,
+      -1.15
     ]
   ],
   "errormessage": []
