@@ -80,8 +80,7 @@ def about(request):
     return  render(request,"about.html", context)
 
 def custom404(request,exception):
-    raise Http404("Page Not Found")
-    # return HttpResponseNotFound(render(request,"404.html"))
+    return HttpResponseNotFound("Page Not Found")
 
 def custom500(request,exception):
     return  render(request,"500.html")
