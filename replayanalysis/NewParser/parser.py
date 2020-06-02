@@ -158,8 +158,8 @@ def newreplayparse(replay):
     if damagedonetest!=damagedone: results['errormessage'].append("This replay's Team 2 damage numbers do not add up. Please contact claduva and do not submit the replay.")
     if scoretest!=score: results['errormessage'].append("This replay's Team 2 score numbers do not add up. Please contact claduva and do not submit the replay.")
     if score!=0 and results['team1']['wins']==1: results['errormessage'].append("The losing team's score should be 0. Please contact claduva and do not submit the replay.")
-    if len(results['errormessage'])>0:
-        results=alternativereplayparse(replay)
+    #if len(results['errormessage'])>0:
+    #    results=alternativereplayparse(replay)
     return results
 
 def luckappend(line,results,mon,event,luckchange):
@@ -255,8 +255,10 @@ def damage_function(line,parsedlogfile,results):
             damager=roster_search(otherteam,results[thisteam][cause],results)
         elif cause.title() in ['Sandstorm','Hail']:
             if results[thisteam][cause.title()]!=None:
+                print('here')
                 damager=roster_search(otherteam,results[thisteam][cause.title()],results)
             elif results[otherteam_][cause.title()]!=None:
+                print('here')
                 setter=roster_search(team,results[otherteam_][cause.title()],results)
                 setter['hphealed']+=-damagedone
         elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1 or cause.find("ability: Aftermath")>-1 or cause.find("ability: Liquid Ooze")>-1 or cause.find("ability: Innards Out")>-1 or cause.find("ability: Bad Dreams")>-1 or cause.find("ability: Gulp Missile")>-1  or cause.find("Spiky Shield")>-1 or cause.find("leechseed")>-1:
@@ -1005,6 +1007,22 @@ def weather_function(line,parsedlogfile,results):
                 results['team2'][weather]=setter
             elif thisteam=="p2a":
                 results['team1'][weather]=setter
+    elif line[3].find("Sandstorm")>-1 and line[3].find("upkeep")==-1:
+        setterline=parsedlogfile[line[0]-1]
+        thisteam=setterline[3].split(": ")[0]
+        setter=setterline[3].split("|")[0].split(": ",1)[1]
+        if thisteam=="p1a":
+            results['team2']['Sandstorm']=setter
+        elif thisteam=="p2a":
+            results['team1']['Sandstorm']=setter
+    elif line[3].find("Hail")>-1 and line[3].find("upkeep")==-1:
+        setterline=parsedlogfile[line[0]-1]
+        thisteam=setterline[3].split(": ")[0]
+        setter=setterline[3].split("|")[0].split(": ",1)[1]
+        if thisteam=="p1a":
+            results['team2']['Hail']=setter
+        elif thisteam=="p2a":
+            results['team1']['Hail']=setter
     if line[3].find("Rain")>-1 or line[3].find("Drizzle")>-1 or line[3].find("Max Geyser")>-1:
         results['Rain']=True
     if line[3].find("Hail")>-1 or line[3].find("Snow Warning")>-1 or line[3].find("Max Hailstorm")>-1:
