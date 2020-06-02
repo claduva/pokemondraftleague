@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
+from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.core import serializers
@@ -79,7 +79,8 @@ def about(request):
     }
     return  render(request,"about.html", context)
 
-def custom404(request,template_name="404.html")
+def custom404(request,exception):
+    return  HttpResponseNotFound("404.html")
 
 def custom500(request,exception):
     return  render(request,"500.html")
