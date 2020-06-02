@@ -325,7 +325,6 @@ def damage_function(line,parsedlogfile,results):
             damager['kills']+=1
             results['significantevents'].append([line[1],f"{damager['pokemon']} killed {pokemon['pokemon']} via {cause}"])
         else:
-            print(line)
             results['significantevents'].append([line[1],f"{pokemon['pokemon']} fainted via {cause}"])
             results[thisteam]['selfdeaths']+=1
     return line,parsedlogfile,results
@@ -416,8 +415,8 @@ def heal_function(line,parsedlogfile,results):
     previoushealth=pokemon['remaininghealth']
     pokemon['remaininghealth']=healthremaining
     healthhealed=healthremaining-previoushealth
-    #print(line)
-    #print(healthhealed)
+    print(line)
+    print(healthhealed)
     #update health healed
     if line[3].find("|[wisher] ")==-1 and line[3].find("[from] move: Lunar Dance")==-1:   
         pokemon['hphealed']+=healthhealed
@@ -941,7 +940,7 @@ def start_function(line,parsedlogfile,results):
                 priorhealth=setter['remaininghealth']
                 healthremaining=int(line_[3].split("|",1)[1].split(" ",1)[0].split("/",1)[0].split("|",1)[0])
                 setter['remaininghealth']=healthremaining
-                setter['hphealed']=healthremaining-priorhealth
+                setter['hphealed']+=healthremaining-priorhealth
                 break
     if line[3].find("Focus Energy")>-1:
         mon=line[3].split("|")[0].split(": ")[1]
