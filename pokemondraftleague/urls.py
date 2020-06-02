@@ -43,5 +43,5 @@ if settings.DEBUG:
     ] + urlpatterns
 """
 
-#handler404 = 'main.views.custom404'
-#handler500 = 'main.views.custom500'
+handler404 = 'main.views.custom404'
+handler500 = 'main.views.custom500'
