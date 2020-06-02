@@ -79,8 +79,7 @@ def about(request):
     }
     return  render(request,"about.html", context)
 
-def custom404(request,exception):
-    return  render(request,"404.html")
+def custom404(request,template_name="404.html")
 
 def custom500(request,exception):
     return  render(request,"500.html")
