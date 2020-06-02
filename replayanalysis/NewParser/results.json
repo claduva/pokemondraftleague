@@ -1,18 +1,18 @@
 {
   "team1": {
-    "coach": "Spearklez",
+    "coach": "SuperEpicAmpharos",
     "roster": [
       {
-        "pokemon": "Silvally",
-        "startform": "Silvally",
-        "nickname": "Beneath The Mask",
+        "pokemon": "Ferrothorn",
+        "startform": "Ferrothorn",
+        "nickname": "zygarde a hoe",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 2,
-        "damagedone": 156,
+        "support": 0,
+        "damagedone": 162,
         "hphealed": 0,
-        "luck": -1.04167,
+        "luck": -1.7749899999999998,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -20,7 +20,7 @@
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": "Big Deez",
+        "tox": null,
         "slp": null,
         "Curse": null,
         "atk": 0,
@@ -34,17 +34,79 @@
         "semiinv": false
       },
       {
-        "pokemon": "Ribombee",
-        "startform": "Ribombee",
-        "nickname": "Pixie",
+        "pokemon": "Porygon2",
+        "startform": "Porygon2",
+        "nickname": "really fat",
+        "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 6,
+        "hphealed": 44,
+        "luck": 0.08334,
+        "remaininghealth": 56,
+        "lines": [],
+        "confusion": null,
+        "psn": "Weezing",
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Sirfetchd",
+        "startform": "Sirfetchd",
+        "nickname": "Fetching a Kill",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 57,
+        "hphealed": 0,
+        "luck": 0.04167,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": "Weezing",
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Mew",
+        "startform": "Mew",
+        "nickname": "1k 2.718 Tungsten",
         "kills": 2,
-        "deaths": 1,
+        "deaths": 0,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 240,
-        "hphealed": 0,
-        "luck": 0.31665999999999994,
-        "remaininghealth": 0,
+        "support": 0,
+        "damagedone": 163,
+        "hphealed": 29,
+        "luck": 0.8749899999999999,
+        "remaininghealth": 59,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -65,16 +127,139 @@
         "semiinv": false
       },
       {
-        "pokemon": "Salazzle",
-        "startform": "Salazzle",
-        "nickname": "Horny",
+        "pokemon": "Primarina",
+        "startform": "Primarina",
+        "nickname": "PriMVP",
+        "kills": 1,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 130,
+        "hphealed": 0,
+        "luck": 0.51666,
+        "remaininghealth": 32,
+        "lines": [],
+        "confusion": null,
+        "psn": "Weezing",
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Alakazam-Mega",
+        "startform": "Alakazam",
+        "nickname": "Dinner",
+        "kills": 2,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 195,
+        "hphealed": 0,
+        "luck": -0.16668,
+        "remaininghealth": 100,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      }
+    ],
+    "wins": 1,
+    "forfeit": 0,
+    "score": 4,
+    "megaevolved": true,
+    "usedzmove": false,
+    "timesswitched": 9,
+    "selfdeaths": 0,
+    "remaininghealth": 247,
+    "totalhealth": 600,
+    "kills": 6,
+    "deaths": 2,
+    "luck": -0.425,
+    "damagedone": 713,
+    "hphealed": 73,
+    "support": 1,
+    "activemon": "1k 2.718 Tungsten",
+    "Toxic Spikes": "Weezing",
+    "Spikes": null,
+    "Stealth Rock": null,
+    "G-Max Steelsurge": null,
+    "Future Sight": null,
+    "Doom Desire": null,
+    "Sandstorm": null,
+    "Hail": null,
+    "Leech Seed": null
+  },
+  "team2": {
+    "coach": "claduva",
+    "roster": [
+      {
+        "pokemon": "Zygarde",
+        "startform": "Zygarde",
+        "nickname": "Zygarde",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 77,
+        "support": 0,
+        "damagedone": 70,
         "hphealed": 0,
-        "luck": -0.1,
+        "luck": 0.1,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 1,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 1,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Tapu Koko",
+        "startform": "Tapu Koko",
+        "nickname": "Tapu Koko",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 109,
+        "hphealed": 86,
+        "luck": -0.74167,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -96,85 +281,116 @@
         "semiinv": false
       },
       {
-        "pokemon": "Duraludon",
-        "startform": "Duraludon",
-        "nickname": "Metal Harbour",
+        "pokemon": "Weezing-Galar",
+        "startform": "Weezing",
+        "nickname": "Weezing",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 146,
+        "hphealed": 0,
+        "luck": 1.04167,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Kecleon",
+        "startform": "Kecleon",
+        "nickname": "Kecleon",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 7,
+        "luck": 0.08334,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Tsareena",
+        "startform": "Tsareena",
+        "nickname": "Tsareena",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 65,
+        "hphealed": 0,
+        "luck": 0.9166599999999999,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false
+      },
+      {
+        "pokemon": "Scrafty",
+        "startform": "Scrafty",
+        "nickname": "Scrafty",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 92,
-        "hphealed": -90,
-        "luck": -0.08334,
+        "damagedone": 36,
+        "hphealed": 20,
+        "luck": -0.9749899999999999,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
         "brn": null,
         "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Umbreon",
-        "startform": "Umbreon",
-        "nickname": "Break Free!",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 19,
-        "damagedone": 663,
-        "hphealed": 612,
-        "luck": 0.5083500000000001,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": "Big Deez",
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Runerigus",
-        "startform": "Runerigus",
-        "nickname": "Glyph",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 149,
-        "hphealed": 28,
-        "luck": 0.84167,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
+        "frz": "1k 2.718 Tungsten",
         "tox": null,
         "slp": null,
         "Curse": null,
@@ -194,236 +410,20 @@
     "score": 0,
     "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 23,
-    "selfdeaths": 1,
+    "timesswitched": 11,
+    "selfdeaths": 0,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 4,
+    "kills": 2,
     "deaths": 6,
-    "luck": 0.44179999999999997,
-    "damagedone": 1377,
-    "hphealed": 550,
-    "support": 24,
-    "activemon": "Break Free!",
+    "luck": 0.425,
+    "damagedone": 426,
+    "hphealed": 113,
+    "support": 1,
+    "activemon": "Zygarde",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "DPP Clone #42",
-    "G-Max Steelsurge": null,
-    "Future Sight": null,
-    "Doom Desire": null,
-    "Sandstorm": null,
-    "Hail": null,
-    "Leech Seed": null
-  },
-  "team2": {
-    "coach": "Mundungu",
-    "roster": [
-      {
-        "pokemon": "Chandelure",
-        "startform": "Chandelure",
-        "nickname": "Lumi\u00e8re",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 133,
-        "hphealed": 15,
-        "luck": 0.24167000000000002,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Horny",
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Durant",
-        "startform": "Durant",
-        "nickname": "Sir Miss-A-Lot",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 109,
-        "hphealed": 0,
-        "luck": -1.55833,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Comfey",
-        "startform": "Comfey",
-        "nickname": "Cozey",
-        "kills": 2,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 10,
-        "damagedone": 411,
-        "hphealed": 741,
-        "luck": 0.39166999999999996,
-        "remaininghealth": 60,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Break Free!",
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Uxie",
-        "startform": "Uxie",
-        "nickname": "DPP Clone #42",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 3,
-        "damagedone": 183,
-        "hphealed": 51,
-        "luck": 0.95833,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Noivern",
-        "startform": "Noivern",
-        "nickname": "Noivern",
-        "kills": 0,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 78,
-        "hphealed": 15,
-        "luck": -1.3666800000000001,
-        "remaininghealth": 71,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Break Free!",
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      },
-      {
-        "pokemon": "Gastrodon",
-        "startform": "Gastrodon",
-        "nickname": "Big Deez",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 1,
-        "damagedone": 236,
-        "hphealed": 86,
-        "luck": 0.89167,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": "Break Free!",
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false
-      }
-    ],
-    "wins": 1,
-    "forfeit": 0,
-    "score": 2,
-    "megaevolved": false,
-    "usedzmove": false,
-    "timesswitched": 32,
-    "selfdeaths": 0,
-    "remaininghealth": 131,
-    "totalhealth": 600,
-    "kills": 5,
-    "deaths": 4,
-    "luck": -0.4416,
-    "damagedone": 1150,
-    "hphealed": 908,
-    "support": 16,
-    "activemon": "Cozey",
-    "Toxic Spikes": null,
-    "Spikes": null,
-    "Stealth Rock": "Glyph",
+    "Stealth Rock": null,
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -435,1763 +435,611 @@
   "Gravity": 1.0,
   "Rain": false,
   "Hail": false,
-  "numberofturns": 79,
+  "numberofturns": 26,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexdlcdraft-74063",
+  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexdraft-84855",
   "significantevents": [
     [
-      2,
-      "Umbreon provided support by using Wish"
-    ],
-    [
       3,
-      "Comfey provided support by using Leech Seed"
-    ],
-    [
-      4,
-      "Salazzle provided support by using Toxic"
+      "Weezing-Galar provided support by using Toxic Spikes"
     ],
     [
       5,
-      "Chandelure killed Salazzle via Leech Seed|[of] p2a: Lumi\u00e8re"
-    ],
-    [
-      7,
-      "Silvally provided support by using Parting Shot"
+      "Alakazam-Mega killed Kecleon with Psyshock"
     ],
     [
       8,
-      "Ribombee provided support by using Sticky Web"
+      "Weezing-Galar killed Ferrothorn with Flamethrower"
     ],
     [
       9,
-      "Chandelure provided support by using Trick"
-    ],
-    [
-      10,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      11,
-      "Umbreon provided support by using Toxic"
-    ],
-    [
-      11,
-      "Comfey provided support by using Defog"
-    ],
-    [
-      12,
-      "Comfey provided support by using Leech Seed"
+      "Primarina killed Weezing-Galar with Moonblast"
     ],
     [
       13,
-      "Umbreon provided support by using Wish"
+      "Sirfetchd provided support by using Defog"
     ],
     [
-      13,
-      "Comfey provided support by using Leech Seed"
-    ],
-    [
-      15,
-      "Noivern provided support by using Taunt"
+      16,
+      "Porygon2 killed Tsareena with Ice Beam"
     ],
     [
       18,
-      "Runerigus provided support by using Stealth Rock"
+      "Scrafty killed Sirfetchd with Drain Punch"
     ],
     [
-      19,
-      "Runerigus killed Durant with Earthquake"
+      20,
+      "Alakazam-Mega killed Tapu Koko with Psychic"
     ],
     [
       24,
-      "Uxie provided support by using Stealth Rock"
-    ],
-    [
-      25,
-      "Uxie killed Runerigus with Knock Off"
+      "Mew killed Scrafty with Ice Beam"
     ],
     [
       26,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      28,
-      "Comfey provided support by using Defog"
-    ],
-    [
-      28,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      31,
-      "Ribombee killed Chandelure with Moonblast"
-    ],
-    [
-      32,
-      "Uxie provided support by using Stealth Rock"
-    ],
-    [
-      33,
-      "Uxie provided support by using Reflect"
-    ],
-    [
-      33,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      35,
-      "Comfey provided support by using Leech Seed"
-    ],
-    [
-      38,
-      "Gastrodon provided support by using Toxic"
-    ],
-    [
-      40,
-      "Silvally provided support by using Parting Shot"
-    ],
-    [
-      42,
-      "Duraludon killed Uxie with Steel Beam"
-    ],
-    [
-      42,
-      "Duraludon fainted via mindblown"
-    ],
-    [
-      46,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      47,
-      "Umbreon provided support by using Toxic"
-    ],
-    [
-      48,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      51,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      54,
-      "Ribombee killed Gastrodon with Moonblast"
-    ],
-    [
-      55,
-      "Comfey provided support by using Leech Seed"
-    ],
-    [
-      58,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      59,
-      "Umbreon provided support by using Toxic"
-    ],
-    [
-      60,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      62,
-      "Comfey provided support by using Leech Seed"
-    ],
-    [
-      62,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      63,
-      "Comfey killed Silvally with Draining Kiss"
-    ],
-    [
-      65,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      67,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      72,
-      "Comfey provided support by using Leech Seed"
-    ],
-    [
-      72,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      74,
-      "Umbreon provided support by using Wish"
-    ],
-    [
-      78,
-      "Comfey killed Ribombee with Draining Kiss"
-    ],
-    [
-      79,
-      "Comfey provided support by using Leech Seed"
-    ],
-    [
-      79,
-      "Gastrodon killed Umbreon via brn"
+      "Mew killed Zygarde with Ice Beam"
     ]
   ],
   "luckcatalog": [
     [
-      1,
-      "Chandelure",
-      "Mon Used Move With Crit Chance (Flamethrower)",
+      4,
+      "Alakazam-Mega",
+      "Mon Used Move With Crit Chance (Dazzling Gleam)",
       0.0,
       -0.04167,
       -0.04167
     ],
     [
+      5,
+      "Alakazam-Mega",
+      "Mon Used Move With Crit Chance (Psyshock)",
+      -0.04167,
+      -0.04167,
+      -0.08334
+    ],
+    [
+      19,
+      "Alakazam-Mega",
+      "Mon Used Move With Crit Chance (Dazzling Gleam)",
+      -0.08334,
+      -0.04167,
+      -0.12500999999999998
+    ],
+    [
+      20,
+      "Alakazam-Mega",
+      "Mon Used Move With Crit Chance (Psychic)",
+      -0.12500999999999998,
+      -0.04167,
+      -0.16668
+    ],
+    [
       1,
-      "Chandelure",
-      "Mon Used Move With Secondary Effect Chance (Flamethrower)",
-      -0.04167,
-      -0.1,
-      -0.14167
-    ],
-    [
-      4,
-      "Chandelure",
-      "Target of Move That Can Miss (Toxic)",
-      -0.14167,
-      -0.1,
-      -0.24167000000000002
-    ],
-    [
-      5,
-      "Chandelure",
+      "Ferrothorn",
       "Target of Move With Crit Chance (Knock Off)",
-      -0.24167000000000002,
-      0.04167,
-      -0.2
-    ],
-    [
-      5,
-      "Chandelure",
-      "Mon Used a Move That Can Miss (Overheat)",
-      -0.2,
-      0.1,
-      -0.1
-    ],
-    [
-      5,
-      "Chandelure",
-      "Mon Used Move With Crit Chance (Overheat)",
-      -0.1,
-      -0.04167,
-      -0.14167
-    ],
-    [
-      30,
-      "Chandelure",
-      "Target of Move With Crit Chance (Moonblast)",
-      -0.14167,
-      0.04167,
-      -0.1
-    ],
-    [
-      30,
-      "Chandelure",
-      "Target of Move With Secondary Effect Chance (Moonblast)",
-      -0.1,
-      0.3,
-      0.2
-    ],
-    [
-      31,
-      "Chandelure",
-      "Target of Move With Crit Chance (Moonblast)",
-      0.2,
-      0.04167,
-      0.24167000000000002
-    ],
-    [
-      3,
-      "Comfey",
-      "Mon Used a Move That Can Miss (Leech Seed)",
-      0.0,
-      0.1,
-      0.1
-    ],
-    [
-      11,
-      "Comfey",
-      "Target of Move That Can Miss (Toxic)",
-      0.1,
-      -0.1,
-      0.0
-    ],
-    [
-      21,
-      "Comfey",
-      "Target of Move With Crit Chance (Foul Play)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      27,
-      "Comfey",
-      "Target of Move With Crit Chance (Foul Play)",
+      2,
+      "Ferrothorn",
+      "Target of Move With Crit Chance (U-turn)",
       0.04167,
       0.04167,
       0.08334
     ],
     [
-      34,
-      "Comfey",
-      "Target of Move With Crit Chance (Foul Play)",
+      2,
+      "Ferrothorn",
+      "Mon was hit by a critical hit",
+      0.08334,
+      -1.0,
+      -0.9166599999999999
+    ],
+    [
+      2,
+      "Ferrothorn",
+      "Mon Used Move With Crit Chance (Knock Off)",
+      -0.9166599999999999,
+      -0.04167,
+      -0.95833
+    ],
+    [
+      6,
+      "Ferrothorn",
+      "Target of Move With Crit Chance (Thunderbolt)",
+      -0.95833,
+      0.04167,
+      -0.9166599999999999
+    ],
+    [
+      6,
+      "Ferrothorn",
+      "Target of Move With Secondary Effect Chance (Thunderbolt)",
+      -0.9166599999999999,
+      0.1,
+      -0.8166599999999999
+    ],
+    [
+      8,
+      "Ferrothorn",
+      "Target of Move With Crit Chance (Flamethrower)",
+      -0.8166599999999999,
+      0.04167,
+      -0.77499
+    ],
+    [
+      8,
+      "Ferrothorn",
+      "Mon was hit by a critical hit",
+      -0.77499,
+      -1.0,
+      -1.7749899999999998
+    ],
+    [
+      4,
+      "Kecleon",
+      "Target of Move With Crit Chance (Dazzling Gleam)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      5,
+      "Kecleon",
+      "Target of Move With Crit Chance (Psyshock)",
+      0.04167,
+      0.04167,
+      0.08334
+    ],
+    [
+      21,
+      "Mew",
+      "Target of Move With Crit Chance (Thousand Arrows)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      22,
+      "Mew",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      0.04167,
+      -0.04167,
+      0.0
+    ],
+    [
+      22,
+      "Mew",
+      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
+      0.0,
+      -0.1,
+      -0.1
+    ],
+    [
+      22,
+      "Mew",
+      "Mon incurred secondary effect (Ice Beam)",
+      -0.1,
+      1.0,
+      0.9
+    ],
+    [
+      23,
+      "Mew",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      0.9,
+      -0.04167,
+      0.85833
+    ],
+    [
+      23,
+      "Mew",
+      "Opponent Could Not Move Due to Freeze",
+      0.85833,
+      0.2,
+      1.05833
+    ],
+    [
+      24,
+      "Mew",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      1.05833,
+      -0.04167,
+      1.01666
+    ],
+    [
+      25,
+      "Mew",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      1.01666,
+      -0.04167,
+      0.9749899999999999
+    ],
+    [
+      25,
+      "Mew",
+      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
+      0.9749899999999999,
+      -0.1,
+      0.8749899999999999
+    ],
+    [
+      26,
+      "Mew",
+      "Target of Move With Crit Chance (Thousand Arrows)",
+      0.8749899999999999,
+      0.04167,
+      0.9166599999999999
+    ],
+    [
+      26,
+      "Mew",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      0.9166599999999999,
+      -0.04167,
+      0.8749899999999999
+    ],
+    [
+      11,
+      "Porygon2",
+      "Target of Move With Crit Chance (Thunderbolt)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      14,
+      "Porygon2",
+      "Target of Move With Crit Chance (Thunderbolt)",
+      0.04167,
+      0.04167,
+      0.08334
+    ],
+    [
+      16,
+      "Porygon2",
+      "Target of Move With Crit Chance (Knock Off)",
       0.08334,
       0.04167,
       0.12500999999999998
     ],
     [
-      35,
-      "Comfey",
-      "Mon Used a Move That Can Miss (Leech Seed)",
+      16,
+      "Porygon2",
+      "Mon Used Move With Crit Chance (Ice Beam)",
       0.12500999999999998,
-      0.1,
-      0.22501
-    ],
-    [
-      36,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      0.22501,
       -0.04167,
-      0.18333999999999995
+      0.08334
     ],
     [
-      36,
-      "Comfey",
-      "Target of Move With Crit Chance (Moonblast)",
-      0.18333999999999995,
-      0.04167,
-      0.22501
-    ],
-    [
-      36,
-      "Comfey",
-      "Target of Move With Secondary Effect Chance (Moonblast)",
-      0.22501,
-      0.3,
-      0.52501
-    ],
-    [
-      36,
-      "Comfey",
-      "Mon harmed by secondary effect (Moonblast)",
-      0.52501,
-      -1.0,
-      -0.47499
-    ],
-    [
-      43,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      -0.47499,
-      -0.04167,
-      -0.51666
-    ],
-    [
-      43,
-      "Comfey",
-      "Target of Move With Crit Chance (Multi-Attack)",
-      -0.51666,
-      0.04167,
-      -0.47499
-    ],
-    [
-      44,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      -0.47499,
-      -0.04167,
-      -0.51666
-    ],
-    [
-      44,
-      "Comfey",
-      "Target of Move That Can Miss (Ice Fang)",
-      -0.51666,
-      -0.05,
-      -0.56666
-    ],
-    [
-      44,
-      "Comfey",
-      "Target of Move With Crit Chance (Ice Fang)",
-      -0.56666,
-      0.04167,
-      -0.5249900000000001
-    ],
-    [
-      45,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      -0.5249900000000001,
-      -0.04167,
-      -0.56666
-    ],
-    [
-      50,
-      "Comfey",
-      "Target of Move With Crit Chance (Foul Play)",
-      -0.56666,
-      0.04167,
-      -0.5249900000000001
-    ],
-    [
-      52,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      -0.5249900000000001,
-      -0.04167,
-      -0.56666
-    ],
-    [
-      55,
-      "Comfey",
-      "Target of Move With Crit Chance (Moonblast)",
-      -0.56666,
-      0.04167,
-      -0.5249900000000001
-    ],
-    [
-      55,
-      "Comfey",
-      "Target of Move With Secondary Effect Chance (Moonblast)",
-      -0.5249900000000001,
-      0.3,
-      -0.22499000000000002
-    ],
-    [
-      55,
-      "Comfey",
-      "Mon Used a Move That Can Miss (Leech Seed)",
-      -0.22499000000000002,
-      0.1,
-      -0.12499000000000002
-    ],
-    [
-      56,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      -0.12499000000000002,
-      -0.04167,
-      -0.16666000000000003
-    ],
-    [
-      56,
-      "Comfey",
-      "Target of Move With Crit Chance (Moonblast)",
-      -0.16666000000000003,
-      0.04167,
-      -0.12499000000000005
-    ],
-    [
-      56,
-      "Comfey",
-      "Target of Move With Secondary Effect Chance (Moonblast)",
-      -0.12499000000000005,
-      0.3,
-      0.17500999999999997
-    ],
-    [
-      57,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      0.17500999999999997,
-      -0.04167,
-      0.13334
-    ],
-    [
-      61,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      0.13334,
-      -0.04167,
-      0.09166999999999997
-    ],
-    [
-      61,
-      "Comfey",
-      "Target of Move With Crit Chance (Foul Play)",
-      0.09166999999999997,
-      0.04167,
-      0.13334
-    ],
-    [
-      62,
-      "Comfey",
-      "Mon Used a Move That Can Miss (Leech Seed)",
-      0.13334,
-      0.1,
-      0.23333999999999996
-    ],
-    [
-      63,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      0.23333999999999996,
-      -0.04167,
-      0.19166999999999995
-    ],
-    [
-      68,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      0.19166999999999995,
-      -0.04167,
-      0.14999999999999994
-    ],
-    [
-      68,
-      "Comfey",
-      "Target of Move With Crit Chance (Foul Play)",
-      0.14999999999999994,
-      0.04167,
-      0.19166999999999995
-    ],
-    [
-      70,
-      "Comfey",
-      "Target of Move With Crit Chance (Foul Play)",
-      0.19166999999999995,
-      0.04167,
-      0.23333999999999996
-    ],
-    [
-      72,
-      "Comfey",
-      "Mon Used a Move That Can Miss (Leech Seed)",
-      0.23333999999999996,
-      0.1,
-      0.33333999999999997
-    ],
-    [
-      74,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      0.33333999999999997,
-      -0.04167,
-      0.29166999999999993
-    ],
-    [
-      78,
-      "Comfey",
-      "Mon Used Move With Crit Chance (Draining Kiss)",
-      0.29166999999999993,
-      -0.04167,
-      0.24999999999999992
-    ],
-    [
-      79,
-      "Comfey",
-      "Mon Used a Move That Can Miss (Leech Seed)",
-      0.24999999999999992,
-      0.1,
-      0.3499999999999999
-    ],
-    [
-      79,
-      "Comfey",
-      "Target of Move With Crit Chance (Foul Play)",
-      0.3499999999999999,
-      0.04167,
-      0.39166999999999996
-    ],
-    [
-      23,
-      "Duraludon",
-      "Mon Used Move With Crit Chance (Flash Cannon)",
+      9,
+      "Primarina",
+      "Mon Used Move With Crit Chance (Moonblast)",
       0.0,
       -0.04167,
       -0.04167
     ],
     [
-      23,
-      "Duraludon",
-      "Mon Used Move With Secondary Effect Chance (Flash Cannon)",
+      10,
+      "Primarina",
+      "Target of Move That Can Miss (Nature's Madness)",
       -0.04167,
       -0.1,
       -0.14167
     ],
     [
-      40,
-      "Duraludon",
-      "Target of Move With Crit Chance (U-turn)",
+      10,
+      "Primarina",
+      "Mon Used Move With Crit Chance (Moonblast)",
       -0.14167,
-      0.04167,
-      -0.1
-    ],
-    [
-      41,
-      "Duraludon",
-      "Mon Used a Move That Can Miss (Steel Beam)",
-      -0.1,
-      0.05,
-      -0.05
-    ],
-    [
-      41,
-      "Duraludon",
-      "Mon Used Move With Crit Chance (Steel Beam)",
-      -0.05,
       -0.04167,
-      -0.09167
+      -0.18334
     ],
     [
-      42,
-      "Duraludon",
-      "Mon Used a Move That Can Miss (Steel Beam)",
-      -0.09167,
-      0.05,
-      -0.04167
+      10,
+      "Primarina",
+      "Mon Used Move With Secondary Effect Chance (Moonblast)",
+      -0.18334,
+      -0.3,
+      -0.48334000000000005
     ],
     [
-      42,
-      "Duraludon",
-      "Mon Used Move With Crit Chance (Steel Beam)",
-      -0.04167,
-      -0.04167,
-      -0.08334
+      10,
+      "Primarina",
+      "Mon incurred secondary effect (Moonblast)",
+      -0.48334000000000005,
+      1.0,
+      0.51666
     ],
     [
-      16,
-      "Durant",
-      "Target of Move With Crit Chance (Earthquake)",
+      18,
+      "Scrafty",
+      "Target of Move With Crit Chance (First Impression)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      17,
-      "Durant",
-      "Mon Used Move With Crit Chance (Iron Head)",
+      18,
+      "Scrafty",
+      "Mon Used Move With Crit Chance (Drain Punch)",
       0.04167,
       -0.04167,
       0.0
     ],
     [
-      17,
-      "Durant",
-      "Mon Used Move With Secondary Effect Chance (Iron Head)",
-      0.0,
-      -0.3,
-      -0.3
-    ],
-    [
-      17,
-      "Durant",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.3,
-      0.04167,
-      -0.25833
-    ],
-    [
-      18,
-      "Durant",
-      "Mon missed a move (Iron Head)",
-      -0.25833,
-      -1.0,
-      -1.25833
-    ],
-    [
-      19,
-      "Durant",
-      "Mon Used Move With Crit Chance (Iron Head)",
-      -1.25833,
-      -0.04167,
-      -1.3
-    ],
-    [
-      19,
-      "Durant",
-      "Mon Used Move With Secondary Effect Chance (Iron Head)",
-      -1.3,
-      -0.3,
-      -1.6
-    ],
-    [
-      19,
-      "Durant",
-      "Target of Move With Crit Chance (Earthquake)",
-      -1.6,
-      0.04167,
-      -1.55833
-    ],
-    [
-      6,
-      "Gastrodon",
-      "Target of Move That Can Miss (Ice Fang)",
-      0.0,
-      -0.05,
-      -0.05
-    ],
-    [
-      6,
-      "Gastrodon",
-      "Opponent missed a move (Ice Fang)",
-      -0.05,
-      1.0,
-      0.95
-    ],
-    [
-      7,
-      "Gastrodon",
-      "Mon Used Move With Crit Chance (Earth Power)",
-      0.95,
-      -0.04167,
-      0.90833
-    ],
-    [
-      7,
-      "Gastrodon",
-      "Mon Used Move With Secondary Effect Chance (Earth Power)",
-      0.90833,
-      -0.1,
-      0.80833
-    ],
-    [
-      38,
-      "Gastrodon",
-      "Target of Move With Crit Chance (Grass Pledge)",
-      0.80833,
-      0.04167,
-      0.85
-    ],
-    [
-      38,
-      "Gastrodon",
-      "Mon Used a Move That Can Miss (Toxic)",
-      0.85,
-      0.1,
-      0.95
-    ],
-    [
-      47,
-      "Gastrodon",
-      "Target of Move That Can Miss (Toxic)",
-      0.95,
-      -0.1,
-      0.85
-    ],
-    [
-      47,
-      "Gastrodon",
-      "Mon Used Move With Crit Chance (Scald)",
-      0.85,
-      -0.04167,
-      0.80833
-    ],
-    [
-      47,
-      "Gastrodon",
-      "Mon Used Move With Secondary Effect Chance (Scald)",
-      0.80833,
-      -0.3,
-      0.50833
-    ],
-    [
-      47,
-      "Gastrodon",
-      "Mon incurred secondary effect (Scald)",
-      0.50833,
-      1.0,
-      1.50833
-    ],
-    [
-      49,
-      "Gastrodon",
-      "Target of Move With Crit Chance (Foul Play)",
-      1.50833,
-      0.04167,
-      1.55
-    ],
-    [
-      49,
-      "Gastrodon",
-      "Mon Used Move With Crit Chance (Scald)",
-      1.55,
-      -0.04167,
-      1.50833
-    ],
-    [
-      53,
-      "Gastrodon",
-      "Target of Move With Crit Chance (Moonblast)",
-      1.50833,
-      0.04167,
-      1.55
-    ],
-    [
-      53,
-      "Gastrodon",
-      "Target of Move With Secondary Effect Chance (Moonblast)",
-      1.55,
-      0.3,
-      1.85
-    ],
-    [
-      53,
-      "Gastrodon",
-      "Mon harmed by secondary effect (Moonblast)",
-      1.85,
-      -1.0,
-      0.85
-    ],
-    [
-      54,
-      "Gastrodon",
-      "Target of Move With Crit Chance (Moonblast)",
-      0.85,
-      0.04167,
-      0.89167
-    ],
-    [
-      15,
-      "Noivern",
-      "Target of Move That Can Miss (Stone Edge)",
-      0.0,
-      -0.2,
-      -0.2
-    ],
-    [
-      15,
-      "Noivern",
-      "Opponent missed a move (Stone Edge)",
-      -0.2,
-      1.0,
-      0.8
-    ],
-    [
-      16,
-      "Noivern",
-      "Mon Used Move With Crit Chance (U-turn)",
-      0.8,
-      -0.04167,
-      0.75833
-    ],
-    [
-      59,
-      "Noivern",
-      "Mon Used a Move That Can Miss (Draco Meteor)",
-      0.75833,
-      0.1,
-      0.85833
-    ],
-    [
-      59,
-      "Noivern",
-      "Mon missed a move (Draco Meteor)",
-      0.85833,
-      -1.0,
-      -0.14167000000000002
-    ],
-    [
-      59,
-      "Noivern",
-      "Target of Move That Can Miss (Toxic)",
-      -0.14167000000000002,
-      -0.1,
-      -0.24167000000000002
-    ],
-    [
-      60,
-      "Noivern",
-      "Mon Used Move With Crit Chance (U-turn)",
-      -0.24167000000000002,
-      -0.04167,
-      -0.28334000000000004
-    ],
-    [
-      65,
-      "Noivern",
-      "Mon Used Move With Crit Chance (U-turn)",
-      -0.28334000000000004,
-      -0.04167,
-      -0.32501
-    ],
-    [
-      70,
-      "Noivern",
-      "Mon Used Move With Crit Chance (U-turn)",
-      -0.32501,
-      -0.04167,
-      -0.36668000000000006
-    ],
-    [
-      76,
-      "Noivern",
-      "Target of Move With Crit Chance (Foul Play)",
-      -0.36668000000000006,
-      0.04167,
-      -0.32501
-    ],
-    [
-      76,
-      "Noivern",
-      "Mon was hit by a critical hit",
-      -0.32501,
-      -1.0,
-      -1.32501
-    ],
-    [
-      77,
-      "Noivern",
-      "Mon Used Move With Crit Chance (U-turn)",
-      -1.32501,
-      -0.04167,
-      -1.3666800000000001
-    ],
-    [
-      7,
-      "Ribombee",
-      "Target of Move With Crit Chance (Earth Power)",
+      22,
+      "Scrafty",
+      "Target of Move With Crit Chance (Ice Beam)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      7,
-      "Ribombee",
-      "Target of Move With Secondary Effect Chance (Earth Power)",
+      22,
+      "Scrafty",
+      "Target of Move With Secondary Effect Chance (Ice Beam)",
       0.04167,
       0.1,
       0.14167
     ],
     [
-      30,
-      "Ribombee",
-      "Mon Used Move With Crit Chance (Moonblast)",
+      22,
+      "Scrafty",
+      "Mon harmed by secondary effect (Ice Beam)",
       0.14167,
-      -0.04167,
-      0.1
+      -1.0,
+      -0.85833
     ],
     [
-      30,
-      "Ribombee",
-      "Mon Used Move With Secondary Effect Chance (Moonblast)",
-      0.1,
-      -0.3,
-      -0.2
+      23,
+      "Scrafty",
+      "Target of Move With Crit Chance (Ice Beam)",
+      -0.85833,
+      0.04167,
+      -0.8166599999999999
     ],
     [
-      31,
-      "Ribombee",
-      "Mon Used Move With Crit Chance (Moonblast)",
+      23,
+      "Scrafty",
+      "Mon Could Not Move Due to Freeze",
+      -0.8166599999999999,
       -0.2,
-      -0.04167,
-      -0.24167000000000002
+      -1.01666
     ],
     [
-      32,
-      "Ribombee",
-      "Mon Used Move With Crit Chance (U-turn)",
-      -0.24167000000000002,
-      -0.04167,
-      -0.28334000000000004
-    ],
-    [
-      35,
-      "Ribombee",
-      "Target of Move That Can Miss (Leech Seed)",
-      -0.28334000000000004,
-      -0.1,
-      -0.38334
-    ],
-    [
-      36,
-      "Ribombee",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      -0.38334,
+      24,
+      "Scrafty",
+      "Target of Move With Crit Chance (Ice Beam)",
+      -1.01666,
       0.04167,
-      -0.34167000000000003
+      -0.9749899999999999
     ],
     [
-      36,
-      "Ribombee",
-      "Mon Used Move With Crit Chance (Moonblast)",
-      -0.34167000000000003,
-      -0.04167,
-      -0.38334
-    ],
-    [
-      36,
-      "Ribombee",
-      "Mon Used Move With Secondary Effect Chance (Moonblast)",
-      -0.38334,
-      -0.3,
-      -0.6833400000000001
-    ],
-    [
-      36,
-      "Ribombee",
-      "Mon incurred secondary effect (Moonblast)",
-      -0.6833400000000001,
-      1.0,
-      0.31665999999999994
-    ],
-    [
-      52,
-      "Ribombee",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      0.31665999999999994,
-      0.04167,
-      0.35833
-    ],
-    [
-      53,
-      "Ribombee",
-      "Mon Used Move With Crit Chance (Moonblast)",
-      0.35833,
-      -0.04167,
-      0.31665999999999994
-    ],
-    [
-      53,
-      "Ribombee",
-      "Mon Used Move With Secondary Effect Chance (Moonblast)",
-      0.31665999999999994,
-      -0.3,
-      0.016659999999999967
-    ],
-    [
-      53,
-      "Ribombee",
-      "Mon incurred secondary effect (Moonblast)",
-      0.016659999999999967,
-      1.0,
-      1.01666
-    ],
-    [
-      54,
-      "Ribombee",
-      "Mon Used Move With Crit Chance (Moonblast)",
-      1.01666,
-      -0.04167,
-      0.9749899999999999
-    ],
-    [
-      55,
-      "Ribombee",
-      "Mon Used Move With Crit Chance (Moonblast)",
-      0.9749899999999999,
-      -0.04167,
-      0.9333199999999999
-    ],
-    [
-      55,
-      "Ribombee",
-      "Mon Used Move With Secondary Effect Chance (Moonblast)",
-      0.9333199999999999,
-      -0.3,
-      0.6333199999999999
-    ],
-    [
-      55,
-      "Ribombee",
-      "Target of Move That Can Miss (Leech Seed)",
-      0.6333199999999999,
-      -0.1,
-      0.5333199999999999
-    ],
-    [
-      56,
-      "Ribombee",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      0.5333199999999999,
-      0.04167,
-      0.57499
-    ],
-    [
-      56,
-      "Ribombee",
-      "Mon Used Move With Crit Chance (Moonblast)",
-      0.57499,
-      -0.04167,
-      0.5333199999999999
-    ],
-    [
-      56,
-      "Ribombee",
-      "Mon Used Move With Secondary Effect Chance (Moonblast)",
-      0.5333199999999999,
-      -0.3,
-      0.23331999999999994
-    ],
-    [
-      77,
-      "Ribombee",
-      "Target of Move With Crit Chance (U-turn)",
-      0.23331999999999994,
-      0.04167,
-      0.27498999999999996
-    ],
-    [
-      78,
-      "Ribombee",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      0.27498999999999996,
-      0.04167,
-      0.31665999999999994
-    ],
-    [
-      15,
-      "Runerigus",
-      "Mon Used a Move That Can Miss (Stone Edge)",
-      0.0,
-      0.2,
-      0.2
-    ],
-    [
-      15,
-      "Runerigus",
-      "Mon missed a move (Stone Edge)",
-      0.2,
-      -1.0,
-      -0.8
-    ],
-    [
-      16,
-      "Runerigus",
-      "Target of Move With Crit Chance (U-turn)",
-      -0.8,
-      0.04167,
-      -0.75833
-    ],
-    [
-      16,
-      "Runerigus",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      -0.75833,
-      -0.04167,
-      -0.8
-    ],
-    [
-      17,
-      "Runerigus",
-      "Target of Move With Crit Chance (Iron Head)",
-      -0.8,
-      0.04167,
-      -0.75833
-    ],
-    [
-      17,
-      "Runerigus",
-      "Target of Move With Secondary Effect Chance (Iron Head)",
-      -0.75833,
-      0.3,
-      -0.45832999999999996
-    ],
-    [
-      17,
-      "Runerigus",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      -0.45832999999999996,
-      -0.04167,
-      -0.5
-    ],
-    [
-      18,
-      "Runerigus",
-      "Opponent missed a move (Iron Head)",
-      -0.5,
-      1.0,
-      0.5
-    ],
-    [
-      19,
-      "Runerigus",
-      "Target of Move With Crit Chance (Iron Head)",
-      0.5,
-      0.04167,
-      0.54167
-    ],
-    [
-      19,
-      "Runerigus",
-      "Target of Move With Secondary Effect Chance (Iron Head)",
-      0.54167,
-      0.3,
-      0.84167
-    ],
-    [
-      19,
-      "Runerigus",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      0.84167,
-      -0.04167,
-      0.8
-    ],
-    [
-      25,
-      "Runerigus",
-      "Target of Move With Crit Chance (Knock Off)",
-      0.8,
-      0.04167,
-      0.84167
-    ],
-    [
-      3,
-      "Salazzle",
-      "Target of Move That Can Miss (Leech Seed)",
-      0.0,
-      -0.1,
-      -0.1
-    ],
-    [
-      4,
-      "Salazzle",
-      "Mon Used a Move That Can Miss (Toxic)",
-      -0.1,
-      0.1,
-      0.0
-    ],
-    [
-      5,
-      "Salazzle",
-      "Mon Used Move With Crit Chance (Knock Off)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      5,
-      "Salazzle",
-      "Target of Move That Can Miss (Overheat)",
-      -0.04167,
-      -0.1,
-      -0.14167
-    ],
-    [
-      5,
-      "Salazzle",
-      "Target of Move With Crit Chance (Overheat)",
-      -0.14167,
-      0.04167,
-      -0.1
-    ],
-    [
-      6,
-      "Silvally",
-      "Mon Used a Move That Can Miss (Ice Fang)",
-      0.0,
-      0.05,
-      0.05
-    ],
-    [
-      6,
-      "Silvally",
-      "Mon missed a move (Ice Fang)",
-      0.05,
-      -1.0,
-      -0.95
-    ],
-    [
-      38,
-      "Silvally",
-      "Mon Used Move With Crit Chance (Grass Pledge)",
-      -0.95,
-      -0.04167,
-      -0.99167
-    ],
-    [
-      38,
-      "Silvally",
-      "Target of Move That Can Miss (Toxic)",
-      -0.99167,
-      -0.1,
-      -1.09167
-    ],
-    [
-      39,
-      "Silvally",
-      "Mon Used Move With Crit Chance (Grass Pledge)",
-      -1.09167,
-      -0.04167,
-      -1.13334
-    ],
-    [
-      43,
-      "Silvally",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      -1.13334,
-      0.04167,
-      -1.09167
-    ],
-    [
-      43,
-      "Silvally",
-      "Mon Used Move With Crit Chance (Multi-Attack)",
-      -1.09167,
-      -0.04167,
-      -1.13334
-    ],
-    [
-      44,
-      "Silvally",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      -1.13334,
-      0.04167,
-      -1.09167
-    ],
-    [
-      44,
-      "Silvally",
-      "Mon Used a Move That Can Miss (Ice Fang)",
-      -1.09167,
-      0.05,
-      -1.04167
-    ],
-    [
-      44,
-      "Silvally",
-      "Mon Used Move With Crit Chance (Ice Fang)",
-      -1.04167,
-      -0.04167,
-      -1.08334
-    ],
-    [
-      63,
-      "Silvally",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      -1.08334,
-      0.04167,
-      -1.04167
-    ],
-    [
-      1,
-      "Umbreon",
-      "Target of Move With Crit Chance (Flamethrower)",
+      13,
+      "Sirfetchd",
+      "Target of Move With Crit Chance (Thunderbolt)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      1,
-      "Umbreon",
-      "Target of Move With Secondary Effect Chance (Flamethrower)",
+      18,
+      "Sirfetchd",
+      "Mon Used Move With Crit Chance (First Impression)",
       0.04167,
+      -0.04167,
+      0.0
+    ],
+    [
+      18,
+      "Sirfetchd",
+      "Target of Move With Crit Chance (Drain Punch)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      6,
+      "Tapu Koko",
+      "Mon Used Move With Crit Chance (Thunderbolt)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      6,
+      "Tapu Koko",
+      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
+      -0.04167,
+      -0.1,
+      -0.14167
+    ],
+    [
+      10,
+      "Tapu Koko",
+      "Mon Used a Move That Can Miss (Nature's Madness)",
+      -0.14167,
       0.1,
-      0.14167
+      -0.04167
+    ],
+    [
+      10,
+      "Tapu Koko",
+      "Target of Move With Crit Chance (Moonblast)",
+      -0.04167,
+      0.04167,
+      0.0
+    ],
+    [
+      10,
+      "Tapu Koko",
+      "Target of Move With Secondary Effect Chance (Moonblast)",
+      0.0,
+      0.3,
+      0.3
+    ],
+    [
+      10,
+      "Tapu Koko",
+      "Mon harmed by secondary effect (Moonblast)",
+      0.3,
+      -1.0,
+      -0.7
     ],
     [
       11,
-      "Umbreon",
-      "Mon Used a Move That Can Miss (Toxic)",
-      0.14167,
-      0.1,
-      0.24167000000000002
+      "Tapu Koko",
+      "Mon Used Move With Crit Chance (Thunderbolt)",
+      -0.7,
+      -0.04167,
+      -0.74167
+    ],
+    [
+      13,
+      "Tapu Koko",
+      "Mon Used Move With Crit Chance (Thunderbolt)",
+      -0.74167,
+      -0.04167,
+      -0.78334
+    ],
+    [
+      14,
+      "Tapu Koko",
+      "Mon Used Move With Crit Chance (Thunderbolt)",
+      -0.78334,
+      -0.04167,
+      -0.82501
+    ],
+    [
+      19,
+      "Tapu Koko",
+      "Target of Move With Crit Chance (Dazzling Gleam)",
+      -0.82501,
+      0.04167,
+      -0.78334
     ],
     [
       20,
-      "Umbreon",
-      "Target of Move With Crit Chance (Knock Off)",
-      0.24167000000000002,
+      "Tapu Koko",
+      "Target of Move With Crit Chance (Psychic)",
+      -0.78334,
       0.04167,
-      0.28334000000000004
+      -0.74167
     ],
     [
-      21,
-      "Umbreon",
-      "Target of Move With Crit Chance (U-turn)",
-      0.28334000000000004,
-      0.04167,
-      0.32501
-    ],
-    [
-      21,
-      "Umbreon",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      0.32501,
-      -0.04167,
-      0.28334000000000004
-    ],
-    [
-      26,
-      "Umbreon",
-      "Target of Move With Crit Chance (U-turn)",
-      0.28334000000000004,
-      0.04167,
-      0.32501
-    ],
-    [
-      27,
-      "Umbreon",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      0.32501,
-      -0.04167,
-      0.28334000000000004
-    ],
-    [
-      34,
-      "Umbreon",
-      "Target of Move With Crit Chance (U-turn)",
-      0.28334000000000004,
-      0.04167,
-      0.32501
-    ],
-    [
-      34,
-      "Umbreon",
-      "Mon was hit by a critical hit",
-      0.32501,
-      -1.0,
-      -0.67499
-    ],
-    [
-      34,
-      "Umbreon",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -0.67499,
-      -0.04167,
-      -0.71666
-    ],
-    [
-      45,
-      "Umbreon",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      -0.71666,
-      0.04167,
-      -0.67499
-    ],
-    [
-      47,
-      "Umbreon",
-      "Mon Used a Move That Can Miss (Toxic)",
-      -0.67499,
-      0.1,
-      -0.57499
-    ],
-    [
-      47,
-      "Umbreon",
-      "Target of Move With Crit Chance (Scald)",
-      -0.57499,
-      0.04167,
-      -0.5333199999999999
-    ],
-    [
-      47,
-      "Umbreon",
-      "Target of Move With Secondary Effect Chance (Scald)",
-      -0.5333199999999999,
-      0.3,
-      -0.23331999999999994
-    ],
-    [
-      47,
-      "Umbreon",
-      "Mon harmed by secondary effect (Scald)",
-      -0.23331999999999994,
-      -1.0,
-      -1.23332
-    ],
-    [
-      49,
-      "Umbreon",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -1.23332,
-      -0.04167,
-      -1.2749899999999998
-    ],
-    [
-      49,
-      "Umbreon",
-      "Target of Move With Crit Chance (Scald)",
-      -1.2749899999999998,
-      0.04167,
-      -1.23332
-    ],
-    [
-      50,
-      "Umbreon",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -1.23332,
-      -0.04167,
-      -1.2749899999999998
-    ],
-    [
-      57,
-      "Umbreon",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      -1.2749899999999998,
-      0.04167,
-      -1.23332
-    ],
-    [
-      59,
-      "Umbreon",
-      "Target of Move That Can Miss (Draco Meteor)",
-      -1.23332,
-      -0.1,
-      -1.3333199999999998
-    ],
-    [
-      59,
-      "Umbreon",
-      "Opponent missed a move (Draco Meteor)",
-      -1.3333199999999998,
-      1.0,
-      -0.33331999999999995
-    ],
-    [
-      59,
-      "Umbreon",
-      "Mon Used a Move That Can Miss (Toxic)",
-      -0.33331999999999995,
-      0.1,
-      -0.23331999999999994
-    ],
-    [
-      60,
-      "Umbreon",
-      "Target of Move With Crit Chance (U-turn)",
-      -0.23331999999999994,
-      0.04167,
-      -0.19164999999999993
-    ],
-    [
-      61,
-      "Umbreon",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      -0.19164999999999993,
-      0.04167,
-      -0.14997999999999992
-    ],
-    [
-      61,
-      "Umbreon",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -0.14997999999999992,
-      -0.04167,
-      -0.19164999999999993
-    ],
-    [
-      62,
-      "Umbreon",
-      "Target of Move That Can Miss (Leech Seed)",
-      -0.19164999999999993,
-      -0.1,
-      -0.2916499999999999
-    ],
-    [
-      65,
-      "Umbreon",
-      "Target of Move With Crit Chance (U-turn)",
-      -0.2916499999999999,
-      0.04167,
-      -0.2499799999999999
-    ],
-    [
-      68,
-      "Umbreon",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      -0.2499799999999999,
-      0.04167,
-      -0.20830999999999988
-    ],
-    [
-      68,
-      "Umbreon",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -0.20830999999999988,
-      -0.04167,
-      -0.2499799999999999
-    ],
-    [
-      70,
-      "Umbreon",
-      "Target of Move With Crit Chance (U-turn)",
-      -0.2499799999999999,
-      0.04167,
-      -0.20830999999999988
-    ],
-    [
-      70,
-      "Umbreon",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -0.20830999999999988,
-      -0.04167,
-      -0.2499799999999999
-    ],
-    [
-      72,
-      "Umbreon",
-      "Target of Move That Can Miss (Leech Seed)",
-      -0.2499799999999999,
-      -0.1,
-      -0.3499799999999999
-    ],
-    [
-      74,
-      "Umbreon",
-      "Target of Move With Crit Chance (Draining Kiss)",
-      -0.3499799999999999,
-      0.04167,
-      -0.30830999999999986
-    ],
-    [
-      76,
-      "Umbreon",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -0.30830999999999986,
-      -0.04167,
-      -0.3499799999999999
-    ],
-    [
-      76,
-      "Umbreon",
-      "Mon landed a critical hit",
-      -0.3499799999999999,
-      1.0,
-      0.65002
-    ],
-    [
-      79,
-      "Umbreon",
-      "Target of Move That Can Miss (Leech Seed)",
-      0.65002,
-      -0.1,
-      0.5500200000000001
-    ],
-    [
-      79,
-      "Umbreon",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      0.5500200000000001,
-      -0.04167,
-      0.5083500000000001
-    ],
-    [
-      20,
-      "Uxie",
+      1,
+      "Tsareena",
       "Mon Used Move With Crit Chance (Knock Off)",
       0.0,
       -0.04167,
       -0.04167
     ],
     [
-      21,
-      "Uxie",
+      2,
+      "Tsareena",
       "Mon Used Move With Crit Chance (U-turn)",
       -0.04167,
       -0.04167,
       -0.08334
     ],
     [
-      23,
-      "Uxie",
-      "Target of Move With Crit Chance (Flash Cannon)",
-      -0.08334,
-      0.04167,
-      -0.04167
-    ],
-    [
-      23,
-      "Uxie",
-      "Target of Move With Secondary Effect Chance (Flash Cannon)",
-      -0.04167,
-      0.1,
-      0.05833
-    ],
-    [
-      25,
-      "Uxie",
-      "Mon Used Move With Crit Chance (Knock Off)",
-      0.05833,
-      -0.04167,
-      0.016660000000000005
-    ],
-    [
-      26,
-      "Uxie",
-      "Mon Used Move With Crit Chance (U-turn)",
-      0.016660000000000005,
-      -0.04167,
-      -0.025009999999999994
-    ],
-    [
-      32,
-      "Uxie",
-      "Target of Move With Crit Chance (U-turn)",
-      -0.025009999999999994,
-      0.04167,
-      0.016660000000000005
-    ],
-    [
-      34,
-      "Uxie",
-      "Mon Used Move With Crit Chance (U-turn)",
-      0.016660000000000005,
-      -0.04167,
-      -0.025009999999999994
-    ],
-    [
-      34,
-      "Uxie",
+      2,
+      "Tsareena",
       "Mon landed a critical hit",
-      -0.025009999999999994,
+      -0.08334,
       1.0,
-      0.9749899999999999
-    ],
-    [
-      39,
-      "Uxie",
-      "Target of Move With Crit Chance (Grass Pledge)",
-      0.9749899999999999,
-      0.04167,
-      1.01666
-    ],
-    [
-      40,
-      "Uxie",
-      "Mon Used Move With Crit Chance (U-turn)",
-      1.01666,
-      -0.04167,
-      0.9749899999999999
-    ],
-    [
-      41,
-      "Uxie",
-      "Target of Move That Can Miss (Steel Beam)",
-      0.9749899999999999,
-      -0.05,
-      0.92499
-    ],
-    [
-      41,
-      "Uxie",
-      "Target of Move With Crit Chance (Steel Beam)",
-      0.92499,
-      0.04167,
-      0.96666
-    ],
-    [
-      42,
-      "Uxie",
-      "Target of Move That Can Miss (Steel Beam)",
-      0.96666,
-      -0.05,
       0.9166599999999999
     ],
     [
-      42,
-      "Uxie",
-      "Target of Move With Crit Chance (Steel Beam)",
+      16,
+      "Tsareena",
+      "Mon Used Move With Crit Chance (Knock Off)",
       0.9166599999999999,
+      -0.04167,
+      0.8749899999999999
+    ],
+    [
+      16,
+      "Tsareena",
+      "Target of Move With Crit Chance (Ice Beam)",
+      0.8749899999999999,
       0.04167,
-      0.95833
+      0.9166599999999999
+    ],
+    [
+      2,
+      "Weezing-Galar",
+      "Target of Move With Crit Chance (Knock Off)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      8,
+      "Weezing-Galar",
+      "Mon Used Move With Crit Chance (Flamethrower)",
+      0.04167,
+      -0.04167,
+      0.0
+    ],
+    [
+      8,
+      "Weezing-Galar",
+      "Mon landed a critical hit",
+      0.0,
+      1.0,
+      1.0
+    ],
+    [
+      9,
+      "Weezing-Galar",
+      "Target of Move With Crit Chance (Moonblast)",
+      1.0,
+      0.04167,
+      1.04167
+    ],
+    [
+      21,
+      "Zygarde",
+      "Mon Used Move With Crit Chance (Thousand Arrows)",
+      0.0,
+      -0.04167,
+      -0.04167
+    ],
+    [
+      25,
+      "Zygarde",
+      "Target of Move With Crit Chance (Ice Beam)",
+      -0.04167,
+      0.04167,
+      0.0
+    ],
+    [
+      25,
+      "Zygarde",
+      "Target of Move With Secondary Effect Chance (Ice Beam)",
+      0.0,
+      0.1,
+      0.1
+    ],
+    [
+      26,
+      "Zygarde",
+      "Mon Used Move With Crit Chance (Thousand Arrows)",
+      0.1,
+      -0.04167,
+      0.05833
+    ],
+    [
+      26,
+      "Zygarde",
+      "Target of Move With Crit Chance (Ice Beam)",
+      0.05833,
+      0.04167,
+      0.1
     ]
   ],
   "errormessage": []

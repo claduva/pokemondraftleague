@@ -78,9 +78,9 @@ def prepare_parsedlogfile(logfile,replay):
     for line in logfile:
         if line.find("|")>-1:
             #remove unneeded lines
-            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace(", L5","").replace("-Striped","").replace("-Trash","").replace("-Sandy","").replace("Indeedee-F","Indeedee").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("Florges-White","Florges").replace("-Pokeball","").replace("-Elegant","").replace("-Indigo","").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","").replace("-Douse","").replace("-Burn","").replace("-Chill","").replace("-Shock","").replace("Type: ","Type:").replace("Mr. ","Mr.").replace("-Sensu","").replace("-Pom-Pom","").replace("-Pa'u","").replace("Farfetch'd","Farfetchd").replace("-Totem","").replace("-Resolute","").replace("-Meteor","").replace("Meowstic-F","Meowstic").replace("-East","").replace("Sirfetch'd","Sirfetchd")
+            line=line.replace(", M","").replace(", F","").replace("-*","").replace(", shiny","").replace(", L50","").replace(", L5","").replace("-Striped","").replace("-Trash","").replace("-Sandy","").replace("Indeedee-F","Indeedee").replace("-Super","").replace("-Large","").replace("-Small","").replace("-Blue","").replace("-Orange","").replace("Florges-White","Florges").replace("-Pokeball","").replace("-Elegant","").replace("-Indigo","").replace("-Yellow","").replace("-Bug","").replace("-Dark","").replace("-Dragon","").replace("-Electric","").replace("-Fairy","").replace("-Fighting","").replace("-Fire","").replace("-Flying","").replace("-Ghost","").replace("-Grass","").replace("-Ground","").replace("-Ice","").replace("-Normal","").replace("-Poison","").replace("-Psychic","").replace("-Rock","").replace("-Steel","").replace("-Water","").replace("-Douse","").replace("-Burn","").replace("-Chill","").replace("-Shock","").replace("Type: ","Type:").replace("Mr. ","Mr.").replace("-Sensu","").replace("-Pom-Pom","").replace("-Pa'u","").replace("Farfetch'd","Farfetchd").replace("-Totem","").replace("-Resolute","").replace("-Meteor","").replace("Meowstic-F","Meowstic").replace("-East","").replace("Sirfetch’d","Sirfetchd")
             linestoremove=["|","|teampreview","|clearpoke","|upkeep"]
-            badlines=["","|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost","|-nothing"]
+            badlines=["","|start","|player|p1","|player|p2","|player|p1|","|player|p2|","|-notarget","|-clearallboost","|-nothing","|-ohko"]
             linepurposestoremove=["j","c","l","html","raw","teamsize","gen","gametype","tier","rule","-mega","seed","teampreview","anim"]
             linepurpose=line.split("|",2)[1].replace("-","")
             #iterate turn number
@@ -415,6 +415,8 @@ def heal_function(line,parsedlogfile,results):
     previoushealth=pokemon['remaininghealth']
     pokemon['remaininghealth']=healthremaining
     healthhealed=healthremaining-previoushealth
+    print(line)
+    print(healthhealed)
     #update health healed
     if line[3].find("|[wisher] ")==-1 and line[3].find("[from] move: Lunar Dance")==-1:   
         pokemon['hphealed']+=healthhealed
@@ -584,8 +586,6 @@ def move_function(line,parsedlogfile,results):
     notmerciless=True
     if attacker['pokemon'] in ['Mareanie','Toxapex'] and (target['psn']!=None or target['tox']!=None):
         notmerciless=False
-    print(target)
-    print(line)
     if move in movesthatalwayscrit and notimmune and targetnotprotected and targetmon and movehit and target['pokemon'] not in ['Type:Null','Slowbro-Mega','Turtonator']:
         results=luckappend(line,results,attacker,f"Mon Used Move That Always Crits ({move})",-100)
         results=luckappend(line,results,target,f"Target of Move That Always Crits ({move})",100)
