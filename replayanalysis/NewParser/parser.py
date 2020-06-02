@@ -415,8 +415,6 @@ def heal_function(line,parsedlogfile,results):
     previoushealth=pokemon['remaininghealth']
     pokemon['remaininghealth']=healthremaining
     healthhealed=healthremaining-previoushealth
-    print(line)
-    print(healthhealed)
     #update health healed
     if line[3].find("|[wisher] ")==-1 and line[3].find("[from] move: Lunar Dance")==-1:   
         pokemon['hphealed']+=healthhealed
