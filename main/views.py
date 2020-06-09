@@ -81,7 +81,6 @@ def about(request):
     return  render(request,"about.html", context)
 
 def custom404(request,exception):
-    template = loader.get_template("404.html")
     return render(request,"404.html")
     #return HttpResponseNotFound(template.render())
 
