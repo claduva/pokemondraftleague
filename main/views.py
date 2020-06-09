@@ -82,10 +82,10 @@ def about(request):
 
 def custom404(request,exception):
     return render(request,"404.html")
-    #return HttpResponseNotFound(template.render())
 
-#def custom500(request,exception):
-#    return render(request,"500.html")
+def custom500(request):
+    print(request.POST)
+    return render(request,"500.html")
 
 def discordbotpage(request):
     return  render(request,"discordbot.html")

@@ -2,44 +2,16 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}PDL: Page Not Found{% endblock %}
+{% block title %}Error Encountered{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'leagues/styles/leaguelist.css' %}">
 {% endblock %}
 {% block body %}
 <div class="row content-section align-items-center">
-    <div class="col-md-4">
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center">
-                <a href="{% url 'league_list' %}"><button class="btn btn-info">View Leagues</button></a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="d-flex justify-content-center ">
-            <img src="{% static 'main/images/pdllogo.png' %}" alt="" height=75px>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center">
-                <a href="{% url 'recruiting_league_list' %}"><button class="btn btn-info">Join A League</button></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center">
-                <a href="{% url 'create_league' %}"><button class="btn btn-info">Create A League</button></a>
-            </div>
-        </div>  
+    <div class="col-md-12 text-center ">
+        <h4>Whatever you were trying to do didn't work. It most likely isn't your fault and is probably because the site developers are incompetent.</h4>
+        <h4>Kindly submit a request <a class="text-light" href="https://pokemondraftleague.online/help/"><u>here</u></a> to get it fixed. Be as specific as possible.</h4>
     </div>
 </div>
-<div class="row content-section align-items-center">
-        <div class="col-md-12 text-center ">
-            <h1>That's embarrassing! I've brought you to a non-existent page. I knew I shouldn't have used Amnesia...</h1>
-            <div class="d-flex justify-content-center">
-                <div class="largelogo"><img class="img-fluid" src="{% static 'main/images/error.png' %}"></div>
-            </div>
-        </div>
-    </div>
 {% endblock %}
