@@ -113,7 +113,9 @@
                             </div>
                         </a>
                     </td>
-                    <td class="align-middle">{{item.week}}</td>
+                    <td class="align-middle">
+                        {% if "Playoff" not in item.week %}Week {% endif %}{{item.week}}
+                    </td>
                     <td class="align-middle">
                         {% if item.team1.coach == request.user %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">
@@ -172,7 +174,7 @@
                             </div>
                         </a>
                     </td>
-                    <td class="align-middle">{{item.week}}</td>
+                    <td class="align-middle">{% if "Playoff" not in item.week %}Week {% endif %}{{item.week}}</td>
                     <td>
                         {% if item.team1.coach == request.user %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">

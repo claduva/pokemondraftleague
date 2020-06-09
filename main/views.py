@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.core import serializers
 from django.db.models import Q
 from django.core.files.base import ContentFile
+from django.template import Context, loader
 
 import json
 from datetime import datetime
@@ -80,8 +81,9 @@ def about(request):
     return  render(request,"about.html", context)
 
 def custom404(request,exception):
-    data = {}
-    return render(request,'404.html', data)
+    template = loader.get_template("404.html")
+    return render(request,"404.html")
+    #return HttpResponseNotFound(template.render())
 
 #def custom500(request,exception):
 #    return render(request,"500.html")
