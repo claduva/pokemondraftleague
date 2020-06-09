@@ -1104,7 +1104,7 @@ def freeagency(request,league_name,subleague_name):
         pointsremaining+=-pokemon_tier.objects.filter(subleague=subleague).get(pokemon=item.pokemon).tier.tierpoints
     try:
         coi=subleague.subleague_coachs.all().filter(Q(coach=request.user)|Q(teammate=request.user)).first()
-        droppedpokemon=coi.teamroster.all()
+        droppedpokemon=coi.teamroster.all().exclude(pokemon__isnull=True)
         form=FreeAgencyForm(droppedpokemon,availablepokemon,initial={
             'coach':coi,
             'season':season,
