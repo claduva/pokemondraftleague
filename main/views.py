@@ -14,6 +14,7 @@ import csv
 import os
 import requests
 import math
+import sys, traceback
 
 from accounts.forms import UserRegisterForm
 from .models import *
@@ -84,8 +85,9 @@ def custom404(request,exception):
     return render(request,"404.html")
 
 def custom500(request):
-    print(request.POST)
-    return render(request,"500.html")
+    type_, value, traceback_ = sys.exc_info()
+    context={'exception':value}
+    return render(request,"500.html",context)
 
 def discordbotpage(request):
     return  render(request,"discordbot.html")
