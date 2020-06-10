@@ -31,7 +31,10 @@ from replayanalysis.models import *
 from replayanalysis.helperfunctions import *
 from pokemondraftleague.customdecorators import check_if_clad
 
+from background_task import background
+
 def home(request):
+    notify_user()
     try:
         yourleagues=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user))
         if yourleagues.count()>0:
@@ -52,6 +55,12 @@ def home(request):
         "form": form,
     }
     return  render(request,"index.html", context)
+
+@background(schedule=30)
+def notify_user():
+    # lookup user by id and send them a message
+    clad=User.objects.get(username="claduva")
+    inbox.objects.create(sender=clad,recipient=clad, messagesubject="Notification",messagebody="Notification")
 
 def about(request):
     coachs=[]
