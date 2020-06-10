@@ -93,14 +93,28 @@ class moveinfo(models.Model):
     move_priority = models.IntegerField()
     secondary_effect_chance = models.IntegerField()
     secondary_effect = models.CharField(max_length=100)
-
+    uses = models.IntegerField(default=0)
+    hits = models.IntegerField(default=0)
+    crits = models.IntegerField(default=0)
+    posssecondaryeffects = models.IntegerField(default=0)
+    secondaryeffects = models.IntegerField(default=0)
+    
     def __str__(self):
         return f'Moveinfo for {self.name}'
+
+class pokemon_movedata(models.Model):
+    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
+    moveinfo = models.ForeignKey(moveinfo,on_delete=models.CASCADE)
+    uses = models.IntegerField(default=0)
+    hits = models.IntegerField(default=0)
+    crits = models.IntegerField(default=0)
+    posssecondaryeffects = models.IntegerField(default=0)
+    secondaryeffects = models.IntegerField(default=0)
+
 
 class pokemon_moveset(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='moves')
     moveinfo = models.ForeignKey(moveinfo,on_delete=models.CASCADE)
-
 
     class Meta:
         ordering = ['moveinfo__name']

@@ -151,10 +151,20 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    for item in historical_team.objects.all().order_by('league','seasonname').distinct('league','seasonname'):
-        finals=historical_match.objects.filter(team1__league=item.league,team1__seasonname=item.seasonname,week="Playoffs Finals")
-        if finals.count()==0:
-            print(item)
+    failed=[]
+    i=1
+    count=replaydatabase.objects.all().exclude(replay__contains="Forfeit").exclude(replay__contains="Unavailable").count()
+    for item in replaydatabase.objects.all().exclude(replay__contains="Forfeit").exclude(replay__contains="Unavailable"):
+        try:    
+            results = newreplayparse(item.replay)
+            if len(results['errormessage'])!=0:
+                failed.append(item.replay)
+        except:
+            failed.append(item.replay)
+        print(f'{i}/{count}')
+        i+=1
+    for item in failed:
+        print(item)
     return redirect('home')
 
 def get_pkmn(pkmn):
