@@ -644,7 +644,8 @@ def default_tiers(request,league_name,subleague_name):
                     mtu.tier=tiertouse
                     mtu.save()
                 except:
-                    pokemon_tier.objects.create(pokemon=item.pokemon,league=subleague.league,subleague=subleague,tier=tiertouse)
+                    id_=pokemon_tier.objects.all().order_by("-id").first().id+1
+                    pokemon_tier.objects.create(id=id_,pokemon=item.pokemon,league=subleague.league,subleague=subleague,tier=tiertouse)
         return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
     pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
     pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')

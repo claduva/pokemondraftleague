@@ -17,7 +17,7 @@
     <div class="col-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}"
             class="mediumlogo"></div>
 </div>
-<div class="row content-section align-items-center">
+<div class="row content-section">
     <div class="col-12">
         {% if results.replay %}
         {% if "pokemondraftleague.online/static/logfiles" in results.replay %}
@@ -189,6 +189,64 @@
         </table>
         </div>
     </div>
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+            <tr class="bg-dark text-light">
+                <th colspan="6">Moves Used</th>
+            </tr>
+            {% for mon in results.team1.roster %}
+            {% if mon.moves %}
+            <tr class="bg-dark text-light"><th colspan="6">
+                <div class="d-flex justify-content-center">
+                    <img class="smallsprite"
+                        src="{{mon.pokemon|sprite:site_settings.sprite}}">
+                    <div>{{mon.pokemon}}</div>
+                </div>
+            </th></tr>
+            <tr class="bg-dark text-light">
+                <th>Move</th><th>U</th><th>H</th><th>C</th><th>SE/SEP</th>
+            </tr>
+            {% endif %}
+            {% for item,values in mon.moves.items %}
+            <tr>
+                <th>{{ item }}</th>
+                <th>{{values.uses}}</th><th>{{values.hits}}</th><th>{{values.crits}}</th><th>{{values.secondaryeffects}}/{{values.posssecondaryeffects}}</th>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+            </table>
+        </div>
+    </div> 
+    <div class="col-md-6">
+        <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+            <tr class="bg-dark text-light">
+                <th colspan="6">Moves Used</th>
+            </tr>
+            {% for mon in results.team2.roster %}
+            {% if mon.moves %}
+            <tr class="bg-dark text-light"><th colspan="6">
+                <div class="d-flex justify-content-center">
+                    <img class="smallsprite"
+                        src="{{mon.pokemon|sprite:site_settings.sprite}}">
+                    <div>{{mon.pokemon}}</div>
+                </div>
+            </th></tr>
+            <tr class="bg-dark text-light">
+                <th>Move</th><th>U</th><th>H</th><th>C</th><th>SE/SEP</th>
+            </tr>
+            {% endif %}
+            {% for item,values in mon.moves.items %}
+            <tr>
+                <th>{{ item }}</th>
+                <th>{{values.uses}}</th><th>{{values.hits}}</th><th>{{values.crits}}</th><th>{{values.secondaryeffects}}/{{values.posssecondaryeffects}}</th>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+            </table>
+        </div>
+    </div>   
     <div class="col-md-12">
         <div class="card table-responsive bg-lightgrey text-dark text-center text-nowrap overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
