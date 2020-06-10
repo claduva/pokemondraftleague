@@ -74,6 +74,7 @@ INSTALLED_APPS = [
 
     #third party apps
     'crispy_forms',
+    'background_task',
     'django_celery_beat',
     'multiselectfield',
     'debug_toolbar',
