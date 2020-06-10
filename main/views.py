@@ -34,7 +34,6 @@ from pokemondraftleague.customdecorators import check_if_clad
 from background_task import background
 
 def home(request):
-    notify_user()
     try:
         yourleagues=coachdata.objects.all().filter(Q(coach=request.user)|Q(teammate=request.user))
         if yourleagues.count()>0:
