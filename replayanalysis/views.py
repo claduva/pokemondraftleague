@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from datetime import datetime
 import time
+from background_task import background
 
 from .models import *
 from .forms import *
@@ -471,6 +472,11 @@ def check_if_passes(request):
 
 @check_if_clad
 def check_analyzer(request):
+    check_analyzer_task()
+    return redirect('home')
+
+@background(schedule=1)
+def check_analyzer_task():
     ##zero rosters  
     roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
     historical_roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
@@ -582,13 +588,7 @@ def check_analyzer(request):
     print('Failed')
     for item in failed:
         print(f'{item.id}: {item.replay}')
-    context={
-        'currentmatches':currentmatches,
-        'histmatches':histmatches,
-    }
-    return redirect('home')
-    #return render(request,"analyzercheck.html",context)
-
+    
 @csrf_exempt
 #def check_current_match(request):
 def check_current_match(match):
