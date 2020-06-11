@@ -176,7 +176,6 @@ def runscript(request):
     for item in failed:
         print(item)
     """
-    notify_user(repeat=10,repeat_until=None)
     return redirect('home')
 
 def get_pkmn(pkmn):
