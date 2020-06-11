@@ -55,12 +55,14 @@ def home(request):
     }
     return  render(request,"index.html", context)
 
+"""
 @background(schedule=1)
 def notify_user():
     # lookup user by id and send them a message
     clad=User.objects.get(username="claduva")
     print('notify')
     inbox.objects.create(sender=clad,recipient=clad, messagesubject="Notification",messagebody="Notification")
+"""
 
 def about(request):
     coachs=[]
