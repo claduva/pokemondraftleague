@@ -255,10 +255,8 @@ def damage_function(line,parsedlogfile,results):
             damager=roster_search(otherteam,results[thisteam][cause],results)
         elif cause.title() in ['Sandstorm','Hail']:
             if results[thisteam][cause.title()]!=None:
-                print('here')
                 damager=roster_search(otherteam,results[thisteam][cause.title()],results)
             elif results[otherteam_][cause.title()]!=None:
-                print('here')
                 setter=roster_search(team,results[otherteam_][cause.title()],results)
                 setter['hphealed']+=-damagedone
         elif cause.find("item: Rocky Helmet")>-1 or cause.find("Leech Seed")>-1 or cause.find("ability: Iron Barbs")>-1 or cause.find("ability: Rough Skin")>-1 or cause.find("ability: Aftermath")>-1 or cause.find("ability: Liquid Ooze")>-1 or cause.find("ability: Innards Out")>-1 or cause.find("ability: Bad Dreams")>-1 or cause.find("ability: Gulp Missile")>-1  or cause.find("Spiky Shield")>-1 or cause.find("leechseed")>-1:
