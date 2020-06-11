@@ -474,120 +474,6 @@ def check_if_passes(request):
 def check_analyzer(request):
     check_analyzer_task()
     return redirect('home')
-
-@background(schedule=1)
-def check_analyzer_task():
-    ##zero rosters  
-    roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
-    historical_roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
-    all_pokemon.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
-    ##zero coachs
-    coachdata.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
-    historical_team.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
-    currentmatches=schedule.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
-    histmatches=historical_match.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
-    histffmatches=historical_match.objects.all().filter(replay__contains="Forfeit").order_by('id')
-    ffmatches=schedule.objects.all().filter(replay__contains="Forfeit").order_by('id')
-    unavailable=historical_match.objects.all().filter(replay="Unavailable")
-    total=currentmatches.count()+histmatches.count()+histffmatches.count()+ffmatches.count()+unavailable.count()
-    i=1
-    failed=[]
-    print('Current')
-    for item in currentmatches:
-        try:
-            success=check_current_match(item)
-            if not success:
-                failed.append(item)
-                print(f'{item.id}: {item.replay}')
-        except:
-            failed.append(item)
-            print(f'{item.id}: {item.replay}')
-        print(f'{i}/{total}')
-        i+=1
-    print('Historic')
-    for item in histmatches:
-        try:
-            success=check_hist_match(item)
-            if not success:
-                failed.append(item)
-                print(f'{item.id}: {item.replay}')
-        except:
-            failed.append(item)
-            print(f'{item.id}: {item.replay}')
-        print(f'{i}/{total}')
-        i+=1
-    #forfeits
-    print('Forfeit')
-    for item in ffmatches:
-        team1=item.team1
-        team2=item.team2
-        if item.replay=="Both Teams Forfeit":
-            team1.differential+=-3
-            team2.differential+=-3
-            team1.losses+=1
-            team2.losses+=1
-            team1.forfeit+=1
-            team2.forfeit+=1
-        elif item.replay=="Team 1 Forfeits":
-            team1.differential+=-3
-            team2.differential+=3
-            team1.losses+=1
-            team2.wins+=1
-            team1.forfeit+=1
-        elif item.replay=="Team 2 Forfeits":
-            team2.differential+=-3
-            team1.differential+=3
-            team2.losses+=1
-            team1.wins+=1
-            team2.forfeit+=1
-        team1.save()
-        team2.save()
-        print(f'{i}/{total}')
-        i+=1
-    for item in histffmatches:
-        team1=item.team1
-        team2=item.team2
-        if item.replay=="Both Teams Forfeit":
-            team1.differential+=-3
-            team2.differential+=-3
-            team1.losses+=1
-            team2.losses+=1
-            team1.forfeit+=1
-            team2.forfeit+=1
-        elif item.replay=="Team 1 Forfeits":
-            team1.differential+=-3
-            team2.differential+=3
-            team1.losses+=1
-            team2.wins+=1
-            team1.forfeit+=1
-        elif item.replay=="Team 2 Forfeits":
-            team2.differential+=-3
-            team1.differential+=3
-            team2.losses+=1
-            team1.wins+=1
-            team2.forfeit+=1
-        team1.save()
-        team2.save()
-        print(f'{i}/{total}')
-        i+=1
-    #unavailable
-    print('Unavailable')
-    for item in unavailable:
-        team1=item.team1
-        team2=item.team2
-        team1.differential+=item.team1score-item.team2score
-        team2.differential+=item.team2score-item.team1score
-        if item.winner==item.team1:
-            team1.wins+=1
-            team2.losses+=1
-        elif item.winner==item.team2:
-            team2.wins+=1
-            team1.losses+=1
-        print(f'{i}/{total}')
-        i+=1
-    print('Failed')
-    for item in failed:
-        print(f'{item.id}: {item.replay}')
     
 @csrf_exempt
 #def check_current_match(request):
@@ -852,3 +738,118 @@ def update_manual_match(match,form,request):
 def render_uploaded_replay(request,string):
     context={}
     return  render(request,string+".html",context)
+
+##--------------------------------------------TASKS--------------------------------------------
+@background(schedule=1)
+def check_analyzer_task():
+    ##zero rosters  
+    roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    historical_roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    all_pokemon.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    ##zero coachs
+    coachdata.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    historical_team.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    currentmatches=schedule.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
+    histmatches=historical_match.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
+    histffmatches=historical_match.objects.all().filter(replay__contains="Forfeit").order_by('id')
+    ffmatches=schedule.objects.all().filter(replay__contains="Forfeit").order_by('id')
+    unavailable=historical_match.objects.all().filter(replay="Unavailable")
+    total=currentmatches.count()+histmatches.count()+histffmatches.count()+ffmatches.count()+unavailable.count()
+    i=1
+    failed=[]
+    print('Current')
+    for item in currentmatches:
+        try:
+            success=check_current_match(item)
+            if not success:
+                failed.append(item)
+                print(f'{item.id}: {item.replay}')
+        except:
+            failed.append(item)
+            print(f'{item.id}: {item.replay}')
+        print(f'{i}/{total}')
+        i+=1
+    print('Historic')
+    for item in histmatches:
+        try:
+            success=check_hist_match(item)
+            if not success:
+                failed.append(item)
+                print(f'{item.id}: {item.replay}')
+        except:
+            failed.append(item)
+            print(f'{item.id}: {item.replay}')
+        print(f'{i}/{total}')
+        i+=1
+    #forfeits
+    print('Forfeit')
+    for item in ffmatches:
+        team1=item.team1
+        team2=item.team2
+        if item.replay=="Both Teams Forfeit":
+            team1.differential+=-3
+            team2.differential+=-3
+            team1.losses+=1
+            team2.losses+=1
+            team1.forfeit+=1
+            team2.forfeit+=1
+        elif item.replay=="Team 1 Forfeits":
+            team1.differential+=-3
+            team2.differential+=3
+            team1.losses+=1
+            team2.wins+=1
+            team1.forfeit+=1
+        elif item.replay=="Team 2 Forfeits":
+            team2.differential+=-3
+            team1.differential+=3
+            team2.losses+=1
+            team1.wins+=1
+            team2.forfeit+=1
+        team1.save()
+        team2.save()
+        print(f'{i}/{total}')
+        i+=1
+    for item in histffmatches:
+        team1=item.team1
+        team2=item.team2
+        if item.replay=="Both Teams Forfeit":
+            team1.differential+=-3
+            team2.differential+=-3
+            team1.losses+=1
+            team2.losses+=1
+            team1.forfeit+=1
+            team2.forfeit+=1
+        elif item.replay=="Team 1 Forfeits":
+            team1.differential+=-3
+            team2.differential+=3
+            team1.losses+=1
+            team2.wins+=1
+            team1.forfeit+=1
+        elif item.replay=="Team 2 Forfeits":
+            team2.differential+=-3
+            team1.differential+=3
+            team2.losses+=1
+            team1.wins+=1
+            team2.forfeit+=1
+        team1.save()
+        team2.save()
+        print(f'{i}/{total}')
+        i+=1
+    #unavailable
+    print('Unavailable')
+    for item in unavailable:
+        team1=item.team1
+        team2=item.team2
+        team1.differential+=item.team1score-item.team2score
+        team2.differential+=item.team2score-item.team1score
+        if item.winner==item.team1:
+            team1.wins+=1
+            team2.losses+=1
+        elif item.winner==item.team2:
+            team2.wins+=1
+            team1.losses+=1
+        print(f'{i}/{total}')
+        i+=1
+    print('Failed')
+    for item in failed:
+        print(f'{item.id}: {item.replay}')
