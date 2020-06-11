@@ -55,10 +55,11 @@ def home(request):
     }
     return  render(request,"index.html", context)
 
-@background(schedule=30)
+@background(schedule=1)
 def notify_user():
     # lookup user by id and send them a message
     clad=User.objects.get(username="claduva")
+    print('notify')
     inbox.objects.create(sender=clad,recipient=clad, messagesubject="Notification",messagebody="Notification")
 
 def about(request):
@@ -159,6 +160,7 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
+    """
     failed=[]
     i=1
     count=replaydatabase.objects.all().exclude(replay__contains="Forfeit").exclude(replay__contains="Unavailable").count()
@@ -173,6 +175,8 @@ def runscript(request):
         i+=1
     for item in failed:
         print(item)
+    """
+    notify_user(repeat=10,repeat_until=None)
     return redirect('home')
 
 def get_pkmn(pkmn):
