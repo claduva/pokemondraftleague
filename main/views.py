@@ -196,10 +196,30 @@ def get_pkmn(pkmn):
             #raise
     return pkmn
 
+@check_if_clad
+def start_tasks(request): 
+    print("Starting delete unused models")
+    delete_unused_models(schedule=60,repeat=60*60*24,repeat_until=None)
+    print("Starting run pickems")
+    run_pickems(schedule=60*2,repeat=60*60,repeat_until=None)
+    print("Starting execute free agency and trades")
+    execute_free_agency_and_trades(schedule=60*3,repeat=60*15,repeat_until=None)
+    print("Starting pokemon stat update")
+    pokemon_stat_update(schedule=60*5,repeat=60*60,repeat_until=None)
+    print("Starting award check")
+    award_check(schedule=60*20,repeat=60*60,repeat_until=None)
+    print("Starting user stat update")
+    user_stat_update(schedule=60*35,repeat=60*60,repeat_until=None)
+    print("Starting run replay database")
+    run_replay_database(schedule=60*50,repeat=60*60,repeat_until=None)
+    return redirect('home')
+
 ##--------------------------------------------TASKS--------------------------------------------
 @background(schedule=1)
 def delete_unused_models():
+    print("**************************************************")
     print("TASK: Running delete unused models")
+    print("**************************************************")
     for item in league.objects.all():  
         diff=abs((item.created.replace(tzinfo=None)-datetime.now()).days)
         if diff>7:
@@ -212,6 +232,9 @@ def delete_unused_models():
 
 @background(schedule=1)
 def run_replay_database():
+  print("**************************************************")
+  print("TASK: Running replay databae")
+  print("**************************************************")
   current=schedule.objects.all().exclude(replay="Link")
   prior=historical_match.objects.all()
   total=current.count()+prior.count()
@@ -350,3 +373,439 @@ def run_replay_database():
       )
     print(f'{counter}/{total}')
     counter+=1
+
+@background(schedule=1)
+def user_stat_update():
+    print("**************************************************")
+    print("TASK: Running user stat update")
+    print("**************************************************")
+    allusers=User.objects.all()
+    for userofinterest in allusers:
+        userprofile=userofinterest.profile
+        userprofile.wins=0
+        userprofile.losses=0
+        userprofile.seasonsplayed=0
+        userprofile.differential=0
+        userprofile.playoffwins=0
+        userprofile.playofflosses=0
+        userprofile.seasonsplayed=0
+        userprofile.playoffdifferential=0
+        userprofile.support=0
+        userprofile.damagedone=0
+        userprofile.hphealed=0
+        userprofile.luck =0
+        userprofile.remaininghealth=0
+        userprofile.save()
+        coaching=coachdata.objects.filter(Q(coach=userofinterest)|Q(teammate=userofinterest)).exclude(league_name__name__icontains="Test")
+        for item in coaching:
+            userprofile.support+=item.support
+            userprofile.damagedone+=item.damagedone
+            userprofile.hphealed+=item.hphealed
+            userprofile.luck+=item.luck
+            userprofile.remaininghealth+=item.remaininghealth
+        priorseasons=historical_team.objects.filter(Q(coach1=userofinterest)|Q(coach2=userofinterest)).exclude(league__name__icontains="Test")
+        for item in priorseasons:
+            userprofile.support+=item.support
+            userprofile.damagedone+=item.damagedone
+            userprofile.hphealed+=item.hphealed
+            userprofile.luck+=item.luck
+            userprofile.remaininghealth+=item.remaininghealth
+        alternativeseasoncount=schedule.objects.all().filter(Q(team1alternateattribution=userofinterest)|Q(team2alternateattribution=userofinterest)).distinct('season').count()+historical_match.objects.all().filter(Q(team1alternateattribution=userofinterest)|Q(team2alternateattribution=userofinterest)).distinct('team1__seasonname').count()
+        seasonsplayed=coaching.count()+priorseasons.count()+alternativeseasoncount
+        usermatches=replaydatabase.objects.all().filter(Q(team1coach1=userofinterest)|Q(team1coach2=userofinterest)|Q(team2coach1=userofinterest)|Q(team2coach2=userofinterest))
+        wins=usermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
+        playoffusermatches=usermatches.filter(Q(associatedmatch__week__icontains="Playoff")|Q(associatedhistoricmatch__week__icontains="Playoff"))
+        playoffwins=playoffusermatches.filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest))
+        for item in usermatches:
+            if userofinterest==item.winnercoach1 or userofinterest==item.winnercoach1:
+                if item.associatedmatch != None:
+                    userprofile.differential+=max(item.associatedmatch.team1score,item.associatedmatch.team2score)
+                elif item.associatedhistoricmatch != None:
+                    userprofile.differential+=max(item.associatedhistoricmatch.team1score,item.associatedhistoricmatch.team2score)
+            else:
+                if item.associatedmatch != None:
+                    userprofile.differential+=-max(item.associatedmatch.team1score,item.associatedmatch.team2score)
+                elif item.associatedhistoricmatch != None:
+                    userprofile.differential+=-max(item.associatedhistoricmatch.team1score,item.associatedhistoricmatch.team2score)
+        for item in playoffusermatches:            
+            if userofinterest==item.winnercoach1 or userofinterest==item.winnercoach1:
+                if item.associatedmatch != None:
+                    userprofile.playoffdifferential+=max(item.associatedmatch.team1score,item.associatedmatch.team2score)
+                elif item.associatedhistoricmatch != None:
+                    userprofile.playoffdifferential+=max(item.associatedhistoricmatch.team1score,item.associatedhistoricmatch.team2score)
+            else:
+                if item.associatedmatch != None:
+                    userprofile.playoffdifferential+=-max(item.associatedmatch.team1score,item.associatedmatch.team2score)
+                elif item.associatedhistoricmatch != None:
+                    userprofile.playoffdifferential+=-max(item.associatedhistoricmatch.team1score,item.associatedhistoricmatch.team2score)
+        userprofile.wins+=wins.count()
+        userprofile.losses+=usermatches.count()-wins.count()
+        userprofile.playoffwins+=playoffwins.count()
+        userprofile.playofflosses+=playoffusermatches.count()-playoffwins.count()
+        userprofile.seasonsplayed=seasonsplayed
+        userprofile.save()
+
+@background(schedule=1)
+def award_check():
+    print("**************************************************")
+    print("TASK: Running award check")
+    print("**************************************************")
+    admin=User.objects.get(username="Professor_Oak")
+    all_leagues=league.objects.all()
+    for item in all_leagues:       
+        #current seasons
+        currentseason=seasonsetting.objects.all().filter(league=item)
+        for s in currentseason:
+            awardtext=f'{item.name} {s.seasonname}'
+            #check finals 
+            try:
+                awardtogive=award.objects.get(awardname="Champion")
+                finalsmatch=schedule.objects.all().filter(season=s,season__league=item).exclude(winner__isnull=True).get(week="Playoffs Finals")
+                winner=finalsmatch.winner
+                if winner==finalsmatch.team1: runnerup=finalsmatch.team2 
+                else: runnerup=finalsmatch.team1
+                messagebody=f'Congratulations! You have been awarded a trophy for winning a championship. Check it out at https://www.pokemondraftleague.online/users/{winner.coach.username}'
+                awardcheck(winner.coach,awardtogive,awardtext,messagebody,admin)
+                if winner.teammate != None:
+                    messagebody=f'Congratulations! You have been awarded a trophy for winning a championship. Check it out at https://www.pokemondraftleague.online/users/{winner.teammate.username}'
+                    awardcheck(winner.teammate,awardtogive,awardtext,messagebody,admin)
+                awardtogive=award.objects.get(awardname="Runnerup")    
+                messagebody=f'Congratulations! You have been awarded a trophy for coming in second place in a season. Check it out at https://www.pokemondraftleague.online/users/{runnerup.coach.username}'
+                awardcheck(runnerup.coach,awardtogive,awardtext,messagebody,admin)
+                if runnerup.teammate != None:
+                    messagebody=f'Congratulations! You have been awarded a trophy for coming in second place in a season. Check it out at https://www.pokemondraftleague.online/users/{runnerup.teammate.username}'
+                    awardcheck(runnerup.teammate,awardtogive,awardtext,messagebody,admin)
+            except:
+                print('Finals not played')
+            #check third place
+            try:
+                awardtogive=award.objects.get(awardname="Thirdplace")
+                thirdplacematch=schedule.objects.all().filter(season=s,season__league=item).exclude(winner__isnull=True).get(week="Playoffs Third Place Match")
+                winner=thirdplacematch.winner
+                messagebody=f'Congratulations! You have been awarded a trophy for coming in third place in a season. Check it out at https://www.pokemondraftleague.online/users/{winner.coach.username}'
+                awardcheck(winner.coach,awardtogive,awardtext,messagebody,admin)
+                if winner.teammate != None:
+                    messagebody=f'Congratulations! You have been awarded a trophy for coming in third place in a season. Check it out at https://www.pokemondraftleague.online/users/{winner.teammate.username}'
+                    awardcheck(winner.teammate,awardtogive,awardtext,messagebody,admin)
+            except:
+                print('Third place match not played')
+            ##check playoffs
+            awardtogive=award.objects.get(awardname="Playoffs")
+            season_playoffmatches=schedule.objects.all().filter(season=s,season__league=item,week__contains="Playoffs").exclude(winner__isnull=True).distinct('winner')
+            for m in season_playoffmatches:
+                messagebody=f'Congratulations! You have been awarded a trophy for making playoffs in a season. Check it out at https://www.pokemondraftleague.online/users/{m.team1.coach.username}'
+                awardcheck(m.team1.coach,awardtogive,awardtext,messagebody,admin)
+                messagebody=f'Congratulations! You have been awarded a trophy for making playoffs in a season. Check it out at https://www.pokemondraftleague.online/users/{m.team2.coach.username}'
+                awardcheck(m.team2.coach,awardtogive,awardtext,messagebody,admin)
+                if m.team1.teammate != None: 
+                    messagebody=f'Congratulations! You have been awarded a trophy for making playoffs in a season. Check it out at https://www.pokemondraftleague.online/users/{m.team1.teammate.username}'
+                    awardcheck(m.team1.teammate,awardtogive,awardtext,messagebody,admin)
+                if m.team2.teammate != None: 
+                    messagebody=f'Congratulations! You have been awarded a trophy for making playoffs in a season. Check it out at https://www.pokemondraftleague.online/users/{m.team2.teammate.username}'
+                    awardcheck(m.team2.teammate,awardtogive,awardtext,messagebody,admin)       
+        #historical seasons
+        historical_seasons=historical_team.objects.all().filter(league=item).distinct('seasonname')
+        for s in historical_seasons:
+            awardtext=f'{item.name} {s.seasonname}'
+            #check finals 
+            try:
+                awardtogive=award.objects.get(awardname="Champion")
+                finalsmatch=historical_match.objects.all().filter(team1__league=item,team1__seasonname=s.seasonname).exclude(winner__isnull=True).get(week="Playoffs Finals")
+                winner=finalsmatch.winner
+                if winner==finalsmatch.team1: runnerup=finalsmatch.team2 
+                else: runnerup=finalsmatch.team1
+                messagebody=f'Congratulations! You have been awarded a trophy for winning a championship. Check it out at https://www.pokemondraftleague.online/users/{winner.coach1.username}'
+                awardcheck(winner.coach1,awardtogive,awardtext,messagebody,admin)
+                if winner.coach2 != None:
+                    messagebody=f'Congratulations! You have been awarded a trophy for winning a championship. Check it out at https://www.pokemondraftleague.online/users/{winner.coach2.username}'
+                    awardcheck(winner.coach2,awardtogive,awardtext,messagebody,admin)
+                awardtogive=award.objects.get(awardname="Runnerup")    
+                messagebody=f'Congratulations! You have been awarded a trophy for coming in second place in a season. Check it out at https://www.pokemondraftleague.online/users/{runnerup.coach1.username}'
+                awardcheck(runnerup.coach1,awardtogive,awardtext,messagebody,admin)
+                if runnerup.coach2 != None:
+                    messagebody=f'Congratulations! You have been awarded a trophy for coming in second place in a season. Check it out at https://www.pokemondraftleague.online/users/{runnerup.coach2.username}'
+                    awardcheck(runnerup.coach2,awardtogive,awardtext,messagebody,admin)
+            except:
+                print('Finals not played')
+            #check third place
+            try:
+                awardtogive=award.objects.get(awardname="Thirdplace")
+                thirdplacematch=historical_match.objects.all().filter(team1__league=item,team1__seasonname=s.seasonname).exclude(winner__isnull=True).get(week="Playoffs Third Place Match")
+                winner=thirdplacematch.winner
+                messagebody=f'Congratulations! You have been awarded a trophy for coming in third place in a season. Check it out at https://www.pokemondraftleague.online/users/{winner.coach1.username}'
+                awardcheck(winner.coach1,awardtogive,awardtext,messagebody,admin)
+                if winner.coach2 != None:
+                    messagebody=f'Congratulations! You have been awarded a trophy for coming in third place in a season. Check it out at https://www.pokemondraftleague.online/users/{winner.coach2.username}'
+                    awardcheck(winner.coach2,awardtogive,awardtext,messagebody,admin)
+            except:
+                print('Third place match not played')
+            ##check playoffs
+            awardtogive=award.objects.get(awardname="Playoffs")
+            season_playoffmatches=historical_match.objects.all().filter(team1__league=item,team1__seasonname=s.seasonname,week__contains="Playoffs").exclude(winner__isnull=True).distinct('winner')
+            awardtext=f'{item.name} {s.seasonname}'
+            for m in season_playoffmatches:
+                messagebody=f'Congratulations! You have been awarded a trophy for making playoffs in a season. Check it out at https://www.pokemondraftleague.online/users/{m.team1.coach1.username}'
+                awardcheck(m.team1.coach1,awardtogive,awardtext,messagebody,admin)
+                messagebody=f'Congratulations! You have been awarded a trophy for making playoffs in a season. Check it out at https://www.pokemondraftleague.online/users/{m.team2.coach1.username}'
+                awardcheck(m.team2.coach1,awardtogive,awardtext,messagebody,admin)
+                if m.team1.coach2 != None: 
+                    messagebody=f'Congratulations! You have been awarded a trophy for making playoffs in a season. Check it out at https://www.pokemondraftleague.online/users/{m.team1.coach2.username}'
+                    awardcheck(m.team1.coach2,awardtogive,awardtext,messagebody,admin)
+                if m.team2.coach2 != None: 
+                    messagebody=f'Congratulations! You have been awarded a trophy for making playoffs in a season. Check it out at https://www.pokemondraftleague.online/users/{m.team2.coach2.username}'
+                    awardcheck(m.team2.coach2,awardtogive,awardtext,messagebody,admin)
+        all_users=User.objects.all()
+    
+    #check season participation
+    admin=User.objects.get(username="Professor_Oak")
+    for u in all_users:
+        seasoncount=u.profile.seasonsplayed
+        awardtext='Pokemon Draft League'
+        if seasoncount>0:
+            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least one season. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
+            awardtogive=award.objects.get(awardname="1 Season Played")
+            awardcheck(u,awardtogive,awardtext,messagebody,admin)
+        if seasoncount>2:
+            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least three seasons. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
+            awardtogive=award.objects.get(awardname="3 Seasons Played")
+            awardcheck(u,awardtogive,awardtext,messagebody,admin)
+        if seasoncount>4:
+            awardtogive=award.objects.get(awardname="5 Seasons Played")
+            awardcheck(u,awardtogive,awardtext,messagebody,admin)
+            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least five seasons. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
+        if seasoncount>9:
+            awardtogive=award.objects.get(awardname="10 Seasons Played")
+            awardcheck(u,awardtogive,awardtext,messagebody,admin)
+            messagebody=f'Congratulations! You have been awarded a trophy for participating in at least ten seasons. Check it out at https://www.pokemondraftleague.online/users/{u.username}'
+
+def awardcheck(coach,awardtogive,awardtext,messagebody,admin):
+    try:
+        coachaward.objects.filter(coach=coach, award=awardtogive).get(text=awardtext)
+    except:
+        inbox.objects.create(sender=admin,recipient=coach,messagesubject='You have been awarded a trophy!', messagebody=messagebody)
+        coachaward.objects.create(coach=coach,award=awardtogive,text=awardtext)
+
+@background(schedule=1)
+def execute_free_agency_and_trades():
+  print("**************************************************")
+  print("TASK: Running execute free agency and trades")
+  print("**************************************************")
+  #free agencies
+  unexecutedfa=free_agency.objects.all().filter(executed=False).order_by('id')
+  #check if completed matches
+  for item in unexecutedfa:
+    request_league=seasonsetting.objects.get(subleague=item.season.subleague)
+    requestedweek=item.weekeffective
+    completedmatches=True
+    if requestedweek >=2:
+      for i in range(1,requestedweek):
+        try:
+          matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
+          if matchofinterest.replay=="Link":
+            completedmatches=False
+        except:
+          print('Match not found')
+    if completedmatches:
+      #execute free agencies
+      montoupdate=item.droppedpokemon
+      try:
+        droppedpokemon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
+        item.executed=True
+        montoupdate.kills=droppedpokemon.kills
+        droppedpokemon.kills=0
+        montoupdate.deaths=droppedpokemon.deaths
+        droppedpokemon.deaths=0
+        montoupdate.gp=droppedpokemon.gp
+        droppedpokemon.gp=0
+        montoupdate.gw=droppedpokemon.gw
+        droppedpokemon.gw=0
+        montoupdate.differential=droppedpokemon.differential
+        droppedpokemon.differential=0
+        montoupdate.support=droppedpokemon.support
+        droppedpokemon.support=0
+        montoupdate.hphealed=droppedpokemon.hphealed
+        droppedpokemon.hphealed=0
+        montoupdate.luck=droppedpokemon.luck
+        droppedpokemon.luck=0
+        montoupdate.damagedone=droppedpokemon.damagedone
+        droppedpokemon.damagedone=0
+        montoupdate.remaininghealth=droppedpokemon.remaininghealth
+        droppedpokemon.remaininghealth=0
+        droppedpokemon.zuser="N"     
+        droppedpokemon.pokemon=item.addedpokemon
+      except:
+        try:
+          droppedpokemon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.addedpokemon)
+          item.executed=True
+          montoupdate.kills=droppedpokemon.kills
+          droppedpokemon.kills=0
+          montoupdate.deaths=droppedpokemon.deaths
+          droppedpokemon.deaths=0
+          montoupdate.gp=droppedpokemon.gp
+          droppedpokemon.gp=0
+          montoupdate.gw=droppedpokemon.gw
+          droppedpokemon.gw=0
+          montoupdate.differential=droppedpokemon.differential
+          droppedpokemon.differential=0
+          montoupdate.support=droppedpokemon.support
+          droppedpokemon.support=0
+          montoupdate.hphealed=droppedpokemon.hphealed
+          droppedpokemon.hphealed=0
+          montoupdate.luck=droppedpokemon.luck
+          droppedpokemon.luck=0
+          montoupdate.damagedone=droppedpokemon.damagedone
+          droppedpokemon.damagedone=0
+          montoupdate.remaininghealth=droppedpokemon.remaininghealth
+          droppedpokemon.remaininghealth=0
+          droppedpokemon.zuser="N"  
+        except:
+          pass
+      item.save()
+      droppedpokemon.save() 
+      montoupdate.save()
+  #trades
+  unexecutedtrades=trading.objects.all().filter(executed=False).order_by('id')
+  print(unexecutedtrades)
+  #check if completed matches
+  for item in unexecutedtrades:
+    request_league=seasonsetting.objects.get(subleague=item.season.subleague)
+    requestedweek=item.weekeffective
+    completedmatches=True
+    if requestedweek >= 2:
+      for i in range(1,requestedweek):
+        try:
+          matchofinterest=schedule.objects.filter(season=item.season).filter(Q(team1=item.coach)|Q(team2=item.coach)).get(week=str(i))
+          if matchofinterest.replay=="Link":
+            completedmatches=False
+        except:
+          print('Match not found')
+    if completedmatches:
+      #execute trades
+      montoupdate=item.droppedpokemon
+      try:
+        droppedpokemon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
+        montoupdate.kills=droppedpokemon.kills
+        droppedpokemon.kills=0
+        montoupdate.deaths=droppedpokemon.deaths
+        droppedpokemon.deaths=0
+        montoupdate.gp=droppedpokemon.gp
+        droppedpokemon.gp=0
+        montoupdate.gw=droppedpokemon.gw
+        droppedpokemon.gw=0
+        montoupdate.differential=droppedpokemon.differential
+        droppedpokemon.differential=0
+        montoupdate.support=droppedpokemon.support
+        droppedpokemon.support=0
+        montoupdate.hphealed=droppedpokemon.hphealed
+        droppedpokemon.hphealed=0
+        montoupdate.luck=droppedpokemon.luck
+        droppedpokemon.luck=0
+        montoupdate.damagedone=droppedpokemon.damagedone
+        droppedpokemon.damagedone=0
+        montoupdate.remaininghealth=droppedpokemon.remaininghealth
+        droppedpokemon.remaininghealth=0
+        droppedpokemon.zuser="N"
+        droppedpokemon.pokemon=item.addedpokemon
+        item.executed=True
+      except:
+        try:
+          droppedpokemon=roster.objects.filter(season=item.season,team=item.coach).get(pokemon=item.droppedpokemon)
+          montoupdate.kills=droppedpokemon.kills
+          droppedpokemon.kills=0
+          montoupdate.deaths=droppedpokemon.deaths
+          droppedpokemon.deaths=0
+          montoupdate.gp=droppedpokemon.gp
+          droppedpokemon.gp=0
+          montoupdate.gw=droppedpokemon.gw
+          droppedpokemon.gw=0
+          montoupdate.differential=droppedpokemon.differential
+          droppedpokemon.differential=0
+          montoupdate.support=droppedpokemon.support
+          droppedpokemon.support=0
+          montoupdate.hphealed=droppedpokemon.hphealed
+          droppedpokemon.hphealed=0
+          montoupdate.luck=droppedpokemon.luck
+          droppedpokemon.luck=0
+          montoupdate.damagedone=droppedpokemon.damagedone
+          droppedpokemon.damagedone=0
+          montoupdate.remaininghealth=droppedpokemon.remaininghealth
+          droppedpokemon.remaininghealth=0
+          droppedpokemon.zuser="N"
+          item.executed=True
+        except:
+          pass
+      item.save()
+      droppedpokemon.save() 
+      montoupdate.save()
+
+@background(schedule=1)
+def run_pickems():
+  print("**************************************************")
+  print("TASK: Running pickems")
+  print("**************************************************")
+  """
+  leaderboard=pickem_leaderboard.objects.all()
+  for item in leaderboard:
+      item.submitted=0
+      item.numbercorrect=0
+      item.matchescompleted=0
+      item.save()
+      pickemlist=item.user.pickems.all()
+      for p in pickemlist:
+          item.submitted+=1
+          if p.match.replay != "Link":
+              item.matchescompleted+=1
+              if p.pick==p.match.winner:
+                  item.numbercorrect+=1
+      item.save()
+  """
+
+@background(schedule=1)
+def pokemon_stat_update():
+    print("**************************************************")
+    print("TASK: Running pokemon stat update")
+    print("**************************************************")
+    leaderboard=pokemon_leaderboard.objects.all()
+    for item in leaderboard:
+        #set baseline
+        item.kills=item.pokemon.kills
+        item.deaths=item.pokemon.deaths
+        item.differential = item.pokemon.differential
+        item.gp=item.pokemon.gp
+        item.gw=item.pokemon.gw
+        item.timesdrafted=0 
+        item.support=item.pokemon.support
+        item.damagedone=item.pokemon.damagedone
+        item.hphealed=item.pokemon.hphealed
+        item.luck =item.pokemon.luck
+        item.remaininghealth=item.pokemon.remaininghealth
+        item.save()
+        #update based on rosters
+        rosterson=item.pokemon.pokemonroster.all()
+        for team in rosterson:
+            if team.season.league.name.find('Test')==-1:
+                item.kills+=team.kills
+                item.deaths+=team.deaths
+                item.differential+=team.differential
+                item.gp+=team.gp
+                item.gw+=team.gw
+                item.support+=team.support
+                item.damagedone+=team.damagedone
+                item.hphealed+=team.hphealed
+                item.luck+=team.luck
+                item.remaininghealth+=team.remaininghealth
+        historicrosterson=item.pokemon.historicalpokemonroster.all()
+        for team in historicrosterson:
+            if team.team.league.name.find('Test')==-1:
+                item.kills+=team.kills
+                item.deaths+=team.deaths
+                item.differential+=team.differential
+                item.gp+=team.gp
+                item.gw+=team.gw
+                item.support+=team.support
+                item.damagedone+=team.damagedone
+                item.hphealed+=team.hphealed
+                item.luck+=team.luck
+                item.remaininghealth+=team.remaininghealth
+        item.timesdrafted=item.pokemon.historicalpokemondraft.all().count()+item.pokemon.pokemondraft.all().count()
+        item.save()

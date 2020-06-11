@@ -13,4 +13,5 @@ urlpatterns = [
     path("replay_database/", views.replay_database, name="replay_database"),
     path("help/", views.help, name="help"),
     path("runscript/", views.runscript, name="runscript"),
+    path("start_tasks/", views.start_tasks, name="start_tasks"),
 ]

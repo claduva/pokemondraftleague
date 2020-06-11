@@ -742,6 +742,7 @@ def render_uploaded_replay(request,string):
 ##--------------------------------------------TASKS--------------------------------------------
 @background(schedule=1)
 def check_analyzer_task():
+    print("TASK: Running check analyzer")
     ##zero rosters  
     roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
     historical_roster.objects.all().update(kills=0,deaths=0,differential=0,gp=0,gw=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
