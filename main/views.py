@@ -151,22 +151,35 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    """
-    failed=[]
-    i=1
-    count=replaydatabase.objects.all().exclude(replay__contains="Forfeit").exclude(replay__contains="Unavailable").count()
-    for item in replaydatabase.objects.all().exclude(replay__contains="Forfeit").exclude(replay__contains="Unavailable"):
-        try:    
-            results = newreplayparse(item.replay)
-            if len(results['errormessage'])!=0:
-                failed.append(item.replay)
-        except:
-            failed.append(item.replay)
-        print(f'{i}/{count}')
-        i+=1
-    for item in failed:
-        print(item)
-    """
+    allmoves=list(moveinfo.objects.all().values_list('name',flat=True))
+    ignoredmoves=[]
+    for item in historical_match_replay.objects.all():
+        for mon in item.data['team1']['roster']:
+            for move in mon['moves']:
+                move=move.replace("Z-","")
+                if move not in allmoves:
+                    if move not in ignoredmoves:
+                        ignoredmoves.append(move)
+        for mon in item.data['team2']['roster']:
+            for move in mon['moves']:
+                move=move.replace("Z-","")
+                if move not in allmoves:
+                    if move not in ignoredmoves:
+                        ignoredmoves.append(move)
+    for item in match_replay.objects.all():
+        for mon in item.data['team1']['roster']:
+            for move in mon['moves']:
+                move=move.replace("Z-","")
+                if move not in allmoves:
+                    if move not in ignoredmoves:
+                        ignoredmoves.append(move)
+        for mon in item.data['team2']['roster']:
+            for move in mon['moves']:
+                move=move.replace("Z-","")
+                if move not in allmoves:
+                    if move not in ignoredmoves:
+                        ignoredmoves.append(move)
+    print(ignoredmoves)
     return redirect('home')
 
 def get_pkmn(pkmn):
