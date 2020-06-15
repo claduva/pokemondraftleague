@@ -1100,7 +1100,7 @@ def freeagency(request,league_name,subleague_name):
     json.dumps(availablepokemonjson)
     tierchoices=leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").order_by('tiername')
     types=pokemon_type.objects.all().distinct('typing').values_list('typing',flat=True)
-    userroster=roster.objects.all().filter(season=season,team__coach=request.user)
+    userroster=roster.objects.all().filter(season=season,team__coach=request.user).exclude(pokemon__isnull=True)
     pointsremaining=season.draftbudget
     for item in userroster:
         pointsremaining+=-pokemon_tier.objects.filter(subleague=subleague).get(pokemon=item.pokemon).tier.tierpoints

@@ -151,35 +151,36 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    allmoves=list(moveinfo.objects.all().values_list('name',flat=True))
-    ignoredmoves=[]
     for item in historical_match_replay.objects.all():
         for mon in item.data['team1']['roster']:
+            try:
+                mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
+            except:
+                print(mon['pokemon'])
             for move in mon['moves']:
                 move=move.replace("Z-","")
-                if move not in allmoves:
-                    if move not in ignoredmoves:
-                        ignoredmoves.append(move)
         for mon in item.data['team2']['roster']:
+            try:
+                mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
+            except:
+                print(mon['pokemon'])
             for move in mon['moves']:
                 move=move.replace("Z-","")
-                if move not in allmoves:
-                    if move not in ignoredmoves:
-                        ignoredmoves.append(move)
     for item in match_replay.objects.all():
         for mon in item.data['team1']['roster']:
+            try:
+                mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
+            except:
+                print(mon['pokemon'])
             for move in mon['moves']:
                 move=move.replace("Z-","")
-                if move not in allmoves:
-                    if move not in ignoredmoves:
-                        ignoredmoves.append(move)
         for mon in item.data['team2']['roster']:
+            try:
+                mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
+            except:
+                print(mon['pokemon'])
             for move in mon['moves']:
                 move=move.replace("Z-","")
-                if move not in allmoves:
-                    if move not in ignoredmoves:
-                        ignoredmoves.append(move)
-    print(ignoredmoves)
     return redirect('home')
 
 def get_pkmn(pkmn):
