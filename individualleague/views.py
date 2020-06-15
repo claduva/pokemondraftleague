@@ -928,8 +928,8 @@ def league_matchup(request,league_name,subleague_name,matchid):
     except:
         messages.error(request,'Match does not exist!',extra_tags='danger')
         return redirect('league_schedule',league_name=league_name,subleague_name=subleague_name)
-    team1roster=roster.objects.filter(season=season,team=match.team1,pokemon__isnull=False).order_by('pokemon__pokemon')
-    team2roster=roster.objects.filter(season=season,team=match.team2,pokemon__isnull=False).order_by('pokemon__pokemon')
+    team1roster=roster.objects.filter(team=match.team1,pokemon__isnull=False).order_by('pokemon__pokemon')
+    team2roster=roster.objects.filter(team=match.team2,pokemon__isnull=False).order_by('pokemon__pokemon')
     moves=['Stealth Rock','Spikes','Toxic Spikes','Sticky Web','Defog','Rapid Spin','Heal Bell','Aromatherapy','Wish']
     team1rostereffectiveness=[]
     for item in team1roster:
