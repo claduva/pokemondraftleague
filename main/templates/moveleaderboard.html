@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% load extratags %}
 
-{% block title %}{{title}}{% endblock %}
+{% block title %}Move Leaderboard{% endblock %}
 {% block head%}
 <link rel="stylesheet" type="text/css" href="{% static 'individualleague/styles/leagueleaders.css' %}">
 {% endblock %}
@@ -13,7 +13,7 @@
             class="mediumlogo">
     </div>
     <div class="col-4">
-        <h3 class="d-flex justify-content-center">Replay Leaderboard</h3>
+        <h3 class="d-flex justify-content-center">Move Leaderboard</h3>
     </div>
     <div class="col-4 d-flex justify-content-end"><img src="{% static 'main/images/pdllogo.png' %}"
             class="mediumlogo">
@@ -27,24 +27,27 @@
                 <thead>
                     <tr class="bg-dark text-light">
                         <th>#</th>
-                    <th>League</th>
-                    <th>Season</th>
-                    <th>Team</th>
-                    <th>Damage Done</th>
-                    <th>HP Healed</th>
-                    <th>Luck</th>
-                    <th>Support</th>
-                </tr>
-            </thead>
-            <tbody class="bg-lightgrey text-dark">
-                {% for item in leaderboard %}
-                    <tr class="text-center">
-
+                        <th>Move</th>
+                        <th>Times Used</th>
+                        <th>Times Hit</th>
+                        <th>Times Crit</th>
+                        <th>Secondary Effect Rate</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody class="bg-lightgrey text-dark">
+                    {% for item in leaderboard %}
+                        <tr class="text-center">
+                            <td class="rownum">{{forloop.counter}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.uses}}</td>
+                            <td>{{item.hits}}</td>
+                            <td>{{item.crits}}</td>
+                            <td>{{item.secondaryeffects}}/{{item.posssecondaryeffects}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}

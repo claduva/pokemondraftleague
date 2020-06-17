@@ -116,13 +116,12 @@ def pickemleaderboard(request):
     }
     return  render(request,"pickemleaderboard.html",context)
 
-def replayleaderboard(request):
-    leaderboard=pickem_leaderboard.objects.all().order_by('-numbercorrect').exclude(matchescompleted__lt=1)
+def moveleaderboard(request):
+    leaderboard=moveinfo.objects.all().filter(uses__gt=0)
     context = {
-        "title": "Replay Leaderboard",
         "leaderboard": leaderboard
     }
-    return  render(request,"replayleaderboard.html",context)
+    return  render(request,"moveleaderboard.html",context)
 
 def replay_database(request):
     database=replaydatabase.objects.all().order_by('team1coach1__username').values('team1coach1__username','team1coach2__username','team2coach1__username','team2coach2__username','winnercoach1__username','winnercoach2__username','replayuser1','replayuser2','winneruser','replay','associatedmatch','associatedhistoricmatch')
@@ -151,36 +150,58 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
+    ct=historical_match_replay.objects.all().count()+match_replay.objects.all().count()
+    i=1
     for item in historical_match_replay.objects.all():
         for mon in item.data['team1']['roster']:
             try:
                 mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
-            except:
-                print(mon['pokemon'])
-            for move in mon['moves']:
-                move=move.replace("Z-","")
+                moveset=list(mon_.moves.all().values_list('moveinfo__name',flat=True))
+                for move in mon['moves']:
+                    move=move.replace("Z-","")
+                    if move not in moveset:
+                        print(f"{mon['pokemon']}: {move}")
+                        moveinfo.objects.get(name=move)
+            except Exception as e:
+                print("Error")
         for mon in item.data['team2']['roster']:
             try:
                 mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
-            except:
-                print(mon['pokemon'])
-            for move in mon['moves']:
-                move=move.replace("Z-","")
+                moveset=list(mon_.moves.all().values_list('moveinfo__name',flat=True))
+                for move in mon['moves']:
+                    move=move.replace("Z-","")
+                    if move not in moveset:
+                        print(f"{mon['pokemon']}: {move}")
+                        moveinfo.objects.get(name=move)
+            except :
+                print("Error")
+        print(f'{i}/{ct}: {item.id}')
+        i+=1
     for item in match_replay.objects.all():
         for mon in item.data['team1']['roster']:
             try:
                 mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
+                moveset=list(mon_.moves.all().values_list('moveinfo__name',flat=True))
+                for move in mon['moves']:
+                    move=move.replace("Z-","")
+                    if move not in moveset:
+                        print(f"{mon['pokemon']}: {move}")
+                        moveinfo.objects.get(name=move)
             except:
-                print(mon['pokemon'])
-            for move in mon['moves']:
-                move=move.replace("Z-","")
+                print("Error")
         for mon in item.data['team2']['roster']:
             try:
                 mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
+                moveset=list(mon_.moves.all().values_list('moveinfo__name',flat=True))
+                for move in mon['moves']:
+                    move=move.replace("Z-","")
+                    if move not in moveset:
+                        print(f"{mon['pokemon']}: {move}")
+                        moveinfo.objects.get(name=move)
             except:
-                print(mon['pokemon'])
-            for move in mon['moves']:
-                move=move.replace("Z-","")
+                print("Error")
+        print(f'{i}/{ct}: {item.id}')
+        i+=1
     return redirect('home')
 
 def get_pkmn(pkmn):

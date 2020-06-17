@@ -111,6 +111,15 @@ class pokemon_movedata(models.Model):
     posssecondaryeffects = models.IntegerField(default=0)
     secondaryeffects = models.IntegerField(default=0)
 
+class user_movedata(models.Model):
+    coach = models.ForeignKey(User,on_delete=models.CASCADE)
+    moveinfo = models.ForeignKey(moveinfo,on_delete=models.CASCADE)
+    uses = models.IntegerField(default=0)
+    hits = models.IntegerField(default=0)
+    crits = models.IntegerField(default=0)
+    posssecondaryeffects = models.IntegerField(default=0)
+    secondaryeffects = models.IntegerField(default=0)
+
 class pokemon_moveset(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='moves')
     moveinfo = models.ForeignKey(moveinfo,on_delete=models.CASCADE)

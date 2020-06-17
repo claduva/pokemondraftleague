@@ -1,18 +1,18 @@
 {
   "team1": {
-    "coach": "Fini Burst",
+    "coach": "Accidental",
     "roster": [
       {
-        "pokemon": "Zeraora",
-        "startform": "Zeraora",
-        "nickname": "Last Hurrah",
+        "pokemon": "Vaporeon",
+        "startform": "Vaporeon",
+        "nickname": "This",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 45,
-        "hphealed": 0,
-        "luck": 0.1,
+        "support": 6,
+        "damagedone": 310,
+        "hphealed": 772,
+        "luck": -0.2299399999999997,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -20,7 +20,68 @@
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": null,
+        "tox": "Bill Cosby",
+        "slp": null,
+        "Curse": "Mr.Sandman",
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {
+          "Curse": {
+            "uses": 14,
+            "hits": 14,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Rain Dance": {
+            "uses": 6,
+            "hits": 6,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Rest": {
+            "uses": 13,
+            "hits": 13,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Stored Power": {
+            "uses": 13,
+            "hits": 13,
+            "crits": 1,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          }
+        }
+      },
+      {
+        "pokemon": "Mesprit",
+        "startform": "Mesprit",
+        "nickname": "Is",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 163,
+        "hphealed": 33,
+        "luck": -0.40832999999999997,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": "Is",
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Bill Cosby",
         "slp": null,
         "Curse": null,
         "atk": 0,
@@ -33,21 +94,21 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Hidden Power": {
+          "Future Sight": {
+            "uses": 3,
+            "hits": 3,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Laser Focus": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
           },
-          "Thunderbolt": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 1,
-            "secondaryeffects": 0
-          },
-          "Work Up": {
+          "Hyper Beam": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
@@ -57,16 +118,16 @@
         }
       },
       {
-        "pokemon": "Golbat",
-        "startform": "Golbat",
-        "nickname": "Green Demon",
+        "pokemon": "Obstagoon",
+        "startform": "Obstagoon",
+        "nickname": "A",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 191,
-        "hphealed": 233,
-        "luck": -0.6249799999999999,
+        "support": 0,
+        "damagedone": 57,
+        "hphealed": 0,
+        "luck": -0.04167,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -87,14 +148,94 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Super Fang": {
-            "uses": 6,
+          "Snarl": {
+            "uses": 2,
+            "hits": 2,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          }
+        }
+      },
+      {
+        "pokemon": "Coalossal",
+        "startform": "Coalossal",
+        "nickname": "Coalossally",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 36,
+        "hphealed": -12,
+        "luck": -0.3,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Coalossally",
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {
+          "Ancient Power": {
+            "uses": 2,
+            "hits": 2,
+            "crits": 0,
+            "posssecondaryeffects": 2,
+            "secondaryeffects": 0
+          }
+        }
+      },
+      {
+        "pokemon": "Archeops",
+        "startform": "Archeops",
+        "nickname": "Good",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 132,
+        "hphealed": 215,
+        "luck": -0.25498999999999994,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Bill Cosby",
+        "slp": null,
+        "Curse": "Mr.Sandman",
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {
+          "Rock Tomb": {
+            "uses": 4,
             "hits": 4,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
           },
-          "Brave Bird": {
+          "Toxic": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
@@ -107,74 +248,20 @@
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
-          },
-          "Taunt": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
           }
         }
       },
       {
-        "pokemon": "Pyroar",
-        "startform": "Pyroar",
-        "nickname": "M'Lady",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 246,
-        "hphealed": 0,
-        "luck": 0.17499000000000003,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
-          "Hyper Voice": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Fire Blast": {
-            "uses": 4,
-            "hits": 4,
-            "crits": 0,
-            "posssecondaryeffects": 4,
-            "secondaryeffects": 0
-          }
-        }
-      },
-      {
-        "pokemon": "Sharpedo",
-        "startform": "Sharpedo",
-        "nickname": "M.A.A.D. City",
+        "pokemon": "Vikavolt",
+        "startform": "Vikavolt",
+        "nickname": "Team",
         "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 28,
-        "hphealed": -9,
-        "luck": -1.0,
+        "damagedone": 40,
+        "hphealed": 0,
+        "luck": -0.90833,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -182,7 +269,7 @@
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": null,
+        "tox": "Bill Cosby",
         "slp": null,
         "Curse": null,
         "atk": 0,
@@ -195,108 +282,21 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Crunch": {
+          "Charge Beam": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
             "posssecondaryeffects": 1,
             "secondaryeffects": 0
           },
-          "Hydro Pump": {
-            "uses": 1,
-            "hits": 0,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          }
-        }
-      },
-      {
-        "pokemon": "Florges",
-        "startform": "Florges",
-        "nickname": "Waifu4Laifu",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 33,
-        "hphealed": 144,
-        "luck": 0.36668000000000006,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
-          "Wish": {
-            "uses": 2,
-            "hits": 2,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Protect": {
-            "uses": 3,
-            "hits": 3,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Moonblast": {
+          "Agility": {
             "uses": 1,
             "hits": 1,
-            "crits": 1,
-            "posssecondaryeffects": 1,
+            "crits": 0,
+            "posssecondaryeffects": 0,
             "secondaryeffects": 0
-          }
-        }
-      },
-      {
-        "pokemon": "Aggron-Mega",
-        "startform": "Aggron",
-        "nickname": "Segata",
-        "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 0,
-        "hphealed": 0,
-        "luck": -0.67499,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
-          "Heavy Slam": {
+          },
+          "Electro Ball": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
@@ -309,19 +309,19 @@
     "wins": 0,
     "forfeit": 0,
     "score": 0,
-    "megaevolved": true,
+    "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 13,
-    "selfdeaths": 0,
+    "timesswitched": 21,
+    "selfdeaths": 1,
     "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 5,
+    "kills": 4,
     "deaths": 6,
-    "luck": -1.6583,
-    "damagedone": 543,
-    "hphealed": 368,
-    "support": 3,
-    "activemon": "Waifu4Laifu",
+    "luck": -2.1431999999999998,
+    "damagedone": 738,
+    "hphealed": 1008,
+    "support": 7,
+    "activemon": "Good",
     "Toxic Spikes": null,
     "Spikes": null,
     "Stealth Rock": null,
@@ -333,160 +333,19 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "DarlingInTheBudew",
+    "coach": "BChezza",
     "roster": [
       {
-        "pokemon": "Tapu Fini",
-        "startform": "Tapu Fini",
-        "nickname": "\u0441\u0443\u043a\u0430",
+        "pokemon": "Palossand",
+        "startform": "Palossand",
+        "nickname": "Mr.Sandman",
         "kills": 0,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 125,
-        "hphealed": 5,
-        "luck": 1.16666,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
-          "Ice Beam": {
-            "uses": 3,
-            "hits": 3,
-            "crits": 0,
-            "posssecondaryeffects": 3,
-            "secondaryeffects": 0
-          },
-          "Substitute": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Shadow Ball": {
-            "uses": 2,
-            "hits": 2,
-            "crits": 0,
-            "posssecondaryeffects": 1,
-            "secondaryeffects": 1
-          }
-        }
-      },
-      {
-        "pokemon": "Scizor",
-        "startform": "Scizor",
-        "nickname": "\u672c\u5f53\u306e\u738b",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 114,
-        "hphealed": 0,
-        "luck": 0.70833,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
-          "Bug Bite": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Bullet Punch": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          }
-        }
-      },
-      {
-        "pokemon": "Hydreigon",
-        "startform": "Hydreigon",
-        "nickname": "\u03c4\u03b7\u03b3\u03b1\u03bd\u03af\u03c4\u03b1",
-        "kills": 1,
         "deaths": 0,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 109,
-        "hphealed": 0,
-        "luck": 0.71666,
-        "remaininghealth": 100,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
-          "Flash Cannon": {
-            "uses": 3,
-            "hits": 3,
-            "crits": 1,
-            "posssecondaryeffects": 2,
-            "secondaryeffects": 0
-          }
-        }
-      },
-      {
-        "pokemon": "Garchomp-Mega",
-        "startform": "Garchomp",
-        "nickname": "\u2092\u2096?",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 213,
-        "hphealed": 0,
-        "luck": 0.08333,
+        "damagedone": 65,
+        "hphealed": -3,
+        "luck": -0.10833,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -494,7 +353,7 @@
         "brn": null,
         "par": null,
         "frz": null,
-        "tox": null,
+        "tox": "Good",
         "slp": null,
         "Curse": null,
         "atk": 0,
@@ -507,7 +366,14 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Stone Edge": {
+          "Curse": {
+            "uses": 2,
+            "hits": 2,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Shore Up": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
@@ -515,8 +381,8 @@
             "secondaryeffects": 0
           },
           "Earthquake": {
-            "uses": 3,
-            "hits": 3,
+            "uses": 1,
+            "hits": 1,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
@@ -524,16 +390,16 @@
         }
       },
       {
-        "pokemon": "Jolteon",
-        "startform": "Jolteon",
-        "nickname": "\u26a1Jel Gal\u26a1",
-        "kills": 2,
+        "pokemon": "Hatterene",
+        "startform": "Hatterene",
+        "nickname": "My ex",
+        "kills": 1,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 312,
+        "damagedone": 120,
         "hphealed": 0,
-        "luck": -1.51668,
+        "luck": -0.016660000000000005,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -554,40 +420,26 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Hidden Power": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Shadow Ball": {
-            "uses": 1,
-            "hits": 1,
+          "Play Rough": {
+            "uses": 2,
+            "hits": 2,
             "crits": 0,
             "posssecondaryeffects": 1,
-            "secondaryeffects": 0
-          },
-          "Thunderbolt": {
-            "uses": 6,
-            "hits": 6,
-            "crits": 0,
-            "posssecondaryeffects": 4,
             "secondaryeffects": 0
           }
         }
       },
       {
-        "pokemon": "Arcanine",
-        "startform": "Arcanine",
-        "nickname": "\u0a86\u0a97 \u0aac\u0a95\u0ab0\u0ac0",
-        "kills": 0,
+        "pokemon": "Tentacruel",
+        "startform": "Tentacruel",
+        "nickname": "Bill Cosby",
+        "kills": 2,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 95,
-        "hphealed": 38,
-        "luck": 0.5,
+        "support": 14,
+        "damagedone": 582,
+        "hphealed": 53,
+        "luck": 0.8583099999999999,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -608,28 +460,169 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
+          "Bind": {
+            "uses": 9,
+            "hits": 9,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
           "Toxic": {
-            "uses": 1,
-            "hits": 1,
+            "uses": 9,
+            "hits": 9,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
           },
-          "Substitute": {
-            "uses": 1,
-            "hits": 1,
+          "Haze": {
+            "uses": 5,
+            "hits": 5,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
           },
-          "Flare Blitz": {
+          "Water Gun": {
+            "uses": 10,
+            "hits": 10,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          }
+        }
+      },
+      {
+        "pokemon": "Drampa",
+        "startform": "Drampa",
+        "nickname": "Snooooooooop",
+        "kills": 2,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 694,
+        "hphealed": 151,
+        "luck": 2.0249499999999996,
+        "remaininghealth": 63,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": -1,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {
+          "Draco Meteor": {
+            "uses": 5,
+            "hits": 5,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Hyper Voice": {
+            "uses": 14,
+            "hits": 14,
+            "crits": 2,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Roost": {
             "uses": 3,
             "hits": 3,
             "crits": 0,
-            "posssecondaryeffects": 3,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          }
+        }
+      },
+      {
+        "pokemon": "Vivillon",
+        "startform": "Vivillon",
+        "nickname": "Weather Report",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 140,
+        "hphealed": 0,
+        "luck": -1.30668,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {
+          "Hurricane": {
+            "uses": 5,
+            "hits": 5,
+            "crits": 0,
+            "posssecondaryeffects": 5,
             "secondaryeffects": 0
           },
-          "Morning Sun": {
+          "U-turn": {
+            "uses": 1,
+            "hits": 1,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          }
+        }
+      },
+      {
+        "pokemon": "Sirfetchd",
+        "startform": "Sirfetchd",
+        "nickname": "\"Technician\"",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 7,
+        "hphealed": 0,
+        "luck": 0.69167,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {
+          "Fury Cutter": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
@@ -641,25 +634,25 @@
     ],
     "wins": 1,
     "forfeit": 0,
-    "score": 1,
-    "megaevolved": true,
+    "score": 2,
+    "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 12,
+    "timesswitched": 26,
     "selfdeaths": 0,
-    "remaininghealth": 100,
+    "remaininghealth": 63,
     "totalhealth": 600,
-    "kills": 6,
-    "deaths": 5,
-    "luck": 1.6583,
-    "damagedone": 968,
-    "hphealed": 43,
-    "support": 1,
-    "activemon": "\u03c4\u03b7\u03b3\u03b1\u03bd\u03af\u03c4\u03b1",
+    "kills": 5,
+    "deaths": 4,
+    "luck": 2.1431999999999998,
+    "damagedone": 1608,
+    "hphealed": 201,
+    "support": 14,
+    "activemon": "Snooooooooop",
     "Toxic Spikes": null,
     "Spikes": null,
     "Stealth Rock": null,
     "G-Max Steelsurge": null,
-    "Future Sight": null,
+    "Future Sight": "Is",
     "Doom Desire": null,
     "Sandstorm": null,
     "Hail": null,
@@ -669,1191 +662,2135 @@
   "Gravity": 1.0,
   "Rain": false,
   "Hail": false,
-  "numberofturns": 40,
+  "numberofturns": 90,
   "turns": [],
-  "replay": "http://replay.pokemonshowdown.com/gen7ou-789695976",
+  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexdlcdraft-95771",
   "significantevents": [
     [
-      1,
-      "Arcanine provided support by using Toxic"
+      5,
+      "Coalossal fainted via tox"
     ],
     [
-      6,
-      "Golbat provided support by using Taunt"
+      7,
+      "Hatterene killed Obstagoon with Play Rough"
     ],
     [
-      16,
-      "Garchomp-Mega killed Golbat with Earthquake"
+      9,
+      "Archeops provided support by using Toxic"
     ],
     [
-      18,
-      "Zeraora killed Arcanine with Thunderbolt"
-    ],
-    [
-      19,
-      "Jolteon killed Zeraora with Shadow Ball"
+      13,
+      "Vaporeon provided support by using Rain Dance"
     ],
     [
       24,
-      "Pyroar killed Tapu Fini with Fire Blast"
+      "Vikavolt killed Sirfetchd with Charge Beam"
+    ],
+    [
+      27,
+      "Tentacruel provided support by using Toxic"
     ],
     [
       29,
-      "Garchomp-Mega killed Aggron-Mega with Earthquake"
-    ],
-    [
-      30,
-      "Sharpedo killed Garchomp-Mega with Crunch"
-    ],
-    [
-      31,
-      "Scizor killed Sharpedo with Bug Bite"
-    ],
-    [
-      32,
-      "Pyroar killed Scizor with Fire Blast"
-    ],
-    [
-      33,
-      "Jolteon killed Pyroar with Thunderbolt"
+      "Drampa killed Vikavolt with Draco Meteor"
     ],
     [
       34,
-      "Florges provided support by using Wish"
+      "Vaporeon provided support by using Rain Dance"
     ],
     [
-      36,
-      "Florges provided support by using Wish"
+      42,
+      "Vaporeon provided support by using Rain Dance"
     ],
     [
-      38,
-      "Florges killed Jolteon with Moonblast"
+      45,
+      "Vaporeon killed Vivillon with Stored Power"
     ],
     [
-      40,
-      "Hydreigon killed Florges with Flash Cannon"
+      46,
+      "Tentacruel provided support by using Haze"
+    ],
+    [
+      49,
+      "Mesprit killed Hatterene with Hyper Beam"
+    ],
+    [
+      53,
+      "Tentacruel provided support by using Toxic"
+    ],
+    [
+      54,
+      "Vaporeon provided support by using Rain Dance"
+    ],
+    [
+      56,
+      "Tentacruel provided support by using Toxic"
+    ],
+    [
+      58,
+      "Tentacruel provided support by using Haze"
+    ],
+    [
+      59,
+      "Tentacruel provided support by using Toxic"
+    ],
+    [
+      65,
+      "Vaporeon provided support by using Rain Dance"
+    ],
+    [
+      68,
+      "Tentacruel provided support by using Toxic"
+    ],
+    [
+      69,
+      "Tentacruel provided support by using Haze"
+    ],
+    [
+      70,
+      "Tentacruel provided support by using Toxic"
+    ],
+    [
+      71,
+      "Tentacruel provided support by using Haze"
+    ],
+    [
+      73,
+      "Tentacruel provided support by using Toxic"
+    ],
+    [
+      75,
+      "Tentacruel provided support by using Toxic"
+    ],
+    [
+      75,
+      "Vaporeon provided support by using Rain Dance"
+    ],
+    [
+      81,
+      "Tentacruel killed Mesprit with Water Gun"
+    ],
+    [
+      83,
+      "Tentacruel provided support by using Haze"
+    ],
+    [
+      84,
+      "Tentacruel provided support by using Toxic"
+    ],
+    [
+      86,
+      "Tentacruel killed Vaporeon via tox"
+    ],
+    [
+      88,
+      "Archeops killed Tentacruel with Rock Tomb"
+    ],
+    [
+      90,
+      "Drampa killed Archeops with Hyper Voice"
     ]
   ],
   "luckcatalog": [
     [
-      22,
-      "Aggron-Mega",
-      "Target of Move With Crit Chance (Shadow Ball)",
+      8,
+      "Archeops",
+      "Mon Used a Move That Can Miss (Rock Tomb)",
       0.0,
-      0.04167,
-      0.04167
+      0.05,
+      0.05
     ],
     [
-      22,
-      "Aggron-Mega",
-      "Target of Move With Secondary Effect Chance (Shadow Ball)",
-      0.04167,
-      0.2,
-      0.24167000000000002
-    ],
-    [
-      22,
-      "Aggron-Mega",
-      "Mon harmed by secondary effect (Shadow Ball)",
-      0.24167000000000002,
-      -1.0,
-      -0.75833
-    ],
-    [
-      28,
-      "Aggron-Mega",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.75833,
-      0.04167,
-      -0.71666
-    ],
-    [
-      29,
-      "Aggron-Mega",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.71666,
-      0.04167,
-      -0.67499
-    ],
-    [
-      2,
-      "Arcanine",
-      "Target of Move That Can Miss (Super Fang)",
-      0.0,
-      -0.1,
-      -0.1
-    ],
-    [
-      2,
-      "Arcanine",
-      "Opponent missed a move (Super Fang)",
-      -0.1,
-      1.0,
-      0.9
-    ],
-    [
-      3,
-      "Arcanine",
-      "Target of Move With Crit Chance (Brave Bird)",
-      0.9,
-      0.04167,
-      0.94167
-    ],
-    [
-      3,
-      "Arcanine",
-      "Mon Used Move With Crit Chance (Flare Blitz)",
-      0.94167,
+      8,
+      "Archeops",
+      "Mon Used Move With Crit Chance (Rock Tomb)",
+      0.05,
       -0.04167,
-      0.9
-    ],
-    [
-      3,
-      "Arcanine",
-      "Mon Used Move With Secondary Effect Chance (Flare Blitz)",
-      0.9,
-      -0.1,
-      0.8
-    ],
-    [
-      4,
-      "Arcanine",
-      "Target of Move That Can Miss (Super Fang)",
-      0.8,
-      -0.1,
-      0.7
-    ],
-    [
-      5,
-      "Arcanine",
-      "Mon Used Move With Crit Chance (Flare Blitz)",
-      0.7,
-      -0.04167,
-      0.65833
-    ],
-    [
-      5,
-      "Arcanine",
-      "Mon Used Move With Secondary Effect Chance (Flare Blitz)",
-      0.65833,
-      -0.1,
-      0.55833
-    ],
-    [
-      7,
-      "Arcanine",
-      "Target of Move That Can Miss (Super Fang)",
-      0.55833,
-      -0.1,
-      0.45832999999999996
-    ],
-    [
-      7,
-      "Arcanine",
-      "Mon Used Move With Crit Chance (Flare Blitz)",
-      0.45832999999999996,
-      -0.04167,
-      0.41666
-    ],
-    [
-      7,
-      "Arcanine",
-      "Mon Used Move With Secondary Effect Chance (Flare Blitz)",
-      0.41666,
-      -0.1,
-      0.31665999999999994
-    ],
-    [
-      17,
-      "Arcanine",
-      "Target of Move With Crit Chance (Hidden Power)",
-      0.31665999999999994,
-      0.04167,
-      0.35833
-    ],
-    [
-      18,
-      "Arcanine",
-      "Target of Move With Crit Chance (Thunderbolt)",
-      0.35833,
-      0.04167,
-      0.4
-    ],
-    [
-      18,
-      "Arcanine",
-      "Target of Move With Secondary Effect Chance (Thunderbolt)",
-      0.4,
-      0.1,
-      0.5
-    ],
-    [
-      25,
-      "Florges",
-      "Target of Move With Crit Chance (Flash Cannon)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      25,
-      "Florges",
-      "Target of Move With Secondary Effect Chance (Flash Cannon)",
-      0.04167,
-      0.1,
-      0.14167
-    ],
-    [
-      34,
-      "Florges",
-      "Target of Move With Crit Chance (Thunderbolt)",
-      0.14167,
-      0.04167,
-      0.18334
-    ],
-    [
-      34,
-      "Florges",
-      "Target of Move With Secondary Effect Chance (Thunderbolt)",
-      0.18334,
-      0.1,
-      0.28334
-    ],
-    [
-      36,
-      "Florges",
-      "Target of Move With Crit Chance (Thunderbolt)",
-      0.28334,
-      0.04167,
-      0.32500999999999997
-    ],
-    [
-      36,
-      "Florges",
-      "Target of Move With Secondary Effect Chance (Thunderbolt)",
-      0.32500999999999997,
-      0.1,
-      0.42501
-    ],
-    [
-      38,
-      "Florges",
-      "Target of Move With Crit Chance (Thunderbolt)",
-      0.42501,
-      0.04167,
-      0.46668
-    ],
-    [
-      38,
-      "Florges",
-      "Target of Move With Secondary Effect Chance (Thunderbolt)",
-      0.46668,
-      0.1,
-      0.56668
-    ],
-    [
-      38,
-      "Florges",
-      "Mon Used Move With Crit Chance (Moonblast)",
-      0.56668,
-      -0.04167,
-      0.52501
-    ],
-    [
-      38,
-      "Florges",
-      "Mon Used Move With Secondary Effect Chance (Moonblast)",
-      0.52501,
-      -0.3,
-      0.22501
-    ],
-    [
-      38,
-      "Florges",
-      "Mon landed a critical hit",
-      0.22501,
-      1.0,
-      1.2250100000000002
-    ],
-    [
-      40,
-      "Florges",
-      "Target of Move With Crit Chance (Flash Cannon)",
-      1.2250100000000002,
-      0.04167,
-      1.26668
-    ],
-    [
-      40,
-      "Florges",
-      "Target of Move With Secondary Effect Chance (Flash Cannon)",
-      1.26668,
-      0.1,
-      1.3666800000000001
-    ],
-    [
-      40,
-      "Florges",
-      "Mon was hit by a critical hit",
-      1.3666800000000001,
-      -1.0,
-      0.36668000000000006
-    ],
-    [
-      15,
-      "Garchomp-Mega",
-      "Target of Move That Can Miss (Super Fang)",
-      0.0,
-      -0.1,
-      -0.1
-    ],
-    [
-      15,
-      "Garchomp-Mega",
-      "Mon Used a Move That Can Miss (Stone Edge)",
-      -0.1,
-      0.2,
-      0.1
-    ],
-    [
-      15,
-      "Garchomp-Mega",
-      "Mon Used Move With Increased Crit Chance (Stone Edge)",
-      0.1,
-      -0.125,
-      -0.025
-    ],
-    [
-      16,
-      "Garchomp-Mega",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      -0.025,
-      -0.04167,
-      -0.06667
-    ],
-    [
-      27,
-      "Garchomp-Mega",
-      "Target of Move That Can Miss (Fire Blast)",
-      -0.06667,
-      -0.15,
-      -0.21667000000000003
-    ],
-    [
-      27,
-      "Garchomp-Mega",
-      "Target of Move With Crit Chance (Fire Blast)",
-      -0.21667000000000003,
-      0.04167,
-      -0.175
-    ],
-    [
-      27,
-      "Garchomp-Mega",
-      "Target of Move With Secondary Effect Chance (Fire Blast)",
-      -0.175,
-      0.1,
-      -0.075
-    ],
-    [
-      28,
-      "Garchomp-Mega",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      -0.075,
-      -0.04167,
-      -0.11667
-    ],
-    [
-      29,
-      "Garchomp-Mega",
-      "Mon Used Move With Crit Chance (Earthquake)",
-      -0.11667,
-      -0.04167,
-      -0.15834
-    ],
-    [
-      30,
-      "Garchomp-Mega",
-      "Target of Move With Crit Chance (Crunch)",
-      -0.15834,
-      0.04167,
-      -0.11667
-    ],
-    [
-      30,
-      "Garchomp-Mega",
-      "Target of Move With Secondary Effect Chance (Crunch)",
-      -0.11667,
-      0.2,
-      0.08333
-    ],
-    [
-      2,
-      "Golbat",
-      "Mon Used a Move That Can Miss (Super Fang)",
-      0.0,
-      0.1,
-      0.1
-    ],
-    [
-      2,
-      "Golbat",
-      "Mon missed a move (Super Fang)",
-      0.1,
-      -1.0,
-      -0.9
-    ],
-    [
-      3,
-      "Golbat",
-      "Mon Used Move With Crit Chance (Brave Bird)",
-      -0.9,
-      -0.04167,
-      -0.94167
-    ],
-    [
-      3,
-      "Golbat",
-      "Target of Move With Crit Chance (Flare Blitz)",
-      -0.94167,
-      0.04167,
-      -0.9
-    ],
-    [
-      3,
-      "Golbat",
-      "Target of Move With Secondary Effect Chance (Flare Blitz)",
-      -0.9,
-      0.1,
-      -0.8
-    ],
-    [
-      4,
-      "Golbat",
-      "Mon Used a Move That Can Miss (Super Fang)",
-      -0.8,
-      0.1,
-      -0.7
-    ],
-    [
-      5,
-      "Golbat",
-      "Target of Move With Crit Chance (Flare Blitz)",
-      -0.7,
-      0.04167,
-      -0.65833
-    ],
-    [
-      5,
-      "Golbat",
-      "Target of Move With Secondary Effect Chance (Flare Blitz)",
-      -0.65833,
-      0.1,
-      -0.55833
-    ],
-    [
-      7,
-      "Golbat",
-      "Mon Used a Move That Can Miss (Super Fang)",
-      -0.55833,
-      0.1,
-      -0.45832999999999996
-    ],
-    [
-      7,
-      "Golbat",
-      "Target of Move With Crit Chance (Flare Blitz)",
-      -0.45832999999999996,
-      0.04167,
-      -0.41666
-    ],
-    [
-      7,
-      "Golbat",
-      "Target of Move With Secondary Effect Chance (Flare Blitz)",
-      -0.41666,
-      0.1,
-      -0.31665999999999994
+      0.008330000000000002
     ],
     [
       9,
-      "Golbat",
-      "Mon Used a Move That Can Miss (Super Fang)",
-      -0.31665999999999994,
+      "Archeops",
+      "Mon Used a Move That Can Miss (Toxic)",
+      0.008330000000000002,
       0.1,
-      -0.21665999999999996
-    ],
-    [
-      9,
-      "Golbat",
-      "Mon missed a move (Super Fang)",
-      -0.21665999999999996,
-      -1.0,
-      -1.21666
-    ],
-    [
-      9,
-      "Golbat",
-      "Target of Move With Crit Chance (Ice Beam)",
-      -1.21666,
-      0.04167,
-      -1.17499
-    ],
-    [
-      9,
-      "Golbat",
-      "Target of Move With Secondary Effect Chance (Ice Beam)",
-      -1.17499,
-      0.1,
-      -1.07499
-    ],
-    [
-      10,
-      "Golbat",
-      "Target of Move With Crit Chance (Ice Beam)",
-      -1.07499,
-      0.04167,
-      -1.03332
-    ],
-    [
-      10,
-      "Golbat",
-      "Target of Move With Secondary Effect Chance (Ice Beam)",
-      -1.03332,
-      0.1,
-      -0.9333199999999999
-    ],
-    [
-      11,
-      "Golbat",
-      "Mon Used a Move That Can Miss (Super Fang)",
-      -0.9333199999999999,
-      0.1,
-      -0.83332
-    ],
-    [
-      11,
-      "Golbat",
-      "Target of Move With Crit Chance (Ice Beam)",
-      -0.83332,
-      0.04167,
-      -0.79165
-    ],
-    [
-      11,
-      "Golbat",
-      "Target of Move With Secondary Effect Chance (Ice Beam)",
-      -0.79165,
-      0.1,
-      -0.6916499999999999
-    ],
-    [
-      15,
-      "Golbat",
-      "Mon Used a Move That Can Miss (Super Fang)",
-      -0.6916499999999999,
-      0.1,
-      -0.5916499999999999
-    ],
-    [
-      15,
-      "Golbat",
-      "Target of Move That Can Miss (Stone Edge)",
-      -0.5916499999999999,
-      -0.2,
-      -0.79165
-    ],
-    [
-      15,
-      "Golbat",
-      "Target of Move With Increased Crit Chance (Stone Edge)",
-      -0.79165,
-      0.125,
-      -0.66665
-    ],
-    [
-      16,
-      "Golbat",
-      "Target of Move With Crit Chance (Earthquake)",
-      -0.66665,
-      0.04167,
-      -0.6249799999999999
-    ],
-    [
-      25,
-      "Hydreigon",
-      "Mon Used Move With Crit Chance (Flash Cannon)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      25,
-      "Hydreigon",
-      "Mon Used Move With Secondary Effect Chance (Flash Cannon)",
-      -0.04167,
-      -0.1,
-      -0.14167
-    ],
-    [
-      40,
-      "Hydreigon",
-      "Mon Used Move With Crit Chance (Flash Cannon)",
-      -0.14167,
-      -0.04167,
-      -0.18334
-    ],
-    [
-      40,
-      "Hydreigon",
-      "Mon Used Move With Secondary Effect Chance (Flash Cannon)",
-      -0.18334,
-      -0.1,
-      -0.28334
-    ],
-    [
-      40,
-      "Hydreigon",
-      "Mon landed a critical hit",
-      -0.28334,
-      1.0,
-      0.71666
-    ],
-    [
-      13,
-      "Jolteon",
-      "Mon Used Move With Crit Chance (Hidden Power)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      19,
-      "Jolteon",
-      "Mon Used Move With Crit Chance (Shadow Ball)",
-      -0.04167,
-      -0.04167,
-      -0.08334
-    ],
-    [
-      19,
-      "Jolteon",
-      "Mon Used Move With Secondary Effect Chance (Shadow Ball)",
-      -0.08334,
-      -0.2,
-      -0.28334
-    ],
-    [
-      33,
-      "Jolteon",
-      "Target of Move That Can Miss (Fire Blast)",
-      -0.28334,
-      -0.15,
-      -0.43334000000000006
-    ],
-    [
-      33,
-      "Jolteon",
-      "Target of Move With Crit Chance (Fire Blast)",
-      -0.43334000000000006,
-      0.04167,
-      -0.39167
-    ],
-    [
-      33,
-      "Jolteon",
-      "Target of Move With Secondary Effect Chance (Fire Blast)",
-      -0.39167,
-      0.1,
-      -0.29167000000000004
-    ],
-    [
-      33,
-      "Jolteon",
-      "Mon Used Move With Crit Chance (Thunderbolt)",
-      -0.29167000000000004,
-      -0.04167,
-      -0.33334
-    ],
-    [
-      33,
-      "Jolteon",
-      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
-      -0.33334,
-      -0.1,
-      -0.43334000000000006
-    ],
-    [
-      34,
-      "Jolteon",
-      "Mon Used Move With Crit Chance (Thunderbolt)",
-      -0.43334000000000006,
-      -0.04167,
-      -0.47501000000000004
-    ],
-    [
-      34,
-      "Jolteon",
-      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
-      -0.47501000000000004,
-      -0.1,
-      -0.57501
-    ],
-    [
-      36,
-      "Jolteon",
-      "Mon Used Move With Crit Chance (Thunderbolt)",
-      -0.57501,
-      -0.04167,
-      -0.6166800000000001
-    ],
-    [
-      36,
-      "Jolteon",
-      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
-      -0.6166800000000001,
-      -0.1,
-      -0.7166800000000001
-    ],
-    [
-      38,
-      "Jolteon",
-      "Mon Used Move With Crit Chance (Thunderbolt)",
-      -0.7166800000000001,
-      -0.04167,
-      -0.7583500000000001
-    ],
-    [
-      38,
-      "Jolteon",
-      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
-      -0.7583500000000001,
-      -0.1,
-      -0.8583500000000001
-    ],
-    [
-      38,
-      "Jolteon",
-      "Target of Move With Crit Chance (Moonblast)",
-      -0.8583500000000001,
-      0.04167,
-      -0.8166800000000001
-    ],
-    [
-      38,
-      "Jolteon",
-      "Target of Move With Secondary Effect Chance (Moonblast)",
-      -0.8166800000000001,
-      0.3,
-      -0.51668
-    ],
-    [
-      38,
-      "Jolteon",
-      "Mon was hit by a critical hit",
-      -0.51668,
-      -1.0,
-      -1.51668
-    ],
-    [
-      20,
-      "Pyroar",
-      "Mon Used Move With Crit Chance (Hyper Voice)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      24,
-      "Pyroar",
-      "Mon Used a Move That Can Miss (Fire Blast)",
-      -0.04167,
-      0.15,
       0.10833
     ],
     [
-      24,
-      "Pyroar",
-      "Mon Used Move With Crit Chance (Fire Blast)",
+      21,
+      "Archeops",
+      "Target of Move That Can Miss (Hurricane)",
       0.10833,
-      -0.04167,
-      0.06666
+      -0.09,
+      0.018330000000000003
     ],
     [
-      24,
-      "Pyroar",
-      "Mon Used Move With Secondary Effect Chance (Fire Blast)",
-      0.06666,
-      -0.1,
-      -0.033339999999999995
-    ],
-    [
-      27,
-      "Pyroar",
-      "Mon Used a Move That Can Miss (Fire Blast)",
-      -0.033339999999999995,
-      0.15,
-      0.11666
-    ],
-    [
-      27,
-      "Pyroar",
-      "Mon Used Move With Crit Chance (Fire Blast)",
-      0.11666,
-      -0.04167,
-      0.07499
-    ],
-    [
-      27,
-      "Pyroar",
-      "Mon Used Move With Secondary Effect Chance (Fire Blast)",
-      0.07499,
-      -0.1,
-      -0.025009999999999994
-    ],
-    [
-      32,
-      "Pyroar",
-      "Target of Move With Crit Chance (Bullet Punch)",
-      -0.025009999999999994,
+      21,
+      "Archeops",
+      "Target of Move With Crit Chance (Hurricane)",
+      0.018330000000000003,
       0.04167,
-      0.016660000000000005
+      0.06
     ],
     [
-      32,
-      "Pyroar",
-      "Mon Used a Move That Can Miss (Fire Blast)",
-      0.016660000000000005,
-      0.15,
-      0.16666
+      21,
+      "Archeops",
+      "Target of Move With Secondary Effect Chance (Hurricane)",
+      0.06,
+      0.3,
+      0.36
     ],
     [
-      32,
-      "Pyroar",
-      "Mon Used Move With Crit Chance (Fire Blast)",
-      0.16666,
-      -0.04167,
-      0.12499
-    ],
-    [
-      32,
-      "Pyroar",
-      "Mon Used Move With Secondary Effect Chance (Fire Blast)",
-      0.12499,
-      -0.1,
-      0.024990000000000005
-    ],
-    [
-      33,
-      "Pyroar",
-      "Mon Used a Move That Can Miss (Fire Blast)",
-      0.024990000000000005,
-      0.15,
-      0.17499000000000003
-    ],
-    [
-      33,
-      "Pyroar",
-      "Mon Used Move With Crit Chance (Fire Blast)",
-      0.17499000000000003,
-      -0.04167,
-      0.13332000000000002
-    ],
-    [
-      33,
-      "Pyroar",
-      "Mon Used Move With Secondary Effect Chance (Fire Blast)",
-      0.13332000000000002,
-      -0.1,
-      0.03332000000000002
-    ],
-    [
-      33,
-      "Pyroar",
-      "Target of Move With Crit Chance (Thunderbolt)",
-      0.03332000000000002,
+      25,
+      "Archeops",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      0.36,
       0.04167,
-      0.07499000000000003
-    ],
-    [
-      33,
-      "Pyroar",
-      "Target of Move With Secondary Effect Chance (Thunderbolt)",
-      0.07499000000000003,
-      0.1,
-      0.17499000000000003
+      0.40167
     ],
     [
       31,
-      "Scizor",
-      "Target of Move That Can Miss (Hydro Pump)",
-      0.0,
-      -0.2,
-      -0.2
+      "Archeops",
+      "Target of Move That Can Miss (Hurricane)",
+      0.40167,
+      -0.09,
+      0.31167
     ],
     [
       31,
-      "Scizor",
-      "Opponent missed a move (Hydro Pump)",
-      -0.2,
-      1.0,
-      0.8
-    ],
-    [
-      31,
-      "Scizor",
-      "Mon Used Move With Crit Chance (Bug Bite)",
-      0.8,
-      -0.04167,
-      0.75833
-    ],
-    [
-      32,
-      "Scizor",
-      "Mon Used Move With Crit Chance (Bullet Punch)",
-      0.75833,
-      -0.04167,
-      0.71666
-    ],
-    [
-      32,
-      "Scizor",
-      "Target of Move That Can Miss (Fire Blast)",
-      0.71666,
-      -0.15,
-      0.5666599999999999
-    ],
-    [
-      32,
-      "Scizor",
-      "Target of Move With Crit Chance (Fire Blast)",
-      0.5666599999999999,
+      "Archeops",
+      "Target of Move With Crit Chance (Hurricane)",
+      0.31167,
       0.04167,
-      0.60833
-    ],
-    [
-      32,
-      "Scizor",
-      "Target of Move With Secondary Effect Chance (Fire Blast)",
-      0.60833,
-      0.1,
-      0.70833
-    ],
-    [
-      30,
-      "Sharpedo",
-      "Mon Used Move With Crit Chance (Crunch)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      30,
-      "Sharpedo",
-      "Mon Used Move With Secondary Effect Chance (Crunch)",
-      -0.04167,
-      -0.2,
-      -0.24167000000000002
+      0.35334000000000004
     ],
     [
       31,
-      "Sharpedo",
-      "Mon Used a Move That Can Miss (Hydro Pump)",
-      -0.24167000000000002,
-      0.2,
-      -0.04167000000000001
+      "Archeops",
+      "Target of Move With Secondary Effect Chance (Hurricane)",
+      0.35334000000000004,
+      0.3,
+      0.65334
     ],
     [
-      31,
-      "Sharpedo",
-      "Mon missed a move (Hydro Pump)",
-      -0.04167000000000001,
+      72,
+      "Archeops",
+      "Target of Move With Crit Chance (Water Gun)",
+      0.65334,
+      0.04167,
+      0.69501
+    ],
+    [
+      73,
+      "Archeops",
+      "Target of Move That Can Miss (Toxic)",
+      0.69501,
+      -0.1,
+      0.59501
+    ],
+    [
+      87,
+      "Archeops",
+      "Mon Used a Move That Can Miss (Rock Tomb)",
+      0.59501,
+      0.05,
+      0.6450100000000001
+    ],
+    [
+      87,
+      "Archeops",
+      "Mon Used Move With Crit Chance (Rock Tomb)",
+      0.6450100000000001,
+      -0.04167,
+      0.60334
+    ],
+    [
+      87,
+      "Archeops",
+      "Target of Move With Crit Chance (Water Gun)",
+      0.60334,
+      0.04167,
+      0.6450100000000001
+    ],
+    [
+      88,
+      "Archeops",
+      "Mon Used a Move That Can Miss (Rock Tomb)",
+      0.6450100000000001,
+      0.05,
+      0.69501
+    ],
+    [
+      88,
+      "Archeops",
+      "Mon Used Move With Crit Chance (Rock Tomb)",
+      0.69501,
+      -0.04167,
+      0.65334
+    ],
+    [
+      89,
+      "Archeops",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      0.65334,
+      0.04167,
+      0.69501
+    ],
+    [
+      90,
+      "Archeops",
+      "Mon Used a Move That Can Miss (Rock Tomb)",
+      0.69501,
+      0.05,
+      0.7450100000000001
+    ],
+    [
+      90,
+      "Archeops",
+      "Mon Used Move With Crit Chance (Rock Tomb)",
+      0.7450100000000001,
+      -0.04167,
+      0.7033400000000001
+    ],
+    [
+      90,
+      "Archeops",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      0.7033400000000001,
+      0.04167,
+      0.7450100000000001
+    ],
+    [
+      90,
+      "Archeops",
+      "Mon was hit by a critical hit",
+      0.7450100000000001,
       -1.0,
-      -1.04167
+      -0.25498999999999994
     ],
     [
-      31,
-      "Sharpedo",
-      "Target of Move With Crit Chance (Bug Bite)",
-      -1.04167,
-      0.04167,
-      -1.0
-    ],
-    [
-      9,
-      "Tapu Fini",
-      "Target of Move That Can Miss (Super Fang)",
+      3,
+      "Coalossal",
+      "Target of Move That Can Miss (Play Rough)",
       0.0,
       -0.1,
       -0.1
     ],
     [
-      9,
-      "Tapu Fini",
-      "Opponent missed a move (Super Fang)",
+      3,
+      "Coalossal",
+      "Target of Move With Crit Chance (Play Rough)",
       -0.1,
-      1.0,
-      0.9
-    ],
-    [
-      9,
-      "Tapu Fini",
-      "Mon Used Move With Crit Chance (Ice Beam)",
-      0.9,
-      -0.04167,
-      0.85833
-    ],
-    [
-      9,
-      "Tapu Fini",
-      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
-      0.85833,
-      -0.1,
-      0.75833
-    ],
-    [
-      10,
-      "Tapu Fini",
-      "Mon Used Move With Crit Chance (Ice Beam)",
-      0.75833,
-      -0.04167,
-      0.71666
-    ],
-    [
-      10,
-      "Tapu Fini",
-      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
-      0.71666,
-      -0.1,
-      0.61666
-    ],
-    [
-      11,
-      "Tapu Fini",
-      "Target of Move That Can Miss (Super Fang)",
-      0.61666,
-      -0.1,
-      0.51666
-    ],
-    [
-      11,
-      "Tapu Fini",
-      "Mon Used Move With Crit Chance (Ice Beam)",
-      0.51666,
-      -0.04167,
-      0.47498999999999997
-    ],
-    [
-      11,
-      "Tapu Fini",
-      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
-      0.47498999999999997,
-      -0.1,
-      0.37498999999999993
-    ],
-    [
-      20,
-      "Tapu Fini",
-      "Target of Move With Crit Chance (Hyper Voice)",
-      0.37498999999999993,
       0.04167,
-      0.41666
+      -0.05833
     ],
     [
-      22,
-      "Tapu Fini",
-      "Mon Used Move With Crit Chance (Shadow Ball)",
-      0.41666,
-      -0.04167,
-      0.37498999999999993
-    ],
-    [
-      22,
-      "Tapu Fini",
-      "Mon Used Move With Secondary Effect Chance (Shadow Ball)",
-      0.37498999999999993,
-      -0.2,
-      0.17498999999999995
-    ],
-    [
-      22,
-      "Tapu Fini",
-      "Mon incurred secondary effect (Shadow Ball)",
-      0.17498999999999995,
-      1.0,
-      1.17499
-    ],
-    [
-      24,
-      "Tapu Fini",
-      "Target of Move That Can Miss (Fire Blast)",
-      1.17499,
-      -0.15,
-      1.0249899999999998
-    ],
-    [
-      24,
-      "Tapu Fini",
-      "Target of Move With Crit Chance (Fire Blast)",
-      1.0249899999999998,
-      0.04167,
-      1.06666
-    ],
-    [
-      24,
-      "Tapu Fini",
-      "Target of Move With Secondary Effect Chance (Fire Blast)",
-      1.06666,
+      3,
+      "Coalossal",
+      "Target of Move With Secondary Effect Chance (Play Rough)",
+      -0.05833,
       0.1,
-      1.16666
-    ],
-    [
-      13,
-      "Zeraora",
-      "Target of Move With Crit Chance (Hidden Power)",
-      0.0,
-      0.04167,
       0.04167
     ],
     [
-      17,
-      "Zeraora",
-      "Mon Used Move With Crit Chance (Hidden Power)",
+      4,
+      "Coalossal",
+      "Mon Used Move With Crit Chance (Ancient Power)",
       0.04167,
       -0.04167,
       0.0
     ],
     [
-      18,
-      "Zeraora",
-      "Mon Used Move With Crit Chance (Thunderbolt)",
+      4,
+      "Coalossal",
+      "Mon Used Move With Secondary Effect Chance (Ancient Power)",
       0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      18,
-      "Zeraora",
-      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
-      -0.04167,
       -0.1,
-      -0.14167
-    ],
-    [
-      19,
-      "Zeraora",
-      "Target of Move With Crit Chance (Shadow Ball)",
-      -0.14167,
-      0.04167,
       -0.1
     ],
     [
-      19,
-      "Zeraora",
-      "Target of Move With Secondary Effect Chance (Shadow Ball)",
+      5,
+      "Coalossal",
+      "Mon Used Move With Crit Chance (Ancient Power)",
       -0.1,
-      0.2,
+      -0.04167,
+      -0.14167
+    ],
+    [
+      5,
+      "Coalossal",
+      "Mon Used Move With Secondary Effect Chance (Ancient Power)",
+      -0.14167,
+      -0.1,
+      -0.24167000000000002
+    ],
+    [
+      5,
+      "Coalossal",
+      "Target of Move That Can Miss (Draco Meteor)",
+      -0.24167000000000002,
+      -0.1,
+      -0.34167000000000003
+    ],
+    [
+      5,
+      "Coalossal",
+      "Target of Move With Crit Chance (Draco Meteor)",
+      -0.34167000000000003,
+      0.04167,
+      -0.3
+    ],
+    [
+      4,
+      "Drampa",
+      "Target of Move With Crit Chance (Ancient Power)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      4,
+      "Drampa",
+      "Target of Move With Secondary Effect Chance (Ancient Power)",
+      0.04167,
+      0.1,
+      0.14167
+    ],
+    [
+      5,
+      "Drampa",
+      "Target of Move With Crit Chance (Ancient Power)",
+      0.14167,
+      0.04167,
+      0.18334
+    ],
+    [
+      5,
+      "Drampa",
+      "Target of Move With Secondary Effect Chance (Ancient Power)",
+      0.18334,
+      0.1,
+      0.28334
+    ],
+    [
+      5,
+      "Drampa",
+      "Mon Used a Move That Can Miss (Draco Meteor)",
+      0.28334,
+      0.1,
+      0.38334
+    ],
+    [
+      5,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Draco Meteor)",
+      0.38334,
+      -0.04167,
+      0.34167000000000003
+    ],
+    [
+      15,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      0.34167000000000003,
+      -0.04167,
+      0.3
+    ],
+    [
+      25,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      0.3,
+      -0.04167,
+      0.25833
+    ],
+    [
+      29,
+      "Drampa",
+      "Mon Used a Move That Can Miss (Draco Meteor)",
+      0.25833,
+      0.1,
+      0.35833
+    ],
+    [
+      29,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Draco Meteor)",
+      0.35833,
+      -0.04167,
+      0.31665999999999994
+    ],
+    [
+      33,
+      "Drampa",
+      "Mon Used a Move That Can Miss (Draco Meteor)",
+      0.31665999999999994,
+      0.1,
+      0.41666
+    ],
+    [
+      33,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Draco Meteor)",
+      0.41666,
+      -0.04167,
+      0.37498999999999993
+    ],
+    [
+      35,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      0.37498999999999993,
+      -0.04167,
+      0.33331999999999995
+    ],
+    [
+      35,
+      "Drampa",
+      "Mon landed a critical hit",
+      0.33331999999999995,
+      1.0,
+      1.3333199999999998
+    ],
+    [
+      36,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.3333199999999998,
+      -0.04167,
+      1.29165
+    ],
+    [
+      39,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.29165,
+      -0.04167,
+      1.2499799999999999
+    ],
+    [
+      40,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.2499799999999999,
+      -0.04167,
+      1.20831
+    ],
+    [
+      41,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.20831,
+      -0.04167,
+      1.16664
+    ],
+    [
+      42,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.16664,
+      -0.04167,
+      1.1249699999999998
+    ],
+    [
+      43,
+      "Drampa",
+      "Mon Used a Move That Can Miss (Draco Meteor)",
+      1.1249699999999998,
+      0.1,
+      1.22497
+    ],
+    [
+      43,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Draco Meteor)",
+      1.22497,
+      -0.04167,
+      1.1832999999999998
+    ],
+    [
+      50,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.1832999999999998,
+      -0.04167,
+      1.14163
+    ],
+    [
+      60,
+      "Drampa",
+      "Target of Move With Crit Chance (Future Sight)",
+      1.14163,
+      0.04167,
+      1.1832999999999998
+    ],
+    [
+      61,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.1832999999999998,
+      -0.04167,
+      1.14163
+    ],
+    [
+      62,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.14163,
+      -0.04167,
+      1.0999599999999998
+    ],
+    [
+      64,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.0999599999999998,
+      -0.04167,
+      1.0582899999999997
+    ],
+    [
+      65,
+      "Drampa",
+      "Mon Used a Move That Can Miss (Draco Meteor)",
+      1.0582899999999997,
+      0.1,
+      1.1582899999999998
+    ],
+    [
+      65,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Draco Meteor)",
+      1.1582899999999998,
+      -0.04167,
+      1.1166199999999997
+    ],
+    [
+      89,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.1166199999999997,
+      -0.04167,
+      1.0749499999999999
+    ],
+    [
+      90,
+      "Drampa",
+      "Target of Move That Can Miss (Rock Tomb)",
+      1.0749499999999999,
+      -0.05,
+      1.0249499999999998
+    ],
+    [
+      90,
+      "Drampa",
+      "Target of Move With Crit Chance (Rock Tomb)",
+      1.0249499999999998,
+      0.04167,
+      1.0666199999999997
+    ],
+    [
+      90,
+      "Drampa",
+      "Mon Used Move With Crit Chance (Hyper Voice)",
+      1.0666199999999997,
+      -0.04167,
+      1.0249499999999998
+    ],
+    [
+      90,
+      "Drampa",
+      "Mon landed a critical hit",
+      1.0249499999999998,
+      1.0,
+      2.0249499999999996
+    ],
+    [
+      3,
+      "Hatterene",
+      "Mon Used a Move That Can Miss (Play Rough)",
+      0.0,
+      0.1,
       0.1
+    ],
+    [
+      3,
+      "Hatterene",
+      "Mon Used Move With Crit Chance (Play Rough)",
+      0.1,
+      -0.04167,
+      0.05833
+    ],
+    [
+      3,
+      "Hatterene",
+      "Mon Used Move With Secondary Effect Chance (Play Rough)",
+      0.05833,
+      -0.1,
+      -0.04167
+    ],
+    [
+      6,
+      "Hatterene",
+      "Target of Move That Can Miss (Snarl)",
+      -0.04167,
+      -0.05,
+      -0.09167
+    ],
+    [
+      6,
+      "Hatterene",
+      "Target of Move With Crit Chance (Snarl)",
+      -0.09167,
+      0.04167,
+      -0.05
+    ],
+    [
+      7,
+      "Hatterene",
+      "Target of Move That Can Miss (Snarl)",
+      -0.05,
+      -0.05,
+      -0.1
+    ],
+    [
+      7,
+      "Hatterene",
+      "Target of Move With Crit Chance (Snarl)",
+      -0.1,
+      0.04167,
+      -0.05833
+    ],
+    [
+      7,
+      "Hatterene",
+      "Mon Used a Move That Can Miss (Play Rough)",
+      -0.05833,
+      0.1,
+      0.04167
+    ],
+    [
+      7,
+      "Hatterene",
+      "Mon Used Move With Crit Chance (Play Rough)",
+      0.04167,
+      -0.04167,
+      0.0
+    ],
+    [
+      48,
+      "Hatterene",
+      "Target of Move With Crit Chance (Future Sight)",
+      0.0,
+      0.04167,
+      0.04167
+    ],
+    [
+      49,
+      "Hatterene",
+      "Target of Move That Can Miss (Hyper Beam)",
+      0.04167,
+      -0.1,
+      -0.05833
+    ],
+    [
+      49,
+      "Hatterene",
+      "Target of Move With Crit Chance (Hyper Beam)",
+      -0.05833,
+      0.04167,
+      -0.016660000000000005
+    ],
+    [
+      1,
+      "Mesprit",
+      "Target of Move That Can Miss (Bind)",
+      0.0,
+      -0.15,
+      -0.15
+    ],
+    [
+      1,
+      "Mesprit",
+      "Target of Move With Crit Chance (Bind)",
+      -0.15,
+      0.04167,
+      -0.10833
+    ],
+    [
+      1,
+      "Mesprit",
+      "Mon Used Move With Crit Chance (Future Sight)",
+      -0.10833,
+      -0.04167,
+      -0.15
+    ],
+    [
+      47,
+      "Mesprit",
+      "Target of Move That Can Miss (Bind)",
+      -0.15,
+      -0.15,
+      -0.3
+    ],
+    [
+      47,
+      "Mesprit",
+      "Target of Move With Crit Chance (Bind)",
+      -0.3,
+      0.04167,
+      -0.25833
+    ],
+    [
+      48,
+      "Mesprit",
+      "Mon Used Move With Crit Chance (Future Sight)",
+      -0.25833,
+      -0.04167,
+      -0.3
+    ],
+    [
+      49,
+      "Mesprit",
+      "Mon Used a Move That Can Miss (Hyper Beam)",
+      -0.3,
+      0.1,
+      -0.2
+    ],
+    [
+      49,
+      "Mesprit",
+      "Mon Used Move With Crit Chance (Hyper Beam)",
+      -0.2,
+      -0.04167,
+      -0.24167000000000002
+    ],
+    [
+      50,
+      "Mesprit",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      -0.24167000000000002,
+      0.04167,
+      -0.2
+    ],
+    [
+      59,
+      "Mesprit",
+      "Target of Move That Can Miss (Toxic)",
+      -0.2,
+      -0.1,
+      -0.3
+    ],
+    [
+      60,
+      "Mesprit",
+      "Mon Used Move With Crit Chance (Future Sight)",
+      -0.3,
+      -0.04167,
+      -0.34167000000000003
+    ],
+    [
+      80,
+      "Mesprit",
+      "Target of Move That Can Miss (Bind)",
+      -0.34167000000000003,
+      -0.15,
+      -0.49167
+    ],
+    [
+      80,
+      "Mesprit",
+      "Target of Move With Crit Chance (Bind)",
+      -0.49167,
+      0.04167,
+      -0.45
+    ],
+    [
+      81,
+      "Mesprit",
+      "Target of Move With Crit Chance (Water Gun)",
+      -0.45,
+      0.04167,
+      -0.40832999999999997
+    ],
+    [
+      6,
+      "Obstagoon",
+      "Mon Used a Move That Can Miss (Snarl)",
+      0.0,
+      0.05,
+      0.05
+    ],
+    [
+      6,
+      "Obstagoon",
+      "Mon Used Move With Crit Chance (Snarl)",
+      0.05,
+      -0.04167,
+      0.008330000000000002
+    ],
+    [
+      7,
+      "Obstagoon",
+      "Mon Used a Move That Can Miss (Snarl)",
+      0.008330000000000002,
+      0.05,
+      0.05833
+    ],
+    [
+      7,
+      "Obstagoon",
+      "Mon Used Move With Crit Chance (Snarl)",
+      0.05833,
+      -0.04167,
+      0.016660000000000005
+    ],
+    [
+      7,
+      "Obstagoon",
+      "Target of Move That Can Miss (Play Rough)",
+      0.016660000000000005,
+      -0.1,
+      -0.08334
+    ],
+    [
+      7,
+      "Obstagoon",
+      "Target of Move With Crit Chance (Play Rough)",
+      -0.08334,
+      0.04167,
+      -0.04167
+    ],
+    [
+      8,
+      "Palossand",
+      "Target of Move That Can Miss (Rock Tomb)",
+      0.0,
+      -0.05,
+      -0.05
+    ],
+    [
+      8,
+      "Palossand",
+      "Target of Move With Crit Chance (Rock Tomb)",
+      -0.05,
+      0.04167,
+      -0.008330000000000002
+    ],
+    [
+      9,
+      "Palossand",
+      "Target of Move That Can Miss (Toxic)",
+      -0.008330000000000002,
+      -0.1,
+      -0.10833
+    ],
+    [
+      19,
+      "Palossand",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      -0.10833,
+      -0.04167,
+      -0.15
+    ],
+    [
+      19,
+      "Palossand",
+      "Target of Move With Crit Chance (Stored Power)",
+      -0.15,
+      0.04167,
+      -0.10833
+    ],
+    [
+      17,
+      "Sirfetchd",
+      "Mon Used a Move That Can Miss (Fury Cutter)",
+      0.0,
+      0.05,
+      0.05
+    ],
+    [
+      17,
+      "Sirfetchd",
+      "Mon Used Move With Crit Chance (Fury Cutter)",
+      0.05,
+      -0.04167,
+      0.008330000000000002
+    ],
+    [
+      17,
+      "Sirfetchd",
+      "Target of Move With Crit Chance (Stored Power)",
+      0.008330000000000002,
+      0.04167,
+      0.05
+    ],
+    [
+      24,
+      "Sirfetchd",
+      "Target of Move That Can Miss (Charge Beam)",
+      0.05,
+      -0.1,
+      -0.05
+    ],
+    [
+      24,
+      "Sirfetchd",
+      "Target of Move With Crit Chance (Charge Beam)",
+      -0.05,
+      0.04167,
+      -0.008330000000000002
+    ],
+    [
+      24,
+      "Sirfetchd",
+      "Target of Move With Secondary Effect Chance (Charge Beam)",
+      -0.008330000000000002,
+      0.7,
+      0.69167
+    ],
+    [
+      1,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Bind)",
+      0.0,
+      0.15,
+      0.15
+    ],
+    [
+      1,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Bind)",
+      0.15,
+      -0.04167,
+      0.10833
+    ],
+    [
+      1,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Future Sight)",
+      0.10833,
+      0.04167,
+      0.15
+    ],
+    [
+      23,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Bind)",
+      0.15,
+      0.15,
+      0.3
+    ],
+    [
+      23,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Bind)",
+      0.3,
+      -0.04167,
+      0.25833
+    ],
+    [
+      27,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Toxic)",
+      0.25833,
+      0.1,
+      0.35833
+    ],
+    [
+      46,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Stored Power)",
+      0.35833,
+      0.04167,
+      0.4
+    ],
+    [
+      47,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Bind)",
+      0.4,
+      0.15,
+      0.55
+    ],
+    [
+      47,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Bind)",
+      0.55,
+      -0.04167,
+      0.50833
+    ],
+    [
+      53,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Toxic)",
+      0.50833,
+      0.1,
+      0.60833
+    ],
+    [
+      54,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Bind)",
+      0.60833,
+      0.15,
+      0.75833
+    ],
+    [
+      54,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Bind)",
+      0.75833,
+      -0.04167,
+      0.71666
+    ],
+    [
+      55,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Water Gun)",
+      0.71666,
+      -0.04167,
+      0.67499
+    ],
+    [
+      56,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Toxic)",
+      0.67499,
+      0.1,
+      0.77499
+    ],
+    [
+      57,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Bind)",
+      0.77499,
+      0.15,
+      0.92499
+    ],
+    [
+      57,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Bind)",
+      0.92499,
+      -0.04167,
+      0.8833199999999999
+    ],
+    [
+      58,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Stored Power)",
+      0.8833199999999999,
+      0.04167,
+      0.92499
+    ],
+    [
+      59,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Toxic)",
+      0.92499,
+      0.1,
+      1.0249899999999998
+    ],
+    [
+      67,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Bind)",
+      1.0249899999999998,
+      0.15,
+      1.17499
+    ],
+    [
+      67,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Bind)",
+      1.17499,
+      -0.04167,
+      1.1333199999999999
+    ],
+    [
+      68,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Toxic)",
+      1.1333199999999999,
+      0.1,
+      1.23332
+    ],
+    [
+      68,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Stored Power)",
+      1.23332,
+      0.04167,
+      1.2749899999999998
+    ],
+    [
+      70,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Toxic)",
+      1.2749899999999998,
+      0.1,
+      1.37499
+    ],
+    [
+      72,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Water Gun)",
+      1.37499,
+      -0.04167,
+      1.3333199999999998
+    ],
+    [
+      73,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Toxic)",
+      1.3333199999999998,
+      0.1,
+      1.43332
+    ],
+    [
+      74,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Bind)",
+      1.43332,
+      0.15,
+      1.5833199999999998
+    ],
+    [
+      74,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Bind)",
+      1.5833199999999998,
+      -0.04167,
+      1.54165
+    ],
+    [
+      75,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Toxic)",
+      1.54165,
+      0.1,
+      1.6416499999999998
+    ],
+    [
+      76,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Water Gun)",
+      1.6416499999999998,
+      -0.04167,
+      1.59998
+    ],
+    [
+      76,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Stored Power)",
+      1.59998,
+      0.04167,
+      1.6416499999999998
+    ],
+    [
+      77,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Water Gun)",
+      1.6416499999999998,
+      -0.04167,
+      1.59998
+    ],
+    [
+      78,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Water Gun)",
+      1.59998,
+      -0.04167,
+      1.5583099999999999
+    ],
+    [
+      78,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Stored Power)",
+      1.5583099999999999,
+      0.04167,
+      1.59998
+    ],
+    [
+      79,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Water Gun)",
+      1.59998,
+      -0.04167,
+      1.5583099999999999
+    ],
+    [
+      80,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Bind)",
+      1.5583099999999999,
+      0.15,
+      1.70831
+    ],
+    [
+      80,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Bind)",
+      1.70831,
+      -0.04167,
+      1.66664
+    ],
+    [
+      81,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Water Gun)",
+      1.66664,
+      -0.04167,
+      1.6249699999999998
+    ],
+    [
+      82,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Bind)",
+      1.6249699999999998,
+      0.15,
+      1.77497
+    ],
+    [
+      82,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Bind)",
+      1.77497,
+      -0.04167,
+      1.7332999999999998
+    ],
+    [
+      83,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Stored Power)",
+      1.7332999999999998,
+      0.04167,
+      1.77497
+    ],
+    [
+      84,
+      "Tentacruel",
+      "Mon Used a Move That Can Miss (Toxic)",
+      1.77497,
+      0.1,
+      1.8749699999999998
+    ],
+    [
+      84,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Stored Power)",
+      1.8749699999999998,
+      0.04167,
+      1.91664
+    ],
+    [
+      85,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Water Gun)",
+      1.91664,
+      -0.04167,
+      1.8749699999999998
+    ],
+    [
+      85,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Stored Power)",
+      1.8749699999999998,
+      0.04167,
+      1.91664
+    ],
+    [
+      85,
+      "Tentacruel",
+      "Mon was hit by a critical hit",
+      1.91664,
+      -1.0,
+      0.9166399999999999
+    ],
+    [
+      86,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Water Gun)",
+      0.9166399999999999,
+      -0.04167,
+      0.8749699999999998
+    ],
+    [
+      86,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Stored Power)",
+      0.8749699999999998,
+      0.04167,
+      0.9166399999999999
+    ],
+    [
+      87,
+      "Tentacruel",
+      "Target of Move That Can Miss (Rock Tomb)",
+      0.9166399999999999,
+      -0.05,
+      0.8666399999999999
+    ],
+    [
+      87,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Rock Tomb)",
+      0.8666399999999999,
+      0.04167,
+      0.9083099999999998
+    ],
+    [
+      87,
+      "Tentacruel",
+      "Mon Used Move With Crit Chance (Water Gun)",
+      0.9083099999999998,
+      -0.04167,
+      0.8666399999999999
+    ],
+    [
+      88,
+      "Tentacruel",
+      "Target of Move That Can Miss (Rock Tomb)",
+      0.8666399999999999,
+      -0.05,
+      0.8166399999999999
+    ],
+    [
+      88,
+      "Tentacruel",
+      "Target of Move With Crit Chance (Rock Tomb)",
+      0.8166399999999999,
+      0.04167,
+      0.8583099999999999
+    ],
+    [
+      12,
+      "Vaporeon",
+      "Target of Move That Can Miss (Hurricane)",
+      0.0,
+      -0.09,
+      -0.09
+    ],
+    [
+      12,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hurricane)",
+      -0.09,
+      0.04167,
+      -0.048330000000000005
+    ],
+    [
+      12,
+      "Vaporeon",
+      "Target of Move With Secondary Effect Chance (Hurricane)",
+      -0.048330000000000005,
+      0.3,
+      0.25167
+    ],
+    [
+      13,
+      "Vaporeon",
+      "Target of Move That Can Miss (Hurricane)",
+      0.25167,
+      -0.09,
+      0.16167
+    ],
+    [
+      13,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hurricane)",
+      0.16167,
+      0.04167,
+      0.20334000000000002
+    ],
+    [
+      13,
+      "Vaporeon",
+      "Target of Move With Secondary Effect Chance (Hurricane)",
+      0.20334000000000002,
+      0.3,
+      0.50334
+    ],
+    [
+      14,
+      "Vaporeon",
+      "Target of Move With Crit Chance (U-turn)",
+      0.50334,
+      0.04167,
+      0.54501
+    ],
+    [
+      15,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      0.54501,
+      0.04167,
+      0.5866800000000001
+    ],
+    [
+      17,
+      "Vaporeon",
+      "Target of Move That Can Miss (Fury Cutter)",
+      0.5866800000000001,
+      -0.05,
+      0.53668
+    ],
+    [
+      17,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Fury Cutter)",
+      0.53668,
+      0.04167,
+      0.57835
+    ],
+    [
+      17,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      0.57835,
+      -0.04167,
+      0.53668
+    ],
+    [
+      19,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Earthquake)",
+      0.53668,
+      0.04167,
+      0.57835
+    ],
+    [
+      19,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      0.57835,
+      -0.04167,
+      0.53668
+    ],
+    [
+      33,
+      "Vaporeon",
+      "Target of Move That Can Miss (Draco Meteor)",
+      0.53668,
+      -0.1,
+      0.43668000000000007
+    ],
+    [
+      33,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Draco Meteor)",
+      0.43668000000000007,
+      0.04167,
+      0.47835000000000005
+    ],
+    [
+      35,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      0.47835000000000005,
+      0.04167,
+      0.5200200000000001
+    ],
+    [
+      35,
+      "Vaporeon",
+      "Mon was hit by a critical hit",
+      0.5200200000000001,
+      -1.0,
+      -0.4799799999999999
+    ],
+    [
+      36,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      -0.4799799999999999,
+      0.04167,
+      -0.43830999999999987
+    ],
+    [
+      39,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      -0.43830999999999987,
+      0.04167,
+      -0.3966399999999999
+    ],
+    [
+      40,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      -0.3966399999999999,
+      0.04167,
+      -0.35496999999999984
+    ],
+    [
+      41,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      -0.35496999999999984,
+      0.04167,
+      -0.31329999999999986
+    ],
+    [
+      42,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      -0.31329999999999986,
+      0.04167,
+      -0.2716299999999998
+    ],
+    [
+      43,
+      "Vaporeon",
+      "Target of Move That Can Miss (Draco Meteor)",
+      -0.2716299999999998,
+      -0.1,
+      -0.37162999999999985
+    ],
+    [
+      43,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Draco Meteor)",
+      -0.37162999999999985,
+      0.04167,
+      -0.3299599999999998
+    ],
+    [
+      44,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -0.3299599999999998,
+      -0.04167,
+      -0.37162999999999985
+    ],
+    [
+      45,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hurricane)",
+      -0.37162999999999985,
+      0.04167,
+      -0.3299599999999998
+    ],
+    [
+      45,
+      "Vaporeon",
+      "Target of Move With Secondary Effect Chance (Hurricane)",
+      -0.3299599999999998,
+      0.3,
+      -0.02995999999999981
+    ],
+    [
+      45,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -0.02995999999999981,
+      -0.04167,
+      -0.0716299999999998
+    ],
+    [
+      46,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -0.0716299999999998,
+      -0.04167,
+      -0.1132999999999998
+    ],
+    [
+      53,
+      "Vaporeon",
+      "Target of Move That Can Miss (Toxic)",
+      -0.1132999999999998,
+      -0.1,
+      -0.2132999999999998
+    ],
+    [
+      54,
+      "Vaporeon",
+      "Target of Move That Can Miss (Bind)",
+      -0.2132999999999998,
+      -0.15,
+      -0.36329999999999985
+    ],
+    [
+      54,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Bind)",
+      -0.36329999999999985,
+      0.04167,
+      -0.3216299999999998
+    ],
+    [
+      55,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Water Gun)",
+      -0.3216299999999998,
+      0.04167,
+      -0.2799599999999998
+    ],
+    [
+      56,
+      "Vaporeon",
+      "Target of Move That Can Miss (Toxic)",
+      -0.2799599999999998,
+      -0.1,
+      -0.3799599999999998
+    ],
+    [
+      57,
+      "Vaporeon",
+      "Target of Move That Can Miss (Bind)",
+      -0.3799599999999998,
+      -0.15,
+      -0.5299599999999998
+    ],
+    [
+      57,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Bind)",
+      -0.5299599999999998,
+      0.04167,
+      -0.4882899999999998
+    ],
+    [
+      58,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -0.4882899999999998,
+      -0.04167,
+      -0.5299599999999998
+    ],
+    [
+      61,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      -0.5299599999999998,
+      0.04167,
+      -0.4882899999999998
+    ],
+    [
+      62,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      -0.4882899999999998,
+      0.04167,
+      -0.4466199999999998
+    ],
+    [
+      64,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Hyper Voice)",
+      -0.4466199999999998,
+      0.04167,
+      -0.40494999999999975
+    ],
+    [
+      65,
+      "Vaporeon",
+      "Target of Move That Can Miss (Draco Meteor)",
+      -0.40494999999999975,
+      -0.1,
+      -0.5049499999999998
+    ],
+    [
+      65,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Draco Meteor)",
+      -0.5049499999999998,
+      0.04167,
+      -0.46327999999999975
+    ],
+    [
+      67,
+      "Vaporeon",
+      "Target of Move That Can Miss (Bind)",
+      -0.46327999999999975,
+      -0.15,
+      -0.6132799999999997
+    ],
+    [
+      67,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Bind)",
+      -0.6132799999999997,
+      0.04167,
+      -0.5716099999999997
+    ],
+    [
+      68,
+      "Vaporeon",
+      "Target of Move That Can Miss (Toxic)",
+      -0.5716099999999997,
+      -0.1,
+      -0.6716099999999997
+    ],
+    [
+      68,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -0.6716099999999997,
+      -0.04167,
+      -0.7132799999999997
+    ],
+    [
+      70,
+      "Vaporeon",
+      "Target of Move That Can Miss (Toxic)",
+      -0.7132799999999997,
+      -0.1,
+      -0.8132799999999998
+    ],
+    [
+      74,
+      "Vaporeon",
+      "Target of Move That Can Miss (Bind)",
+      -0.8132799999999998,
+      -0.15,
+      -0.9632799999999997
+    ],
+    [
+      74,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Bind)",
+      -0.9632799999999997,
+      0.04167,
+      -0.9216099999999997
+    ],
+    [
+      75,
+      "Vaporeon",
+      "Target of Move That Can Miss (Toxic)",
+      -0.9216099999999997,
+      -0.1,
+      -1.0216099999999997
+    ],
+    [
+      76,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Water Gun)",
+      -1.0216099999999997,
+      0.04167,
+      -0.9799399999999997
+    ],
+    [
+      76,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -0.9799399999999997,
+      -0.04167,
+      -1.0216099999999997
+    ],
+    [
+      77,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Water Gun)",
+      -1.0216099999999997,
+      0.04167,
+      -0.9799399999999997
+    ],
+    [
+      78,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Water Gun)",
+      -0.9799399999999997,
+      0.04167,
+      -0.9382699999999997
+    ],
+    [
+      78,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -0.9382699999999997,
+      -0.04167,
+      -0.9799399999999997
+    ],
+    [
+      79,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Water Gun)",
+      -0.9799399999999997,
+      0.04167,
+      -0.9382699999999997
+    ],
+    [
+      82,
+      "Vaporeon",
+      "Target of Move That Can Miss (Bind)",
+      -0.9382699999999997,
+      -0.15,
+      -1.0882699999999996
+    ],
+    [
+      82,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Bind)",
+      -1.0882699999999996,
+      0.04167,
+      -1.0465999999999998
+    ],
+    [
+      83,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -1.0465999999999998,
+      -0.04167,
+      -1.0882699999999996
+    ],
+    [
+      84,
+      "Vaporeon",
+      "Target of Move That Can Miss (Toxic)",
+      -1.0882699999999996,
+      -0.1,
+      -1.1882699999999997
+    ],
+    [
+      84,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -1.1882699999999997,
+      -0.04167,
+      -1.2299399999999998
+    ],
+    [
+      85,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Water Gun)",
+      -1.2299399999999998,
+      0.04167,
+      -1.1882699999999997
+    ],
+    [
+      85,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -1.1882699999999997,
+      -0.04167,
+      -1.2299399999999998
+    ],
+    [
+      85,
+      "Vaporeon",
+      "Mon landed a critical hit",
+      -1.2299399999999998,
+      1.0,
+      -0.2299399999999997
+    ],
+    [
+      86,
+      "Vaporeon",
+      "Target of Move With Crit Chance (Water Gun)",
+      -0.2299399999999997,
+      0.04167,
+      -0.1882699999999997
+    ],
+    [
+      86,
+      "Vaporeon",
+      "Mon Used Move With Crit Chance (Stored Power)",
+      -0.1882699999999997,
+      -0.04167,
+      -0.2299399999999997
+    ],
+    [
+      23,
+      "Vikavolt",
+      "Target of Move That Can Miss (Bind)",
+      0.0,
+      -0.15,
+      -0.15
+    ],
+    [
+      23,
+      "Vikavolt",
+      "Target of Move With Crit Chance (Bind)",
+      -0.15,
+      0.04167,
+      -0.10833
+    ],
+    [
+      24,
+      "Vikavolt",
+      "Mon Used a Move That Can Miss (Charge Beam)",
+      -0.10833,
+      0.1,
+      -0.008330000000000002
+    ],
+    [
+      24,
+      "Vikavolt",
+      "Mon Used Move With Crit Chance (Charge Beam)",
+      -0.008330000000000002,
+      -0.04167,
+      -0.05
+    ],
+    [
+      24,
+      "Vikavolt",
+      "Mon Used Move With Secondary Effect Chance (Charge Beam)",
+      -0.05,
+      -0.7,
+      -0.75
+    ],
+    [
+      27,
+      "Vikavolt",
+      "Target of Move That Can Miss (Toxic)",
+      -0.75,
+      -0.1,
+      -0.85
+    ],
+    [
+      29,
+      "Vikavolt",
+      "Target of Move That Can Miss (Draco Meteor)",
+      -0.85,
+      -0.1,
+      -0.95
+    ],
+    [
+      29,
+      "Vikavolt",
+      "Target of Move With Crit Chance (Draco Meteor)",
+      -0.95,
+      0.04167,
+      -0.90833
+    ],
+    [
+      12,
+      "Vivillon",
+      "Mon Used a Move That Can Miss (Hurricane)",
+      0.0,
+      0.09,
+      0.09
+    ],
+    [
+      12,
+      "Vivillon",
+      "Mon Used Move With Crit Chance (Hurricane)",
+      0.09,
+      -0.04167,
+      0.048330000000000005
+    ],
+    [
+      12,
+      "Vivillon",
+      "Mon Used Move With Secondary Effect Chance (Hurricane)",
+      0.048330000000000005,
+      -0.3,
+      -0.25167
+    ],
+    [
+      13,
+      "Vivillon",
+      "Mon Used a Move That Can Miss (Hurricane)",
+      -0.25167,
+      0.09,
+      -0.16167
+    ],
+    [
+      13,
+      "Vivillon",
+      "Mon Used Move With Crit Chance (Hurricane)",
+      -0.16167,
+      -0.04167,
+      -0.20334000000000002
+    ],
+    [
+      13,
+      "Vivillon",
+      "Mon Used Move With Secondary Effect Chance (Hurricane)",
+      -0.20334000000000002,
+      -0.3,
+      -0.50334
+    ],
+    [
+      14,
+      "Vivillon",
+      "Mon Used Move With Crit Chance (U-turn)",
+      -0.50334,
+      -0.04167,
+      -0.54501
+    ],
+    [
+      21,
+      "Vivillon",
+      "Mon Used a Move That Can Miss (Hurricane)",
+      -0.54501,
+      0.09,
+      -0.45501
+    ],
+    [
+      21,
+      "Vivillon",
+      "Mon Used Move With Crit Chance (Hurricane)",
+      -0.45501,
+      -0.04167,
+      -0.49668000000000007
+    ],
+    [
+      21,
+      "Vivillon",
+      "Mon Used Move With Secondary Effect Chance (Hurricane)",
+      -0.49668000000000007,
+      -0.3,
+      -0.79668
+    ],
+    [
+      31,
+      "Vivillon",
+      "Mon Used a Move That Can Miss (Hurricane)",
+      -0.79668,
+      0.09,
+      -0.7066800000000001
+    ],
+    [
+      31,
+      "Vivillon",
+      "Mon Used Move With Crit Chance (Hurricane)",
+      -0.7066800000000001,
+      -0.04167,
+      -0.7483500000000001
+    ],
+    [
+      31,
+      "Vivillon",
+      "Mon Used Move With Secondary Effect Chance (Hurricane)",
+      -0.7483500000000001,
+      -0.3,
+      -1.0483500000000001
+    ],
+    [
+      44,
+      "Vivillon",
+      "Target of Move With Crit Chance (Stored Power)",
+      -1.0483500000000001,
+      0.04167,
+      -1.00668
+    ],
+    [
+      45,
+      "Vivillon",
+      "Mon Used Move With Crit Chance (Hurricane)",
+      -1.00668,
+      -0.04167,
+      -1.0483500000000001
+    ],
+    [
+      45,
+      "Vivillon",
+      "Mon Used Move With Secondary Effect Chance (Hurricane)",
+      -1.0483500000000001,
+      -0.3,
+      -1.3483500000000002
+    ],
+    [
+      45,
+      "Vivillon",
+      "Target of Move With Crit Chance (Stored Power)",
+      -1.3483500000000002,
+      0.04167,
+      -1.30668
     ]
   ],
   "errormessage": []

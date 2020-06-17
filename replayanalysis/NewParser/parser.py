@@ -238,6 +238,9 @@ def damage_function(line,parsedlogfile,results):
     healthremaining=int(line[3].split("|",1)[1].split(" ",1)[0].split("/",1)[0].split("|",1)[0])
     #searchroster
     pokemon=roster_search(team,pokemon,results)
+    #redirect if no damage done
+    if pokemon['remaininghealth']==healthremaining:
+        return line,parsedlogfile,results
     #update remaining health
     previoushealth=pokemon['remaininghealth']
     pokemon['remaininghealth']=healthremaining
@@ -263,7 +266,7 @@ def damage_function(line,parsedlogfile,results):
             damager=cause.split("|[of] ")[1].split(": ",1)[1]
             team=cause.split("|[of] ")[1].split(": ",1)[0]
             damager=roster_search(team,damager,results)
-        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1 or cause.find("move: Fire Spin")>-1 or cause.find("move: Sand Tomb")>-1 or cause.find("ability: Disguise|[of]")>-1 or cause.find("mimikyubusted")>-1 or cause.find("Mimikyu-Busted")>-1:
+        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1 or cause.find("move: Fire Spin")>-1 or cause.find("move: Bind")>-1 or cause.find("move: Sand Tomb")>-1 or cause.find("ability: Disguise|[of]")>-1 or cause.find("mimikyubusted")>-1 or cause.find("Mimikyu-Busted")>-1:
             if team=="p1a":
                 damager=results['team2']['activemon']
                 damager=roster_search("p2a",damager,results)
@@ -456,6 +459,8 @@ def message_function(line,parsedlogfile,results):
     return line,parsedlogfile,results
 
 def move_function(line,parsedlogfile,results):
+    if line[3].find("[from]Magic Bounce")>-1:
+        return line,parsedlogfile,results
     #parse line
     move=line[3].split("|")[1]
     attackingteam=line[3].split(":",1)[0]

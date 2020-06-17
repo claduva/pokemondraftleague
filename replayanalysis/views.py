@@ -744,6 +744,11 @@ def check_analyzer_task():
     ##zero coachs
     coachdata.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
     historical_team.objects.all().update(wins=0,losses=0,differential=0,forfeit=0,support=0,damagedone=0,hphealed=0,luck=0,remaininghealth=0)
+    ##zero movedata
+    moveinfo.objects.all().update(uses=0,hits=0,crits=0,posssecondaryeffects=0,secondaryeffects=0)
+    pokemon_movedata.objects.all().update(uses=0,hits=0,crits=0,posssecondaryeffects=0,secondaryeffects=0)
+    user_movedata.objects.all().update(uses=0,hits=0,crits=0,posssecondaryeffects=0,secondaryeffects=0)
+    ##get matches
     currentmatches=schedule.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
     histmatches=historical_match.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
     histffmatches=historical_match.objects.all().filter(replay__contains="Forfeit").order_by('id')
