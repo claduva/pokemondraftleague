@@ -150,15 +150,12 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    for item in all_pokemon.objects.filter(pokemon__contains="-Gmax"):
-        base=item.pokemon.replace("-Gmax","")
-        basemon=all_pokemon.objects.get(pokemon=base)
-        preevos=preevolution.objects.filter(pokemon=basemon)
-        for m1 in preevos:
-            try:
-                preevolution.objects.create(pokemon=item,preevo=m1.preevo)
-            except Exception as e:
-                print(e)
+    for item in preevolution.objects.all():
+        monsmoveset=list(item.pokemon.moves.all().values_list('moveinfo__id',flat=True))
+        movestoadd=item.preevo.moves.all().exclude(moveinfo__id__in=monsmoveset)
+        for item_ in movestoadd:
+            id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
+            pokemon_moveset.objects.create(id=id_,pokemon=item.pokemon,moveinfo=item_.moveinfo)
     return redirect('home')
 
 def get_pkmn(pkmn):
@@ -818,6 +815,7 @@ def learnset_update():
     print("**************************************************")
     print("TASK: Running learnset update")
     print("**************************************************")
+    pokemon_moveset.objects.all().delete()
     allmoves=moveinfo.objects.all()
     with open('learnsets.json') as json_file:
         data = json.load(json_file)
@@ -839,6 +837,15 @@ def learnset_update():
                         pokemon_moveset.objects.create(id=idd,pokemon=item,moveinfo=moi)
                     except:
                         pass
+            except:
+                pass
+    for item in preevolution.objects.all():
+        monsmoveset=list(item.pokemon.moves.all().values_list('moveinfo__id',flat=True))
+        movestoadd=item.preevo.moves.all().exclude(moveinfo__id__in=monsmoveset)
+        for item_ in movestoadd:
+            id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
+            try:
+                pokemon_moveset.objects.create(id=id_,pokemon=item.pokemon,moveinfo=item_.moveinfo)
             except:
                 pass
     for item in all_pokemon.objects.all():
