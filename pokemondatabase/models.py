@@ -32,6 +32,8 @@ class all_pokemon(models.Model):
     timesdrafted = models.IntegerField(default=0)
     nicknames = ArrayField(models.CharField(max_length=10, blank=True))
     gen8 = models.BooleanField(default=False)
+    canzmove = models.BooleanField(default=True)
+    candynamax = models.BooleanField(default=True)
     data=JSONField(null=True)
 
     def __str__(self):
@@ -130,6 +132,11 @@ class pokemon_moveset(models.Model):
 
     def __str__(self):
         return f'Moveset data for {self.pokemon.pokemon}'
+
+class unmatched_moves(models.Model):
+    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
+    moveinfo = models.ForeignKey(moveinfo,on_delete=models.CASCADE)
+    replay = models.CharField(max_length=300,unique=True)
 
 class pokemon_tier(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='pokemon_tiers')

@@ -150,6 +150,10 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
+    # zoroark https://replay.pokemonshowdown.com/gen7anythinggoes-1024202992 
+    #zamanzenta, zacian<- crowned
+    #indeedee other moves
+    #dlc
     ct=historical_match_replay.objects.all().count()+match_replay.objects.all().count()
     i=1
     for item in historical_match_replay.objects.all():
@@ -158,6 +162,7 @@ def runscript(request):
                 mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
                 moveset=list(mon_.moves.all().values_list('moveinfo__name',flat=True))
                 for move in mon['moves']:
+                    print(mon['moves'][move]['uses'])
                     move=move.replace("Z-","")
                     if move not in moveset:
                         print(f"{mon['pokemon']}: {move}")

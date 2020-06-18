@@ -515,6 +515,8 @@ def check_current_match(match):
             #update team
             team1.support+=mon['support']; team1.damagedone+=mon['damagedone']; team1.hphealed+=mon['hphealed']; team1.luck+=mon['luck']; team1.remaininghealth+=mon['remaininghealth']
             foundmon.save()
+            #iterate through moves
+            iterate_moves(mon['moves'])
         for mon in data['team2']['roster']:
             searchmon=mon['pokemon']
             #search for mon
@@ -524,6 +526,8 @@ def check_current_match(match):
             #update team
             team2.support+=mon['support']; team2.damagedone+=mon['damagedone']; team2.hphealed+=mon['hphealed']; team2.luck+=mon['luck']; team2.remaininghealth+=mon['remaininghealth']
             foundmon.save()
+            #iterate through moves
+            iterate_moves(mon['moves'])
         team1.save()
         team2.save()
     return success
@@ -568,6 +572,8 @@ def check_hist_match(match):
             #update team
             team1.support+=mon['support']; team1.damagedone+=mon['damagedone']; team1.hphealed+=mon['hphealed']; team1.luck+=mon['luck']; team1.remaininghealth+=mon['remaininghealth']
             foundmon.save()
+            #iterate through moves
+            iterate_moves(mon['moves'])
         for mon in data['team2']['roster']:
             searchmon=mon['pokemon']
             #search for mon
@@ -577,6 +583,8 @@ def check_hist_match(match):
             #update team
             team2.support+=mon['support']; team2.damagedone+=mon['damagedone']; team2.hphealed+=mon['hphealed']; team2.luck+=mon['luck']; team2.remaininghealth+=mon['remaininghealth']
             foundmon.save()
+            #iterate through moves
+            iterate_moves(mon['moves'])
         team1.save()
         team2.save()
     data={
@@ -585,6 +593,17 @@ def check_hist_match(match):
         }
     #return JsonResponse(data)
     return success
+
+def iterate_moves(movelist):
+    for move in movelist:
+        move_=move.replace("Z-","")
+        moi=moveinfo.objects.get(name=move_)
+        moi.uses+=movelist[move]['uses']
+        moi.hits+=movelist[move]['hits']
+        moi.crits+=movelist[move]['crits']
+        moi.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
+        moi.secondaryeffects+=movelist[move]['secondaryeffects']
+        moi.save()
 
 def current_searchmon(toi,searchmon):
     try:
