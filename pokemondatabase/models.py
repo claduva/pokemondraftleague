@@ -93,6 +93,7 @@ class moveinfo(models.Model):
     move_power = models.IntegerField()
     move_accuracy = models.IntegerField()
     move_priority = models.IntegerField()
+    move_crit_rate = models.DecimalField(max_digits=5, decimal_places=2,default=0.00)
     secondary_effect_chance = models.IntegerField()
     secondary_effect = models.CharField(max_length=100)
     uses = models.IntegerField(default=0)

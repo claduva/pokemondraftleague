@@ -247,6 +247,10 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
     if len(erroritems)==0:
         for obj in objectstosave:
             obj.save()
+        for mon in results['team1']['roster']:
+            iterate_moves(mon['moves'])
+        for mon in results['team2']['roster']:
+            iterate_moves(mon['moves'])
         match_replay.objects.create(match=match,data=results)
         messages.success(request,'Replay has been saved!')
         discordserver=subleague.discord_settings.discordserver

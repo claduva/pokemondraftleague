@@ -150,10 +150,7 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    # zoroark https://replay.pokemonshowdown.com/gen7anythinggoes-1024202992 
-    #zamanzenta, zacian<- crowned
-    #indeedee other moves
-    #dlc
+    """
     ct=historical_match_replay.objects.all().count()+match_replay.objects.all().count()
     i=1
     for item in historical_match_replay.objects.all():
@@ -207,6 +204,17 @@ def runscript(request):
                 print("Error")
         print(f'{i}/{ct}: {item.id}')
         i+=1
+    """
+    ms=['Baton Pass', 'Follow Me', 'Guard Split','Healing Wish','Light Screen', 'Reflect','Safeguard','Heal Pulse','Psycho Shift']
+    poi=all_pokemon.objects.get(pokemon="Indeedee")
+    for item in ms:
+        try:
+            id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
+            moi=moveinfo.objects.get(name=item)
+            pokemon_moveset.objects.create(id=id_,pokemon=poi,moveinfo=moi)
+        except Exception as e:
+            print(e)
+
     return redirect('home')
 
 def get_pkmn(pkmn):

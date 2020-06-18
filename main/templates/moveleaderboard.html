@@ -32,6 +32,7 @@
                         <th>Observed Accuracy</th>
                         <th>True Accuracy</th>
                         <th>Observed Crit Rate</th>
+                        <th>True Crit Rate</th>
                         <th>Observed Secondary Effect Rate</th>
                         <th>True Secondary Effect Rate</th>
                     </tr>
@@ -57,6 +58,12 @@
                             <td>
                                 {% if item.move_power > 0 %}
                                 {{item.uses|percentage:item.crits}}%
+                                {% else %}-
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if item.move_power > 0 %}
+                                {{item.move_crit_rate}}%
                                 {% else %}-
                                 {% endif %}
                             </td>
