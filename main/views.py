@@ -150,12 +150,16 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    for item in preevolution.objects.all():
-        monsmoveset=list(item.pokemon.moves.all().values_list('moveinfo__id',flat=True))
-        movestoadd=item.preevo.moves.all().exclude(moveinfo__id__in=monsmoveset)
+    for item in all_pokemon.objects.all().filter(pokemon__contains="-Gmax"):
+        monsmoveset=list(item.moves.all().values_list('moveinfo__id',flat=True))
+        basemon=all_pokemon.objects.get(pokemon=item.pokemon.replace("-Gmax",""))
+        movestoadd=basemon.moves.all().exclude(moveinfo__id__in=monsmoveset)
         for item_ in movestoadd:
             id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
-            pokemon_moveset.objects.create(id=id_,pokemon=item.pokemon,moveinfo=item_.moveinfo)
+            try:
+                pokemon_moveset.objects.create(id=id_,pokemon=item,moveinfo=item_.moveinfo)
+            except Exception as e:
+                print(e)
     return redirect('home')
 
 def get_pkmn(pkmn):
@@ -824,7 +828,7 @@ def learnset_update():
             print(f'{id_}: {item.pokemon}')
             id_+=1
             name=item.pokemon.lower().replace("-mega-x","").replace("-mega-y","").replace("-mega","").replace("-gmax","").replace(" ","").replace("-","").replace("-y","").replace("-x","").replace(".","").replace(":","").replace("unbound","").replace("primal","").replace("therian","").replace("shayminsky","shaymin")
-            name=name.replace('deoxysattack','deoxys').replace('deoxysdefense','deoxys').replace('deoxysspeed','deoxys').replace('origin','').replace('10%','').replace('complete','')
+            name=name.replace('deoxysattack','deoxys').replace('deoxysdefense','deoxys').replace('deoxysspeed','deoxys').replace('origin','').replace('10%','').replace('complete','').replace('wormadamtrash','wormadam').replace('wormadamsandy','wormadam').replace('indeedeef','indeedee').replace('meowsticf','meowstic')
             try:
                 ls=data[name]['learnset']
                 for move in ls:
@@ -848,6 +852,59 @@ def learnset_update():
                 pokemon_moveset.objects.create(id=id_,pokemon=item.pokemon,moveinfo=item_.moveinfo)
             except:
                 pass
+    for item in all_pokemon.objects.all().filter(pokemon__contains="-Gmax"):
+        monsmoveset=list(item.moves.all().values_list('moveinfo__id',flat=True))
+        basemon=all_pokemon.objects.get(pokemon=item.pokemon.replace("-Gmax",""))
+        movestoadd=basemon.moves.all().exclude(moveinfo__id__in=monsmoveset)
+        for item_ in movestoadd:
+            id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
+            try:
+                pokemon_moveset.objects.create(id=id_,pokemon=item,moveinfo=item_.moveinfo)
+            except Exception as e:
+                pass
+    for item in all_pokemon.objects.all().filter(pokemon__contains="-Mega"):
+        monsmoveset=list(item.moves.all().values_list('moveinfo__id',flat=True))
+        basemon=all_pokemon.objects.get(pokemon=item.pokemon.replace("-Mega-X","").replace("-Mega-Y","").replace("-Mega",""))
+        movestoadd=basemon.moves.all().exclude(moveinfo__id__in=monsmoveset)
+        for item_ in movestoadd:
+            id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
+            try:
+                pokemon_moveset.objects.create(id=id_,pokemon=item,moveinfo=item_.moveinfo)
+            except Exception as e:
+                pass
+    for item in all_pokemon.objects.all().filter(pokemon__contains="-Crowned"):
+        monsmoveset=list(item.moves.all().values_list('moveinfo__id',flat=True))
+        basemon=all_pokemon.objects.get(pokemon=item.pokemon.replace("-Crowned",""))
+        movestoadd=basemon.moves.all().exclude(moveinfo__id__in=monsmoveset)
+        for item_ in movestoadd:
+            id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
+            try:
+                pokemon_moveset.objects.create(id=id_,pokemon=item,moveinfo=item_.moveinfo)
+            except Exception as e:
+                pass
+    for item in all_pokemon.objects.all().filter(pokemon__contains="Rotom").exclude(pokemon="Rotom"):
+        monsmoveset=list(item.moves.all().values_list('moveinfo__id',flat=True))
+        basemon=all_pokemon.objects.get(pokemon="Rotom")
+        movestoadd=basemon.moves.all().exclude(moveinfo__id__in=monsmoveset)
+        for item_ in movestoadd:
+            id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
+            try:
+                pokemon_moveset.objects.create(id=id_,pokemon=item,moveinfo=item_.moveinfo)
+            except Exception as e:
+                pass
+    for item in moveinfo.objects.all():
+        smeargle=all_pokemon.objects.get(pokemon="Smeragle")
+        ditto=all_pokemon.objects.get(pokemon="Ditto")
+        id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
+        try:
+            pokemon_moveset.objects.create(id=id_,pokemon=smeargle,moveinfo=item)
+        except Exception as e:
+            pass
+        id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
+        try:
+            pokemon_moveset.objects.create(id=id_,pokemon=ditto,moveinfo=item)
+        except Exception as e:
+            pass
     for item in all_pokemon.objects.all():
         data={}
         data[item.pokemon]={}
