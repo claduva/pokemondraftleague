@@ -150,71 +150,15 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    """
-    ct=historical_match_replay.objects.all().count()+match_replay.objects.all().count()
-    i=1
-    for item in historical_match_replay.objects.all():
-        for mon in item.data['team1']['roster']:
+    for item in all_pokemon.objects.filter(pokemon__contains="-Gmax"):
+        base=item.pokemon.replace("-Gmax","")
+        basemon=all_pokemon.objects.get(pokemon=base)
+        preevos=preevolution.objects.filter(pokemon=basemon)
+        for m1 in preevos:
             try:
-                mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
-                moveset=list(mon_.moves.all().values_list('moveinfo__name',flat=True))
-                for move in mon['moves']:
-                    print(mon['moves'][move]['uses'])
-                    move=move.replace("Z-","")
-                    if move not in moveset:
-                        print(f"{mon['pokemon']}: {move}")
-                        moveinfo.objects.get(name=move)
+                preevolution.objects.create(pokemon=item,preevo=m1.preevo)
             except Exception as e:
-                print("Error")
-        for mon in item.data['team2']['roster']:
-            try:
-                mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
-                moveset=list(mon_.moves.all().values_list('moveinfo__name',flat=True))
-                for move in mon['moves']:
-                    move=move.replace("Z-","")
-                    if move not in moveset:
-                        print(f"{mon['pokemon']}: {move}")
-                        moveinfo.objects.get(name=move)
-            except :
-                print("Error")
-        print(f'{i}/{ct}: {item.id}')
-        i+=1
-    for item in match_replay.objects.all():
-        for mon in item.data['team1']['roster']:
-            try:
-                mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
-                moveset=list(mon_.moves.all().values_list('moveinfo__name',flat=True))
-                for move in mon['moves']:
-                    move=move.replace("Z-","")
-                    if move not in moveset:
-                        print(f"{mon['pokemon']}: {move}")
-                        moveinfo.objects.get(name=move)
-            except:
-                print("Error")
-        for mon in item.data['team2']['roster']:
-            try:
-                mon_=all_pokemon.objects.get(pokemon=mon['pokemon'])
-                moveset=list(mon_.moves.all().values_list('moveinfo__name',flat=True))
-                for move in mon['moves']:
-                    move=move.replace("Z-","")
-                    if move not in moveset:
-                        print(f"{mon['pokemon']}: {move}")
-                        moveinfo.objects.get(name=move)
-            except:
-                print("Error")
-        print(f'{i}/{ct}: {item.id}')
-        i+=1
-    """
-    ms=['Baton Pass', 'Follow Me', 'Guard Split','Healing Wish','Light Screen', 'Reflect','Safeguard','Heal Pulse','Psycho Shift']
-    poi=all_pokemon.objects.get(pokemon="Indeedee")
-    for item in ms:
-        try:
-            id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
-            moi=moveinfo.objects.get(name=item)
-            pokemon_moveset.objects.create(id=id_,pokemon=poi,moveinfo=moi)
-        except Exception as e:
-            print(e)
-
+                print(e)
     return redirect('home')
 
 def get_pkmn(pkmn):
@@ -243,6 +187,10 @@ def get_pkmn(pkmn):
             print(pkmn)
             #raise
     return pkmn
+
+def updatelearnsets(request): 
+    learnset_update()
+    return redirect('home')
 
 @check_if_clad
 def start_tasks(request): 
@@ -863,4 +811,94 @@ def pokemon_stat_update():
                 item.luck+=team.luck
                 item.remaininghealth+=team.remaininghealth
         item.timesdrafted=item.pokemon.historicalpokemondraft.all().count()+item.pokemon.pokemondraft.all().count()
+        item.save()
+
+@background(schedule=1)
+def learnset_update():
+    print("**************************************************")
+    print("TASK: Running learnset update")
+    print("**************************************************")
+    allmoves=moveinfo.objects.all()
+    with open('learnsets.json') as json_file:
+        data = json.load(json_file)
+        id_=1
+        for item in all_pokemon.objects.all():
+            print(f'{id_}: {item.pokemon}')
+            id_+=1
+            name=item.pokemon.lower().replace("-mega-x","").replace("-mega-y","").replace("-mega","").replace("-gmax","").replace(" ","").replace("-","").replace("-y","").replace("-x","").replace(".","").replace(":","").replace("unbound","").replace("primal","").replace("therian","").replace("shayminsky","shaymin")
+            name=name.replace('deoxysattack','deoxys').replace('deoxysdefense','deoxys').replace('deoxysspeed','deoxys').replace('origin','').replace('10%','').replace('complete','')
+            try:
+                ls=data[name]['learnset']
+                for move in ls:
+                    try:
+                        moi=allmoves.get(altname=move)
+                    except:
+                        print(move)
+                    try:
+                        idd=pokemon_moveset.objects.all().order_by('-id').first().id+1
+                        pokemon_moveset.objects.create(id=idd,pokemon=item,moveinfo=moi)
+                    except:
+                        pass
+            except:
+                pass
+    for item in all_pokemon.objects.all():
+        data={}
+        data[item.pokemon]={}
+        data[item.pokemon]['basestats']={}
+        data[item.pokemon]['basestats']['hp']=item.hp
+        data[item.pokemon]['basestats']['attack']=item.attack
+        data[item.pokemon]['basestats']['defense']=item.defense
+        data[item.pokemon]['basestats']['s_attack']=item.s_attack
+        data[item.pokemon]['basestats']['s_defense']=item.s_defense
+        data[item.pokemon]['basestats']['speed']=item.speed
+        data[item.pokemon]['basestats']['bst']=item.bst
+        data[item.pokemon]['types']=[]
+        for t in item.types.all():
+            data[item.pokemon]['types'].append(t.typing)
+        data[item.pokemon]['abilities']=[]
+        for a in item.abilities.all():
+            data[item.pokemon]['abilities'].append(a.ability)
+        data[item.pokemon]['learnset']={}
+        for move in item.moves.all():
+            data[item.pokemon]['learnset'][move.moveinfo.name]={}
+            data[item.pokemon]['learnset'][move.moveinfo.name]['Type']=move.moveinfo.move_typing
+            data[item.pokemon]['learnset'][move.moveinfo.name]['Category']=move.moveinfo.move_category
+            data[item.pokemon]['learnset'][move.moveinfo.name]['Power']=move.moveinfo.move_power
+            data[item.pokemon]['learnset'][move.moveinfo.name]['Accuracy']=move.moveinfo.move_accuracy
+            data[item.pokemon]['learnset'][move.moveinfo.name]['Priority']=move.moveinfo.move_priority
+            data[item.pokemon]['learnset'][move.moveinfo.name]['Secondary Effect']=move.moveinfo.secondary_effect
+            data[item.pokemon]['learnset'][move.moveinfo.name]['Secondary Effect Chance']=move.moveinfo.secondary_effect_chance
+        data[item.pokemon]['typematchup']={}
+        effectiveness=item.effectiveness
+        data[item.pokemon]['typematchup']['Bug']=effectiveness.bug
+        data[item.pokemon]['typematchup']['Dark']=effectiveness.dark
+        data[item.pokemon]['typematchup']['Dragon']=effectiveness.dragon
+        data[item.pokemon]['typematchup']['Electric']=effectiveness.electric
+        data[item.pokemon]['typematchup']['Fairy']=effectiveness.fairy
+        data[item.pokemon]['typematchup']['Fighting']=effectiveness.fighting
+        data[item.pokemon]['typematchup']['Fire']=effectiveness.fire
+        data[item.pokemon]['typematchup']['Flying']=effectiveness.flying
+        data[item.pokemon]['typematchup']['Ghost']=effectiveness.ghost
+        data[item.pokemon]['typematchup']['Grass']=effectiveness.grass
+        data[item.pokemon]['typematchup']['Ground']=effectiveness.ground
+        data[item.pokemon]['typematchup']['Ice']=effectiveness.ice
+        data[item.pokemon]['typematchup']['Normal']=effectiveness.normal
+        data[item.pokemon]['typematchup']['Poison']=effectiveness.poison
+        data[item.pokemon]['typematchup']['Psychic']=effectiveness.psychic
+        data[item.pokemon]['typematchup']['Rock']=effectiveness.rock
+        data[item.pokemon]['typematchup']['Steel']=effectiveness.steel
+        data[item.pokemon]['typematchup']['Water']=effectiveness.water
+        data[item.pokemon]['sprites']={}
+        sprites=item.sprite
+        data[item.pokemon]['sprites']["swsh/ani/standard/PKMN.gif"]=sprites.dexani.url
+        data[item.pokemon]['sprites']["swsh/ani/shiny/PKMN.gif"]=sprites.dexanishiny.url
+        data[item.pokemon]['sprites']["swsh/png/standard/PKMN.png"]=sprites.dex.url
+        data[item.pokemon]['sprites']["swsh/png/shiny/PKMN.png"]=sprites.dexshiny.url
+        data[item.pokemon]['sprites']["bw/png/standard/PKMN.png"]=sprites.bw.url
+        data[item.pokemon]['sprites']["bw/png/shiny/PKMN.png"]=sprites.bwshiny.url
+        data[item.pokemon]['sprites']["afd/png/standard/PKMN.png"]=sprites.afd.url
+        data[item.pokemon]['sprites']["afd/png/shiny/PKMN.png"]=sprites.afdshiny.url
+        data=json.dumps(data)
+        print(item.pokemon)
+        item.data=data
         item.save()

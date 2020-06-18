@@ -46,6 +46,9 @@ class preevolution(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
     preevo = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="prevos")
 
+    class Meta:
+        unique_together = (("pokemon", "preevo"),)
+
 class pokemon_sprites(models.Model):
     pokemon = models.OneToOneField(all_pokemon,on_delete=models.CASCADE,related_name="sprite")
     afd = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/afd/png/standard')
@@ -75,12 +78,18 @@ class pokemon_type(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='types')
     typing = models.CharField(max_length=15)
 
+    class Meta:
+        unique_together = (("pokemon", "typing"),)  
+
     def __str__(self):
         return f'Typing for {self.pokemon.pokemon}'
 
 class pokemon_ability(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='abilities' )
     ability = models.CharField(max_length=30)
+
+    class Meta:
+        unique_together = (("pokemon", "ability"),)  
 
     def __str__(self):
         return f'Ability for {self.pokemon.pokemon}'

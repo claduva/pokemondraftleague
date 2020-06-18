@@ -14,4 +14,5 @@ urlpatterns = [
     path("help/", views.help, name="help"),
     path("runscript/", views.runscript, name="runscript"),
     path("start_tasks/", views.start_tasks, name="start_tasks"),
+    path("updatelearnsets/", views.updatelearnsets, name="updatelearnsets"),
 ]
