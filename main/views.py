@@ -117,7 +117,7 @@ def pickemleaderboard(request):
     return  render(request,"pickemleaderboard.html",context)
 
 def moveleaderboard(request):
-    leaderboard=moveinfo.objects.all().filter(uses__gt=0)
+    leaderboard=moveinfo.objects.all().filter(uses__gt=0).order_by('-uses')
     context = {
         "leaderboard": leaderboard
     }

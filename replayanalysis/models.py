@@ -56,3 +56,6 @@ class manual_replay(models.Model):
 class match_replay(models.Model):
     match=models.OneToOneField(schedule,on_delete=models.CASCADE)
     data=JSONField()
+
+class failed_replay(models.Model):
+    replay=models.CharField(max_length=200,default="None")

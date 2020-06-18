@@ -870,5 +870,7 @@ def check_analyzer_task():
         print(f'{i}/{total}')
         i+=1
     print('Failed')
+    failed_replay.objects.all().delete()
     for item in failed:
+        failed_replay.objects.create(replay=item.replay)
         print(f'{item.id}: {item.replay}')
