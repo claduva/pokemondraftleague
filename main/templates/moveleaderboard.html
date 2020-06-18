@@ -29,9 +29,11 @@
                         <th>#</th>
                         <th>Move</th>
                         <th>Times Used</th>
-                        <th>Times Hit</th>
-                        <th>Times Crit</th>
-                        <th>Secondary Effect Rate</th>
+                        <th>Observed Accuracy</th>
+                        <th>True Accuracy</th>
+                        <th>Observed Crit Rate</th>
+                        <th>Observed Secondary Effect Rate</th>
+                        <th>True Secondary Effect Rate</th>
                     </tr>
                 </thead>
                 <tbody class="bg-lightgrey text-dark">
@@ -40,9 +42,35 @@
                             <td class="rownum">{{forloop.counter}}</td>
                             <td>{{item.name}}</td>
                             <td>{{item.uses}}</td>
-                            <td>{{item.hits}}</td>
-                            <td>{{item.crits}}</td>
-                            <td>{{item.secondaryeffects}}/{{item.posssecondaryeffects}}</td>
+                            <td>
+                                {% if item.move_accuracy == 1 %}-
+                                {% else %}
+                                {{item.uses|percentage:item.hits}}%
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if item.move_accuracy == 1 %}-
+                                {% else %}
+                                {{item.move_accuracy}}%
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if item.move_power > 0 %}
+                                {{item.uses|percentage:item.crits}}%
+                                {% else %}-
+                                {% endif %}
+                            </td>
+                            <td>{% if item.secondary_effect_chance == 0 %}-
+                                {% else %}
+                                {{item.posssecondaryeffects|percentage:item.secondaryeffects}}%
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if item.secondary_effect_chance == 0 %}-
+                                {% else %}
+                                {{item.secondary_effect_chance}}%
+                                {% endif %}
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>

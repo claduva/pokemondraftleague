@@ -42,7 +42,10 @@ def divide(int, arg):
 
 @register.filter(name='percentage')
 def percentage(int, arg):
-    return round(arg/int*100,2)
+    try:
+        return round(arg/int*100,2)
+    except:
+        return 0.00
 
 @register.filter(name='winpercentage')
 def winpercentage(win, loss):
