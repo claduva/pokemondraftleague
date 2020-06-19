@@ -105,8 +105,13 @@ def user_profile(request,username):
         rivallist.append([item[0],item[1],wins])
     rivallist=sorted(rivallist,key=lambda x: (x[1],x[2]),reverse=True)
     #favorite moves
-    favoritemovelist=list(user_movedata.objects.filter(coach=userofinterest).values_list('moveinfo__name','uses','hits','crits','posssecondaryeffects','secondaryeffects'))
-    print(favoritemovelist)
+    favoritemovelist_=list(user_movedata.objects.filter(coach=userofinterest).order_by('-uses').values_list('moveinfo__name','uses','hits','crits','posssecondaryeffects','secondaryeffects'))
+    favoritemovelist=[]
+    for item in favoritemovelist_:
+        ita=[]
+        for item_ in item:
+            ita.append(item_)
+        favoritemovelist.append(ita)
     context = {
         "title": f"{username}'s Profile",
         'userofinterest':userofinterest,
