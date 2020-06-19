@@ -150,7 +150,8 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    moveinfo.objects.all().filter(secondary_effect_chance__gte=100).update(secondary_effect_chance=0,secondary_effect="None")
+    for item in all_pokemon.objects.all():
+        print(isinstance(item,all_pokemon))
     return redirect('home')
 
 def get_pkmn(pkmn):

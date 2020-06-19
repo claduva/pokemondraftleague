@@ -145,7 +145,6 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
         pass
     #iterate through team 1
     team1roster=team1.teamroster.all()
-    print(team1roster)
     objectstosave=[form]
     erroritems=[]
     for mon in results['team1']['roster']:
@@ -164,6 +163,8 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
             foundmon.remaininghealth+=mon['remaininghealth']
             #append to save
             objectstosave.append(foundmon)
+            #iterate moves
+            iterate_moves(mon['moves'],team1,foundmon)
     #iterate through team 2
     team2roster=team2.teamroster.all()
     for mon in results['team2']['roster']:
@@ -182,6 +183,8 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
             foundmon.remaininghealth+=mon['remaininghealth']
             #append to save
             objectstosave.append(foundmon)
+            #iterate moves
+            iterate_moves(mon['moves'],team2,foundmon)
     #update coach1 data
     team1.wins+=results['team1']['wins']
     team1.losses+=abs(results['team1']['wins']-1)
@@ -222,23 +225,15 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
     objectstosave.append(team2)
     #update match
     if match.team1==team1:
-        match.team1megaevolved=results['team1']['megaevolved'] 
-        match.team2megaevolved=results['team2']['megaevolved'] 
         match.team1score=results['team1']['score'] 
         match.team2score=results['team2']['score'] 
-        match.team1usedz=results['team1']['usedzmove'] 
-        match.team2usedz=results['team2']['usedzmove'] 
         if results['team1']['wins'] ==1:
             match.winner=team1
         elif results['team2']['wins']==1:
             match.winner=team2
     elif match.team1==team2:    
-        match.team1megaevolved=results['team2']['megaevolved'] 
-        match.team2megaevolved=results['team1']['megaevolved'] 
         match.team1score=results['team2']['score'] 
         match.team2score=results['team1']['score'] 
-        match.team1usedz=results['team2']['usedzmove'] 
-        match.team2usedz=results['team1']['usedzmove'] 
         if results['team2']['wins'] ==1:
             match.winner=team2
         elif results['team1']['wins']==1:
@@ -247,11 +242,6 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
     if len(erroritems)==0:
         for obj in objectstosave:
             obj.save()
-        for mon in results['team1']['roster']:
-            iterate_moves(mon['moves'])
-        for mon in results['team2']['roster']:
-            iterate_moves(mon['moves'])
-        match_replay.objects.create(match=match,data=results)
         messages.success(request,'Replay has been saved!')
         discordserver=subleague.discord_settings.discordserver
         discordchannel=subleague.discord_settings.replaychannel
@@ -520,7 +510,7 @@ def check_current_match(match):
             team1.support+=mon['support']; team1.damagedone+=mon['damagedone']; team1.hphealed+=mon['hphealed']; team1.luck+=mon['luck']; team1.remaininghealth+=mon['remaininghealth']
             foundmon.save()
             #iterate through moves
-            iterate_moves(mon['moves'])
+            iterate_moves(mon['moves'],team1,foundmon)
         for mon in data['team2']['roster']:
             searchmon=mon['pokemon']
             #search for mon
@@ -531,7 +521,7 @@ def check_current_match(match):
             team2.support+=mon['support']; team2.damagedone+=mon['damagedone']; team2.hphealed+=mon['hphealed']; team2.luck+=mon['luck']; team2.remaininghealth+=mon['remaininghealth']
             foundmon.save()
             #iterate through moves
-            iterate_moves(mon['moves'])
+            iterate_moves(mon['moves'],team2,foundmon)
         team1.save()
         team2.save()
     return success
@@ -577,7 +567,7 @@ def check_hist_match(match):
             team1.support+=mon['support']; team1.damagedone+=mon['damagedone']; team1.hphealed+=mon['hphealed']; team1.luck+=mon['luck']; team1.remaininghealth+=mon['remaininghealth']
             foundmon.save()
             #iterate through moves
-            iterate_moves(mon['moves'])
+            iterate_moves(mon['moves'],team1,foundmon)
         for mon in data['team2']['roster']:
             searchmon=mon['pokemon']
             #search for mon
@@ -588,7 +578,7 @@ def check_hist_match(match):
             team2.support+=mon['support']; team2.damagedone+=mon['damagedone']; team2.hphealed+=mon['hphealed']; team2.luck+=mon['luck']; team2.remaininghealth+=mon['remaininghealth']
             foundmon.save()
             #iterate through moves
-            iterate_moves(mon['moves'])
+            iterate_moves(mon['moves'],team2,foundmon)
         team1.save()
         team2.save()
     data={
@@ -598,8 +588,9 @@ def check_hist_match(match):
     #return JsonResponse(data)
     return success
 
-def iterate_moves(movelist):
+def iterate_moves(movelist,team,foundmon):
     for move in movelist:
+        ##update moveinfo
         move_=move.replace("Z-","")
         moi=moveinfo.objects.get(name=move_)
         moi.uses+=movelist[move]['uses']
@@ -608,6 +599,64 @@ def iterate_moves(movelist):
         moi.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
         moi.secondaryeffects+=movelist[move]['secondaryeffects']
         moi.save()
+        ##update mon moves
+        #if all_pokemon
+        if isinstance(foundmon,all_pokemon):
+            pass
+        #elif historic or current
+        else:
+            pass
+        ##update coach 
+        #if current
+        if isinstance(team,coachdata):
+            #for coach
+            try:
+                um=user_movedata.objects.filter(moveinfo=moi).get(coach=team.coach)
+            except:
+                um=user_movedata.objects.create(moveinfo=moi,coach=team.coach)
+            um.uses+=movelist[move]['uses']
+            um.hits+=movelist[move]['hits']
+            um.crits+=movelist[move]['crits']
+            um.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
+            um.secondaryeffects+=movelist[move]['secondaryeffects']
+            um.save()
+            #for teammate
+            if team.teammate:
+                try:
+                    um=user_movedata.objects.filter(moveinfo=moi).get(coach=team.teammate)
+                except:
+                    um=user_movedata.objects.create(moveinfo=moi,coach=team.teammate)
+                um.uses+=movelist[move]['uses']
+                um.hits+=movelist[move]['hits']
+                um.crits+=movelist[move]['crits']
+                um.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
+                um.secondaryeffects+=movelist[move]['secondaryeffects']
+                um.save()
+        elif isinstance(team,historical_team):
+            #for coach
+            try:
+                um=user_movedata.objects.filter(moveinfo=moi).get(coach=team.coach1)
+            except:
+                um=user_movedata.objects.create(moveinfo=moi,coach=team.coach1)
+            um.uses+=movelist[move]['uses']
+            um.hits+=movelist[move]['hits']
+            um.crits+=movelist[move]['crits']
+            um.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
+            um.secondaryeffects+=movelist[move]['secondaryeffects']
+            um.save()
+            #for teammate
+            if team.teammate:
+                try:
+                    um=user_movedata.objects.filter(moveinfo=moi).get(coach=team.coach2)
+                except:
+                    um=user_movedata.objects.create(moveinfo=moi,coach=team.coach2)
+                um.uses+=movelist[move]['uses']
+                um.hits+=movelist[move]['hits']
+                um.crits+=movelist[move]['crits']
+                um.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
+                um.secondaryeffects+=movelist[move]['secondaryeffects']
+                um.save()
+    return
 
 def current_searchmon(toi,searchmon):
     try:
