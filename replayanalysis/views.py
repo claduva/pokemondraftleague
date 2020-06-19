@@ -164,7 +164,7 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
             #append to save
             objectstosave.append(foundmon)
             #iterate moves
-            iterate_moves(mon['moves'],team1,foundmon)
+            iterate_moves(mon['moves'],team1,foundmon,results['replay'])
     #iterate through team 2
     team2roster=team2.teamroster.all()
     for mon in results['team2']['roster']:
@@ -184,7 +184,7 @@ def save_league_replay(request,results,match,team1,team2,form,subleague):
             #append to save
             objectstosave.append(foundmon)
             #iterate moves
-            iterate_moves(mon['moves'],team2,foundmon)
+            iterate_moves(mon['moves'],team2,foundmon,results['replay'])
     #update coach1 data
     team1.wins+=results['team1']['wins']
     team1.losses+=abs(results['team1']['wins']-1)
@@ -510,7 +510,7 @@ def check_current_match(match):
             team1.support+=mon['support']; team1.damagedone+=mon['damagedone']; team1.hphealed+=mon['hphealed']; team1.luck+=mon['luck']; team1.remaininghealth+=mon['remaininghealth']
             foundmon.save()
             #iterate through moves
-            iterate_moves(mon['moves'],team1,foundmon)
+            iterate_moves(mon['moves'],team1,foundmon,url)
         for mon in data['team2']['roster']:
             searchmon=mon['pokemon']
             #search for mon
@@ -521,7 +521,7 @@ def check_current_match(match):
             team2.support+=mon['support']; team2.damagedone+=mon['damagedone']; team2.hphealed+=mon['hphealed']; team2.luck+=mon['luck']; team2.remaininghealth+=mon['remaininghealth']
             foundmon.save()
             #iterate through moves
-            iterate_moves(mon['moves'],team2,foundmon)
+            iterate_moves(mon['moves'],team2,foundmon,url)
         team1.save()
         team2.save()
     return success
@@ -567,7 +567,7 @@ def check_hist_match(match):
             team1.support+=mon['support']; team1.damagedone+=mon['damagedone']; team1.hphealed+=mon['hphealed']; team1.luck+=mon['luck']; team1.remaininghealth+=mon['remaininghealth']
             foundmon.save()
             #iterate through moves
-            iterate_moves(mon['moves'],team1,foundmon)
+            iterate_moves(mon['moves'],team1,foundmon,url)
         for mon in data['team2']['roster']:
             searchmon=mon['pokemon']
             #search for mon
@@ -578,7 +578,7 @@ def check_hist_match(match):
             team2.support+=mon['support']; team2.damagedone+=mon['damagedone']; team2.hphealed+=mon['hphealed']; team2.luck+=mon['luck']; team2.remaininghealth+=mon['remaininghealth']
             foundmon.save()
             #iterate through moves
-            iterate_moves(mon['moves'],team2,foundmon)
+            iterate_moves(mon['moves'],team2,foundmon,url)
         team1.save()
         team2.save()
     data={
