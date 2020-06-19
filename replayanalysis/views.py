@@ -588,7 +588,7 @@ def check_hist_match(match):
     #return JsonResponse(data)
     return success
 
-def iterate_moves(movelist,team,foundmon):
+def iterate_moves(movelist,team,foundmon,replay):
     for move in movelist:
         ##update moveinfo
         move_=move.replace("Z-","")
@@ -601,11 +601,41 @@ def iterate_moves(movelist,team,foundmon):
         moi.save()
         ##update mon moves
         #if all_pokemon
-        if isinstance(foundmon,all_pokemon):
-            pass
+        try:
+            try:
+                pm=pokemon_movedata.objects.filter(moveinfo=moi).get(pokemon=foundmon)
+            except:
+                pm=pokemon_movedata.objects.create(moveinfo=moi,coach=foundmon)
+            if move in list(foundmon.moves.all().values_list('moveinfo__name',flat=True)):
+                pm.uses+=movelist[move]['uses']
+                pm.hits+=movelist[move]['hits']
+                pm.crits+=movelist[move]['crits']
+                pm.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
+                pm.secondaryeffects+=movelist[move]['secondaryeffects']
+                pm.save()
+            else:
+                try:
+                    unmatched_moves.objects.create(pokemon=foundmon,moveinfo=moi,replay=replay)
+                except:
+                    pass
         #elif historic or current
-        else:
-            pass
+        except:
+            try:
+                pm=pokemon_movedata.objects.filter(moveinfo=moi).get(pokemon=foundmon.pokemon)
+            except:
+                pm=pokemon_movedata.objects.create(moveinfo=moi,coach=foundmon.pokemon)
+            if move in list(foundmon.pokemon.moves.all().values_list('moveinfo__name',flat=True)):
+                pm.uses+=movelist[move]['uses']
+                pm.hits+=movelist[move]['hits']
+                pm.crits+=movelist[move]['crits']
+                pm.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
+                pm.secondaryeffects+=movelist[move]['secondaryeffects']
+                pm.save()
+            else:
+                try:
+                    unmatched_moves.objects.create(pokemon=foundmon.pokemon,moveinfo=moi,replay=replay)
+                except:
+                    pass
         ##update coach 
         #if current
         try:

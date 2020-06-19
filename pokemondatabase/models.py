@@ -154,6 +154,9 @@ class unmatched_moves(models.Model):
     moveinfo = models.ForeignKey(moveinfo,on_delete=models.CASCADE)
     replay = models.CharField(max_length=300,unique=True)
 
+    class Meta:
+        unique_together = (("pokemon", "moveinfo"),)  
+
 class pokemon_tier(models.Model):
     pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='pokemon_tiers')
     league = models.ForeignKey(league,on_delete=models.CASCADE,related_name='leaguepokemontiers')
