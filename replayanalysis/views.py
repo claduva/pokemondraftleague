@@ -526,8 +526,6 @@ def check_current_match(match):
         team2.save()
     return success
 
-@csrf_exempt
-#def check_hist_match(request):
 def check_hist_match(match):    
     #match=historical_match.objects.get(id=request.POST['matchid'])
     url=match.replay
@@ -633,7 +631,7 @@ def iterate_moves(movelist,team,foundmon,replay):
             um.secondaryeffects+=movelist[move]['secondaryeffects']
             um.save()
             #for teammate
-            if team.teammate:
+            if team.coach2:
                 try:
                     um=user_movedata.objects.filter(moveinfo=moi).get(coach=team.coach2)
                 except:
