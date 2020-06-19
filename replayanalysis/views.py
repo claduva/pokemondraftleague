@@ -594,6 +594,7 @@ def iterate_moves(movelist,team,foundmon,replay):
         moi.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
         moi.secondaryeffects+=movelist[move]['secondaryeffects']
         moi.save()
+        """
         ##update mon moves
         #if all_pokemon
         try:
@@ -631,6 +632,7 @@ def iterate_moves(movelist,team,foundmon,replay):
                     unmatched_moves.objects.create(pokemon=foundmon.pokemon,moveinfo=moi,replay=replay)
                 except:
                     pass
+        """
         ##update coach 
         #if current
         try:
