@@ -828,7 +828,10 @@ def learnset_update():
                     except:
                         print(move)
                     try:
-                        idd=pokemon_moveset.objects.all().order_by('-id').first().id+1
+                        try:
+                            idd=pokemon_moveset.objects.all().order_by('-id').first().id+1
+                        except:
+                            idd=1
                         pokemon_moveset.objects.create(id=idd,pokemon=item,moveinfo=moi)
                     except:
                         pass
