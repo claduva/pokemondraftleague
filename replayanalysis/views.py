@@ -594,45 +594,6 @@ def iterate_moves(movelist,team,foundmon,replay):
         moi.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
         moi.secondaryeffects+=movelist[move]['secondaryeffects']
         moi.save()
-        """
-        ##update mon moves
-        #if all_pokemon
-        try:
-            try:
-                pm=pokemon_movedata.objects.filter(moveinfo=moi).get(pokemon=foundmon)
-            except:
-                pm=pokemon_movedata.objects.create(moveinfo=moi,coach=foundmon)
-            if move in list(foundmon.moves.all().values_list('moveinfo__name',flat=True)):
-                pm.uses+=movelist[move]['uses']
-                pm.hits+=movelist[move]['hits']
-                pm.crits+=movelist[move]['crits']
-                pm.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
-                pm.secondaryeffects+=movelist[move]['secondaryeffects']
-                pm.save()
-            else:
-                try:
-                    unmatched_moves.objects.create(pokemon=foundmon,moveinfo=moi,replay=replay)
-                except:
-                    pass
-        #elif historic or current
-        except:
-            try:
-                pm=pokemon_movedata.objects.filter(moveinfo=moi).get(pokemon=foundmon.pokemon)
-            except:
-                pm=pokemon_movedata.objects.create(moveinfo=moi,coach=foundmon.pokemon)
-            if move in list(foundmon.pokemon.moves.all().values_list('moveinfo__name',flat=True)):
-                pm.uses+=movelist[move]['uses']
-                pm.hits+=movelist[move]['hits']
-                pm.crits+=movelist[move]['crits']
-                pm.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
-                pm.secondaryeffects+=movelist[move]['secondaryeffects']
-                pm.save()
-            else:
-                try:
-                    unmatched_moves.objects.create(pokemon=foundmon.pokemon,moveinfo=moi,replay=replay)
-                except:
-                    pass
-        """
         ##update coach 
         #if current
         try:
@@ -683,6 +644,42 @@ def iterate_moves(movelist,team,foundmon,replay):
                 um.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
                 um.secondaryeffects+=movelist[move]['secondaryeffects']
                 um.save()
+        ##update mon moves
+        try:
+            try:
+                pm=pokemon_movedata.objects.filter(moveinfo=moi).get(pokemon=foundmon)
+            except:
+                pm=pokemon_movedata.objects.create(moveinfo=moi,pokemon=foundmon)
+            if move in list(foundmon.moves.all().values_list('moveinfo__name',flat=True)):
+                pm.uses+=movelist[move]['uses']
+                pm.hits+=movelist[move]['hits']
+                pm.crits+=movelist[move]['crits']
+                pm.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
+                pm.secondaryeffects+=movelist[move]['secondaryeffects']
+                pm.save()
+            else:
+                try:
+                    unmatched_moves.objects.create(pokemon=foundmon,moveinfo=moi,replay=replay)
+                except:
+                    pass
+        #elif historic or current
+        except:
+            try:
+                pm=pokemon_movedata.objects.filter(moveinfo=moi).get(pokemon=foundmon.pokemon)
+            except:
+                pm=pokemon_movedata.objects.create(moveinfo=moi,pokemon=foundmon.pokemon)
+            if move in list(foundmon.pokemon.moves.all().values_list('moveinfo__name',flat=True)):
+                pm.uses+=movelist[move]['uses']
+                pm.hits+=movelist[move]['hits']
+                pm.crits+=movelist[move]['crits']
+                pm.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
+                pm.secondaryeffects+=movelist[move]['secondaryeffects']
+                pm.save()
+            else:
+                try:
+                    unmatched_moves.objects.create(pokemon=foundmon.pokemon,moveinfo=moi,replay=replay)
+                except:
+                    pass
     return
 
 def current_searchmon(toi,searchmon):

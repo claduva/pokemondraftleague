@@ -150,8 +150,7 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    for item in all_pokemon.objects.all():
-        print(isinstance(item,all_pokemon))
+    
     return redirect('home')
 
 def get_pkmn(pkmn):
