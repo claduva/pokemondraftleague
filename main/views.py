@@ -884,7 +884,7 @@ def learnset_update():
             except Exception as e:
                 pass
     for item in moveinfo.objects.all():
-        smeargle=all_pokemon.objects.get(pokemon="Smeragle")
+        smeargle=all_pokemon.objects.get(pokemon="Smeargle")
         ditto=all_pokemon.objects.get(pokemon="Ditto")
         id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
         try:
