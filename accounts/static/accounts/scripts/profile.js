@@ -20,6 +20,19 @@ $(document).ready(function() {
         rivaltable.append(tr)
     }
 
+    favoritemovetable=$("#favmoves").find("table")
+    for (x in favoritemovelist){
+        li=favoritemovelist[x]
+        tr=$("<tr></tr")
+        td1=$("<td>"+li[0]+"</td>")
+        td2=$("<td>"+li[1]+"</td>")
+        td3=$("<td>"+li[2]+"</td>")
+        td4=$("<td>"+li[3]+"</td>")
+        td5=$("<td>"+li[5]+"/"+li[4]+"</td>")
+        tr.append(td1,td2,td3,td4,td5)
+        favoritemovetable.append(tr)
+    }
+
     allmatchestable=$("#allmatches").find("table")
     for (x in matchlist){
         li=matchlist[x]

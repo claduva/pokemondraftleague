@@ -608,7 +608,7 @@ def iterate_moves(movelist,team,foundmon):
             pass
         ##update coach 
         #if current
-        if isinstance(team,coachdata):
+        try:
             #for coach
             try:
                 um=user_movedata.objects.filter(moveinfo=moi).get(coach=team.coach)
@@ -632,7 +632,7 @@ def iterate_moves(movelist,team,foundmon):
                 um.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
                 um.secondaryeffects+=movelist[move]['secondaryeffects']
                 um.save()
-        elif isinstance(team,historical_team):
+        except:
             #for coach
             try:
                 um=user_movedata.objects.filter(moveinfo=moi).get(coach=team.coach1)

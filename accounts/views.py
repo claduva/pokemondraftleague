@@ -104,6 +104,9 @@ def user_profile(request,username):
         wins=usermatches_.filter(Q(team1coach1__username=coachname)|Q(team1coach2__username=coachname)|Q(team2coach1__username=coachname)|Q(team2coach2__username=coachname)).filter(Q(winnercoach1=userofinterest)|Q(winnercoach2=userofinterest)).exclude(team1coach1=userofinterest,team1coach2__username=coachname).exclude(team1coach2=userofinterest,team1coach1__username=coachname).exclude(team2coach1=userofinterest,team2coach2__username=coachname).exclude(team2coach2=userofinterest,team2coach1__username=coachname).count()
         rivallist.append([item[0],item[1],wins])
     rivallist=sorted(rivallist,key=lambda x: (x[1],x[2]),reverse=True)
+    #favorite moves
+    favoritemovelist=list(user_movedata.objects.filter(coach=userofinterest).values_list('moveinfo__name','uses','hits','crits','posssecondaryeffects','secondaryeffects'))
+    print(favoritemovelist)
     context = {
         "title": f"{username}'s Profile",
         'userofinterest':userofinterest,
@@ -111,6 +114,7 @@ def user_profile(request,username):
         'mostacquired':mostacquired,
         'matchlist':matchlist,
         'rivallist':rivallist,
+        'favoritemovelist':favoritemovelist,
     }
     return render(request, 'userprofile.html',context)
 
