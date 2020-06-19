@@ -150,16 +150,7 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    for item in all_pokemon.objects.all().filter(pokemon__contains="-Gmax"):
-        monsmoveset=list(item.moves.all().values_list('moveinfo__id',flat=True))
-        basemon=all_pokemon.objects.get(pokemon=item.pokemon.replace("-Gmax",""))
-        movestoadd=basemon.moves.all().exclude(moveinfo__id__in=monsmoveset)
-        for item_ in movestoadd:
-            id_=pokemon_moveset.objects.all().order_by('-id').first().id+1
-            try:
-                pokemon_moveset.objects.create(id=id_,pokemon=item,moveinfo=item_.moveinfo)
-            except Exception as e:
-                print(e)
+    moveinfo.objects.all().filter(secondary_effect_chance__gte=100).update(secondary_effect_chance=0,secondary_effect="None")
     return redirect('home')
 
 def get_pkmn(pkmn):
