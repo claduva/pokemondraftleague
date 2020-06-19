@@ -581,11 +581,6 @@ def check_hist_match(match):
             iterate_moves(mon['moves'],team2,foundmon,url)
         team1.save()
         team2.save()
-    data={
-        'replay': url,
-        'success': success,
-        }
-    #return JsonResponse(data)
     return success
 
 def iterate_moves(movelist,team,foundmon,replay):
@@ -599,7 +594,6 @@ def iterate_moves(movelist,team,foundmon,replay):
         moi.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
         moi.secondaryeffects+=movelist[move]['secondaryeffects']
         moi.save()
-        """
         ##update mon moves
         #if all_pokemon
         try:
@@ -687,7 +681,6 @@ def iterate_moves(movelist,team,foundmon,replay):
                 um.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
                 um.secondaryeffects+=movelist[move]['secondaryeffects']
                 um.save()
-                """
     return
 
 def current_searchmon(toi,searchmon):
