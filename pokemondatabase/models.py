@@ -115,7 +115,7 @@ class moveinfo(models.Model):
         return f'Moveinfo for {self.name}'
 
 class pokemon_movedata(models.Model):
-    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE)
+    pokemon = models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name='pokemon_movedata')
     moveinfo = models.ForeignKey(moveinfo,on_delete=models.CASCADE)
     uses = models.IntegerField(default=0)
     hits = models.IntegerField(default=0)

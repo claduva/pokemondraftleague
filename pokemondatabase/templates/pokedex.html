@@ -121,6 +121,29 @@
         <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
                 <tr class="bg-dark text-light">
+                    <th colspan="5">Move Usage</th>
+                </tr>
+                <tr class="bg-dark text-light">
+                    <th>Move</th>
+                    <th>Times Used</th>
+                    <th>Hits</th>
+                    <th>Crits</th>
+                    <th>Secondary Effect Rate</th>
+                </tr>
+                {% for item in pokemon_data.pokemon_movedata.all|alphabetize:"-uses" %}
+                <tr>
+                    <td>{{item.moveinfo.name}}</td>
+                    <td>{{item.uses}}</td>
+                    <td>{{item.hits}}</td>
+                    <td>{{item.crits}}</td>
+                    <td>{{item.secondaryeffects}}/{{item.posssecondaryeffects}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
+            <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
+                <tr class="bg-dark text-light">
                     <th>Tiering</th>
                 </tr>
                 {% for item in pokemon_data.pokemon_tiers.all|alphabetize:"league__name" %}
