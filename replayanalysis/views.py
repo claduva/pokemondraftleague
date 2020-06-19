@@ -599,6 +599,7 @@ def iterate_moves(movelist,team,foundmon,replay):
         moi.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
         moi.secondaryeffects+=movelist[move]['secondaryeffects']
         moi.save()
+        """
         ##update mon moves
         #if all_pokemon
         try:
@@ -686,6 +687,7 @@ def iterate_moves(movelist,team,foundmon,replay):
                 um.posssecondaryeffects+=movelist[move]['posssecondaryeffects']
                 um.secondaryeffects+=movelist[move]['secondaryeffects']
                 um.save()
+                """
     return
 
 def current_searchmon(toi,searchmon):
@@ -851,6 +853,7 @@ def check_analyzer_task():
     pokemon_movedata.objects.all().update(uses=0,hits=0,crits=0,posssecondaryeffects=0,secondaryeffects=0)
     user_movedata.objects.all().update(uses=0,hits=0,crits=0,posssecondaryeffects=0,secondaryeffects=0)
     ##get matches
+    failed_replay.objects.all().delete()
     currentmatches=schedule.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
     histmatches=historical_match.objects.all().filter(Q(replay__contains="replay.pokemonshowdown.com")|Q(replay__contains="/static/logfiles/"))
     histffmatches=historical_match.objects.all().filter(replay__contains="Forfeit").order_by('id')
@@ -953,7 +956,6 @@ def check_analyzer_task():
         print(f'{i}/{total}')
         i+=1
     print('Failed')
-    failed_replay.objects.all().delete()
     for item in failed:
         failed_replay.objects.create(replay=item.replay)
         print(f'{item.id}: {item.replay}')
