@@ -10,8 +10,6 @@ def check_if_league(view):
             league_=league.objects.get(name=kwargs['league_name'].replace("_"," "))
             return view(request, *args, **kwargs)
         except Exception as e:
-            print(e)
-            raise(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),
@@ -27,8 +25,6 @@ def check_if_subleague(view):
             return view(request, *args, **kwargs)
         except Exception as e:
             print('subleague')
-            print(e)
-            raise(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),
@@ -43,9 +39,7 @@ def check_if_season(view):
             season=seasonsetting.objects.filter(subleague__league__name=kwargs['league_name'].replace("_"," ")).get(subleague__subleague=kwargs['subleague_name'].replace("_"," "))
             return view(request, *args, **kwargs)
         except Exception as e:
-            print(e)
             print('season')
-            raise(e)
             messages.error(request,'Season does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),
@@ -60,7 +54,6 @@ def check_if_team(view):
             team=coachdata.objects.filter(league_name__name=kwargs['league_name'].replace("_"," "),subleague__subleague=kwargs['subleague_name'].replace("_"," ")).get(teamabbreviation=kwargs['team_abbreviation'])
             return view(request, *args, **kwargs)
         except Exception as e:
-            print(e)
             print('team')
             messages.error(request,'Team does not exist!',extra_tags='danger')
             error_message.objects.create(
@@ -94,7 +87,6 @@ def check_if_match(view):
             match=schedule.objects.get(pk=kwargs['matchid'])
             return view(request, *args, **kwargs)
         except Exception as e:
-            print(e)
             print('match')
             messages.error(request,'Match does not exist!',extra_tags='danger')
             error_message.objects.create(

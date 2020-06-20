@@ -853,7 +853,6 @@ def manage_coach(request,league_name,coachofinterest):
                 pokemontoupdate.save()
                 messages.success(request,"Draft has been updated")
             except Exception as e:
-                print(e)
                 messages.error(request,"Pokemon doesn't exist",extra_tags="danger")
             return redirect('manage_coach', league_name=league_name,coachofinterest=coachofinterest.coach.username)
         elif formtype=="Update Roster":
@@ -864,7 +863,6 @@ def manage_coach(request,league_name,coachofinterest):
                 pokemontoupdate.save()
                 messages.success(request,"Roster has been updated")
             except Exception as e:
-                print(e)
                 messages.error(request,"Pokemon doesn't exist",extra_tags="danger")
             return redirect('manage_coach', league_name=league_name,coachofinterest=coachofinterest.coach.username)
         elif formtype=="Adjust Record":

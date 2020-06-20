@@ -47,7 +47,6 @@ class Draft(commands.Cog):
                                         ps_cursor.execute("DELETE from leagues_draft_announcements WHERE id = %s",(record[0],))
                                         ps_connection.commit()
                                     except Exception as e:
-                                        print(e)
                                         pass
                 ps_cursor.close()
                 #Use this method to release the connection object and send back to connection pool

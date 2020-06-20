@@ -75,13 +75,13 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
                 coach2=results['team2']['coach']
                 try:
                     coach1alt=showdownalts.objects.all().get(showdownalt=coach1)
-                    coach1team=coachdata.objects.all().filter(subleague=subleague).get(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user))
+                    coach1team=coachdata.objects.all().filter(league_name=subleague.league).get(Q(coach=coach1alt.user)|Q(teammate=coach1alt.user))
                 except:
                     messages.error(request,f'A matching showdown alt for {coach1} was not found!',extra_tags='danger')
                     return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
                 try:
                     coach2alt=showdownalts.objects.all().get(showdownalt=coach2)
-                    coach2team=coachdata.objects.all().filter(subleague=subleague).get(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user))
+                    coach2team=coachdata.objects.all().filter(league_name=subleague.league).get(Q(coach=coach2alt.user)|Q(teammate=coach2alt.user))
                 except:
                     messages.error(request,f'A matching showdown alt for {coach2} was not found!',extra_tags='danger')
                     return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)

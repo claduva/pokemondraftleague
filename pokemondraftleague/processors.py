@@ -22,7 +22,6 @@ def processor(request):
     try:
         leagueshosted = league.objects.all().filter(host=request.user).order_by('name')
     except Exception as e:
-        print(e)
         leagueshosted = None
     allleagues = league.objects.all().exclude(name__icontains='Test').order_by('name')
     try:  
