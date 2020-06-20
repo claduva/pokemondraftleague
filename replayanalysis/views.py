@@ -368,7 +368,6 @@ def upload_historic_match(request):
                 else:
                     messages.error(request,f'Analysis Failed.',extra_tags="danger")
         except Exception as e:
-            print(e)
             messages.error(request,f'Analysis Failed.',extra_tags="danger")
         return redirect('upload_historic_match')
     form=UploadHistoricMatchForm()
