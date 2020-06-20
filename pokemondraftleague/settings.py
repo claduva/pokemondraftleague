@@ -178,6 +178,7 @@ USE_TZ = True
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'home'
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 #Crispy Forms Settings
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

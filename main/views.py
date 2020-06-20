@@ -6,6 +6,8 @@ from django.core import serializers
 from django.db.models import Q
 from django.core.files.base import ContentFile
 from django.template import Context, loader
+from django.contrib.sessions.models import Session
+from django.utils import timezone
 
 import json
 from datetime import datetime
@@ -37,11 +39,13 @@ def home(request):
         if yourleagues.count()>0:
             upcomingmatches=schedule.objects.all().filter(Q(team1__coach=request.user)|Q(team2__coach=request.user)|Q(team1__teammate=request.user)|Q(team2__teammate=request.user)).filter(replay="Link").order_by('duedate','id')[0:4]
             recentresults=schedule.objects.all().filter(Q(team1__coach=request.user)|Q(team2__coach=request.user)|Q(team1__teammate=request.user)|Q(team2__teammate=request.user)).exclude(replay="Link").exclude(Q(team1__coach=request.user)|Q(team1__teammate=request.user),team1alternateattribution__isnull=False).exclude(Q(team2__coach=request.user)|Q(team2__teammate=request.user),team2alternateattribution__isnull=False).order_by('-timestamp','-id')[0:4]
+            online=None
             context = {
                 "title": "Pokemon Draft League",
                 "yourleagues": yourleagues,
                 "upcomingmatches":upcomingmatches,
                 "recentresults": recentresults,
+                "online":online,
             }
             return  render(request,"coachlandingpage.html", context)
     except Exception as e:
@@ -150,7 +154,18 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    
+    """
+    monstoadd=all_pokemon.objects.all().filter(Q(pokemon__contains="-Gmax")|Q(pokemon__contains="-Galar")|Q(pokemon__contains="Zarude")|Q(pokemon__contains="Kubfu")|Q(pokemon__contains="-Urshifu"))
+    templates=pokemon_tier.objects.all().order_by('subleague').distinct('subleague')
+    for t in templates:
+        bannedtier=leaguetiers.objects.filter(subleague=t.subleague).get(tiername="Banned")
+        for p in monstoadd:
+            try:
+                id_=pokemon_tier.objects.all().order_by('-id').first().id+1
+                pokemon_tier.objects.create(id=id_,pokemon=p,league=t.league,subleague=t.subleague,tier=bannedtier)
+            except Exception as e:
+                print(e)
+    """
     return redirect('home')
 
 def get_pkmn(pkmn):

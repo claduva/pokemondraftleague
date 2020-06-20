@@ -60,6 +60,9 @@ class pokemon_sprites(models.Model):
     dexani = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/dex/ani/standard')
     dexanishiny = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/dex/ani/shiny')
 
+    def __str__(self):
+            return f'Sprites for {self.pokemon.pokemon}'
+
 class pokemon_leaderboard(models.Model):
     pokemon = models.OneToOneField(all_pokemon,on_delete=models.CASCADE)
     kills = models.IntegerField(default=0)
@@ -181,6 +184,7 @@ class pokemon_tier_template(models.Model):
 
     class Meta:
         ordering = ['pokemon__pokemon']
+        unique_together = (("pokemon", "template"),)  
 
 class pokemon_effectiveness(models.Model):
     pokemon = models.OneToOneField(all_pokemon,on_delete=models.CASCADE,related_name="effectiveness")
