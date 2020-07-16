@@ -14,7 +14,7 @@ import os
 import sys
 import socket
 
-if (socket.gethostname().find("local")>-1):
+if (socket.gethostname().find("local")>-1) or (socket.gethostname().find("DESKTOP")>-1):
     from .base_settings import *
     DEBUG = True
     SECRET_KEY = SECRET_KEY
@@ -45,7 +45,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-ALLOWED_HOSTS = ['0.0.0.0',"pokemondraftleague.herokuapp.com",'127.0.0.1',"pokemondraftleague.online","www.pokemondraftleague.online"]
+ALLOWED_HOSTS = ['0.0.0.0',"pokemondraftleague.herokuapp.com",'127.0.0.1','localhost',"pokemondraftleague.online","www.pokemondraftleague.online"]
 
 # Application definition
 INSTALLED_APPS = [
