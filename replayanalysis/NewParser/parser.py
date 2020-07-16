@@ -307,8 +307,6 @@ def damage_function(line,parsedlogfile,results):
                         if mon[cause]!=None:
                             pokemon[cause]=mon[cause]
                             break
-                print(line)
-                print(cause)
                 damager=roster_search(otherteam,pokemon[cause],results)
         if damager:
             damager['damagedone']+=damagedone 
@@ -670,7 +668,7 @@ def move_function(line,parsedlogfile,results):
             #check for secondary effect
             results=secondary_check(attacker,target,move,line,results,parsedlogfile,attackingteam,notothermove)
         except:
-            pass
+            pas
     #check if weather
     if move in ['Sandstorm','Hail','Z-Sandstorm','Z-Hail','Max Rockfall','Max Hailstorm']:
         move=move.replace("Z-","").replace("Max Rockfall","Sandstorm").replace("Max Hailstorm","Hail")
@@ -1074,11 +1072,14 @@ def zpower_function(line,parsedlogfile,results):
 def namecheck(results,line,teamnumber):
     nicknamesearch=line[3].split(" ",1)[1].split("|")
     healthremaining=int(line[3].split("|")[2].split("/",1)[0])
+    print(nicknamesearch)
     if nicknamesearch[0]!=nicknamesearch[1] and nicknamesearch[1].find(f"{nicknamesearch[0]}-")==-1:
         if nicknamesearch[1].find("Silvally-")>-1:
             line[3]=line[3].replace(nicknamesearch[1],"Silvally")
             nicknamesearch[1]="Silvally"
         for item in results[f'team{teamnumber}']['roster']:
+            if item['pokemon']=="Urshifu" and nicknamesearch[1].find("Rapid-Strike")>-1:
+                item['pokemon']=nicknamesearch[1]
             if item['pokemon']==nicknamesearch[1]:
                 item['nickname']=nicknamesearch[0]
                 priorhealth=item['remaininghealth']
@@ -1089,6 +1090,8 @@ def namecheck(results,line,teamnumber):
             line[3]=line[3].replace(nicknamesearch[1],"Silvally")
             nicknamesearch[1]="Silvally"
         for item in results[f'team{teamnumber}']['roster']:
+            if item['pokemon']=="Urshifu" and nicknamesearch[1].find("Rapid-Strike")>-1:
+                item['pokemon']=nicknamesearch[1]
             if item['pokemon']==nicknamesearch[1] and nicknamesearch[1].find("-Mega")==-1:
                 item['startform']=nicknamesearch[0]
                 item['nickname']=nicknamesearch[0]
