@@ -1019,9 +1019,10 @@ def archive_season(request,league_name):
         messages.error(request,'You cannot archive a season with matches remaining to be played!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
     try:
-        archiveseason(league_)
+        archiveseason(league_name)
         messages.success(request,'The site is currently archiving your season. This can take several minutes. If there are issues, contact site administration and DO NOT TRY ARCHIVING AGAIN.')
-    except: 
+    except Exception as e: 
+        print(e)
         messages.error(request,'There was an error archiving your season. Contact site administration for help.',extra_tags='danger')
     return redirect('leagues_hosted_settings')
 
@@ -1173,7 +1174,8 @@ def set_match_due_dates(request,league_name,subleague_name):
 
 ##--------------------------------------------TASKS--------------------------------------------
 @background(schedule=1)
-def archiveseason(league_):
+def archiveseason(league_name):
+    league_=league.objects.get(name=league_name)
     coachdataitems=coachdata.objects.all().filter(league_name=league_)
     rosteritems=roster.objects.all().filter(season__league=league_)
     draftitems=draft.objects.all().filter(season__league=league_)
