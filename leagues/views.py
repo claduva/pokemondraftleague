@@ -119,24 +119,8 @@ def league_configuration_(request,league_name):
                     except:
                         pass
                     pokemon_tier.objects.filter(league=league_instance).all().delete()
-                    if config.number_of_subleagues==1:
-                        sl=league_subleague.objects.create(league=league_instance,subleague="Main")
-                        allpokes=all_pokemon.objects.all()
-                        i=pokemon_tier.objects.all().order_by('id').last().id
-                        bannedtier=leaguetiers.objects.create(league=league_instance,subleague=sl,tiername="Banned",tierpoints=1000)
-                        for item in allpokes:
-                            i+=1
-                            pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl,tier=bannedtier)
-                    elif config.number_of_subleagues>1:
-                        for i in range(config.number_of_subleagues):
-                            sl=league_subleague.objects.create(league=league_instance,subleague=f"Subleague{i+1}")
-                            allpokes=all_pokemon.objects.all()
-                            i=pokemon_tier.objects.all().order_by('id').last().id
-                            bannedtier=leaguetiers.objects.create(league=league_instance,subleague=sl,tiername="Banned",tierpoints=1000)
-                            for item in allpokes:
-                                i+=1
-                                pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl,tier=bannedtier)
-                    messages.success(request,league_name+' has been updated!')
+                    configureleague(config.id)
+                    messages.success(request,league_name+' has been updated and is being configured! This should be quick but can take a few minutes. DO NOT TRY TO RECONFIGURE IF THERE IS AN ERROR AND CONTACT SITE ADMINISTRATION.')
         elif formpurpose=="Rename":
             itemid=request.POST['itemid']
             slname=request.POST['slname']
@@ -1173,6 +1157,28 @@ def set_match_due_dates(request,league_name,subleague_name):
     return render(request, 'matchduedate.html',context)
 
 ##--------------------------------------------TASKS--------------------------------------------
+@background(schedule=1)
+def configureleague(configid):
+    config=league_configuration.objects.get(id=configid)
+    league_instance=config.league
+    if config.number_of_subleagues==1:
+        sl=league_subleague.objects.create(league=league_instance,subleague="Main")
+        allpokes=all_pokemon.objects.all()
+        i=pokemon_tier.objects.all().order_by('id').last().id
+        bannedtier=leaguetiers.objects.create(league=league_instance,subleague=sl,tiername="Banned",tierpoints=1000)
+        for item in allpokes:
+            i+=1
+            pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl,tier=bannedtier)
+    elif config.number_of_subleagues>1:
+        for i in range(config.number_of_subleagues):
+            sl=league_subleague.objects.create(league=league_instance,subleague=f"Subleague{i+1}")
+            allpokes=all_pokemon.objects.all()
+            i=pokemon_tier.objects.all().order_by('id').last().id
+            bannedtier=leaguetiers.objects.create(league=league_instance,subleague=sl,tiername="Banned",tierpoints=1000)
+            for item in allpokes:
+                i+=1
+                pokemon_tier.objects.create(id=i,pokemon=item,league=league_instance,subleague=sl,tier=bannedtier)
+
 @background(schedule=1)
 def archiveseason(league_name):
     league_=league.objects.get(name=league_name)
