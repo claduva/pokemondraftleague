@@ -132,7 +132,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pokemondraftleague.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 DATABASES = {
@@ -178,7 +177,6 @@ USE_TZ = True
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'home'
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 #Crispy Forms Settings
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
