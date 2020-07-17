@@ -15,6 +15,7 @@ from datetime import datetime, timezone, timedelta
 import pytz
 import math
 import random
+from background_task import background
 
 from .forms import *
 from .models import *
@@ -1017,119 +1018,11 @@ def archive_season(request,league_name):
     if unplayedgames>0:
         messages.error(request,'You cannot archive a season with matches remaining to be played!',extra_tags='danger')
         return redirect('leagues_hosted_settings')
-    coachdataitems=coachdata.objects.all().filter(league_name=league_)
-    rosteritems=roster.objects.all().filter(season__league=league_)
-    draftitems=draft.objects.all().filter(season__league=league_)
-    scheduleitems=schedule.objects.all().filter(season__league=league_)
-    freeagencyitems=free_agency.objects.all().filter(season__league=league_)
-    tradingitems=trading.objects.all().filter(season__league=league_)
-    season=league_.subleague.first().seasonsetting
-    maxid=historical_team.objects.all().order_by('-id').first().id
-    for item in coachdataitems:
-        maxid+=1
-        if item.teammate:
-            ht=historical_team.objects.create(
-                id=maxid,
-                league = item.league_name,
-                seasonname = season.seasonname,
-                subseason= item.subleague.subleague.replace("_"," "),
-                teamname = item.teamname,
-                coach1= item.coach,
-                coach1username=item.coach.username,
-                coach2=item.teammate,
-                coach2username=item.teammate.username,
-                logo = item.logo,
-                wins=item.wins,
-                losses=item.losses,
-                differential=item.differential,
-                forfeit=item.forfeit,
-                support=item.support,
-                damagedone=item.damagedone,
-                hphealed=item.hphealed,
-                luck=item.luck,
-                remaininghealth=item.remaininghealth
-            )
-        else:
-            ht=historical_team.objects.create(
-                id=maxid,
-                league = item.league_name,
-                seasonname = season.seasonname,
-                subseason= item.subleague.subleague.replace("_"," "),
-                teamname = item.teamname,
-                coach1= item.coach,
-                coach1username=item.coach.username,
-                logo = item.logo,
-                wins=item.wins,
-                losses=item.losses,
-                differential=item.differential,
-                forfeit=item.forfeit,
-                support=item.support,
-                damagedone=item.damagedone,
-                hphealed=item.hphealed,
-                luck=item.luck,
-                remaininghealth=item.remaininghealth
-            )
-        if item.parent_team:
-            ht.subteam=item.parent_team.name
-            ht.save()       
-    maxid=historical_freeagency.objects.all().order_by('-id').first().id
-    for item in freeagencyitems:
-        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname)
-        team=team.get(coach1=item.coach.coach)
-        maxid+=1
-        historical_freeagency.objects.create(id=maxid,team=team,addedpokemon=item.addedpokemon,droppedpokemon=item.droppedpokemon)
-        item.delete()
-    maxid=historical_trading.objects.all().order_by('-id').first().id
-    for item in tradingitems:
-        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.coach.coach)
-        maxid+=1
-        historical_trading.objects.create(id=maxid,team=team,addedpokemon=item.addedpokemon,droppedpokemon=item.droppedpokemon)
-        item.delete()
-    maxid=historical_draft.objects.all().order_by('-id').first().id
-    for item in draftitems:
-        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team.coach)
-        maxid+=1
-        historical_draft.objects.create(id=maxid,team=team,pokemon=item.pokemon,picknumber=item.picknumber)
-        item.delete()
-    maxid=historical_roster.objects.all().order_by('-id').first().id
-    for item in rosteritems:
-        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team.coach)
-        maxid+=1
-        historical_roster.objects.create(id=maxid,team=team,pokemon=item.pokemon,kills=item.kills,deaths=item.deaths,differential=item.differential,gp=item.gp,gw=item.gw,support=item.support,damagedone=item.damagedone,hphealed=item.hphealed,luck=item.luck,remaininghealth=item.remaininghealth)
-        item.delete()
-    maxid=historical_match.objects.all().order_by('-id').first().id
-    for item in scheduleitems:
-        maxid+=1
-        team1=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team1.coach)
-        team2=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team2.coach)
-        if item.team1==item.winner:
-            winner=team1
-        elif item.team2==item.winner:
-            winner=team2
-        else:
-            winner=None
-        print(item.replay)
-        histmatch=historical_match.objects.create(
-            id=maxid,
-            week=item.week,
-            team1=team1,
-            team1alternateattribution=item.team1alternateattribution,
-            team2=team2,
-            team2alternateattribution=item.team2alternateattribution,
-            winner = winner,
-            winneralternateattribution=item.winneralternateattribution,
-            team1score = item.team1score,
-            team2score = item.team2score,
-            replay = item.replay,
-        )
-        try: 
-            mr=item.match_replay
-            historical_match_replay.objects.create(match=histmatch,data=mr.data)
-        except:
-            pass
-        item.delete()   
-    coachdataitems.delete()
-    seasonsetting.objects.filter(league=league_).delete()
+    try:
+        archiveseason(league_)
+        messages.success(request,'The site is currently archiving your season. This can take several minutes. If there are issues, contact site administration and DO NOT TRY ARCHIVING AGAIN.')
+    except: 
+        messages.error(request,'There was an error archiving your season. Contact site administration for help.',extra_tags='danger')
     return redirect('leagues_hosted_settings')
 
 @login_required
@@ -1277,3 +1170,120 @@ def set_match_due_dates(request,league_name,subleague_name):
         'matchs':matchs,
     }
     return render(request, 'matchduedate.html',context)
+
+##--------------------------------------------TASKS--------------------------------------------
+@background(schedule=1)
+def archiveseason(league_):
+    coachdataitems=coachdata.objects.all().filter(league_name=league_)
+    rosteritems=roster.objects.all().filter(season__league=league_)
+    draftitems=draft.objects.all().filter(season__league=league_)
+    scheduleitems=schedule.objects.all().filter(season__league=league_)
+    freeagencyitems=free_agency.objects.all().filter(season__league=league_)
+    tradingitems=trading.objects.all().filter(season__league=league_)
+    season=league_.subleague.first().seasonsetting
+    maxid=historical_team.objects.all().order_by('-id').first().id
+    for item in coachdataitems:
+        maxid+=1
+        if item.teammate:
+            ht=historical_team.objects.create(
+                id=maxid,
+                league = item.league_name,
+                seasonname = season.seasonname,
+                subseason= item.subleague.subleague.replace("_"," "),
+                teamname = item.teamname,
+                coach1= item.coach,
+                coach1username=item.coach.username,
+                coach2=item.teammate,
+                coach2username=item.teammate.username,
+                logo = item.logo,
+                wins=item.wins,
+                losses=item.losses,
+                differential=item.differential,
+                forfeit=item.forfeit,
+                support=item.support,
+                damagedone=item.damagedone,
+                hphealed=item.hphealed,
+                luck=item.luck,
+                remaininghealth=item.remaininghealth
+            )
+        else:
+            ht=historical_team.objects.create(
+                id=maxid,
+                league = item.league_name,
+                seasonname = season.seasonname,
+                subseason= item.subleague.subleague.replace("_"," "),
+                teamname = item.teamname,
+                coach1= item.coach,
+                coach1username=item.coach.username,
+                logo = item.logo,
+                wins=item.wins,
+                losses=item.losses,
+                differential=item.differential,
+                forfeit=item.forfeit,
+                support=item.support,
+                damagedone=item.damagedone,
+                hphealed=item.hphealed,
+                luck=item.luck,
+                remaininghealth=item.remaininghealth
+            )
+        if item.parent_team:
+            ht.subteam=item.parent_team.name
+            ht.save()       
+    maxid=historical_freeagency.objects.all().order_by('-id').first().id
+    for item in freeagencyitems:
+        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname)
+        team=team.get(coach1=item.coach.coach)
+        maxid+=1
+        historical_freeagency.objects.create(id=maxid,team=team,addedpokemon=item.addedpokemon,droppedpokemon=item.droppedpokemon)
+        item.delete()
+    maxid=historical_trading.objects.all().order_by('-id').first().id
+    for item in tradingitems:
+        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.coach.coach)
+        maxid+=1
+        historical_trading.objects.create(id=maxid,team=team,addedpokemon=item.addedpokemon,droppedpokemon=item.droppedpokemon)
+        item.delete()
+    maxid=historical_draft.objects.all().order_by('-id').first().id
+    for item in draftitems:
+        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team.coach)
+        maxid+=1
+        historical_draft.objects.create(id=maxid,team=team,pokemon=item.pokemon,picknumber=item.picknumber)
+        item.delete()
+    maxid=historical_roster.objects.all().order_by('-id').first().id
+    for item in rosteritems:
+        team=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team.coach)
+        maxid+=1
+        historical_roster.objects.create(id=maxid,team=team,pokemon=item.pokemon,kills=item.kills,deaths=item.deaths,differential=item.differential,gp=item.gp,gw=item.gw,support=item.support,damagedone=item.damagedone,hphealed=item.hphealed,luck=item.luck,remaininghealth=item.remaininghealth)
+        item.delete()
+    maxid=historical_match.objects.all().order_by('-id').first().id
+    for item in scheduleitems:
+        maxid+=1
+        team1=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team1.coach)
+        team2=historical_team.objects.filter(league=league_,seasonname = season.seasonname).get(coach1=item.team2.coach)
+        if item.team1==item.winner:
+            winner=team1
+        elif item.team2==item.winner:
+            winner=team2
+        else:
+            winner=None
+        print(item.replay)
+        histmatch=historical_match.objects.create(
+            id=maxid,
+            week=item.week,
+            team1=team1,
+            team1alternateattribution=item.team1alternateattribution,
+            team2=team2,
+            team2alternateattribution=item.team2alternateattribution,
+            winner = winner,
+            winneralternateattribution=item.winneralternateattribution,
+            team1score = item.team1score,
+            team2score = item.team2score,
+            replay = item.replay,
+        )
+        try: 
+            mr=item.match_replay
+            historical_match_replay.objects.create(match=histmatch,data=mr.data)
+        except:
+            pass
+        item.delete()   
+    coachdataitems.delete()
+    seasonsetting.objects.filter(league=league_).delete()
