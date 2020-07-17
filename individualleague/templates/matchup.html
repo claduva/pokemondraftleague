@@ -52,6 +52,11 @@
                     <td>
                         <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                         {{item.pokemon.pokemon}}
+                        {% if item.zuser == 'OS' %}
+                                <div><img class="smallsprite" src="{% static 'main/images/z-crystal.png' %}">(Offensive & Status)</div>
+                        {% elif item.zuser == 'O' %}    
+                            <div><img class="smallsprite" src="{% static 'main/images/z-crystal.png' %}">(Offensive)</div>
+                        {% endif %}
                     </td>
                     <td>
                         {% for item_ in item.pokemon.types.all %}
@@ -99,6 +104,11 @@
                     <td>
                         <img class="smallsprite" src="{{ item.pokemon.pokemon|sprite:site_settings.sprite }}">
                         {{item.pokemon.pokemon}}
+                        {% if item.zuser == 'OS' %}
+                                <div><img class="smallsprite" src="{% static 'main/images/z-crystal.png' %}">(Offensive & Status)</div>
+                        {% elif item.zuser == 'O' %}    
+                            <div><img class="smallsprite" src="{% static 'main/images/z-crystal.png' %}">(Offensive)</div>
+                        {% endif %}
                     </td>
                     <td>
                         {% for item_ in item.pokemon.types.all %}
