@@ -266,7 +266,7 @@ def damage_function(line,parsedlogfile,results):
             damager=cause.split("|[of] ")[1].split(": ",1)[1]
             team=cause.split("|[of] ")[1].split(": ",1)[0]
             damager=roster_search(team,damager,results)
-        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1 or cause.find("move: Fire Spin")>-1 or cause.find("move: Bind")>-1 or cause.find("move: Sand Tomb")>-1 or cause.find("ability: Disguise|[of]")>-1 or cause.find("mimikyubusted")>-1 or cause.find("Mimikyu-Busted")>-1:
+        elif cause.find("move: Whirlpool")>-1 or cause.find("move: Infestation")>-1 or cause.find("move: Magma Storm")>-1 or cause.find("move: Wrap")>-1 or cause.find("move: Fire Spin")>-1 or cause.find("move: Bind")>-1 or cause.find("move: Sand Tomb")>-1 or cause.find("ability: Disguise|[of]")>-1 or cause.find("mimikyubusted")>-1 or cause.find("Mimikyu-Busted")>-1 or cause.find("G-Max Vine Lash")>-1:
             if team=="p1a":
                 damager=results['team2']['activemon']
                 damager=roster_search("p2a",damager,results)
@@ -1072,7 +1072,6 @@ def zpower_function(line,parsedlogfile,results):
 def namecheck(results,line,teamnumber):
     nicknamesearch=line[3].split(" ",1)[1].split("|")
     healthremaining=int(line[3].split("|")[2].split("/",1)[0])
-    print(nicknamesearch)
     if nicknamesearch[0]!=nicknamesearch[1] and nicknamesearch[1].find(f"{nicknamesearch[0]}-")==-1:
         if nicknamesearch[1].find("Silvally-")>-1:
             line[3]=line[3].replace(nicknamesearch[1],"Silvally")
