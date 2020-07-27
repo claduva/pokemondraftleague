@@ -59,7 +59,7 @@ def upload_league_replay(request,league_name,subleague_name,matchid):
     if match.replay != "Link":
         messages.error(request,f'A replay for that match already exists!',extra_tags="danger")
         return redirect('league_schedule',league_name=league_name,subleague_name=subleague.subleague)
-    if subleague.league.settings.platform in ['Showdown','Youtube Showdown']:
+    if subleague.league.settings.platform in ['Showdown','Youtube Showdown'] and subleague_name.find("Double")==-1:
         if request.method=="POST":
             form = LeagueReplayForm(request.POST,instance=match)
             if form.is_valid():
