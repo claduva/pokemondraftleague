@@ -85,8 +85,10 @@ def check_if_match(view):
     def wrap(request, *args, **kwargs):
         try:
             match=schedule.objects.get(pk=kwargs['matchid'])
+            print(match)
             return view(request, *args, **kwargs)
         except Exception as e:
+            raise(e)
             print('match')
             messages.error(request,'Match does not exist!',extra_tags='danger')
             error_message.objects.create(
