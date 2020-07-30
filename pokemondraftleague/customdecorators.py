@@ -10,6 +10,7 @@ def check_if_league(view):
             league_=league.objects.get(name=kwargs['league_name'].replace("_"," "))
             return view(request, *args, **kwargs)
         except Exception as e:
+            #raise(e)
             messages.error(request,'League does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),
@@ -24,6 +25,7 @@ def check_if_subleague(view):
             league_=league_subleague.objects.filter(league__name=kwargs['league_name'].replace("_"," ")).get(subleague=kwargs['subleague_name'].replace("_"," "))
             return view(request, *args, **kwargs)
         except Exception as e:
+            #raise(e)
             print('subleague')
             messages.error(request,'League does not exist!',extra_tags='danger')
             error_message.objects.create(
@@ -39,7 +41,7 @@ def check_if_season(view):
             season=seasonsetting.objects.filter(subleague__league__name=kwargs['league_name'].replace("_"," ")).get(subleague__subleague=kwargs['subleague_name'].replace("_"," "))
             return view(request, *args, **kwargs)
         except Exception as e:
-            print('season')
+            #raise(e)
             messages.error(request,'Season does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),
@@ -88,7 +90,7 @@ def check_if_match(view):
             print(match)
             return view(request, *args, **kwargs)
         except Exception as e:
-            raise(e)
+            #raise(e)
             print('match')
             messages.error(request,'Match does not exist!',extra_tags='danger')
             error_message.objects.create(
