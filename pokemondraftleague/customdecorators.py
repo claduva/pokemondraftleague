@@ -41,7 +41,7 @@ def check_if_season(view):
             season=seasonsetting.objects.filter(subleague__league__name=kwargs['league_name'].replace("_"," ")).get(subleague__subleague=kwargs['subleague_name'].replace("_"," "))
             return view(request, *args, **kwargs)
         except Exception as e:
-            #raise(e)
+            print(e)
             messages.error(request,'Season does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),

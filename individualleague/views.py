@@ -377,7 +377,10 @@ def league_draft(request,league_name,subleague_name):
                 currentpick.pokemon=item.pick
                 rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
                 rosterspot.pokemon=item.pick
-                senddraftpicktobot(currentpick,item.pick,subleague,draftlist)
+                try:
+                    senddraftpicktobot(currentpick,item.pick,subleague,draftlist)
+                except:
+                    pass
                 rosterspot.save()
                 currentpick.save()
                 item.delete()
@@ -386,7 +389,10 @@ def league_draft(request,league_name,subleague_name):
                 currentpick.pokemon=item.backup
                 rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
                 rosterspot.pokemon=item.backup
-                senddraftpicktobot(currentpick,item.backup,subleague,draftlist)
+                try:
+                    senddraftpicktobot(currentpick,item.backup,subleague,draftlist)
+                except:
+                    pass
                 rosterspot.save()
                 currentpick.save()
                 item.delete()
@@ -412,7 +418,10 @@ def league_draft(request,league_name,subleague_name):
             rosterspot.pokemon=draftpick
             rosterspot.save()
             currentpick.save()
-            senddraftpicktobot(currentpick,draftpick,subleague,draftlist)
+            try:
+                senddraftpicktobot(currentpick,draftpick,subleague,draftlist)
+            except:
+                pass
             messages.success(request,'Your draft pick has been saved!')
         elif formpurpose=="Skip":
             currentpick.skipped=True
