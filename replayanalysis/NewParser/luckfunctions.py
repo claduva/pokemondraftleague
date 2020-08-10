@@ -37,6 +37,7 @@ def secondary_check(attacker,target,move,line,results,parsedlogfile,attackingtea
     ['Thunder Fang', ['status', 'par',target['nickname'],.1,f"{target['pokemon']} was paralyzed by {attacker['pokemon']} with {move}"]], 
     ['Thunder Shock', ['status', 'par',target['nickname'],.1,f"{target['pokemon']} was paralyzed by {attacker['pokemon']} with {move}"]], 
     ['Poison Sting', ['status', 'psn',target['nickname'], .3,f"{target['pokemon']} was poisoned by {attacker['pokemon']} with {move}"]], 
+    ['Shell Side Arm', ['status', 'psn',target['nickname'], .2,f"{target['pokemon']} was poisoned by {attacker['pokemon']} with {move}"]], 
     ['Focus Blast', ['unboost', 'spd|1',target['nickname'], .1,f"{target['pokemon']} suffered a stat drop via secondary effect by {attacker['pokemon']} with {move}"]], 
     ['Liquidation', ['unboost', 'def|1',target['nickname'], .2,f"{target['pokemon']} suffered a stat drop via secondary effect by {attacker['pokemon']} with {move}"]], 
     ['Crush Claw', ['unboost', 'def|1',target['nickname'], .5,f"{target['pokemon']} suffered a stat drop via secondary effect by {attacker['pokemon']} with {move}"]], 
