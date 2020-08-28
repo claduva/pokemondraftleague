@@ -52,7 +52,7 @@ async def website(ctx):
 @bot.command(aliases=["donnygif"])
 async def donny(ctx):
     '''Sends site's website'''
-    embed=discord.Embed(title="Donny",description="Donny React", colour=discord.Colour.red())
+    embed=discord.Embed(title="Donny Sends His Regards", colour=discord.Colour.red())
     embed.set_image(url="https://cdn.discordapp.com/attachments/748662034802933943/748929003078811808/donnygif.gif")
     await ctx.send(embed=embed)
 
