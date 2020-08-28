@@ -132,7 +132,6 @@ class historic_manual_replay(models.Model):
     t2pokemon6=models.ForeignKey(all_pokemon,on_delete=models.CASCADE, related_name='HistTeam2Pokemon6')
     t1pokemon1kills=models.IntegerField(default=0)
     t1pokemon2kills=models.IntegerField(default=0)
-    t1pokemon2kills=models.IntegerField(default=0)
     t1pokemon3kills=models.IntegerField(default=0)
     t1pokemon4kills=models.IntegerField(default=0)
     t1pokemon5kills=models.IntegerField(default=0)

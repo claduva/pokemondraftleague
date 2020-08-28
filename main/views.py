@@ -154,18 +154,14 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    """
-    monstoadd=all_pokemon.objects.all().filter(Q(pokemon__contains="-Gmax")|Q(pokemon__contains="-Galar")|Q(pokemon__contains="Zarude")|Q(pokemon__contains="Kubfu")|Q(pokemon__contains="-Urshifu"))
-    templates=pokemon_tier.objects.all().order_by('subleague').distinct('subleague')
-    for t in templates:
-        bannedtier=leaguetiers.objects.filter(subleague=t.subleague).get(tiername="Banned")
-        for p in monstoadd:
-            try:
-                id_=pokemon_tier.objects.all().order_by('-id').first().id+1
-                pokemon_tier.objects.create(id=id_,pokemon=p,league=t.league,subleague=t.subleague,tier=bannedtier)
-            except Exception as e:
-                print(e)
-    """
+    ap=all_pokemon.objects.all()
+    skltiers=pokemon_tier.objects.filter(league__name="SKL")
+    sl=league_subleague.objects.get()
+    for item in ap:
+        try:
+            skltiers.get(pokemon=item)
+        except:
+            pass
     return redirect('home')
 
 def get_pkmn(pkmn):

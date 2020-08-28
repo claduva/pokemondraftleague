@@ -1273,7 +1273,6 @@ def archiveseason(league_name):
             winner=team2
         else:
             winner=None
-        print(item.replay)
         histmatch=historical_match.objects.create(
             id=maxid,
             week=item.week,
@@ -1291,7 +1290,49 @@ def archiveseason(league_name):
             mr=item.match_replay
             historical_match_replay.objects.create(match=histmatch,data=mr.data)
         except:
-            pass
+            try:
+                manualmr=item.manual_replay
+                historic_manual_replay.objects.create(
+                    match=histmatch,
+                    t1pokemon1=manualmr.t1pokemon1,
+                    t1pokemon2=manualmr.t1pokemon2,
+                    t1pokemon3=manualmr.t1pokemon3,
+                    t1pokemon4=manualmr.t1pokemon4,
+                    t1pokemon5=manualmr.t1pokemon5,
+                    t1pokemon6=manualmr.t1pokemon5,
+                    t2pokemon1=manualmr.t2pokemon1,
+                    t2pokemon2=manualmr.t2pokemon2,
+                    t2pokemon3=manualmr.t2pokemon3,
+                    t2pokemon4=manualmr.t2pokemon4,
+                    t2pokemon5=manualmr.t2pokemon5,
+                    t2pokemon6=manualmr.t2pokemon6,
+                    t1pokemon1kills=manualmr.t1pokemon1kills,
+                    t1pokemon2kills=manualmr.t1pokemon2kills,
+                    t1pokemon3kills=manualmr.t1pokemon3kills,
+                    t1pokemon4kills=manualmr.t1pokemon4kills,
+                    t1pokemon5kills=manualmr.t1pokemon5kills,
+                    t1pokemon6kills=manualmr.t1pokemon6kills,
+                    t2pokemon1kills=manualmr.t2pokemon1kills,
+                    t2pokemon2kills=manualmr.t2pokemon2kills,
+                    t2pokemon3kills=manualmr.t2pokemon3kills,
+                    t2pokemon4kills=manualmr.t2pokemon4kills,
+                    t2pokemon5kills=manualmr.t2pokemon5kills,
+                    t2pokemon6kills=manualmr.t2pokemon6kills,
+                    t1pokemon1death=manualmr.t1pokemon1death,
+                    t1pokemon2death=manualmr.t1pokemon2death,
+                    t1pokemon3death=manualmr.t1pokemon3death,
+                    t1pokemon4death=manualmr.t1pokemon4death,
+                    t1pokemon5death=manualmr.t1pokemon5death,
+                    t1pokemon6death=manualmr.t1pokemon6death,
+                    t2pokemon1death=manualmr.t2pokemon1death,
+                    t2pokemon2death=manualmr.t2pokemon2death,
+                    t2pokemon3death=manualmr.t2pokemon3death,
+                    t2pokemon4death=manualmr.t2pokemon4death,
+                    t2pokemon5death=manualmr.t2pokemon5death,
+                    t2pokemon6death=manualmr.t2pokemon6death,
+                )
+            except: 
+                pass
         item.delete()   
     coachdataitems.delete()
     seasonsetting.objects.filter(league=league_).delete()
