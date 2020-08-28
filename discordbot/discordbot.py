@@ -49,7 +49,7 @@ async def website(ctx):
     embed.set_thumbnail(url=bot.user.avatar_url)
     await ctx.send(embed=embed)
 
-@bot.command(aliases=["donny"])
+@bot.command(aliases=["donnygif"])
 async def donny(ctx):
     '''Sends site's website'''
     embed=discord.Embed(title="Pokemon Draft League Online",description="Donny React", colour=discord.Colour.red())
