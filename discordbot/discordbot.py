@@ -49,6 +49,16 @@ async def website(ctx):
     embed.set_thumbnail(url=bot.user.avatar_url)
     await ctx.send(embed=embed)
 
+@bot.command(aliases=["donny"])
+async def donny(ctx):
+    '''Sends site's website'''
+    embed=discord.Embed(title="Pokemon Draft League Online",description="Donny React", colour=discord.Colour.red())
+    embed.set_author(name=bot.user.name,icon_url=bot.user.avatar_url)
+    embed.set_footer(text=ctx.author.name,icon_url=ctx.author.avatar_url)
+    embed.set_image(url="https://cdn.discordapp.com/attachments/748662034802933943/748929003078811808/donnygif.gif")
+    embed.set_thumbnail(url=bot.user.avatar_url)
+    await ctx.send(embed=embed)
+
 @bot.command()
 @commands.is_owner()
 async def reload(ctx,cog):
