@@ -740,9 +740,12 @@ def execute_free_agency_and_trades():
           item.executed=True
         except:
           pass
+    try:
       item.save()
       droppedpokemon.save() 
       montoupdate.save()
+    except: 
+        pass
 
 @background(schedule=1)
 def run_pickems():
