@@ -966,6 +966,12 @@ def start_function(line,parsedlogfile,results):
                 healthremaining=int(line_[3].split("|",1)[1].split(" ",1)[0].split("/",1)[0].split("|",1)[0])
                 setter['remaininghealth']=healthremaining
                 setter['hphealed']+=healthremaining-priorhealth
+                if healthremaining==0:
+                    setter['deaths']=1
+                    if team_=="p1a":
+                        results['team1']['selfdeaths']+=1
+                    elif team_=="p2a":
+                        results['team2']['selfdeaths']+=1
                 break
     if line[3].find("Focus Energy")>-1:
         mon=line[3].split("|")[0].split(": ")[1]
