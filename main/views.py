@@ -154,14 +154,9 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    ap=all_pokemon.objects.all()
-    skltiers=pokemon_tier.objects.filter(league__name="SKL")
-    sl=league_subleague.objects.get()
-    for item in ap:
-        try:
-            skltiers.get(pokemon=item)
-        except:
-            pass
+    sl=league_subleague.objects.filter(league__name="ALPH")
+    for item in league_application.objects.filter(league_name__name="ALPH"):
+        item.tier_preference.add(*sl)
     return redirect('home')
 
 def get_pkmn(pkmn):

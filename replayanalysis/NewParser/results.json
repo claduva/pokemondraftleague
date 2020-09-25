@@ -1,19 +1,19 @@
 {
   "team1": {
-    "coach": "Portland Primals",
+    "coach": "Complicating",
     "roster": [
       {
-        "pokemon": "Beedrill-Mega",
-        "startform": "Beedrill",
-        "nickname": "Beedrill",
-        "kills": 1,
-        "deaths": 1,
+        "pokemon": "Entei",
+        "startform": "Entei",
+        "nickname": "Roku",
+        "kills": 3,
+        "deaths": 0,
         "causeofdeath": null,
-        "support": 0,
-        "damagedone": 151,
-        "hphealed": 0,
-        "luck": -1.06668,
-        "remaininghealth": 0,
+        "support": 2,
+        "damagedone": 242,
+        "hphealed": 106,
+        "luck": -0.16668,
+        "remaininghealth": 76,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -33,16 +33,30 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Poison Jab": {
+          "Toxic": {
+            "uses": 2,
+            "hits": 2,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Protect": {
+            "uses": 3,
+            "hits": 3,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Sacred Fire": {
             "uses": 4,
             "hits": 4,
             "crits": 0,
             "posssecondaryeffects": 3,
-            "secondaryeffects": 0
+            "secondaryeffects": 1
           },
-          "U-turn": {
-            "uses": 1,
-            "hits": 1,
+          "Extreme Speed": {
+            "uses": 2,
+            "hits": 2,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
@@ -50,17 +64,17 @@
         }
       },
       {
-        "pokemon": "Tapu Lele",
-        "startform": "Tapu Lele",
-        "nickname": "Tapu Lele",
-        "kills": 0,
-        "deaths": 1,
+        "pokemon": "Kyurem",
+        "startform": "Kyurem",
+        "nickname": "Philosophy",
+        "kills": 1,
+        "deaths": 0,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 108,
+        "support": 0,
+        "damagedone": 153,
         "hphealed": 0,
-        "luck": -2.34167,
-        "remaininghealth": 0,
+        "luck": -0.24167000000000002,
+        "remaininghealth": 57,
         "lines": [],
         "confusion": null,
         "psn": null,
@@ -80,21 +94,21 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Moonblast": {
-            "uses": 3,
-            "hits": 3,
+          "Ice Beam": {
+            "uses": 2,
+            "hits": 2,
             "crits": 0,
             "posssecondaryeffects": 2,
             "secondaryeffects": 0
           },
-          "Toxic": {
+          "Substitute": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
           },
-          "Psyshock": {
+          "Earth Power": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
@@ -104,117 +118,16 @@
         }
       },
       {
-        "pokemon": "Dragapult",
-        "startform": "Dragapult",
-        "nickname": "Dragapult",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 136,
-        "hphealed": 0,
-        "luck": 0.77499,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
-          "Flamethrower": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Thunderbolt": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 1,
-            "secondaryeffects": 0
-          },
-          "Dragon Pulse": {
-            "uses": 2,
-            "hits": 2,
-            "crits": 1,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          }
-        }
-      },
-      {
-        "pokemon": "Incineroar",
-        "startform": "Incineroar",
-        "nickname": "Incineroar",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 143,
-        "hphealed": 50,
-        "luck": 0.15833,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
-          "Bulk Up": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Drain Punch": {
-            "uses": 4,
-            "hits": 4,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          }
-        }
-      },
-      {
-        "pokemon": "Torterra",
-        "startform": "Torterra",
-        "nickname": "Torterra",
+        "pokemon": "Hippowdon",
+        "startform": "Hippowdon",
+        "nickname": "Gloria",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 2,
-        "damagedone": 190,
-        "hphealed": 0,
-        "luck": 0.27501000000000003,
+        "damagedone": 0,
+        "hphealed": 51,
+        "luck": -2.19165,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -235,16 +148,9 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Stealth Rock": {
-            "uses": 3,
-            "hits": 3,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Stone Edge": {
+          "Toxic": {
             "uses": 2,
-            "hits": 2,
+            "hits": 0,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
@@ -252,16 +158,95 @@
         }
       },
       {
-        "pokemon": "Slowbro-Galar",
-        "startform": "Slowbro",
-        "nickname": "Slowbro",
-        "kills": 1,
+        "pokemon": "Celebi",
+        "startform": "Celebi",
+        "nickname": "Garlic",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 174,
-        "hphealed": 10,
-        "luck": 0.7,
+        "support": 0,
+        "damagedone": 75,
+        "hphealed": 19,
+        "luck": -1.05833,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {
+          "Giga Drain": {
+            "uses": 1,
+            "hits": 1,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Earth Power": {
+            "uses": 2,
+            "hits": 2,
+            "crits": 0,
+            "posssecondaryeffects": 1,
+            "secondaryeffects": 0
+          }
+        }
+      },
+      {
+        "pokemon": "Urshifu",
+        "startform": "Urshifu",
+        "nickname": "Urshifu",
+        "kills": 0,
+        "deaths": 0,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 0,
+        "luck": 0.0,
+        "remaininghealth": 100,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {}
+      },
+      {
+        "pokemon": "Electivire",
+        "startform": "Electivire",
+        "nickname": "Buster",
+        "kills": 2,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 185,
+        "hphealed": 0,
+        "luck": 2.6333200000000003,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -283,27 +268,20 @@
         "semiinv": false,
         "moves": {
           "Ice Punch": {
-            "uses": 1,
-            "hits": 1,
+            "uses": 3,
+            "hits": 3,
             "crits": 0,
-            "posssecondaryeffects": 1,
-            "secondaryeffects": 0
+            "posssecondaryeffects": 2,
+            "secondaryeffects": 1
           },
-          "Trick Room": {
+          "Earthquake": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
           },
-          "Shell Side Arm": {
-            "uses": 2,
-            "hits": 2,
-            "crits": 0,
-            "posssecondaryeffects": 1,
-            "secondaryeffects": 1
-          },
-          "Drain Punch": {
+          "Thunder Punch": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
@@ -313,22 +291,22 @@
         }
       }
     ],
-    "wins": 0,
+    "wins": 1,
     "forfeit": 0,
-    "score": 0,
-    "megaevolved": true,
+    "score": 3,
+    "megaevolved": false,
     "usedzmove": false,
-    "timesswitched": 8,
+    "timesswitched": 11,
     "selfdeaths": 0,
-    "remaininghealth": 0,
+    "remaininghealth": 233,
     "totalhealth": 600,
-    "kills": 5,
-    "deaths": 6,
-    "luck": -1.5001,
-    "damagedone": 902,
-    "hphealed": 60,
+    "kills": 6,
+    "deaths": 3,
+    "luck": -1.025,
+    "damagedone": 655,
+    "hphealed": 176,
     "support": 4,
-    "activemon": "Dragapult",
+    "activemon": "Roku",
     "Toxic Spikes": null,
     "Spikes": null,
     "Stealth Rock": null,
@@ -340,24 +318,24 @@
     "Leech Seed": null
   },
   "team2": {
-    "coach": "Muskrat#2",
+    "coach": "joe_pick",
     "roster": [
       {
-        "pokemon": "Minior",
-        "startform": "Minior",
-        "nickname": "Minior",
+        "pokemon": "Tapu Koko",
+        "startform": "Tapu Koko",
+        "nickname": "Blackhawk",
         "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 46,
+        "damagedone": 43,
         "hphealed": 0,
-        "luck": -0.15833,
+        "luck": -0.65,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
         "psn": null,
-        "brn": null,
+        "brn": "Roku",
         "par": null,
         "frz": null,
         "tox": null,
@@ -373,54 +351,54 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Rock Slide": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 1,
+          "U-turn": {
+            "uses": 3,
+            "hits": 3,
+            "crits": 1,
+            "posssecondaryeffects": 0,
             "secondaryeffects": 0
-          }
-        }
-      },
-      {
-        "pokemon": "Avalugg",
-        "startform": "Avalugg",
-        "nickname": "Avalugg",
-        "kills": 1,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 100,
-        "hphealed": 92,
-        "luck": 0.72501,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
-          "Recover": {
+          },
+          "Thunderbolt": {
             "uses": 2,
             "hits": 2,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
-          },
-          "Avalanche": {
+          }
+        }
+      },
+      {
+        "pokemon": "Aggron-Mega",
+        "startform": "Aggron",
+        "nickname": "Sarge",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 0,
+        "hphealed": 6,
+        "luck": 0.22501,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {
+          "Iron Defense": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
@@ -430,15 +408,109 @@
         }
       },
       {
-        "pokemon": "Zygarde-10%",
-        "startform": "Zygarde",
-        "nickname": "Zygarde",
-        "kills": 2,
+        "pokemon": "Krookodile",
+        "startform": "Krookodile",
+        "nickname": "Bandit",
+        "kills": 0,
         "deaths": 1,
         "causeofdeath": null,
         "support": 0,
-        "damagedone": 167,
-        "hphealed": -25,
+        "damagedone": 42,
+        "hphealed": 25,
+        "luck": 0.9333400000000001,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": null,
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {
+          "Earthquake": {
+            "uses": 1,
+            "hits": 1,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          }
+        }
+      },
+      {
+        "pokemon": "Diancie",
+        "startform": "Diancie",
+        "nickname": "Diamond",
+        "kills": 0,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 1,
+        "damagedone": 86,
+        "hphealed": 18,
+        "luck": 0.4,
+        "remaininghealth": 0,
+        "lines": [],
+        "confusion": null,
+        "psn": null,
+        "brn": null,
+        "par": null,
+        "frz": null,
+        "tox": "Roku",
+        "slp": null,
+        "Curse": null,
+        "atk": 0,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0,
+        "accuracy": 0,
+        "evasion": 0,
+        "Focus Energy": false,
+        "semiinv": false,
+        "moves": {
+          "Moonblast": {
+            "uses": 1,
+            "hits": 1,
+            "crits": 0,
+            "posssecondaryeffects": 1,
+            "secondaryeffects": 0
+          },
+          "Heal Bell": {
+            "uses": 1,
+            "hits": 1,
+            "crits": 0,
+            "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Earth Power": {
+            "uses": 2,
+            "hits": 2,
+            "crits": 1,
+            "posssecondaryeffects": 2,
+            "secondaryeffects": 0
+          }
+        }
+      },
+      {
+        "pokemon": "Rillaboom",
+        "startform": "Rillaboom",
+        "nickname": "Ringo",
+        "kills": 1,
+        "deaths": 1,
+        "causeofdeath": null,
+        "support": 0,
+        "damagedone": 247,
+        "hphealed": 6,
         "luck": 1.0,
         "remaininghealth": 0,
         "lines": [],
@@ -460,117 +532,16 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Substitute": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Thousand Arrows": {
-            "uses": 3,
-            "hits": 3,
-            "crits": 1,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          }
-        }
-      },
-      {
-        "pokemon": "Darmanitan",
-        "startform": "Darmanitan",
-        "nickname": "Darmanitan",
-        "kills": 1,
-        "deaths": 0,
-        "causeofdeath": null,
-        "support": 0,
-        "damagedone": 104,
-        "hphealed": 0,
-        "luck": -0.04167,
-        "remaininghealth": 100,
-        "lines": [],
-        "confusion": null,
-        "psn": null,
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
           "U-turn": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Lash Out": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          }
-        }
-      },
-      {
-        "pokemon": "Mandibuzz",
-        "startform": "Mandibuzz",
-        "nickname": "Mandibuzz",
-        "kills": 2,
-        "deaths": 1,
-        "causeofdeath": null,
-        "support": 2,
-        "damagedone": 206,
-        "hphealed": 248,
-        "luck": -1.40833,
-        "remaininghealth": 0,
-        "lines": [],
-        "confusion": null,
-        "psn": "Slowbro",
-        "brn": null,
-        "par": null,
-        "frz": null,
-        "tox": null,
-        "slp": null,
-        "Curse": null,
-        "atk": 0,
-        "def": 0,
-        "spa": 0,
-        "spd": 0,
-        "spe": 0,
-        "accuracy": 0,
-        "evasion": 0,
-        "Focus Energy": false,
-        "semiinv": false,
-        "moves": {
-          "Defog": {
             "uses": 2,
             "hits": 2,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
           },
-          "Roost": {
-            "uses": 5,
-            "hits": 5,
-            "crits": 0,
-            "posssecondaryeffects": 0,
-            "secondaryeffects": 0
-          },
-          "Foul Play": {
-            "uses": 5,
-            "hits": 5,
+          "Grassy Glide": {
+            "uses": 3,
+            "hits": 3,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
@@ -578,16 +549,16 @@
         }
       },
       {
-        "pokemon": "Florges",
-        "startform": "Florges",
-        "nickname": "Florges",
-        "kills": 0,
+        "pokemon": "Latios",
+        "startform": "Latios",
+        "nickname": "Orbit",
+        "kills": 2,
         "deaths": 1,
         "causeofdeath": null,
-        "support": 1,
-        "damagedone": 37,
-        "hphealed": 87,
-        "luck": 1.38334,
+        "support": 0,
+        "damagedone": 125,
+        "hphealed": 0,
+        "luck": -0.88334,
         "remaininghealth": 0,
         "lines": [],
         "confusion": null,
@@ -608,49 +579,49 @@
         "Focus Energy": false,
         "semiinv": false,
         "moves": {
-          "Protect": {
+          "Draco Meteor": {
             "uses": 3,
-            "hits": 3,
+            "hits": 1,
             "crits": 0,
             "posssecondaryeffects": 0,
             "secondaryeffects": 0
           },
-          "Moonblast": {
-            "uses": 1,
-            "hits": 1,
-            "crits": 0,
-            "posssecondaryeffects": 1,
-            "secondaryeffects": 1
-          },
-          "Wish": {
+          "Aura Sphere": {
             "uses": 1,
             "hits": 1,
             "crits": 0,
             "posssecondaryeffects": 0,
+            "secondaryeffects": 0
+          },
+          "Ice Beam": {
+            "uses": 2,
+            "hits": 2,
+            "crits": 0,
+            "posssecondaryeffects": 1,
             "secondaryeffects": 0
           }
         }
       }
     ],
-    "wins": 1,
+    "wins": 0,
     "forfeit": 0,
-    "score": 1,
-    "megaevolved": false,
+    "score": 0,
+    "megaevolved": true,
     "usedzmove": false,
-    "timesswitched": 12,
+    "timesswitched": 18,
     "selfdeaths": 0,
-    "remaininghealth": 100,
+    "remaininghealth": 0,
     "totalhealth": 600,
-    "kills": 6,
-    "deaths": 5,
-    "luck": 1.5,
-    "damagedone": 660,
-    "hphealed": 402,
-    "support": 3,
-    "activemon": "Darmanitan",
+    "kills": 3,
+    "deaths": 6,
+    "luck": 1.025,
+    "damagedone": 543,
+    "hphealed": 55,
+    "support": 1,
+    "activemon": "Ringo",
     "Toxic Spikes": null,
     "Spikes": null,
-    "Stealth Rock": "Torterra",
+    "Stealth Rock": null,
     "G-Max Steelsurge": null,
     "Future Sight": null,
     "Doom Desire": null,
@@ -662,867 +633,1043 @@
   "Gravity": 1.0,
   "Rain": false,
   "Hail": false,
-  "numberofturns": 35,
+  "numberofturns": 36,
   "turns": [],
-  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexdlc2legacy-133291",
+  "replay": "https://replay.pokemonshowdown.com/sports-gen8nationaldexdlc2legacy-168760",
   "significantevents": [
     [
-      1,
-      "Torterra provided support by using Stealth Rock"
-    ],
-    [
-      2,
-      "Mandibuzz provided support by using Defog"
-    ],
-    [
       3,
-      "Torterra provided support by using Stealth Rock"
+      "Hippowdon provided support by using Toxic"
     ],
     [
-      6,
-      "Mandibuzz killed Torterra with Foul Play"
+      7,
+      "Entei provided support by using Toxic"
     ],
     [
       8,
-      "Tapu Lele provided support by using Toxic"
+      "Diancie provided support by using Heal Bell"
     ],
     [
-      11,
-      "Florges provided support by using Wish"
+      9,
+      "Entei provided support by using Toxic"
     ],
     [
-      18,
-      "Incineroar killed Minior with Drain Punch"
+      14,
+      "Latios killed Celebi with Draco Meteor"
     ],
     [
-      21,
-      "Zygarde-10% killed Incineroar with Thousand Arrows"
+      19,
+      "Electivire killed Diancie with Thunder Punch"
     ],
     [
       22,
-      "Zygarde-10% killed Tapu Lele with Thousand Arrows"
-    ],
-    [
-      23,
-      "Beedrill-Mega killed Zygarde-10% with Poison Jab"
-    ],
-    [
-      24,
-      "Avalugg killed Beedrill-Mega with Avalanche"
+      "Kyurem killed Aggron-Mega with Earth Power"
     ],
     [
       25,
-      "Dragapult killed Avalugg with Flamethrower"
+      "Hippowdon provided support by using Toxic"
+    ],
+    [
+      26,
+      "Latios killed Hippowdon with Ice Beam"
+    ],
+    [
+      28,
+      "Electivire killed Latios with Ice Punch"
     ],
     [
       29,
-      "Mandibuzz provided support by using Defog"
-    ],
-    [
-      30,
-      "Slowbro-Galar provided support by using Trick Room"
-    ],
-    [
-      31,
-      "Slowbro-Galar killed Florges with Shell Side Arm"
-    ],
-    [
-      33,
-      "Mandibuzz killed Slowbro-Galar with Foul Play"
+      "Rillaboom killed Electivire with Grassy Glide"
     ],
     [
       34,
-      "Dragapult killed Mandibuzz with Dragon Pulse"
+      "Entei killed Tapu Koko with Extreme Speed"
     ],
     [
       35,
-      "Darmanitan killed Dragapult with Lash Out"
+      "Entei killed Krookodile with Sacred Fire"
+    ],
+    [
+      36,
+      "Entei killed Rillaboom with Extreme Speed"
     ]
   ],
   "luckcatalog": [
     [
-      14,
-      "Avalugg",
-      "Target of Move With Crit Chance (Poison Jab)",
+      11,
+      "Aggron",
+      "Target of Move With Crit Chance (Giga Drain)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      14,
-      "Avalugg",
-      "Target of Move With Secondary Effect Chance (Poison Jab)",
+      12,
+      "Aggron-Mega",
+      "Target of Move With Crit Chance (Earth Power)",
       0.04167,
-      0.3,
-      0.34167000000000003
+      0.04167,
+      0.08334
     ],
     [
-      15,
-      "Avalugg",
+      12,
+      "Aggron-Mega",
+      "Target of Move With Secondary Effect Chance (Earth Power)",
+      0.08334,
+      0.1,
+      0.18334
+    ],
+    [
+      22,
+      "Aggron-Mega",
+      "Target of Move With Crit Chance (Earth Power)",
+      0.18334,
+      0.04167,
+      0.22501
+    ],
+    [
+      4,
+      "Celebi",
       "Target of Move With Crit Chance (U-turn)",
-      0.34167000000000003,
-      0.04167,
-      0.38334
-    ],
-    [
-      24,
-      "Avalugg",
-      "Target of Move With Crit Chance (Poison Jab)",
-      0.38334,
-      0.04167,
-      0.42501000000000005
-    ],
-    [
-      24,
-      "Avalugg",
-      "Target of Move With Secondary Effect Chance (Poison Jab)",
-      0.42501000000000005,
-      0.3,
-      0.72501
-    ],
-    [
-      24,
-      "Avalugg",
-      "Mon Used Move With Crit Chance (Avalanche)",
-      0.72501,
-      -0.04167,
-      0.6833400000000001
-    ],
-    [
-      25,
-      "Avalugg",
-      "Target of Move With Crit Chance (Flamethrower)",
-      0.6833400000000001,
-      0.04167,
-      0.72501
-    ],
-    [
-      13,
-      "Beedrill-Mega",
-      "Mon Used Move With Crit Chance (Poison Jab)",
       0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      13,
-      "Beedrill-Mega",
-      "Mon Used Move With Secondary Effect Chance (Poison Jab)",
-      -0.04167,
-      -0.3,
-      -0.34167000000000003
-    ],
-    [
-      14,
-      "Beedrill-Mega",
-      "Mon Used Move With Crit Chance (Poison Jab)",
-      -0.34167000000000003,
-      -0.04167,
-      -0.38334
-    ],
-    [
-      14,
-      "Beedrill-Mega",
-      "Mon Used Move With Secondary Effect Chance (Poison Jab)",
-      -0.38334,
-      -0.3,
-      -0.6833400000000001
-    ],
-    [
-      15,
-      "Beedrill-Mega",
-      "Mon Used Move With Crit Chance (U-turn)",
-      -0.6833400000000001,
-      -0.04167,
-      -0.72501
-    ],
-    [
-      23,
-      "Beedrill-Mega",
-      "Mon Used Move With Crit Chance (Poison Jab)",
-      -0.72501,
-      -0.04167,
-      -0.76668
-    ],
-    [
-      24,
-      "Beedrill-Mega",
-      "Mon Used Move With Crit Chance (Poison Jab)",
-      -0.76668,
-      -0.04167,
-      -0.8083500000000001
-    ],
-    [
-      24,
-      "Beedrill-Mega",
-      "Mon Used Move With Secondary Effect Chance (Poison Jab)",
-      -0.8083500000000001,
-      -0.3,
-      -1.1083500000000002
-    ],
-    [
-      24,
-      "Beedrill-Mega",
-      "Target of Move With Crit Chance (Avalanche)",
-      -1.1083500000000002,
       0.04167,
-      -1.06668
+      0.04167
+    ],
+    [
+      10,
+      "Celebi",
+      "Target of Move With Crit Chance (Earth Power)",
+      0.04167,
+      0.04167,
+      0.08334
+    ],
+    [
+      10,
+      "Celebi",
+      "Target of Move With Secondary Effect Chance (Earth Power)",
+      0.08334,
+      0.1,
+      0.18334
+    ],
+    [
+      10,
+      "Celebi",
+      "Mon was hit by a critical hit",
+      0.18334,
+      -1.0,
+      -0.8166599999999999
+    ],
+    [
+      11,
+      "Celebi",
+      "Mon Used Move With Crit Chance (Giga Drain)",
+      -0.8166599999999999,
+      -0.04167,
+      -0.85833
+    ],
+    [
+      12,
+      "Celebi",
+      "Mon Used Move With Crit Chance (Earth Power)",
+      -0.85833,
+      -0.04167,
+      -0.9
+    ],
+    [
+      12,
+      "Celebi",
+      "Mon Used Move With Secondary Effect Chance (Earth Power)",
+      -0.9,
+      -0.1,
+      -1.0
+    ],
+    [
+      14,
+      "Celebi",
+      "Target of Move That Can Miss (Draco Meteor)",
+      -1.0,
+      -0.1,
+      -1.1
+    ],
+    [
+      14,
+      "Celebi",
+      "Target of Move With Crit Chance (Draco Meteor)",
+      -1.1,
+      0.04167,
+      -1.05833
     ],
     [
       1,
-      "Darmanitan",
-      "Mon Used Move With Crit Chance (U-turn)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      25,
-      "Dragapult",
-      "Mon Used Move With Crit Chance (Flamethrower)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      26,
-      "Dragapult",
-      "Mon Used Move With Crit Chance (Thunderbolt)",
-      -0.04167,
-      -0.04167,
-      -0.08334
-    ],
-    [
-      26,
-      "Dragapult",
-      "Mon Used Move With Secondary Effect Chance (Thunderbolt)",
-      -0.08334,
-      -0.1,
-      -0.18334
-    ],
-    [
-      27,
-      "Dragapult",
-      "Mon Used Move With Crit Chance (Dragon Pulse)",
-      -0.18334,
-      -0.04167,
-      -0.22501
-    ],
-    [
-      34,
-      "Dragapult",
-      "Target of Move With Crit Chance (Foul Play)",
-      -0.22501,
-      0.04167,
-      -0.18333999999999995
-    ],
-    [
-      34,
-      "Dragapult",
-      "Mon Used Move With Crit Chance (Dragon Pulse)",
-      -0.18333999999999995,
-      -0.04167,
-      -0.22501
-    ],
-    [
-      34,
-      "Dragapult",
-      "Mon landed a critical hit",
-      -0.22501,
-      1.0,
-      0.77499
-    ],
-    [
-      7,
-      "Florges",
-      "Target of Move With Crit Chance (Moonblast)",
+      "Diancie",
+      "Target of Move With Crit Chance (Ice Beam)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      7,
-      "Florges",
-      "Target of Move With Secondary Effect Chance (Moonblast)",
-      0.04167,
-      0.3,
-      0.34167000000000003
-    ],
-    [
-      9,
-      "Florges",
-      "Target of Move With Crit Chance (Psyshock)",
-      0.34167000000000003,
-      0.04167,
-      0.38334
-    ],
-    [
-      9,
-      "Florges",
-      "Mon Used Move With Crit Chance (Moonblast)",
-      0.38334,
-      -0.04167,
-      0.34167000000000003
-    ],
-    [
-      9,
-      "Florges",
-      "Mon Used Move With Secondary Effect Chance (Moonblast)",
-      0.34167000000000003,
-      -0.3,
-      0.04167000000000001
-    ],
-    [
-      9,
-      "Florges",
-      "Mon incurred secondary effect (Moonblast)",
-      0.04167000000000001,
-      1.0,
-      1.04167
-    ],
-    [
-      11,
-      "Florges",
-      "Target of Move With Crit Chance (Moonblast)",
-      1.04167,
-      0.04167,
-      1.08334
-    ],
-    [
-      11,
-      "Florges",
-      "Target of Move With Secondary Effect Chance (Moonblast)",
-      1.08334,
-      0.3,
-      1.38334
-    ],
-    [
-      17,
-      "Incineroar",
-      "Mon Used Move With Crit Chance (Drain Punch)",
-      0.0,
-      -0.04167,
-      -0.04167
-    ],
-    [
-      18,
-      "Incineroar",
-      "Target of Move That Can Miss (Rock Slide)",
-      -0.04167,
-      -0.1,
-      -0.14167
-    ],
-    [
-      18,
-      "Incineroar",
-      "Target of Move With Crit Chance (Rock Slide)",
-      -0.14167,
-      0.04167,
-      -0.1
-    ],
-    [
-      18,
-      "Incineroar",
-      "Target of Move With Secondary Effect Chance (Rock Slide)",
-      -0.1,
-      0.3,
-      0.2
-    ],
-    [
-      18,
-      "Incineroar",
-      "Mon Used Move With Crit Chance (Drain Punch)",
-      0.2,
-      -0.04167,
-      0.15833
-    ],
-    [
-      19,
-      "Incineroar",
-      "Mon Used Move With Crit Chance (Drain Punch)",
-      0.15833,
-      -0.04167,
-      0.11666
-    ],
-    [
-      20,
-      "Incineroar",
-      "Target of Move With Crit Chance (Thousand Arrows)",
-      0.11666,
-      0.04167,
-      0.15833
-    ],
-    [
-      20,
-      "Incineroar",
-      "Mon Used Move With Crit Chance (Drain Punch)",
-      0.15833,
-      -0.04167,
-      0.11666
-    ],
-    [
-      21,
-      "Incineroar",
-      "Target of Move With Crit Chance (Thousand Arrows)",
-      0.11666,
-      0.04167,
-      0.15833
-    ],
-    [
-      2,
-      "Mandibuzz",
-      "Target of Move That Can Miss (Stone Edge)",
-      0.0,
-      -0.2,
-      -0.2
-    ],
-    [
-      2,
-      "Mandibuzz",
-      "Target of Move With Increased Crit Chance (Stone Edge)",
-      -0.2,
-      0.125,
-      -0.075
-    ],
-    [
-      4,
-      "Mandibuzz",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -0.075,
-      -0.04167,
-      -0.11667
-    ],
-    [
-      4,
-      "Mandibuzz",
-      "Target of Move That Can Miss (Stone Edge)",
-      -0.11667,
-      -0.2,
-      -0.31667
-    ],
-    [
-      4,
-      "Mandibuzz",
-      "Target of Move With Increased Crit Chance (Stone Edge)",
-      -0.31667,
-      0.125,
-      -0.19167
-    ],
-    [
-      6,
-      "Mandibuzz",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -0.19167,
-      -0.04167,
-      -0.23334000000000002
-    ],
-    [
-      13,
-      "Mandibuzz",
-      "Target of Move With Crit Chance (Poison Jab)",
-      -0.23334000000000002,
-      0.04167,
-      -0.19167
-    ],
-    [
-      13,
-      "Mandibuzz",
-      "Target of Move With Secondary Effect Chance (Poison Jab)",
-      -0.19167,
-      0.3,
-      0.10832999999999998
-    ],
-    [
-      26,
-      "Mandibuzz",
-      "Target of Move With Crit Chance (Thunderbolt)",
-      0.10832999999999998,
-      0.04167,
-      0.15
-    ],
-    [
-      26,
-      "Mandibuzz",
-      "Target of Move With Secondary Effect Chance (Thunderbolt)",
-      0.15,
-      0.1,
-      0.25
-    ],
-    [
-      27,
-      "Mandibuzz",
-      "Target of Move With Crit Chance (Dragon Pulse)",
-      0.25,
-      0.04167,
-      0.29167000000000004
-    ],
-    [
-      28,
-      "Mandibuzz",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      0.29167000000000004,
-      -0.04167,
-      0.25
-    ],
-    [
-      29,
-      "Mandibuzz",
-      "Target of Move With Crit Chance (Ice Punch)",
-      0.25,
-      0.04167,
-      0.29167000000000004
-    ],
-    [
-      29,
-      "Mandibuzz",
-      "Target of Move With Secondary Effect Chance (Ice Punch)",
-      0.29167000000000004,
-      0.1,
-      0.39167
-    ],
-    [
-      32,
-      "Mandibuzz",
-      "Target of Move With Crit Chance (Drain Punch)",
-      0.39167,
-      0.04167,
-      0.43334000000000006
-    ],
-    [
-      33,
-      "Mandibuzz",
-      "Target of Move With Secondary Effect Chance (Shell Side Arm)",
-      0.43334000000000006,
-      0.2,
-      0.63334
-    ],
-    [
-      33,
-      "Mandibuzz",
-      "Mon harmed by secondary effect (Shell Side Arm)",
-      0.63334,
-      -1.0,
-      -0.36666
-    ],
-    [
-      33,
-      "Mandibuzz",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -0.36666,
-      -0.04167,
-      -0.40832999999999997
-    ],
-    [
-      34,
-      "Mandibuzz",
-      "Mon Used Move With Crit Chance (Foul Play)",
-      -0.40832999999999997,
-      -0.04167,
-      -0.45
-    ],
-    [
-      34,
-      "Mandibuzz",
-      "Target of Move With Crit Chance (Dragon Pulse)",
-      -0.45,
-      0.04167,
-      -0.40832999999999997
-    ],
-    [
-      34,
-      "Mandibuzz",
-      "Mon was hit by a critical hit",
-      -0.40832999999999997,
-      -1.0,
-      -1.40833
-    ],
-    [
-      17,
-      "Minior",
-      "Target of Move With Crit Chance (Drain Punch)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      18,
-      "Minior",
-      "Mon Used a Move That Can Miss (Rock Slide)",
+      1,
+      "Diancie",
+      "Target of Move With Secondary Effect Chance (Ice Beam)",
       0.04167,
       0.1,
       0.14167
     ],
     [
-      18,
-      "Minior",
-      "Mon Used Move With Crit Chance (Rock Slide)",
+      2,
+      "Diancie",
+      "Mon Used Move With Crit Chance (Moonblast)",
       0.14167,
       -0.04167,
       0.1
     ],
     [
-      18,
-      "Minior",
-      "Mon Used Move With Secondary Effect Chance (Rock Slide)",
+      2,
+      "Diancie",
+      "Mon Used Move With Secondary Effect Chance (Moonblast)",
       0.1,
       -0.3,
       -0.2
     ],
     [
-      18,
-      "Minior",
-      "Target of Move With Crit Chance (Drain Punch)",
+      7,
+      "Diancie",
+      "Target of Move That Can Miss (Toxic)",
       -0.2,
-      0.04167,
-      -0.15833
+      -0.1,
+      -0.3
     ],
     [
-      28,
-      "Slowbro-Galar",
-      "Target of Move With Crit Chance (Foul Play)",
+      9,
+      "Diancie",
+      "Target of Move That Can Miss (Toxic)",
+      -0.3,
+      -0.1,
+      -0.4
+    ],
+    [
+      9,
+      "Diancie",
+      "Mon Used Move With Crit Chance (Earth Power)",
+      -0.4,
+      -0.04167,
+      -0.44167
+    ],
+    [
+      9,
+      "Diancie",
+      "Mon Used Move With Secondary Effect Chance (Earth Power)",
+      -0.44167,
+      -0.1,
+      -0.54167
+    ],
+    [
+      10,
+      "Diancie",
+      "Mon Used Move With Crit Chance (Earth Power)",
+      -0.54167,
+      -0.04167,
+      -0.5833400000000001
+    ],
+    [
+      10,
+      "Diancie",
+      "Mon Used Move With Secondary Effect Chance (Earth Power)",
+      -0.5833400000000001,
+      -0.1,
+      -0.6833400000000001
+    ],
+    [
+      10,
+      "Diancie",
+      "Mon landed a critical hit",
+      -0.6833400000000001,
+      1.0,
+      0.31665999999999994
+    ],
+    [
+      18,
+      "Diancie",
+      "Target of Move With Crit Chance (Earthquake)",
+      0.31665999999999994,
+      0.04167,
+      0.35833
+    ],
+    [
+      19,
+      "Diancie",
+      "Target of Move With Crit Chance (Thunder Punch)",
+      0.35833,
+      0.04167,
+      0.4
+    ],
+    [
+      16,
+      "Electivire",
+      "Target of Move With Crit Chance (Thunderbolt)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      29,
-      "Slowbro-Galar",
+      17,
+      "Electivire",
       "Mon Used Move With Crit Chance (Ice Punch)",
       0.04167,
       -0.04167,
       0.0
     ],
     [
-      29,
-      "Slowbro-Galar",
+      17,
+      "Electivire",
       "Mon Used Move With Secondary Effect Chance (Ice Punch)",
       0.0,
       -0.1,
       -0.1
     ],
     [
-      32,
-      "Slowbro-Galar",
-      "Mon Used Move With Crit Chance (Drain Punch)",
+      17,
+      "Electivire",
+      "Mon incurred secondary effect (Ice Punch)",
+      -0.1,
+      1.0,
+      0.9
+    ],
+    [
+      17,
+      "Electivire",
+      "Opponent Could Not Move Due to Freeze",
+      0.9,
+      0.2,
+      1.1
+    ],
+    [
+      18,
+      "Electivire",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      1.1,
+      -0.04167,
+      1.05833
+    ],
+    [
+      19,
+      "Electivire",
+      "Mon Used Move With Crit Chance (Thunder Punch)",
+      1.05833,
+      -0.04167,
+      1.01666
+    ],
+    [
+      27,
+      "Electivire",
+      "Target of Move That Can Miss (Draco Meteor)",
+      1.01666,
+      -0.1,
+      0.9166599999999999
+    ],
+    [
+      27,
+      "Electivire",
+      "Opponent missed a move (Draco Meteor)",
+      0.9166599999999999,
+      1.0,
+      1.91666
+    ],
+    [
+      27,
+      "Electivire",
+      "Mon Used Move With Crit Chance (Ice Punch)",
+      1.91666,
+      -0.04167,
+      1.87499
+    ],
+    [
+      27,
+      "Electivire",
+      "Mon Used Move With Secondary Effect Chance (Ice Punch)",
+      1.87499,
+      -0.1,
+      1.7749899999999998
+    ],
+    [
+      28,
+      "Electivire",
+      "Target of Move That Can Miss (Draco Meteor)",
+      1.7749899999999998,
+      -0.1,
+      1.67499
+    ],
+    [
+      28,
+      "Electivire",
+      "Opponent missed a move (Draco Meteor)",
+      1.67499,
+      1.0,
+      2.67499
+    ],
+    [
+      28,
+      "Electivire",
+      "Mon Used Move With Crit Chance (Ice Punch)",
+      2.67499,
+      -0.04167,
+      2.6333200000000003
+    ],
+    [
+      7,
+      "Entei",
+      "Mon Used a Move That Can Miss (Toxic)",
+      0.0,
+      0.1,
+      0.1
+    ],
+    [
+      9,
+      "Entei",
+      "Mon Used a Move That Can Miss (Toxic)",
+      0.1,
+      0.1,
+      0.2
+    ],
+    [
+      9,
+      "Entei",
+      "Target of Move With Crit Chance (Earth Power)",
+      0.2,
+      0.04167,
+      0.24167000000000002
+    ],
+    [
+      9,
+      "Entei",
+      "Target of Move With Secondary Effect Chance (Earth Power)",
+      0.24167000000000002,
+      0.1,
+      0.34167000000000003
+    ],
+    [
+      30,
+      "Entei",
+      "Mon Used a Move That Can Miss (Sacred Fire)",
+      0.34167000000000003,
+      0.05,
+      0.39167
+    ],
+    [
+      30,
+      "Entei",
+      "Mon Used Move With Crit Chance (Sacred Fire)",
+      0.39167,
+      -0.04167,
+      0.35
+    ],
+    [
+      30,
+      "Entei",
+      "Mon Used Move With Secondary Effect Chance (Sacred Fire)",
+      0.35,
+      -0.5,
+      -0.15
+    ],
+    [
+      31,
+      "Entei",
+      "Mon Used a Move That Can Miss (Sacred Fire)",
+      -0.15,
+      0.05,
+      -0.1
+    ],
+    [
+      31,
+      "Entei",
+      "Mon Used Move With Crit Chance (Sacred Fire)",
       -0.1,
       -0.04167,
       -0.14167
     ],
     [
-      33,
-      "Slowbro-Galar",
-      "Mon Used Move With Secondary Effect Chance (Shell Side Arm)",
+      31,
+      "Entei",
+      "Mon Used Move With Secondary Effect Chance (Sacred Fire)",
       -0.14167,
-      -0.2,
-      -0.34167000000000003
+      -0.5,
+      -0.64167
     ],
     [
-      33,
-      "Slowbro-Galar",
-      "Mon incurred secondary effect (Shell Side Arm)",
-      -0.34167000000000003,
+      31,
+      "Entei",
+      "Target of Move With Crit Chance (Earthquake)",
+      -0.64167,
+      0.04167,
+      -0.6
+    ],
+    [
+      32,
+      "Entei",
+      "Mon Used a Move That Can Miss (Sacred Fire)",
+      -0.6,
+      0.05,
+      -0.55
+    ],
+    [
+      32,
+      "Entei",
+      "Mon Used Move With Crit Chance (Sacred Fire)",
+      -0.55,
+      -0.04167,
+      -0.59167
+    ],
+    [
+      32,
+      "Entei",
+      "Mon Used Move With Secondary Effect Chance (Sacred Fire)",
+      -0.59167,
+      -0.5,
+      -1.09167
+    ],
+    [
+      32,
+      "Entei",
+      "Mon incurred secondary effect (Sacred Fire)",
+      -1.09167,
       1.0,
-      0.65833
+      -0.09167000000000002
     ],
     [
-      33,
-      "Slowbro-Galar",
-      "Target of Move With Crit Chance (Foul Play)",
-      0.65833,
-      0.04167,
-      0.7
-    ],
-    [
-      7,
-      "Tapu Lele",
-      "Mon Used Move With Crit Chance (Moonblast)",
-      0.0,
+      34,
+      "Entei",
+      "Mon Used Move With Crit Chance (Extreme Speed)",
+      -0.09167000000000002,
       -0.04167,
-      -0.04167
+      -0.13334000000000001
     ],
     [
-      7,
-      "Tapu Lele",
-      "Mon Used Move With Secondary Effect Chance (Moonblast)",
+      35,
+      "Entei",
+      "Mon Used a Move That Can Miss (Sacred Fire)",
+      -0.13334000000000001,
+      0.05,
+      -0.08334000000000001
+    ],
+    [
+      35,
+      "Entei",
+      "Mon Used Move With Crit Chance (Sacred Fire)",
+      -0.08334000000000001,
       -0.04167,
-      -0.3,
-      -0.34167000000000003
+      -0.12501
     ],
     [
-      9,
-      "Tapu Lele",
-      "Mon Used Move With Crit Chance (Psyshock)",
-      -0.34167000000000003,
+      36,
+      "Entei",
+      "Mon Used Move With Crit Chance (Extreme Speed)",
+      -0.12501,
       -0.04167,
-      -0.38334
+      -0.16668
     ],
     [
-      9,
-      "Tapu Lele",
+      2,
+      "Hippowdon",
       "Target of Move With Crit Chance (Moonblast)",
-      -0.38334,
+      0.0,
       0.04167,
-      -0.34167000000000003
+      0.04167
     ],
     [
-      9,
-      "Tapu Lele",
+      2,
+      "Hippowdon",
       "Target of Move With Secondary Effect Chance (Moonblast)",
-      -0.34167000000000003,
-      0.3,
-      -0.04167000000000001
-    ],
-    [
-      9,
-      "Tapu Lele",
-      "Mon harmed by secondary effect (Moonblast)",
-      -0.04167000000000001,
-      -1.0,
-      -1.04167
-    ],
-    [
-      11,
-      "Tapu Lele",
-      "Mon Used Move With Crit Chance (Moonblast)",
-      -1.04167,
-      -0.04167,
-      -1.08334
-    ],
-    [
-      11,
-      "Tapu Lele",
-      "Mon Used Move With Secondary Effect Chance (Moonblast)",
-      -1.08334,
-      -0.3,
-      -1.38334
-    ],
-    [
-      22,
-      "Tapu Lele",
-      "Target of Move With Crit Chance (Thousand Arrows)",
-      -1.38334,
       0.04167,
-      -1.34167
+      0.3,
+      0.34167000000000003
     ],
     [
-      22,
-      "Tapu Lele",
-      "Mon was hit by a critical hit",
-      -1.34167,
+      3,
+      "Hippowdon",
+      "Mon Used a Move That Can Miss (Toxic)",
+      0.34167000000000003,
+      0.1,
+      0.44167
+    ],
+    [
+      3,
+      "Hippowdon",
+      "Mon missed a move (Toxic)",
+      0.44167,
       -1.0,
-      -2.34167
+      -0.55833
+    ],
+    [
+      5,
+      "Hippowdon",
+      "Target of Move With Crit Chance (U-turn)",
+      -0.55833,
+      0.04167,
+      -0.51666
+    ],
+    [
+      5,
+      "Hippowdon",
+      "Mon was hit by a critical hit",
+      -0.51666,
+      -1.0,
+      -1.51666
+    ],
+    [
+      24,
+      "Hippowdon",
+      "Target of Move With Crit Chance (Aura Sphere)",
+      -1.51666,
+      0.04167,
+      -1.47499
+    ],
+    [
+      25,
+      "Hippowdon",
+      "Target of Move With Crit Chance (Ice Beam)",
+      -1.47499,
+      0.04167,
+      -1.43332
+    ],
+    [
+      25,
+      "Hippowdon",
+      "Target of Move With Secondary Effect Chance (Ice Beam)",
+      -1.43332,
+      0.1,
+      -1.3333199999999998
+    ],
+    [
+      25,
+      "Hippowdon",
+      "Mon Used a Move That Can Miss (Toxic)",
+      -1.3333199999999998,
+      0.1,
+      -1.23332
+    ],
+    [
+      25,
+      "Hippowdon",
+      "Mon missed a move (Toxic)",
+      -1.23332,
+      -1.0,
+      -2.23332
+    ],
+    [
+      26,
+      "Hippowdon",
+      "Target of Move With Crit Chance (Ice Beam)",
+      -2.23332,
+      0.04167,
+      -2.19165
+    ],
+    [
+      30,
+      "Krookodile",
+      "Target of Move That Can Miss (Sacred Fire)",
+      0.0,
+      -0.05,
+      -0.05
+    ],
+    [
+      30,
+      "Krookodile",
+      "Target of Move With Crit Chance (Sacred Fire)",
+      -0.05,
+      0.04167,
+      -0.008330000000000002
+    ],
+    [
+      30,
+      "Krookodile",
+      "Target of Move With Secondary Effect Chance (Sacred Fire)",
+      -0.008330000000000002,
+      0.5,
+      0.49167
+    ],
+    [
+      31,
+      "Krookodile",
+      "Target of Move That Can Miss (Sacred Fire)",
+      0.49167,
+      -0.05,
+      0.44167
+    ],
+    [
+      31,
+      "Krookodile",
+      "Target of Move With Crit Chance (Sacred Fire)",
+      0.44167,
+      0.04167,
+      0.48334000000000005
+    ],
+    [
+      31,
+      "Krookodile",
+      "Target of Move With Secondary Effect Chance (Sacred Fire)",
+      0.48334000000000005,
+      0.5,
+      0.98334
+    ],
+    [
+      31,
+      "Krookodile",
+      "Mon Used Move With Crit Chance (Earthquake)",
+      0.98334,
+      -0.04167,
+      0.94167
+    ],
+    [
+      35,
+      "Krookodile",
+      "Target of Move That Can Miss (Sacred Fire)",
+      0.94167,
+      -0.05,
+      0.89167
+    ],
+    [
+      35,
+      "Krookodile",
+      "Target of Move With Crit Chance (Sacred Fire)",
+      0.89167,
+      0.04167,
+      0.9333400000000001
     ],
     [
       1,
-      "Torterra",
+      "Kyurem",
       "Target of Move With Crit Chance (U-turn)",
       0.0,
       0.04167,
       0.04167
     ],
     [
-      2,
-      "Torterra",
-      "Mon Used a Move That Can Miss (Stone Edge)",
-      0.04167,
-      0.2,
-      0.24167000000000002
-    ],
-    [
-      2,
-      "Torterra",
-      "Mon Used Move With Increased Crit Chance (Stone Edge)",
-      0.24167000000000002,
-      -0.125,
-      0.11667000000000001
-    ],
-    [
-      4,
-      "Torterra",
-      "Target of Move With Crit Chance (Foul Play)",
-      0.11667000000000001,
-      0.04167,
-      0.15834
-    ],
-    [
-      4,
-      "Torterra",
-      "Mon Used a Move That Can Miss (Stone Edge)",
-      0.15834,
-      0.2,
-      0.35834000000000005
-    ],
-    [
-      4,
-      "Torterra",
-      "Mon Used Move With Increased Crit Chance (Stone Edge)",
-      0.35834000000000005,
-      -0.125,
-      0.23334000000000002
-    ],
-    [
-      6,
-      "Torterra",
-      "Target of Move With Crit Chance (Foul Play)",
-      0.23334000000000002,
-      0.04167,
-      0.27501000000000003
-    ],
-    [
-      19,
-      "Zygarde-10%",
-      "Target of Move With Crit Chance (Drain Punch)",
-      0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      20,
-      "Zygarde-10%",
-      "Mon Used Move With Crit Chance (Thousand Arrows)",
+      1,
+      "Kyurem",
+      "Mon Used Move With Crit Chance (Ice Beam)",
       0.04167,
       -0.04167,
       0.0
     ],
     [
-      20,
-      "Zygarde-10%",
-      "Target of Move With Crit Chance (Drain Punch)",
+      1,
+      "Kyurem",
+      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
       0.0,
-      0.04167,
-      0.04167
-    ],
-    [
-      21,
-      "Zygarde-10%",
-      "Mon Used Move With Crit Chance (Thousand Arrows)",
-      0.04167,
-      -0.04167,
-      0.0
+      -0.1,
+      -0.1
     ],
     [
       22,
-      "Zygarde-10%",
-      "Mon Used Move With Crit Chance (Thousand Arrows)",
+      "Kyurem",
+      "Mon Used Move With Crit Chance (Earth Power)",
+      -0.1,
+      -0.04167,
+      -0.14167
+    ],
+    [
+      23,
+      "Kyurem",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      -0.14167,
+      -0.04167,
+      -0.18334
+    ],
+    [
+      23,
+      "Kyurem",
+      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
+      -0.18334,
+      -0.1,
+      -0.28334
+    ],
+    [
+      23,
+      "Kyurem",
+      "Target of Move With Crit Chance (U-turn)",
+      -0.28334,
+      0.04167,
+      -0.24167000000000002
+    ],
+    [
+      14,
+      "Latios",
+      "Mon Used a Move That Can Miss (Draco Meteor)",
+      0.0,
+      0.1,
+      0.1
+    ],
+    [
+      14,
+      "Latios",
+      "Mon Used Move With Crit Chance (Draco Meteor)",
+      0.1,
+      -0.04167,
+      0.05833
+    ],
+    [
+      24,
+      "Latios",
+      "Mon Used Move With Crit Chance (Aura Sphere)",
+      0.05833,
+      -0.04167,
+      0.016660000000000005
+    ],
+    [
+      25,
+      "Latios",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      0.016660000000000005,
+      -0.04167,
+      -0.025009999999999994
+    ],
+    [
+      25,
+      "Latios",
+      "Mon Used Move With Secondary Effect Chance (Ice Beam)",
+      -0.025009999999999994,
+      -0.1,
+      -0.12500999999999998
+    ],
+    [
+      25,
+      "Latios",
+      "Target of Move That Can Miss (Toxic)",
+      -0.12500999999999998,
+      -0.1,
+      -0.22501
+    ],
+    [
+      25,
+      "Latios",
+      "Opponent missed a move (Toxic)",
+      -0.22501,
+      1.0,
+      0.77499
+    ],
+    [
+      26,
+      "Latios",
+      "Mon Used Move With Crit Chance (Ice Beam)",
+      0.77499,
+      -0.04167,
+      0.73332
+    ],
+    [
+      27,
+      "Latios",
+      "Mon Used a Move That Can Miss (Draco Meteor)",
+      0.73332,
+      0.1,
+      0.83332
+    ],
+    [
+      27,
+      "Latios",
+      "Mon missed a move (Draco Meteor)",
+      0.83332,
+      -1.0,
+      -0.16668000000000005
+    ],
+    [
+      27,
+      "Latios",
+      "Target of Move With Crit Chance (Ice Punch)",
+      -0.16668000000000005,
+      0.04167,
+      -0.12501000000000007
+    ],
+    [
+      27,
+      "Latios",
+      "Target of Move With Secondary Effect Chance (Ice Punch)",
+      -0.12501000000000007,
+      0.1,
+      -0.025010000000000067
+    ],
+    [
+      28,
+      "Latios",
+      "Mon Used a Move That Can Miss (Draco Meteor)",
+      -0.025010000000000067,
+      0.1,
+      0.07498999999999993
+    ],
+    [
+      28,
+      "Latios",
+      "Mon missed a move (Draco Meteor)",
+      0.07498999999999993,
+      -1.0,
+      -0.92501
+    ],
+    [
+      28,
+      "Latios",
+      "Target of Move With Crit Chance (Ice Punch)",
+      -0.92501,
+      0.04167,
+      -0.88334
+    ],
+    [
+      3,
+      "Rillaboom",
+      "Target of Move That Can Miss (Toxic)",
+      0.0,
+      -0.1,
+      -0.1
+    ],
+    [
+      3,
+      "Rillaboom",
+      "Opponent missed a move (Toxic)",
+      -0.1,
+      1.0,
+      0.9
+    ],
+    [
+      4,
+      "Rillaboom",
+      "Mon Used Move With Crit Chance (U-turn)",
+      0.9,
+      -0.04167,
+      0.85833
+    ],
+    [
+      23,
+      "Rillaboom",
+      "Target of Move With Crit Chance (Ice Beam)",
+      0.85833,
+      0.04167,
+      0.9
+    ],
+    [
+      23,
+      "Rillaboom",
+      "Target of Move With Secondary Effect Chance (Ice Beam)",
+      0.9,
+      0.1,
+      1.0
+    ],
+    [
+      23,
+      "Rillaboom",
+      "Mon Used Move With Crit Chance (U-turn)",
+      1.0,
+      -0.04167,
+      0.95833
+    ],
+    [
+      36,
+      "Rillaboom",
+      "Target of Move With Crit Chance (Extreme Speed)",
+      0.95833,
+      0.04167,
+      1.0
+    ],
+    [
+      1,
+      "Tapu Koko",
+      "Mon Used Move With Crit Chance (U-turn)",
       0.0,
       -0.04167,
       -0.04167
     ],
     [
-      22,
-      "Zygarde-10%",
-      "Mon landed a critical hit",
+      5,
+      "Tapu Koko",
+      "Mon Used Move With Crit Chance (U-turn)",
       -0.04167,
-      1.0,
-      0.95833
+      -0.04167,
+      -0.08334
     ],
     [
-      23,
-      "Zygarde-10%",
-      "Target of Move With Crit Chance (Poison Jab)",
-      0.95833,
+      5,
+      "Tapu Koko",
+      "Mon landed a critical hit",
+      -0.08334,
+      1.0,
+      0.9166599999999999
+    ],
+    [
+      16,
+      "Tapu Koko",
+      "Mon Used Move With Crit Chance (Thunderbolt)",
+      0.9166599999999999,
+      -0.04167,
+      0.8749899999999999
+    ],
+    [
+      17,
+      "Tapu Koko",
+      "Target of Move With Crit Chance (Ice Punch)",
+      0.8749899999999999,
       0.04167,
-      1.0
+      0.9166599999999999
+    ],
+    [
+      17,
+      "Tapu Koko",
+      "Target of Move With Secondary Effect Chance (Ice Punch)",
+      0.9166599999999999,
+      0.1,
+      1.01666
+    ],
+    [
+      17,
+      "Tapu Koko",
+      "Mon harmed by secondary effect (Ice Punch)",
+      1.01666,
+      -1.0,
+      0.016659999999999967
+    ],
+    [
+      17,
+      "Tapu Koko",
+      "Mon Could Not Move Due to Freeze",
+      0.016659999999999967,
+      -0.2,
+      -0.18334000000000003
+    ],
+    [
+      32,
+      "Tapu Koko",
+      "Target of Move That Can Miss (Sacred Fire)",
+      -0.18334000000000003,
+      -0.05,
+      -0.23334000000000002
+    ],
+    [
+      32,
+      "Tapu Koko",
+      "Target of Move With Crit Chance (Sacred Fire)",
+      -0.23334000000000002,
+      0.04167,
+      -0.19167
+    ],
+    [
+      32,
+      "Tapu Koko",
+      "Target of Move With Secondary Effect Chance (Sacred Fire)",
+      -0.19167,
+      0.5,
+      0.30833
+    ],
+    [
+      32,
+      "Tapu Koko",
+      "Mon harmed by secondary effect (Sacred Fire)",
+      0.30833,
+      -1.0,
+      -0.69167
+    ],
+    [
+      34,
+      "Tapu Koko",
+      "Target of Move With Crit Chance (Extreme Speed)",
+      -0.69167,
+      0.04167,
+      -0.65
     ]
   ],
   "errormessage": []

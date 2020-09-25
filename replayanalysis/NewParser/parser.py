@@ -649,6 +649,10 @@ def move_function(line,parsedlogfile,results):
     }
     notimmunebytype=True
     notstatused=True
+    turndata=list(filter(lambda x: x[1] == line[1] and x[0] > line[0], parsedlogfile))
+    for line_ in turndata:
+        if line_[2]=="curestatus":
+            line_,parsedlogfile,results=curestatus_function(line_,parsedlogfile,results)
     if move in statusdict.keys() and (target['psn']!=None or target['tox']!=None or target['par']!=None or target['frz']!=None or target['brn']!=None or target['slp']!=None):
         notstatused=False
     if move in statusdict.keys():
