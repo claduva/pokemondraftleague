@@ -18,9 +18,9 @@ class Matchreplays(commands.Cog):
             for record in replay_records:
                 #get server
                 for item in self.bot.guilds:
-                    if item.name=='claduva Test Server':
+                    if item.name==record['discordserver']:
                         for channel in item.channels:
-                            if channel.name=='replays':
+                            if channel.name==record['discordchannel']:
                                 try:
                                     embed=discord.Embed(
                                         title=f"Week {record['week']}: {record['team1name']} vs {record['team2name']}",
