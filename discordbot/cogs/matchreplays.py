@@ -13,7 +13,7 @@ class Matchreplays(commands.Cog):
     async def replay_check(self):
         await self.bot.wait_until_ready()
         while not self.bot.is_closed():
-            response=requests.get(f'http://127.0.0.1:8000/api/schedule/')
+            response=requests.get(f'https://pokemondraftleague.online/api/schedule/')
             replay_records=response.json()
             for record in replay_records:
                 #get server
@@ -43,7 +43,7 @@ class Matchreplays(commands.Cog):
                                             )
                                 embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
                                 await channel.send(embed=embed)
-                                url = f'http://127.0.0.1:8000/api/schedule/{record["id"]}/'
+                                url = f'https://pokemondraftleague.online/api/schedule/{record["id"]}/'
                                 myobj = {'week':record['week'],'replay':record['replay'],'announced': True}
                                 x = requests.put(url, data = myobj)
                                 print(x.content)
