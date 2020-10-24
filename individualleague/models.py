@@ -101,12 +101,6 @@ class left_pick(models.Model):
     pick=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="leftpick")
     backup=models.ForeignKey(all_pokemon,on_delete=models.CASCADE,related_name="backuppick")
 
-class replay_announcements(models.Model):
-    league = models.CharField(max_length=100)
-    league_name = models.CharField(max_length=1000)
-    text = models.CharField(max_length=1000)
-    replaychannel = models.CharField(max_length=100,null=True)
-
 class freeagency_announcements(models.Model):
     league = models.CharField(max_length=100)
     league_name = models.CharField(max_length=1000)

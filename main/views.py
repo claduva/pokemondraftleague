@@ -156,10 +156,6 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    url = f'http://127.0.0.1:8000/api/schedule/3736/'
-    myobj = {'announced': True,}
-    x = requests.put(url, data = myobj)
-    print(x.content)
     return redirect('home')
 
 def get_pkmn(pkmn):

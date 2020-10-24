@@ -64,7 +64,7 @@ class discord_settings(models.Model):
     freeagencychannel=models.CharField(max_length=100, default="Not Provided")
     tradechannel=models.CharField(max_length=100, default="Not Provided")
     replaychannel=models.CharField(max_length=100, default="Not Provided")
-
+    matchreminderchannel=models.CharField(max_length=100, default="Not Provided")
     def __str__(self):
         return f'Discord settings for {self.league.name}'
 
