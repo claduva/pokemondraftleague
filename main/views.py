@@ -8,6 +8,8 @@ from django.core.files.base import ContentFile
 from django.template import Context, loader
 from django.contrib.sessions.models import Session
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
+from django.middleware.csrf import get_token
 
 import json
 from datetime import datetime
@@ -154,10 +156,10 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    nm=['Regieleki','Regidrago','Calyrex','Glastrier','Spectrier','Articuno-Galar','Zapdos-Galar','Moltres-Galar','Slowking-Galar']
-    for item in nm:
-        id_=all_pokemon.objects.all().order_by('-id').first().id+1
-        all_pokemon.objects.create(id=id_,pokemon=item)
+    url = f'http://127.0.0.1:8000/api/schedule/3736/'
+    myobj = {'announced': True,}
+    x = requests.put(url, data = myobj)
+    print(x.content)
     return redirect('home')
 
 def get_pkmn(pkmn):
