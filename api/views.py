@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from individualleague.models import schedule 
 
 class OverdueViewSet(viewsets.ModelViewSet):
-    queryset = schedule.objects.filter(replay="Link").filter(duedate__lt=datetime.now())
+    queryset = schedule.objects.filter(replay="Link").filter(duedate__lt=datetime.now()).order_by('duedate')
     serializer_class = OverdueSerializer
     permission_classes = [permissions.AllowAny]
 
