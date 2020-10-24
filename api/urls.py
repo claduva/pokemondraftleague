@@ -6,7 +6,6 @@ router = routers.DefaultRouter()
 router.register(r'overdue', views.OverdueViewSet,base_name='overdue')
 router.register(r'schedule', views.ScheduleViewSet,base_name='schedule')
 
-
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
