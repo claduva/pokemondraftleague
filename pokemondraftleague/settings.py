@@ -62,6 +62,7 @@ INSTALLED_APPS = [
 
     #local apps
     'accounts.apps.AccountsConfig',
+    'api.apps.ApiConfig',
     'pokemonadmin.apps.PokemonadminConfig',
     'discordbot.apps.DiscordbotConfig',
     'draftplanner.apps.DraftplannerConfig',

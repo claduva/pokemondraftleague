@@ -92,7 +92,6 @@ def check_if_match(view):
             return view(request, *args, **kwargs)
         except Exception as e:
             #raise(e)
-            print('match')
             messages.error(request,'Match does not exist!',extra_tags='danger')
             error_message.objects.create(
                 associated_view=str(request),

@@ -21,11 +21,8 @@ class schedule(models.Model):
     team1score = models.IntegerField(default=0)
     team2score = models.IntegerField(default=0)
     replay = models.CharField(max_length=200,default="Link")
-    team1usedz = models.BooleanField(default=False)
-    team2usedz = models.BooleanField(default=False)
-    team1megaevolved = models.BooleanField(default=False)
-    team2megaevolved = models.BooleanField(default=False)
     timestamp= models.DateTimeField(auto_now=True)
+    announced = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.season.league.name} Week {self.week} match between {self.team1.teamabbreviation} vs. {self.team2.teamabbreviation}'

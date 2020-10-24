@@ -11,14 +11,14 @@ from leagues.models import league,league_subleague,leaguetiers,leaguetiertemplat
 
 class all_pokemon(models.Model):
     pokemon = models.CharField(max_length=30,unique=True)
-    hp = models.IntegerField()
-    attack = models.IntegerField()
-    defense = models.IntegerField()
-    s_attack = models.IntegerField()
-    s_defense = models.IntegerField()
-    speed = models.IntegerField()
-    bst = models.IntegerField(null=True)
-    is_fully_evolved = models.BooleanField()
+    hp = models.IntegerField(default=0)
+    attack = models.IntegerField(default=0)
+    defense = models.IntegerField(default=0)
+    s_attack = models.IntegerField(default=0)
+    s_defense = models.IntegerField(default=0)
+    speed = models.IntegerField(default=0)
+    bst = models.IntegerField(default=0)
+    is_fully_evolved = models.BooleanField(default=True)
     kills = models.IntegerField(default=0)
     deaths = models.IntegerField(default=0)
     differential = models.IntegerField(default=0)
@@ -30,11 +30,10 @@ class all_pokemon(models.Model):
     luck = models.FloatField(default=0)
     remaininghealth = models.IntegerField(default=0)
     timesdrafted = models.IntegerField(default=0)
-    nicknames = ArrayField(models.CharField(max_length=10, blank=True))
-    gen8 = models.BooleanField(default=False)
+    gen8 = models.BooleanField(default=True)
     canzmove = models.BooleanField(default=True)
     candynamax = models.BooleanField(default=True)
-    data=JSONField(null=True)
+    data=JSONField(null=True,blank=True)
 
     def __str__(self):
         return f'{self.pokemon}'

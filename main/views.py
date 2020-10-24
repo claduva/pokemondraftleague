@@ -154,9 +154,10 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    sl=league_subleague.objects.filter(league__name="ALPH")
-    for item in league_application.objects.filter(league_name__name="ALPH"):
-        item.tier_preference.add(*sl)
+    nm=['Regieleki','Regidrago','Calyrex','Glastrier','Spectrier','Articuno-Galar','Zapdos-Galar','Moltres-Galar','Slowking-Galar']
+    for item in nm:
+        id_=all_pokemon.objects.all().order_by('-id').first().id+1
+        all_pokemon.objects.create(id=id_,pokemon=item)
     return redirect('home')
 
 def get_pkmn(pkmn):

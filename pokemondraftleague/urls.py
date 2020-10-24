@@ -25,6 +25,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('', include('django.contrib.auth.urls')),
     path('', include('accounts.urls')),
+    path('', include('api.urls')),
     path('', include('draftplanner.urls')),
     path('', include('pokemonadmin.urls')),
     path('',include("otherseasons.urls")),
