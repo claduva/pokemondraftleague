@@ -260,16 +260,23 @@ class draft(models.Model):
     class Meta:
         ordering = ['id']
 
+    @property
+    def upnext(self):
+        try:
+            un=draft.objects.filter(season=self.season).get(picknumber=self.picknumber+1)
+            un=f'{un.team.teamname}, coached by {un.team.coach.username},' 
+        except:
+            un="The draft has concluded."
+        return un
+    
+    @property
+    def upnextid(self):
+        try:
+            unid=draft.objects.filter(season=self.season).get(picknumber=self.picknumber+1)
+            unid=unid.team.coach.profile.discordid
+        except:
+            unid=None
+        return unid
+
     def __str__(self):
         return f'Draft {self.id}, League: {self.season.league.name}, Season: {self.season.seasonname}'
-
-class draft_announcements(models.Model):
-    league = models.CharField(max_length=100)
-    league_name = models.CharField(max_length=100)
-    text = models.CharField(max_length=1000)
-    announced = models.BooleanField(default=False)
-    upnext = models.CharField(max_length=100,null=True)
-    draftchannel = models.CharField(max_length=100,null=True)
-    upnextid = models.CharField(max_length=100,null=True)
-    subleague = models.CharField(max_length=100,default="Main")
-    imageurl = models.CharField(max_length=200,default="")

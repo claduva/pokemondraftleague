@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from individualleague.models import schedule
-from leagues.models import coachdata
+from leagues.models import coachdata, draft
 
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:
@@ -59,3 +59,31 @@ class OverdueSerializer(serializers.ModelSerializer):
             'discordchannel',
             ]
 
+class DraftAnnouncementSerializer(serializers.ModelSerializer):
+    league=serializers.CharField(read_only=True, source="season.subleague.league.name")
+    subleague=serializers.CharField(read_only=True, source="season.subleague.subleague")
+    logo = serializers.CharField(read_only=True, source="team.logo.url")
+    pokemonname = serializers.CharField(read_only=True, source="pokemon.pokemon")
+    pokemonsprite = serializers.CharField(read_only=True, source="pokemon.sprite.dexani.url")
+    teamname = serializers.CharField(read_only=True, source="team.teamname")
+    discordserver = serializers.CharField(read_only=True, source="season.subleague.discord_settings.discordserver")
+    discordchannel = serializers.CharField(read_only=True, source="season.subleague.discord_settings.draftchannel")
+
+    class Meta:
+        model = draft
+        fields = [
+            'id',
+            'picknumber',
+            'teamname',
+            'logo',
+            'pokemonname',
+            'pokemonsprite',
+            'upnext',
+            'upnextid',
+            'league',
+            'subleague',
+            'skipped',
+            'announced',
+            'discordserver',
+            'discordchannel',
+            ]

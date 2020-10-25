@@ -377,10 +377,6 @@ def league_draft(request,league_name,subleague_name):
                 currentpick.pokemon=item.pick
                 rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
                 rosterspot.pokemon=item.pick
-                try:
-                    senddraftpicktobot(currentpick,item.pick,subleague,draftlist)
-                except:
-                    pass
                 rosterspot.save()
                 currentpick.save()
                 item.delete()
@@ -389,10 +385,6 @@ def league_draft(request,league_name,subleague_name):
                 currentpick.pokemon=item.backup
                 rosterspot=roster.objects.all().order_by('id').filter(season=season,team=currentpick.team,pokemon__isnull=True).first()
                 rosterspot.pokemon=item.backup
-                try:
-                    senddraftpicktobot(currentpick,item.backup,subleague,draftlist)
-                except:
-                    pass
                 rosterspot.save()
                 currentpick.save()
                 item.delete()
@@ -418,10 +410,6 @@ def league_draft(request,league_name,subleague_name):
             rosterspot.pokemon=draftpick
             rosterspot.save()
             currentpick.save()
-            try:
-                senddraftpicktobot(currentpick,draftpick,subleague,draftlist)
-            except:
-                pass
             messages.success(request,'Your draft pick has been saved!')
         elif formpurpose=="Skip":
             currentpick.skipped=True
@@ -477,21 +465,6 @@ def league_draft(request,league_name,subleague_name):
     end_time = time.time()
     print("Total execution time: {} seconds".format(end_time - start_time))
     return render(request, 'draft.html',context)
-
-def senddraftpicktobot(currentpick,pokemon,subleague,draftlist):
-    #send to bot
-    text=f'The {currentpick.team.teamname} have drafted {pokemon.pokemon}'
-    draftchannel=subleague.discord_settings.draftchannel
-    try:
-        upnext=draftlist.filter(pokemon__isnull=True).get(picknumber=currentpick.picknumber+1).team.coach.username
-        upnextid=str(draftlist.filter(pokemon__isnull=True).get(id=currentpick.id+1).team.coach.profile.discordid)
-    except:
-        upnext="The draft has concluded"
-        upnextid=""
-    subleaguename=subleague.subleague
-    imageurl=pokemon.sprite.dexani.url
-    draft_announcements.objects.create(league=subleague.discord_settings.discordserver,league_name=subleague.league.name,text=text,upnext=upnext,draftchannel=draftchannel,upnextid=upnextid,subleague=subleaguename,imageurl=imageurl)
-    return
 
 @check_if_subleague
 @check_if_season

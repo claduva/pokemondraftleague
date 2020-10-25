@@ -156,9 +156,6 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    free_agency.objects.all().update(announced=True)
-    trading.objects.all().update(announced=True)
-    draft.objects.all().update(announced=True)
     return redirect('home')
 
 def get_pkmn(pkmn):
