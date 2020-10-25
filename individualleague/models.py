@@ -61,6 +61,7 @@ class free_agency(models.Model):
     timeadded=models.DateTimeField(auto_now_add=True)
     weekeffective=models.IntegerField(default="1")
     executed=models.BooleanField(default=False)
+    announced=models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.coach.coach.username}: {self.season.league}'
@@ -77,6 +78,7 @@ class trading(models.Model):
     timeadded=models.DateTimeField(auto_now_add=True)
     weekeffective=models.IntegerField(default="1")
     executed=models.BooleanField(default=False)
+    announced=models.BooleanField(default=False)
 
 class hall_of_fame_entry(models.Model):
     league=models.ForeignKey(league,on_delete=models.CASCADE)

@@ -65,6 +65,7 @@ class discord_settings(models.Model):
     tradechannel=models.CharField(max_length=100, default="Not Provided")
     replaychannel=models.CharField(max_length=100, default="Not Provided")
     matchreminderchannel=models.CharField(max_length=100, default="Not Provided")
+    
     def __str__(self):
         return f'Discord settings for {self.league.name}'
 
@@ -254,6 +255,7 @@ class draft(models.Model):
     pokemon = models.ForeignKey(all_pokemon, on_delete=models.CASCADE,null=True,related_name="pokemondraft")
     picktime= models.DateTimeField(auto_now=True, null=True)
     skipped= models.BooleanField(default=False)
+    announced= models.BooleanField(default=False)
 
     class Meta:
         ordering = ['id']
