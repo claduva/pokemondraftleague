@@ -13,7 +13,7 @@ class Draft(commands.Cog):
     async def draft_check(self):
         await self.bot.wait_until_ready()
         while not self.bot.is_closed():
-            response=requests.get(f'http://127.0.0.1:8000/api/draftannouncement/')
+            response=requests.get(f'https://pokemondraftleague.online/api/draftannouncement/')
             replay_records=response.json()
             for record in replay_records:
                 #get server
@@ -44,7 +44,7 @@ class Draft(commands.Cog):
                                 await channel.send(embed=embed)
                                 if record["upnextid"] and record["upnextid"]>99999999:
                                     await channel.send(f'<@{record["upnextid"]}>')
-                                url = f'http://127.0.0.1:8000/api/draftannouncement/{record["id"]}/'
+                                url = f'https://pokemondraftleague.online/api/draftannouncement/{record["id"]}/'
                                 myobj = {'picknumber':record['picknumber'],'skipped':record['skipped'],'announced': True}
                                 x = requests.put(url, data = myobj)
             await asyncio.sleep(30)

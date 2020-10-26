@@ -545,11 +545,13 @@
 {% block footer %}
 <script>
     var spriteurl = 'swsh/ani/standard/PKMN.gif'
-    var pokemondatabase = {{ pokemondatabase|safe}}
     var pokemonlist = {{ pokemonlist|safe}}
     var typelist = {{ typelist|safe}}
     var abilitylist = {{ abilitylist|safe}}
     var movelist = {{ movelist|safe}}
+    var pokemondatabase = {{ pokemondatabase|safe}}
+    alert('here')
+
 </script>
 <script src="{% static 'draftplanner/scripts/draftplanner.js' %}"></script>
 
