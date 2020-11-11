@@ -55,7 +55,7 @@ async def donny(ctx):
     embed.set_image(url="https://cdn.discordapp.com/attachments/748662034802933943/748929003078811808/donnygif.gif")
     await ctx.send(embed=embed)
 
-@bot.command(aliases=["chezpic"])
+@bot.command(aliases=["chezz"])
 async def chez(ctx):
     embed=discord.Embed(title="It's over. Chez has stolen your girl.", colour=discord.Colour.red())
     embed.set_image(url="https://media.discordapp.net/attachments/472241866427990036/775822586494976040/unknown.png")
