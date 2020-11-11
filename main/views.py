@@ -156,9 +156,6 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    fs=pokemon_sprites.objects.all().filter(dex='sprites/sprite_placeholder.gif')
-    for item in fs:
-        print(item.pokemon)
     return redirect('home')
 
 def get_pkmn(pkmn):
