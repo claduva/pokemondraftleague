@@ -885,7 +885,7 @@ def status_function(line,parsedlogfile,results):
         movesthatcausestatus=dict([
             ['tox',['Toxic','Fling','Psycho Shift']],
             ['psn',['Toxic Thread','Poison Powder','Poison Gas','Baneful Bunker','Fling','Psycho Shift','G-Max Stun Shock','G-Max Malodor']],
-            ['brn',['Beak Blast','Will-O-Wisp','Fling','Psycho Shift']],
+            ['brn',['Beak Blast','Will-O-Wisp','Fling','Psycho Shift','Burning Jealousy']],
             ['par',['Thunder Wave','Nuzzle','Glare','Stoked Sparksurfer','Stun Spore','Zap Cannon','Fling','Psycho Shift','G-Max Stun Shock']],
             ['slp',['Spore','Sleep Powder','Dark Void','Grass Whistle','Hypnosis','Lovely Kiss','Sing','Psycho Shift']],
             ['frz',[]]
