@@ -465,7 +465,19 @@ def manage_tiers(request,league_name,subleague_name):
     else:
         form = CreateTierForm(initial={'league': subleague.league,'subleague':subleague})
     pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
+    pokemontiers_id=list(pokemontiers.values_list('pokemon__id',flat=True))
+    remainingmons=all_pokemon.objects.all().exclude(id__in=pokemontiers_id)
     leaguestiers=leaguetiers.objects.filter(subleague=subleague).all().order_by('tiername')
+    bannedtier=leaguestiers.get(tiername='Banned')
+    for mon in remainingmons:
+        pokemon_tier.objects.create(
+            id=pokemon_tier.objects.all().order_by('-id').first().id+1,
+            pokemon = mon,
+            league = subleague.league,
+            subleague = subleague,
+            tier = bannedtier
+        )
+    pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
     untiered=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
     context = {
         'league_name': league_name,
@@ -594,34 +606,40 @@ def default_tiers(request,league_name,subleague_name):
     if request.method == 'POST':
         purpose=request.POST['purposeid']
         if purpose=='Select':
-            templatetierset=leaguetiertemplate.objects.all().filter(template=request.POST['template-select'])
-            leaguetiers.objects.all().filter(subleague=subleague).delete()
+            templatetierset=leaguetiertemplate.objects.all().filter(template=request.POST['template-select']).exclude(tiername="Banned")
+            leaguetiers.objects.all().filter(subleague=subleague).exclude(tiername="Banned").delete()
             for item in templatetierset:
                 leaguetiers.objects.create(league=league_,subleague=subleague,tiername=item.tiername,tierpoints=item.tierpoints)
             templatepokemonset=pokemon_tier_template.objects.all().filter(template=request.POST['template-select'])
-            existingpokemontiers=pokemon_tier.objects.all().filter(league=league_,subleague=subleague).delete()
+            existingpokemontiers=pokemon_tier.objects.all().filter(league=league_,subleague=subleague).exclude(tier__tiername="Banned").delete()
             thisleaguetiers=leaguetiers.objects.all().filter(subleague=subleague)
             for item in templatepokemonset:
                 tiertouse=thisleaguetiers.get(tiername=item.tier.tiername)
                 id_=pokemon_tier.objects.all().order_by("-id").first().id+1
-                pokemon_tier.objects.create(id=id_,pokemon=item.pokemon,league=subleague.league,subleague=subleague,tier=tiertouse)
+                try:
+                    pokemon_tier.objects.create(id=id_,pokemon=item.pokemon,league=subleague.league,subleague=subleague,tier=tiertouse)
+                except:
+                    pass
             messages.success(request,'The template has been applied!')
         elif purpose=="Use":
             #delete existing
-            subleague.subleaguetiers.all().delete()
+            subleague.subleaguetiers.all().exclude(tiername="Banned").delete()
             #add new
             leagueofinterest=league_subleague.objects.get(id=request.POST['leagueid'])
-            leagueofinteresttiers=leagueofinterest.subleaguetiers.all()
+            leagueofinteresttiers=leagueofinterest.subleaguetiers.all().exclude(tiername="Banned")
             for item in leagueofinteresttiers:
                 leaguetiers.objects.create(league=league_,subleague=subleague,tiername=item.tiername,tierpoints=item.tierpoints)
             ##update pokemon
             leagueofinteresttiering=leagueofinterest.subleaguepokemontiers.all()
-            existingpokemontiers=pokemon_tier.objects.all().filter(subleague=subleague).delete()
+            existingpokemontiers=pokemon_tier.objects.all().filter(subleague=subleague).exclude(tier__tiername="Banned").delete()
             thisleaguetiers=leaguetiers.objects.all().filter(subleague=subleague)
             for item in leagueofinteresttiering:
                 tiertouse=thisleaguetiers.get(tiername=item.tier.tiername)
                 id_=pokemon_tier.objects.all().order_by("-id").first().id+1
-                pokemon_tier.objects.create(id=id_,pokemon=item.pokemon,league=subleague.league,subleague=subleague,tier=tiertouse)
+                try:
+                    pokemon_tier.objects.create(id=id_,pokemon=item.pokemon,league=subleague.league,subleague=subleague,tier=tiertouse)
+                except:
+                    pass
         return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
     pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
     pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
