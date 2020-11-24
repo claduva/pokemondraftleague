@@ -20,7 +20,6 @@ class Overdue(commands.Cog):
                 #get server
                 for item in self.bot.guilds:
                     if item.name==record['discordserver']:#'claduva Test Server':
-                        print('here')
                         for channel in item.channels:
                             if channel.name==record['discordchannel']:#'announcements':
                                 embed=discord.Embed(

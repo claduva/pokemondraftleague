@@ -19,6 +19,6 @@ class ScheduleViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
 
 class DraftAnnouncementViewSet(viewsets.ModelViewSet):
-    queryset = draft.objects.all().filter(announced=False).exclude(pokemon__isnull=True).order_by('picknumber')
+    queryset = draft.objects.all().filter(announced=False).exclude(pokemon__isnull=True).exclude(season__subleague__discord_settings__discordserver="Not Provided").exclude(season__subleague__discord_settings__draftchannel="Not Provided").exclude(season__subleague__discord_settings__discordserver__isnull=True).exclude(season__subleague__discord_settings__draftchannel__isnull=True).order_by('picknumber')
     serializer_class = DraftAnnouncementSerializer
     permission_classes = [permissions.AllowAny]

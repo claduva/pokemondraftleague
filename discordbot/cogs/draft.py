@@ -14,11 +14,12 @@ class Draft(commands.Cog):
         await self.bot.wait_until_ready()
         while not self.bot.is_closed():
             response=requests.get(f'https://pokemondraftleague.online/api/draftannouncement/')
+            #response=requests.get(f'http://127.0.0.1:8000/api/draftannouncement/')
             replay_records=response.json()
             for record in replay_records:
                 #get server
                 for item in self.bot.guilds:
-                    if item.name==record['discordserver']:
+                    if item.name.replace("’","'")==record['discordserver']:
                         for channel in item.channels:
                             if channel.name==record['discordchannel']:
                                 if record['picknumber']==1:
@@ -41,10 +42,14 @@ class Draft(commands.Cog):
                                 embed.set_thumbnail(url=record['logo'])
                                 embed.set_image(url=record['pokemonsprite'])
                                 embed.set_author(name=f"PDL",icon_url=self.bot.user.avatar_url)
-                                await channel.send(embed=embed)
-                                if record["upnextid"] and record["upnextid"]>99999999:
-                                    await channel.send(f'<@{record["upnextid"]}>')
+                                try:
+                                    await channel.send(embed=embed)
+                                    if record["upnextid"] and record["upnextid"]>99999999:
+                                        await channel.send(f'<@{record["upnextid"]}>')
+                                except:
+                                    print("There was an error")
                                 url = f'https://pokemondraftleague.online/api/draftannouncement/{record["id"]}/'
+                                #url = f'http://127.0.0.1:8000/api/draftannouncement/{record["id"]}/'
                                 myobj = {'picknumber':record['picknumber'],'skipped':record['skipped'],'announced': True}
                                 x = requests.put(url, data = myobj)
             await asyncio.sleep(30)
