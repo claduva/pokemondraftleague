@@ -23,7 +23,7 @@ class Freeagency(commands.Cog):
                 for record in freeagency_records:
                     #get server
                     for item in self.bot.guilds:
-                        if item.name==record[1]:
+                        if item.name.replace("’","'")==record[1]:
                             for channel in item.channels:
                                 if channel.name==record[4]:
                                     try:

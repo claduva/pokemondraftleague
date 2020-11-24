@@ -18,7 +18,7 @@ class Matchreplays(commands.Cog):
             for record in replay_records:
                 #get server
                 for item in self.bot.guilds:
-                    if item.name==record['discordserver']:
+                    if item.name.replace("’","'")==record['discordserver']:
                         for channel in item.channels:
                             if channel.name==record['discordchannel']:
                                 try:

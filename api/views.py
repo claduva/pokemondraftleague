@@ -14,7 +14,7 @@ class OverdueViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
 
 class ScheduleViewSet(viewsets.ModelViewSet):
-    queryset = schedule.objects.filter(announced=False).exclude(replay="Link")
+    queryset = schedule.objects.filter(announced=False).exclude(replay="Link").exclude(season__subleague__discord_settings__discordserver="Not Provided").exclude(season__subleague__discord_settings__replaychannel="Not Provided").exclude(season__subleague__discord_settings__discordserver__isnull=True).exclude(season__subleague__discord_settings__replaychannel__isnull=True)
     serializer_class = ScheduleSerializer
     permission_classes = [permissions.AllowAny]
 
