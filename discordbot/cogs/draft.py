@@ -35,7 +35,7 @@ class Draft(commands.Cog):
                                 else:
                                     desc=f"{record['upnext']} Please go to http://pokemondraftleague.online/leagues/{record['league'].replace(' ','_')}/{record['subleague'].replace(' ','_')}/draft/ to view the full draft."
                                 embed=discord.Embed(
-                                    title=f"With the {pick} pick of the draft, the {record['teamname']} have selected {record['pokemonname']}.",
+                                    title=f"With pick number {record['picknumber']} of the draft, the {record['teamname']} have selected {record['pokemonname']}.",
                                     colour=discord.Colour.blue(),
                                     description=desc
                                     )
