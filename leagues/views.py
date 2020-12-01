@@ -63,7 +63,6 @@ def leagues_hosted_settings(request):
 @check_if_host
 @login_required
 def individual_league_settings(request,league_name):
-    print('here')
     league_instance=league.objects.get(name=league_name)
     league_settings_instance=league_settings.objects.get(league_name=league_instance)
     if request.method == 'POST':
@@ -124,7 +123,6 @@ def league_configuration_(request,league_name):
         elif formpurpose=="Rename":
             itemid=request.POST['itemid']
             slname=request.POST['slname']
-            print(slname)
             i=league_subleague.objects.get(id=int(itemid))
             i.subleague=slname
             i.save()
@@ -424,7 +422,6 @@ def manage_seasons(request,league_name,subleague_name):
                 messages.error(request,form.errors,extra_tags='danger')    
         except:   
             form = CreateSeasonSettingsForm(request.POST)
-            print('here') 
             if form.is_valid():
                 thisseason=form.save()
                 """
@@ -631,15 +628,15 @@ def default_tiers(request,league_name,subleague_name):
                 leaguetiers.objects.create(league=league_,subleague=subleague,tiername=item.tiername,tierpoints=item.tierpoints)
             ##update pokemon
             leagueofinteresttiering=leagueofinterest.subleaguepokemontiers.all()
-            existingpokemontiers=pokemon_tier.objects.all().filter(subleague=subleague).exclude(tier__tiername="Banned").delete()
+            existingpokemontiers=pokemon_tier.objects.all().filter(subleague=subleague).delete()#.exclude(tier__tiername="Banned")
             thisleaguetiers=leaguetiers.objects.all().filter(subleague=subleague)
             for item in leagueofinteresttiering:
                 tiertouse=thisleaguetiers.get(tiername=item.tier.tiername)
                 id_=pokemon_tier.objects.all().order_by("-id").first().id+1
                 try:
                     pokemon_tier.objects.create(id=id_,pokemon=item.pokemon,league=subleague.league,subleague=subleague,tier=tiertouse)
-                except:
-                    pass
+                except Exception as e:
+                    print('error')
         return redirect('manage_tiers',league_name=league_name,subleague_name=subleague_name)
     pokemonlist=pokemon_tier.objects.filter(subleague=subleague,tier=None).all().order_by('pokemon__pokemon')
     pokemontiers=pokemon_tier.objects.filter(subleague=subleague).all().order_by('pokemon__pokemon','tier')
@@ -820,7 +817,6 @@ def manage_coach(request,league_name,coachofinterest):
     if request.method == 'POST':
         formtype=request.POST['formtype']
         coachtoupdate=coachdata.objects.get(id=request.POST['coachtoupdate'])
-        print(coachtoupdate)
         if formtype=="Update":
             form=ManageCoachForm(league_,coachtoupdate.subleague,request.POST,request.FILES,instance=coachtoupdate)
             if form.is_valid():
@@ -946,7 +942,6 @@ def delete_z_user(request,league_name):
         zuser.zuser="N"
         zuser.save()
         messages.success(request,f'{zuser.pokemon.pokemon} has been removed as a Z user!')
-    print("here")
     return redirect('designate_z_users',league_name=league_name)
 
 @login_required
