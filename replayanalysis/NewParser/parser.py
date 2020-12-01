@@ -224,8 +224,15 @@ def curestatus_function(line,parsedlogfile,results):
     team=line[3].split(":",1)[0]
     mon=line[3].split("|",1)[0].split(" ",1)[1]
     status=line[3].split("|")[1]
-    mon=roster_search(team,mon,results)
-    mon[status]=None
+    try:
+        mon=roster_search(team,mon,results)
+        mon[status]=None
+    except:
+        turndata=list(filter(lambda x: x[1] == line[1] and x[0] < line[0] and x[2] in ["switch","pull"], parsedlogfile))[::-1]
+        for line_ in turndata:
+            line_,parsedlogfile,results=switch_drag_function(line_,parsedlogfile,results)
+        mon=roster_search(team,mon,results)
+        mon[status]=None
     return line,parsedlogfile,results
 
 def damage_function(line,parsedlogfile,results):
