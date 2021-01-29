@@ -156,6 +156,11 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
+    for poke in all_pokemon.objects.all():
+        spr=poke.pokemon.lower().replace("%","").replace(":","").replace(" ","")
+        sprites=poke.sprite
+        sprites.dexaniurl=f"https://claduva.github.io/pdl_images/sprites/dex/ani/standard/{spr}.gif"
+        sprites.save()
     return redirect('home')
 
 def get_pkmn(pkmn):
