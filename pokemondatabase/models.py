@@ -58,6 +58,15 @@ class pokemon_sprites(models.Model):
     dexshiny = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/dex/png/shiny')
     dexani = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/dex/ani/standard')
     dexanishiny = models.ImageField(default='sprites/sprite_placeholder.gif',upload_to='sprites/dex/ani/shiny')
+    afdurl = models.URLField(max_length=500,default="https://claduva.github.io/pdl_images/sprites/default.png")
+    bwurl = models.URLField(max_length=500,default="https://claduva.github.io/pdl_images/sprites/default.png")
+    dexurl = models.URLField(max_length=500,default="https://claduva.github.io/pdl_images/sprites/default.png")
+    afdshinyurl = models.URLField(max_length=500,default="https://claduva.github.io/pdl_images/sprites/default.png")
+    bwshinyurl = models.URLField(max_length=500,default="https://claduva.github.io/pdl_images/sprites/default.png")
+    dexshinyurl = models.URLField(max_length=500,default="https://claduva.github.io/pdl_images/sprites/default.png")
+    dexaniurl = models.URLField(max_length=500,default="https://claduva.github.io/pdl_images/sprites/default.png")
+    dexanishinyurl = models.URLField(max_length=500,default="https://claduva.github.io/pdl_images/sprites/default.png")
+
 
     def __str__(self):
             return f'Sprites for {self.pokemon.pokemon}'

@@ -118,21 +118,21 @@ def sprite(value,arg):
     try:
         poi=all_pokemon.objects.get(pokemon=value)
         if arg=="swsh/ani/standard/PKMN.gif":
-            string=poi.sprite.dexani.url
+            string=poi.sprite.dexaniurl
         elif arg=="swsh/ani/shiny/PKMN.gif":
-            string=poi.sprite.dexanishiny.url
+            string=poi.sprite.dexanishinyurl
         elif arg=="swsh/png/standard/PKMN.png":
-            string=poi.sprite.dex.url
+            string=poi.sprite.dexurl
         elif arg=="swsh/png/shiny/PKMN.png":
-            string=poi.sprite.dexshiny.url
+            string=poi.sprite.dexshinyurl
         elif arg=="bw/png/standard/PKMN.png":
-            string=poi.sprite.bw.url
+            string=poi.sprite.bwurl
         elif arg=="bw/png/shiny/PKMN.png":
-            string=poi.sprite.bwshiny.url
+            string=poi.sprite.bwshinyurl
         elif arg=="afd/png/standard/PKMN.png":
-            string=poi.sprite.afd.url
+            string=poi.sprite.afdurl
         elif arg=="afd/png/shiny/PKMN.png":
-            string=poi.sprite.afdshiny.url
+            string=poi.sprite.afdshinyurl
     except:
         string=""
     return string
