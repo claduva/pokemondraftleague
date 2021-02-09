@@ -314,7 +314,6 @@ def damage_function(line,parsedlogfile,results):
                         if mon[cause]!=None:
                             pokemon[cause]=mon[cause]
                             break
-                print(line)
                 damager=roster_search(otherteam,pokemon[cause],results)
         if damager:
             damager['damagedone']+=damagedone 
@@ -427,9 +426,10 @@ def heal_function(line,parsedlogfile,results):
     pokemon['remaininghealth']=healthremaining
     healthhealed=healthremaining-previoushealth
     #update health healed
-    if line[3].find("|[wisher] ")==-1 and line[3].find("[from] move: Lunar Dance")==-1:   
+    if line[3].find("|[wisher] ")==-1 and line[3].find("[from] move: Lunar Dance")==-1 and line[3].find("[from] move: Healing Wish")==-1:   
         pokemon['hphealed']+=healthhealed
     elif line[3].find("[from] move: Lunar Dance")>-1 or line[3].find("[from] move: Healing Wish")>-1:   
+        pokemon['brn']=None;pokemon['psn']=None;pokemon['tox']=None;pokemon['par']=None;pokemon['frz']=None;pokemon['slp']=None;
         turndata=list(filter(lambda x: x[1] == line[1] and x[0] < line[0], parsedlogfile))[::-1]
         for line_ in turndata:
             if line_[2]=="move" and line_[3].split("|")[1] in ['Healing Wish','Lunar Dance']:
@@ -630,7 +630,7 @@ def move_function(line,parsedlogfile,results):
                 results=luckappend(line,results,attacker,f"Mon Used Move With Increased Crit Chance ({move})",-12.5)
                 results=luckappend(line,results,target,f"Target of Move With Increased Crit Chance ({move})",12.5)
         except Exception as e:
-            print(move)
+            print(e)
     elif move in movesthatcancrit and notimmune and targetnotprotected and targetmon and movehit and notmerciless and target['pokemon'] not in ['Type:Null','Slowbro-Mega','Turtonator']:
         try:
             if attacker['Focus Energy']:
