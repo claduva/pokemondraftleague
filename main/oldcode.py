@@ -583,14 +583,14 @@ for item in all_pokemon.objects.all():
     data[item.pokemon]['typematchup']['Water']=effectiveness.water
     data[item.pokemon]['sprites']={}
     sprites=item.sprite
-    data[item.pokemon]['sprites']["swsh/ani/standard/PKMN.gif"]=sprites.dexani.url
-    data[item.pokemon]['sprites']["swsh/ani/shiny/PKMN.gif"]=sprites.dexanishiny.url
-    data[item.pokemon]['sprites']["swsh/png/standard/PKMN.png"]=sprites.dex.url
-    data[item.pokemon]['sprites']["swsh/png/shiny/PKMN.png"]=sprites.dexshiny.url
-    data[item.pokemon]['sprites']["bw/png/standard/PKMN.png"]=sprites.bw.url
-    data[item.pokemon]['sprites']["bw/png/shiny/PKMN.png"]=sprites.bwshiny.url
-    data[item.pokemon]['sprites']["afd/png/standard/PKMN.png"]=sprites.afd.url
-    data[item.pokemon]['sprites']["afd/png/shiny/PKMN.png"]=sprites.afdshiny.url
+    data[item.pokemon]['sprites']["swsh/ani/standard/PKMN.gif"]=sprites.dexaniurl
+    data[item.pokemon]['sprites']["swsh/ani/shiny/PKMN.gif"]=sprites.dexanishinyurl
+    data[item.pokemon]['sprites']["swsh/png/standard/PKMN.png"]=sprites.dexurl
+    data[item.pokemon]['sprites']["swsh/png/shiny/PKMN.png"]=sprites.dexshinyurl
+    data[item.pokemon]['sprites']["bw/png/standard/PKMN.png"]=sprites.bwurl
+    data[item.pokemon]['sprites']["bw/png/shiny/PKMN.png"]=sprites.bwshinyurl
+    data[item.pokemon]['sprites']["afd/png/standard/PKMN.png"]=sprites.afdurl
+    data[item.pokemon]['sprites']["afd/png/shiny/PKMN.png"]=sprites.afdshinyurl
     data=json.dumps(data)
     print(item.pokemon)
     item.data=data
