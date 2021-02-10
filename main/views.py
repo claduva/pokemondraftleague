@@ -165,7 +165,6 @@ def runscript(request):
         sprites.dexaniurl=f"https://claduva.github.io/pdl_images/sprites/dex/ani/standard/{spr}.gif"
         sprites.dexanishinyurl=f"https://claduva.github.io/pdl_images/sprites/dex/ani/shiny/{spr}.gif"
         sprites.save()
-    """
     for item in all_pokemon.objects.all().filter(pokemon__contains="o-o"):
         data={}
         data[item.pokemon]={}
@@ -227,6 +226,7 @@ def runscript(request):
         print(item.pokemon)
         item.data=data
         item.save()
+    """
     return redirect('home')
 
 def get_pkmn(pkmn):
