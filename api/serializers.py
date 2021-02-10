@@ -64,7 +64,7 @@ class DraftAnnouncementSerializer(serializers.ModelSerializer):
     subleague=serializers.CharField(read_only=True, source="season.subleague.subleague")
     logo = serializers.CharField(read_only=True, source="team.logo.url")
     pokemonname = serializers.CharField(read_only=True, source="pokemon.pokemon")
-    pokemonsprite = serializers.CharField(read_only=True, source="pokemon.sprite.dexani.url")
+    pokemonsprite = serializers.CharField(read_only=True, source="pokemon.sprite.dexaniurl")
     teamname = serializers.CharField(read_only=True, source="team.teamname")
     discordserver = serializers.CharField(read_only=True, source="season.subleague.discord_settings.discordserver")
     discordchannel = serializers.CharField(read_only=True, source="season.subleague.discord_settings.draftchannel")
