@@ -25,7 +25,7 @@ class UpdateLeagueForm(forms.ModelForm):
 
     class Meta:
         model = league
-        fields = ['name','host','logo']
+        fields = ['name','host','logo','logourl']
 
 class UpdateLeagueSettingsForm(forms.ModelForm):
 
@@ -65,7 +65,7 @@ class UpdateCoachInfoForm(forms.ModelForm):
 
     class Meta:
         model = coachdata
-        fields = ['logo','teamabbreviation','teamname']
+        fields = ['logo','logurl','teamabbreviation','teamname']
 
     def __init__(self,request, *args, **kwargs):
         super(UpdateCoachInfoForm, self).__init__(*args, **kwargs)
@@ -75,7 +75,7 @@ class UpdateHistoricTeamForm(forms.ModelForm):
 
     class Meta:
         model = historical_team
-        fields = ['logo','teamname']
+        fields = ['logo','logourl','teamname']
 
     def __init__(self,request, *args, **kwargs):
         super(UpdateHistoricTeamForm, self).__init__(*args, **kwargs)

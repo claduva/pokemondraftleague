@@ -22,6 +22,7 @@ class historical_team(models.Model):
     coach2=models.ForeignKey(User, on_delete=models.CASCADE,related_name="historical_team_coach2",null=True)
     coach2username=models.CharField(max_length=100,null=True)
     logo = models.ImageField(default='league_logos/defaultleaguelogo.png',upload_to='historic_league_logos',null=True, blank=True)
+    logourl=models.URLField(max_length=400,null=True,blank=True)
     logo_url=models.URLField(default="")
     wins=models.IntegerField(default=0)
     losses=models.IntegerField(default=0)
