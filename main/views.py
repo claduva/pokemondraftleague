@@ -20,6 +20,7 @@ import requests
 import math
 import sys, traceback
 from background_task import background
+from imgurpython import ImgurClient
 
 from accounts.forms import UserRegisterForm
 from .models import *
@@ -156,6 +157,14 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
+    client_id = '46fe225a78d048a'
+    client_secret = '3aa623877c74ad8484393838985d5c9edd6d1c45'
+    access_token = '65457aafbdbce80add576f5c33cad5b9f2e498df'
+    refresh_token = 'efec169693ebf7436038df16b0ce59cc0a33e513'
+    client = ImgurClient(client_id, client_secret, access_token, refresh_token)
+    url="https://media.discordapp.net/attachments/328652357409701891/475907361693892631/cma.png?width=448&height=448"
+    upload=client.upload_from_url(url, config=None, anon=True)
+    print(upload.link)
     """
     for poke in all_pokemon.objects.all():
         spr=poke.pokemon.lower().replace("%","").replace(":","").replace(" ","").replace("o-o","oo")

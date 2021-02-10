@@ -11,6 +11,7 @@ class league(models.Model):
     name = models.CharField(max_length=30, unique=True)
     host = models.ManyToManyField(User,related_name='hosting')
     logo = models.ImageField(default='league_logos/defaultleaguelogo.png',upload_to='league_logos',null=True, blank=True)
+    logourl = models.URLField(max_length=400,null=True,blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -121,6 +122,7 @@ class coachdata(models.Model):
     league_name = models.ForeignKey(league, on_delete=models.CASCADE,related_name="leagueteams")
     logo = models.ImageField(default='team_logos/defaultteamlogo.png',upload_to='team_logos',null=True, blank=True)
     logo2=models.ForeignKey(teamlogo, on_delete=models.SET_NULL, null=True)
+    logourl = models.URLField(max_length=400,null=True,blank=True)
     teamabbreviation = models.CharField(max_length=3, default="TBD")
     teamname = models.CharField(max_length=100, default="To Be Determined")
     teammate = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,related_name='teammate')
