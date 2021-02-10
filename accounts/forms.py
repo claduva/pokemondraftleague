@@ -22,7 +22,7 @@ class ProfileUpdateForm(forms.ModelForm):
     pfp=forms.FileField(widget=FileInput,required=False)
     class Meta:
         model = profile
-        fields = ['pfp','timezone','coachdata','discordid']
+        fields = ['pfp','pfpurl','timezone','coachdata','discordid']
         labels = {
         "pfp": "Profile Picture",
         "coachdata": "Coach Biography"
