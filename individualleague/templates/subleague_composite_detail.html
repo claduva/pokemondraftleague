@@ -8,7 +8,7 @@
 {% endblock %}
 {% block body %}
 <div class="row bg-darkgrey text-light rounded align-items-center mb-2 p-2">
-    <div class="col-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-4 d-flex justify-content-start"><img src="{{league.logourl}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-4">
         <h3 class="d-flex justify-content-center">{{league_name}}</h3>
@@ -17,7 +17,7 @@
             <div class="d-flex justify-content-center"><a href="{{ league.subleague.first.discord_settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a></div>
         {% endif %}
     </div>
-    <div class="col-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-4 d-flex justify-content-end"><img src="{{league.logourl}}" class="rounded-circle mediumlogo">
     </div>
 </div>
 <div class="row content-section align-items-center">
@@ -39,7 +39,7 @@
                     {% for team,schedule in standings %}
                     <tr>
                         <td>{{ forloop.counter }}</td>
-                        <td><a class="text-dark" href="{% url 'teampage_detail' league_name=league_name team_name=team.name %}"><div><img class="small-logo" src="{{team.logo.url }}">{{ team.name }}</div></a></td>
+                        <td><a class="text-dark" href="{% url 'teampage_detail' league_name=league_name team_name=team.name %}"><div><img class="small-logo" src="{{team.logourl }}">{{ team.name }}</div></a></td>
                         <td>{{ team.captain.username }}</td>
                         <td>{{team.wins}}-{{team.losses}}-{{team.ties}} ({{team.points}} pts) | {{team.differential}}</td>
                         {% for week,wins,losses,weeknum in schedule %}

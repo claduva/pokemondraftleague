@@ -11,12 +11,12 @@
 {% block body %}
 
 <div class="row bg-darkgrey rounded text-light align-items-center mb-2">
-    <div class="col-md-2 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-md-2 d-flex justify-content-start"><img src="{{league.logourl}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-8 text-center">
         <h3 class="d-flex justify-content-center">{{league.name}} {{season.seasonname}}</h3>
     </div>
-    <div class="col-md-2 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-md-2 d-flex justify-content-end"><img src="{{league.logourl}}" class="rounded-circle mediumlogo">
     </div>
 </div>
 <div class="row bg-darkgrey text-light rounded align-items-center">
@@ -58,7 +58,7 @@
                         <a class="text-dark"
                             href="{% url 'seasonteamdetail' league_name=league_name seasonofinterest=season.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}">
                             <div class="d-flex justify-content-center">
-                                <div class="smallsprite mx-1"><img class="img-fluid" src="{{item.logo.url}}"></div>
+                                <div class="smallsprite mx-1"><img class="img-fluid" src="{{item.logourl}}"></div>
                                 {% if item.coach2 %}{{item.coach1username}} and {{item.coach2username}}'s
                                 {% else %}{{item.coach1username}}'s
                                 {% endif %}

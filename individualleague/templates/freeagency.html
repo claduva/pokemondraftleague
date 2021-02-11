@@ -92,7 +92,7 @@
                 <tr class="bg-dark text-light"><th>Team</th><th>Dropped Pokemon</th><th>Added Pokemon</th><th>Effective Week</th></tr>
                 {% for item in pendingfreeagency %}
                 <tr>
-                    <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                    <td><img class="smallsprite" src="{{item.coach.logourl}}">{{item.coach.teamname}}</td>
                     <td><img class="smallsprite"
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
                     <td><img class="smallsprite"
@@ -112,7 +112,7 @@
                 <tr class="bg-dark text-light"><th>Team</th><th>Dropped Pokemon</th><th>Added Pokemon</th><th>Effective Week</th></tr>
                 {% for item in completedfreeagency %}
                 <tr>
-                    <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                    <td><img class="smallsprite" src="{{item.coach.logourl}}">{{item.coach.teamname}}</td>
                     <td><img class="smallsprite"
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
                     <td><img class="smallsprite"

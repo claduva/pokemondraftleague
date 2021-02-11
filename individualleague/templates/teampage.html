@@ -9,12 +9,12 @@
 {% block body %}
 
 <div class="row text-light bg-darkgrey rounded align-items-center mb-2">
-    <div class="col-4 d-flex justify-content-start"><img src="{{team.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-4 d-flex justify-content-start"><img src="{{team.logourl}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-4">
         <h3 class="text-center">{{ team.teamname }}</h3>
     </div>
-    <div class="col-4 d-flex justify-content-end"><img src="{{team.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-4 d-flex justify-content-end"><img src="{{team.logourl}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-12">
     <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
@@ -123,12 +123,12 @@
                     <td>
                         {% if item.team1 == team %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">
-                        <div><img class="small-logo rounded-circle" src="{{ item.team2.logo.url }}"></div>
+                        <div><img class="small-logo rounded-circle" src="{{ item.team2.logourl }}"></div>
                         <div>{{item.team2.teamname}}</div>
                         </a>
                         {% elif item.team2 == team %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team1.teamabbreviation %}">
-                        <div><img class="small-logo rounded-circle" src="{{ item.team1.logo.url }}"></div>
+                        <div><img class="small-logo rounded-circle" src="{{ item.team1.logourl }}"></div>
                         <div>{{item.team1.teamname}}</div>
                         </a>
                         {% endif %}
@@ -170,12 +170,12 @@
                     <td class="align-middle">
                         {% if item.team1 == team %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">
-                        <div><img class="small-logo rounded-circle" src="{{ item.team2.logo.url }}"></div>
+                        <div><img class="small-logo rounded-circle" src="{{ item.team2.logourl }}"></div>
                         <div>{{item.team2.teamname}}</div>
                         </a>
                         {% elif item.team2 == team %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team1.teamabbreviation %}">
-                        <div><img class="small-logo rounded-circle" src="{{ item.team1.logo.url }}"></div>
+                        <div><img class="small-logo rounded-circle" src="{{ item.team1.logourl }}"></div>
                         <div>{{item.team1.teamname}}</div>
                         </a>
                         {% endif %}

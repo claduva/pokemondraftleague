@@ -9,13 +9,13 @@
 {% block body %}
 
 <div class="row content-section align-items-center">
-    <div class="col-4 d-flex justify-content-start"><img src="{{team_of_interest.logo.url}}"
+    <div class="col-4 d-flex justify-content-start"><img src="{{team_of_interest.logourl}}"
             class="rounded-circle mediumlogo">
     </div>
     <div class="col-4">
         <h3 class="d-flex justify-content-center">{{team_of_interest.name}}</h3>
     </div>
-    <div class="col-4 d-flex justify-content-end"><img src="{{team_of_interest.logo.url}}"
+    <div class="col-4 d-flex justify-content-end"><img src="{{team_of_interest.logourl}}"
             class="rounded-circle mediumlogo">
     </div>
 </div>
@@ -62,7 +62,7 @@
                         <tr>
                             <td><a class="text-dark"
                                     href="{% url 'team_page' league_name=team.league_name.name subleague_name=team.subleague.subleague team_abbreviation=team.teamabbreviation %}">
-                                    <div><img class="small-logo" src="{{team.logo.url }}">{{ team.teamname }}</div>
+                                    <div><img class="small-logo" src="{{team.logourl }}">{{ team.teamname }}</div>
                                 </a></td>
                             <td>{{ team.coach.username }}</td>
                             <td><a class="text-dark"

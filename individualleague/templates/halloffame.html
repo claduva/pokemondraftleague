@@ -9,11 +9,11 @@
 {% block body %}
 
 <div class="row bg-darkgrey rounded align-items-center mb-2 text-light">
-    <div class="col-4 d-flex justify-content-start"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo"></div>
+    <div class="col-4 d-flex justify-content-start"><img src="{{subleague.league.logourl}}" class="rounded-circle mediumlogo"></div>
     <div class="col-4">
         <h3 class="d-flex justify-content-center">Hall of Fame</h3>
     </div>
-    <div class="col-4 d-flex justify-content-end"><img src="{{subleague.league.logo.url}}" class="rounded-circle mediumlogo"></div>
+    <div class="col-4 d-flex justify-content-end"><img src="{{subleague.league.logourl}}" class="rounded-circle mediumlogo"></div>
 </div>
 <div class="row align-items-center bg-darkgrey rounded px-2 py-1">
     {% for match in championshipgames %}
@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-4">
                 <h3 class="m-0">{{match.team1.seasonname}} Champion</h3>
-                <img class="largelogo" src="{{ match.winner.logo.url }}">
+                <img class="largelogo" src="{{ match.winner.logourl }}">
                 <h5>{{match.winner.teamname}}</h5>
                 <div>Coached by {{match.winner.coach1.username}} {% if match.winner.coach2 %}and {{match.winner.coach2.username}}{% endif %}</div>
                 <a class="text-dark" href="{{ match.replay }}">Replay</a>

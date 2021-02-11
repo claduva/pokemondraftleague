@@ -52,7 +52,7 @@
                         <a class="text-dark"
                             href="{% url 'team_page' league_name=item.league_name.name subleague_name=item.subleague.subleague team_abbreviation=item.teamabbreviation %}">
                             <div class="d-flex justify-content-center">
-                                <img src="{{ item.logo.url }}" class="img-fluid small-logo m-1">
+                                <img src="{{ item.logourl }}" class="img-fluid small-logo m-1">
                             </div>
                             <div class="d-flex justify-content-center">
                                 <h6 class="text-center">{{ item.teamname }}</h6>
@@ -62,7 +62,7 @@
                     <td>
                         <a class="text-dark" href="{% url 'league_detail' league_name=item.league_name.name|replace:' ,_' %}">
                             <div class="d-flex justify-content-center">
-                                <img src="{{ item.league_name.logo.url }}" class="img-fluid small-logo m-1">
+                                <img src="{{ item.league_name.logourl }}" class="img-fluid small-logo m-1">
                             </div>
                             <div class="d-flex justify-content-center">
                                 <h6 class="text-center">{{ item.league_name.name }}</h6>
@@ -106,7 +106,7 @@
                         <a class="text-dark"
                             href="{% url 'league_detail' league_name=item.season.subleague.league.name %}">
                             <div class="d-flex justify-content-center">
-                                <img src="{{ item.season.subleague.league.logo.url }}" class="img-fluid small-logo m-1">
+                                <img src="{{ item.season.subleague.league.logourl }}" class="img-fluid small-logo m-1">
                             </div>
                             <div class="d-flex justify-content-center">
                                 <h6 class="text-center">{{ item.season.subleague.league.name }}</h6>
@@ -119,12 +119,12 @@
                     <td class="align-middle">
                         {% if item.team1.coach == request.user %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">
-                        <div><img class="small-logo rounded-circle" src="{{ item.team2.logo.url }}"></div>
+                        <div><img class="small-logo rounded-circle" src="{{ item.team2.logourl }}"></div>
                         <div>{{item.team2.teamname}}</div>
                         </a>
                         {% elif item.team2.coach == request.user %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team1.teamabbreviation %}">
-                        <div><img class="small-logo rounded-circle" src="{{ item.team1.logo.url }}"></div>
+                        <div><img class="small-logo rounded-circle" src="{{ item.team1.logourl }}"></div>
                         <div>{{item.team1.teamname}}</div>
                         </a>
                         {% endif %}
@@ -167,7 +167,7 @@
                         <a class="text-dark"
                             href="{% url 'league_detail' league_name=item.season.subleague.league.name %}">
                             <div class="d-flex justify-content-center">
-                                <img src="{{ item.season.subleague.league.logo.url }}" class="img-fluid small-logo m-1">
+                                <img src="{{ item.season.subleague.league.logourl }}" class="img-fluid small-logo m-1">
                             </div>
                             <div class="d-flex justify-content-center">
                                 <h6 class="text-center">{{ item.season.subleague.league.name }}</h6>
@@ -178,12 +178,12 @@
                     <td>
                         {% if item.team1.coach == request.user %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team2.teamabbreviation %}">
-                        <div><img class="small-logo rounded-circle" src="{{ item.team2.logo.url }}"></div>
+                        <div><img class="small-logo rounded-circle" src="{{ item.team2.logourl }}"></div>
                         <div>{{item.team2.teamname}}</div>
                         </a>
                         {% elif item.team2.coach == request.user %}
                         <a class="text-dark" href="{% url 'team_page' league_name=item.season.subleague.league.name subleague_name=item.season.subleague.subleague team_abbreviation=item.team1.teamabbreviation %}">
-                        <div><img class="small-logo rounded-circle" src="{{ item.team1.logo.url }}"></div>
+                        <div><img class="small-logo rounded-circle" src="{{ item.team1.logourl }}"></div>
                         <div>{{item.team1.teamname}}</div>
                         </a>
                         {% endif %}

@@ -62,7 +62,7 @@ class OverdueSerializer(serializers.ModelSerializer):
 class DraftAnnouncementSerializer(serializers.ModelSerializer):
     league=serializers.CharField(read_only=True, source="season.subleague.league.name")
     subleague=serializers.CharField(read_only=True, source="season.subleague.subleague")
-    logo = serializers.CharField(read_only=True, source="team.logo.url")
+    logo = serializers.CharField(read_only=True, source="team.logourl")
     pokemonname = serializers.CharField(read_only=True, source="pokemon.pokemon")
     pokemonsprite = serializers.CharField(read_only=True, source="pokemon.sprite.dexaniurl")
     teamname = serializers.CharField(read_only=True, source="team.teamname")

@@ -8,7 +8,7 @@
 {% endblock %}
 {% block body %}
 <div class="row bg-darkgrey text-light rounded align-items-center mb-2 p-2">
-    <div class="col-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-4 d-flex justify-content-start"><img src="{{league.logourl}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-4">
         <h3 class="d-flex justify-content-center">{{league_name}}</h3>
@@ -17,7 +17,7 @@
             <div class="d-flex justify-content-center"><a href="{{ league.subleague.discord_settings.discordurl }}"><button class="btn btn-sm btn-primary">Join the Discord</button></a></div>
         {% endif %}
     </div>
-    <div class="col-4 d-flex justify-content-end"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-4 d-flex justify-content-end"><img src="{{league.logourl}}" class="rounded-circle mediumlogo">
     </div>
 </div>
 <div class="row bg-darkgrey rounded text-light p-2 align-items-center mb-2">
@@ -41,7 +41,7 @@
                 </tr>
                 {% for item in division.divisionteams.all|standings %}
                 <tr>
-                    <td><a class="text-dark" href="{% url 'team_page' league_name=item.subleague.league.name|s2u subleague_name=item.subleague.subleague|s2u team_abbreviation=item.teamabbreviation %}"><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</a></td>
+                    <td><a class="text-dark" href="{% url 'team_page' league_name=item.subleague.league.name|s2u subleague_name=item.subleague.subleague|s2u team_abbreviation=item.teamabbreviation %}"><img class="smallsprite" src="{{item.logourl}}">{{item.teamname}}</a></td>
                     <td>{{item.wins}}</td>
                     <td>{{item.losses}}</td>
                     <td>{{item.differential}}</td>
@@ -63,7 +63,7 @@
                 </tr>
                 {% for item in conference.conferenceteams.all|standings %}
                 <tr>
-                    <td><a class="text-dark" href="{% url 'team_page' league_name=item.subleague.league.name|s2u subleague_name=item.subleague.subleague|s2u team_abbreviation=item.teamabbreviation %}"><img class="smallsprite" src="{{item.logo.url}}">{{item.teamname}}</a></td>
+                    <td><a class="text-dark" href="{% url 'team_page' league_name=item.subleague.league.name|s2u subleague_name=item.subleague.subleague|s2u team_abbreviation=item.teamabbreviation %}"><img class="smallsprite" src="{{item.logourl}}">{{item.teamname}}</a></td>
                     <td>{{item.wins}}</td>
                     <td>{{item.losses}}</td>
                     <td>{{item.differential}}</td>

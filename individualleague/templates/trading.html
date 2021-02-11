@@ -31,7 +31,7 @@
                 </tr>
                 {% for item, tradepartner in personaltrades %}
                 <tr>
-                    <td><img class="smallsprite" src="{{tradepartner.coach.logo.url}}">{{tradepartner.coach.teamabbreviation}}</td>
+                    <td><img class="smallsprite" src="{{tradepartner.coach.logourl}}">{{tradepartner.coach.teamabbreviation}}</td>
                     <td><img class="smallsprite"
                     src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
                     <td><img class="smallsprite"
@@ -52,7 +52,7 @@
                 <tr class="bg-dark text-light"><th>Team</th><th>Offered Pokemon</th><th>Requested Pokemon</th><th>Action</th></tr>
                 {% for item in receivedtrades %}
                 <tr>
-                    <td><img class="smallsprite" src="{{item.offeredpokemon.team.logo.url}}">{{item.offeredpokemon.team.teamabbreviation}}</td>
+                    <td><img class="smallsprite" src="{{item.offeredpokemon.team.logourl}}">{{item.offeredpokemon.team.teamabbreviation}}</td>
                     <td><img class="smallsprite" src="{{item.offeredpokemon.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.offeredpokemon.pokemon.pokemon}}</td>
                     <td><img class="smallsprite" src="{{item.requestedpokemon.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.requestedpokemon.pokemon.pokemon}}</td>
                     <td class="d-flex justify-content-around">
@@ -73,7 +73,7 @@
                 <tr class="bg-dark text-light"><th>Team</th><th>Requested Pokemon</th><th>Offered Pokemon</th><th>Action</th></tr>
                 {% for item in proposedtrades %}
                 <tr>
-                    <td><img class="smallsprite" src="{{item.requestedpokemon.team.logo.url}}">{{item.requestedpokemon.team.teamabbreviation}}</td>
+                    <td><img class="smallsprite" src="{{item.requestedpokemon.team.logourl}}">{{item.requestedpokemon.team.teamabbreviation}}</td>
                     <td><img class="smallsprite" src="{{item.requestedpokemon.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.requestedpokemon.pokemon.pokemon}}</td>
                     <td><img class="smallsprite" src="{{item.offeredpokemon.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.offeredpokemon.pokemon.pokemon}}</td>
                     <td>
@@ -128,7 +128,7 @@
             <table class="table table-sm table-bordered table-striped p-0 m-0 text-center ">
                 {% for item,rosterspot in availablepokemon %}
                 <tr class="tieritem" data-tier="{{item.tier.tierpoints}}">
-                    <td><img class="smallsprite" src="{{rosterspot.team.logo.url}}">{{rosterspot.team.teamabbreviation}} | <img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}} ({{item.tier.tiername}}: {{item.tier.tierpoints}} pts)
+                    <td><img class="smallsprite" src="{{rosterspot.team.logourl}}">{{rosterspot.team.teamabbreviation}} | <img class="smallsprite" src="{{item.pokemon.pokemon|sprite:site_settings.sprite}}">{{item.pokemon.pokemon}} ({{item.tier.tiername}}: {{item.tier.tierpoints}} pts)
                         {% for type in item.pokemon.types.all %}
                         <div class="{{type.typing}}" hidden>{{type.typing}}</div>
                         {% endfor %}
@@ -153,9 +153,9 @@
                 <tr>
                     <td><img class="smallsprite"
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
-                        <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                        <td><img class="smallsprite" src="{{item.coach.logourl}}">{{item.coach.teamname}}</td>
                 {% else %}        
-                        <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                        <td><img class="smallsprite" src="{{item.coach.logourl}}">{{item.coach.teamname}}</td>
                         <td><img class="smallsprite"
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
                         <td>{{item.weekeffective}}</td>
@@ -177,9 +177,9 @@
                 <tr>
                     <td><img class="smallsprite"
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
-                        <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                        <td><img class="smallsprite" src="{{item.coach.logourl}}">{{item.coach.teamname}}</td>
                 {% else %}        
-                        <td><img class="smallsprite" src="{{item.coach.logo.url}}">{{item.coach.teamname}}</td>
+                        <td><img class="smallsprite" src="{{item.coach.logourl}}">{{item.coach.teamname}}</td>
                         <td><img class="smallsprite"
                         src="{{item.droppedpokemon.pokemon|sprite:site_settings.sprite}}">{{item.droppedpokemon.pokemon}}</td>
                         <td>{{item.weekeffective}}</td>

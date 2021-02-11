@@ -9,10 +9,10 @@ class LogoUploadWidget(MultiWidget):
         imagelist=[]
         a=historical_team.objects.all().filter(coach1=attrs['user']).exclude(logo__contains="defaultleaguelogo").exclude(logo__contains="defaultteamlogo").order_by('logo').distinct('logo')
         for item in a:
-            imagelist.append((f'h_{item.id}',item.logo.url))
+            imagelist.append((f'h_{item.id}',item.logourl))
         a=coachdata.objects.all().filter(coach=attrs['user']).exclude(logo__contains="defaultleaguelogo").exclude(logo__contains="defaultteamlogo").order_by('logo').distinct('logo')
         for item in a:
-            imagelist.append((f'c_{item.id}',item.logo.url))
+            imagelist.append((f'c_{item.id}',item.logourl))
         widgets = [
             Select(choices=imagelist),
             FileInput(),

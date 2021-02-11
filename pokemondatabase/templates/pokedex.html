@@ -150,7 +150,7 @@
                 <tr>
                     <td>
                         <div class="d-flex justify-content-center">
-                            <div class="small-logo mx-1"><img class="img-fluid" src="{{item.league.logo.url}}"></div>
+                            <div class="small-logo mx-1"><img class="img-fluid" src="{{item.league.logourl}}"></div>
                             <div>{{item.league.name}} ({{item.subleague.subleague|replace:"_, "}}): {{item.tier.tiername}}</div>
                         </div>
                     </td>
@@ -184,12 +184,12 @@
                 {% for item in roster %}
                 <tr>
                     <th class="align-middle">
-                        <div><img class="smallsprite" src="{{item.season.league.logo.url}}" ></div>
+                        <div><img class="smallsprite" src="{{item.season.league.logourl}}" ></div>
                         <div>{{item.season.league.name}}</div>
                     </th>
                     <th class="text-nowrap align-middle">{{item.season.seasonname}}</th>
                     <th>
-                        <div><img class="smallsprite" src="{{item.team.logo.url}}" ></div>
+                        <div><img class="smallsprite" src="{{item.team.logourl}}" ></div>
                         <div>{{item.team.teamname}}</div>
                     </th>
                     <th class="align-middle">{{item.gp}}</th>
@@ -207,12 +207,12 @@
                 {% for item in histroster %}
                 <tr>
                     <th class="align-middle">
-                        <div><img class="smallsprite" src="{{item.team.league.logo.url}}" ></div>
+                        <div><img class="smallsprite" src="{{item.team.league.logourl}}" ></div>
                         <div>{{item.team.league.name}}</div>
                     </th>
                     <th class="text-nowrap align-middle">{{item.team.seasonname}}</th>
                     <th>
-                        <div><img class="smallsprite" src="{{item.team.logo.url}}" ></div>
+                        <div><img class="smallsprite" src="{{item.team.logourl}}" ></div>
                         <div>{{item.team.teamname}}</div>
                     </th>
                     <th class="align-middle">{{item.gp}}</th>
@@ -246,17 +246,17 @@
                 {% for item in replays %}
                 <tr>
                     <td class="align-middle">
-                        <div><img class="smallsprite" src="{{  item.match.season.league.logo.url }}"></div>
+                        <div><img class="smallsprite" src="{{  item.match.season.league.logourl }}"></div>
                         <div>{{ item.match.season.league.name }}</div>
                     </td>
                     <td class="align-middle text-nowrap">{{ item.match.season.seasonname }}</td>
                     <td class="align-middle">{{ item.match.week }}</td>
                     <td class="align-middle">
-                        <div><img class="smallsprite" src="{{  item.match.team1.logo.url }}"></div>
+                        <div><img class="smallsprite" src="{{  item.match.team1.logourl }}"></div>
                         <div>{{ item.match.team1.teamname }}</div>
                     </td>
                     <td class="align-middle">
-                        <div><img class="smallsprite" src="{{  item.match.team2.logo.url }}"></div>
+                        <div><img class="smallsprite" src="{{  item.match.team2.logourl }}"></div>
                         <div>{{ item.match.team2.teamname }}</div>
                     </td>
                     <td class="align-middle"><a class="text-dark" href="{% url 'league_match_results' league_name=item.match.season.league.name subleague_name=item.match.season.subleague.subleague matchid=item.match.id %}">Replay</a></td>
@@ -265,17 +265,17 @@
                 {% for item in histreplays %}
                 <tr>
                     <td class="align-middle">
-                        <div><img class="smallsprite" src="{{  item.match.team1.league.logo.url }}"></div>
+                        <div><img class="smallsprite" src="{{  item.match.team1.league.logourl }}"></div>
                         <div>{{ item.match.team1.league.name }}</div>
                     </td>
                     <td class="align-middle text-nowrap">{{ item.match.team1.seasonname }}</td>
                     <td class="align-middle">{{ item.match.week }}</td>
                     <td class="align-middle">
-                        <div><img class="smallsprite" src="{{  item.match.team1.logo.url }}"></div>
+                        <div><img class="smallsprite" src="{{  item.match.team1.logourl }}"></div>
                         <div>{{ item.match.team1.teamname }}</div>
                     </td>
                     <td class="align-middle">
-                        <div><img class="smallsprite" src="{{  item.match.team2.logo.url }}"></div>
+                        <div><img class="smallsprite" src="{{  item.match.team2.logourl }}"></div>
                         <div>{{ item.match.team2.teamname }}</div>
                     </td>
                     <td class="align-middle"><a class="text-dark" href="{% url 'seasonreplay' league_name=item.match.team1.league.name seasonofinterest=item.match.team1.seasonname matchid=item.match.id %}">Replay</a></td>

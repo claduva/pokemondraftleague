@@ -36,7 +36,7 @@
                 <a href="{% url 'inbox_item' messageid=item.id %}" class="text-dark">
                     <div class="d-flex align-items-center m-0 p-0">
                         <div class="smallsprite mx-2 badgeheader">
-                            <img class="img-fluid rounded-circle" src="{{ item.sender.profile.pfp.url }}">
+                            <img class="img-fluid rounded-circle" src="{{ item.sender.profile.pfpurl }}">
                             {% if not item.read %}
                             <span class="badge text-danger">*</span>
                             {% endif %}
@@ -76,7 +76,7 @@
                         <div class="d-flex align-items-center">
                             <div class="mediumsprite m-2">
                                 <img class="img-fluid rounded-circle"
-                                    src="{{ messageofinterest.sender.profile.pfp.url }}">
+                                    src="{{ messageofinterest.sender.profile.pfpurl }}">
                             </div>
                             <div>
                                 <h3 class="d-flex m-0">

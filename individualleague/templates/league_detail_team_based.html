@@ -8,7 +8,7 @@
 {% block body %}
 
 <div class="row content-section align-items-center">
-    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+    <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logourl}}" class="rounded-circle mediumlogo">
     </div>
     <div class="col-md-4">
         <h3 class="d-flex justify-content-center">{{league.name}}</h3>
@@ -28,7 +28,7 @@
         </div>
         {% endif %}
         {% else  %}
-        <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logo.url}}" class="rounded-circle mediumlogo">
+        <div class="col-md-4 d-flex justify-content-start"><img src="{{league.logourl}}" class="rounded-circle mediumlogo">
         </div>
         {% endif %}
     </div>
@@ -60,7 +60,7 @@
                     <tr>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <img class="smallsprite mx-1" src="{{ name.logo.url }}">
+                                <img class="smallsprite mx-1" src="{{ name.logourl }}">
                                 <div>{{name.name}}</div>
                             </div>
                         </td>
@@ -92,7 +92,7 @@
                     <tr>
                         <td>
                             <div class="d-flex">
-                                <img class="smallsprite mx-1 rounded-circle" src="{{item.coach.profile.pfp.url}}">
+                                <img class="smallsprite mx-1 rounded-circle" src="{{item.coach.profile.logourl}}">
                                 <div>{{item.coach.username}} ({{item.teamname}})</div>
                             </div>
                         </td>
@@ -110,7 +110,7 @@
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="d-flex">
-                            <img class="smallsprite mx-1 rounded-circle" src="{{ name.alternate.profile.pfp.url }}">
+                            <img class="smallsprite mx-1 rounded-circle" src="{{ name.alternate.profile.logourl }}">
                             Alternate: {{name.alternate.username}}</td>
                     </tr>
                 </table>

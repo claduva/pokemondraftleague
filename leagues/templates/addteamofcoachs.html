@@ -40,7 +40,7 @@
                     {% if allteams %}
                         {% for item in allteams %}
                             <div class="d-flex align-items-center">-
-                                <img class="smallsprite" src="{{ item.logo.url }}">
+                                <img class="smallsprite" src="{{ item.logourl }}">
                                 <div>{{ item.name }}</div>
                                 <form method="POST">{% csrf_token %}
                                     <input name='editid' value='{{item.id}}' hidden readonly>

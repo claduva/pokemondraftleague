@@ -12,7 +12,7 @@
     <div class="row align-items-start">
         <div class="col-md-4">
             <div class="m-3 bg-lightgrey text-dark rounded text-center">
-                <img src="{{ userofinterest.profile.pfp.url }}" class="rounded-circle mediumlogo m-2">
+                <img src="{{ userofinterest.profile.logourl }}" class="rounded-circle mediumlogo m-2">
                 <h3>{{ userofinterest.username }}</h3>
                 <div class="card table-responsive bg-lightgrey text-dark text-center overflow-auto mb-3">
                     <table class="table table-sm table-bordered table-striped p-0 m-0 text-center">
@@ -69,7 +69,7 @@
                                 <a href="{% url 'league_detail' league_name=item.league_name.name %}" class="text-dark">
                                     <div>
                                         <img class="smallsprite"
-                                            src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league_name.name }}
+                                            src="{{ item.logourl }}">{{ item.teamname }}-{{ item.league_name.name }}
                                     </div>
                                 </a>
                             </td>
@@ -81,7 +81,7 @@
                                 <a href="{% url 'league_detail' league_name=item.league_name.name %}" class="text-dark">
                                     <div>
                                         <img class="smallsprite"
-                                            src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league_name.name }}
+                                            src="{{ item.logourl }}">{{ item.teamname }}-{{ item.league_name.name }}
                                     </div>
                                 </a>
                             </td>
@@ -126,7 +126,7 @@
                                     class="text-dark">
                                     <div>
                                         <img class="smallsprite"
-                                            src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league.name }}-{{ item.seasonname }}
+                                            src="{{ item.logourl }}">{{ item.teamname }}-{{ item.league.name }}-{{ item.seasonname }}
                                     </div>
                                 </a>
                             </td>
@@ -139,7 +139,7 @@
                                     class="text-dark">
                                     <div>
                                         <img class="smallsprite"
-                                            src="{{ item.logo.url }}">{{ item.teamname }}-{{ item.league.name }}-{{ item.seasonname }}
+                                            src="{{ item.logourl }}">{{ item.teamname }}-{{ item.league.name }}-{{ item.seasonname }}
                                     </div>
                                 </a>
                             </td>

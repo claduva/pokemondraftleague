@@ -26,7 +26,7 @@
             <div class="col-md-3">
                 <div class="bg-lightgrey rounded card my-1">
                     <a href="{{ item.league_name.name }}">
-                        <div class="d-flex justify-content-center"><img src="{{ item.league_name.logo.url }}"
+                        <div class="d-flex justify-content-center"><img src="{{ item.league_name.logourl }}"
                                 class="img-fluid rounded-circle"></div>
                         <div class="d-flex justify-content-center text-dark">{{ item.league_name.name }}</div>
                     </a>
@@ -44,10 +44,10 @@
                     </tr>
                     {% for item in userhistoricteams %}
                     <tr>
-                            <td><a href="{% url 'individual_historic_teams_settings' teamid=item.id %}" class="text-dark"><img src="{{ item.league.logo.url }}"
+                            <td><a href="{% url 'individual_historic_teams_settings' teamid=item.id %}" class="text-dark"><img src="{{ item.league.logourl }}"
                                     class="img-fluid rounded-circle small-logo">{{ item.league.name }}</a></td>
                             <td><a href="{% url 'individual_historic_teams_settings' teamid=item.id %}" class="text-dark">{{item.seasonname}}</a></td>
-                            <td><a href="{% url 'individual_historic_teams_settings' teamid=item.id %}" class="text-dark"><img src="{{ item.logo.url }}"
+                            <td><a href="{% url 'individual_historic_teams_settings' teamid=item.id %}" class="text-dark"><img src="{{ item.logourl }}"
                                 class="img-fluid rounded-circle small-logo">{{ item.teamname }}</a></td>   
                     </tr>
                     {% endfor %}
@@ -60,7 +60,7 @@
             <div class="col-md-3">
                 <div class="bg-lightgrey rounded card my-1">
                     <a href="{% url 'individual_league_settings' league_name=item.name %}">
-                        <div class="d-flex justify-content-center"><img src="{{ item.logo.url }}"
+                        <div class="d-flex justify-content-center"><img src="{{ item.logourl }}"
                                 class="img-fluid rounded-circle"></div>
                         <div class="d-flex justify-content-center text-dark">{{ item.name }}</div>
                     </a>

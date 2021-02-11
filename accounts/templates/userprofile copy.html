@@ -12,7 +12,7 @@
     <div class="row align-items-start">
         <div class="col-md-4">
             <div class="m-3 bg-lightgrey text-dark rounded">
-            <div class="d-flex justify-content-center"><img src="{{ userofinterest.profile.pfp.url }}"
+            <div class="d-flex justify-content-center"><img src="{{ userofinterest.profile.logourl }}"
                     class="rounded-circle mediumlogo m-2"></div>
             <h3 class="d-flex justify-content-center">{{ userofinterest.username }}</h3>
             <div class="col-md-12 d-flex justify-content-center">
@@ -39,7 +39,7 @@
                 {% for item in userofinterest.coaching.all %}
                 <a href="{% url 'league_detail' league_name=item.league_name.name %}" class="text-dark">
                     <div>
-                        <img class="smallsprite" src="{{ item.league_name.logo.url }}">{{ item.league_name.name }}
+                        <img class="smallsprite" src="{{ item.league_name.logourl }}">{{ item.league_name.name }}
                     </div>
                 </a>
                 {% endfor %}
@@ -86,7 +86,7 @@
                 <div class="col-md-3 text-center m-0 mb-2 p-0">
                     <div class="card h-100 bg-lightgrey rounded mx-1 text-dark">
                         <a href="{% url 'seasonteamdetail' league_name=item.league.name seasonofinterest=item.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}" class="text-dark">
-                            <img src="{{ item.logo.url }}" class="img-fluid">
+                            <img src="{{ item.logourl }}" class="img-fluid">
                             <div class="d-flex justify-content-center">{{ item.teamname }}</div>
                             <div class="d-flex justify-content-center">{{ item.league.name }}</div>
                             <div class="d-flex justify-content-center">{{ item.seasonname }}</div>
@@ -98,7 +98,7 @@
                 <div class="card h-100 col-md-3 text-center m-0 mb-2 p-0">
                         <div class="bg-lightgrey rounded mx-1 text-dark">
                     <a href="{% url 'seasonteamdetail' league_name=item.league.name seasonofinterest=item.seasonname|replace:' ,_' teamofinterest=item.teamname|replace:' ,_' %}" class="text-dark">
-                        <img src="{{ item.logo.url }}" class="img-fluid">
+                        <img src="{{ item.logourl }}" class="img-fluid">
                         <div class="d-flex justify-content-center">{{ item.teamname }}</div>
                         <div class="d-flex justify-content-center">{{ item.league.name }}</div>
                         <div class="d-flex justify-content-center">{{ item.seasonname }}</div>
