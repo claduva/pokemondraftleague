@@ -65,11 +65,11 @@ class UpdateCoachInfoForm(forms.ModelForm):
 
     class Meta:
         model = coachdata
-        fields = ['logourl','teamabbreviation','teamname']
+        fields = ['logo','logourl','teamabbreviation','teamname']
 
-    #def __init__(self,request, *args, **kwargs):
-    #    super(UpdateCoachInfoForm, self).__init__(*args, **kwargs)
-    #    self.fields['logo'].widget=LogoUploadWidget(attrs={'user':request.user})
+    def __init__(self,request, *args, **kwargs):
+        super(UpdateCoachInfoForm, self).__init__(*args, **kwargs)
+        #self.fields['logo'].widget=LogoUploadWidget(attrs={'user':request.user})
 
 class UpdateHistoricTeamForm(forms.ModelForm):
 
