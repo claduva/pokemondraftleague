@@ -11,7 +11,7 @@ class league(models.Model):
     name = models.CharField(max_length=30, unique=True)
     host = models.ManyToManyField(User,related_name='hosting')
     logo = models.ImageField(default='league_logos/defaultleaguelogo.png',upload_to='league_logos',null=True, blank=True)
-    logourl = models.URLField(max_length=400,null=True,blank=True)
+    logourl = models.URLField(max_length=400,default="https://i.imgur.com/wAFIg59.png",blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
