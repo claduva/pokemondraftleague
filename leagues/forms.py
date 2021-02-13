@@ -65,7 +65,7 @@ class UpdateCoachInfoForm(forms.ModelForm):
 
     class Meta:
         model = coachdata
-        fields = ['logo','logourl','teamabbreviation','teamname']
+        fields = ['logourl','teamabbreviation','teamname']
 
     def __init__(self,request, *args, **kwargs):
         super(UpdateCoachInfoForm, self).__init__(*args, **kwargs)

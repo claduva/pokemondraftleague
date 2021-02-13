@@ -392,6 +392,7 @@ def manage_seasons(request,league_name,subleague_name):
             form = EditSeasonSettingsForm(request.POST,instance=seasonsettings)
             if form.is_valid():
                 newpicksperteam=form.cleaned_data['picksperteam']
+                originalpicksperteam=seasonsettings.picksperteam
                 leaguecoaches=coachdata.objects.all().filter(subleague=subleague)
                 if originalpicksperteam<newpicksperteam:
                     coachdraft=draft.objects.all().filter(season=seasonsettings).order_by('-picknumber')[0:leaguecoaches.count()]
@@ -420,7 +421,7 @@ def manage_seasons(request,league_name,subleague_name):
                 messages.success(request,'Season settings have been updated!')
             else:
                 messages.error(request,form.errors,extra_tags='danger')    
-        except:   
+        except Exception as e:
             form = CreateSeasonSettingsForm(request.POST)
             if form.is_valid():
                 thisseason=form.save()
