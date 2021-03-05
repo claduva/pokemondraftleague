@@ -102,7 +102,7 @@ def execute_free_agency_and_trades():
           droppedpokemon.zuser="N"  
           droppedpokemon.save() 
         except:
-          pass
+          item.executed=True
       item.save()
       montoupdate.save()
   #trades
@@ -176,7 +176,7 @@ def execute_free_agency_and_trades():
           item.executed=True
           droppedpokemon.save() 
         except:
-          pass
+          item.executed=True
       item.save()
       montoupdate.save()
       
