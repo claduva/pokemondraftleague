@@ -157,11 +157,11 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
+    """
     client = ImgurClient(client_id, client_secret, access_token, refresh_token)
     url="https://media.discordapp.net/attachments/328652357409701891/475907361693892631/cma.png?width=448&height=448"
     upload=client.upload_from_url(url, config=None, anon=True)
     print(upload.link)
-    """
     for poke in all_pokemon.objects.all():
         spr=poke.pokemon.lower().replace("%","").replace(":","").replace(" ","").replace("o-o","oo")
         sprites=poke.sprite

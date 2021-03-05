@@ -100,10 +100,10 @@ def execute_free_agency_and_trades():
           montoupdate.remaininghealth=droppedpokemon.remaininghealth
           droppedpokemon.remaininghealth=0
           droppedpokemon.zuser="N"  
+          droppedpokemon.save() 
         except:
           pass
       item.save()
-      droppedpokemon.save() 
       montoupdate.save()
   #trades
   unexecutedtrades=trading.objects.all().filter(executed=False).order_by('id')
@@ -174,9 +174,9 @@ def execute_free_agency_and_trades():
           droppedpokemon.remaininghealth=0
           droppedpokemon.zuser="N"
           item.executed=True
+          droppedpokemon.save() 
         except:
           pass
       item.save()
-      droppedpokemon.save() 
       montoupdate.save()
       

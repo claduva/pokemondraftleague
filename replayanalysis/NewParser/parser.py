@@ -244,7 +244,10 @@ def damage_function(line,parsedlogfile,results):
     pokemon=line[3].split(" ",1)[1].split("|")[0]
     healthremaining=int(line[3].split("|",1)[1].split(" ",1)[0].split("/",1)[0].split("|",1)[0])
     #searchroster
+    print(line)
+    print(pokemon)
     pokemon=roster_search(team,pokemon,results)
+    print(pokemon)
     #redirect if no damage done
     if pokemon['remaininghealth']==healthremaining:
         return line,parsedlogfile,results
