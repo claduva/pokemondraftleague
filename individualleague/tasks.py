@@ -185,5 +185,3 @@ def execute_free_agency_and_trades():
         montoupdate.save()
       except:
         pass
-      
-      
