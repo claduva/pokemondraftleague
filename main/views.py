@@ -52,7 +52,7 @@ def home(request):
             }
             return  render(request,"coachlandingpage.html", context)
     except Exception as e:
-        pass
+        print(e)
     form=UserRegisterForm()
     context = {
         "title": "Pokemon Draft League",

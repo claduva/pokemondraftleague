@@ -64,7 +64,7 @@ class AddHallOfFameRosterForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddHallOfFameRosterForm, self).__init__(*args, **kwargs)
         self.fields['pokemon'].queryset = all_pokemon.objects.all().order_by('pokemon')
-        self.fields['hall_of_frame_entry'].label_from_instance = lambda obj: obj.league.name + " " +obj.seasonname
+        self.fields['hall_of_frame_entry'].label_from_instance = lambda obj: f'{obj.league.name}'
        
 class LeavePickForm(forms.ModelForm):
     
