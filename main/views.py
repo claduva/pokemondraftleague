@@ -157,81 +157,8 @@ def help(request):
     return render(request,"help.html",context)
 
 def runscript(request): 
-    """
-    client = ImgurClient(client_id, client_secret, access_token, refresh_token)
-    url="https://media.discordapp.net/attachments/328652357409701891/475907361693892631/cma.png?width=448&height=448"
-    upload=client.upload_from_url(url, config=None, anon=True)
-    print(upload.link)
-    for poke in all_pokemon.objects.all():
-        spr=poke.pokemon.lower().replace("%","").replace(":","").replace(" ","").replace("o-o","oo")
-        sprites=poke.sprite
-        sprites.dexurl=f"https://claduva.github.io/pdl_images/sprites/dex/png/standard/{spr}.png"
-        sprites.dexshinyurl=f"https://claduva.github.io/pdl_images/sprites/dex/png/shiny/{spr}.png"
-        sprites.dexaniurl=f"https://claduva.github.io/pdl_images/sprites/dex/ani/standard/{spr}.gif"
-        sprites.dexanishinyurl=f"https://claduva.github.io/pdl_images/sprites/dex/ani/shiny/{spr}.gif"
-        sprites.save()
-    for item in all_pokemon.objects.all().filter(pokemon__contains="o-o"):
-        data={}
-        data[item.pokemon]={}
-        data[item.pokemon]['basestats']={}
-        data[item.pokemon]['basestats']['hp']=item.hp
-        data[item.pokemon]['basestats']['attack']=item.attack
-        data[item.pokemon]['basestats']['defense']=item.defense
-        data[item.pokemon]['basestats']['s_attack']=item.s_attack
-        data[item.pokemon]['basestats']['s_defense']=item.s_defense
-        data[item.pokemon]['basestats']['speed']=item.speed
-        data[item.pokemon]['basestats']['bst']=item.bst
-        data[item.pokemon]['types']=[]
-        for t in item.types.all():
-            data[item.pokemon]['types'].append(t.typing)
-        data[item.pokemon]['abilities']=[]
-        for a in item.abilities.all():
-            data[item.pokemon]['abilities'].append(a.ability)
-        data[item.pokemon]['learnset']={}
-        for move in item.moves.all():
-            data[item.pokemon]['learnset'][move.moveinfo.name]={}
-            data[item.pokemon]['learnset'][move.moveinfo.name]['Type']=move.moveinfo.move_typing
-            data[item.pokemon]['learnset'][move.moveinfo.name]['Category']=move.moveinfo.move_category
-            data[item.pokemon]['learnset'][move.moveinfo.name]['Power']=move.moveinfo.move_power
-            data[item.pokemon]['learnset'][move.moveinfo.name]['Accuracy']=move.moveinfo.move_accuracy
-            data[item.pokemon]['learnset'][move.moveinfo.name]['Priority']=move.moveinfo.move_priority
-            data[item.pokemon]['learnset'][move.moveinfo.name]['Secondary Effect']=move.moveinfo.secondary_effect
-            data[item.pokemon]['learnset'][move.moveinfo.name]['Secondary Effect Chance']=move.moveinfo.secondary_effect_chance
-        data[item.pokemon]['typematchup']={}
-        effectiveness=item.effectiveness
-        data[item.pokemon]['typematchup']['Bug']=effectiveness.bug
-        data[item.pokemon]['typematchup']['Dark']=effectiveness.dark
-        data[item.pokemon]['typematchup']['Dragon']=effectiveness.dragon
-        data[item.pokemon]['typematchup']['Electric']=effectiveness.electric
-        data[item.pokemon]['typematchup']['Fairy']=effectiveness.fairy
-        data[item.pokemon]['typematchup']['Fighting']=effectiveness.fighting
-        data[item.pokemon]['typematchup']['Fire']=effectiveness.fire
-        data[item.pokemon]['typematchup']['Flying']=effectiveness.flying
-        data[item.pokemon]['typematchup']['Ghost']=effectiveness.ghost
-        data[item.pokemon]['typematchup']['Grass']=effectiveness.grass
-        data[item.pokemon]['typematchup']['Ground']=effectiveness.ground
-        data[item.pokemon]['typematchup']['Ice']=effectiveness.ice
-        data[item.pokemon]['typematchup']['Normal']=effectiveness.normal
-        data[item.pokemon]['typematchup']['Poison']=effectiveness.poison
-        data[item.pokemon]['typematchup']['Psychic']=effectiveness.psychic
-        data[item.pokemon]['typematchup']['Rock']=effectiveness.rock
-        data[item.pokemon]['typematchup']['Steel']=effectiveness.steel
-        data[item.pokemon]['typematchup']['Water']=effectiveness.water
-        data[item.pokemon]['sprites']={}
-        sprites=item.sprite
-        data[item.pokemon]['sprites']["swsh/ani/standard/PKMN.gif"]=sprites.dexaniurl
-        data[item.pokemon]['sprites']["swsh/ani/shiny/PKMN.gif"]=sprites.dexanishinyurl
-        data[item.pokemon]['sprites']["swsh/png/standard/PKMN.png"]=sprites.dexurl
-        data[item.pokemon]['sprites']["swsh/png/shiny/PKMN.png"]=sprites.dexshinyurl
-        data[item.pokemon]['sprites']["bw/png/standard/PKMN.png"]=sprites.bwurl
-        data[item.pokemon]['sprites']["bw/png/shiny/PKMN.png"]=sprites.bwshinyurl
-        data[item.pokemon]['sprites']["afd/png/standard/PKMN.png"]=sprites.afdurl
-        data[item.pokemon]['sprites']["afd/png/shiny/PKMN.png"]=sprites.afdshinyurl
-        data=json.dumps(data)
-        print(item.pokemon)
-        item.data=data
-        item.save()
-    """
+    for item in User.objects.all():
+        print(item,item.email,item.profile.discordid)
     return redirect('home')
 
 def get_pkmn(pkmn):
