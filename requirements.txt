@@ -3,7 +3,7 @@ asyncpg
 boto3==1.9.124
 celery
 discord.py
-Django==2.2.10
+Django==2.2.27
 django-autocomplete-light
 django-background-tasks
 django-celery-beat
